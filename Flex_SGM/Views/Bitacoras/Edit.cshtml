@@ -1,0 +1,206 @@
+﻿@model Flex_SGM.Models.Bitacora
+
+@{
+    ViewBag.Title = "Editar";
+}
+
+<h2>Editar</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>Bitacora</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.ID)
+    @Html.HiddenFor(model => model.Atendio)
+    @Html.HiddenFor(model => model.Scrap)
+    @Html.HiddenFor(model => model.Verifico)
+    @Html.HiddenFor(model => model.FechaVerificacion)
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.DiaHora, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.DiaHora, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+            @Html.HiddenFor(model => model.DiaHora)
+            @Html.ValidationMessageFor(model => model.DiaHora, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.turno, "turno", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("turno", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.turno, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.usuario, "UserID", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.usuario, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+            @Html.HiddenFor(model => model.usuario)
+            @Html.HiddenFor(model => model.usuario_area)
+            @Html.HiddenFor(model => model.usuario_puesto)
+            @Html.ValidationMessageFor(model => model.usuario, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.MaquinasID, "MaquinasID", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("MaquinasID", null, htmlAttributes: new { @class = "form-control", id = "Normaldrop" })
+            @Html.ValidationMessageFor(model => model.MaquinasID, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Tipos, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Tipos, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Tipos, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Sintoma, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextAreaFor(model => model.Sintoma, 2, 50, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Sintoma, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Causa, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextAreaFor(model => model.Causa, 4, 50, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Causa, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.AccionCorrectiva, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextAreaFor(model => model.AccionCorrectiva, 10, 50, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.AccionCorrectiva, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Atendio, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Atendio, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Atendio, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Tiempo, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Tiempo, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Tiempo, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Folio, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Folio, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Folio, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Porcentaje, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Porcentaje, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+            @Html.HiddenFor(model => model.Porcentaje)
+            @Html.ValidationMessageFor(model => model.Porcentaje, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.MTBF, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.MTBF, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+            @Html.HiddenFor(model => model.MTBF)
+            @Html.ValidationMessageFor(model => model.MTBF, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.MTTR, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.MTTR, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+            @Html.HiddenFor(model => model.MTTR)
+            @Html.ValidationMessageFor(model => model.MTTR, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="col-xs-12">
+        <div class="form-group">
+            @Html.LabelFor(model => model.findesemana, htmlAttributes: new { @class = "control-label  col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.findesemana, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.findesemana, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Fallaoperacion, htmlAttributes: new { @class = "control-label  col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Fallaoperacion, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Fallaoperacion, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.MttoPreventivo, htmlAttributes: new { @class = "control-label  col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MttoPreventivo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MttoPreventivo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.MttoCorrectivo, htmlAttributes: new { @class = "control-label  col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MttoCorrectivo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MttoCorrectivo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.MttoMejora, htmlAttributes: new { @class = "control-label  col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MttoMejora, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MttoMejora, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.noterminado, htmlAttributes: new { @class = "control-label  col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.noterminado, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.noterminado, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group col-xs-6">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Guardar" class="btn btn-success" style="width:600px;" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $(function () {
+
+            $("#Normaldrop").chosen();
+            $("#Normaldrop1").chosen();
+            $("#Normaldrop2").chosen();
+
+        });
+
+
+    </script>
+}

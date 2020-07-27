@@ -1,0 +1,329 @@
+﻿@model IEnumerable<Flex_SGM.Models.CReclamos>
+
+@{
+    ViewBag.Title = "RoadMap";
+}
+@using (Html.BeginForm())
+{
+    <div class="col-xs-12 ">
+        <div class="x_panel">
+            <div class="x_title clearfix">
+                <center>
+                    <div class="input-daterange input-group col-xs-6" id="bs_datepicker_range_container">
+
+                        <label for="FechaInicial">Fecha Inicial...</label>
+                        <input type="text" class="form-control" name="dti" value=@ViewBag.datei autocomplete="off">
+
+                        <span class="input-group-addon">- A -</span>
+
+                        <label for="FechaFinal">Fecha Final...</label>
+                        <input type="text" class="form-control" name="dtf" value=@ViewBag.datef autocomplete="off">
+
+                    </div>
+                </center>
+            </div>
+            <div class="x_content">
+                <center>
+                    <div class="col-xs-12">
+                        <input class="btn btn-primary col-xs-2" onclick="$('#loadingImg').show();" type="submit" name="btn" value="Reclamos por Años" autocomplete="off">
+                        <input class="btn btn-primary col-xs-2" onclick="$('#loadingImg').show();" type="submit" name="btn" value="Reclamos por Mes" autocomplete="off">
+                        <input class="btn btn-primary col-xs-2" onclick="$('#loadingImg').show();" type="submit" name="btn" value="Reclamos por Dia" autocomplete="off">
+                        @Html.ActionLink("Registrar nuevo reclamo", "Create", null, new { @class = "btn btn-danger",@onclick="$('#loadingImg').show();" })
+                    </div>
+                </center>
+            </div>
+        </div>
+
+    </div>
+}
+    <div class="col-xs-8" style="float:left">
+        <div class="x_panel">
+            <div class="x_title clearfix">
+                <h2> Reclamos del @ViewBag.dx</h2>
+            </div>
+            <div class="x_content">
+                <canvas id="chartme" width="100" height="39"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xs-4" style="float:left">
+        <div class="x_panel">
+            <div class="x_title clearfix">
+                <h2> Pareto por Proceso</h2>
+            </div>
+            <div class="x_content">
+                <canvas id="charttimee" width="100" height="83"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xs-12 ">
+        <div class="x_panel">
+            <div class="x_title clearfix">
+                <h2> Lista de Reclamos del @ViewBag.dx</h2>
+            </div>
+            <div class="x_content ">
+                <table class="table table-bordered table-striped clearfix" style="width:100%;"  id="tableq">
+                    <thead>
+                        <tr>
+                            <th>Menu</th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Fecha)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Oficial)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.NoReclamoCliente)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.NoReclamoFNG)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.NoParte)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Defecto)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Cliente)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Planta)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.PLM)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Cantidadpz)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Proceso)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Comentarios)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.a1d)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.a5d)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.a10d)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.a20d)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.a30d)
+                            </th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                    <td>
+                                        @Html.ActionLink("Editar", "Edit", new { id = item.ID }, new { @class = "btn  btn-success", @target = "_blank" }) 
+                                        @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn  btn-primary", @target = "_blank" }) 
+                                        @Html.ActionLink("Borrar", "Delete", new { id = item.ID }, new { @class = "btn  btn-warning" })
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Fecha)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Oficial,null,new { @class = "checkbox2"})
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.NoReclamoCliente)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.NoReclamoFNG)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.NoParte)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Defecto)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Cliente)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Planta)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.PLM)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Cantidadpz)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Proceso)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Comentarios)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.a1d)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.a5d)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.a10d)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.a20d)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.a30d)
+                                    </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+
+    @section Scripts {
+
+        <script>
+
+        var barChartqe =
+        {
+              labels: [@Html.Raw(ViewBag.labelsgrap)],
+            datasets: [
+                {
+                    type: 'line',
+                    label: 'Tendencia',
+                    data:[@ViewBag.data2sgrap],
+                    backgroundColor: "#8CB06B",
+                    borderColor: "#aa0909",
+                    borderWidth: 2,
+                    fill: false
+                }
+                ,
+                {
+                    type: 'bar',
+                    label: 'Eventos por @ViewBag.dxx',
+                    data: [@ViewBag.datasgrap],
+                    backgroundColor: "#FFA500",
+                    borderWidth: 2
+                }]
+        };
+        var barChartDqe2 =
+        {
+              labels: [@Html.Raw(ViewBag.labelsgrap2)],
+            datasets: [
+                {
+                    type: 'line',
+                    label: 'Porcentaje acumulado',
+                    data:[@ViewBag.data2sgrap2],
+                    backgroundColor: "#8CB06B",
+                    borderColor: "#aa0909",
+                    borderWidth: 2,
+                    fill: false
+                }
+                ,
+                {
+                    type: 'bar',
+                    label: 'Reclamos por Proceso',
+                    data: [@ViewBag.datasgrap2],
+                    backgroundColor: "#6B8CB0",
+                    borderWidth: 2
+                }
+
+            ]
+        };
+            $(document).ready(function () {
+            
+              $('#tableq').DataTable({
+                "dom": 'lBfrtip',
+                "lengthMenu": [[5, 15, 50, -1], ["5", "15", "50", "Todos"]],
+                   "buttons": ['copy', 'csv','print','pdf','excel'],
+                "order": [[0, "desc"]],
+                "scrollX": true,
+                "language": {
+                    "sProcessing": "Procesando...",
+                    "sLengthMenu": "Mostrar _MENU_ registros",
+                    "sZeroRecords": "No se encontraron resultados",
+                    "sEmptyTable": "Ningún dato disponible en esta tabla =(",
+                    "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                    "sInfoPostFix": "",
+                    "sSearch": "Buscar:",
+                    "sUrl": "",
+                    "sInfoThousands": ",",
+                    "sLoadingRecords": "Cargando...",
+                    "oPaginate": {
+                        "sFirst": "Primero",
+                        "sLast": "Último",
+                        "sNext": "Siguiente",
+                        "sPrevious": "Anterior"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                    },
+                    "buttons": {
+                        "copy": "Copiar",
+                        "colvis": "Visibilidad"
+                    }
+                }
+            });
+
+
+            var ctqx = document.getElementById('chartme');
+            var myChartqe1 = new Chart(ctqx, {
+                type: 'bar',
+                data: barChartqe,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+
+            var ctqx2 = document.getElementById('charttimee');
+            var myChartqe2 = new Chart(ctqx2, {
+                type: 'bar',
+                data: barChartDqe2,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    },
+                    legend: {
+                        labels: {
+                            // This more specific font property overrides the global property
+                            fontColor: 'black',
+                            defaultFontSize: 25,
+                        }
+                    }
+                }
+            });
+
+
+        });
+        </script>
+
+    }

@@ -1,0 +1,93 @@
+﻿@model IEnumerable<Flex_SGM.Models.Bitacora>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ApplicationUser.UserFullName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Maquinas.Area)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DiaHora)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sintoma)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Causa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AccionCorrectiva)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tiempo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Folio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Porcentaje)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MTBF)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MTTR)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ApplicationUser.UserFullName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Maquinas.Area)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiaHora)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sintoma)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Causa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AccionCorrectiva)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tiempo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Folio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Porcentaje)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MTBF)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MTTR)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

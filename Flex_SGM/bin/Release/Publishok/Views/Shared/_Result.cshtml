@@ -1,0 +1,63 @@
+﻿@if (ViewBag.Success != null)
+{
+    <div name='alertmessage' class="alert alert-success alert-dismissible" role='alert'>
+        <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
+        @ViewBag.Success
+    </div>
+}
+@if (ViewBag.Info != null)
+{
+    <div name='alertmessage' class="alert alert-info alert-dismissible" role='alert'>
+        <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
+        @ViewBag.Info
+    </div>
+}
+@if (ViewBag.Warning != null)
+{
+    <div name='alertmessage' class="alert alert-warning alert-dismissible" role='alert'>
+        <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
+        @ViewBag.Warning
+    </div>
+}
+@if (ViewBag.Danger != null)
+{
+    <div name='alertmessage' class="alert alert-danger alert-dismissible" role='alert'>
+        <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
+        @ViewBag.Danger
+    </div>
+}
+
+@if (TempData["Success"] != null)
+{
+    <div name='alertmessage' class="alert alert-success alert-dismissible" role='alert'>
+        <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
+        @TempData["Success"]
+    </div>
+}
+@if (TempData["Info"] != null)
+{
+    <div name='alertmessage' class="alert alert-info alert-dismissible" role='alert'>
+        <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
+        @TempData["Info"]
+    </div>
+}
+@if (TempData["Warning"] != null)
+{
+    <div name='alertmessage' class="alert alert-warning alert-dismissible" role='alert'>
+        <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
+        @TempData["Warning"]
+    </div>
+}
+@if (TempData["Danger"] != null)
+{
+    <div name='alertmessage' class="alert alert-danger alert-dismissible" role='alert'>
+        <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
+        @TempData["Danger"]
+    </div>
+}
+
+<script>
+
+    window.setTimeout(function () { $(".alert").alert('close'); }, 10000);
+   
+</script>

@@ -1,0 +1,75 @@
+﻿@model IEnumerable<Flex_SGM.Models.Junta>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@using (Html.BeginForm("fileud", "Juntas", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    <label>-Video De pantalla Principal- (Solo *.mp4 Generado con PPT y 4Mb Maximo )</label>
+    <input type="file" name="someFile" />
+
+    <input type="submit" value="Upload" name="UploadButton" id="UploadButton" />
+    @ViewBag.Message
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Accidente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dia_Accidente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ToC_Pendientes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Vacaciones)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Preventivos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.comentarios)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Accidente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dia_Accidente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ToC_Pendientes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vacaciones)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Preventivos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.comentarios)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
+
+</table>

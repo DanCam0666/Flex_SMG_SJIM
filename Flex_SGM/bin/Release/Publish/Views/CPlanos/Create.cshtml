@@ -1,0 +1,206 @@
+﻿@model Flex_SGM.Models.controlplanos
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+<h2>Drag & Drop file upload </h2>
+
+@using (Html.BeginForm("SaveUploadedFile", "controlplanos", FormMethod.Post, new { @name = "myDropzone", id = "myDropzone", @enctype = "multipart/form-data" }))
+{
+
+    <div>
+        <div id="previews" class="dz-default dz-message box__input dropzone ">
+            <div style="text-align:center">
+                <i class="fa fa-hover clearfix" style="font-size:23px;position:relative;top:4px;"></i> <span style="margin-left:20px">Arrastra los archivos o da click para seleccionar...</span>
+            </div>
+            <div id="previewFiles"></div>
+        </div>
+
+    </div>
+    <br />
+    <div>
+        <input type="submit" id="Submit" name="Submit" class="btn btn-success" value="Subir Fotos" />
+    </div>
+
+
+}
+@ViewBag.Message
+
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>controlplanos</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Program, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Program, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Program, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Level, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Level, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Level, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.InternalPN, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.InternalPN, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.InternalPN, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CustomerPN, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CustomerPN, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CustomerPN, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Eng_Level, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Eng_Level, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Eng_Level, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Revision, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Revision, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Revision, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @Html.HiddenFor(model => model.MathData_3D)
+
+        @Html.HiddenFor(model => model.DrawingPN_2D)
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+@section scripts{
+
+    <script>
+
+        $(document).ready(function () {
+
+            Dropzone.autoDiscover = false;
+            $('#myDropzone').dropzone({
+                //parameter name value
+                paramName: "files",
+                //clickable div id
+                clickable: '#previews',
+                //preview files container Id
+                previewsContainer: "#previewFiles",
+                autoProcessQueue: false,
+                uploadMultiple: true,
+                parallelUploads: 100,
+                maxFiles: 100,
+                //  url:"/", // url here to save file
+                maxFilesize: 100,//max file size in MB,
+                addRemoveLinks: true,
+                dictResponseError: 'El Servidor no esta configurado',
+               // acceptedFiles: ".png,.jpg,.gif,.bmp,.jpeg,.pdf",// use this to restrict file type
+                init: function () {
+                    var self = this;
+                    // config
+                    self.options.addRemoveLinks = true;
+                    self.options.dictRemoveFile = "Borrar";
+                    //New file added
+                    self.on("addedfile", function (file) {
+                        //console.log('new file added ', file);
+                        $('.dz-success-mark').hide();
+                        $('.dz-error-mark').hide();
+                    });
+                    // Send file starts
+                    self.on("sending", function (file) {
+                       // console.log('upload started', file);
+                        $('.meter').show();
+                    });
+
+                    // File upload Progress
+                    self.on("totaluploadprogress", function (progress) {
+                       // console.log("progress ", progress);
+                        $('.roller').width(progress + '%');
+                    });
+
+                    self.on("queuecomplete", function (progress) {
+                        $('.meter').delay(999).slideUp(999);
+                    });
+
+                    // On removing file
+                    self.on("removedfile", function (file) {
+                      //  console.log(file);
+                    });
+
+                    $('#Submit').on("click", function (e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        // Validate form here if needed
+
+                        if (self.getQueuedFiles().length > 0) {
+                            self.processQueue();
+
+
+                        } else {
+                            self.uploadFiles([]);
+                            $('#myDropzone').submit();
+                        }
+
+                    });
+
+                    self.on("successmultiple", function (files, response) {
+                        // Gets triggered when the files have successfully been sent.
+                        // Redirect user or notify of success.
+
+                    });
+                }
+            });
+
+
+        })
+
+    </script>
+}

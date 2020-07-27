@@ -1,0 +1,116 @@
+﻿@model IEnumerable<Flex_SGM.Models.Maquinas>
+
+@{
+    ViewBag.Title = "Maquinas";
+}
+
+<h2>Maquinas</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div class="x_panel">
+    <table class="table table-bordered table-striped table-responsive" style="width:100%;" id="maquinas">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Area)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cliente)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Codigo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Maquina)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SubMaquina)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DiaHora)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Ubicacion)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Area)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cliente)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Codigo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Maquina)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SubMaquina)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DiaHora)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Ubicacion)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+@section Scripts {
+
+    <script>
+
+        $(document).ready(function () {
+            $('#maquinas').DataTable({
+                "lengthMenu": [[10, 30, 60, -1], [10, 30, 60, "Todos"]],
+                "order": [[0, "desc"]],
+                "scrollX": true,
+                "language": {
+                    "sProcessing": "Procesando...",
+                    "sLengthMenu": "Mostrar _MENU_ registros",
+                    "sZeroRecords": "No se encontraron resultados",
+                    "sEmptyTable": "Ningún dato disponible en esta tabla =(",
+                    "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                    "sInfoPostFix": "",
+                    "sSearch": "Buscar:",
+                    "sUrl": "",
+                    "sInfoThousands": ",",
+                    "sLoadingRecords": "Cargando...",
+                    "oPaginate": {
+                        "sFirst": "Primero",
+                        "sLast": "Último",
+                        "sNext": "Siguiente",
+                        "sPrevious": "Anterior"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                    },
+                    "buttons": {
+                        "copy": "Copiar",
+                        "colvis": "Visibilidad"
+                    }
+                }
+            });
+        });
+    </script>
+
+}
