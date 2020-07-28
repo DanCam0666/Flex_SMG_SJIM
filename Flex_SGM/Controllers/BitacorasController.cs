@@ -2888,7 +2888,7 @@ if (amaquina.Contains("Pintura"))
             }
 
             ViewBag.amaquina = new SelectList(Enum.GetValues(typeof(flex_Areas)).Cast<flex_Areas>().ToList());
-            string[] array = { "Falla", "Area", "Maquina", "SubMaquina" };
+            string[] array = { "Maquina", "Falla", "Area", "SubMaquina" };
             ViewBag.mgroup = new SelectList(array);
 
             var maquinas = db.Maquinas.Where(m => m.ID > 0);
@@ -2983,7 +2983,7 @@ if (amaquina.Contains("Pintura"))
                             {
                                 total_fallas_full += total_fallas;
                                 tiempomueto_full += tiempomueto;
-                                MTBF = Tiempo_total_de_funcionamiento / total_fallas;
+                                MTBF = (Tiempo_total_de_funcionamiento / total_fallas)/ mul_maquinas;
                                 MTTR = tiempomueto / total_fallas;
                             }
 
@@ -3025,7 +3025,7 @@ if (amaquina.Contains("Pintura"))
                             {
                                 total_fallas_full += total_fallas;
                                 tiempomueto_full += tiempomueto;
-                                MTBF = Tiempo_total_de_funcionamiento / total_fallas;
+                                MTBF = (Tiempo_total_de_funcionamiento / total_fallas)/ mul_maquinas;
                                 MTTR = tiempomueto / total_fallas;
                             }
 
@@ -3061,7 +3061,7 @@ if (amaquina.Contains("Pintura"))
                             {
                                 total_fallas_full += total_fallas;
                                 tiempomueto_full += tiempomueto;
-                                MTBF = Tiempo_total_de_funcionamiento / total_fallas;
+                                MTBF = (Tiempo_total_de_funcionamiento / total_fallas)/ mul_maquinas;
                                 MTTR = tiempomueto / total_fallas;
                             }
 
@@ -3071,7 +3071,7 @@ if (amaquina.Contains("Pintura"))
                             MTBF = Tiempo_total_de_funcionamiento;
                             if (total_fallas_full != 0)
                             {
-                                MTBF = Tiempo_total_de_funcionamiento / total_fallas_full;
+                                MTBF = (Tiempo_total_de_funcionamiento / total_fallas_full)/ mul_maquinas;
                                 MTTR = tiempomueto_full / total_fallas_full;
                             }
 
@@ -3182,7 +3182,7 @@ if (amaquina.Contains("Pintura"))
                             {
                                 total_fallas_full += total_fallas;
                                 tiempomueto_full += tiempomueto;
-                                MTBF = Tiempo_total_de_funcionamiento / total_fallas;
+                                MTBF = (Tiempo_total_de_funcionamiento / total_fallas)/ mul_maquinas;
                                 MTTR = tiempomueto / total_fallas;
                             }
 
@@ -3218,8 +3218,8 @@ if (amaquina.Contains("Pintura"))
                                 {
                                 total_fallas_full += total_fallas;
                                 tiempomueto_full += tiempomueto;
-                                MTBF = Tiempo_total_de_funcionamiento / total_fallas;
-                                    MTTR = tiempomueto / total_fallas;
+                                MTBF = (Tiempo_total_de_funcionamiento / total_fallas)/ mul_maquinas;
+                                MTTR = tiempomueto / total_fallas;
                                 }
 
                                 datasd.MTTR2 = Math.Round(MTTR, 2);
@@ -3252,7 +3252,7 @@ if (amaquina.Contains("Pintura"))
                                 {
                                 total_fallas_full += total_fallas;
                                 tiempomueto_full += tiempomueto;
-                                MTBF = Tiempo_total_de_funcionamiento / total_fallas;
+                                MTBF = (Tiempo_total_de_funcionamiento / total_fallas)/ mul_maquinas;
                                     MTTR = tiempomueto / total_fallas;
                                 }
 
@@ -3263,7 +3263,7 @@ if (amaquina.Contains("Pintura"))
                             MTBF = Tiempo_total_de_funcionamiento;
                             if (total_fallas_full != 0)
                             {
-                                MTBF = (Tiempo_total_de_funcionamiento) / total_fallas_full;
+                                MTBF = (Tiempo_total_de_funcionamiento / total_fallas_full)/ mul_maquinas;
                                 MTTR = tiempomueto_full / total_fallas_full;
                             }
 
@@ -3384,7 +3384,7 @@ if (amaquina.Contains("Pintura"))
                                 {
                                     total_fallas_full += total_fallas;
                                     tiempomueto_full += tiempomueto;
-                                    MTBF = Tiempo_total_de_funcionamiento / total_fallas;
+                                    MTBF = (Tiempo_total_de_funcionamiento / total_fallas)/ mul_maquinas;
                                     MTTR = tiempomueto / total_fallas;
                                 }
 
@@ -3420,7 +3420,7 @@ if (amaquina.Contains("Pintura"))
                                 {
                                     total_fallas_full += total_fallas;
                                     tiempomueto_full += tiempomueto;
-                                    MTBF = Tiempo_total_de_funcionamiento / total_fallas;
+                                    MTBF = (Tiempo_total_de_funcionamiento / total_fallas)/ mul_maquinas;
                                     MTTR = tiempomueto / total_fallas;
                                 }
 
@@ -3458,7 +3458,7 @@ if (amaquina.Contains("Pintura"))
                                 {
                                     total_fallas_full += total_fallas;
                                     tiempomueto_full += tiempomueto;
-                                    MTBF = Tiempo_total_de_funcionamiento / total_fallas;
+                                    MTBF = (Tiempo_total_de_funcionamiento / total_fallas)/ mul_maquinas;
                                     MTTR = tiempomueto / total_fallas;
                                 }
 
@@ -3469,7 +3469,7 @@ if (amaquina.Contains("Pintura"))
 
                                 if (total_fallas_full != 0)
                                 {
-                                    MTBF = (Tiempo_total_de_funcionamiento) / total_fallas_full;
+                                    MTBF = (Tiempo_total_de_funcionamiento / total_fallas_full)/ mul_maquinas;
                                     MTTR = tiempomueto_full / total_fallas_full;
                                 }
 
