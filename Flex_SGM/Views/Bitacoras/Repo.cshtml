@@ -7,9 +7,33 @@
 <br>
 <br>
 <div class="col-xs-12 clearfix">
-    <div class="x_panel clearfix">
+    <div class="x_panel">
         <div class="x_title clearfix">
+            <h2>ABSOLUTOS ...<small>de Seguridad, Mantenimiento ...</small></h2>
+        </div>
+        <div class="x_content">
+            <h1><spam style="color:gray">1.- La Seguridad es Responsabilidad de</spam><spam style="color:red"> TODOS.</spam></h1>
+            <h1><spam style="color:gray">2.- Todos los incidentes y lesiones</spam> <spam style="color:red">pueden y deben de prevenirse.</spam></h1>
+            <h1><spam style="color:gray">3.- Nuestro enfoque es la prevencion, El reto:</spam><spam style="color:red"> CERO incidentes.</spam></h1>
+            <h1><spam style="color:black">4.- No hay trabajo </spam>mas Urgente o Mas importante<spam style="color:darkblue"> que no se pueda hacer con Seguridad</spam></h1>
+            <h1><spam style="color:gray">5.- Todo personal de Mantenimiento es un promotor de la</spam><spam style="color:red">  SEGURIDAD.</spam></h1>
+
+
+
+
+        </div>
+        </div>
+    </div>
+
+<div class="col-xs-12 clearfix">
+    <div class="x_panel clearfix">
+        <div class="x_title collapse-link clearfix">
             <center> <h2> Hoy es el día @DateTime.Now.DayOfYear.ToString() del año @DateTime.Now.Year.ToString(), Semana @dayofweek.GetIso8601WeekOfYear(@DateTime.Now) en curso...<small>@DateTime.Now.ToString()</small></h2></center>
+            <ul class="nav navbar-right">
+                <li>
+                    <a><i class="fa fa-chevron-down"></i></a>
+                </li>
+            </ul>
         </div>
 
         <div class="x_content" style="overflow-x:auto;">
@@ -421,12 +445,12 @@
 </div>
 
 <div class="col-xs-12 clearfix">
-    <div class="x_panel">
+    <div class="x_panel collapse-link ">
         <div class="x_title clearfix">
             <h2>Servicios <small>@ViewBag.Machine1top1name</small></h2>
             <ul class="nav navbar-right">
                 <li>
-                    <a class="collapse-link"><i class="fa fa-chevron-down"></i></a>
+                    <a><i class="fa fa-chevron-down"></i></a>
                 </li>
                 <li>
                     <a class="close-link"><i class="fa fa-times-circle"></i></a>
@@ -642,12 +666,12 @@
     </div>
 
     <div class="col-xs-12 clearfix">
-        <div class="x_panel ">
+        <div class="x_panel collapse-link ">
             <div class="x_title clearfix">
                 <h2>Estampado <small>@ViewBag.Machine2top1name</small></h2>
                 <ul class="nav navbar-right">
                     <li>
-                        <a class="collapse-link"><i class="fa fa-chevron-down"></i></a>
+                        <a ><i class="fa fa-chevron-down"></i></a>
                     </li>
                     <li>
                         <a class="close-link"><i class="fa fa-times-circle"></i></a>
@@ -864,12 +888,12 @@
         </div>
 
             <div class="col-xs-12 clearfix">
-                <div class="x_panel">
+                <div class="x_panel collapse-link ">
                     <div class="x_title clearfix">
                         <h2>Soldadura <small>@ViewBag.Machine3top1name</small></h2>
                         <ul class="nav navbar-right">
                             <li>
-                                <a class="collapse-link"><i class="fa fa-chevron-down"></i></a>
+                                <a><i class="fa fa-chevron-down"></i></a>
                             </li>
                             <li>
                                 <a class="close-link"><i class="fa fa-times-circle"></i></a>
@@ -1089,12 +1113,12 @@
 
 
                 <div class="col-xs-12 clearfix">
-                    <div class="x_panel">
+                    <div class="x_panel collapse-link ">
                         <div class="x_title clearfix">
                             <h2>Metal Finish <small>@ViewBag.Machine5top1name</small></h2>
                             <ul class="nav navbar-right">
                                 <li>
-                                    <a class="collapse-link"><i class="fa fa-chevron-down"></i></a>
+                                    <a><i class="fa fa-chevron-down"></i></a>
                                 </li>
                                 <li>
                                     <a class="close-link"><i class="fa fa-times-circle"></i></a>
@@ -1314,12 +1338,12 @@
                     </div>
 
                     <div class="col-xs-12 clearfix">
-                        <div class="x_panel">
+                        <div class="x_panel collapse-link ">
                             <div class="x_title clearfix">
                                 <h2>Ensamble <small>@ViewBag.Machine6top1name</small></h2>
                                 <ul class="nav navbar-right">
                                     <li>
-                                        <a class="collapse-link"><i class="fa fa-chevron-down"></i></a>
+                                        <a><i class="fa fa-chevron-down"></i></a>
                                     </li>
                                     <li>
                                         <a class="close-link"><i class="fa fa-times-circle"></i></a>
@@ -1538,12 +1562,12 @@
                         </div>
 
                         <div class="col-xs-12 clearfix">
-                            <div class="x_panel">
+                            <div class="x_panel collapse-link ">
                                 <div class="x_title clearfix">
                                     <h2>Toda la planta Top 3 <small>@ViewBag.Machine7top1name</small></h2>
                                     <ul class="nav navbar-right">
                                         <li>
-                                            <a class="collapse-link"><i class="fa fa-chevron-down"></i></a>
+                                            <a><i class="fa fa-chevron-down"></i></a>
                                         </li>
                                         <li>
                                             <a class="close-link"><i class="fa fa-times-circle"></i></a>
@@ -1553,7 +1577,7 @@
 
                                 <canvas id="charttime7" width="5" height="1"></canvas>
                                 <div class="x_content">
-                                    <table class="table-bordered">
+                                    <table class="table table-bordered">
                                         <tr>
                                             <th> <center>@ViewBag.Machine7top1name</center></th>
                                         </tr>
