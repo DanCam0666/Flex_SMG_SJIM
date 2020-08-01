@@ -219,6 +219,7 @@
     <Compile Include="Controllers\CalidadController.cs" />
     <Compile Include="Controllers\CAndon2Controller.cs" />
     <Compile Include="Controllers\CAndonsController.cs" />
+    <Compile Include="Controllers\cAreasController.cs" />
     <Compile Include="Controllers\cClientesController.cs" />
     <Compile Include="Controllers\CDockauditsController.cs" />
     <Compile Include="Controllers\ControldeEquiposController.cs" />
@@ -2835,7 +2836,6 @@
     <Content Include="Views\CDockaudits\Details.cshtml" />
     <Content Include="Views\CDockaudits\Edit.cshtml" />
     <Content Include="Views\CDockaudits\Index.cshtml" />
-    <Content Include="Views\CAndons\Index - Copy.cshtml" />
     <Content Include="Views\OILs\Update - Copy.cshtml" />
     <Content Include="Views\Calidad\Index.cshtml" />
     <Content Include="Views\Disponibilidads\Create.cshtml" />
@@ -2880,7 +2880,13 @@
     <Content Include="Views\CAndon2\Delete.cshtml" />
     <Content Include="Views\CAndon2\Details.cshtml" />
     <Content Include="Views\CAndon2\Edit.cshtml" />
+    <Content Include="Views\CAndon2\Index_BAKC.cshtml" />
     <Content Include="Views\CAndon2\Index.cshtml" />
+    <Content Include="Views\cAreas\Create.cshtml" />
+    <Content Include="Views\cAreas\Delete.cshtml" />
+    <Content Include="Views\cAreas\Details.cshtml" />
+    <Content Include="Views\cAreas\Edit.cshtml" />
+    <Content Include="Views\cAreas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

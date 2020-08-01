@@ -101,9 +101,6 @@
                             </th>
                             <th>Menu</th>
                             <th>
-                                @Html.DisplayNameFor(model => model.NoAndon)
-                            </th>
-                            <th>
                                 @Html.DisplayNameFor(model => model.Turno)
                             </th>
                             <th>
@@ -132,19 +129,7 @@
                             </th>
                             <th>
                                 @Html.DisplayNameFor(model => model.Cantidadpz1)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Defecto2)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Cantidadpz2)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Defecto3)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Cantidadpz3)
-                            </th>
+                            </th>                          
                             <th>
                                 @Html.DisplayNameFor(model => model.Preventivos)
                             </th>
@@ -205,9 +190,6 @@
                                     @Html.ActionLink("Borrar", "Delete", new { id = item.ID }, new { @class = "btn  btn-danger" })
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.NoAndon)
-                                </td>
-                                <td>
                                     @Html.DisplayFor(modelItem => item.Turno)
                                 </td>
                                 <td>
@@ -237,21 +219,7 @@
                                 <td>
                                     @Html.DisplayFor(modelItem => item.Cantidadpz1)
                                 </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Defecto2)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Cantidadpz2)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Defecto3)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Cantidadpz3)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Preventivos)
-                                </td>
+
                                 <td>
                                     @Html.DisplayFor(modelItem => item.AreaDefecto)
                                 </td>
@@ -307,6 +275,9 @@
 @section Scripts {
 
     <script>
+
+        alert("Hola ,  Se estan /Realizando modificaciones en el apartado de andon. posiblemente no se cargue la pagina correctamente pero el apartado para crear el ando estara funcional.  DISCULPA LAS MOLESTIAS");  
+
 
         var barChartqe =
         {

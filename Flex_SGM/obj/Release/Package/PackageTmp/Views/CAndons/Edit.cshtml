@@ -39,14 +39,7 @@
                                     <p>Turno del Hallazgo</p>
                                 </div>
                             </div>
-                            <div class="form-group col-xs-2">
-                                @Html.LabelFor(model => model.NoAndon, htmlAttributes: new { @class = "control-label col-md-12" })
-                                <div class="col-md-10">
-                                    @Html.EditorFor(model => model.NoAndon, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.NoAndon, "", new { @class = "text-danger" })
-                                    <p>Numero Consecutivo</p>
-                                </div>
-                            </div>
+
                             <div class="form-group col-xs-2">
                                 @Html.LabelFor(model => model.FormatoAndon, htmlAttributes: new { @class = "control-label col-md-12" })
                                 <div class="col-md-10">
@@ -149,42 +142,6 @@
                                 <div class="col-md-10">
                                     @Html.EditorFor(model => model.Cantidadpz1, new { htmlAttributes = new { @class = "form-control" } })
                                     @Html.ValidationMessageFor(model => model.Cantidadpz1, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12">
-
-                            <div class="form-group col-xs-6">
-                                @Html.LabelFor(model => model.Defecto2, htmlAttributes: new { @class = "control-label col-md-12" })
-                                <div class="col-md-10">
-                                    @Html.TextAreaFor(model => model.Defecto2, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.Defecto2, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-
-                            <div class="form-group col-xs-5">
-                                @Html.LabelFor(model => model.Cantidadpz2, htmlAttributes: new { @class = "control-label col-md-12" })
-                                <div class="col-md-10">
-                                    @Html.EditorFor(model => model.Cantidadpz2, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.Cantidadpz2, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12">
-
-                            <div class="form-group col-xs-6">
-                                @Html.LabelFor(model => model.Defecto3, htmlAttributes: new { @class = "control-label col-md-12" })
-                                <div class="col-md-10">
-                                    @Html.TextAreaFor(model => model.Defecto3, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.Defecto3, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-
-                            <div class="form-group col-xs-5">
-                                @Html.LabelFor(model => model.Cantidadpz3, htmlAttributes: new { @class = "control-label col-md-12" })
-                                <div class="col-md-10">
-                                    @Html.EditorFor(model => model.Cantidadpz3, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.Cantidadpz3, "", new { @class = "text-danger" })
                                 </div>
                             </div>
                         </div>

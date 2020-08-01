@@ -1605,3 +1605,4 @@ C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\obj\Debug\Flex_SGM.csproj.Gene
 C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\obj\Debug\Flex_SGM.csproj.CopyComplete
 C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\obj\Debug\Flex_SGM.dll
 C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\obj\Debug\Flex_SGM.pdb
+C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\obj\Debug\Flex_SGM.csprojAssemblyReference.cache

@@ -195,7 +195,7 @@ namespace Flex_SGM.Models
 
      
         public int AreasID { get; set; }
-        [MaxLength(25)]
+        [MaxLength(50)]
         [Display(Name = "Defecto")]
         public string Defecto { get; set; }
 
@@ -208,7 +208,7 @@ namespace Flex_SGM.Models
 
      
         public int AreasID { get; set; }
-        [MaxLength(25)]
+        [MaxLength(100)]
         [Display(Name = "Supervisor Area")]
         public string Supervisor { get; set; }
 
@@ -221,7 +221,7 @@ namespace Flex_SGM.Models
 
    
         public int AreasID { get; set; }
-        [MaxLength(25)]
+        [MaxLength(100)]
         [Display(Name = "Auditor Area")]
         public string Auditor { get; set; }
 

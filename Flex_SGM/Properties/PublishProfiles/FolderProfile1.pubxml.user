@@ -7246,10 +7246,10 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>07/28/2020 07:30:34</publishTime>
     </File>
     <File Include="bin/Flex_SGM.dll">
-      <publishTime>08/01/2020 08:58:02</publishTime>
+      <publishTime>08/01/2020 10:00:05</publishTime>
     </File>
     <File Include="bin/Flex_SGM.pdb">
-      <publishTime>08/01/2020 08:58:02</publishTime>
+      <publishTime>08/01/2020 10:00:05</publishTime>
     </File>
     <File Include="bin/IBM.Data.DB2.iSeries.dll">
       <publishTime>01/01/0001 00:00:00</publishTime>
@@ -7858,25 +7858,43 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>08/01/2020 08:57:41</publishTime>
     </File>
     <File Include="Views/CAndon2/Index.cshtml">
+      <publishTime>08/01/2020 09:54:37</publishTime>
+    </File>
+    <File Include="Views/CAndon2/Index_BAKC.cshtml">
       <publishTime>08/01/2020 08:57:44</publishTime>
     </File>
     <File Include="Views/CAndons/Create.cshtml">
-      <publishTime>07/28/2020 07:30:02</publishTime>
+      <publishTime>01/08/2020 09:07:27</publishTime>
     </File>
     <File Include="Views/CAndons/Delete.cshtml">
-      <publishTime>07/28/2020 07:30:02</publishTime>
+      <publishTime>01/08/2020 09:07:27</publishTime>
     </File>
     <File Include="Views/CAndons/Details.cshtml">
-      <publishTime>07/28/2020 07:30:02</publishTime>
+      <publishTime>01/08/2020 09:06:33</publishTime>
     </File>
     <File Include="Views/CAndons/Edit.cshtml">
-      <publishTime>07/28/2020 07:30:02</publishTime>
+      <publishTime>01/08/2020 09:06:14</publishTime>
     </File>
     <File Include="Views/CAndons/Index - Copy.cshtml">
       <publishTime>07/28/2020 07:30:02</publishTime>
     </File>
     <File Include="Views/CAndons/Index.cshtml">
-      <publishTime>07/28/2020 07:30:02</publishTime>
+      <publishTime>08/01/2020 09:19:13</publishTime>
+    </File>
+    <File Include="Views/cAreas/Create.cshtml">
+      <publishTime>08/01/2020 09:54:02</publishTime>
+    </File>
+    <File Include="Views/cAreas/Delete.cshtml">
+      <publishTime>08/01/2020 09:54:05</publishTime>
+    </File>
+    <File Include="Views/cAreas/Details.cshtml">
+      <publishTime>08/01/2020 09:54:07</publishTime>
+    </File>
+    <File Include="Views/cAreas/Edit.cshtml">
+      <publishTime>08/01/2020 09:54:10</publishTime>
+    </File>
+    <File Include="Views/cAreas/Index.cshtml">
+      <publishTime>08/01/2020 09:54:12</publishTime>
     </File>
     <File Include="Views/cClientes/Create.cshtml">
       <publishTime>08/01/2020 08:09:10</publishTime>
