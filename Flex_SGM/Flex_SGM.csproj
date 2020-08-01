@@ -249,6 +249,7 @@
     <Compile Include="Models\Disponibilidad.cs" />
     <Compile Include="Models\Fallas.cs" />
     <Compile Include="Models\flex.cs" />
+    <Compile Include="Models\General.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Junta.cs" />
     <Compile Include="Models\ManageViewModels.cs" />

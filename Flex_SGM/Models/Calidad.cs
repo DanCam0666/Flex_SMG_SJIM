@@ -198,6 +198,118 @@ namespace Flex_SGM.Models
         public string a30d { get; set; }
     }
 
+    public class AndonDefecto
+    {
+        [Key]
+        public int ID { get; set; }
+
+        [Required]
+        public int AreasID { get; set; }
+        [MaxLength(25)]
+        [Display(Name = "Defecto")]
+        public string Defecto { get; set; }
+
+        public virtual cAreas Areas { get; set; }
+    }
+    public class AndonSupervisores
+    {
+        [Key]
+        public int ID { get; set; }
+
+        [Required]
+        public int AreasID { get; set; }
+        [MaxLength(25)]
+        [Display(Name = "Supervisor Area")]
+        public string Supervisor { get; set; }
+
+        public virtual cAreas Areas { get; set; }
+    }
+    public class AndonAuditor
+    {
+        [Key]
+        public int ID { get; set; }
+
+        [Required]
+        public int AreasID { get; set; }
+        [MaxLength(25)]
+        [Display(Name = "Auditor Area")]
+        public string Auditor { get; set; }
+
+        public virtual cAreas Areas { get; set; }
+    }
+
+    public class CAndon2
+    {
+        [Key]
+        public int ID { get; set; }
+
+        [DataType(DataType.DateTime)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
+        public DateTime Fecha { get; set; }
+        [Required]
+        [MaxLength(1)]
+        public string Turno { get; set; }
+        [Required]
+        [MaxLength(5)]
+        public string Hora { get; set; }
+        [Required]
+        [Display(Name = "Area Generadora")]
+        public int AreasgID { get; set; }
+
+        [Required]
+        [Display(Name = "Area Emisora")]
+        public int AreaseID { get; set; }
+
+        [Required]
+        [Display(Name = "Cliente")]
+        public int ClientesID { get; set; }
+
+        [Required]
+        [Display(Name = "Proyecto")]
+        public int ProyectosID { get; set; }
+        [MaxLength(20)]
+        public string lote { get; set; }
+        [MaxLength(100)]
+        public string NoDeParte { get; set; }
+
+        [MaxLength(100)]
+        public string NombreDeParte { get; set; }
+
+    
+        [MaxLength(80)]
+        public string AuditorAreaDefecto { get; set; }
+        [MaxLength(50)]
+        public string ResponsableAndon { get; set; }
+
+        [MaxLength(50)]
+        public string EstatusAndon { get; set; }
+
+        [MaxLength(600)]
+        public string Comentarios { get; set; }
+        [MaxLength(500)]
+        [Display(Name = "Acciones a 1 día")]
+        public string a1d { get; set; }
+        [MaxLength(500)]
+        [Display(Name = "Acciones a 5 días")]
+        public string a5d { get; set; }
+        [MaxLength(500)]
+        [Display(Name = "Acciones a 10 días")]
+        public string a10d { get; set; }
+        [MaxLength(500)]
+        [Display(Name = "Acciones a 20 días")]
+        public string a20d { get; set; }
+        [MaxLength(500)]
+        [Display(Name = "Acciones a 30 días")]
+        public string a30d { get; set; }
+
+        public virtual cAreas Areasg { get; set; }
+        public virtual cAreas Arease { get; set; }
+
+        public virtual cClientes Clientes { get; set; }
+        public virtual cProyectos Proyectos { get; set; }
+    }
+
+
     public class CDockaudit
     {
         [Key]

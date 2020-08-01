@@ -23,7 +23,7 @@ namespace Flex_SGM.Models
     }
     public enum flex_Areas
     {
-        Servicios, Estampado, MetalFinish, Cromo, Cromo1, Cromo2, AutoPulido1, AutoPulido2, Pintura, Ecoat, Topcoat, Mtto_Soldadura, Proc_Soldadura, Ensamble, Automatizacion, FlexNGate
+        Servicios, Estampado, MetalFinish, Cromo, Cromo1, Cromo2, AutoPulido1, AutoPulido2, Pintura, Ecoat, Topcoat, Soldadura, Ensamble, Automatizacion, FlexNGate
 
     }
     public enum flex_Puesto

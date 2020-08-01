@@ -25,10 +25,10 @@ namespace Flex_SGM.Controllers
             var fecha = DateTime.Now.AddMonths(-1);
             var fechaf = DateTime.Now;
 
-            string[] array2 = { "Por Mes", "Por Años", "Por Dia" };
+            string[] array2 = {"Por Dia","Por Mes", "Por Años" };
             ViewBag.btn = new SelectList(array2);
 
-            string[] array3 = { "Cliente", "Proceso", "Defecto 1", "No.Parte", "Auditor", "Supervisor" };
+            string[] array3 = { "Turno", "AreaActivacion", "ZonaActivacion", "AuditorArea", "lote", "Cliente", "Proyecto", "Nombredeparte", "AreaDefecto", "Defecto1", "Defecto2", "Defecto3" };
             ViewBag.paret = new SelectList(array3);
 
             if (!string.IsNullOrEmpty(dti))
@@ -89,84 +89,7 @@ namespace Flex_SGM.Controllers
                 ViewBag.labelsgrap = labels;
                 ViewBag.datasgrap = gdata;
                 ViewBag.data2sgrap = gdata2;
-                //--------------------------------------------------------
-                if (paret == "Cliente")
-                {
-                    var groupdata = datafiltered.GroupBy(g => g.cliente).OrderByDescending(k => k.Count()).ToList();
-                    labels = "'";
-                    gdata = "";
-                    gdata2 = "";
-                    int stempt = datafiltered.Count();
-                    int stemp = 0;
-                    foreach (var h in groupdata)
-                    {
-                        labels = labels + h.Key + "','";
-                        gdata = gdata + h.Count().ToString() + ",";
-                        stemp = stemp + h.Count();
-                        double res = (stemp / (double)stempt) * 100;
-                        gdata2 = gdata2 + string.Format("{0:0.##}", res) + ",";
-                    }
 
-                    labels = labels.TrimEnd(',', (char)39);
-                    labels = labels + "'";
-                    gdata.TrimEnd(',', (char)39);
-                    gdata2.TrimEnd(',', (char)39);
-                    ViewBag.labelsgrap2 = labels;
-                    ViewBag.datasgrap2 = gdata;
-                    ViewBag.data2sgrap2 = gdata2;
-                }
-                //--------------------------------------------------------
-                if (paret == "Proceso")
-                {
-                    var groupdata = datafiltered.GroupBy(g => g.AreaDefecto).OrderByDescending(k => k.Count()).ToList();
-                    labels = "'";
-                    gdata = "";
-                    gdata2 = "";
-                    var stempt = datafiltered.Count();
-                    var stemp = 0;
-                    foreach (var h in groupdata)
-                    {
-                        labels = labels + h.Key + "','";
-                        gdata = gdata + h.Count().ToString() + ",";
-                        stemp = stemp + h.Count();
-                        double res = (stemp / (double)stempt) * 100;
-                        gdata2 = gdata2 + string.Format("{0:0.##}", res) + ",";
-                    }
-
-                    labels = labels.TrimEnd(',', (char)39);
-                    labels = labels + "'";
-                    gdata.TrimEnd(',', (char)39);
-                    gdata2.TrimEnd(',', (char)39);
-                    ViewBag.labelsgrap2 = labels;
-                    ViewBag.datasgrap2 = gdata;
-                    ViewBag.data2sgrap2 = gdata2;
-                }
-                //--------------------------------------------------------
-                if (paret == "Defecto 1")
-                {
-                    var groupdata = datafiltered.GroupBy(g => g.Defecto1).OrderByDescending(k => k.Count()).ToList();
-                    labels = "'";
-                    gdata = "";
-                    gdata2 = "";
-                    var stempt = datafiltered.Count();
-                    var stemp = 0;
-                    foreach (var h in groupdata)
-                    {
-                        labels = labels + h.Key + "','";
-                        gdata = gdata + h.Count().ToString() + ",";
-                        stemp = stemp + h.Count();
-                        double res = (stemp / (double)stempt) * 100;
-                        gdata2 = gdata2 + string.Format("{0:0.##}", res) + ",";
-                    }
-
-                    labels = labels.TrimEnd(',', (char)39);
-                    labels = labels + "'";
-                    gdata.TrimEnd(',', (char)39);
-                    gdata2.TrimEnd(',', (char)39);
-                    ViewBag.labelsgrap2 = labels;
-                    ViewBag.datasgrap2 = gdata;
-                    ViewBag.data2sgrap2 = gdata2;
-                }
 
                 DateTimeFormatInfo formatoFecha = CultureInfo.CurrentCulture.DateTimeFormat;
                 string nombreMes = formatoFecha.GetMonthName(fecha.Month);
@@ -250,84 +173,7 @@ namespace Flex_SGM.Controllers
                 ViewBag.labelsgrap = labels;
                 ViewBag.datasgrap = gdata;
                 ViewBag.data2sgrap = gdata2;
-                //--------------------------------------------------------
-                if (paret == "Cliente")
-                {
-                    var groupdata = datafiltered.GroupBy(g => g.cliente).OrderByDescending(k => k.Count());
-                    labels = "'";
-                    gdata = "";
-                    gdata2 = "";
-                    int stempt = datafiltered.Count();
-                    int stemp = 0;
-                    foreach (var h in groupdata)
-                    {
-                        labels = labels + h.Key + "','";
-                        gdata = gdata + h.Count().ToString() + ",";
-                        stemp = stemp + h.Count();
-                        double res = (stemp / (double)stempt) * 100;
-                        gdata2 = gdata2 + string.Format("{0:0.##}", res) + ",";
-                    }
 
-                    labels = labels.TrimEnd(',', (char)39);
-                    labels = labels + "'";
-                    gdata.TrimEnd(',', (char)39);
-                    gdata2.TrimEnd(',', (char)39);
-                    ViewBag.labelsgrap2 = labels;
-                    ViewBag.datasgrap2 = gdata;
-                    ViewBag.data2sgrap2 = gdata2;
-                }
-                //--------------------------------------------------------
-                if (paret == "Proceso")
-                {
-                   var groupdata = datafiltered.GroupBy(g => g.AreaDefecto).OrderByDescending(k => k.Count());
-                    labels = "'";
-                    gdata = "";
-                    gdata2 = "";
-                    var stempt = datafiltered.Count();
-                    var stemp = 0;
-                    foreach (var h in groupdata)
-                    {
-                        labels = labels + h.Key + "','";
-                        gdata = gdata + h.Count().ToString() + ",";
-                        stemp = stemp + h.Count();
-                        double res = (stemp / (double)stempt) * 100;
-                        gdata2 = gdata2 + string.Format("{0:0.##}", res) + ",";
-                    }
-
-                    labels = labels.TrimEnd(',', (char)39);
-                    labels = labels + "'";
-                    gdata.TrimEnd(',', (char)39);
-                    gdata2.TrimEnd(',', (char)39);
-                    ViewBag.labelsgrap2 = labels;
-                    ViewBag.datasgrap2 = gdata;
-                    ViewBag.data2sgrap2 = gdata2;
-                }
-                //--------------------------------------------------------
-                if (paret == "Defecto 1")
-                {
-                    var groupdata = datafiltered.GroupBy(g => g.Defecto1).OrderByDescending(k => k.Count());
-                    labels = "'";
-                    gdata = "";
-                    gdata2 = "";
-                    var stempt = datafiltered.Count();
-                    var stemp = 0;
-                    foreach (var h in groupdata)
-                    {
-                        labels = labels + h.Key + "','";
-                        gdata = gdata + h.Count().ToString() + ",";
-                        stemp = stemp + h.Count();
-                        double res = (stemp / (double)stempt) * 100;
-                        gdata2 = gdata2 + string.Format("{0:0.##}", res) + ",";
-                    }
-
-                    labels = labels.TrimEnd(',', (char)39);
-                    labels = labels + "'";
-                    gdata.TrimEnd(',', (char)39);
-                    gdata2.TrimEnd(',', (char)39);
-                    ViewBag.labelsgrap2 = labels;
-                    ViewBag.datasgrap2 = gdata;
-                    ViewBag.data2sgrap2 = gdata2;
-                }
                 DateTimeFormatInfo formatoFecha2 = CultureInfo.CurrentCulture.DateTimeFormat;
                 string nombreMes1 = formatoFecha2.GetMonthName(fecha.Month);
                 string nombreMes2 = formatoFecha2.GetMonthName(fechaf.Month);
@@ -411,89 +257,326 @@ namespace Flex_SGM.Controllers
                     ViewBag.labelsgrap = labels;
                     ViewBag.datasgrap = gdata;
                     ViewBag.data2sgrap = gdata2;
-                    //--------------------------------------------------------
-                    if (paret == "Cliente")
-                    {
-                        var groupdata = datafiltered.GroupBy(g => g.cliente).OrderByDescending(k => k.Count());
-                        labels = "'";
-                        gdata = "";
-                        gdata2 = "";
-                        int stempt = datafiltered.Count();
-                        int stemp = 0;
-                        foreach (var h in groupdata)
-                        {
-                            labels = labels + h.Key + "','";
-                            gdata = gdata + h.Count().ToString() + ",";
-                            stemp = stemp + h.Count();
-                            double res = (stemp / (double)stempt) * 100;
-                            gdata2 = gdata2 + string.Format("{0:0.##}", res) + ",";
-                        }
-
-                        labels = labels.TrimEnd(',', (char)39);
-                        labels = labels + "'";
-                        gdata.TrimEnd(',', (char)39);
-                        gdata2.TrimEnd(',', (char)39);
-                        ViewBag.labelsgrap2 = labels;
-                        ViewBag.datasgrap2 = gdata;
-                        ViewBag.data2sgrap2 = gdata2;
-                    }
-                    //--------------------------------------------------------
-                    if (paret == "Proceso")
-                    {
-                        var groupdata = datafiltered.GroupBy(g => g.AreaDefecto).OrderByDescending(k => k.Count());
-                        labels = "'";
-                        gdata = "";
-                        gdata2 = "";
-                        var stempt = datafiltered.Count();
-                        var stemp = 0;
-                        foreach (var h in groupdata)
-                        {
-                            labels = labels + h.Key + "','";
-                            gdata = gdata + h.Count().ToString() + ",";
-                            stemp = stemp + h.Count();
-                            double res = (stemp / (double)stempt) * 100;
-                            gdata2 = gdata2 + string.Format("{0:0.##}", res) + ",";
-                        }
-
-                        labels = labels.TrimEnd(',', (char)39);
-                        labels = labels + "'";
-                        gdata.TrimEnd(',', (char)39);
-                        gdata2.TrimEnd(',', (char)39);
-                        ViewBag.labelsgrap2 = labels;
-                        ViewBag.datasgrap2 = gdata;
-                        ViewBag.data2sgrap2 = gdata2;
-                    }
-                    //--------------------------------------------------------
-                    if (paret == "Defecto 1")
-                    {
-                        var groupdata = datafiltered.GroupBy(g => g.Defecto1).OrderByDescending(k => k.Count());
-                        labels = "'";
-                        gdata = "";
-                        gdata2 = "";
-                        var stempt = datafiltered.Count();
-                        var stemp = 0;
-                        foreach (var h in groupdata)
-                        {
-                            labels = labels + h.Key + "','";
-                            gdata = gdata + h.Count().ToString() + ",";
-                            stemp = stemp + h.Count();
-                            double res = (stemp / (double)stempt) * 100;
-                            gdata2 = gdata2 + string.Format("{0:0.##}", res) + ",";
-                        }
-
-                        labels = labels.TrimEnd(',', (char)39);
-                        labels = labels + "'";
-                        gdata.TrimEnd(',', (char)39);
-                        gdata2.TrimEnd(',', (char)39);
-                        ViewBag.labelsgrap2 = labels;
-                        ViewBag.datasgrap2 = gdata;
-                        ViewBag.data2sgrap2 = gdata2;
-                    }
 
                     ViewBag.dx = "Dia " + fecha.ToString("dd/MM/yyyy") + " al Dia " + fechaf.ToString("dd/MM/yyyy");
                     ViewBag.dxx = " Dia";
                 }
 
+            }
+
+            //--------------------------------------------------------
+
+            //--------------------------------------------------------
+            if (paret == "Turno")
+            {
+                var groupdata = datafiltered.GroupBy(g => g.Turno).OrderByDescending(k => k.Count()).ToList();
+                var labels = "'";
+                var gdata = "";
+                var gdata2 = "";
+                int stempt = datafiltered.Count();
+                int stemp = 0;
+                foreach (var h in groupdata)
+                {
+                    labels = labels + h.Key + "','";
+                    gdata = gdata + h.Count().ToString() + ",";
+                    stemp = stemp + h.Count();
+                    double res = (stemp / (double)stempt) * 100;
+                    gdata2 = gdata2 + string.Format("{0:0.##}", res) + ",";
+                }
+
+                labels = labels.TrimEnd(',', (char)39);
+                labels = labels + "'";
+                gdata.TrimEnd(',', (char)39);
+                gdata2.TrimEnd(',', (char)39);
+                ViewBag.labelsgrap2 = labels;
+                ViewBag.datasgrap2 = gdata;
+                ViewBag.data2sgrap2 = gdata2;
+            }
+            //--------------------------------------------------------
+            if (paret == "AreaActivacion")
+            {
+                var groupdata = datafiltered.GroupBy(g => g.AreaActivacion).OrderByDescending(k => k.Count()).ToList();
+                var labels = "'";
+                var gdata = "";
+                var gdata2 = "";
+                int stempt = datafiltered.Count();
+                int stemp = 0;
+                foreach (var h in groupdata)
+                {
+                    labels = labels + h.Key + "','";
+                    gdata = gdata + h.Count().ToString() + ",";
+                    stemp = stemp + h.Count();
+                    double res = (stemp / (double)stempt) * 100;
+                    gdata2 = gdata2 + string.Format("{0:0.##}", res) + ",";
+                }
+
+                labels = labels.TrimEnd(',', (char)39);
+                labels = labels + "'";
+                gdata.TrimEnd(',', (char)39);
+                gdata2.TrimEnd(',', (char)39);
+                ViewBag.labelsgrap2 = labels;
+                ViewBag.datasgrap2 = gdata;
+                ViewBag.data2sgrap2 = gdata2;
+            }
+            //--------------------------------------------------------
+            if (paret == "ZonaActivacion")
+            {
+                var groupdata = datafiltered.GroupBy(g => g.ZonaActivacion).OrderByDescending(k => k.Count()).ToList();
+                var labels = "'";
+                var gdata = "";
+                var gdata2 = "";
+                int stempt = datafiltered.Count();
+                int stemp = 0;
+                foreach (var h in groupdata)
+                {
+                    labels = labels + h.Key + "','";
+                    gdata = gdata + h.Count().ToString() + ",";
+                    stemp = stemp + h.Count();
+                    double res = (stemp / (double)stempt) * 100;
+                    gdata2 = gdata2 + string.Format("{0:0.##}", res) + ",";
+                }
+
+                labels = labels.TrimEnd(',', (char)39);
+                labels = labels + "'";
+                gdata.TrimEnd(',', (char)39);
+                gdata2.TrimEnd(',', (char)39);
+                ViewBag.labelsgrap2 = labels;
+                ViewBag.datasgrap2 = gdata;
+                ViewBag.data2sgrap2 = gdata2;
+            }
+            //--------------------------------------------------------
+            if (paret == "AuditorArea")
+            {
+                var groupdata = datafiltered.GroupBy(g => g.AuditorArea).OrderByDescending(k => k.Count()).ToList();
+                var labels = "'";
+                var gdata = "";
+                var gdata2 = "";
+                int stempt = datafiltered.Count();
+                int stemp = 0;
+                foreach (var h in groupdata)
+                {
+                    labels = labels + h.Key + "','";
+                    gdata = gdata + h.Count().ToString() + ",";
+                    stemp = stemp + h.Count();
+                    double res = (stemp / (double)stempt) * 100;
+                    gdata2 = gdata2 + string.Format("{0:0.##}", res) + ",";
+                }
+
+                labels = labels.TrimEnd(',', (char)39);
+                labels = labels + "'";
+                gdata.TrimEnd(',', (char)39);
+                gdata2.TrimEnd(',', (char)39);
+                ViewBag.labelsgrap2 = labels;
+                ViewBag.datasgrap2 = gdata;
+                ViewBag.data2sgrap2 = gdata2;
+            }
+            //--------------------------------------------------------
+            if (paret == "lote")
+            {
+                var groupdata = datafiltered.GroupBy(g => g.lote).OrderByDescending(k => k.Count()).ToList();
+                var labels = "'";
+                var gdata = "";
+                var gdata2 = "";
+                int stempt = datafiltered.Count();
+                int stemp = 0;
+                foreach (var h in groupdata)
+                {
+                    labels = labels + h.Key + "','";
+                    gdata = gdata + h.Count().ToString() + ",";
+                    stemp = stemp + h.Count();
+                    double res = (stemp / (double)stempt) * 100;
+                    gdata2 = gdata2 + string.Format("{0:0.##}", res) + ",";
+                }
+
+                labels = labels.TrimEnd(',', (char)39);
+                labels = labels + "'";
+                gdata.TrimEnd(',', (char)39);
+                gdata2.TrimEnd(',', (char)39);
+                ViewBag.labelsgrap2 = labels;
+                ViewBag.datasgrap2 = gdata;
+                ViewBag.data2sgrap2 = gdata2;
+            }
+            //--------------------------------------------------------
+            if (paret == "Cliente")
+            {
+                var groupdata = datafiltered.GroupBy(g => g.cliente).OrderByDescending(k => k.Count()).ToList();
+                var labels = "'";
+                var gdata = "";
+                var gdata2 = "";
+                int stempt = datafiltered.Count();
+                int stemp = 0;
+                foreach (var h in groupdata)
+                {
+                    labels = labels + h.Key + "','";
+                    gdata = gdata + h.Count().ToString() + ",";
+                    stemp = stemp + h.Count();
+                    double res = (stemp / (double)stempt) * 100;
+                    gdata2 = gdata2 + string.Format("{0:0.##}", res) + ",";
+                }
+
+                labels = labels.TrimEnd(',', (char)39);
+                labels = labels + "'";
+                gdata.TrimEnd(',', (char)39);
+                gdata2.TrimEnd(',', (char)39);
+                ViewBag.labelsgrap2 = labels;
+                ViewBag.datasgrap2 = gdata;
+                ViewBag.data2sgrap2 = gdata2;
+            }
+            //--------------------------------------------------------
+            if (paret == "Proyecto")
+            {
+                var groupdata = datafiltered.GroupBy(g => g.proyecto).OrderByDescending(k => k.Count()).ToList();
+                var labels = "'";
+                var gdata = "";
+                var gdata2 = "";
+                int stempt = datafiltered.Count();
+                int stemp = 0;
+                foreach (var h in groupdata)
+                {
+                    labels = labels + h.Key + "','";
+                    gdata = gdata + h.Count().ToString() + ",";
+                    stemp = stemp + h.Count();
+                    double res = (stemp / (double)stempt) * 100;
+                    gdata2 = gdata2 + string.Format("{0:0.##}", res) + ",";
+                }
+
+                labels = labels.TrimEnd(',', (char)39);
+                labels = labels + "'";
+                gdata.TrimEnd(',', (char)39);
+                gdata2.TrimEnd(',', (char)39);
+                ViewBag.labelsgrap2 = labels;
+                ViewBag.datasgrap2 = gdata;
+                ViewBag.data2sgrap2 = gdata2;
+            }
+            //--------------------------------------------------------
+            if (paret == "Nombredeparte")
+            {
+                var groupdata = datafiltered.GroupBy(g => g.NombreDeParte).OrderByDescending(k => k.Count()).ToList();
+                var labels = "'";
+                var gdata = "";
+                var gdata2 = "";
+                int stempt = datafiltered.Count();
+                int stemp = 0;
+                foreach (var h in groupdata)
+                {
+                    labels = labels + h.Key + "','";
+                    gdata = gdata + h.Count().ToString() + ",";
+                    stemp = stemp + h.Count();
+                    double res = (stemp / (double)stempt) * 100;
+                    gdata2 = gdata2 + string.Format("{0:0.##}", res) + ",";
+                }
+
+                labels = labels.TrimEnd(',', (char)39);
+                labels = labels + "'";
+                gdata.TrimEnd(',', (char)39);
+                gdata2.TrimEnd(',', (char)39);
+                ViewBag.labelsgrap2 = labels;
+                ViewBag.datasgrap2 = gdata;
+                ViewBag.data2sgrap2 = gdata2;
+            }
+            //--------------------------------------------------------
+            if (paret == "AreaDefecto")
+            {
+                var groupdata = datafiltered.GroupBy(g => g.AreaDefecto).OrderByDescending(k => k.Count()).ToList();
+                var labels = "'";
+                var gdata = "";
+                var gdata2 = "";
+                int stempt = datafiltered.Count();
+                int stemp = 0;
+                foreach (var h in groupdata)
+                {
+                    labels = labels + h.Key + "','";
+                    gdata = gdata + h.Count().ToString() + ",";
+                    stemp = stemp + h.Count();
+                    double res = (stemp / (double)stempt) * 100;
+                    gdata2 = gdata2 + string.Format("{0:0.##}", res) + ",";
+                }
+
+                labels = labels.TrimEnd(',', (char)39);
+                labels = labels + "'";
+                gdata.TrimEnd(',', (char)39);
+                gdata2.TrimEnd(',', (char)39);
+                ViewBag.labelsgrap2 = labels;
+                ViewBag.datasgrap2 = gdata;
+                ViewBag.data2sgrap2 = gdata2;
+            }
+            //--------------------------------------------------------
+            if (paret == "Defecto1")
+            {
+                var groupdata = datafiltered.GroupBy(g => g.Defecto1).OrderByDescending(k => k.Count()).ToList();
+                var labels = "'";
+                var gdata = "";
+                var gdata2 = "";
+                var stempt = datafiltered.Count();
+                var stemp = 0;
+                foreach (var h in groupdata)
+                {
+                    labels = labels + h.Key + "','";
+                    gdata = gdata + h.Count().ToString() + ",";
+                    stemp = stemp + h.Count();
+                    double res = (stemp / (double)stempt) * 100;
+                    gdata2 = gdata2 + string.Format("{0:0.##}", res) + ",";
+                }
+
+                labels = labels.TrimEnd(',', (char)39);
+                labels = labels + "'";
+                gdata.TrimEnd(',', (char)39);
+                gdata2.TrimEnd(',', (char)39);
+                ViewBag.labelsgrap2 = labels;
+                ViewBag.datasgrap2 = gdata;
+                ViewBag.data2sgrap2 = gdata2;
+            }
+            //--------------------------------------------------------
+            if (paret == "Defecto2")
+            {
+                var groupdata = datafiltered.GroupBy(g => g.Defecto2).OrderByDescending(k => k.Count()).ToList();
+                var labels = "'";
+                var gdata = "";
+                var gdata2 = "";
+                var stempt = datafiltered.Count();
+                var stemp = 0;
+                foreach (var h in groupdata)
+                {
+                    labels = labels + h.Key + "','";
+                    gdata = gdata + h.Count().ToString() + ",";
+                    stemp = stemp + h.Count();
+                    double res = (stemp / (double)stempt) * 100;
+                    gdata2 = gdata2 + string.Format("{0:0.##}", res) + ",";
+                }
+
+                labels = labels.TrimEnd(',', (char)39);
+                labels = labels + "'";
+                gdata.TrimEnd(',', (char)39);
+                gdata2.TrimEnd(',', (char)39);
+                ViewBag.labelsgrap2 = labels;
+                ViewBag.datasgrap2 = gdata;
+                ViewBag.data2sgrap2 = gdata2;
+            }
+            //--------------------------------------------------------
+            if (paret == "Defecto3")
+            {
+                var groupdata = datafiltered.GroupBy(g => g.Defecto3).OrderByDescending(k => k.Count()).ToList();
+                var labels = "'";
+                var gdata = "";
+                var gdata2 = "";
+                var stempt = datafiltered.Count();
+                var stemp = 0;
+                foreach (var h in groupdata)
+                {
+                    labels = labels + h.Key + "','";
+                    gdata = gdata + h.Count().ToString() + ",";
+                    stemp = stemp + h.Count();
+                    double res = (stemp / (double)stempt) * 100;
+                    gdata2 = gdata2 + string.Format("{0:0.##}", res) + ",";
+                }
+
+                labels = labels.TrimEnd(',', (char)39);
+                labels = labels + "'";
+                gdata.TrimEnd(',', (char)39);
+                gdata2.TrimEnd(',', (char)39);
+                ViewBag.labelsgrap2 = labels;
+                ViewBag.datasgrap2 = gdata;
+                ViewBag.data2sgrap2 = gdata2;
             }
 
             ViewBag.datei = fecha.ToString("dd/MM/yyyy");

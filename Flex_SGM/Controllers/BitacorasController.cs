@@ -3079,7 +3079,7 @@ if (amaquina.Contains("Pintura"))
 
                             datasd.Confiabilidad = Math.Round((disponibilidad * 100), 2);
 
-                            datasd.MTBF = Math.Round(MTBF, 2);
+                            datasd.MTBF = Clamp(Math.Round(MTBF, 2), 0, (multiplicador * 3));
 
                             Ldata.Add(datasd);
                         }
@@ -3271,7 +3271,7 @@ if (amaquina.Contains("Pintura"))
 
                             datasd.Confiabilidad = Math.Round((disponibilidad * 100), 2);
 
-                            datasd.MTBF = Math.Round(MTBF, 2);
+                            datasd.MTBF = Clamp(Math.Round(MTBF, 2), 0, (multiplicador * 3));
 
 
 
@@ -3447,7 +3447,7 @@ if (amaquina.Contains("Pintura"))
                                     mul_maquinas = datafiltered3.GroupBy(g => g.Maquinas.Maquina).Count();
                                 if (mul_maquinas == 0)
                                     mul_maquinas = 1;
-                                Tiempo_total_de_funcionamiento = 480 *(Double)mul_maquinas;
+                                Tiempo_total_de_funcionamiento = mindia * (Double)mul_maquinas;
                                 datasd.Disponible3 = Tiempo_total_de_funcionamiento;
                                 datasd.TiempoM3 = tiempomueto;
                                 datasd.FallasT3 = total_fallas;
@@ -3477,8 +3477,8 @@ if (amaquina.Contains("Pintura"))
 
                                 datasd.Confiabilidad = Math.Round((disponibilidad * 100), 2);
 
-                                datasd.MTBF = Math.Round(MTBF, 2);
-
+        
+                                datasd.MTBF =Clamp(Math.Round(MTBF, 2),0, (multiplicador * 3));
                                 Ldata.Add(datasd);
 
                                 i++;
@@ -4096,7 +4096,16 @@ if (amaquina.Contains("Pintura"))
             return View(datafiltered);
         }
 
-
+        public static T Clamp<T>(T value, T min, T max)
+where T : System.IComparable<T>
+        {
+            T result = value;
+            if (value.CompareTo(max) > 0)
+                result = max;
+            if (value.CompareTo(min) < 0)
+                result = min;
+            return result;
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)
