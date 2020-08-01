@@ -114,9 +114,6 @@ namespace Flex_SGM.Models
         [Key]
         public int ID { get; set; }
 
-        [MaxLength(8)]
-        public string NoAndon { get; set; }
-
         [DataType(DataType.DateTime)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime Fecha { get; set; }
@@ -149,14 +146,6 @@ namespace Flex_SGM.Models
         public string Defecto1 { get; set; }
         [MaxLength(20)]
         public string Cantidadpz1 { get; set; }
-        [MaxLength(50)]
-        public string Defecto2 { get; set; }
-        [MaxLength(20)]
-        public string Cantidadpz2 { get; set; }
-        [MaxLength(50)]
-        public string Defecto3 { get; set; }
-        [MaxLength(20)]
-        public string Cantidadpz3 { get; set; }
 
         [MaxLength(100)]
         public string Preventivos { get; set; }
