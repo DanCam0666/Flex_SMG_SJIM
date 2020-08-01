@@ -73,5 +73,21 @@ namespace Flex_SGM.Models
         public System.Data.Entity.DbSet<Flex_SGM.Models.Disponibilidad> Disponibilidads { get; set; }
 
         public System.Data.Entity.DbSet<Flex_SGM.Models.troubleshooting> troubleshootings { get; set; }
+
+        public System.Data.Entity.DbSet<Flex_SGM.Models.cClientes> cClientes { get; set; }
+
+        public System.Data.Entity.DbSet<Flex_SGM.Models.SubClientes> SubClientes { get; set; }
+
+        public System.Data.Entity.DbSet<Flex_SGM.Models.AndonDefecto> AndonDefectoes { get; set; }
+
+        public System.Data.Entity.DbSet<Flex_SGM.Models.cAreas> cAreas { get; set; }
+
+        public System.Data.Entity.DbSet<Flex_SGM.Models.AndonSupervisores> AndonSupervisores { get; set; }
+
+        public System.Data.Entity.DbSet<Flex_SGM.Models.AndonAuditor> AndonAuditors { get; set; }
+
+        public System.Data.Entity.DbSet<Flex_SGM.Models.CAndon2> CAndon2 { get; set; }
+
+        public System.Data.Entity.DbSet<Flex_SGM.Models.cProyectos> cProyectos { get; set; }
     }
 }

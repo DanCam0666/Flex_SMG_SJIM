@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -192,7 +193,7 @@ namespace Flex_SGM.Models
         [Key]
         public int ID { get; set; }
 
-        [Required]
+     
         public int AreasID { get; set; }
         [MaxLength(25)]
         [Display(Name = "Defecto")]
@@ -205,7 +206,7 @@ namespace Flex_SGM.Models
         [Key]
         public int ID { get; set; }
 
-        [Required]
+     
         public int AreasID { get; set; }
         [MaxLength(25)]
         [Display(Name = "Supervisor Area")]
@@ -218,7 +219,7 @@ namespace Flex_SGM.Models
         [Key]
         public int ID { get; set; }
 
-        [Required]
+   
         public int AreasID { get; set; }
         [MaxLength(25)]
         [Display(Name = "Auditor Area")]
@@ -235,70 +236,153 @@ namespace Flex_SGM.Models
         [DataType(DataType.DateTime)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime Fecha { get; set; }
-        [Required]
+
         [MaxLength(1)]
         public string Turno { get; set; }
-        [Required]
+
         [MaxLength(5)]
         public string Hora { get; set; }
-        [Required]
+
         [Display(Name = "Area Generadora")]
-        public int AreasgID { get; set; }
-
-        [Required]
+        [ForeignKey("Primary")]
+        public int? AreasgID { get; set; }
+  
         [Display(Name = "Area Emisora")]
-        public int AreaseID { get; set; }
+        [ForeignKey("Assigned")]
+        public int? AreaseID { get; set; }
 
-        [Required]
+
         [Display(Name = "Cliente")]
         public int ClientesID { get; set; }
-
-        [Required]
+ 
         [Display(Name = "Proyecto")]
         public int ProyectosID { get; set; }
+  
         [MaxLength(20)]
         public string lote { get; set; }
-        [MaxLength(100)]
+
+  
+        [Display(Name = "No. De parte")]
         public string NoDeParte { get; set; }
 
-        [MaxLength(100)]
+        [MaxLength(150)]
+
+        [Display(Name = "Nombre De la parte")]
         public string NombreDeParte { get; set; }
 
-    
-        [MaxLength(80)]
-        public string AuditorAreaDefecto { get; set; }
-        [MaxLength(50)]
-        public string ResponsableAndon { get; set; }
 
-        [MaxLength(50)]
-        public string EstatusAndon { get; set; }
+        public string AndonDefectoID { get; set; }
 
         [MaxLength(600)]
         public string Comentarios { get; set; }
-        [MaxLength(500)]
-        [Display(Name = "Acciones a 1 día")]
-        public string a1d { get; set; }
-        [MaxLength(500)]
-        [Display(Name = "Acciones a 5 días")]
-        public string a5d { get; set; }
-        [MaxLength(500)]
-        [Display(Name = "Acciones a 10 días")]
-        public string a10d { get; set; }
-        [MaxLength(500)]
-        [Display(Name = "Acciones a 20 días")]
-        public string a20d { get; set; }
-        [MaxLength(500)]
-        [Display(Name = "Acciones a 30 días")]
-        public string a30d { get; set; }
 
-        public virtual cAreas Areasg { get; set; }
-        public virtual cAreas Arease { get; set; }
+    
+        public string AndonAuditorID { get; set; }
+
+     
+        public string AndonSupervisoresID { get; set; }
+
+
+        public Asistentes Asistentes { get; set; }
+
+        [MaxLength(50)]
+        public string EstatusAndon { get; set; }
+        [Display(Name = "Es un problema?")]
+
+        public bool Esproblema { get; set; }
+        [Display(Name = "El problema pone en riego la seguridad?")]
+ 
+        public bool Esproblemaseguridad { get; set; }
+
+        [Display(Name = "El problema es repetitivo/ de Dock Audit / Pudo causar un problema con cliente / Atraso de Entrega / Paro de linea 2Hr o mas?")]
+ 
+        public bool Esproblemavario { get; set; }
+
+        [MaxLength(500)]
+        [Display(Name = "1er Porque")]
+        public string a1why { get; set; }
+        [MaxLength(500)]
+        [Display(Name = "2do Porque")]
+        public string a2why { get; set; }
+        [MaxLength(500)]
+        [Display(Name = "3er Porque")]
+        public string a3why { get; set; }
+        [MaxLength(500)]
+        [Display(Name = "4to Porque")]
+        public string a4why { get; set; }
+        [MaxLength(500)]
+        [Display(Name = "5to Porque")]
+        public string a50d { get; set; }
+
+        [MaxLength(500)]
+        [Display(Name = "Causas")]
+        public string Causas { get; set; }
+        [MaxLength(500)]
+        [Display(Name = "Acciones")]
+        public string Acciones { get; set; }
+
+        public virtual cAreas Primary { get; set; }
+
+        public virtual cAreas Assigned { get; set; }
 
         public virtual cClientes Clientes { get; set; }
         public virtual cProyectos Proyectos { get; set; }
+
+        public virtual AndonAuditor AndonAuditor { get; set; }
+
+        public virtual AndonSupervisores AndonSupervisores { get; set; }
+
+        public virtual AndonDefecto AndonDefecto { get; set; }
     }
 
+    public class Asistentes 
+    {
+        [MaxLength(150)]
+        public string Nombre1 { get; set; }
 
+        [MaxLength(50)]
+        public string Area1 { get; set; }
+        [MaxLength(150)]
+        public string Nombre2 { get; set; }
+
+        [MaxLength(50)]
+        public string Area2 { get; set; }
+        [MaxLength(150)]
+        public string Nombre3 { get; set; }
+
+        [MaxLength(50)]
+        public string Area3 { get; set; }
+        [MaxLength(150)]
+        public string Nombre4 { get; set; }
+
+        [MaxLength(50)]
+        public string Area4 { get; set; }
+        [MaxLength(150)]
+        public string Nombre5 { get; set; }
+
+        [MaxLength(50)]
+        public string Area5 { get; set; }
+        [MaxLength(150)]
+        public string Nombre6 { get; set; }
+
+        [MaxLength(50)]
+        public string Area6 { get; set; }
+        [MaxLength(150)]
+        public string Nombre7 { get; set; }
+
+        [MaxLength(50)]
+        public string Area7 { get; set; }
+        [MaxLength(150)]
+        public string Nombre8 { get; set; }
+
+        [MaxLength(50)]
+        public string Area8 { get; set; }
+        [MaxLength(150)]
+        public string Nombre9 { get; set; }
+
+        [MaxLength(50)]
+        public string Area9 { get; set; }
+    }
     public class CDockaudit
     {
         [Key]

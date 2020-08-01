@@ -1,0 +1,183 @@
+﻿@model IEnumerable<Flex_SGM.Models.CAndon2>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Assigned.Area)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Clientes.Cliente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Primary.Area)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Proyectos.Proyecto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Turno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hora)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lote)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NoDeParte)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreDeParte)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AndonDefectoID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comentarios)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AndonAuditorID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AndonSupervisoresID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Asistentes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EstatusAndon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Esproblema)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Esproblemaseguridad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Esproblemavario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.a1why)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.a2why)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.a3why)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.a4why)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.a50d)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Causas)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Acciones)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Assigned.Area)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Clientes.Cliente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Primary.Area)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Proyectos.Proyecto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fecha)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Turno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hora)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lote)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NoDeParte)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombreDeParte)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AndonDefectoID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comentarios)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AndonAuditorID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AndonSupervisoresID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Asistentes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EstatusAndon)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Esproblema)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Esproblemaseguridad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Esproblemavario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.a1why)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.a2why)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.a3why)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.a4why)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.a50d)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Causas)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Acciones)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -40,8 +40,7 @@ namespace Flex_SGM.Models
         [Key]
         public int ID { get; set; }
 
-        [Required]
-        public int ClientesID { get; set; }
+        public int? ClientesID { get; set; }
         [MaxLength(25)]
         [Display(Name = "Proyecto")]
         public string Proyecto { get; set; }
