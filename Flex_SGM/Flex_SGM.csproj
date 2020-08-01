@@ -217,13 +217,14 @@
     <Compile Include="Controllers\BitacorasController - Copia.cs" />
     <Compile Include="Controllers\BitacorasController.cs" />
     <Compile Include="Controllers\CalidadController.cs" />
-    <Compile Include="Controllers\CAndon2Controller.cs" />
+    <Compile Include="Controllers\CAndons2Controller.cs" />
     <Compile Include="Controllers\CAndonsController.cs" />
     <Compile Include="Controllers\cAreasController.cs" />
     <Compile Include="Controllers\cClientesController.cs" />
     <Compile Include="Controllers\CDockauditsController.cs" />
     <Compile Include="Controllers\ControldeEquiposController.cs" />
     <Compile Include="Controllers\CPlanosController.cs" />
+    <Compile Include="Controllers\cProyectosController.cs" />
     <Compile Include="Controllers\DisponibilidadsController.cs" />
     <Compile Include="Controllers\EmailController.cs" />
     <Compile Include="Controllers\FallasController.cs" />
@@ -2876,17 +2877,21 @@
     <Content Include="Views\AndonAuditors\Details.cshtml" />
     <Content Include="Views\AndonAuditors\Edit.cshtml" />
     <Content Include="Views\AndonAuditors\Index.cshtml" />
-    <Content Include="Views\CAndon2\Create.cshtml" />
-    <Content Include="Views\CAndon2\Delete.cshtml" />
-    <Content Include="Views\CAndon2\Details.cshtml" />
-    <Content Include="Views\CAndon2\Edit.cshtml" />
-    <Content Include="Views\CAndon2\Index_BAKC.cshtml" />
-    <Content Include="Views\CAndon2\Index.cshtml" />
     <Content Include="Views\cAreas\Create.cshtml" />
     <Content Include="Views\cAreas\Delete.cshtml" />
     <Content Include="Views\cAreas\Details.cshtml" />
     <Content Include="Views\cAreas\Edit.cshtml" />
     <Content Include="Views\cAreas\Index.cshtml" />
+    <Content Include="Views\CAndons2\Index.cshtml" />
+    <Content Include="Views\CAndons2\Create.cshtml" />
+    <Content Include="Views\CAndons2\Edit.cshtml" />
+    <Content Include="Views\CAndons2\Details.cshtml" />
+    <Content Include="Views\CAndons2\Delete.cshtml" />
+    <Content Include="Views\cProyectos\Create.cshtml" />
+    <Content Include="Views\cProyectos\Delete.cshtml" />
+    <Content Include="Views\cProyectos\Details.cshtml" />
+    <Content Include="Views\cProyectos\Edit.cshtml" />
+    <Content Include="Views\cProyectos\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

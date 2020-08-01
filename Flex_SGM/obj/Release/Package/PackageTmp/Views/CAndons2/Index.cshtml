@@ -1,0 +1,423 @@
+﻿@model IEnumerable<Flex_SGM.Models.CAndon2>
+    
+@{
+    ViewBag.Title = "Andons";
+      Layout = "~/Views/Shared/_LayoutC.cshtml";
+}
+<div class="clearfix">
+    @using (Html.BeginForm())
+    {
+        <div class="col-xs-12 ">
+            <center><h2>Andon's</h2></center>
+            <div class="x_panel">
+                <div class="x_title clearfix">
+                    <div class="col-xs-12">
+                        @Html.ActionLink("Menu Calidad", "Index", "Calidad", null, htmlAttributes: new { @class = "btn btn-default", @onclick = "$('#loadingImg').show();" })
+
+                        <div class="col-xs-6">
+                            <div class="input-daterange input-group col-lg-offset-2 col-xs-10" id="bs_datepicker_range_container">
+
+                                <label for="FechaInicial">Fecha Inicial...</label>
+                                <input type="text" class="form-control" name="dti" value=@ViewBag.datei autocomplete="off">
+
+                                <span class="input-group-addon">- A -</span>
+
+                                <label for="FechaFinal">Fecha Final...</label>
+                                <input type="text" class="form-control" name="dtf" value=@ViewBag.datef autocomplete="off">
+
+                            </div>
+                        </div>
+                        <div class="form-group col-xs-2">
+                            <label for="tipor">Mostrar por:</label>
+                            <div class="col-md-10" data-toggle="tooltip" title=" Filtro para el pareto ">
+                                @Html.DropDownList("btn", null, htmlAttributes: new { @class = "form-control" })
+
+                            </div>
+                        </div>
+                        <div class="form-group col-xs-2">
+                            <label for="tipor">Pareto por:</label>
+                            <div class="col-md-10" data-toggle="tooltip" title=" Filtro para el pareto ">
+                                @Html.DropDownList("paret", null, htmlAttributes: new { @class = "form-control" })
+
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+                <div class="x_content">
+                    <center>
+                        <div class="col-xs-12">
+
+                            <input class="btn btn-primary col-xs-2" onclick="$('#loadingImg').show();" type="submit">
+                            <div class="col-xs-2">
+                                @Html.ActionLink("Registrar nuevo Andon", "Create", null, new { @class = "btn btn-danger", @onclick = "$('#loadingImg').show();" })
+                            </div>
+                            <div class="col-xs-6">
+                                @Html.ActionLink("Clientes", "Index", "cClientes", null, htmlAttributes: new { @class = "btn btn-default", @onclick = "$('#loadingImg').show();" })
+                                @Html.ActionLink("Proyectos", "Index", "cProyectos", null, htmlAttributes: new { @class = "btn btn-default", @onclick = "$('#loadingImg').show();" })
+                                @Html.ActionLink("Areas", "Index", "cAreas", null, htmlAttributes: new { @class = "btn btn-default", @onclick = "$('#loadingImg').show();" })
+                                @Html.ActionLink("Defectos", "Index", "AndonDefectoes", null, htmlAttributes: new { @class = "btn btn-default", @onclick = "$('#loadingImg').show();" })
+                                @Html.ActionLink("Supervisores", "Index", "AndonSupervisores", null, htmlAttributes: new { @class = "btn btn-default", @onclick = "$('#loadingImg').show();" })
+                                @Html.ActionLink("Auditores", "Index", "AndonAuditors", null, htmlAttributes: new { @class = "btn btn-default", @onclick = "$('#loadingImg').show();" })
+                            </div>
+                        </div>
+                    </center>
+                </div>
+            </div>
+
+        </div>
+    }
+    <div class="col-xs-8" style="float:left">
+        <div class="x_panel">
+            <div class="x_title clearfix">
+                <h2> Andons del @ViewBag.dx</h2>
+            </div>
+            <div class="x_content">
+                <canvas id="chartme" width="100" height="35"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xs-4" style="float:left">
+        <div class="x_panel">
+            <div class="x_title clearfix">
+                <h2> Pareto</h2>
+            </div>
+            <div class="x_content">
+                <canvas id="charttimee" width="100" height="74"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xs-12 ">
+        <div class="x_panel">
+            <div class="x_title clearfix">
+                <h2> Lista de Andons del @ViewBag.dx</h2>
+            </div>
+            <div class="x_content ">
+                <table class="table table-bordered table-striped clearfix" style="width:100%" id="tableq">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ID)
+                            </th>
+                            <th>Menu</th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Fecha)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Turno)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Hora)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.lote)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.AreasgID)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.AreaseID)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Clientes.Cliente)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Proyectos.Proyecto)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.NoDeParte)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.NombreDeParte)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.AndonDefectoID)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Comentarios)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.AndonAuditorID)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.AndonSupervisoresID)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Asistentes)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.EstatusAndon)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Esproblema)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Esproblemaseguridad)
+                            </th>
+                            <th>
+                                @Html.Label("El problema es Repetitivo")
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.a1why)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.a2why)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.a3why)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.a4why)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.a50d)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Causas)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Acciones)
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ID)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn  btn-primary", @target = "_blank" })
+                                @Html.ActionLink("Editar", "Edit", new { id = item.ID }, new { @class = "btn  btn-warning", @target = "_blank" })
+                                @Html.ActionLink("Borrar", "Delete", new { id = item.ID }, new { @class = "btn  btn-danger" })
+                            </td>
+                            <td>
+                                @item.Fecha.ToString("yyyy/MM/dd")
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Turno)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Hora)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.lote)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Primary.Area)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Assigned.Area)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Clientes.Cliente)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Proyectos.Proyecto)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NoDeParte)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NombreDeParte)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.AndonDefectoID)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Comentarios)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.AndonAuditorID)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.AndonSupervisoresID)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Asistentes)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.EstatusAndon)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Esproblema)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Esproblemaseguridad)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Esproblemavario)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.a1why)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.a2why)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.a3why)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.a4why)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.a50d)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Causas)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Acciones)
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section Scripts {
+
+    <script>
+
+        var barChartqe =
+        {
+              labels: [@Html.Raw(ViewBag.labelsgrap)],
+            datasets: [
+                {
+                    type: 'line',
+                    label: 'Tendencia',
+                    data:[@ViewBag.data2sgrap],
+                    backgroundColor: "#8CB06B",
+                    borderColor: "#aa0909",
+                    borderWidth: 2,
+                    fill: false
+                }
+                ,
+                {
+                    type: 'bar',
+                    label: 'Eventos por @ViewBag.dxx',
+                    data: [@ViewBag.datasgrap],
+                    backgroundColor: "#FFA500",
+                    borderWidth: 2
+                }]
+        };
+        var barChartDqe1 =
+        {
+              labels: [@Html.Raw(ViewBag.labelsgrap2)],
+            datasets: [
+                {
+                    type: 'line',
+                    label: 'Porcentaje acumulado',
+                    data:[@ViewBag.data2sgrap2],
+                    backgroundColor: "#8CB06B",
+                    borderColor: "#aa0909",
+                    borderWidth: 2,
+                    fill: false
+                }
+                ,
+                {
+                    type: 'bar',
+                    label: 'Andons',
+                    data: [@ViewBag.datasgrap2],
+                    backgroundColor: "#6B8CB0",
+                    borderWidth: 2
+                }
+
+            ]
+        };
+
+
+            $(document).ready(function () {
+
+              $('#tableq').DataTable({
+                "dom": 'lBfrtip',
+                "lengthMenu": [[5, 15, 50, -1], ["5", "15", "50", "Todos"]],
+                   "buttons": ['copy', 'csv','print','pdf','excel'],
+                "order": [[0, "desc"]],
+                "scrollX": true,
+                "language": {
+                    "sProcessing": "Procesando...",
+                    "sLengthMenu": "Mostrar _MENU_ registros",
+                    "sZeroRecords": "No se encontraron resultados",
+                    "sEmptyTable": "Ningún dato disponible en esta tabla =(",
+                    "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                    "sInfoPostFix": "",
+                    "sSearch": "Buscar:",
+                    "sUrl": "",
+                    "sInfoThousands": ",",
+                    "sLoadingRecords": "Cargando...",
+                    "oPaginate": {
+                        "sFirst": "Primero",
+                        "sLast": "Último",
+                        "sNext": "Siguiente",
+                        "sPrevious": "Anterior"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                    },
+                    "buttons": {
+                        "copy": "Copiar",
+                        "colvis": "Visibilidad"
+                    }
+                }
+            });
+
+
+            var ctqx = document.getElementById('chartme');
+            var myChartqe1 = new Chart(ctqx, {
+                type: 'bar',
+                data: barChartqe,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+
+                var ctqx1 = document.getElementById('charttimee');
+                var myChartqe1 = new Chart(ctqx1, {
+                    type: 'bar',
+                    data: barChartDqe1,
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: true,
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        },
+                        legend: {
+                            labels: {
+                                // This more specific font property overrides the global property
+                                fontColor: 'black',
+                                defaultFontSize: 25,
+                            }
+                        }
+                    }
+                });
+
+
+        });
+    </script>
+
+}

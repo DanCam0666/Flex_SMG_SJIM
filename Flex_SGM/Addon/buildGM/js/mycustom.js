@@ -150,7 +150,7 @@ function init_morris_charts() {
 			
 }
 function x() {
-	if (document.title === "Repo - Automatizacion" || document.title === "Estado de OILs - Automatizacion" || document.title === "IPs - Automatizacion")
+    if (document.title === "Repo - Automatizacion" || document.title === "Create - Automatizacion" || document.title === "Estado de OILs - Automatizacion" || document.title === "IPs - Automatizacion")
     $('.collapse-link').trigger("click");
 }
 

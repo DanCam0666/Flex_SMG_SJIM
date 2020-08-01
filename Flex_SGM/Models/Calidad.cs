@@ -243,11 +243,11 @@ namespace Flex_SGM.Models
         [MaxLength(5)]
         public string Hora { get; set; }
 
-        [Display(Name = "Area Generadora")]
+        [Display(Name = "Area que genera el defecto")]
         [ForeignKey("Primary")]
         public int? AreasgID { get; set; }
   
-        [Display(Name = "Area Emisora")]
+        [Display(Name = "Area que detecta el defecto")]
         [ForeignKey("Assigned")]
         public int? AreaseID { get; set; }
 
@@ -270,17 +270,20 @@ namespace Flex_SGM.Models
         [Display(Name = "Nombre De la parte")]
         public string NombreDeParte { get; set; }
 
-
-        public string AndonDefectoID { get; set; }
+        [Display(Name = "Defecto")]
+        public int? AndonDefectoID { get; set; }
 
         [MaxLength(600)]
         public string Comentarios { get; set; }
+        [MaxLength(20)]
+        public string Cantidadpz { get; set; }
 
-    
-        public string AndonAuditorID { get; set; }
+        [Display(Name = "Auditor")]
+        public int? AndonAuditorID { get; set; }
 
-     
-        public string AndonSupervisoresID { get; set; }
+
+        [Display(Name = "Supervisor")]
+        public int? AndonSupervisoresID { get; set; }
 
 
         public Asistentes Asistentes { get; set; }

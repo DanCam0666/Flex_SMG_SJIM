@@ -343,7 +343,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>04/01/2020 20:21:24</publishTime>
     </File>
     <File Include="Addon/buildGM/js/mycustom.js">
-      <publishTime>07/28/2020 07:29:54</publishTime>
+      <publishTime>08/01/2020 13:40:56</publishTime>
     </File>
     <File Include="Addon/Charts/Chart.min.css">
       <publishTime>07/28/2020 07:29:51</publishTime>
@@ -1498,10 +1498,10 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>07/28/2020 07:29:54</publishTime>
     </File>
     <File Include="Addon/fontawesome-free-5.12.0-web/js/all.js">
-      <publishTime>01/04/2020 17:51:54</publishTime>
+      <publishTime>07/28/2020 07:29:54</publishTime>
     </File>
     <File Include="Addon/fontawesome-free-5.12.0-web/js/all.min.js">
-      <publishTime>01/04/2020 17:51:54</publishTime>
+      <publishTime>07/28/2020 07:29:54</publishTime>
     </File>
     <File Include="Addon/fontawesome-free-5.12.0-web/js/brands.js">
       <publishTime>07/28/2020 07:29:55</publishTime>
@@ -7108,70 +7108,70 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>07/28/2020 07:29:59</publishTime>
     </File>
     <File Include="Addon/morris-charts/morris.css">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>07/28/2020 07:30:00</publishTime>
     </File>
     <File Include="Addon/morris-charts/morris.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>07/28/2020 07:30:00</publishTime>
     </File>
     <File Include="Addon/morris-charts/morris.min.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>07/28/2020 07:30:00</publishTime>
     </File>
     <File Include="Addon/pnotify/NonBlock.es5.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>07/28/2020 07:30:00</publishTime>
     </File>
     <File Include="Addon/pnotify/PNotify.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>07/28/2020 07:30:00</publishTime>
     </File>
     <File Include="Addon/pnotify/PNotifyAnimate.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>07/28/2020 07:30:00</publishTime>
     </File>
     <File Include="Addon/pnotify/PNotifyBrightTheme.css">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>07/28/2020 07:30:00</publishTime>
     </File>
     <File Include="Addon/pnotify/PNotifyButtons.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>07/28/2020 07:30:00</publishTime>
     </File>
     <File Include="Addon/pnotify/PNotifyCallbacks.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>07/28/2020 07:30:00</publishTime>
     </File>
     <File Include="Addon/pnotify/PNotifyConfirm.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>07/28/2020 07:30:00</publishTime>
     </File>
     <File Include="Addon/pnotify/PNotifyDesktop.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>07/28/2020 07:30:00</publishTime>
     </File>
     <File Include="Addon/pnotify/PNotifyHistory.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>07/28/2020 07:30:00</publishTime>
     </File>
     <File Include="Addon/pnotify/PNotifyMobile.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>07/28/2020 07:30:00</publishTime>
     </File>
     <File Include="Addon/pnotify/PNotifyNonBlock.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>07/28/2020 07:30:00</publishTime>
     </File>
     <File Include="Addon/pnotify/PNotifyReference.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>07/28/2020 07:30:00</publishTime>
     </File>
     <File Include="Addon/pnotify/PNotifyStyleMaterial.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>07/28/2020 07:30:00</publishTime>
     </File>
     <File Include="Addon/raphael/Gruntfile.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>07/28/2020 07:30:00</publishTime>
     </File>
     <File Include="Addon/raphael/raphael.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>07/28/2020 07:30:00</publishTime>
     </File>
     <File Include="Addon/raphael/raphael.min.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>07/28/2020 07:30:00</publishTime>
     </File>
     <File Include="Addon/raphael/raphael.no-deps.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>07/28/2020 07:30:00</publishTime>
     </File>
     <File Include="Addon/raphael/raphael.no-deps.min.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>07/28/2020 07:30:00</publishTime>
     </File>
     <File Include="Addon/raphael/webpack.config.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>07/28/2020 07:30:00</publishTime>
     </File>
     <File Include="Addon/TimeAgo/jquery.timeago.js">
       <publishTime>07/28/2020 07:29:53</publishTime>
@@ -7246,13 +7246,13 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>07/28/2020 07:30:34</publishTime>
     </File>
     <File Include="bin/Flex_SGM.dll">
-      <publishTime>08/01/2020 10:00:05</publishTime>
+      <publishTime>08/01/2020 14:09:41</publishTime>
     </File>
     <File Include="bin/Flex_SGM.pdb">
-      <publishTime>08/01/2020 10:00:05</publishTime>
+      <publishTime>08/01/2020 14:09:41</publishTime>
     </File>
     <File Include="bin/IBM.Data.DB2.iSeries.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>06/20/2018 08:10:00</publishTime>
     </File>
     <File Include="bin/img/work.jpg">
       <publishTime>01/01/0001 00:00:00</publishTime>
@@ -7492,49 +7492,49 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>07/28/2020 07:30:40</publishTime>
     </File>
     <File Include="Content/animate.css">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>07/28/2020 07:30:00</publishTime>
     </File>
     <File Include="Content/bootstrap-theme.css">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>07/28/2020 07:30:00</publishTime>
     </File>
     <File Include="Content/bootstrap-theme.css.map">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>07/28/2020 07:30:00</publishTime>
     </File>
     <File Include="Content/bootstrap-theme.min.css">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>07/28/2020 07:30:00</publishTime>
     </File>
     <File Include="Content/bootstrap-theme.min.css.map">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>07/28/2020 07:30:00</publishTime>
     </File>
     <File Include="Content/bootstrap.css">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>07/28/2020 07:30:00</publishTime>
     </File>
     <File Include="Content/bootstrap.css.map">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>07/28/2020 07:30:00</publishTime>
     </File>
     <File Include="Content/bootstrap.min.css">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>07/28/2020 07:30:00</publishTime>
     </File>
     <File Include="Content/bootstrap.min.css.map">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>07/28/2020 07:30:00</publishTime>
     </File>
     <File Include="Content/css.css">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>07/28/2020 07:30:00</publishTime>
     </File>
     <File Include="Content/DataTables-1.10.20/images/sort_asc.png">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>07/28/2020 07:30:00</publishTime>
     </File>
     <File Include="Content/DataTables-1.10.20/images/sort_asc_disabled.png">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>07/28/2020 07:30:00</publishTime>
     </File>
     <File Include="Content/DataTables-1.10.20/images/sort_both.png">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>07/28/2020 07:30:00</publishTime>
     </File>
     <File Include="Content/DataTables-1.10.20/images/sort_desc.png">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>07/28/2020 07:30:00</publishTime>
     </File>
     <File Include="Content/DataTables-1.10.20/images/sort_desc_disabled.png">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>07/28/2020 07:30:00</publishTime>
     </File>
     <File Include="Content/FngStyle - Copia.css">
       <publishTime>01/01/0001 00:00:00</publishTime>
@@ -7543,13 +7543,13 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Content/Login.css">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>07/28/2020 07:30:00</publishTime>
     </File>
     <File Include="Content/PagedList.css">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>07/28/2020 07:30:00</publishTime>
     </File>
     <File Include="Content/Site.css">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>07/28/2020 07:30:00</publishTime>
     </File>
     <File Include="favicon.ico">
       <publishTime>07/28/2020 07:30:21</publishTime>
@@ -7843,7 +7843,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>07/28/2020 07:30:01</publishTime>
     </File>
     <File Include="Views/Calidad/Index.cshtml">
-      <publishTime>07/28/2020 07:30:02</publishTime>
+      <publishTime>08/01/2020 12:06:13</publishTime>
     </File>
     <File Include="Views/CAndon2/Create.cshtml">
       <publishTime>08/01/2020 08:57:34</publishTime>
@@ -7864,22 +7864,37 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>08/01/2020 08:57:44</publishTime>
     </File>
     <File Include="Views/CAndons/Create.cshtml">
-      <publishTime>01/08/2020 09:07:27</publishTime>
+      <publishTime>08/01/2020 09:07:27</publishTime>
     </File>
     <File Include="Views/CAndons/Delete.cshtml">
-      <publishTime>01/08/2020 09:07:27</publishTime>
+      <publishTime>08/01/2020 09:07:27</publishTime>
     </File>
     <File Include="Views/CAndons/Details.cshtml">
-      <publishTime>01/08/2020 09:06:33</publishTime>
+      <publishTime>08/01/2020 09:06:33</publishTime>
     </File>
     <File Include="Views/CAndons/Edit.cshtml">
-      <publishTime>01/08/2020 09:06:14</publishTime>
+      <publishTime>08/01/2020 09:06:14</publishTime>
     </File>
     <File Include="Views/CAndons/Index - Copy.cshtml">
       <publishTime>07/28/2020 07:30:02</publishTime>
     </File>
     <File Include="Views/CAndons/Index.cshtml">
       <publishTime>08/01/2020 09:19:13</publishTime>
+    </File>
+    <File Include="Views/CAndons2/Create.cshtml">
+      <publishTime>08/01/2020 13:39:33</publishTime>
+    </File>
+    <File Include="Views/CAndons2/Delete.cshtml">
+      <publishTime>08/01/2020 11:55:46</publishTime>
+    </File>
+    <File Include="Views/CAndons2/Details.cshtml">
+      <publishTime>08/01/2020 11:55:17</publishTime>
+    </File>
+    <File Include="Views/CAndons2/Edit.cshtml">
+      <publishTime>08/01/2020 13:42:22</publishTime>
+    </File>
+    <File Include="Views/CAndons2/Index.cshtml">
+      <publishTime>08/01/2020 13:09:23</publishTime>
     </File>
     <File Include="Views/cAreas/Create.cshtml">
       <publishTime>08/01/2020 09:54:02</publishTime>
@@ -7994,6 +8009,21 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
     </File>
     <File Include="Views/CPlanos/program.cshtml">
       <publishTime>07/28/2020 07:30:02</publishTime>
+    </File>
+    <File Include="Views/cProyectos/Create.cshtml">
+      <publishTime>08/01/2020 13:07:14</publishTime>
+    </File>
+    <File Include="Views/cProyectos/Delete.cshtml">
+      <publishTime>08/01/2020 13:07:16</publishTime>
+    </File>
+    <File Include="Views/cProyectos/Details.cshtml">
+      <publishTime>08/01/2020 13:07:19</publishTime>
+    </File>
+    <File Include="Views/cProyectos/Edit.cshtml">
+      <publishTime>08/01/2020 13:07:21</publishTime>
+    </File>
+    <File Include="Views/cProyectos/Index.cshtml">
+      <publishTime>08/01/2020 13:07:23</publishTime>
     </File>
     <File Include="Views/CReclamos/Create.cshtml">
       <publishTime>07/28/2020 07:30:02</publishTime>
