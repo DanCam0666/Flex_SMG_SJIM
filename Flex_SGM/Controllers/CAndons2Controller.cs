@@ -10,6 +10,7 @@ using System.Web;
 using System.Web.Mvc;
 using Flex_SGM.Models;
 using System.Web.Script.Serialization;
+using System.Web.UI;
 
 namespace Flex_SGM.Controllers
 {
@@ -266,7 +267,7 @@ namespace Flex_SGM.Controllers
             //--------------------------------------------------------
             if (paret == "Cliente")
             {
-                var groupdata = datafiltered.GroupBy(g => g.ClientesID).OrderByDescending(k => k.Count()).ToList();
+                var groupdata = datafiltered.GroupBy(g => g.Clientes.Cliente).OrderByDescending(k => k.Count()).ToList();
                 var labels = "'";
                 var gdata = "";
                 var gdata2 = "";
@@ -292,7 +293,7 @@ namespace Flex_SGM.Controllers
             //--------------------------------------------------------
             if (paret == "Area Genero")
             {
-                var groupdata = datafiltered.GroupBy(g => g.AreasgID).OrderByDescending(k => k.Count()).ToList();
+                var groupdata = datafiltered.GroupBy(g => g.Primary.Area).OrderByDescending(k => k.Count()).ToList();
                 var labels = "'";
                 var gdata = "";
                 var gdata2 = "";
@@ -318,7 +319,7 @@ namespace Flex_SGM.Controllers
             //--------------------------------------------------------
             if (paret == "Area Emitio")
             {
-                var groupdata = datafiltered.GroupBy(g => g.AreaseID).OrderByDescending(k => k.Count()).ToList();
+                var groupdata = datafiltered.GroupBy(g => g.Assigned.Area).OrderByDescending(k => k.Count()).ToList();
                 var labels = "'";
                 var gdata = "";
                 var gdata2 = "";
@@ -344,7 +345,7 @@ namespace Flex_SGM.Controllers
             //--------------------------------------------------------
             if (paret == "Proyecto")
             {
-                var groupdata = datafiltered.GroupBy(g => g.ProyectosID).OrderByDescending(k => k.Count()).ToList();
+                var groupdata = datafiltered.GroupBy(g => g.Proyectos.Proyecto).OrderByDescending(k => k.Count()).ToList();
                 var labels = "'";
                 var gdata = "";
                 var gdata2 = "";
@@ -396,33 +397,7 @@ namespace Flex_SGM.Controllers
             //--------------------------------------------------------
             if (paret == "Defecto")
             {
-                var groupdata = datafiltered.GroupBy(g => g.AndonDefectoID).OrderByDescending(k => k.Count()).ToList();
-                var labels = "'";
-                var gdata = "";
-                var gdata2 = "";
-                int stempt = datafiltered.Count();
-                int stemp = 0;
-                foreach (var h in groupdata)
-                {
-                    labels = labels + h.Key + "','";
-                    gdata = gdata + h.Count().ToString() + ",";
-                    stemp = stemp + h.Count();
-                    double res = (stemp / (double)stempt) * 100;
-                    gdata2 = gdata2 + string.Format("{0:0.##}", res) + ",";
-                }
-
-                labels = labels.TrimEnd(',', (char)39);
-                labels = labels + "'";
-                gdata.TrimEnd(',', (char)39);
-                gdata2.TrimEnd(',', (char)39);
-                ViewBag.labelsgrap2 = labels;
-                ViewBag.datasgrap2 = gdata;
-                ViewBag.data2sgrap2 = gdata2;
-            }
-            //--------------------------------------------------------
-            if (paret == "Proyecto")
-            {
-                var groupdata = datafiltered.GroupBy(g => g.ProyectosID).OrderByDescending(k => k.Count()).ToList();
+                var groupdata = datafiltered.GroupBy(g => g.AndonDefecto.Defecto).OrderByDescending(k => k.Count()).ToList();
                 var labels = "'";
                 var gdata = "";
                 var gdata2 = "";
@@ -448,7 +423,7 @@ namespace Flex_SGM.Controllers
             //--------------------------------------------------------
             if (paret == "Supervisor")
             {
-                var groupdata = datafiltered.GroupBy(g => g.AndonSupervisoresID).OrderByDescending(k => k.Count()).ToList();
+                var groupdata = datafiltered.GroupBy(g => g.AndonSupervisores.Supervisor).OrderByDescending(k => k.Count()).ToList();
                 var labels = "'";
                 var gdata = "";
                 var gdata2 = "";
@@ -474,7 +449,7 @@ namespace Flex_SGM.Controllers
             //--------------------------------------------------------
             if (paret == "Auditor")
             {
-                var groupdata = datafiltered.GroupBy(g => g.AndonAuditorID).OrderByDescending(k => k.Count()).ToList();
+                var groupdata = datafiltered.GroupBy(g => g.AndonAuditor.Auditor).OrderByDescending(k => k.Count()).ToList();
                 var labels = "'";
                 var gdata = "";
                 var gdata2 = "";
@@ -610,22 +585,56 @@ namespace Flex_SGM.Controllers
 
             // return View(cAndon2.ToList());
         }
-
-        public ActionResult areagenero(int Tipo)
+        
+        public ActionResult paretoasync(string btn = "Por Mes", string dti = "", string dtf = "", string paret = "Cliente")
         {
 
-            var defectos = db.AndonDefectoes.Where(w => w.AreasID == Tipo);
-            // TODO: based on the selected country return the cities:
-            List<object> datajson = new List<object>();
-            foreach(var item in defectos)
-            {
-                datajson.Add(new { id = item.ID, value = item.Defecto });
-            }
-           
+         
+            object xpra = new object();
 
-            return Json(datajson, JsonRequestBehavior.AllowGet);
+            return Json(xpra, JsonRequestBehavior.AllowGet);
+        }
+        public ActionResult areagenero(int id)
+        {
+
+            var data = db.AndonDefectoes.Where(w => w.AreasID == id);
+ 
+            var datajson2=new SelectList(data, "ID", "Defecto");
+
+            return Json(datajson2, JsonRequestBehavior.AllowGet);
         }
 
+        public ActionResult areasuper(int id)
+        {
+
+            var data = db.AndonSupervisores.Where(w => w.AreasID == id);
+
+            var datajson2 = new SelectList(data, "ID", "Supervisor");
+
+            return Json(datajson2, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult areaaudi(int id)
+        {
+
+            var data = db.AndonAuditors.Where(w => w.AreasID == id);
+            // TODO: based on the selected country return the cities:
+            List<object> datajson = new List<object>();
+
+            var datajson2 = new SelectList(data, "ID", "Auditor");
+
+            return Json(datajson2, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult clientepro(int id)
+        {
+
+            var data = db.cProyectos.Where(w => w.ClientesID == id);
+
+            var datajson2 = new SelectList(data, "ID", "Proyecto");
+
+            return Json(datajson2, JsonRequestBehavior.AllowGet);
+        }
 
         // GET: CAndons2/Details/5
         public ActionResult Details(int? id)

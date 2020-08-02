@@ -52,7 +52,7 @@
                                     @Html.LabelFor(model => model.AreasgID, "Area Generadora", htmlAttributes: new { @class = "control-label col-md-12" })
                                     <div class="col-md-10">
                                        
-                                        @Html.DropDownList("AreasgID",null,htmlAttributes: new { @class = "form-control", data_url = Url.Action("areagenero") }
+                                        @Html.DropDownList("AreasgID",null,htmlAttributes: new { @class = "form-control" }
 )
 
                                         @Html.ValidationMessageFor(model => model.AreasgID, "", new { @class = "text-danger" })
@@ -136,7 +136,7 @@
                             <div class="form-group col-xs-2">
                                 @Html.LabelFor(model => model.Cantidadpz, htmlAttributes: new { @class = "control-label col-md-12" })
                                 <div class="col-md-10">
-                                    @Html.TextAreaFor(model => model.Cantidadpz, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.EditorFor(model => model.Cantidadpz, new { htmlAttributes = new { @class = "form-control" } })
                                     @Html.ValidationMessageFor(model => model.Cantidadpz, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -398,53 +398,97 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
-    <script>
+<script>
 
-           $(function () {
-            $('#AreasgID').change(function () {
-                var url = $(this).data('url');
-                var data = { Tipo: $(this).val() };
-                $.getJSON(url, data, function (xdes) {
-                    var DessDdl = $('#AndonDefectoID');
-                    DessDdl.empty();
-                    $.each(xdes, function (id, value) {
-                        DessDdl.append($('<option/>', {
-                            value: id,
-                            text: value
-                        }));
-                    });
-                });
-            });
-            });
-                    
-        $('#AreasgID').change(function () {
-            $.ajax({
-                type: "GET",
-                async: false,
-                url: "@Url.Action("areagenero")",
-                data: { Tipo: $(this).val() },
-                cache: false,
-                dataType: "html",
-                failure: function () {
-                    alert(" An error occurred.");
-                },
-                success: function (result) {
-                      console.log(result);
-                    UpdateToAndFromTypes(result);
-                }
-            });
-        });
+   $(document).ready(function () {
 
-              $(function UpdateToAndFromTypes(result) {
-    $("#AndonDefectoID").empty();
-       $.each(result, function(id, value) {   
-         $('#AndonDefectoID')
-             .append($("<option></option>")
-             .attr("value",key)
-             .text(value)); 
-       });    
+
+    $("#AreasgID").change(function () {
+        $("#AndonSupervisoresID").empty();
+    $.ajax({
+        type: 'POST',
+        url: '@Url.Action("areasuper")',
+        dataType: 'json',
+        data: { id: $("#AreasgID").val() },
+        success: function (subcategories) {
+            $.each(subcategories, function (i, subcategory) {
+                $("#AndonSupervisoresID").append('<option value="'
+                    + subcategory.Value + '">' +
+                    subcategory.Text + '</option>');
+            });
+        },
+        error: function (ex) {
+            alert('Failed to retrieve Defectos : ' + ex);
+        }
     });
+    return false;
+})
 
+
+    $("#AreaseID").change(function () {
+        $("#AndonAuditorID").empty();
+    $.ajax({
+        type: 'POST',
+        url: '@Url.Action("areaaudi")',
+        dataType: 'json',
+        data: { id: $("#AreaseID").val() },
+        success: function (subcategories) {
+            $.each(subcategories, function (i, subcategory) {
+                $("#AndonAuditorID").append('<option value="'
+                    + subcategory.Value + '">' +
+                    subcategory.Text + '</option>');
+            });
+        },
+        error: function (ex) {
+            alert('Failed to retrieve Defectos : ' + ex);
+        }
+    });
+    return false;
+})
+
+    $("#AreasgID").change(function () {
+        $("#AndonDefectoID").empty();
+    $.ajax({
+        type: 'POST',
+        url: '@Url.Action("areagenero")',
+        dataType: 'json',
+        data: { id: $("#AreasgID").val() },
+        success: function (subcategories) {
+            $.each(subcategories, function (i, subcategory) {
+                $("#AndonDefectoID").append('<option value="'
+                    + subcategory.Value + '">' +
+                    subcategory.Text + '</option>');
+            });
+        },
+        error: function (ex) {
+            alert('Failed to retrieve Defectos : ' + ex);
+        }
+    });
+    return false;
+})
+
+
+    $("#ClientesID").change(function () {
+        $("#ProyectosID").empty();
+    $.ajax({
+        type: 'POST',
+        url: '@Url.Action("clientepro")',
+        dataType: 'json',
+        data: { id: $("#ClientesID").val() },
+        success: function (subcategories) {
+            $.each(subcategories, function (i, subcategory) {
+                $("#ProyectosID").append('<option value="'
+                    + subcategory.Value + '">' +
+                    subcategory.Text + '</option>');
+            });
+        },
+        error: function (ex) {
+            alert('Failed to retrieve proyectos : ' + ex);
+        }
+    });
+    return false;
+})
+});
 
 
         $(function () {
@@ -455,6 +499,6 @@
 
         });
 
-    </script>
+</script>
 }
 
