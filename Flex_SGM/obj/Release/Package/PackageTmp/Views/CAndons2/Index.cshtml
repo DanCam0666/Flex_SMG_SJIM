@@ -135,19 +135,19 @@
                                 @Html.DisplayNameFor(model => model.NombreDeParte)
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.AndonDefectoID)
+                                @Html.DisplayNameFor(model => model.AndonDefecto.Defecto)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Cantidadpz)
                             </th>
                             <th>
                                 @Html.DisplayNameFor(model => model.Comentarios)
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.AndonAuditorID)
+                                @Html.DisplayNameFor(model => model.AndonAuditor.Auditor)
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.AndonSupervisoresID)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Asistentes)
+                                @Html.DisplayNameFor(model => model.AndonSupervisores.Supervisor)
                             </th>
                             <th>
                                 @Html.DisplayNameFor(model => model.EstatusAndon)
@@ -227,19 +227,19 @@
                                 @Html.DisplayFor(modelItem => item.NombreDeParte)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.AndonDefectoID)
+                                @Html.DisplayFor(modelItem => item.AndonDefecto.Defecto)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Cantidadpz)
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.Comentarios)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.AndonAuditorID)
+                                @Html.DisplayFor(modelItem => item.AndonAuditor.Auditor)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.AndonSupervisoresID)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Asistentes)
+                                @Html.DisplayFor(modelItem => item.AndonSupervisores.Supervisor)
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.EstatusAndon)
@@ -287,6 +287,7 @@
 @section Scripts {
 
     <script>
+                alert("Hola, Este apartado continua en desarrollo, Puedes hacer uso del, pero puede contener errores en visualización ….  DISCULPA LAS MOLESTIAS");
 
         var barChartqe =
         {
@@ -336,7 +337,26 @@
         };
 
 
-            $(document).ready(function () {
+        $(document).ready(function () {
+
+            $("#paret").change(function () {
+    $.ajax({
+        type: 'POST',
+        url: '@Url.Action("paretoasync")',
+        dataType: 'json',
+        data: { id: $("#paret").val() },
+        success: function (result) {
+              
+
+        },
+        error: function (ex) {
+            alert('Failed to retrieve Defectos : ' + ex);
+        }
+    });
+    return false;
+})
+
+
 
               $('#tableq').DataTable({
                 "dom": 'lBfrtip',
@@ -374,7 +394,6 @@
                 }
             });
 
-
             var ctqx = document.getElementById('chartme');
             var myChartqe1 = new Chart(ctqx, {
                 type: 'bar',
@@ -393,7 +412,7 @@
             });
 
                 var ctqx1 = document.getElementById('charttimee');
-                var myChartqe1 = new Chart(ctqx1, {
+                var myChartqe2 = new Chart(ctqx1, {
                     type: 'bar',
                     data: barChartDqe1,
                     options: {

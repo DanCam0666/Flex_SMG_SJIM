@@ -29,7 +29,8 @@ namespace Flex_SGM.Controllers
 
             string[] array2 = { "Por Mes", "Por Años", "Por Dia" };
             ViewBag.btn = new SelectList(array2);
-
+            string[] arrayt = { "1", "2", "Por Dia" };
+            ViewBag.Turno= new SelectList(arrayt);
             string[] array3 = { "Cliente", "Area Genero", "Area Emitio", "Proyecto","Numero de parte", "Defecto","Supervisor","Auditor", "Fecha", "Turno", "Hora", "Lote" };
             ViewBag.paret = new SelectList(array3);
 

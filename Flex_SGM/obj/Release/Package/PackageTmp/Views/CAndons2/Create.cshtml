@@ -24,7 +24,7 @@
                                 @Html.LabelFor(model => model.Fecha, htmlAttributes: new { @class = "control-label col-md-12" })
                                 <div class="col-md-10">
                                     <div class="form-line" id="bs_datepicker_container">
-                                        @Html.EditorFor(model => model.Fecha, new { htmlAttributes = new { @class = "form-control", @autocomplete = "off" } })
+                                        @Html.EditorFor(model => model.Fecha, new { htmlAttributes = new { @class = "form-control",@readonly="readonly", @autocomplete = "off" } })
                                     </div>
                                     @Html.ValidationMessageFor(model => model.Fecha, "", new { @class = "text-danger" })
                                     <p>Fecha en la que se origino el Reclamo</p>
@@ -33,15 +33,15 @@
                             <div class="form-group  col-xs-2">
                                 @Html.LabelFor(model => model.Turno, htmlAttributes: new { @class = "control-label col-md-12" })
                                 <div class="col-md-10">
-                                    @Html.EditorFor(model => model.Turno, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.EditorFor(model => model.Turno,null , new { htmlAttributes = new { @class = "form-control", @autocomplete = "off" } })
                                     @Html.ValidationMessageFor(model => model.Turno, "", new { @class = "text-danger" })
                                     <p>Turno del Hallazgo</p>
                                 </div>
                             </div>
                             <div class="form-group col-xs-2">
                                 @Html.LabelFor(model => model.Hora, htmlAttributes: new { @class = "control-label col-md-12" })
-                                <div class="col-md-10">
-                                    @Html.EditorFor(model => model.Hora, new { htmlAttributes = new { @class = "form-control" } })
+                                <div class="col-md-10" readonly="readonly">
+                                    @Html.EditorFor(model => model.Hora, new { htmlAttributes = new { @class = "form-control", @autocomplete = "off" , @id = "datetimehrs" } })
                                     @Html.ValidationMessageFor(model => model.Hora, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -51,7 +51,10 @@
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.AreasgID, "Area Generadora", htmlAttributes: new { @class = "control-label col-md-12" })
                                     <div class="col-md-10">
-                                        @Html.DropDownList("AreasgID", null, htmlAttributes: new { @class = "form-control" })
+
+                                        @Html.DropDownList("AreasgID", null, htmlAttributes: new { @class = "form-control" }
+)
+
                                         @Html.ValidationMessageFor(model => model.AreasgID, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
@@ -129,7 +132,15 @@
                                     @Html.ValidationMessageFor(model => model.AndonDefectoID, "", new { @class = "text-danger" })
                                 </div>
                             </div>
-                            <div class="form-group col-xs-8">
+
+                            <div class="form-group col-xs-2">
+                                @Html.LabelFor(model => model.Cantidadpz, htmlAttributes: new { @class = "control-label col-md-12" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Cantidadpz, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Cantidadpz, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group col-xs-6">
                                 @Html.LabelFor(model => model.Comentarios, htmlAttributes: new { @class = "control-label col-md-12" })
                                 <div class="col-md-10">
                                     @Html.TextAreaFor(model => model.Comentarios, new { htmlAttributes = new { @class = "form-control" } })
@@ -384,3 +395,124 @@
 <div>
     @Html.ActionLink("Regresar a Lista", "Index")
 </div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+
+    $(document).ready(function () {
+
+                     $('#datetimehrs').datetimepicker({ format: 'HH:mm' });
+
+       $("#AreasgID").chosen();
+       $("#AreaseID").chosen();
+       $("#ClientesID").chosen();
+
+    $("#AreasgID").change(function () {
+        $("#AndonSupervisoresID").empty();
+    $.ajax({
+        type: 'POST',
+        url: '@Url.Action("areasuper")',
+        dataType: 'json',
+        data: { id: $("#AreasgID").val() },
+        success: function (subcategories) {
+            $.each(subcategories, function (i, subcategory) {
+                $("#AndonSupervisoresID").append('<option value="'
+                    + subcategory.Value + '">' +
+                    subcategory.Text + '</option>');
+            });
+               $('#AndonSupervisoresID').trigger("chosen:updated");
+
+        },
+        error: function (ex) {
+            alert('Failed to retrieve Defectos : ' + ex);
+        }
+    });
+    return false;
+    })
+    $("#AndonSupervisoresID").chosen();
+
+    $("#AreaseID").change(function () {
+        $("#AndonAuditorID").empty();
+    $.ajax({
+        type: 'POST',
+        url: '@Url.Action("areaaudi")',
+        dataType: 'json',
+        data: { id: $("#AreaseID").val() },
+        success: function (subcategories) {
+            $.each(subcategories, function (i, subcategory) {
+                $("#AndonAuditorID").append('<option value="'
+                    + subcategory.Value + '">' +
+                    subcategory.Text + '</option>');
+            });
+                          $('#AndonAuditorID').trigger("chosen:updated");
+
+        },
+        error: function (ex) {
+            alert('Failed to retrieve Defectos : ' + ex);
+        }
+    });
+    return false;
+})
+    $("#AndonAuditorID").chosen();
+
+    $("#AreasgID").change(function () {
+        $("#AndonDefectoID").empty();
+    $.ajax({
+        type: 'POST',
+        url: '@Url.Action("areagenero")',
+        dataType: 'json',
+        data: { id: $("#AreasgID").val() },
+        success: function (subcategories) {
+            $.each(subcategories, function (i, subcategory) {
+                $("#AndonDefectoID").append('<option value="'
+                    + subcategory.Value + '">' +
+                    subcategory.Text + '</option>');
+            });
+           $('#AndonDefectoID').trigger("chosen:updated");
+
+        },
+        error: function (ex) {
+            alert('Failed to retrieve Defectos : ' + ex);
+        }
+    });
+    return false;
+})
+    $("#AndonDefectoID").chosen();
+
+    $("#ClientesID").change(function () {
+        $("#ProyectosID").empty();
+    $.ajax({
+        type: 'POST',
+        url: '@Url.Action("clientepro")',
+        dataType: 'json',
+        data: { id: $("#ClientesID").val() },
+        success: function (subcategories) {
+            $.each(subcategories, function (i, subcategory) {
+                $("#ProyectosID").append('<option value="'
+                    + subcategory.Value + '">' +
+                    subcategory.Text + '</option>');
+            });
+          $('#ProyectosID').trigger("chosen:updated");
+        },
+        error: function (ex) {
+            alert('Failed to retrieve proyectos : ' + ex);
+        }
+    });
+    return false;
+    })
+    $("#ProyectosID").chosen();
+
+
+   $("#AndonSupervisoresID").chosen();
+
+
+
+
+});
+
+
+
+    </script>
+}
+
