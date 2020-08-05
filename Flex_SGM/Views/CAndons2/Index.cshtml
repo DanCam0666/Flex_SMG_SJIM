@@ -120,7 +120,13 @@
                                 @Html.DisplayNameFor(model => model.AreasgID)
                             </th>
                             <th>
+                                @Html.DisplayNameFor(model => model.AndonSupervisores.Supervisor)
+                            </th>
+                            <th>
                                 @Html.DisplayNameFor(model => model.AreaseID)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.AndonAuditor.Auditor)
                             </th>
                             <th>
                                 @Html.DisplayNameFor(model => model.Clientes.Cliente)
@@ -142,12 +148,6 @@
                             </th>
                             <th>
                                 @Html.DisplayNameFor(model => model.Comentarios)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.AndonAuditor.Auditor)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.AndonSupervisores.Supervisor)
                             </th>
                             <th>
                                 @Html.DisplayNameFor(model => model.EstatusAndon)
@@ -212,8 +212,15 @@
                                 @Html.DisplayFor(modelItem => item.Primary.Area)
                             </td>
                             <td>
+                                @Html.DisplayFor(modelItem => item.AndonSupervisores.Supervisor)
+                            </td>
+                            <td>
                                 @Html.DisplayFor(modelItem => item.Assigned.Area)
                             </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.AndonAuditor.Auditor)
+                            </td>
+
                             <td>
                                 @Html.DisplayFor(modelItem => item.Clientes.Cliente)
                             </td>
@@ -235,12 +242,7 @@
                             <td>
                                 @Html.DisplayFor(modelItem => item.Comentarios)
                             </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.AndonAuditor.Auditor)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.AndonSupervisores.Supervisor)
-                            </td>
+
                             <td>
                                 @Html.DisplayFor(modelItem => item.EstatusAndon)
                             </td>
@@ -287,8 +289,7 @@
 @section Scripts {
 
     <script>
-                alert("Hola, Este apartado continua en desarrollo, Puedes hacer uso del, pero puede contener errores en visualización ….  DISCULPA LAS MOLESTIAS");
-
+            
         var barChartqe =
         {
               labels: [@Html.Raw(ViewBag.labelsgrap)],

@@ -3114,9 +3114,10 @@ if (amaquina.Contains("Pintura"))
                             )
                         {
                             //*******************
-                            datafiltered.Clear();
+                         
                             total_fallas_full = 0;
                             tiempomueto_full = 0;
+                            datafiltered.Clear();
                             var temp = dataaño.Where(w => w.DiaHora.Month == jmes);
                             datafiltered.AddRange(temp);
 
@@ -3225,8 +3226,9 @@ if (amaquina.Contains("Pintura"))
                                 datasd.MTTR2 = Math.Round(MTTR, 2);
 
                                 //-------------------------------------------------------------------------------------------
-                                datafiltered3 = datafiltered.Where(s => (s.DiaHora.Hour > 23 || s.DiaHora.Hour <= 7)).ToList();
+                                datafiltered3 = datafiltered.Where(s => ((s.DiaHora.Hour > 23 || s.DiaHora.Hour <= 7)&& s.DiaHora.Day!=1)).ToList();
 
+                                datafiltered3.AddRange(datafiltered.Where(s => ((s.DiaHora.Hour > 23 ) && s.DiaHora.Day == 1)).ToList());
                                 total_fallas = 0;
                                 total_fallas = datafiltered3.Count();
                                 tiempomueto = 0;
@@ -3699,8 +3701,9 @@ if (amaquina.Contains("Pintura"))
                             )
                         {
                             labels = labels + iaño.ToString() + "-" + nombreMes + "','";
-                            var temp = dataaño.Where(w => w.DiaHora.Month == jmes);
-                            datafiltered.AddRange(temp);
+                          //  datafiltered.Clear();
+                            var temp = dataaño.Where(w =>w.DiaHora.Year==iaño && w.DiaHora.Month == jmes);
+                          //   datafiltered.AddRange(temp);
                             gdata = gdata + temp.Sum(s => s.Tiempo).ToString() + ",";
                             x.Add(i);
                             y.Add(temp.Sum(s => s.Tiempo));
@@ -3748,7 +3751,7 @@ if (amaquina.Contains("Pintura"))
                 ViewBag.datasgrap = gdata;
                 ViewBag.data2sgrap = gdata2;
                 //--------------------------------------------------------
-                var groupdata = datafiltered.GroupBy(g => g.Maquinas.Maquina).OrderByDescending(o => o.Sum(s => s.Tiempo));
+                var groupdata = datafiltered.GroupBy(g => g.Maquinas.SubMaquina).OrderByDescending(o => o.Sum(s => s.Tiempo));
                 labels = "'";
                 gdata = "";
                 gdata2 = "";

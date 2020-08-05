@@ -676,7 +676,8 @@ namespace Flex_SGM.Controllers
             {
                 db.CAndon2.Add(cAndon2);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                TempData["Section"] = "Evidence";
+                return RedirectToAction("Edit", new { id = cAndon2.ID });
             }
 
             ViewBag.AndonAuditorID = new SelectList(db.AndonAuditors, "ID", "Auditor", cAndon2.AndonAuditorID);

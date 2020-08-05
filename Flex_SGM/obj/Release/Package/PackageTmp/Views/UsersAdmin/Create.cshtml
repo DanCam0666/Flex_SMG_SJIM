@@ -6,7 +6,9 @@
 <hgroup class="title">
     <h1>@ViewBag.Title.</h1>
 </hgroup>
-
+<div class="row clearfix">
+    <center> @{Html.RenderPartial("_Result");}</center>
+</div>
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
