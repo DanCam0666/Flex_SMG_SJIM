@@ -39,6 +39,7 @@ namespace AspnetIdentitySample.Controllers
         public ApplicationDbContext context { get; private set; }
 
 
+
         //
         // GET: /Users/
         [AllowAnonymous]
@@ -100,6 +101,8 @@ namespace AspnetIdentitySample.Controllers
 
 
             ViewBag.Usernorole = UserManager.Users.Where(u => u.Roles.Count == 0).ToList();
+
+            ViewBag.Message = TempData["ok"];
             return View(await UserManager.Users.Where(u => u.Roles.Count > 0).ToListAsync());
         }
 
@@ -290,19 +293,27 @@ namespace AspnetIdentitySample.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> ChangePassword(string id,string OldPassword, string NewPassword)
+        public async Task<ActionResult> ChangePassword(string id, string NewPassword)
         {
-            if (!string.IsNullOrEmpty(id))
+            if (string.IsNullOrEmpty(id))
             {
                 return View();
             }
-            var result = await UserManager.ResetPasswordAsync(id, OldPassword, NewPassword);
+            var provider = new Microsoft.Owin.Security.DataProtection.DpapiDataProtectionProvider("Sample"); 
+            UserManager.UserTokenProvider = new Microsoft.AspNet.Identity.Owin.DataProtectorTokenProvider<ApplicationUser>(provider.Create("EmailConfirmation"));
+
+
+
+            string code = await UserManager.GeneratePasswordResetTokenAsync(id);
+            var result = await UserManager.ResetPasswordAsync(id, code, NewPassword);
+
             if (result.Succeeded)
             {
                 var user = await UserManager.FindByIdAsync(id);
+                TempData["ok"] = "Se cambia password OK de " + user.UserFullName;
                 return RedirectToAction("Index", new { Message = "Se cambia password OK de " + user.UserFullName }) ;
             }
-
+            ViewBag.Message = result.Errors.FirstOrDefault();
             return View();
         }
         ////
