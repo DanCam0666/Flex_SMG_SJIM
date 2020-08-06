@@ -3511,7 +3511,7 @@ if (amaquina.Contains("Pintura"))
                 string gdata2 = "";
                 List<decimal> x = new List<decimal>();
                 List<decimal> y = new List<decimal>();
-                datafiltered = data;
+               // datafiltered = data;
                 var datatempa = data.GroupBy(g => g.DiaHora.Year).ToList();
                 datatempa = datatempa.OrderBy(o => o.Key).ToList();
 
@@ -3899,7 +3899,7 @@ if (amaquina.Contains("Pintura"))
                             {
                                 labels = labels + iaño.ToString() + "-" + nombreMes + "-" + kdia.ToString() + "','";
                                 var temp = datames.Where(w => w.DiaHora.Day == kdia);
-                                datafiltered.AddRange(temp);
+                              // datafiltered.AddRange(temp);
                                 gdata = gdata + temp.Sum(s => s.Tiempo).ToString() + ",";
                                 x.Add(i);
                                 y.Add(temp.Sum(s => s.Tiempo));
