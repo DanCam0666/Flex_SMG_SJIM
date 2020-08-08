@@ -1788,11 +1788,12 @@
                             @section Scripts {
 
                                 <script>
-                        Chart.defaults.global.defaultFontSize= 18;
+                                Chart.defaults.global.defaultFontSize= 18;
                     Chart.helpers.merge(Chart.defaults.global.plugins.datalabels, {
-                           align: 'end',
-                           anchor: 'end',
-                        offset: 1,
+                           align: 'top',
+                        anchor: 'center',
+                           clam:'true',
+                        offset: 0,
                            color: '#000000'
 });
 

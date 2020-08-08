@@ -3675,8 +3675,10 @@ if (amaquina.Contains("Pintura"))
                 ViewBag.dxx = " Anual";
             }
             //*******************************************************************************************
+   
             if (btn == "Metricos por Mes")
             {
+                datafiltered.Clear();
                 string labels = "'";
                 string gdata = "";
                 string gdata2 = "";
@@ -3701,9 +3703,9 @@ if (amaquina.Contains("Pintura"))
                             )
                         {
                             labels = labels + iaño.ToString() + "-" + nombreMes + "','";
-                          //  datafiltered.Clear();
+
                             var temp = dataaño.Where(w =>w.DiaHora.Year==iaño && w.DiaHora.Month == jmes);
-                          //   datafiltered.AddRange(temp);
+                             datafiltered.AddRange(temp);
                             gdata = gdata + temp.Sum(s => s.Tiempo).ToString() + ",";
                             x.Add(i);
                             y.Add(temp.Sum(s => s.Tiempo));
@@ -3874,8 +3876,10 @@ if (amaquina.Contains("Pintura"))
                 ViewBag.dxx = " Mes";
             }
             //*******************************************************************************************
+
             if (btn == "Metricos por Dia")
             {
+                datafiltered.Clear();
                 string labels = "'";
                 string gdata = "";
                 string gdata2 = "";
@@ -3899,7 +3903,7 @@ if (amaquina.Contains("Pintura"))
                             {
                                 labels = labels + iaño.ToString() + "-" + nombreMes + "-" + kdia.ToString() + "','";
                                 var temp = datames.Where(w => w.DiaHora.Day == kdia);
-                              // datafiltered.AddRange(temp);
+                               datafiltered.AddRange(temp);
                                 gdata = gdata + temp.Sum(s => s.Tiempo).ToString() + ",";
                                 x.Add(i);
                                 y.Add(temp.Sum(s => s.Tiempo));

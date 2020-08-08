@@ -251,6 +251,15 @@
 
     <script>
 
+                                        Chart.defaults.global.defaultFontSize= 18;
+                    Chart.helpers.merge(Chart.defaults.global.plugins.datalabels, {
+                           align: 'top',
+                        anchor: 'center',
+                           clam:'true',
+                        offset: 0,
+                           color: '#000000'
+});
+
         var barChartqe =
         {
               labels: [@Html.Raw(ViewBag.labelsgrap)],

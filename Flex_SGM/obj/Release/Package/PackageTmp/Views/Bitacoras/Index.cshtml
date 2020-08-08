@@ -187,7 +187,7 @@
                             {
                                 @Html.ActionLink("Editar", "Edit", new { id = item.ID }, new { @class = "btn  btn-default", @target = "_blank" })
                             }
-                            @if (ViewBag.super && ViewBag.uarea.Contains(item.usuario_area))
+                            @if ((ViewBag.super && ViewBag.uarea.Contains(item.usuario_area))||ViewBag.cuser.Contains(item.usuario))
                             {
                                 @Html.ActionLink("Borrar", "Delete", new { id = item.ID }, new { @class = "btn  btn-danger", @target = "_blank" })
                             }
@@ -313,7 +313,7 @@
                         {
                             @Html.ActionLink("Editar", "Edit", new { id = item.ID }, new { @class = "btn  btn-default", @target = "_blank" })
                         }
-                        @if (ViewBag.super && ViewBag.uarea.Contains(item.usuario_area))
+                        @if ((ViewBag.super && ViewBag.uarea.Contains(item.usuario_area)) || ViewBag.cuser.Contains(item.usuario))
                         {
                             @Html.ActionLink("Borrar", "Delete", new { id = item.ID }, new { @class = "btn  btn-danger", @target = "_blank" })
                         }
