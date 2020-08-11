@@ -2896,16 +2896,18 @@ if (amaquina.Contains("Pintura"))
                 maquinas = db.Maquinas.Where(m => m.Area == amaquina);
 
             var maquis = maquinas.GroupBy(g => g.Maquina).ToList();
+            /*
             if (mgroup == "Area")
                 maquis = maquinas.GroupBy(g => g.Area).ToList();
             if (mgroup == "SubMaquina")
                     maquis = maquinas.GroupBy(g => g.SubMaquina).ToList();
-
+            */
                 
             var mul_maquinas = maquis.Count();
            ViewBag.maquina = new SelectList(maquinas.GroupBy(g => g.Maquina), "Key", "Key");
 
             ViewBag.submaquina = new SelectList(maquinas, "ID", "SubMaquina");
+
 
 
             var data = dataf.ToList();
@@ -2953,10 +2955,9 @@ if (amaquina.Contains("Pintura"))
 
 
                             datasd.TarjetasTPM = Math.Round((realizada / (Double)pendiente) * 100, 2);
-
-
+                            //---- primero
                             datafiltered1 = item.Where(s => (s.DiaHora.Hour > 7 && s.DiaHora.Hour <= 15)).ToList();
-
+                       
                             double total_fallas = 0;
                             total_fallas = datafiltered1.Count();
                             double tiempomueto = 0;
@@ -2994,7 +2995,7 @@ if (amaquina.Contains("Pintura"))
                             //datasd.MTBF1 = Math.Round(MTBF, 2);
                             datasd.MTTR1 = Math.Round(MTTR, 2);
 
-
+                            
                             //-------------------------------------------------------------------------------------------
 
                             datafiltered2 = item.Where(s => (s.DiaHora.Hour > 15 && s.DiaHora.Hour <= 23)).ToList();
@@ -3120,7 +3121,28 @@ if (amaquina.Contains("Pintura"))
                             datafiltered.Clear();
                             var temp = dataaño.Where(w => w.DiaHora.Month == jmes);
                             datafiltered.AddRange(temp);
-
+                            /*
+                            List<newmetricosmaquina> allmaq = new List<newmetricosmaquina>();
+                            foreach (var simplemaquina in maquis)
+                            {
+                                newmetricosmaquina simplemaquinam = new newmetricosmaquina
+                                {
+                                    maquina = simplemaquina.Key,
+                                    tiempod = (Double)mul_maquinas * multiplicador,
+                                    fallas = datafiltered.Where(w => w.Maquinas.Maquina == simplemaquina.Key).Count(),
+                                    tiempof = datafiltered.Where(w => w.Maquinas.Maquina == simplemaquina.Key).Sum(s => s.Tiempo),
+                                    mttr = 0,
+                                    mtbf = (Double)mul_maquinas * multiplicador,
+                                    confiabilidad = 100
+                                };
+                                if (simplemaquinam.fallas != 0) {
+                                simplemaquinam.mttr = simplemaquinam.tiempof / simplemaquinam.fallas;
+                                simplemaquinam.mtbf = simplemaquinam.tiempod / simplemaquinam.fallas;
+                                simplemaquinam.confiabilidad = simplemaquinam.mtbf / (simplemaquinam.mtbf + simplemaquinam.mttr);
+                                }
+                                allmaq.Add(simplemaquinam);
+                            }
+                            */
                             newmetricos2 datasd = new newmetricos2 { TiempoLabel = iaño.ToString() + "-" + nombreMes, TiempoMuerto1 = 0, TiempoMuerto2 = 0, TiempoMuerto3 = 0, MTTR1 = 0, MTTR2 = 0, MTTR3 = 0, MTBF = 0, TarjetasTPM = 0 };
 
                             int realizada = 0;
@@ -3229,7 +3251,10 @@ if (amaquina.Contains("Pintura"))
                                 datafiltered3 = datafiltered.Where(s => ((s.DiaHora.Hour > 23 || s.DiaHora.Hour <= 7)&& s.DiaHora.Day!=1)).ToList();
 
                                 datafiltered3.AddRange(datafiltered.Where(s => ((s.DiaHora.Hour > 23 ) && s.DiaHora.Day == 1)).ToList());
-                                total_fallas = 0;
+
+
+
+                            total_fallas = 0;
                                 total_fallas = datafiltered3.Count();
                                 tiempomueto = 0;
                                 if (total_fallas >= 1)
@@ -3263,17 +3288,33 @@ if (amaquina.Contains("Pintura"))
 
                             Tiempo_total_de_funcionamiento = Tiempo_total_de_funcionamiento * 3;
                             MTBF = Tiempo_total_de_funcionamiento;
+
+
+
                             if (total_fallas_full != 0)
                             {
                                 MTBF = (Tiempo_total_de_funcionamiento / total_fallas_full)/ mul_maquinas;
                                 MTTR = tiempomueto_full / total_fallas_full;
                             }
-
+                            /*
+                            double suma = 0;
+                            double cant = 0;
+                            foreach (var maqx in allmaq)
+                            {
+                                suma = suma + maqx.mtbf;
+                                cant++;
+                            }
+                            var days = DateTime.DaysInMonth(iaño, jmes);
+                            MTBF = (suma / cant) / days;
+                            */
                             var disponibilidad = MTBF / (MTBF + MTTR);
+
+
 
                             datasd.Confiabilidad = Math.Round((disponibilidad * 100), 2);
 
-                            datasd.MTBF = Clamp(Math.Round(MTBF, 2), 0, (multiplicador * 3));
+                               
+                                datasd.MTBF = Clamp(Math.Round(MTBF, 2), 0, (multiplicador * 3));
 
 
 
