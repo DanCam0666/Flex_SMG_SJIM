@@ -506,6 +506,37 @@
 
 </div>
 
+<div class="x_panel">
+    <div class="x_title clearfix">
+        <h2>Metricos del @ViewBag.dx</h2>
+    </div>
+    <div class="x_content">
+        <table class="table table-bordered table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <td>Descripcion / Tiempo</td>
+                    <td>Referencia</td>
+                    <td>Objetivo</td>
+                    @foreach (var item in ViewBag.data)
+                    {
+                        <td>@item.TiempoLabel</td>
+                    }
+                </tr>
+            </thead>
+            <tbody>              
+                <tr>
+                    <th scope="row">28 - # Tiempo Perdido 3</th>
+                    <th scope="row">Informativo</th>
+                    <th scope="row">3er Turno</th>
+                    @foreach (var item in ViewBag.data)
+                    {
+                        <td>@item.TiempoM3</td>
+                    }
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 
 <br />
 <div class="col-xs-6 clearfix">
