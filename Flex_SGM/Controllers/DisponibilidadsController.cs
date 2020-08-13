@@ -22,7 +22,8 @@ namespace Flex_SGM.Controllers
             var da = db.Maquinas;
 
             ViewBag.machines = new SelectList(da, "ID", "Maquina");
-            return View(disponibilidads.ToList());
+            var DISPO = disponibilidads.ToList();
+            return View(DISPO);
 
         }
 
@@ -76,15 +77,15 @@ namespace Flex_SGM.Controllers
         [HttpPost]
         public JsonResult DeleteEvent(string eventID)
         {
-            var ideve = Convert.ToInt64(eventID);
+            var ID = Convert.ToInt64(eventID);
             var status = false;
             using (ApplicationDbContext dc = new ApplicationDbContext())
             {
-                var v = db.Disponibilidads.Where(a => a.ID == ideve).FirstOrDefault();
+                var v = db.Disponibilidads.Find(ID);
                 if (v != null)
                 {
                     db.Disponibilidads.Remove(v);
-                    dc.SaveChanges();
+                    db.SaveChanges();
                     status = true;
                 }
             }

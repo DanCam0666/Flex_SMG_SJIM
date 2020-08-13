@@ -1020,7 +1020,7 @@ if (amaquina.Contains("Pintura"))
             if (t3)
             {
                 f3i = 23;
-                f3f = 7;
+                f3f = 6;
                 ff3 = ff.AddDays(1);
                 turnos = turnos + "| 3er ";
                 Target += 15;
@@ -3314,7 +3314,7 @@ if (amaquina.Contains("Pintura"))
                             datasd.Confiabilidad = Math.Round((disponibilidad * 100), 2);
 
                                
-                                datasd.MTBF = Clamp(Math.Round(MTBF, 2), 0, (multiplicador * 3));
+                             datasd.MTBF = Clamp(Math.Round(MTBF, 2), 0, (multiplicador * 3));
 
 
 
@@ -4224,6 +4224,7 @@ if (amaquina.Contains("Pintura"))
                            (w.Tiempo > 0)
                             );
 
+
             if (!String.IsNullOrEmpty(amaquina) && amaquina != "--Todas--")
             {
                 if (amaquina.Contains("Soldadura"))
@@ -4236,18 +4237,17 @@ if (amaquina.Contains("Pintura"))
                     dataf = dataf.Where(s => s.Maquinas.Area == "Cromo" || s.Maquinas.Area == "Cromo1" || s.Maquinas.Area == "Cromo2" || s.Maquinas.Area == "AutoPulido1" || s.Maquinas.Area == "AutoPulido2" || s.Maquinas.Area == "Pintura" || s.Maquinas.Area == "Ecoat" || s.Maquinas.Area == "Topcoat" || s.Maquinas.Area == "MetalFinish");
                 }
                 else
-                if (amaquina == "Cromo")
+                  if (amaquina == "Cromo")
                 {
                     dataf = dataf.Where(s => s.Maquinas.Area == "Cromo" || s.Maquinas.Area == "Cromo1" || s.Maquinas.Area == "Cromo2" || s.Maquinas.Area == "AutoPulido1" || s.Maquinas.Area == "AutoPulido2");
                 }
                 else
-                if (amaquina.Contains("Pintura"))
+                    if (amaquina.Contains("Pintura"))
                 {
                     dataf = dataf.Where(s => s.Maquinas.Area == "Pintura" || s.Maquinas.Area == "Ecoat" || s.Maquinas.Area == "Topcoat");
                 }
                 else
                     dataf = dataf.Where(s => s.Maquinas.Area.Contains(amaquina));
-
 
                 if (!string.IsNullOrEmpty(maquina) && amaquina != "--Todas--")
                 {
@@ -4255,6 +4255,7 @@ if (amaquina.Contains("Pintura"))
                 }
 
             }
+
 
             ViewBag.amaquina = new SelectList(Enum.GetValues(typeof(flex_Areas)).Cast<flex_Areas>().ToList());
             string[] array = { "Maquina", "Falla", "Area", "SubMaquina" };
@@ -4271,1243 +4272,137 @@ if (amaquina.Contains("Pintura"))
 
             ViewBag.submaquina = new SelectList(maquinas, "ID", "SubMaquina");
 
+            List<newmetricos3> allmaq = new List<newmetricos3>();
 
-
-            var data = dataf.ToList();
-            //*******************************************************************************************
-            if (btn == "Metricos por Años")
+            for (int iaño = fecha.Year; iaño <= fechaf.Year; iaño++)
             {
-                datafiltered = data;
 
-                var datatempa = data.GroupBy(g => g.DiaHora.Year).ToList();
-                datatempa = datatempa.OrderBy(o => o.Key).ToList();
-
-                for (int i = fecha.Year; i <= fechaf.Year; i++)
+                for (int jmes = 1; jmes <= 12; jmes++)
                 {
-                    total_fallas_full = 0;
-                    tiempomueto_full = 0;
-                    var dd = datatempa.Where(w => w.Key == i).ToList();
-                    int Count = 0;
-                    if (dd.FirstOrDefault() != null)
+                    DateTimeFormatInfo formatoFecha = CultureInfo.CurrentCulture.DateTimeFormat;
+                    string nombreMes = formatoFecha.GetMonthName(jmes);
+                    var dias = DateTime.DaysInMonth(iaño, jmes);
+
+                    for (int kdia = 1; kdia <= dias; kdia++)
                     {
-                        Count = dd.FirstOrDefault().Count();
+                        DateTime idi = Convert.ToDateTime(kdia.ToString() + "/" + jmes.ToString() + "/" + iaño.ToString());
+                        DateTime idi3er = idi.AddDays(+1);
 
-                        foreach (var item in dd)
+                        if (idi >= fecha && idi <= fechaf)
                         {
-                            newmetricos2 datasd = new newmetricos2 { TiempoLabel = i.ToString(), TiempoMuerto1 = 0, TiempoMuerto2 = 0, TiempoMuerto3 = 0, MTTR1 = 0, MTTR2 = 0, MTTR3 = 0, MTBF = 0, TarjetasTPM = 0 };
 
-                            int realizada = 0;
-                            int pendiente = 0;
-                            var alloils = oILs.Where(s => s.Tipo == "TPM").ToList();
-                            if (!string.IsNullOrEmpty(amaquina) && amaquina != "--Todas--")
-                            {
-                                alloils = alloils.Where(s => s.Maquinas.Area == amaquina).ToList();
-                            }
-                            foreach (OILs oil in alloils)
-                            {
+                            datafiltered = dataf.Where(w => w.DiaHora.Year == idi.Year && w.DiaHora.Month == idi.Month && w.DiaHora.Day == idi.Day && w.DiaHora.Day!=1).ToList();
+                            var temp1 = dataf.Where(w => w.DiaHora.Year == idi.Year && w.DiaHora.Month == idi.Month && w.DiaHora.Day == idi.Day && w.DiaHora.Day == 1 && w.DiaHora.Hour > 6).ToList();
+                            datafiltered.AddRange(temp1);
+                            var temp2 = dataf.Where(w => w.DiaHora.Year == idi3er.Year && w.DiaHora.Month == idi3er.Month && w.DiaHora.Day == idi3er.Day && w.DiaHora.Hour <= 6).ToList();
+                            datafiltered.AddRange(temp2);
 
-
-                                if (oil.DiaHora.Year <= i)
-                                    pendiente++;
-
-                                if (oil.Estatus == 1 && oil.DiaHora_Cierre.Value.Year <= i)
-                                    realizada++;
+                            datafiltered1 = datafiltered.Where(s => (s.DiaHora.Hour > 6 && s.DiaHora.Hour <= 14)).ToList();
+                            datafiltered2 = datafiltered.Where(s => (s.DiaHora.Hour > 14 && s.DiaHora.Hour <= 22)).ToList();
+                            datafiltered3 = datafiltered.Where(s => (s.DiaHora.Hour > 22 || s.DiaHora.Hour <= 6)).ToList();
 
 
-                            }
-
-
-                            datasd.TarjetasTPM = Math.Round((realizada / (Double)pendiente) * 100, 2);
-                            //---- primero
-                            datafiltered1 = item.Where(s => (s.DiaHora.Hour > 7 && s.DiaHora.Hour <= 15)).ToList();
-
-                            double total_fallas = 0;
-                            total_fallas = datafiltered1.Count();
-                            double tiempomueto = 0;
-                            if (total_fallas >= 1)
-                                tiempomueto = datafiltered1.Sum(s => s.Tiempo);
-                            if (mul_maquinas == 0)
-                                mul_maquinas = 1;
-                            DateTime x = fecha;
-                            DateTime y = fechaf;
-                            var z = ((y - x));
-                            var zz = z.TotalDays;
-
-                            if (mgroup == "Falla")
-                                mul_maquinas = datafiltered1.GroupBy(g => g.Maquinas.Maquina).Count();
-
-                            double Tiempo_total_de_funcionamiento = (Double)mul_maquinas * multiplicador;
-                            datasd.Disponible1 = Tiempo_total_de_funcionamiento;
-                            datasd.TiempoM1 = tiempomueto;
-                            datasd.FallasT1 = total_fallas;
-                            double MTBF = Tiempo_total_de_funcionamiento;
-                            double MTTR = 0;
-                            datasd.TiempoMuerto1 = Math.Round((tiempomueto / Tiempo_total_de_funcionamiento) * 100, 2);
-                            if (total_fallas != 0)
-                            {
-                                total_fallas_full += total_fallas;
-                                tiempomueto_full += tiempomueto;
-                                MTBF = (Tiempo_total_de_funcionamiento / total_fallas) / mul_maquinas;
-                                MTTR = tiempomueto / total_fallas;
-                            }
-
-                            // double disponibilidad = MTBF / (MTBF + MTTR);
-
-                            //  datasd.Confiabilidad1 = Math.Round((disponibilidad * 100), 2);
-
-                            //datasd.MTBF1 = Math.Round(MTBF, 2);
-                            datasd.MTTR1 = Math.Round(MTTR, 2);
-
-
-                            //-------------------------------------------------------------------------------------------
-
-                            datafiltered2 = item.Where(s => (s.DiaHora.Hour > 15 && s.DiaHora.Hour <= 23)).ToList();
-
-                            total_fallas = 0;
-                            total_fallas = datafiltered2.Count();
-                            tiempomueto = 0;
-                            if (total_fallas >= 1)
-                                tiempomueto = datafiltered2.Sum(s => s.Tiempo);
-
-                            x = Convert.ToDateTime("01/01/2020");
-                            y = DateTime.Now;
-                            z = ((y - x));
-
-                            if (mgroup == "Falla")
-                                mul_maquinas = datafiltered2.GroupBy(g => g.Maquinas.Maquina).Count();
-                            if (mul_maquinas == 0)
-                                mul_maquinas = 1;
-
-                            Tiempo_total_de_funcionamiento = (Double)mul_maquinas * multiplicador;
-                            datasd.Disponible2 = Tiempo_total_de_funcionamiento;
-                            datasd.TiempoM2 = tiempomueto;
-                            datasd.FallasT2 = total_fallas;
-                            MTBF = Tiempo_total_de_funcionamiento;
-                            MTTR = 0;
-                            datasd.TiempoMuerto2 = Math.Round((tiempomueto / Tiempo_total_de_funcionamiento) * 100, 2);
-                            if (total_fallas != 0)
-                            {
-                                total_fallas_full += total_fallas;
-                                tiempomueto_full += tiempomueto;
-                                MTBF = (Tiempo_total_de_funcionamiento / total_fallas) / mul_maquinas;
-                                MTTR = tiempomueto / total_fallas;
-                            }
-
-
-                            datasd.MTTR2 = Math.Round(MTTR, 2);
-
-                            //-------------------------------------------------------------------------------------------
-                            datafiltered3 = item.Where(s => (s.DiaHora.Hour > 23 || s.DiaHora.Hour <= 7)).ToList();
-
-                            total_fallas = 0;
-                            total_fallas = datafiltered3.Count();
-                            tiempomueto = 0;
-                            if (total_fallas >= 1)
-                                tiempomueto = datafiltered3.Sum(s => s.Tiempo);
-
-                            x = Convert.ToDateTime("01/01/2020");
-                            y = DateTime.Now;
-                            z = ((y - x));
-
-                            if (mgroup == "Falla")
-                                mul_maquinas = datafiltered3.GroupBy(g => g.Maquinas.Maquina).Count();
-                            if (mul_maquinas == 0)
-                                mul_maquinas = 1;
-
-                            Tiempo_total_de_funcionamiento = (Double)mul_maquinas * multiplicador;
-                            datasd.Disponible3 = Tiempo_total_de_funcionamiento;
-                            datasd.TiempoM3 = tiempomueto;
-                            datasd.FallasT3 = total_fallas;
-                            MTBF = Tiempo_total_de_funcionamiento;
-                            MTTR = 0;
-                            datasd.TiempoMuerto3 = Math.Round((tiempomueto / Tiempo_total_de_funcionamiento) * 100, 2);
-                            if (total_fallas != 0)
-                            {
-                                total_fallas_full += total_fallas;
-                                tiempomueto_full += tiempomueto;
-                                MTBF = (Tiempo_total_de_funcionamiento / total_fallas) / mul_maquinas;
-                                MTTR = tiempomueto / total_fallas;
-                            }
-
-                            datasd.MTTR3 = Math.Round(MTTR, 2);
-
-                            Tiempo_total_de_funcionamiento = Tiempo_total_de_funcionamiento * 3;
-                            MTBF = Tiempo_total_de_funcionamiento;
-                            if (total_fallas_full != 0)
-                            {
-                                MTBF = (Tiempo_total_de_funcionamiento / total_fallas_full) / mul_maquinas;
-                                MTTR = tiempomueto_full / total_fallas_full;
-                            }
-
-                            var disponibilidad = MTBF / (MTBF + MTTR);
-
-                            datasd.Confiabilidad = Math.Round((disponibilidad * 100), 2);
-
-                            datasd.MTBF = Clamp(Math.Round(MTBF, 2), 0, (multiplicador * 3));
-
-                            Ldata.Add(datasd);
-                        }
-                    }
-
-
-
-                }
-
-                //--------------------------------------------------------
-
-            }
-            //*******************************************************************************************
-            if (btn == "Metricos por Mes")
-            {
-                int i = 1;
-                for (int iaño = fecha.Year; iaño <= fechaf.Year; iaño++)
-                {
-                    var dataaño = data.Where(w => w.DiaHora.Year == iaño);
-                    for (int jmes = 1; jmes <= 12; jmes++)
-                    {
-                        DateTimeFormatInfo formatoFecha = CultureInfo.CurrentCulture.DateTimeFormat;
-                        string nombreMes = formatoFecha.GetMonthName(jmes);
-                        if (
-                             ((fecha.Year == fechaf.Year) && (fecha.Year == iaño) && (jmes >= fecha.Month) && (jmes <= fechaf.Month))
-                             ||
-                              ((fecha.Year != fechaf.Year) && (fecha.Year == iaño) && (jmes >= fecha.Month))
-                            ||
-                              ((fecha.Year != fechaf.Year) && (fechaf.Year == iaño) && (jmes <= fechaf.Month))
-                            ||
-                            (iaño != fecha.Year && iaño != fechaf.Year)
-                            )
-                        {
-                            //*******************
-
-                            total_fallas_full = 0;
-                            tiempomueto_full = 0;
-                            datafiltered.Clear();
-                            var temp = dataaño.Where(w => w.DiaHora.Month == jmes);
-                            datafiltered.AddRange(temp);
-
-                            List<newmetricosmaquina> allmaq = new List<newmetricosmaquina>();
                             foreach (var simplemaquina in maquis)
                             {
-                                newmetricosmaquina simplemaquinam = new newmetricosmaquina
+                                newmetricos3 simplemaquinam = new newmetricos3
                                 {
+                                    TiempoLabel = iaño.ToString() + "-" + nombreMes + "-" + kdia.ToString(),
                                     maquina = simplemaquina.Key,
-                                    tiempod = (Double)multiplicador,
-                                    fallas = datafiltered.Where(w => w.Maquinas.Maquina == simplemaquina.Key).Count(),
-                                    tiempof = datafiltered.Where(w => w.Maquinas.Maquina == simplemaquina.Key).Sum(s => s.Tiempo),
-                                    mttr = 0,
-                                    mtbf = (Double)multiplicador,
-                                    confiabilidad = 100
+                                    Disponible1 = (Double)multiplicador,
+                                    Disponible2 = (Double)multiplicador,
+                                    Disponible3 = (Double)multiplicador,
+                                    CantidadFallas1 = datafiltered1.Where(w => w.Maquinas.Maquina == simplemaquina.Key).Count(),
+                                    CantidadFallas2 = datafiltered2.Where(w => w.Maquinas.Maquina == simplemaquina.Key).Count(),
+                                    CantidadFallas3 = datafiltered3.Where(w => w.Maquinas.Maquina == simplemaquina.Key).Count(),
+                                    TiempoMuerto1 = datafiltered1.Where(w => w.Maquinas.Maquina == simplemaquina.Key).Sum(s => s.Tiempo),
+                                    TiempoMuerto2 = datafiltered2.Where(w => w.Maquinas.Maquina == simplemaquina.Key).Sum(s => s.Tiempo),
+                                    TiempoMuerto3 = datafiltered3.Where(w => w.Maquinas.Maquina == simplemaquina.Key).Sum(s => s.Tiempo),
+                                    MTTR1 = 0,
+                                    MTTR2 = 0,
+                                    MTTR3 = 0,
+                                    MTBF = (Double)multiplicador,
+                                    Confiabilidad = 100,
+                                    TarjetasTPM = 0
                                 };
-                                if (simplemaquinam.fallas != 0)
+                                if (simplemaquinam.CantidadFallas1 != 0)
                                 {
-                                    simplemaquinam.mttr = simplemaquinam.tiempof / simplemaquinam.fallas;
-                                    simplemaquinam.mtbf = simplemaquinam.tiempod / simplemaquinam.fallas;
-                                    simplemaquinam.confiabilidad = simplemaquinam.mtbf / (simplemaquinam.mtbf + simplemaquinam.mttr);
+                                    simplemaquinam.MTTR1 = simplemaquinam.Disponible1 / simplemaquinam.CantidadFallas1;
                                 }
+                                if (simplemaquinam.CantidadFallas2 != 0)
+                                {
+                                    simplemaquinam.MTTR2 = simplemaquinam.Disponible2 / simplemaquinam.CantidadFallas2;
+                                }
+                                if (simplemaquinam.CantidadFallas3 != 0)
+                                {
+                                    simplemaquinam.MTTR3 = simplemaquinam.Disponible3 / simplemaquinam.CantidadFallas3;
+                                }
+                                if (simplemaquinam.CantidadFallas1 != 0 || simplemaquinam.CantidadFallas2 != 0 || simplemaquinam.CantidadFallas3 != 0)
+                                {
+                                    var SumDisponobilidad = simplemaquinam.Disponible1 + simplemaquinam.Disponible2 + simplemaquinam.Disponible3;
+                                    var sumCantidadFallas = simplemaquinam.CantidadFallas1 + simplemaquinam.CantidadFallas2 + simplemaquinam.CantidadFallas3;
+                                    var sumTiempoMuerto = simplemaquinam.TiempoMuerto1 + simplemaquinam.TiempoMuerto2 + simplemaquinam.TiempoMuerto3;
+                                    var MTTR = (simplemaquinam.MTTR1 + simplemaquinam.MTTR2 + simplemaquinam.MTTR3)/3;
+                                    simplemaquinam.MTBF = SumDisponobilidad / sumCantidadFallas;
+                                    simplemaquinam.Confiabilidad = simplemaquinam.MTBF / (simplemaquinam.MTBF + MTTR);
+
+                                }
+
                                 allmaq.Add(simplemaquinam);
                             }
 
-                            newmetricos2 datasd = new newmetricos2 { TiempoLabel = iaño.ToString() + "-" + nombreMes, TiempoMuerto1 = 0, TiempoMuerto2 = 0, TiempoMuerto3 = 0, MTTR1 = 0, MTTR2 = 0, MTTR3 = 0, MTBF = 0, TarjetasTPM = 0 };
-
-                            int realizada = 0;
-                            int pendiente = 0;
-                            var alloils = oILs.Where(s => s.Tipo == "TPM").ToList();
-                            if (!string.IsNullOrEmpty(amaquina) && amaquina != "--Todas--")
-                            {
-                                alloils = alloils.Where(s => s.Maquinas.Area == amaquina).ToList();
-                            }
-                            foreach (OILs oil in alloils)
-                            {
-
-
-                                if (oil.DiaHora.Year < iaño)
-                                    pendiente++;
-                                else
-                                if (oil.DiaHora.Year == iaño && oil.DiaHora.Month <= jmes)
-                                    pendiente++;
 
 
 
-                                if (oil.Estatus == 1 && oil.DiaHora_Cierre.Value.Year < iaño)
-                                    realizada++;
-                                else
-                                if (oil.Estatus == 1 && oil.DiaHora_Cierre.Value.Year == iaño && oil.DiaHora_Cierre.Value.Month <= jmes)
-                                    realizada++;
-
-
-                            }
-
-                            datasd.TarjetasTPM = Math.Round((realizada / (Double)pendiente) * 100, 2);
-
-
-                            datafiltered1 = datafiltered.Where(s => (s.DiaHora.Hour > 7 && s.DiaHora.Hour <= 15)).ToList();
-
-                            double total_fallas = 0;
-                            total_fallas = datafiltered1.Count();
-                            double tiempomueto = 0;
-                            if (total_fallas >= 1)
-                                tiempomueto = datafiltered1.Sum(s => s.Tiempo);
-                            if (mul_maquinas == 0)
-                                mul_maquinas = 1;
-
-                            DateTime x = Convert.ToDateTime("01/01/2020");
-                            DateTime y = DateTime.Now;
-                            var z = ((y - x));
-                            if (mgroup == "Falla")
-                                mul_maquinas = datafiltered1.GroupBy(g => g.Maquinas.Maquina).Count();
-                            if (mul_maquinas == 0)
-                                mul_maquinas = 1;
-
-                            double Tiempo_total_de_funcionamiento = (Double)mul_maquinas * multiplicador;
-                            datasd.Disponible1 = Tiempo_total_de_funcionamiento;
-                            datasd.TiempoM1 = tiempomueto;
-                            datasd.FallasT1 = total_fallas;
-                            double MTBF = Tiempo_total_de_funcionamiento;
-                            double MTTR = 0;
-                            datasd.TiempoMuerto1 = Math.Round((tiempomueto / Tiempo_total_de_funcionamiento) * 100, 2);
-                            if (total_fallas != 0)
-                            {
-                                total_fallas_full += total_fallas;
-                                tiempomueto_full += tiempomueto;
-                                MTBF = (Tiempo_total_de_funcionamiento / total_fallas) / mul_maquinas;
-                                MTTR = tiempomueto / total_fallas;
-                            }
-
-                            datasd.MTTR1 = Math.Round(MTTR, 2);
-
-
-                            //-------------------------------------------------------------------------------------------
-
-                            datafiltered2 = datafiltered.Where(s => (s.DiaHora.Hour > 15 && s.DiaHora.Hour <= 23)).ToList();
-
-                            total_fallas = 0;
-                            total_fallas = datafiltered2.Count();
-                            tiempomueto = 0;
-                            if (total_fallas >= 1)
-                                tiempomueto = datafiltered2.Sum(s => s.Tiempo);
-
-                            x = Convert.ToDateTime("01/01/2020");
-                            y = DateTime.Now;
-                            z = ((y - x));
-                            if (mgroup == "Falla")
-                                mul_maquinas = datafiltered2.GroupBy(g => g.Maquinas.Maquina).Count();
-                            if (mul_maquinas == 0)
-                                mul_maquinas = 1;
-
-                            Tiempo_total_de_funcionamiento = (Double)mul_maquinas * multiplicador;
-                            datasd.Disponible2 = Tiempo_total_de_funcionamiento;
-                            datasd.TiempoM2 = tiempomueto;
-                            datasd.FallasT2 = total_fallas;
-                            MTBF = Tiempo_total_de_funcionamiento;
-                            MTTR = 0;
-                            datasd.TiempoMuerto2 = Math.Round((tiempomueto / Tiempo_total_de_funcionamiento) * 100, 2);
-                            if (total_fallas != 0)
-                            {
-                                total_fallas_full += total_fallas;
-                                tiempomueto_full += tiempomueto;
-                                MTBF = (Tiempo_total_de_funcionamiento / total_fallas) / mul_maquinas;
-                                MTTR = tiempomueto / total_fallas;
-                            }
-
-                            datasd.MTTR2 = Math.Round(MTTR, 2);
-
-                            //-------------------------------------------------------------------------------------------
-                            datafiltered3 = datafiltered.Where(s => ((s.DiaHora.Hour > 23 || s.DiaHora.Hour <= 7) && s.DiaHora.Day != 1)).ToList();
-
-                            datafiltered3.AddRange(datafiltered.Where(s => ((s.DiaHora.Hour > 23) && s.DiaHora.Day == 1)).ToList());
-
-
-
-                            total_fallas = 0;
-                            total_fallas = datafiltered3.Count();
-                            tiempomueto = 0;
-                            if (total_fallas >= 1)
-                                tiempomueto = datafiltered3.Sum(s => s.Tiempo);
-
-                            x = Convert.ToDateTime("01/01/2020");
-                            y = DateTime.Now;
-                            z = ((y - x));
-                            if (mgroup == "Falla")
-                                mul_maquinas = datafiltered3.GroupBy(g => g.Maquinas.Maquina).Count();
-                            if (mul_maquinas == 0)
-                                mul_maquinas = 1;
-
-                            Tiempo_total_de_funcionamiento = (Double)mul_maquinas * multiplicador;
-                            datasd.Disponible3 = Tiempo_total_de_funcionamiento;
-                            datasd.TiempoM3 = tiempomueto;
-                            datasd.FallasT3 = total_fallas;
-                            MTBF = Tiempo_total_de_funcionamiento;
-                            MTTR = 0;
-                            datasd.TiempoMuerto3 = Math.Round((tiempomueto / Tiempo_total_de_funcionamiento) * 100, 2);
-                            if (total_fallas != 0)
-                            {
-                                total_fallas_full += total_fallas;
-                                tiempomueto_full += tiempomueto;
-                                MTBF = (Tiempo_total_de_funcionamiento / total_fallas) / mul_maquinas;
-                                MTTR = tiempomueto / total_fallas;
-                            }
-
-                            datasd.MTTR3 = Math.Round(MTTR, 2);
-
-
-                            Tiempo_total_de_funcionamiento = Tiempo_total_de_funcionamiento * 3;
-                            MTBF = Tiempo_total_de_funcionamiento;
-
-
-
-                            if (total_fallas_full != 0)
-                            {
-                                MTBF = (Tiempo_total_de_funcionamiento / total_fallas_full) / mul_maquinas;
-                                MTTR = tiempomueto_full / total_fallas_full;
-                            }
-
-                            double suma = 0;
-                            double cant = 0;
-                            foreach (var maqx in allmaq)
-                            {
-                                suma = suma + maqx.mtbf;
-                                cant++;
-                            }
-
-                            ViewBag.ListofMaquinas = allmaq;
-
-                            var days = DateTime.DaysInMonth(iaño, jmes);
-                            MTBF = (suma / cant);
-
-                            var disponibilidad = MTBF / (MTBF + MTTR);
-
-
-
-                            datasd.Confiabilidad = Math.Round((disponibilidad * 100), 2);
-
-
-                            datasd.MTBF = Clamp(Math.Round(MTBF, 2), 0, (multiplicador * 3));
-
-
-
-                            Ldata.Add(datasd);
-
-
-
-                            i++;
                         }
-
 
                     }
 
+
                 }
 
-
             }
-            //*******************************************************************************************
-            if (btn == "Metricos por Dia")
+
+
+
+            var allmaq2 = allmaq.GroupBy(g => g.TiempoLabel);
+
+            foreach (var inmaq in allmaq2)
             {
-                int i = 1;
-                for (int iaño = fecha.Year; iaño <= fechaf.Year; iaño++)
-                {
 
-                    for (int jmes = 1; jmes <= 12; jmes++)
-                    {
-                        DateTimeFormatInfo formatoFecha = CultureInfo.CurrentCulture.DateTimeFormat;
-                        string nombreMes = formatoFecha.GetMonthName(jmes);
-                        var dias = DateTime.DaysInMonth(iaño, jmes);
+                var sumatm1 = ((inmaq.Sum(s => s.TiempoMuerto1)/ inmaq.Sum(s => s.Disponible1)))*100;
 
-                        for (int kdia = 1; kdia <= dias; kdia++)
-                        {
-                            DateTime idi = Convert.ToDateTime(kdia.ToString() + "/" + jmes.ToString() + "/" + iaño.ToString());
-                            DateTime idi3er = idi.AddDays(+1);
+                var sumatm2 = ((inmaq.Sum(s => s.TiempoMuerto2) / inmaq.Sum(s => s.Disponible2))) * 100;
 
-                            if (idi >= fecha && idi <= fechaf)
-                            {
-                                //*******************
-                                datafiltered.Clear();
-                                total_fallas_full = 0;
-                                tiempomueto_full = 0;
-                                var temp = data.Where(w => w.DiaHora.Year == idi.Year && w.DiaHora.Month == idi.Month && w.DiaHora.Day == idi.Day).ToList();
-                                var temp3er = data.Where(w => w.DiaHora.Year == idi3er.Year && w.DiaHora.Month == idi3er.Month && w.DiaHora.Day == idi3er.Day).ToList();
+                var sumatm3 = ((inmaq.Sum(s => s.TiempoMuerto3) / inmaq.Sum(s => s.Disponible3))) * 100;
 
-                                if (temp.Count() != 0)
-                                    datafiltered.AddRange(temp);
+                var sumamttr1 = inmaq.Sum(s => s.MTTR1) / inmaq.Count();
 
-                                newmetricos2 datasd = new newmetricos2 { TiempoLabel = iaño.ToString() + "-" + nombreMes + "-" + kdia.ToString(), TiempoMuerto1 = 0, TiempoMuerto2 = 0, TiempoMuerto3 = 0, MTTR1 = 0, MTTR2 = 0, MTTR3 = 0, MTBF = 0, TarjetasTPM = 0 };
+                var sumamttr2 = inmaq.Sum(s => s.MTTR2) / inmaq.Count();
 
-                                int realizada = 0;
-                                int pendiente = 0;
-                                var alloils = oILs.Where(s => s.Tipo == "TPM").ToList();
-                                if (!string.IsNullOrEmpty(amaquina) && amaquina != "--Todas--")
-                                {
-                                    alloils = alloils.Where(s => s.Maquinas.Area == amaquina).ToList();
-                                }
-                                foreach (OILs oil in alloils)
-                                {
+                var sumamttr3 = inmaq.Sum(s => s.MTTR3) / inmaq.Count();
 
+                var sumamtbf = inmaq.Sum(s => s.MTBF) / inmaq.Count();
 
-                                    if (oil.DiaHora.Year < iaño)
-                                        pendiente++;
-                                    else
-                                    if (oil.DiaHora.Year == iaño && oil.DiaHora.Month < jmes)
-                                        pendiente++;
-                                    else
-                                    if (oil.DiaHora.Year == iaño && oil.DiaHora.Month == jmes && oil.DiaHora.Day <= kdia)
-                                        pendiente++;
+                var sumaMant = inmaq.Sum(s => s.Confiabilidad) / inmaq.Count();
 
-
-                                    if (oil.Estatus == 1 && oil.DiaHora_Cierre.Value.Year < iaño)
-                                        realizada++;
-                                    else
-                                    if (oil.Estatus == 1 && oil.DiaHora_Cierre.Value.Year == iaño && oil.DiaHora_Cierre.Value.Month < jmes)
-                                        realizada++;
-                                    else
-                                    if (oil.Estatus == 1 && oil.DiaHora_Cierre.Value.Year == iaño && oil.DiaHora_Cierre.Value.Month == jmes && oil.DiaHora_Cierre.Value.Day <= kdia)
-                                        realizada++;
-
-                                }
-
-
-                                datasd.TarjetasTPM = Math.Round((realizada / (Double)pendiente) * 100, 2);
-
-
-                                datafiltered1 = datafiltered.Where(s => (s.DiaHora.Hour > 7 && s.DiaHora.Hour <= 15)).ToList();
-
-                                double total_fallas = 0;
-                                if (datafiltered1.Count() != 0)
-                                    total_fallas = datafiltered1.Count();
-                                double tiempomueto = 0;
-                                if (total_fallas >= 1)
-                                    tiempomueto = datafiltered1.Sum(s => s.Tiempo);
-
-                                DateTime x = Convert.ToDateTime("01/01/2020");
-                                DateTime y = DateTime.Now;
-                                var z = ((y - x));
-                                if (mgroup == "Falla")
-                                    mul_maquinas = datafiltered1.GroupBy(g => g.Maquinas.Maquina).Count();
-                                if (mul_maquinas == 0)
-                                    mul_maquinas = 1;
-                                double Tiempo_total_de_funcionamiento = (Double)mul_maquinas * multiplicador;
-                                datasd.Disponible1 = Tiempo_total_de_funcionamiento;
-                                datasd.TiempoM1 = tiempomueto;
-                                datasd.FallasT1 = total_fallas;
-                                double MTBF = Tiempo_total_de_funcionamiento;
-                                double MTTR = 0;
-                                datasd.TiempoMuerto1 = Math.Round((tiempomueto / Tiempo_total_de_funcionamiento) * 100, 2);
-                                if (total_fallas != 0)
-                                {
-                                    total_fallas_full += total_fallas;
-                                    tiempomueto_full += tiempomueto;
-                                    MTBF = (Tiempo_total_de_funcionamiento / total_fallas) / mul_maquinas;
-                                    MTTR = tiempomueto / total_fallas;
-                                }
-
-                                datasd.MTTR1 = Math.Round(MTTR, 2);
-
-
-                                //-------------------------------------------------------------------------------------------
-
-                                datafiltered2 = datafiltered.Where(s => (s.DiaHora.Hour > 15 && s.DiaHora.Hour <= 23)).ToList();
-
-                                total_fallas = 0;
-                                if (datafiltered2.Count() != 0)
-                                    total_fallas = datafiltered2.Count();
-                                tiempomueto = 0;
-                                if (total_fallas >= 1)
-                                    tiempomueto = datafiltered2.Sum(s => s.Tiempo);
-
-                                x = Convert.ToDateTime("01/01/2020");
-                                y = DateTime.Now;
-                                z = ((y - x));
-                                if (mgroup == "Falla")
-                                    mul_maquinas = datafiltered2.GroupBy(g => g.Maquinas.Maquina).Count();
-                                if (mul_maquinas == 0)
-                                    mul_maquinas = 1;
-                                Tiempo_total_de_funcionamiento = (Double)mul_maquinas * multiplicador;
-                                datasd.Disponible2 = Tiempo_total_de_funcionamiento;
-                                datasd.TiempoM2 = tiempomueto;
-                                datasd.FallasT2 = total_fallas;
-                                MTBF = Tiempo_total_de_funcionamiento;
-                                MTTR = 0;
-                                datasd.TiempoMuerto2 = Math.Round((tiempomueto / Tiempo_total_de_funcionamiento) * 100, 2);
-                                if (total_fallas != 0)
-                                {
-                                    total_fallas_full += total_fallas;
-                                    tiempomueto_full += tiempomueto;
-                                    MTBF = (Tiempo_total_de_funcionamiento / total_fallas) / mul_maquinas;
-                                    MTTR = tiempomueto / total_fallas;
-                                }
-
-                                datasd.MTTR2 = Math.Round(MTTR, 2);
-
-                                //-------------------------------------------------------------------------------------------
-
-
-                                datafiltered3 = datafiltered.Where(s => (s.DiaHora.Hour > 23)).ToList();
-                                var tdata3 = temp3er.Where(s => (s.DiaHora.Hour <= 7)).ToList();
-                                datafiltered3.AddRange(tdata3);
-
-                                total_fallas = 0;
-                                if (datafiltered3.Count() != 0)
-                                    total_fallas = datafiltered3.Count();
-                                tiempomueto = 0;
-                                if (total_fallas >= 1)
-                                    tiempomueto = datafiltered3.Sum(s => s.Tiempo);
-
-                                x = Convert.ToDateTime("01/01/2020");
-                                y = DateTime.Now;
-                                z = ((y - x));
-                                if (mgroup == "Falla")
-                                    mul_maquinas = datafiltered3.GroupBy(g => g.Maquinas.Maquina).Count();
-                                if (mul_maquinas == 0)
-                                    mul_maquinas = 1;
-                                Tiempo_total_de_funcionamiento = mindia * (Double)mul_maquinas;
-                                datasd.Disponible3 = Tiempo_total_de_funcionamiento;
-                                datasd.TiempoM3 = tiempomueto;
-                                datasd.FallasT3 = total_fallas;
-                                MTBF = Tiempo_total_de_funcionamiento;
-                                MTTR = 0;
-                                datasd.TiempoMuerto3 = Math.Round((tiempomueto / Tiempo_total_de_funcionamiento) * 100, 2);
-                                if (total_fallas != 0)
-                                {
-                                    total_fallas_full += total_fallas;
-                                    tiempomueto_full += tiempomueto;
-                                    MTBF = (Tiempo_total_de_funcionamiento / total_fallas) / mul_maquinas;
-                                    MTTR = tiempomueto / total_fallas;
-                                }
-
-                                datasd.MTTR3 = Math.Round(MTTR, 2);
-
-                                Tiempo_total_de_funcionamiento = Tiempo_total_de_funcionamiento * 3;
-                                MTBF = Tiempo_total_de_funcionamiento;
-
-                                if (total_fallas_full != 0)
-                                {
-                                    MTBF = (Tiempo_total_de_funcionamiento / total_fallas_full) / mul_maquinas;
-                                    MTTR = tiempomueto_full / total_fallas_full;
-                                }
-
-                                var disponibilidad = MTBF / (MTBF + MTTR);
-
-                                datasd.Confiabilidad = Math.Round((disponibilidad * 100), 2);
-
-
-                                datasd.MTBF = Clamp(Math.Round(MTBF, 2), 0, (multiplicador * 3));
-                                Ldata.Add(datasd);
-
-                                i++;
-                            }
-
-                        }
-
-
-                    }
-
-                }
-
+                newmetricos2 data_show = new newmetricos2 
+                { 
+                    TiempoLabel = inmaq.Key,
+                    TiempoMuerto1 = sumatm1,
+                    TiempoMuerto2 = sumatm2,
+                    TiempoMuerto3 = sumatm3,
+                    MTTR1 = sumamttr1,
+                    MTTR2 = sumamttr2,
+                    MTTR3 = sumamttr3,
+                    MTBF = sumamtbf,
+                    Confiabilidad= sumaMant,
+                    TarjetasTPM = 0 
+                };
+                Ldata.Add(data_show);
             }
-
-            //---------------------------------------------
-
 
             ViewBag.data = Ldata;
 
-            //--------------------------------------------
-
-            //*******************************************************************************************
-            if (btn == "Metricos por Años")
-            {
-
-                string labels = "'";
-                string gdata = "";
-                string gdata2 = "";
-                List<decimal> x = new List<decimal>();
-                List<decimal> y = new List<decimal>();
-                // datafiltered = data;
-                var datatempa = data.GroupBy(g => g.DiaHora.Year).ToList();
-                datatempa = datatempa.OrderBy(o => o.Key).ToList();
-
-                for (int i = fecha.Year; i <= fechaf.Year; i++)
-                {
-                    var dd = datatempa.Where(w => w.Key == i).ToList();
-                    labels = labels + i.ToString() + "','";
-                    if (dd.Count != 0)
-                        gdata = gdata + dd.FirstOrDefault().Sum(s => s.Tiempo).ToString() + ",";
-                    else
-                        gdata = gdata + "0,";
-
-                    x.Add(i);
-                    if (dd.Count != 0)
-                        y.Add(dd.FirstOrDefault().Count());
-                    else
-                        y.Add(0);
-
-
-
-
-                }
-                if (x.Count > 1)
-                {
-                    Trendline rvalue = new Trendline(y, x);
-                    for (int i = fecha.Year; i <= fechaf.Year; i++)
-                    {
-                        var tt = fecha.Year;
-                        var res = rvalue.GetYValue(tt);
-                        gdata2 = gdata2 + string.Format("{0:0.##}", res) + ",";
-                    }
-                }
-                labels = labels.TrimEnd(',', (char)39);
-                labels = labels + "'";
-                gdata = gdata.TrimEnd(',', (char)39);
-                gdata2 = gdata2.TrimEnd(',', (char)39);
-                ViewBag.labelsgrap = labels;
-                ViewBag.datasgrap = gdata;
-                ViewBag.data2sgrap = gdata2;
-                //--------------------------------------------------------
-                var groupdata = datafiltered.GroupBy(g => g.Maquinas.Maquina).OrderByDescending(o => o.Sum(s => s.Tiempo));
-                labels = "'";
-                gdata = "";
-                gdata2 = "";
-                List<IGrouping<String, Bitacora>> hdata = new List<IGrouping<String, Bitacora>>();
-                int exit = 0;
-                int eltiempo = 0;
-                List<newmetricosmaquina> lnmm = new List<newmetricosmaquina>();
-                foreach (var h in groupdata)
-                {
-                    newmetricosmaquina nmm = new newmetricosmaquina();
-                    eltiempo += h.Sum(s => s.Tiempo);
-                    if (exit < 5)
-                    {
-                        hdata.Add(h);
-                        nmm.tiempod = multiplicador;
-                        nmm.maquina = h.Key;
-                        nmm.tiempof = h.Sum(s => s.Tiempo);
-                        nmm.fallas = h.Count();
-                        nmm.mttr = nmm.tiempof / nmm.fallas;
-                        nmm.mtbf = multiplicador / nmm.fallas;
-                        var disponibilidad = nmm.mtbf / (nmm.mtbf + nmm.mttr);
-                        nmm.confiabilidad = disponibilidad;
-                        lnmm.Add(nmm);
-                    }
-                    exit++;
-
-                }
-                ViewBag.lnmm = lnmm;
-
-                var objet = "'";
-                var dat = "";
-                foreach (var item in lnmm)
-                {
-                    objet = objet + item.maquina.ToString() + "','";
-                    dat = dat + item.mttr.ToString() + ",";
-                }
-
-                objet = objet.TrimEnd(',', (char)39);
-                objet = objet + "'";
-                dat = dat.TrimEnd(',', (char)39);
-
-                ViewBag.labelsmttr = objet;
-                ViewBag.Datamttr = dat;
-                objet = "'";
-                dat = "";
-                foreach (var item in lnmm)
-                {
-                    objet = objet + item.maquina.ToString() + "','";
-                    dat = dat + item.tiempof.ToString() + ",";
-                }
-
-                objet = objet.TrimEnd(',', (char)39);
-                objet = objet + "'";
-                dat = dat.TrimEnd(',', (char)39);
-
-                ViewBag.labelstf = objet;
-                ViewBag.Datatf = dat;
-
-                objet = "'";
-                dat = "";
-                foreach (var item in lnmm)
-                {
-                    objet = objet + item.maquina.ToString() + "','";
-                    dat = dat + item.fallas.ToString() + ",";
-                }
-
-                objet = objet.TrimEnd(',', (char)39);
-                objet = objet + "'";
-                dat = dat.TrimEnd(',', (char)39);
-
-                ViewBag.labelsf = objet;
-                ViewBag.Dataf = dat;
-
-                objet = "'";
-                dat = "";
-                foreach (var item in lnmm)
-                {
-                    objet = objet + item.maquina.ToString() + "','";
-                    dat = dat + item.mtbf.ToString() + ",";
-                }
-
-                objet = objet.TrimEnd(',', (char)39);
-                objet = objet + "'";
-                dat = dat.TrimEnd(',', (char)39);
-
-                ViewBag.labelsmtbf = objet;
-                ViewBag.Datamtbf = dat;
-
-
-                int stempt = 0;
-                for (int di = 0; di < hdata.Count; di++)
-                {
-                    stempt += hdata[di].Sum(s => s.Tiempo);
-
-                }
-
-                int stemp = 0;
-                for (int di = 0; di < hdata.Count; di++)
-                {
-                    labels = labels + hdata[di].Key + "','";
-                    double eltiempotemp = hdata[di].Sum(s => s.Tiempo);
-                    double re1 = (eltiempotemp / (double)eltiempo) * 100;
-                    gdata = gdata + string.Format("{0:0.##}", re1) + ",";
-                    stemp = stemp + hdata[di].Sum(s => s.Tiempo);
-                    double res = (stemp / (double)stempt) * 100;
-                    gdata2 = gdata2 + string.Format("{0:0.##}", res) + ",";
-
-                }
-
-                labels = labels.TrimEnd(',', (char)39);
-                labels = labels + "'";
-                gdata = gdata.TrimEnd(',', (char)39);
-                gdata2 = gdata2.TrimEnd(',', (char)39);
-                ViewBag.labelsgrap2 = labels;
-                ViewBag.datasgrap2 = gdata;
-                ViewBag.data2sgrap2 = gdata2;
-                DateTimeFormatInfo formatoFecha = CultureInfo.CurrentCulture.DateTimeFormat;
-                string nombreMes = formatoFecha.GetMonthName(fecha.Month);
-                ViewBag.dx = " Año:" + fecha.AddYears(-5).ToString("yyyy") + " a el Año:" + fecha.ToString("yyyy");
-                ViewBag.dxx = " Anual";
-            }
-            //*******************************************************************************************
-
-            if (btn == "Metricos por Mes")
-            {
-                datafiltered.Clear();
-                string labels = "'";
-                string gdata = "";
-                string gdata2 = "";
-                List<decimal> x = new List<decimal>();
-                List<decimal> y = new List<decimal>();
-                int i = 1;
-                for (int iaño = fecha.Year; iaño <= fechaf.Year; iaño++)
-                {
-                    var dataaño = data.Where(w => w.DiaHora.Year == iaño);
-                    for (int jmes = 1; jmes <= 12; jmes++)
-                    {
-                        DateTimeFormatInfo formatoFecha = CultureInfo.CurrentCulture.DateTimeFormat;
-                        string nombreMes = formatoFecha.GetMonthName(jmes);
-                        if (
-                             ((fecha.Year == fechaf.Year) && (fecha.Year == iaño) && (jmes >= fecha.Month) && (jmes <= fechaf.Month))
-                             ||
-                              ((fecha.Year != fechaf.Year) && (fecha.Year == iaño) && (jmes >= fecha.Month))
-                            ||
-                              ((fecha.Year != fechaf.Year) && (fechaf.Year == iaño) && (jmes <= fechaf.Month))
-                            ||
-                            (iaño != fecha.Year && iaño != fechaf.Year)
-                            )
-                        {
-                            labels = labels + iaño.ToString() + "-" + nombreMes + "','";
-
-                            var temp = dataaño.Where(w => w.DiaHora.Year == iaño && w.DiaHora.Month == jmes);
-                            datafiltered.AddRange(temp);
-                            gdata = gdata + temp.Sum(s => s.Tiempo).ToString() + ",";
-                            x.Add(i);
-                            y.Add(temp.Sum(s => s.Tiempo));
-                            i++;
-                        }
-
-
-                    }
-
-                }
-                if (x.Count > 1)
-                {
-                    Trendline rvalue = new Trendline(y, x);
-                    i = 1;
-                    for (int iaño = fecha.Year; iaño <= fechaf.Year; iaño++)
-                    {
-                        for (int jmes = 1; jmes <= 12; jmes++)
-                        {
-                            if (
-                                  ((fecha.Year == fechaf.Year) && (fecha.Year == iaño) && (jmes >= fecha.Month) && (jmes <= fechaf.Month))
-                                 ||
-                                  ((fecha.Year != fechaf.Year) && (fecha.Year == iaño) && (jmes >= fecha.Month))
-                                ||
-                                  ((fecha.Year != fechaf.Year) && (fechaf.Year == iaño) && (jmes <= fechaf.Month))
-                                ||
-                                (iaño != fecha.Year && iaño != fechaf.Year)
-                                )
-                            {
-                                var res = rvalue.GetYValue(i);
-                                gdata2 = gdata2 + string.Format("{0:0.##}", res) + ",";
-                                i++;
-                            }
-
-
-                        }
-
-                    }
-                }
-                labels = labels.TrimEnd(',', (char)39);
-                labels = labels + "'";
-                gdata = gdata.TrimEnd(',', (char)39);
-                gdata2 = gdata2.TrimEnd(',', (char)39);
-
-                ViewBag.labelsgrap = labels;
-                ViewBag.datasgrap = gdata;
-                ViewBag.data2sgrap = gdata2;
-                //--------------------------------------------------------
-                var groupdata = datafiltered.GroupBy(g => g.Maquinas.SubMaquina).OrderByDescending(o => o.Sum(s => s.Tiempo));
-                labels = "'";
-                gdata = "";
-                gdata2 = "";
-                List<IGrouping<String, Bitacora>> hdata = new List<IGrouping<String, Bitacora>>();
-                int exit = 0;
-                int eltiempo = 0;
-                List<newmetricosmaquina> lnmm = new List<newmetricosmaquina>();
-                foreach (var h in groupdata)
-                {
-                    newmetricosmaquina nmm = new newmetricosmaquina();
-                    eltiempo += h.Sum(s => s.Tiempo);
-                    if (exit < 5)
-                    {
-                        hdata.Add(h);
-                        nmm.tiempod = multiplicador;
-                        nmm.maquina = h.Key;
-                        nmm.tiempof = h.Sum(s => s.Tiempo);
-                        nmm.fallas = h.Count();
-                        nmm.mttr = nmm.tiempof / nmm.fallas;
-                        nmm.mtbf = multiplicador / nmm.fallas;
-                        var disponibilidad = nmm.mtbf / (nmm.mtbf + nmm.mttr);
-                        nmm.confiabilidad = disponibilidad;
-                        lnmm.Add(nmm);
-                    }
-                    exit++;
-
-                }
-                ViewBag.lnmm = lnmm;
-
-                var objet = "'";
-                var dat = "";
-                foreach (var item in lnmm)
-                {
-                    objet = objet + item.maquina.ToString() + "','";
-                    dat = dat + item.mttr.ToString() + ",";
-                }
-
-                objet = objet.TrimEnd(',', (char)39);
-                objet = objet + "'";
-                dat = dat.TrimEnd(',', (char)39);
-
-                ViewBag.labelsmttr = objet;
-                ViewBag.Datamttr = dat;
-                objet = "'";
-                dat = "";
-                foreach (var item in lnmm)
-                {
-                    objet = objet + item.maquina.ToString() + "','";
-                    dat = dat + item.tiempof.ToString() + ",";
-                }
-
-                objet = objet.TrimEnd(',', (char)39);
-                objet = objet + "'";
-                dat = dat.TrimEnd(',', (char)39);
-
-                ViewBag.labelstf = objet;
-                ViewBag.Datatf = dat;
-
-                objet = "'";
-                dat = "";
-                foreach (var item in lnmm)
-                {
-                    objet = objet + item.maquina.ToString() + "','";
-                    dat = dat + item.fallas.ToString() + ",";
-                }
-
-                objet = objet.TrimEnd(',', (char)39);
-                objet = objet + "'";
-                dat = dat.TrimEnd(',', (char)39);
-
-                ViewBag.labelsf = objet;
-                ViewBag.Dataf = dat;
-
-                objet = "'";
-                dat = "";
-                foreach (var item in lnmm)
-                {
-                    objet = objet + item.maquina.ToString() + "','";
-                    dat = dat + item.mtbf.ToString() + ",";
-                }
-
-                objet = objet.TrimEnd(',', (char)39);
-                objet = objet + "'";
-                dat = dat.TrimEnd(',', (char)39);
-
-                ViewBag.labelsmtbf = objet;
-                ViewBag.Datamtbf = dat;
-
-                int stempt = 0;
-                for (int di = 0; di < hdata.Count; di++)
-                {
-                    stempt += hdata[di].Sum(s => s.Tiempo);
-
-                }
-
-                int stemp = 0;
-                for (int di = 0; di < hdata.Count; di++)
-                {
-                    labels = labels + hdata[di].Key + "','";
-                    double eltiempotemp = hdata[di].Sum(s => s.Tiempo);
-                    double re1 = (eltiempotemp / (double)eltiempo) * 100;
-                    gdata = gdata + string.Format("{0:0.##}", re1) + ",";
-                    stemp = stemp + hdata[di].Sum(s => s.Tiempo);
-                    double res = (stemp / (double)stempt) * 100;
-                    gdata2 = gdata2 + string.Format("{0:0.##}", res) + ",";
-
-                }
-
-                labels = labels.TrimEnd(',', (char)39);
-                labels = labels + "'";
-                gdata = gdata.TrimEnd(',', (char)39);
-                gdata2 = gdata2.TrimEnd(',', (char)39);
-                ViewBag.labelsgrap2 = labels;
-                ViewBag.datasgrap2 = gdata;
-                ViewBag.data2sgrap2 = gdata2;
-                DateTimeFormatInfo formatoFecha2 = CultureInfo.CurrentCulture.DateTimeFormat;
-                string nombreMes1 = formatoFecha2.GetMonthName(fecha.Month);
-                string nombreMes2 = formatoFecha2.GetMonthName(fechaf.Month);
-                ViewBag.dx = "Mes " + nombreMes1 + " al Mes " + nombreMes2;
-                ViewBag.dxx = " Mes";
-            }
-            //*******************************************************************************************
-
-            if (btn == "Metricos por Dia")
-            {
-                datafiltered.Clear();
-                string labels = "'";
-                string gdata = "";
-                string gdata2 = "";
-                List<decimal> x = new List<decimal>();
-                List<decimal> y = new List<decimal>();
-                int i = 1;
-                for (int iaño = fecha.Year; iaño <= fechaf.Year; iaño++)
-                {
-                    var dataaño = data.Where(w => w.DiaHora.Year == iaño);
-                    for (int jmes = 1; jmes <= 12; jmes++)
-                    {
-                        DateTimeFormatInfo formatoFecha = CultureInfo.CurrentCulture.DateTimeFormat;
-                        string nombreMes = formatoFecha.GetMonthName(jmes);
-                        var dias = DateTime.DaysInMonth(iaño, jmes);
-                        var datames = dataaño.Where(w => w.DiaHora.Month == jmes);
-                        for (int kdia = 1; kdia <= dias; kdia++)
-                        {
-                            DateTime idi = Convert.ToDateTime(kdia.ToString() + "/" + jmes.ToString() + "/" + iaño.ToString());
-
-                            if (idi >= fecha && idi <= fechaf)
-                            {
-                                labels = labels + iaño.ToString() + "-" + nombreMes + "-" + kdia.ToString() + "','";
-                                var temp = datames.Where(w => w.DiaHora.Day == kdia);
-                                datafiltered.AddRange(temp);
-                                gdata = gdata + temp.Sum(s => s.Tiempo).ToString() + ",";
-                                x.Add(i);
-                                y.Add(temp.Sum(s => s.Tiempo));
-                                i++;
-                            }
-
-                        }
-
-
-                    }
-
-                }
-                if (x.Count > 1)
-                {
-                    Trendline rvalue = new Trendline(y, x);
-                    i = 1;
-
-                    for (int iaño = fecha.Year; iaño <= fechaf.Year; iaño++)
-                    {
-                        var dataaño = data.Where(w => w.DiaHora.Year == iaño);
-                        for (int jmes = 1; jmes <= 12; jmes++)
-                        {
-                            DateTimeFormatInfo formatoFecha = CultureInfo.CurrentCulture.DateTimeFormat;
-                            string nombreMes = formatoFecha.GetMonthName(jmes);
-                            var dias = DateTime.DaysInMonth(iaño, jmes);
-                            var datames = dataaño.Where(w => w.DiaHora.Month == jmes);
-                            for (int kdia = 1; kdia <= dias; kdia++)
-                            {
-                                DateTime idi = Convert.ToDateTime(kdia.ToString() + "/" + jmes.ToString() + "/" + iaño.ToString());
-                                if (idi >= fecha && idi <= fechaf)
-                                {
-                                    var res = rvalue.GetYValue(i);
-                                    gdata2 = gdata2 + string.Format("{0:0.##}", res) + ",";
-                                    i++;
-                                }
-
-                            }
-
-
-                        }
-
-                    }
-
-                    labels = labels.TrimEnd(',', (char)39);
-                    labels = labels + "'";
-                    gdata = gdata.TrimEnd(',', (char)39);
-                    gdata2 = gdata2.TrimEnd(',', (char)39);
-
-                    ViewBag.labelsgrap = labels;
-                    ViewBag.datasgrap = gdata;
-                    ViewBag.data2sgrap = gdata2;
-                    //--------------------------------------------------------
-                    var groupdata = datafiltered.GroupBy(g => g.Maquinas.SubMaquina).OrderByDescending(o => o.Sum(s => s.Tiempo));
-                    labels = "'";
-                    gdata = "";
-                    gdata2 = "";
-
-                    List<IGrouping<String, Bitacora>> hdata = new List<IGrouping<String, Bitacora>>();
-                    int exit = 0;
-                    int eltiempo = 0;
-                    List<newmetricosmaquina> lnmm = new List<newmetricosmaquina>();
-                    foreach (var h in groupdata)
-                    {
-                        newmetricosmaquina nmm = new newmetricosmaquina();
-                        eltiempo += h.Sum(s => s.Tiempo);
-                        if (exit < 5)
-                        {
-                            hdata.Add(h);
-                            nmm.tiempod = multiplicador;
-                            nmm.maquina = h.Key;
-                            nmm.tiempof = h.Sum(s => s.Tiempo);
-                            nmm.fallas = h.Count();
-                            nmm.mttr = nmm.tiempof / nmm.fallas;
-                            nmm.mtbf = multiplicador / nmm.fallas;
-                            var disponibilidad = nmm.mtbf / (nmm.mtbf + nmm.mttr);
-                            nmm.confiabilidad = disponibilidad;
-                            lnmm.Add(nmm);
-                        }
-                        exit++;
-
-                    }
-                    ViewBag.lnmm = lnmm;
-
-                    var objet = "'";
-                    var dat = "";
-                    foreach (var item in lnmm)
-                    {
-                        objet = objet + item.maquina.ToString() + "','";
-                        dat = dat + item.mttr.ToString() + ",";
-                    }
-
-                    objet = objet.TrimEnd(',', (char)39);
-                    objet = objet + "'";
-                    dat = dat.TrimEnd(',', (char)39);
-
-                    ViewBag.labelsmttr = objet;
-                    ViewBag.Datamttr = dat;
-                    objet = "'";
-                    dat = "";
-                    foreach (var item in lnmm)
-                    {
-                        objet = objet + item.maquina.ToString() + "','";
-                        dat = dat + item.tiempof.ToString() + ",";
-                    }
-
-                    objet = objet.TrimEnd(',', (char)39);
-                    objet = objet + "'";
-                    dat = dat.TrimEnd(',', (char)39);
-
-                    ViewBag.labelstf = objet;
-                    ViewBag.Datatf = dat;
-
-                    objet = "'";
-                    dat = "";
-                    foreach (var item in lnmm)
-                    {
-                        objet = objet + item.maquina.ToString() + "','";
-                        dat = dat + item.fallas.ToString() + ",";
-                    }
-
-                    objet = objet.TrimEnd(',', (char)39);
-                    objet = objet + "'";
-                    dat = dat.TrimEnd(',', (char)39);
-
-                    ViewBag.labelsf = objet;
-                    ViewBag.Dataf = dat;
-
-                    objet = "'";
-                    dat = "";
-                    foreach (var item in lnmm)
-                    {
-                        objet = objet + item.maquina.ToString() + "','";
-                        dat = dat + item.mtbf.ToString() + ",";
-                    }
-
-                    objet = objet.TrimEnd(',', (char)39);
-                    objet = objet + "'";
-                    dat = dat.TrimEnd(',', (char)39);
-
-                    ViewBag.labelsmtbf = objet;
-                    ViewBag.Datamtbf = dat;
-
-                    int stempt = 0;
-                    for (int di = 0; di < hdata.Count; di++)
-                    {
-                        stempt += hdata[di].Sum(s => s.Tiempo);
-
-                    }
-
-                    int stemp = 0;
-                    for (int di = 0; di < hdata.Count; di++)
-                    {
-                        labels = labels + hdata[di].Key + "','";
-                        double eltiempotemp = hdata[di].Sum(s => s.Tiempo);
-                        double re1 = (eltiempotemp / (double)eltiempo) * 100;
-                        gdata = gdata + string.Format("{0:0.##}", re1) + ",";
-                        stemp = stemp + hdata[di].Sum(s => s.Tiempo);
-                        double res = (stemp / (double)stempt) * 100;
-                        gdata2 = gdata2 + string.Format("{0:0.##}", res) + ",";
-                    }
-
-                    labels = labels.TrimEnd(',', (char)39);
-                    labels = labels + "'";
-                    gdata = gdata.TrimEnd(',', (char)39);
-                    gdata2 = gdata2.TrimEnd(',', (char)39);
-                    ViewBag.labelsgrap2 = labels;
-                    ViewBag.datasgrap2 = gdata;
-                    ViewBag.data2sgrap2 = gdata2;
-
-                    ViewBag.dx = "Dia " + fecha.ToString("dd") + " al Dia " + fechaf.ToString("dd");
-                    ViewBag.dxx = " Dia";
-                }
-
-            }
-
-            //--------------------------------------------
-            var id = User.Identity.GetUserId();
-            ApplicationUser currentUser = UserManager.FindById(id);
-            string cuser = "xxx";
-            string cpuesto = "xxx";
-            string cuare = "xxx";
-            if (currentUser != null)
-            {
-                cuser = currentUser.UserFullName;
-                cpuesto = currentUser.Puesto;
-                cuare = currentUser.Area;
-            }
-            ViewBag.uarea = cuare;
-            ViewBag.cuser = cuser;
-            if (cpuesto.Contains("Supervisor") || cpuesto.Contains("Asistente") || cpuesto.Contains("SuperIntendente") || cpuesto.Contains("Gerente"))
-                ViewBag.super = true;
-            else
-                ViewBag.super = false;
-
-            ViewBag.datei = fecha.ToString("dd/MM/yyyy");
-            ViewBag.datef = fechaf.ToString("dd/MM/yyyy");
 
             return View("Metricos2", datafiltered);
         }

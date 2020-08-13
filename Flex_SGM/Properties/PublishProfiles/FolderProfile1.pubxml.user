@@ -1453,7 +1453,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>08/07/2020 08:03:08</publishTime>
     </File>
     <File Include="Addon/FilePond/filepond.min.js">
-      <publishTime>08/07/2020 08:03:08</publishTime>
+      <publishTime>08/13/2020 11:04:44</publishTime>
     </File>
     <File Include="Addon/fontawesome-free-5.12.0-web/css/all.css">
       <publishTime>08/07/2020 08:03:09</publishTime>
@@ -7246,10 +7246,10 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>08/07/2020 08:03:21</publishTime>
     </File>
     <File Include="bin/Flex_SGM.dll">
-      <publishTime>08/08/2020 14:19:12</publishTime>
+      <publishTime>08/13/2020 12:45:21</publishTime>
     </File>
     <File Include="bin/Flex_SGM.pdb">
-      <publishTime>08/08/2020 14:19:12</publishTime>
+      <publishTime>08/13/2020 12:45:21</publishTime>
     </File>
     <File Include="bin/IBM.Data.DB2.iSeries.dll">
       <publishTime>08/07/2020 08:03:16</publishTime>
@@ -7828,7 +7828,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>08/07/2020 08:03:16</publishTime>
     </File>
     <File Include="Views/Bitacoras/Metricos2.cshtml">
-      <publishTime>08/07/2020 08:03:16</publishTime>
+      <publishTime>08/12/2020 10:58:40</publishTime>
     </File>
     <File Include="Views/Bitacoras/Repo.cshtml">
       <publishTime>08/08/2020 13:48:28</publishTime>
@@ -8053,7 +8053,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>08/07/2020 08:03:16</publishTime>
     </File>
     <File Include="Views/Disponibilidads/Index.cshtml">
-      <publishTime>08/07/2020 08:03:16</publishTime>
+      <publishTime>08/13/2020 11:58:33</publishTime>
     </File>
     <File Include="Views/Fallas/Create.cshtml">
       <publishTime>08/07/2020 08:03:16</publishTime>
@@ -8182,7 +8182,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>08/07/2020 08:03:16</publishTime>
     </File>
     <File Include="Views/OILs/Index.cshtml">
-      <publishTime>08/08/2020 07:06:38</publishTime>
+      <publishTime>08/11/2020 12:51:20</publishTime>
     </File>
     <File Include="Views/OILs/Ress.cshtml">
       <publishTime>08/07/2020 08:03:16</publishTime>

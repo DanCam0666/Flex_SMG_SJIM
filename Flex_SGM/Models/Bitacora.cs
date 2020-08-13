@@ -151,7 +151,27 @@ namespace Flex_SGM.Models
         public double Confiabilidad { get; set; }
 
     }
+    public class newmetricos3
+    {
+        public string TiempoLabel { get; set; }
+        public string maquina { get; set; }
+        public double Disponible1 { get; set; }
+        public double Disponible2 { get; set; }
+        public double Disponible3 { get; set; }
+        public double TiempoMuerto1 { get; set; }
+        public double TiempoMuerto2 { get; set; }
+        public double TiempoMuerto3 { get; set; }
+        public double CantidadFallas1 { get; set; }
+        public double CantidadFallas2 { get; set; }
+        public double CantidadFallas3 { get; set; }
+        public double MTTR1 { get; set; }
+        public double MTTR2 { get; set; }
+        public double MTTR3 { get; set; }
+        public double MTBF { get; set; }
+        public double TarjetasTPM { get; set; }
+        public double Confiabilidad { get; set; }
 
+    }
     public class newmetricosmaquina
     {
         public string maquina { get; set; }
