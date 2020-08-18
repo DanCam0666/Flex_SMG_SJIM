@@ -4188,35 +4188,6 @@ if (amaquina.Contains("Pintura"))
 
             }
             var multiplicador = mindia;
-            /*
-            if (!string.IsNullOrEmpty(xmgroup))
-                try
-                {
-                    mindia = Convert.ToDouble(xmgroup);
-                }
-                catch { }
-          
-            if (mindia > 480)
-                mindia = 480;
-            if (mindia < 48)
-                mindia = 48;
-  */
-            ViewBag.xmgroup = mindia.ToString();
-
-            if (btn == "Metricos por Años")
-            {
-                multiplicador = mindia * 295.494d;
-            }
-            //*******************************************************************************************
-            if (btn == "Metricos por Mes")
-            {
-                multiplicador = mindia * 24.624d;
-            }
-            //*******************************************************************************************
-            if (btn == "Metricos por Dia")
-            {
-                multiplicador = mindia;
-            }
 
 
             var dataf = db.Bitacoras.Where(w => (w.DiaHora.Year >= fecha.Year) &&
@@ -4264,6 +4235,8 @@ if (amaquina.Contains("Pintura"))
             var maquinas = db.Maquinas.Where(m => m.ID > 0);
             if (!string.IsNullOrEmpty(amaquina))
                 maquinas = db.Maquinas.Where(m => m.Area == amaquina);
+            if (!string.IsNullOrEmpty(maquina))
+                maquinas = db.Maquinas.Where(m => m.Maquina == maquina);
 
             var maquis = maquinas.GroupBy(g => g.Maquina).ToList();
 
@@ -4335,7 +4308,7 @@ if (amaquina.Contains("Pintura"))
                                     MTTR1 = 0,
                                     MTTR2 = 0,
                                     MTTR3 = 0,
-                                    MTBF = (Double)multiplicador,
+                                    MTBF = (Double)multiplicador*3,
                                     Confiabilidad = 100,
                                     TarjetasTPM = 0
                                 };
@@ -4402,12 +4375,12 @@ if (amaquina.Contains("Pintura"))
 
                 var sumatm3 = ((sumtp3 / sumd1) * 100);
 
-                var qctt1 = inmaq.Where(w => w.MTTR1 != 0).Count();
-                var smttr11 = inmaq.Where(w=>w.MTTR1!=0).Sum(s => s.MTTR1);
-                var qctt2 = inmaq.Where(w => w.MTTR2 != 0).Count();
-                var smttr12 = inmaq.Where(w => w.MTTR2 != 0).Sum(s => s.MTTR2);
-                var qctt3 = inmaq.Where(w => w.MTTR3 != 0).Count();
-                var smttr13 = inmaq.Where(w => w.MTTR3 != 0).Sum(s => s.MTTR3);
+                var qctt1 = inmaq.Count();
+                var smttr11 = inmaq.Sum(s => s.MTTR1);
+                var qctt2 = inmaq.Count();
+                var smttr12 = inmaq.Sum(s => s.MTTR2);
+                var qctt3 = inmaq.Count();
+                var smttr13 = inmaq.Sum(s => s.MTTR3);
 
                 var sumamttr1 = smttr11 / qctt1;
 
