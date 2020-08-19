@@ -287,7 +287,7 @@
                 events = [];
                 $.ajax({
                     type: "GET",
-                    url: "../Disponibilidads/GetEvents",
+                    url: "Disponibilidads/GetEvents",
                     success: function (data) {
                         $.each(data, function (i, v) {
                             events.push({
@@ -484,7 +484,7 @@
             function SaveEvent(data) {
                 $.ajax({
                     type: "POST",
-                    url: '../Disponibilidads/SaveEvent',
+                    url: 'Disponibilidads/SaveEvent',
                     data: data,
                     success: function (data) {
                         if (data.status) {

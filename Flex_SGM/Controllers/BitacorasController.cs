@@ -4324,15 +4324,16 @@ if (amaquina.Contains("Pintura"))
                                 {
                                     simplemaquinam.MTTR3 = simplemaquinam.TiempoMuerto1 / simplemaquinam.CantidadFallas3;
                                 }
+                                var SumDisponobilidad = simplemaquinam.Disponible1 + simplemaquinam.Disponible2 + simplemaquinam.Disponible3;
+                                simplemaquinam.MTBF = SumDisponobilidad;
                                 if (simplemaquinam.CantidadFallas1 != 0 || simplemaquinam.CantidadFallas2 != 0 || simplemaquinam.CantidadFallas3 != 0)
-                                {
-                                    var SumDisponobilidad = simplemaquinam.Disponible1 + simplemaquinam.Disponible2 + simplemaquinam.Disponible3;
+                                {                                  
                                     var sumCantidadFallas = simplemaquinam.CantidadFallas1 + simplemaquinam.CantidadFallas2 + simplemaquinam.CantidadFallas3;
                                     var sumTiempoMuerto = simplemaquinam.TiempoMuerto1 + simplemaquinam.TiempoMuerto2 + simplemaquinam.TiempoMuerto3;
                                     var MTTR = (simplemaquinam.MTTR1 + simplemaquinam.MTTR2 + simplemaquinam.MTTR3) / 3;
                                     simplemaquinam.MTBF = SumDisponobilidad / sumCantidadFallas;
-                                    simplemaquinam.Confiabilidad = simplemaquinam.MTBF / (simplemaquinam.MTBF + MTTR);
-
+                                  //  simplemaquinam.Confiabilidad = simplemaquinam.MTBF / (simplemaquinam.MTBF + MTTR);
+                                    simplemaquinam.Confiabilidad = (simplemaquinam.MTBF - MTTR) / simplemaquinam.MTBF;
                                 }
 
                                 allmaq.Add(simplemaquinam);
@@ -4351,9 +4352,9 @@ if (amaquina.Contains("Pintura"))
             }
 
 
-            var allmaq2 = allmaq.GroupBy(g => g.TiempoLabel).ToList();
+            var allmaqbyday = allmaq.GroupBy(g => g.TiempoLabel).ToList();
 
-            foreach (var inmaq in allmaq2)
+            foreach (var inmaq in allmaqbyday)
             {
 
                 var sumd1 = inmaq.Sum(s => s.Disponible1);
@@ -4363,6 +4364,8 @@ if (amaquina.Contains("Pintura"))
                 var ft1 = inmaq.Sum(s => s.CantidadFallas1);
                 var ft2 = inmaq.Sum(s => s.CantidadFallas2);
                 var ft3 = inmaq.Sum(s => s.CantidadFallas3);
+
+
 
                 var sumtp1 = inmaq.Sum(s => s.TiempoMuerto1);
                 var sumtp2 = inmaq.Sum(s => s.TiempoMuerto2);
@@ -4375,46 +4378,86 @@ if (amaquina.Contains("Pintura"))
 
                 var sumatm3 = ((sumtp3 / sumd1) * 100);
 
-                var qctt1 = inmaq.Count();
+
                 var smttr11 = inmaq.Sum(s => s.MTTR1);
-                var qctt2 = inmaq.Count();
+
                 var smttr12 = inmaq.Sum(s => s.MTTR2);
-                var qctt3 = inmaq.Count();
+
                 var smttr13 = inmaq.Sum(s => s.MTTR3);
 
-                var sumamttr1 = smttr11 / qctt1;
 
-                var sumamttr2 = smttr12 / qctt2;
+                var sumamttr1 = smttr11 / inmaq.Count();
+                var sumamttr2 = smttr12 / inmaq.Count();
+                var sumamttr3 = smttr13 / inmaq.Count();
 
-                var sumamttr3 = smttr13 / qctt3;
 
                 var sumamtbf = inmaq.Sum(s => s.MTBF) / inmaq.Count();
+                // var sumamtbf = ((sumd1 + sumd2 + sumd3) / 1);
 
-                var sumaMant = inmaq.Sum(s => s.Confiabilidad) / inmaq.Count();
+                //       if ((ft1 != 0 || ft2 !=0 || ft3 != 0))
+                //            sumamtbf = ((sumd1 + sumd2 + sumd3) / (ft1 + ft2 + ft3));
+
+
+                //  var sumaMant = inmaq.Sum(s => s.Confiabilidad) / inmaq.Count();
+
+                var sumamttrs = sumamttr1 + sumamttr2 + sumamttr3;
+
+                var sumaMant = ((sumamtbf- sumamttrs ) / sumamtbf)*100;
+
+
+
+                /*
+                                 var sumamttr1 = sumtp1 / ft1;
+
+                var sumamttr2 = sumtp2 / ft2;
+
+                var sumamttr3 = sumtp3 / ft3;
+
+                var sumamtbf = ((sumd1+ sumd2 + sumd3)  / (ft1+ ft2+ ft3));
+                
+                 
+                var sumamttr1 = 0.0;
+                if (ft1 != 0)
+                 sumamttr1 = smttr11 / ft1;
+
+                var sumamttr2 = 0.0;
+                if (ft2 != 0)
+                     sumamttr2 = sumd2 / ft2;
+
+                var sumamttr3 = 0.0;
+                if (ft3 != 0)
+                     sumamttr3 = sumd3 / ft3;
+
+                var sumamttrs = sumamttr1 + sumamttr2+sumamttr3;
+                 
+                 
+                 */
+
+
 
 
 
                 newmetricos2 data_show = new newmetricos2
                 {
                     TiempoLabel = inmaq.Key,
-                    TiempoMuerto1 = sumatm1,
-                    TiempoMuerto2 = sumatm2,
-                    TiempoMuerto3 = sumatm3,
-                    MTTR1 = sumamttr1,
-                    MTTR2 = sumamttr2,
-                    MTTR3 = sumamttr3,
-                    MTBF = sumamtbf,
-                    Confiabilidad = sumaMant,
+                    TiempoMuerto1 = Math.Round(sumatm1,2),
+                    TiempoMuerto2 = Math.Round(sumatm2, 2),
+                    TiempoMuerto3 = Math.Round(sumatm3, 2),
+                    MTTR1 = Math.Round(sumamttr1, 2),
+                    MTTR2 = Math.Round(sumamttr2, 2),
+                    MTTR3 = Math.Round(sumamttr3, 2),
+                    MTBF = Math.Round(sumamtbf, 2),
+                    Confiabilidad = Math.Round(sumaMant, 2),
                     TarjetasTPM = 0,
-                    Disponible1 = sumd1,
-                    Disponible2 = sumd2,
-                    Disponible3 = sumd3,
-                    FallasT1 = ft1,
-                    FallasT2 = ft2,
-                    FallasT3 = ft3,
-                    TiempoM1 = sumtp1,
-                    TiempoM2 = sumtp2,
-                    TiempoM3 = sumtp3
+                    Disponible1 = Math.Round(sumd1, 2),
+                    Disponible2 = Math.Round(sumd2, 2),
+                    Disponible3 = Math.Round(sumd3, 2),
+                    FallasT1 = Math.Round(ft1, 2),
+                    FallasT2 = Math.Round(ft2, 2),
+                    FallasT3 = Math.Round(ft3, 2),
+                    TiempoM1 = Math.Round(sumtp1, 2),
+                    TiempoM2 = Math.Round(sumtp2, 2),
+                    TiempoM3 = Math.Round(sumtp3, 2)
 
                 };
                 Ldata.Add(data_show);
