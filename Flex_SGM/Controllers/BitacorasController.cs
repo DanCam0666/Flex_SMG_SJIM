@@ -4153,8 +4153,6 @@ if (amaquina.Contains("Pintura"))
             var oILs = db.OILs.Include(o => o.Maquinas);
             List<newmetricos2> Ldata = new List<newmetricos2>();
 
-            double total_fallas_full = 0.0f, tiempomueto_full = 0.0f;
-
             var fecha = DateTime.Now.AddDays(-7);
             var fechaf = DateTime.Now;
 
@@ -4351,7 +4349,7 @@ if (amaquina.Contains("Pintura"))
 
             }
 
-
+            ViewBag.metricospermachine = allmaq;
             var allmaqbyday = allmaq.GroupBy(g => g.TiempoLabel).ToList();
 
             foreach (var inmaq in allmaqbyday)

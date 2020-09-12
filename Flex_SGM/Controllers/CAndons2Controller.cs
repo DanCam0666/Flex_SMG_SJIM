@@ -11,6 +11,7 @@ using System.Web.Mvc;
 using Flex_SGM.Models;
 using System.Web.Script.Serialization;
 using System.Web.UI;
+using ClosedXML.Report;
 
 namespace Flex_SGM.Controllers
 {
@@ -586,7 +587,82 @@ namespace Flex_SGM.Controllers
 
             // return View(cAndon2.ToList());
         }
-        
+
+        public FileResult ExportFormat(int? id)
+        {
+
+
+            CAndon2 reo = db.CAndon2.Find(id);
+
+
+            var user = User.Identity;
+
+            //******************************
+            var templatepath = Server.MapPath($"~/Evidence/Quality/TemplateAndon.xlsx");
+
+            var template = new XLTemplate(templatepath);
+
+            templateandon tempy = new templateandon
+            {
+                
+                tiporeclamo = reo.tipo,
+                fecha = reo.Fecha.ToShortDateString(),
+                hora_activacion=reo.Hora,
+                reportecliente = reo.NoReclamoCliente,
+                reportefng = reo.NoReclamoFNG,
+                area = reo.Area,
+                noparte = reo.NoParte,
+                cliente = reo.Cliente,
+                lugar = reo.Planta,
+                costo = reo.costo,
+                descripcion = reo.Descripcionpz,
+                cantidad = reo.Cantidadpz,
+                descripcion2 = reo.Defecto
+            };
+            try
+            {
+                var path1 = Server.MapPath($"~/Evidence/Quality/Reclamos/before/{id}");
+
+                var path2 = Server.MapPath($"~/Evidence/Quality/Reclamos/after/{id}");
+                DirectoryInfo Folder;
+                Folder = new DirectoryInfo(path1);
+                FileInfo[] Images1 = Folder.GetFiles();
+                Folder = new DirectoryInfo(path2);
+                FileInfo[] Images2 = Folder.GetFiles();
+
+                var ws = template.Workbook.Worksheet("Data");
+                Images1 = Images1.Where(w => w.Name.ToLower().Contains(".jpeg") || w.Name.ToLower().Contains(".jpg")).ToArray();
+                Images2 = Images2.Where(w => w.Name.ToLower().Contains(".jpeg") || w.Name.ToLower().Contains(".jpg")).ToArray();
+                if (Images1.Count() > 0)
+                {
+                    var image1 = ws.AddPicture(Images1.FirstOrDefault().FullName)
+                        .MoveTo(ws.Cell("A17"))
+                    .Scale(0.35); // optional: resize picture
+                }
+
+                if (Images2.Count() > 0)
+                {
+                    var image2 = ws.AddPicture(Images2.FirstOrDefault().FullName)
+        .MoveTo(ws.Cell("C17"))
+        .Scale(0.35); // optional: resize picture
+
+
+
+                }
+            }
+            catch (Exception ex) { }
+
+            template.AddVariable(tempy);
+            template.Generate();
+            using (MemoryStream stream = new MemoryStream())
+            {
+                template.SaveAs(stream);
+                return File(stream.ToArray(), "holotopo", "Reclamo_" + reo.NoReclamoFNG + ".xlsx");
+            }
+
+
+        }
+
         public ActionResult paretoasync(string btn = "Por Mes", string dti = "", string dtf = "", string paret = "Cliente")
         {
 

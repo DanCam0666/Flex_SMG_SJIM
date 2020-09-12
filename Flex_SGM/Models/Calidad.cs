@@ -500,4 +500,41 @@ namespace Flex_SGM.Models
 
 
     }
+
+    public class templateandon
+    {
+        public string fecha { get; set; }
+        public string hora_activacion { get; set; }
+        public string no_parte { get; set; }
+        public string descripcionpza { get; set; }
+        public string aa { get; set; }
+        public string aa { get; set; }
+        public string aa { get; set; }
+        public string aa { get; set; }
+        public string aa { get; set; }
+        public string aa { get; set; }
+        public string aa { get; set; }
+        public string aa { get; set; }
+        public string aa { get; set; }
+        public string aa { get; set; }
+        public string aa { get; set; }
+        public string aa { get; set; }
+        public string aa { get; set; }
+
+        public string aa { get; set; }
+        public string aa { get; set; }
+        public string aa { get; set; }
+        public string aa { get; set; }
+        public string aa { get; set; }
+        public string aa { get; set; }
+        public string aa { get; set; }
+        public string aa { get; set; }
+        public string aa { get; set; }
+        public string aa { get; set; }
+        public string aa { get; set; }
+        public string aa { get; set; }
+        public string aa { get; set; }
+        public string aa { get; set; }
+
+    }
 }

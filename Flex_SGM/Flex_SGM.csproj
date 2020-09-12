@@ -2892,6 +2892,11 @@
     <Content Include="Views\cProyectos\Details.cshtml" />
     <Content Include="Views\cProyectos\Edit.cshtml" />
     <Content Include="Views\cProyectos\Index.cshtml" />
+    <Content Include="Templates\Template.xlsx" />
+    <Content Include="Templates\TemplateAndon.xlsx" />
+    <Content Include="Templates\08. FOA25CF1-08 QUALITY COSTS  2020_AGO_rev 01SEP2020.xlsx" />
+    <Content Include="Templates\Reporte Dock Audit.xlsx" />
+    <Content Include="Templates\SJQAF.01301.S Registro de alarmas andón %281%29.xlsx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
