@@ -590,8 +590,7 @@ namespace Flex_SGM.Controllers
 
         public FileResult ExportFormat(int? id)
         {
-
-
+ 
             CAndon2 reo = db.CAndon2.Find(id);
 
 
@@ -604,60 +603,188 @@ namespace Flex_SGM.Controllers
 
             templateandon tempy = new templateandon
             {
-                
-                tiporeclamo = reo.tipo,
+              
                 fecha = reo.Fecha.ToShortDateString(),
                 hora_activacion=reo.Hora,
-                reportecliente = reo.NoReclamoCliente,
-                reportefng = reo.NoReclamoFNG,
-                area = reo.Area,
-                noparte = reo.NoParte,
-                cliente = reo.Cliente,
-                lugar = reo.Planta,
-                costo = reo.costo,
-                descripcion = reo.Descripcionpz,
-                cantidad = reo.Cantidadpz,
-                descripcion2 = reo.Defecto
+                no_parte = reo.NoDeParte,
+                descripcionpza = reo.NombreDeParte,
+                Problemar1 = "",
+                Problemar2 = "",
+                Problemar3 = "",
+                Problemar4 = "",
+                Area_Prensasn1 = "",
+                Area_Prensasn2 = "",
+                Area_Cromo = "",
+                Area_Pulido = "",
+                Area_Soldadura = "",
+                Area_Pedestales = "",
+                Area_EnsambleDJ = "",
+                Area_EnsambleGM = "",
+                Area_Topcoat = "",
+                Area_Ecoat = "",
+                Area_Nuevoproyecto = "",
+                Area_otro = "",
+                Area_otrodes = "",
+                Nombre1 = reo.Asistentes.Nombre1,
+                Depa1 = reo.Asistentes.Area1,
+                Nombre2 = reo.Asistentes.Nombre2,
+                Depa2 = reo.Asistentes.Area2,
+                Nombre3 = reo.Asistentes.Nombre3,
+                Depa3 = reo.Asistentes.Area3,
+                Nombre4 = reo.Asistentes.Nombre4,
+                Depa4 = reo.Asistentes.Area4,
+                Nombre5 = reo.Asistentes.Nombre5,
+                Depa5 = reo.Asistentes.Area5,
+                Nombre6 = reo.Asistentes.Nombre6,
+                Depa6 = reo.Asistentes.Area6,
+                Nombre7 = reo.Asistentes.Nombre7,
+                Depa7 = reo.Asistentes.Area7,
+                Nombre8 = reo.Asistentes.Nombre8,
+                Depa8 = reo.Asistentes.Area8,
+                Esproblema = "",
+                Esprobleman = "",
+                Pone_riesgos = "",
+                Pone_riesgon = "",
+                repetitivos = "",
+                repetitivon = "",
+                DESCRIPCION5P = reo.AndonDefecto.Defecto,
+                primer5P = reo.a1why,
+                segundo5P = reo.a2why,
+                tercer5P = reo.a3why,
+                cuarto5P = reo.a4why,
+                quinto5P = reo.a50d,
+                causa5P = reo.Causas,
+                acciones5P = reo.Acciones,
             };
-            try
+            if (reo.Comentarios != null)
+                reo.Comentarios = reo.AndonDefecto.Defecto + "-" + reo.Comentarios;
+            else
+                reo.Comentarios = reo.AndonDefecto.Defecto;
+            int div = 0;
+
+           div = reo.Comentarios.Length;
+            //---
+            if (div > 0)
+                if (div > 50)
             {
-                var path1 = Server.MapPath($"~/Evidence/Quality/Reclamos/before/{id}");
-
-                var path2 = Server.MapPath($"~/Evidence/Quality/Reclamos/after/{id}");
-                DirectoryInfo Folder;
-                Folder = new DirectoryInfo(path1);
-                FileInfo[] Images1 = Folder.GetFiles();
-                Folder = new DirectoryInfo(path2);
-                FileInfo[] Images2 = Folder.GetFiles();
-
-                var ws = template.Workbook.Worksheet("Data");
-                Images1 = Images1.Where(w => w.Name.ToLower().Contains(".jpeg") || w.Name.ToLower().Contains(".jpg")).ToArray();
-                Images2 = Images2.Where(w => w.Name.ToLower().Contains(".jpeg") || w.Name.ToLower().Contains(".jpg")).ToArray();
-                if (Images1.Count() > 0)
-                {
-                    var image1 = ws.AddPicture(Images1.FirstOrDefault().FullName)
-                        .MoveTo(ws.Cell("A17"))
-                    .Scale(0.35); // optional: resize picture
-                }
-
-                if (Images2.Count() > 0)
-                {
-                    var image2 = ws.AddPicture(Images2.FirstOrDefault().FullName)
-        .MoveTo(ws.Cell("C17"))
-        .Scale(0.35); // optional: resize picture
-
-
-
-                }
+                tempy.Problemar1 = reo.Comentarios.Substring(0, 50);
+                div = div - 50;
             }
-            catch (Exception ex) { }
+            else
+            {
+                tempy.Problemar1 = reo.Comentarios.Substring(0, div);
+                div = 0;
+            }
+            //---
+            if (div > 0)
+                if (div > 50)
+            {
+                tempy.Problemar2 = reo.Comentarios.Substring(50, 50);
+                div = div - 50;
+            }
+            else
+            {
+                tempy.Problemar2 = reo.Comentarios.Substring(50, div);
+                div = 0;
+            }
+            //---
+            if (div > 0)
+                if (div > 50)
+            {
+                tempy.Problemar3 = reo.Comentarios.Substring(100, 50);
+                div = div - 50;
+            }
+            else
+            {
+                tempy.Problemar3 = reo.Comentarios.Substring(100, div);
+                div = 0;
+            }
+            //---
+            if (div > 0)
+                if (div > 50)
+            {
+                tempy.Problemar4 = reo.Comentarios.Substring(150, 50);
+                div = div - 50;
+            }
+            else
+            {       
+                tempy.Problemar4 = reo.Comentarios.Substring(150, div);
+                div = 0;
+            }
+            //-----check boxes
+            var areagenero = db.cAreas.Find(reo.AreasgID);
+            var areaemitio= db.cAreas.Find(reo.AreaseID);
+            switch (areagenero.Area)
+            {
+                case "a":
+                    tempy.Area_Prensasn1 = "X";
+                    break;
+                case "b":
+                    tempy.Area_Prensasn2 = "X";
+                    break;
+                case "c":
+                    tempy.Area_Cromo = "X";
+                    break;
+                case "d":
+                    tempy.Area_Pulido = "X";
+                    break;
+                case "e":
+                    tempy.Area_Soldadura = "X";
+                    break;
+                case "f":
+                    tempy.Area_Pedestales = "X";
+                    break;
+                case "g":
+                    tempy.Area_EnsambleDJ = "X";
+                    break;
+                case "h":
+                    tempy.Area_EnsambleGM = "X";
+                    break;
+                case "i":
+                    tempy.Area_Topcoat = "X";
+                    break;
+                case "j":
+                    tempy.Area_Ecoat = "X";
+                    break;
+                case "k":
+                    tempy.Area_Nuevoproyecto = "X";
+                    break;
+                default:
+                    tempy.Area_otro = "X";
+                    tempy.Area_otrodes = areagenero.Area;
+                    break;
+            }
+
+            //------------------------****
+            if (reo.Esproblema == true)
+                tempy.Esproblema = "X";
+                else
+                tempy.Esprobleman = "X";
+
+            if (reo.Esproblemaseguridad == true)
+                tempy.Pone_riesgos = "X";
+            else
+            tempy.Pone_riesgon = "X";
+
+            if (reo.Esproblemavario ==true)
+                tempy.repetitivos = "X";
+            else
+                tempy.repetitivon = "X";
+
+
+
+
+
+
+
+
 
             template.AddVariable(tempy);
             template.Generate();
             using (MemoryStream stream = new MemoryStream())
             {
                 template.SaveAs(stream);
-                return File(stream.ToArray(), "holotopo", "Reclamo_" + reo.NoReclamoFNG + ".xlsx");
+                return File(stream.ToArray(), "holotopo", "Andon_" + reo.ID.ToString() + ".xlsx");
             }
 
 

@@ -192,6 +192,7 @@
                                 @Html.DisplayFor(modelItem => item.ID)
                             </td>
                             <td>
+                                @Html.ActionLink("Exportar", "ExportFormat", new { id = item.ID }, new { @class = "btn btn-success", @target = "_blank" })
                                 @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn  btn-primary", @target = "_blank" })
                                 @Html.ActionLink("Editar", "Edit", new { id = item.ID }, new { @class = "btn  btn-warning", @target = "_blank" })
                                 @Html.ActionLink("Borrar", "Delete", new { id = item.ID }, new { @class = "btn  btn-danger" })

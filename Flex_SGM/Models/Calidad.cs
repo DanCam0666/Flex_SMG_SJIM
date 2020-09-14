@@ -507,34 +507,57 @@ namespace Flex_SGM.Models
         public string hora_activacion { get; set; }
         public string no_parte { get; set; }
         public string descripcionpza { get; set; }
-        public string aa { get; set; }
-        public string aa { get; set; }
-        public string aa { get; set; }
-        public string aa { get; set; }
-        public string aa { get; set; }
-        public string aa { get; set; }
-        public string aa { get; set; }
-        public string aa { get; set; }
-        public string aa { get; set; }
-        public string aa { get; set; }
-        public string aa { get; set; }
-        public string aa { get; set; }
-        public string aa { get; set; }
+        public string Problemar1 { get; set; }
+        public string Problemar2 { get; set; }
+        public string Problemar3 { get; set; }
+        public string Problemar4 { get; set; }
+        public string Area_Prensasn1 { get; set; }
+        public string Area_Prensasn2 { get; set; }
+        public string Area_Cromo { get; set; }
+        public string Area_Pulido { get; set; }
+        public string Area_Soldadura { get; set; }
+        public string Area_Pedestales { get; set; }
+        public string Area_EnsambleDJ { get; set; }
+        public string Area_EnsambleGM { get; set; }
+        public string Area_Topcoat { get; set; }
+        public string Area_Ecoat { get; set; }
+        public string Area_Nuevoproyecto { get; set; }
+        public string Area_otro { get; set; }
+        public string Area_otrodes { get; set; }
+        public string Nombre1 { get; set; }
+        public string Depa1 { get; set; }
+        public string Nombre2 { get; set; }
+        public string Depa2 { get; set; }
+        public string Nombre3 { get; set; }
+        public string Depa3 { get; set; }
+        public string Nombre4 { get; set; }
+        public string Depa4 { get; set; }
+        public string Nombre5 { get; set; }
+        public string Depa5 { get; set; }
 
-        public string aa { get; set; }
-        public string aa { get; set; }
-        public string aa { get; set; }
-        public string aa { get; set; }
-        public string aa { get; set; }
-        public string aa { get; set; }
-        public string aa { get; set; }
-        public string aa { get; set; }
-        public string aa { get; set; }
-        public string aa { get; set; }
-        public string aa { get; set; }
-        public string aa { get; set; }
-        public string aa { get; set; }
-        public string aa { get; set; }
+        public string Nombre6 { get; set; }
+        public string Depa6 { get; set; }
+        public string Nombre7 { get; set; }
+        public string Depa7 { get; set; }
+        public string Nombre8 { get; set; }
+        public string Depa8 { get; set; }
+
+
+        public string Esproblema { get; set; }
+        public string Esprobleman { get; set; }
+        public string Pone_riesgos { get; set; }
+        public string Pone_riesgon { get; set; }
+        public string repetitivos { get; set; }
+        public string repetitivon { get; set; }
+
+        public string DESCRIPCION5P { get; set; }
+        public string primer5P { get; set; }
+        public string segundo5P { get; set; }
+        public string tercer5P { get; set; }
+        public string cuarto5P { get; set; }
+        public string quinto5P { get; set; }
+        public string causa5P { get; set; }
+        public string acciones5P { get; set; }
 
     }
 }
