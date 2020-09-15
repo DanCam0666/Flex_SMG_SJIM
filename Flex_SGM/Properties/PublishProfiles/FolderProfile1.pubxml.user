@@ -1453,7 +1453,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>08/19/2020 10:18:35</publishTime>
     </File>
     <File Include="Addon/FilePond/filepond.min.js">
-      <publishTime>08/19/2020 12:04:11</publishTime>
+      <publishTime>09/14/2020 14:26:01</publishTime>
     </File>
     <File Include="Addon/fontawesome-free-5.12.0-web/css/all.css">
       <publishTime>08/19/2020 10:18:35</publishTime>
@@ -7246,10 +7246,10 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>08/19/2020 10:18:49</publishTime>
     </File>
     <File Include="bin/Flex_SGM.dll">
-      <publishTime>08/19/2020 12:21:34</publishTime>
+      <publishTime>09/15/2020 16:42:22</publishTime>
     </File>
     <File Include="bin/Flex_SGM.pdb">
-      <publishTime>08/19/2020 12:21:34</publishTime>
+      <publishTime>09/15/2020 16:42:22</publishTime>
     </File>
     <File Include="bin/IBM.Data.DB2.iSeries.dll">
       <publishTime>08/19/2020 10:18:44</publishTime>
@@ -7713,6 +7713,24 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
     <File Include="Scripts/wow.js">
       <publishTime>08/19/2020 10:18:43</publishTime>
     </File>
+    <File Include="Templates/08. FOA25CF1-08 QUALITY COSTS  2020_AGO_rev 01SEP2020.xlsx">
+      <publishTime>09/12/2020 13:18:14</publishTime>
+    </File>
+    <File Include="Templates/Reporte Dock Audit.xlsx">
+      <publishTime>09/12/2020 13:18:14</publishTime>
+    </File>
+    <File Include="Templates/SJQAF.01301.S Registro de alarmas andón %281%29.xlsx">
+      <publishTime>09/12/2020 13:18:14</publishTime>
+    </File>
+    <File Include="Templates/Template.xlsx">
+      <publishTime>09/12/2020 13:18:01</publishTime>
+    </File>
+    <File Include="Templates/TemplateAndon.xlsx">
+      <publishTime>09/14/2020 14:28:56</publishTime>
+    </File>
+    <File Include="Templates/TemplateDock.xlsx">
+      <publishTime>09/14/2020 15:47:27</publishTime>
+    </File>
     <File Include="vids/flexm.mp4">
       <publishTime>08/19/2020 10:18:45</publishTime>
     </File>
@@ -7828,7 +7846,10 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>08/19/2020 10:18:43</publishTime>
     </File>
     <File Include="Views/Bitacoras/Metricos2.cshtml">
-      <publishTime>08/19/2020 10:50:30</publishTime>
+      <publishTime>09/15/2020 16:40:42</publishTime>
+    </File>
+    <File Include="Views/Bitacoras/Metricos3.cshtml">
+      <publishTime>09/15/2020 16:24:52</publishTime>
     </File>
     <File Include="Views/Bitacoras/Repo.cshtml">
       <publishTime>08/19/2020 10:18:43</publishTime>
@@ -7894,7 +7915,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>08/19/2020 10:18:43</publishTime>
     </File>
     <File Include="Views/CAndons2/Index.cshtml">
-      <publishTime>08/19/2020 10:18:43</publishTime>
+      <publishTime>09/14/2020 11:39:51</publishTime>
     </File>
     <File Include="Views/cAreas/Create.cshtml">
       <publishTime>08/19/2020 10:18:43</publishTime>
@@ -7951,7 +7972,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>06/04/2020 21:38:10</publishTime>
     </File>
     <File Include="Views/CDockaudits/Index.cshtml">
-      <publishTime>08/19/2020 10:18:43</publishTime>
+      <publishTime>09/15/2020 13:03:25</publishTime>
     </File>
     <File Include="Views/ControldeEquipos/Create.cshtml">
       <publishTime>08/19/2020 10:18:43</publishTime>

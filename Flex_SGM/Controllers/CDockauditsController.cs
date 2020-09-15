@@ -8,6 +8,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using ClosedXML.Report;
 using Flex_SGM.Models;
 
 namespace Flex_SGM.Controllers
@@ -737,6 +738,88 @@ namespace Flex_SGM.Controllers
 
             return View(datafiltered);
             //  return View(db.CDockaudits.ToList());
+        }
+
+
+        public FileResult ExportFormat(int? id)
+        {
+
+
+            CDockaudit reo = db.CDockaudits.Find(id);
+
+
+            var user = User.Identity;
+
+            //******************************
+            var templatepath = Server.MapPath($"~/Evidence/Quality/TemplateDock.xlsx");
+
+            var template = new XLTemplate(templatepath);
+
+            templatedock tempy = new templatedock
+            {
+                fecha = reo.Fecha.ToShortDateString(),
+                cliente = reo.cliente,
+         noreporte = reo.NoDockAudit,
+         noparte = reo.NoDeParte,
+         descripcionparte = reo.Descripcion,
+         modelo = reo.NoDeParte,
+         donde = reo.AreaOrigen,
+         cuadofecha = reo.Fecha.ToShortDateString(),
+                que = reo.Clasificacion,
+         que2 = reo.Comentarios,
+         supervisor = reo.SupOrigen,
+         lote = reo.lote,
+         cantidad = reo.Cantidad,
+         reporto = reo.AuditorReporto,
+         recibio = reo.SupRecibio,
+         a1d = reo.a1d,
+         a5d = reo.a5d,
+                a10d = reo.a10d,
+                a20d = reo.a20d,
+                a30d = reo.a20d
+            };
+            try
+            {
+                var path1 = Server.MapPath($"~/Evidence/Quality/Docks/before/{id}");
+
+                var path2 = Server.MapPath($"~/Evidence/Quality/Docks/after/{id}");
+                DirectoryInfo Folder;
+                Folder = new DirectoryInfo(path1);
+                FileInfo[] Images1 = Folder.GetFiles();
+                Folder = new DirectoryInfo(path2);
+                FileInfo[] Images2 = Folder.GetFiles();
+
+                var ws = template.Workbook.Worksheet("REPORTE");
+                Images1 = Images1.Where(w => w.Name.ToLower().Contains(".jpeg") || w.Name.ToLower().Contains(".jpg")).ToArray();
+                Images2 = Images2.Where(w => w.Name.ToLower().Contains(".jpeg") || w.Name.ToLower().Contains(".jpg")).ToArray();
+                if (Images1.Count() > 0)
+                {
+                    var image1 = ws.AddPicture(Images1.FirstOrDefault().FullName)
+                        .MoveTo(ws.Cell("B14"))
+                    .Scale(0.25); // optional: resize picture
+                }
+
+                if (Images2.Count() > 0)
+                {
+                    var image2 = ws.AddPicture(Images2.FirstOrDefault().FullName)
+        .MoveTo(ws.Cell("H14"))
+        .Scale(0.25); // optional: resize picture
+
+
+
+                }
+            }
+            catch (Exception ex) { }
+
+            template.AddVariable(tempy);
+            template.Generate();
+            using (MemoryStream stream = new MemoryStream())
+            {
+                template.SaveAs(stream);
+                return File(stream.ToArray(), "holotopo", "Dock_" + reo.NoDockAudit + ".xlsx");
+            }
+
+
         }
 
         // GET: CDockaudits/Details/5

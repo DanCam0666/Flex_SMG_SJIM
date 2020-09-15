@@ -560,4 +560,29 @@ namespace Flex_SGM.Models
         public string acciones5P { get; set; }
 
     }
+
+    public class templatedock
+    {
+        public string fecha { get; set; }
+        public string cliente { get; set; }
+        public string noreporte { get; set; }
+        public string noparte { get; set; }
+        public string descripcionparte { get; set; }
+        public string modelo { get; set; }
+        public string donde { get; set; }
+        public string cuadofecha { get; set; }
+        public string que { get; set; }
+        public string que2 { get; set; }
+        public string supervisor { get; set; }
+        public string lote { get; set; }
+        public string cantidad { get; set; }
+        public string reporto { get; set; }
+        public string recibio { get; set; }
+        public string a1d { get; set; }
+        public string a5d { get; set; }
+        public string a10d { get; set; }
+        public string a20d { get; set; }
+        public string a30d { get; set; }
+
+    }
 }

@@ -34,7 +34,7 @@
                                 <label for="submaquina">Tiempo disponible por Turno en minutos:</label>
                             </div>
                             <label class=" form-control">
-                                @ViewBag.xmgroup
+                              @ViewBag.xmgroup
                             </label>
                         </div>
                         <div class="form-group col-xs-2">
@@ -266,6 +266,86 @@
         </table>
     </div>
 
+    <table class="table table-bordered table-striped" id="metricoxmaqui">
+        <thead>
+            <tr>
+                <th>@Html.Label("Fecha")</th>
+                <th>@Html.Label("Nombre Maquina")</th>
+                <th>@Html.Label("MTBF")</th>
+                <th>@Html.Label("Tiempo Disponible 1")</th>
+                <th>@Html.Label("Cantidad de Fallas 1")</th>
+                <th>@Html.Label("Tiempo Muerto 1")</th>
+                <th>@Html.Label("MTTR 1")</th>
+                <th>@Html.Label("Tiempo Disponible 2")</th>
+                <th>@Html.Label("Cantidad de Fallas 2")</th>
+                <th>@Html.Label("Tiempo Muerto 2")</th>
+                <th>@Html.Label("MTTR 2")</th>
+                <th>@Html.Label("Tiempo Disponible 3")</th>
+                <th>@Html.Label("Cantidad de Fallas 3")</th>
+                <th>@Html.Label("Tiempo Muerto 3")</th>
+                <th>@Html.Label("MTTR 3")</th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (newmetricos3 item in @ViewBag.metricospermachine)
+            {
+            <tr>
+                <td>
+                    @item.TiempoLabel
+                </td>
+                <td>
+                    @item.maquina
+                </td>
+                <td>
+                    @item.MTBF
+                </td>
+                <td>
+                    @item.Disponible1
+                </td>
+                <td>
+                    @item.CantidadFallas1
+                </td>
+                <td>
+                    @item.TiempoMuerto1
+                </td>
+                <td>
+                    @item.MTTR1
+                </td>
+                <td>
+                    @item.Disponible2
+                </td>
+                <td>
+                    @item.CantidadFallas2
+                </td>
+                <td>
+                    @item.TiempoMuerto2
+                </td>
+                <td>
+                    @item.MTTR2
+                </td>
+                <td>
+                    @item.Disponible3
+                </td>
+                <td>
+                    @item.CantidadFallas3
+                </td>
+                <td>
+                    @item.TiempoMuerto3
+                </td>
+                <td>
+                    @item.MTTR3
+                </td>
+
+
+            </tr>
+
+            }
+
+        </tbody>
+    </table>
 </div>
 <br />
 <br />
@@ -297,7 +377,7 @@
             <h2> Lista de Tiempo Muerto del @ViewBag.dx</h2>
         </div>
         <div class="x_content ">
-            <table class="table table-bordered table-striped clearfix" id="metricox2" style="width:100%">
+            <table class="table table-bordered table-striped clearfix"  id="metricox2" style="width:100%">
                 <thead>
                     <tr>
                         <th>
@@ -524,7 +604,7 @@
                     }
                 </tr>
             </thead>
-            <tbody>
+            <tbody>              
                 <tr>
                     <th scope="row">28 - # Tiempo Perdido 3</th>
                     <th scope="row">Informativo</th>
@@ -546,7 +626,7 @@
             Worst 5  MTTR
         </div>
         <div class="x_content">
-            <canvas id="chartmttr" width="100" height="44" "></canvas>
+            <canvas id="chartmttr" width="100" height="44""></canvas>
         </div>
     </div>
     <div class="x_panel">

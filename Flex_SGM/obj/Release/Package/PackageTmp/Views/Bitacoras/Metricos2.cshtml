@@ -34,7 +34,7 @@
                                 <label for="submaquina">Tiempo disponible por Turno en minutos:</label>
                             </div>
                             <label class=" form-control">
-                              @ViewBag.xmgroup
+                                @ViewBag.xmgroup
                             </label>
                         </div>
                         <div class="form-group col-xs-2">
@@ -265,6 +265,7 @@
             </tbody>
         </table>
     </div>
+
 </div>
 <br />
 <br />
@@ -296,7 +297,7 @@
             <h2> Lista de Tiempo Muerto del @ViewBag.dx</h2>
         </div>
         <div class="x_content ">
-            <table class="table table-bordered table-striped clearfix"  id="metricox2" style="width:100%">
+            <table class="table table-bordered table-striped clearfix" id="metricox2" style="width:100%">
                 <thead>
                     <tr>
                         <th>
@@ -523,7 +524,7 @@
                     }
                 </tr>
             </thead>
-            <tbody>              
+            <tbody>
                 <tr>
                     <th scope="row">28 - # Tiempo Perdido 3</th>
                     <th scope="row">Informativo</th>
@@ -545,7 +546,7 @@
             Worst 5  MTTR
         </div>
         <div class="x_content">
-            <canvas id="chartmttr" width="100" height="44""></canvas>
+            <canvas id="chartmttr" width="100" height="44" "></canvas>
         </div>
     </div>
     <div class="x_panel">
@@ -650,9 +651,44 @@
             //    $(this).parents('form').submit();
               //          });
               //          $('#maquina').change(function () {
-              //  $(this).parents('form').submit();
+              //  $(this).parents('form').submit();metricoxmaqui
            // });
             $('#metricox').DataTable({
+                "dom": 'lBfrtip',
+                "lengthMenu": [[9, -1], ["9","Todos"]],
+                "buttons": ['copy', 'csv', 'print', 'pdf', 'excel'],
+                "order": [[0, "asc"]],
+                "scrollX": true,
+                "language": {
+                    "sProcessing": "Procesando...",
+                    "sLengthMenu": "Mostrar _MENU_ registros",
+                    "sZeroRecords": "No se encontraron resultados",
+                    "sEmptyTable": "Ningún dato disponible en esta tabla =(",
+                    "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                    "sInfoPostFix": "",
+                    "sSearch": "Buscar:",
+                    "sUrl": "",
+                    "sInfoThousands": ",",
+                    "sLoadingRecords": "Cargando...",
+                    "oPaginate": {
+                        "sFirst": "Primero",
+                        "sLast": "Último",
+                        "sNext": "Siguiente",
+                        "sPrevious": "Anterior"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                    },
+                    "buttons": {
+                        "copy": "Copiar",
+                        "colvis": "Visibilidad"
+                    }
+                }
+            });
+                        $('#metricoxmaqui').DataTable({
                 "dom": 'lBfrtip',
                 "lengthMenu": [[9, -1], ["9","Todos"]],
                 "buttons": ['copy', 'csv', 'print', 'pdf', 'excel'],
