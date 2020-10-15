@@ -49,7 +49,7 @@ namespace AspnetIdentitySample.Controllers
 
 
             //    Para Generar los roles necesarios a los usuarios
-            /*
+            
             string name = "Admin"; //"Mantenimiento";
             List<string> lista = new List<string>();
             var l = UserManager.Users;
@@ -66,7 +66,7 @@ namespace AspnetIdentitySample.Controllers
 
                 UserManager.AddToRole(f, name);
             }
-            */
+            
             IdentityRole y = new IdentityRole { Id = "no", Name = "no" };
             y = RoleManager.Roles.Where(r => r.Name == "Mantenimiento").FirstOrDefault();
             List<ApplicationUser> mtt = new List<ApplicationUser>();

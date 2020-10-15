@@ -243,9 +243,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\FileUploadHelper.cs" />
-    <Compile Include="Migrations\201912301208540_Init.cs" />
-    <Compile Include="Migrations\201912301208540_Init.Designer.cs">
-      <DependentUpon>201912301208540_Init.cs</DependentUpon>
+    <Compile Include="Migrations\202010150225454_init.cs" />
+    <Compile Include="Migrations\202010150225454_init.Designer.cs">
+      <DependentUpon>202010150225454_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -2918,11 +2918,6 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201912301208540_Init.resx">
-      <DependentUpon>201912301208540_Init.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
@@ -2937,6 +2932,11 @@
     <TypeScriptCompile Include="Addon\fullcalendar\moment\main.d.ts" />
     <TypeScriptCompile Include="Addon\fullcalendar\rrule\main.d.ts" />
     <TypeScriptCompile Include="Addon\fullcalendar\timegrid\main.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202010150225454_init.resx">
+      <DependentUpon>202010150225454_init.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
