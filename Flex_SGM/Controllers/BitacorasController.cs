@@ -2051,7 +2051,6 @@ if (amaquina.Contains("Pintura"))
         [Authorize]
         public ActionResult Create()
         {
-
             var id = User.Identity.GetUserId();
             ApplicationUser currentUser = UserManager.FindById(id);
 

@@ -1518,7 +1518,6 @@ C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\EntityFramework.dll
 C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\EntityFramework.SqlServer.dll
 C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\ExcelNumberFormat.dll
 C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\FastMember.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\IBM.Data.DB2.iSeries.dll
 C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\Microsoft.AspNet.Identity.Core.dll
 C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\Microsoft.AspNet.Identity.EntityFramework.dll
 C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\Microsoft.AspNet.Identity.Owin.dll
@@ -1554,7 +1553,6 @@ C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\ClosedXML.pdb
 C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\ClosedXML.xml
 C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\DocumentFormat.OpenXml.xml
 C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\ExcelNumberFormat.xml
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\IBM.Data.DB2.iSeries.xml
 C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\MoreLinq.xml
 C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\PagedList.xml
 C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\PagedList.Mvc.xml
@@ -1602,6 +1600,7 @@ C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\obj\Debug\Flex_SGM.csproj.Gene
 C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\obj\Debug\Flex_SGM.csproj.CopyComplete
 C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\obj\Debug\Flex_SGM.dll
 C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\obj\Debug\Flex_SGM.pdb
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\obj\Debug\Flex_SGM.csprojAssemblyReference.cache
 C:\Users\Holotopo\source\repos\Bitacora\Flex_SGM\obj\Debug\Flex_SGM.Migrations.init.resources
 C:\Users\Holotopo\source\repos\Bitacora\Flex_SGM\obj\Debug\Flex_SGM.csproj.GenerateResource.cache
+C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\obj\Debug\Flex_SGM.csproj.CoreCompileInputs.cache
+C:\Users\lolivarez\source\repos\Bitacora\Flex_SGM\obj\Debug\Flex_SGM.csprojAssemblyReference.cache
