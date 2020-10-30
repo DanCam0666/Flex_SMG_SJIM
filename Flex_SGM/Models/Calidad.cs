@@ -449,6 +449,21 @@ namespace Flex_SGM.Models
         [Display(Name = "Acciones a 30 días")]
         public string a30d { get; set; }
 
+        [MaxLength(500)]
+        [Display(Name = "1er Porque")]
+        public string a1why { get; set; }
+        [MaxLength(500)]
+        [Display(Name = "2do Porque")]
+        public string a2why { get; set; }  
+        [MaxLength(500)]
+        [Display(Name = "3er Porque")]
+        public string a3why { get; set; }
+        [MaxLength(500)]
+        [Display(Name = "4to Porque")]
+        public string a4why { get; set; }
+        [MaxLength(500)]
+        [Display(Name = "5to Porque")]
+        public string a5why { get; set; }
 
         [MaxLength(1)]
         public string Turno { get; set; }
@@ -583,6 +598,11 @@ namespace Flex_SGM.Models
         public string a10d { get; set; }
         public string a20d { get; set; }
         public string a30d { get; set; }
+        public string a1why { get; set; }
+        public string a2why { get; set; }
+        public string a3why { get; set; }
+        public string a4why { get; set; }
+        public string a5why { get; set; }
 
     }
 }

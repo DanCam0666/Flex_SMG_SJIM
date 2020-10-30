@@ -74,10 +74,11 @@ namespace Flex_SGM.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Accidente,Dia_Accidente,OILSSeguridad,OILSnuevosproyectos,Oshas,RelevanteSafety,ToC_Pendientes,Vacaciones,Preventivos,comentariosa,comentarios")] Junta junta)
+        public ActionResult Create([Bind(Include = "ID,FechaHora,Accidente,Dia_Accidente,OILSSeguridad,OILSnuevosproyectos,Oshas,RelevanteSafety,ToC_Pendientes,Vacaciones,Preventivos,comentariosa,comentarios,comentarios2,comentarios3")] Junta junta)
         {
             if (ModelState.IsValid)
             {
+                junta.FechaHora = DateTime.Now;
                 db.Juntas.Add(junta);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -106,10 +107,11 @@ namespace Flex_SGM.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Accidente,Dia_Accidente,OILSSeguridad,OILSnuevosproyectos,Oshas,RelevanteSafety,ToC_Pendientes,Vacaciones,Preventivos,comentariosa,comentarios")] Junta junta)
+        public ActionResult Edit([Bind(Include = "ID,FechaHora,Accidente,Dia_Accidente,OILSSeguridad,OILSnuevosproyectos,Oshas,RelevanteSafety,ToC_Pendientes,Vacaciones,Preventivos,comentariosa,comentarios,comentarios2,comentarios3")] Junta junta)
         {
             if (ModelState.IsValid)
             {
+                junta.FechaHora = DateTime.Now;
                 db.Entry(junta).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

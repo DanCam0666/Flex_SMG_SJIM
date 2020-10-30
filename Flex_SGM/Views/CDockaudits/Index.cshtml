@@ -163,82 +163,112 @@
                             <th>
                                 @Html.DisplayNameFor(model => model.a30d)
                             </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.a1why)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.a2why)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.a3why)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.a4why)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.a5why)
+                            </th>
 
                         </tr>
                     </thead>
                     <tbody>
                         @foreach (var item in Model)
                         {
-                            <tr>
+                        <tr>
 
-                                <td>
-                                    @item.Fecha.ToString("yyyy/MM/dd")
-                                </td>
-                                <td>
-                                    @Html.ActionLink("Exportar", "ExportFormat", new { id = item.ID }, new { @class = "btn btn-success", @target = "_blank" })
-                                    @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn  btn-primary", @target = "_blank" })
-                                    @Html.ActionLink("Editar", "Edit", new { id = item.ID }, new { @class = "btn  btn-warning", @target = "_blank" })
-                                    @Html.ActionLink("Borrar", "Delete", new { id = item.ID }, new { @class = "btn  btn-danger" })
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.NoDockAudit)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Turno)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.NoDeParte)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Area)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Cantidad)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.lote)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.cliente)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Descripcion)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Clasificacion)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.AreaOrigen)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.SupOrigen)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.SupRecibio)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.AuditorReporto)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Comentarios)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.a1d)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.a5d)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.a10d)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.a20d)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.a30d)
-                                </td>
+                            <td>
+                                @item.Fecha.ToString("yyyy/MM/dd")
+                            </td>
+                            <td>
+                                @Html.ActionLink("Exportar", "ExportFormat", new { id = item.ID }, new { @class = "btn btn-success", @target = "_blank" })
+                                @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn  btn-primary", @target = "_blank" })
+                                @Html.ActionLink("Editar", "Edit", new { id = item.ID }, new { @class = "btn  btn-warning", @target = "_blank" })
+                                @Html.ActionLink("Borrar", "Delete", new { id = item.ID }, new { @class = "btn  btn-danger" })
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NoDockAudit)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Turno)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NoDeParte)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Area)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Cantidad)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.lote)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.cliente)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Descripcion)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Clasificacion)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.AreaOrigen)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SupOrigen)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SupRecibio)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.AuditorReporto)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Comentarios)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.a1d)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.a5d)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.a10d)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.a20d)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.a30d)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.a1why)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.a2why)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.a3why)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.a4why)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.a5why)
+                            </td>
 
-                            </tr>
+                        </tr>
                         }
                     </tbody>
                 </table>

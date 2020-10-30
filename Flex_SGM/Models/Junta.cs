@@ -10,6 +10,11 @@ namespace Flex_SGM.Models
     {
         [Key]
         public int ID { get; set; }
+
+        [DataType(DataType.DateTime)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy H:mm}")]
+        [Display(Name = "Fecha y Hora de Creacion")]
+        public DateTime? FechaHora { get; set; }
         public string Accidente { get; set; }
         [DataType(DataType.DateTime)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy H:mm}")]
@@ -28,9 +33,14 @@ namespace Flex_SGM.Models
         public areas Vacaciones { get; set; }
 
         public areas Preventivos { get; set; }
-
+        [Display(Name = "Relevantes de Areas")]
         public areas comentariosa { get; set; }
+        [Display(Name = "Avances 1er turno")]
         public string comentarios { get; set; }
+        [Display(Name = "Avances 2do turno")]
+        public string comentarios2 { get; set; }
+        [Display(Name = "Avances 3er turno")]
+        public string comentarios3 { get; set; }
 
     }
 
