@@ -13,7 +13,7 @@ namespace Flex_SGM.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202010150225454_init"; }
+            get { return "201912301208540_Init"; }
         }
         
         string IMigrationMetadata.Source

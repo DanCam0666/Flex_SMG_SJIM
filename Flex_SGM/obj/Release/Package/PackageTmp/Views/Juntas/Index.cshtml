@@ -32,6 +32,9 @@
             </th>
             <th>Menu</th>
             <th>
+                @Html.DisplayNameFor(model => model.FechaHora)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Accidente)
             </th>
             <th>
@@ -59,11 +62,18 @@
                 @Html.DisplayNameFor(model => model.Preventivos)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.comentariosa)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.comentarios)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.comentariosa)
+                @Html.DisplayNameFor(model => model.comentarios2)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.comentarios3)
+            </th>
+
         </tr>
     </thead>
 
@@ -78,6 +88,9 @@
                 @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
                 @Html.ActionLink("Details", "Details", new { id = item.ID }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaHora)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Accidente)
@@ -106,11 +119,18 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Preventivos)
             </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.comentariosa)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.comentarios)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.comentariosa)
+                @Html.DisplayFor(modelItem => item.comentarios2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.comentarios3)
             </td>
         </tr>
         }

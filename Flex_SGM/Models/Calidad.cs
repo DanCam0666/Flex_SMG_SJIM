@@ -465,6 +465,14 @@ namespace Flex_SGM.Models
         [Display(Name = "5to Porque")]
         public string a5why { get; set; }
 
+        [MaxLength(500)]
+        [Display(Name = "Causa")]
+        public string acausa { get; set; }
+        [MaxLength(500)]
+        [Display(Name = "Accion")]
+        public string aaccion { get; set; }
+
+
         [MaxLength(1)]
         public string Turno { get; set; }
     }
@@ -603,6 +611,8 @@ namespace Flex_SGM.Models
         public string a3why { get; set; }
         public string a4why { get; set; }
         public string a5why { get; set; }
+        public string acausa { get; set; }
+        public string aacion { get; set; }
 
     }
 }
