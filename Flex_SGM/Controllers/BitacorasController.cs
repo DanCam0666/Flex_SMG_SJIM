@@ -4145,6 +4145,7 @@ if (amaquina.Contains("Pintura"))
 
         public ActionResult Metricos3(string amaquina, string maquina, string submaquina, string mgroup, string xmgroup, string btn = "Metricos por Dia", string dti = "", string dtf = "")
         {
+            var fulldatafiltered = new List<Bitacora>();
             var datafiltered = new List<Bitacora>();
             var datafiltered1 = new List<Bitacora>();
             var datafiltered2 = new List<Bitacora>();
@@ -4152,8 +4153,11 @@ if (amaquina.Contains("Pintura"))
             var oILs = db.OILs.Include(o => o.Maquinas);
             List<newmetricos2> Ldata = new List<newmetricos2>();
 
-            var fecha = DateTime.Now.AddDays(-7);
+            var fecha = DateTime.Now.AddDays(-2);
             var fechaf = DateTime.Now;
+            DateTimeFormatInfo formatoFecha1 = CultureInfo.CurrentCulture.DateTimeFormat;
+            string nombreMes1 = formatoFecha1.GetMonthName(fecha.Month);
+            string nombreMes2 = formatoFecha1.GetMonthName(fechaf.Month);
 
             if (!string.IsNullOrEmpty(dti))
             {
@@ -4186,7 +4190,7 @@ if (amaquina.Contains("Pintura"))
             }
             var multiplicador = mindia;
 
-
+            ViewBag.xmgroup = mindia.ToString();
             var dataf = db.Bitacoras.Where(w => (w.DiaHora.Year >= fecha.Year) &&
                            (w.DiaHora.Year <= fechaf.Year) &&
                            (w.Tiempo > 0)
@@ -4268,10 +4272,12 @@ if (amaquina.Contains("Pintura"))
                             var temp2 = dataf.Where(w => w.DiaHora.Year == idi3er.Year && w.DiaHora.Month == idi3er.Month && w.DiaHora.Day == idi3er.Day && w.DiaHora.Hour <= 6).ToList();
                             datafiltered.AddRange(temp2);
 
+
+
                             datafiltered1 = datafiltered.Where(s => (s.DiaHora.Hour > 6 && s.DiaHora.Hour <= 14)).ToList();
                             datafiltered2 = datafiltered.Where(s => (s.DiaHora.Hour > 14 && s.DiaHora.Hour <= 22)).ToList();
                             datafiltered3 = datafiltered.Where(s => (s.DiaHora.Hour > 22 || s.DiaHora.Hour <= 6)).ToList();
-
+                            fulldatafiltered.AddRange(datafiltered);
 
                             foreach (var simplemaquina in maquis)
                             {
@@ -4279,15 +4285,21 @@ if (amaquina.Contains("Pintura"))
                                 if (btn == "Metricos por Dia")
                                 {
                                     thistiempo = iaño.ToString() + "-" + nombreMes + "-" + kdia.ToString();
+                                    ViewBag.dx = "Dia " + fecha.ToString("dd") + " al Dia " + fechaf.ToString("dd");
+                                    ViewBag.dxx = " Dia";
                                 }
 
                                 if (btn == "Metricos por Mes")
                                 {
                                     thistiempo = iaño.ToString() + "-" + nombreMes;
+                                    ViewBag.dx = "Mes " + nombreMes1 + " al Mes " + nombreMes2;
+                                    ViewBag.dxx = " Mes";
                                 }
                                 if (btn == "Metricos por Años")
                                 {
                                         thistiempo = iaño.ToString();
+                                    ViewBag.dx = " Año:" + fecha.AddYears(-5).ToString("yyyy") + " a el Año:" + fecha.ToString("yyyy");
+                                    ViewBag.dxx = " Anual";
                                 }
                                 newmetricos3 simplemaquinam = new newmetricos3
                                 {
@@ -4315,11 +4327,11 @@ if (amaquina.Contains("Pintura"))
                                 }
                                 if (simplemaquinam.CantidadFallas2 != 0)
                                 {
-                                    simplemaquinam.MTTR2 = simplemaquinam.TiempoMuerto1 / simplemaquinam.CantidadFallas2;
+                                    simplemaquinam.MTTR2 = simplemaquinam.TiempoMuerto2 / simplemaquinam.CantidadFallas2;
                                 }
                                 if (simplemaquinam.CantidadFallas3 != 0)
                                 {
-                                    simplemaquinam.MTTR3 = simplemaquinam.TiempoMuerto1 / simplemaquinam.CantidadFallas3;
+                                    simplemaquinam.MTTR3 = simplemaquinam.TiempoMuerto3 / simplemaquinam.CantidadFallas3;
                                 }
                                 var SumDisponobilidad = simplemaquinam.Disponible1 + simplemaquinam.Disponible2 + simplemaquinam.Disponible3;
                                 simplemaquinam.MTBF = SumDisponobilidad;
@@ -4348,7 +4360,8 @@ if (amaquina.Contains("Pintura"))
 
             }
 
-            ViewBag.metricospermachine = allmaq;
+            ViewBag.metricospermachine = allmaq.GroupBy(o=>o.MTBF);
+
             var allmaqbyday = allmaq.GroupBy(g => g.TiempoLabel).ToList();
 
             foreach (var inmaq in allmaqbyday)
@@ -4371,9 +4384,9 @@ if (amaquina.Contains("Pintura"))
 
                 var sumatm1 = ((sumtp1/ sumd1) *100);
 
-                var sumatm2 = ((sumtp2 / sumd1) * 100);
+                var sumatm2 = ((sumtp2 / sumd2) * 100);
 
-                var sumatm3 = ((sumtp3 / sumd1) * 100);
+                var sumatm3 = ((sumtp3 / sumd3) * 100);
 
 
                 var smttr11 = inmaq.Sum(s => s.MTTR1);
@@ -4484,7 +4497,7 @@ if (amaquina.Contains("Pintura"))
             ViewBag.datei = fecha.ToString("dd/MM/yyyy");
             ViewBag.datef = fechaf.ToString("dd/MM/yyyy");
 
-            return View("Metricos2", datafiltered);
+            return View("Metricos3", fulldatafiltered);
         }
         public static T Clamp<T>(T value, T min, T max)
 where T : System.IComparable<T>
