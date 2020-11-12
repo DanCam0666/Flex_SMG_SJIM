@@ -627,6 +627,9 @@ namespace Flex_SGM.Models
         public DateTime Fecha { get; set; }
         [Display(Name = "Bill to")]
         public int? BilltoID { get; set; }
+        [Display(Name = "Ubicacion")]
+        public string Location { get; set; } //  pir, AETC DCP   &*(Referencia de Cargo )
+
         [Display(Name = "CPO#")]
         public string CPO { get; set; } //  pir, AETC DCP   &*(Referencia de Cargo )
         [Display(Name = "I/C")]

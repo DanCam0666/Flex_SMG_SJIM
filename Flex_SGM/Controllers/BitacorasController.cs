@@ -4360,7 +4360,7 @@ if (amaquina.Contains("Pintura"))
 
             }
 
-            ViewBag.metricospermachine = allmaq.GroupBy(o=>o.MTBF);
+            ViewBag.metricospermachine = allmaq.ToList();
 
             var allmaqbyday = allmaq.GroupBy(g => g.TiempoLabel).ToList();
 

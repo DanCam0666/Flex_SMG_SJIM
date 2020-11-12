@@ -7246,10 +7246,10 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>10/26/2020 13:25:57</publishTime>
     </File>
     <File Include="bin/Flex_SGM.dll">
-      <publishTime>11/03/2020 13:46:31</publishTime>
+      <publishTime>11/12/2020 13:47:04</publishTime>
     </File>
     <File Include="bin/Flex_SGM.pdb">
-      <publishTime>11/03/2020 13:46:31</publishTime>
+      <publishTime>11/12/2020 13:47:04</publishTime>
     </File>
     <File Include="bin/IBM.Data.DB2.iSeries.dll">
       <publishTime>10/26/2020 13:21:31</publishTime>
@@ -7821,6 +7821,21 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
     <File Include="Views/AndonSupervisores/Index.cshtml">
       <publishTime>10/26/2020 13:21:22</publishTime>
     </File>
+    <File Include="Views/Billtoes/Create.cshtml">
+      <publishTime>11/12/2020 12:03:40</publishTime>
+    </File>
+    <File Include="Views/Billtoes/Delete.cshtml">
+      <publishTime>11/12/2020 12:03:40</publishTime>
+    </File>
+    <File Include="Views/Billtoes/Details.cshtml">
+      <publishTime>11/12/2020 12:03:40</publishTime>
+    </File>
+    <File Include="Views/Billtoes/Edit.cshtml">
+      <publishTime>11/12/2020 12:03:40</publishTime>
+    </File>
+    <File Include="Views/Billtoes/Index.cshtml">
+      <publishTime>11/12/2020 12:03:40</publishTime>
+    </File>
     <File Include="Views/Bitacoras/Create.cshtml">
       <publishTime>10/26/2020 13:21:22</publishTime>
     </File>
@@ -7864,7 +7879,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>10/26/2020 13:21:22</publishTime>
     </File>
     <File Include="Views/Calidad/Index.cshtml">
-      <publishTime>10/26/2020 13:21:24</publishTime>
+      <publishTime>11/12/2020 12:03:40</publishTime>
     </File>
     <File Include="Views/CAndon2/Create.cshtml">
       <publishTime>08/01/2020 08:57:34</publishTime>
@@ -8232,6 +8247,36 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
     <File Include="Views/Proyectos/Index.cshtml">
       <publishTime>10/26/2020 13:21:26</publishTime>
     </File>
+    <File Include="Views/QuaCodes/Create.cshtml">
+      <publishTime>11/12/2020 12:03:40</publishTime>
+    </File>
+    <File Include="Views/QuaCodes/Delete.cshtml">
+      <publishTime>11/12/2020 12:03:40</publishTime>
+    </File>
+    <File Include="Views/QuaCodes/Details.cshtml">
+      <publishTime>11/12/2020 12:03:40</publishTime>
+    </File>
+    <File Include="Views/QuaCodes/Edit.cshtml">
+      <publishTime>11/12/2020 12:03:40</publishTime>
+    </File>
+    <File Include="Views/QuaCodes/Index.cshtml">
+      <publishTime>11/12/2020 12:03:40</publishTime>
+    </File>
+    <File Include="Views/QuaCosts/Create.cshtml">
+      <publishTime>11/12/2020 13:25:22</publishTime>
+    </File>
+    <File Include="Views/QuaCosts/Delete.cshtml">
+      <publishTime>11/12/2020 13:28:32</publishTime>
+    </File>
+    <File Include="Views/QuaCosts/Details.cshtml">
+      <publishTime>11/12/2020 13:27:54</publishTime>
+    </File>
+    <File Include="Views/QuaCosts/Edit.cshtml">
+      <publishTime>11/12/2020 13:26:30</publishTime>
+    </File>
+    <File Include="Views/QuaCosts/Index.cshtml">
+      <publishTime>11/12/2020 13:28:32</publishTime>
+    </File>
     <File Include="Views/reos/Create.cshtml">
       <publishTime>05/06/2020 19:59:16</publishTime>
     </File>
@@ -8275,7 +8320,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>10/26/2020 13:21:26</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>11/03/2020 13:27:14</publishTime>
+      <publishTime>11/12/2020 12:03:40</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutC.cshtml">
       <publishTime>11/03/2020 13:27:14</publishTime>
