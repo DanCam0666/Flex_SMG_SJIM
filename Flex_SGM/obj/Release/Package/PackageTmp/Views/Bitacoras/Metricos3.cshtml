@@ -38,13 +38,6 @@
                             </label>
                         </div>
                         <div class="form-group col-xs-2">
-                            <label for="submaquina">Agrupar Tiempo disponible por:</label>
-                            <div class="col-md-10" data-toggle="tooltip" title=" Maquina: Tiempo disponible X Cantidad de maquinas || Area: Tiempo disponible   || SubMaquinas: Tiempo disponible X Cantidad de Submaquinas ">
-                                @Html.DropDownList("mgroup", null, htmlAttributes: new { @class = "form-control" })
-
-                            </div>
-                        </div>
-                        <div class="form-group col-xs-2">
                             <label for="amaquina">Filtrar por Area Maquina...</label>
                             <div class="col-md-10">
                                 @Html.DropDownList("amaquina", null, "--Todas--", htmlAttributes: new { @class = "form-control" })
@@ -265,7 +258,9 @@
             </tbody>
         </table>
     </div>
-
+    <br />
+    <hr />
+    <h2>Metricos por maquina</h2>
     <table class="table table-bordered table-striped" id="metricoxmaqui">
         <thead>
             <tr>
@@ -585,38 +580,6 @@
         </div>
     </div>
 
-</div>
-
-<div class="x_panel">
-    <div class="x_title clearfix">
-        <h2>Metricos del @ViewBag.dx</h2>
-    </div>
-    <div class="x_content">
-        <table class="table table-bordered table-striped" style="width:100%">
-            <thead>
-                <tr>
-                    <td>Descripcion / Tiempo</td>
-                    <td>Referencia</td>
-                    <td>Objetivo</td>
-                    @foreach (var item in ViewBag.data)
-                    {
-                        <td>@item.TiempoLabel</td>
-                    }
-                </tr>
-            </thead>
-            <tbody>              
-                <tr>
-                    <th scope="row">28 - # Tiempo Perdido 3</th>
-                    <th scope="row">Informativo</th>
-                    <th scope="row">3er Turno</th>
-                    @foreach (var item in ViewBag.data)
-                    {
-                        <td>@item.TiempoM3</td>
-                    }
-                </tr>
-            </tbody>
-        </table>
-    </div>
 </div>
 
 <br />

@@ -866,7 +866,10 @@ namespace Flex_SGM.Controllers
                 a2why = reo.a2why,
                 a3why = reo.a3why,
                 a4why = reo.a4why,
-                a5why = reo.a5why
+                a5why = reo.a5why,
+                acausa = reo.acausa,
+                          aacion = reo.aaccion
+ 
             };
             try
             {
@@ -938,7 +941,7 @@ namespace Flex_SGM.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,NoDockAudit,Fecha,NoDeParte,Area,Cantidad,cliente,Descripcion,Clasificacion,AreaOrigen,SupOrigen,SupRecibio,AuditorReporto,Comentarios,a1d,a5d,a10d,a20d,a30d,Turno,lote,a1why,a2why,a3why,a4why,a5why")] CDockaudit cDockaudit)
+        public ActionResult Create([Bind(Include = "ID,NoDockAudit,Fecha,NoDeParte,Area,Cantidad,cliente,Descripcion,Clasificacion,AreaOrigen,SupOrigen,SupRecibio,AuditorReporto,Comentarios,a1d,a5d,a10d,a20d,a30d,Turno,lote,a1why,a2why,a3why,a4why,a5why,acausa,aaccion")] CDockaudit cDockaudit)
         {
             if (ModelState.IsValid)
             {
@@ -973,7 +976,7 @@ namespace Flex_SGM.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,NoDockAudit,Fecha,NoDeParte,Area,Cantidad,cliente,Descripcion,Clasificacion,AreaOrigen,SupOrigen,SupRecibio,AuditorReporto,Comentarios,a1d,a5d,a10d,a20d,a30d,Turno,lote,a1why,a2why,a3why,a4why,a5why")] CDockaudit cDockaudit)
+        public ActionResult Edit([Bind(Include = "ID,NoDockAudit,Fecha,NoDeParte,Area,Cantidad,cliente,Descripcion,Clasificacion,AreaOrigen,SupOrigen,SupRecibio,AuditorReporto,Comentarios,a1d,a5d,a10d,a20d,a30d,Turno,lote,a1why,a2why,a3why,a4why,a5why,acausa,aaccion")] CDockaudit cDockaudit)
         {
             if (ModelState.IsValid)
             {
