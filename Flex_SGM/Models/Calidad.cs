@@ -605,4 +605,83 @@ namespace Flex_SGM.Models
         public string a5why { get; set; }
 
     }
+    //---------------------------------------------------------------------------------
+
+    public class QuaCost
+    {
+        [Key]
+        public int ID { get; set; }
+
+        [DataType(DataType.DateTime)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
+        public DateTime Fecha { get; set; }
+        [Display(Name = "Bill to")]
+        public int? BilltoID { get; set; }
+        [Display(Name = "CPO#")]
+        public string CPO { get; set; } //  pir, AETC DCP   &*(Referencia de Cargo )
+        [Display(Name = "I/C")]
+        public string ioc { get; set; } //Ivoice or credit
+        [Display(Name = "A/D")]
+        public string aod { get; set; } // Accrual *(provision ) debit *(cargo aplicado)
+        [Display(Name = "Codigo")]
+        public int? QuaCodesID { get; set; }
+        [Display(Name = "Numero de parte")]
+        public string partnum { get; set; }// tabla extra con numeros de parte y descripciones
+        [Display(Name = "Precio")]
+        public Double price { get; set; }
+
+        [ForeignKey("Primary")]
+        [Display(Name = "Areas")]
+        public int? AreasID { get; set; }
+        [Display(Name = "Champions")]
+        public int? AndonSupervisoresID { get; set; }
+        [Display(Name = "Descripcion del problema")]
+        public string issueDescription { get; set; } /// descripcion detallada del cargo
+        [Display(Name = "Causa Raiz")]
+        public string rootcause { get; set; } /// droot cause
+        [Display(Name = "Contramedidas")]
+        public string Countermeasure  { get; set; } ///
+        [Display(Name = "Comentarios")]
+        public string Comments { get; set; } ///
+        [Display(Name = "Monto valuado al tipo de cambio del cierre de mes")]
+        public Double AVFSR { get; set; } ///Amounts valued at financial  statments rate
+
+        public virtual cAreas Primary { get; set; }
+
+        public virtual AndonSupervisores AndonSupervisores { get; set; }
+
+        public virtual Billto Billto { get; set; }
+
+        public virtual QuaCodes QuaCodes { get; set; }
+
+    }
+
+    public class QuaCodes
+    {
+        [Key]
+        public int QuaCodesID { get; set; }
+        [MaxLength(10)]
+        [Display(Name = "Codigo")]
+        public string Code { get; set; } ///
+        [MaxLength(200)]
+        [Display(Name = "Definicion de codigo")]
+        public string Code_Definition { get; set; } ///
+
+    }
+
+    public class Billto
+    {
+        [Key]
+        public int BilltoID { get; set; }
+        [MaxLength(20)]
+        [Display(Name = "Bill to")]
+        public string bill { get; set; } ///
+        [MaxLength(300)]
+        [Display(Name = "Nombre de Cliente")]
+        public string Costumername { get; set; } ///
+        [MaxLength(300)]
+        [Display(Name = "Locacion")]
+        public string Costumerlocation{ get; set; } ///
+
+    }
 }

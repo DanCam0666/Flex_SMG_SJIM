@@ -1,0 +1,138 @@
+﻿@model Flex_SGM.Models.QuaCost
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>QuaCost</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AndonSupervisores.Supervisor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AndonSupervisores.Supervisor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Billto.bill)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Billto.bill)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Primary.Area)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Primary.Area)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QuaCodes.Code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuaCodes.Code)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CPO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CPO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ioc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ioc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.aod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.partnum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.partnum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.issueDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.issueDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rootcause)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rootcause)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Countermeasure)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Countermeasure)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comments)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AVFSR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AVFSR)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

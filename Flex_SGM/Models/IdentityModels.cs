@@ -89,5 +89,11 @@ namespace Flex_SGM.Models
         public System.Data.Entity.DbSet<Flex_SGM.Models.CAndon2> CAndon2 { get; set; }
 
         public System.Data.Entity.DbSet<Flex_SGM.Models.cProyectos> cProyectos { get; set; }
+
+        public System.Data.Entity.DbSet<Flex_SGM.Models.QuaCost> QuaCosts { get; set; }
+
+        public System.Data.Entity.DbSet<Flex_SGM.Models.Billto> Billtoes { get; set; }
+
+        public System.Data.Entity.DbSet<Flex_SGM.Models.QuaCodes> QuaCodes { get; set; }
     }
 }

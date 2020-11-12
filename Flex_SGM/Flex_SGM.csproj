@@ -214,6 +214,7 @@
     <Compile Include="Controllers\AndonAuditorsController.cs" />
     <Compile Include="Controllers\AndonDefectoesController.cs" />
     <Compile Include="Controllers\AndonSupervisoresController.cs" />
+    <Compile Include="Controllers\BilltoesController.cs" />
     <Compile Include="Controllers\BitacorasController - Copia.cs" />
     <Compile Include="Controllers\BitacorasController.cs" />
     <Compile Include="Controllers\CalidadController.cs" />
@@ -235,6 +236,8 @@
     <Compile Include="Controllers\OILsController.cs" />
     <Compile Include="Controllers\ProyectosController.cs" />
     <Compile Include="Controllers\CReclamosController.cs" />
+    <Compile Include="Controllers\QuaCodesController.cs" />
+    <Compile Include="Controllers\QuaCostsController.cs" />
     <Compile Include="Controllers\RolesAdminController.cs" />
     <Compile Include="Controllers\SubClientesController.cs" />
     <Compile Include="Controllers\troubleshootingsController.cs" />
@@ -2899,6 +2902,21 @@
     <Content Include="Templates\SJQAF.01301.S Registro de alarmas andón %281%29.xlsx" />
     <Content Include="Templates\TemplateDock.xlsx" />
     <Content Include="Views\Bitacoras\Metricos3.cshtml" />
+    <Content Include="Views\QuaCosts\Create.cshtml" />
+    <Content Include="Views\QuaCosts\Delete.cshtml" />
+    <Content Include="Views\QuaCosts\Details.cshtml" />
+    <Content Include="Views\QuaCosts\Edit.cshtml" />
+    <Content Include="Views\QuaCosts\Index.cshtml" />
+    <Content Include="Views\QuaCodes\Create.cshtml" />
+    <Content Include="Views\QuaCodes\Delete.cshtml" />
+    <Content Include="Views\QuaCodes\Details.cshtml" />
+    <Content Include="Views\QuaCodes\Edit.cshtml" />
+    <Content Include="Views\QuaCodes\Index.cshtml" />
+    <Content Include="Views\Billtoes\Create.cshtml" />
+    <Content Include="Views\Billtoes\Delete.cshtml" />
+    <Content Include="Views\Billtoes\Details.cshtml" />
+    <Content Include="Views\Billtoes\Edit.cshtml" />
+    <Content Include="Views\Billtoes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
