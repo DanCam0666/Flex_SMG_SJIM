@@ -260,227 +260,143 @@
     </div>
     <br />
     <hr />
-    <h2>Metricos por maquina</h2>
-    <table class="table table-bordered table-striped" id="metricoxmaqui">
-        <thead>
-            <tr>
-                <th>@Html.Label("Fecha")</th>
-                <th>@Html.Label("Nombre Maquina")</th>
-                <th>@Html.Label("MTBF")</th>
-                <th>@Html.Label("Tiempo Disponible 1")</th>
-                <th>@Html.Label("Cantidad de Fallas 1")</th>
-                <th>@Html.Label("Tiempo Muerto 1")</th>
-                <th>@Html.Label("MTTR 1")</th>
-                <th>@Html.Label("Tiempo Disponible 2")</th>
-                <th>@Html.Label("Cantidad de Fallas 2")</th>
-                <th>@Html.Label("Tiempo Muerto 2")</th>
-                <th>@Html.Label("MTTR 2")</th>
-                <th>@Html.Label("Tiempo Disponible 3")</th>
-                <th>@Html.Label("Cantidad de Fallas 3")</th>
-                <th>@Html.Label("Tiempo Muerto 3")</th>
-                <th>@Html.Label("MTTR 3")</th>
-
-
-            </tr>
-        </thead>
-        <tbody>
-
-            @foreach (newmetricos3 item in @ViewBag.metricospermachine)
-            {
-            <tr>
-                <td>
-                    @item.TiempoLabel
-                </td>
-                <td>
-                    @item.maquina
-                </td>
-                <td>
-                    @item.MTBF
-                </td>
-                <td>
-                    @item.Disponible1
-                </td>
-                <td>
-                    @item.CantidadFallas1
-                </td>
-                <td>
-                    @item.TiempoMuerto1
-                </td>
-                <td>
-                    @item.MTTR1
-                </td>
-                <td>
-                    @item.Disponible2
-                </td>
-                <td>
-                    @item.CantidadFallas2
-                </td>
-                <td>
-                    @item.TiempoMuerto2
-                </td>
-                <td>
-                    @item.MTTR2
-                </td>
-                <td>
-                    @item.Disponible3
-                </td>
-                <td>
-                    @item.CantidadFallas3
-                </td>
-                <td>
-                    @item.TiempoMuerto3
-                </td>
-                <td>
-                    @item.MTTR3
-                </td>
-
-
-            </tr>
-
-            }
-
-        </tbody>
-    </table>
-</div>
-<br />
-<br />
-<div class="col-xs-8" style="float:left">
     <div class="x_panel">
         <div class="x_title clearfix">
-            <h2>Tiempo Muerto del @ViewBag.dx</h2>
+            <h2>Por Maquina</h2>
         </div>
-        <div class="x_content">
-            <canvas id="chartme" width="100" height="39"></canvas>
-        </div>
-    </div>
-</div>
+        <table class="table table-bordered table-striped" id="metricoxmaqui">
+            <thead>
+                <tr>
+                    <th>@Html.Label("Fecha")</th>
+                    <th>@Html.Label("Nombre Maquina")</th>
+                    <th>@Html.Label("MTBF")</th>
+                    <th>@Html.Label("Tiempo Disponible 1")</th>
+                    <th>@Html.Label("Cantidad de Fallas 1")</th>
+                    <th>@Html.Label("Tiempo Muerto 1")</th>
+                    <th>@Html.Label("MTTR 1")</th>
+                    <th>@Html.Label("Tiempo Disponible 2")</th>
+                    <th>@Html.Label("Cantidad de Fallas 2")</th>
+                    <th>@Html.Label("Tiempo Muerto 2")</th>
+                    <th>@Html.Label("MTTR 2")</th>
+                    <th>@Html.Label("Tiempo Disponible 3")</th>
+                    <th>@Html.Label("Cantidad de Fallas 3")</th>
+                    <th>@Html.Label("Tiempo Muerto 3")</th>
+                    <th>@Html.Label("MTTR 3")</th>
 
-<div class="col-xs-4" style="float:left">
-    <div class="x_panel">
-        <div class="x_title clearfix">
-            <h2> Pareto por % de Tiempo Perdido</h2>
-        </div>
-        <div class="x_content">
-            <canvas id="charttimee" width="100" height="83"></canvas>
-        </div>
-    </div>
-</div>
 
-<div class="col-xs-12 ">
-    <div class="x_panel">
-        <div class="x_title clearfix">
-            <h2> Lista de Tiempo Muerto del @ViewBag.dx</h2>
-        </div>
-        <div class="x_content ">
-            <table class="table table-bordered table-striped clearfix"  id="metricox2" style="width:100%">
-                <thead>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (newmetricos3 item in @ViewBag.metricospermachine)
+                {
                     <tr>
-                        <th>
-                            @Html.DisplayName("ID")
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.DiaHora)
-                        </th>
-                        <th>
-                            @Html.DisplayName("Usuario")
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Maquinas.SubMaquina)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Descripcion)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Sintoma)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Causa)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.AccionCorrectiva)
-                        </th>
-                        <th style="width:10px;">
-                            @Html.DisplayNameFor(model => model.Tiempo)
-                        </th>
-                        <th style="width:10px;">
-                            @Html.DisplayNameFor(model => model.Folio)
-                        </th>
+                        <td>
+                            @item.TiempoLabel
+                        </td>
+                        <td>
+                            @item.maquina
+                        </td>
+                        <td>
+                            @item.MTBF
+                        </td>
+                        <td>
+                            @item.Disponible1
+                        </td>
+                        <td>
+                            @item.CantidadFallas1
+                        </td>
+                        <td>
+                            @item.TiempoMuerto1
+                        </td>
+                        <td>
+                            @item.MTTR1
+                        </td>
+                        <td>
+                            @item.Disponible2
+                        </td>
+                        <td>
+                            @item.CantidadFallas2
+                        </td>
+                        <td>
+                            @item.TiempoMuerto2
+                        </td>
+                        <td>
+                            @item.MTTR2
+                        </td>
+                        <td>
+                            @item.Disponible3
+                        </td>
+                        <td>
+                            @item.CantidadFallas3
+                        </td>
+                        <td>
+                            @item.TiempoMuerto3
+                        </td>
+                        <td>
+                            @item.MTTR3
+                        </td>
+
 
                     </tr>
-                </thead>
 
-                <tbody>
-                    @foreach (var item in Model)
-                    {
-                        if (!item.noterminado && !item.findesemana)
+                }
+
+            </tbody>
+        </table>
+    </div>
+        <br />
+        <hr />
+        <div class="x_panel">
+            <div class="x_title clearfix">
+                <h2> Lista de Registros </h2>
+            </div>
+            <div class="x_content ">
+                <table class="table table-bordered table-striped clearfix" id="metricox2" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayName("ID")
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.DiaHora)
+                            </th>
+                            <th>
+                                @Html.DisplayName("Usuario")
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Maquinas.SubMaquina)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Descripcion)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Sintoma)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Causa)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.AccionCorrectiva)
+                            </th>
+                            <th style="width:10px;">
+                                @Html.DisplayNameFor(model => model.Tiempo)
+                            </th>
+                            <th style="width:10px;">
+                                @Html.DisplayNameFor(model => model.Folio)
+                            </th>
+
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var item in Model)
                         {
-                            <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.ID)
-                                </td>
-                                <td>
-                                    @item.DiaHora.ToString("yyyy/MM/dd HH:mm")
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.usuario)
-                                </td>
-                                <td style="width:10px;">
-                                    @Html.DisplayFor(modelItem => item.Maquinas.SubMaquina)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Descripcion)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Sintoma)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Causa)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.AccionCorrectiva)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Tiempo)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Folio)
-                                </td>
-                            </tr>
-                        }
-                        else
-                        {
-                            if (item.noterminado)
+                            if (!item.noterminado && !item.findesemana)
                             {
-                                <tr class="danger">
+                                <tr>
                                     <td>
                                         @Html.DisplayFor(modelItem => item.ID)
-                                    </td>
-                                    <td>
-                                        @if (item.FechaVerificacion == null)
-                                        {
-                                            @Html.Label("Esperando Verificacion")
-                                            if (ViewBag.super)
-                                            {
-                                                <button onclick=" $(this).hide(); return Verify(@item.ID);">Verificar</button>
-                                            }
-                                        }
-                                        else
-                                        {
-                                            @Html.Label("Verificada, " + item.Verifico)
-                                        }
-                                        @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn  btn-info", @target = "_blank" })
-                                        @if (ViewBag.cuser.Contains(item.usuario))
-                                        {
-                                            @Html.ActionLink("Editar", "Edit", new { id = item.ID }, new { @class = "btn  btn-default", @target = "_blank" })
-                                        }
-                                        @if (ViewBag.super && ViewBag.uarea.Contains(item.usuario_area))
-                                        {
-                                            @Html.ActionLink("Borrar", "Delete", new { id = item.ID }, new { @class = "btn  btn-danger", @target = "_blank" })
-                                        }
-                                        @if (ViewBag.uarea.Contains(item.usuario_area) && item.noterminado)
-                                        {
-                                            @Html.ActionLink("Finalizar", "Finish", new { id = item.ID, searchString = ViewBag.searchString2, area = ViewBag.area2, amaquina = ViewBag.amaquina2, puesto = ViewBag.puesto2, maquina = ViewBag.maquina2, fecha_inicial = ViewBag.fecha_inicial, fecha_final = ViewBag.fecha_final, t1 = ViewBag.t1, t2 = ViewBag.t2, t3 = ViewBag.t3 }, new { @class = "btn  btn-success" })
-                                        }
                                     </td>
                                     <td>
                                         @item.DiaHora.ToString("yyyy/MM/dd HH:mm")
@@ -513,120 +429,208 @@
                             }
                             else
                             {
-                                <tr class="warning">
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.ID)
-                                    </td>
-                                    <td>
-                                        @if (item.FechaVerificacion == null)
-                                        {
-                                            @Html.Label("Esperando Verificacion")
-                                            if (ViewBag.super)
+                                if (item.noterminado)
+                                {
+                                    <tr class="danger">
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ID)
+                                        </td>
+                                        <td>
+                                            @if (item.FechaVerificacion == null)
                                             {
-                                                <button onclick=" $(this).hide(); return Verify(@item.ID);">Verificar</button>
+                                                @Html.Label("Esperando Verificacion")
+                                                if (ViewBag.super)
+                                                {
+                                                    <button onclick=" $(this).hide(); return Verify(@item.ID);">Verificar</button>
+                                                }
                                             }
-                                        }
-                                        else
-                                        {
-                                            @Html.Label("Verificada, " + item.Verifico)
-                                        }
-                                        @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn  btn-info", @target = "_blank" })
-                                        @if (ViewBag.cuser.Contains(item.usuario))
-                                        {
-                                            @Html.ActionLink("Editar", "Edit", new { id = item.ID }, new { @class = "btn  btn-default", @target = "_blank" })
-                                        }
-                                        @if (ViewBag.super && ViewBag.uarea.Contains(item.usuario_area))
-                                        {
-                                            @Html.ActionLink("Borrar", "Delete", new { id = item.ID }, new { @class = "btn  btn-danger", @target = "_blank" })
-                                        }
-                                        @if (ViewBag.uarea.Contains(item.usuario_area) && item.noterminado)
-                                        {
-                                            @Html.ActionLink("Finalizar", "Finish", new { id = item.ID, searchString = ViewBag.searchString2, area = ViewBag.area2, amaquina = ViewBag.amaquina2, puesto = ViewBag.puesto2, maquina = ViewBag.maquina2, fecha_inicial = ViewBag.fecha_inicial, fecha_final = ViewBag.fecha_final, t1 = ViewBag.t1, t2 = ViewBag.t2, t3 = ViewBag.t3 }, new { @class = "btn  btn-success" })
-                                        }
-                                    </td>
-                                    <td>
-                                        @item.DiaHora.ToString("yyyy/MM/dd HH:mm")
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.usuario)
-                                    </td>
-                                    <td style="width:10px;">
-                                        @Html.DisplayFor(modelItem => item.Maquinas.SubMaquina)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Descripcion)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Sintoma)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Causa)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.AccionCorrectiva)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Tiempo)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Folio)
-                                    </td>
-                                </tr>
+                                            else
+                                            {
+                                                @Html.Label("Verificada, " + item.Verifico)
+                                            }
+                                            @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn  btn-info", @target = "_blank" })
+                                            @if (ViewBag.cuser.Contains(item.usuario))
+                                            {
+                                                @Html.ActionLink("Editar", "Edit", new { id = item.ID }, new { @class = "btn  btn-default", @target = "_blank" })
+                                            }
+                                            @if (ViewBag.super && ViewBag.uarea.Contains(item.usuario_area))
+                                            {
+                                                @Html.ActionLink("Borrar", "Delete", new { id = item.ID }, new { @class = "btn  btn-danger", @target = "_blank" })
+                                            }
+                                            @if (ViewBag.uarea.Contains(item.usuario_area) && item.noterminado)
+                                            {
+                                                @Html.ActionLink("Finalizar", "Finish", new { id = item.ID, searchString = ViewBag.searchString2, area = ViewBag.area2, amaquina = ViewBag.amaquina2, puesto = ViewBag.puesto2, maquina = ViewBag.maquina2, fecha_inicial = ViewBag.fecha_inicial, fecha_final = ViewBag.fecha_final, t1 = ViewBag.t1, t2 = ViewBag.t2, t3 = ViewBag.t3 }, new { @class = "btn  btn-success" })
+                                            }
+                                        </td>
+                                        <td>
+                                            @item.DiaHora.ToString("yyyy/MM/dd HH:mm")
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.usuario)
+                                        </td>
+                                        <td style="width:10px;">
+                                            @Html.DisplayFor(modelItem => item.Maquinas.SubMaquina)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Descripcion)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Sintoma)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Causa)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.AccionCorrectiva)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Tiempo)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Folio)
+                                        </td>
+                                    </tr>
+                                }
+                                else
+                                {
+                                    <tr class="warning">
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ID)
+                                        </td>
+                                        <td>
+                                            @if (item.FechaVerificacion == null)
+                                            {
+                                                @Html.Label("Esperando Verificacion")
+                                                if (ViewBag.super)
+                                                {
+                                                    <button onclick=" $(this).hide(); return Verify(@item.ID);">Verificar</button>
+                                                }
+                                            }
+                                            else
+                                            {
+                                                @Html.Label("Verificada, " + item.Verifico)
+                                            }
+                                            @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn  btn-info", @target = "_blank" })
+                                            @if (ViewBag.cuser.Contains(item.usuario))
+                                            {
+                                                @Html.ActionLink("Editar", "Edit", new { id = item.ID }, new { @class = "btn  btn-default", @target = "_blank" })
+                                            }
+                                            @if (ViewBag.super && ViewBag.uarea.Contains(item.usuario_area))
+                                            {
+                                                @Html.ActionLink("Borrar", "Delete", new { id = item.ID }, new { @class = "btn  btn-danger", @target = "_blank" })
+                                            }
+                                            @if (ViewBag.uarea.Contains(item.usuario_area) && item.noterminado)
+                                            {
+                                                @Html.ActionLink("Finalizar", "Finish", new { id = item.ID, searchString = ViewBag.searchString2, area = ViewBag.area2, amaquina = ViewBag.amaquina2, puesto = ViewBag.puesto2, maquina = ViewBag.maquina2, fecha_inicial = ViewBag.fecha_inicial, fecha_final = ViewBag.fecha_final, t1 = ViewBag.t1, t2 = ViewBag.t2, t3 = ViewBag.t3 }, new { @class = "btn  btn-success" })
+                                            }
+                                        </td>
+                                        <td>
+                                            @item.DiaHora.ToString("yyyy/MM/dd HH:mm")
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.usuario)
+                                        </td>
+                                        <td style="width:10px;">
+                                            @Html.DisplayFor(modelItem => item.Maquinas.SubMaquina)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Descripcion)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Sintoma)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Causa)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.AccionCorrectiva)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Tiempo)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Folio)
+                                        </td>
+                                    </tr>
+                                }
                             }
                         }
-                    }
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+    <br />
+    <br />
+    <div class="col-xs-8" style="float:left">
+        <div class="x_panel">
+            <div class="x_title clearfix">
+                <h2>Tiempo Muerto del @ViewBag.dx</h2>
+            </div>
+            <div class="x_content">
+                <canvas id="chartme" width="100" height="39"></canvas>
+            </div>
         </div>
     </div>
 
-</div>
-
-<br />
-<div class="col-xs-6 clearfix">
-    <div class="x_panel">
-        <div class="x_title">
-            Worst 5  MTTR
-        </div>
-        <div class="x_content">
-            <canvas id="chartmttr" width="100" height="44""></canvas>
+    <div class="col-xs-4" style="float:left">
+        <div class="x_panel">
+            <div class="x_title clearfix">
+                <h2> Pareto por % de Tiempo Perdido</h2>
+            </div>
+            <div class="x_content">
+                <canvas id="charttimee" width="100" height="83"></canvas>
+            </div>
         </div>
     </div>
-    <div class="x_panel">
-        <div class="x_title">
-            Worst 5 MTBF
+
+
+    <br />
+    <div class="col-xs-6 clearfix">
+        <div class="x_panel">
+            <div class="x_title">
+                Worst 5  MTTR
+            </div>
+            <div class="x_content">
+                <canvas id="chartmttr" width="100" height="44" "></canvas>
+            </div>
         </div>
-        <div class="x_content">
-            <canvas id="chartm" width="100" height="44"></canvas>
+        <div class="x_panel">
+            <div class="x_title">
+                Worst 5 MTBF
+            </div>
+            <div class="x_content">
+                <canvas id="chartm" width="100" height="44"></canvas>
+            </div>
         </div>
     </div>
-</div>
 
-<div class="col-xs-6 clearfix">
-    <div class="x_panel">
-        <div class="x_title">
-            Worst 5  Suma Tiempo Fallas
+    <div class="col-xs-6 clearfix">
+        <div class="x_panel">
+            <div class="x_title">
+                Worst 5  Suma Tiempo Fallas
+            </div>
+            <div class="x_content">
+                <canvas id="charttime" width="100" height="44"></canvas>
+            </div>
         </div>
-        <div class="x_content">
-            <canvas id="charttime" width="100" height="44"></canvas>
+        <div class="x_panel">
+            <div class="x_title">
+                Worst 5  Cantidad Fallas
+            </div>
+            <div class="x_content">
+                <canvas id="chartfails" width="100" height="44"></canvas>
+            </div>
         </div>
     </div>
-    <div class="x_panel">
-        <div class="x_title">
-            Worst 5  Cantidad Fallas
-        </div>
-        <div class="x_content">
-            <canvas id="chartfails" width="100" height="44"></canvas>
-        </div>
-    </div>
-</div>
 
-<br />
-<br />
+    <br />
+    <br />
 
-@section Scripts {
+    @section Scripts {
 
-    <script>
+        <script>
 
                 //  Chart.defaults.global.defaultFontSize= 18;
         /*
@@ -733,7 +737,7 @@
             });
                         $('#metricoxmaqui').DataTable({
                 "dom": 'lBfrtip',
-                "lengthMenu": [[9, -1], ["9","Todos"]],
+                "lengthMenu": [[3, -1], ["3","Todos"]],
                 "buttons": ['copy', 'csv', 'print', 'pdf', 'excel'],
                 "order": [[0, "asc"]],
                 "scrollX": true,
@@ -1103,6 +1107,6 @@
 
         //---
 
-    </script>
+        </script>
 
-}
+    }

@@ -56,7 +56,7 @@ namespace AspnetIdentitySample.Controllers
             foreach (var x in l)
             {
 
-                if (x.UserName.Contains("luis"))
+                if (x.UserName.Contains("holotopo"))
                     lista.Add((x.Id));
 
         

@@ -4266,9 +4266,9 @@ if (amaquina.Contains("Pintura"))
                         if (idi >= fecha && idi <= fechaf)
                         {
 
-                            datafiltered = dataf.Where(w => w.DiaHora.Year == idi.Year && w.DiaHora.Month == idi.Month && w.DiaHora.Day == idi.Day && w.DiaHora.Day != 1).ToList();
-                            var temp1 = dataf.Where(w => w.DiaHora.Year == idi.Year && w.DiaHora.Month == idi.Month && w.DiaHora.Day == idi.Day && w.DiaHora.Day == 1 && w.DiaHora.Hour > 6).ToList();
-                            datafiltered.AddRange(temp1);
+                            //datafiltered = dataf.Where(w => w.DiaHora.Year == idi.Year && w.DiaHora.Month == idi.Month && w.DiaHora.Day == idi.Day && w.DiaHora.Day != 1).ToList();
+                            datafiltered = dataf.Where(w => w.DiaHora.Year == idi.Year && w.DiaHora.Month == idi.Month && w.DiaHora.Day == idi.Day && w.DiaHora.Hour > 6).ToList();
+                            //datafiltered.AddRange(temp1);
                             var temp2 = dataf.Where(w => w.DiaHora.Year == idi3er.Year && w.DiaHora.Month == idi3er.Month && w.DiaHora.Day == idi3er.Day && w.DiaHora.Hour <= 6).ToList();
                             datafiltered.AddRange(temp2);
 

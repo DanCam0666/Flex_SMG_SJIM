@@ -46,7 +46,7 @@ namespace AspnetIdentitySample.Controllers
 
             var userId = User.Identity.GetUserId();
             ApplicationUser currentUser = UserManager.FindById(userId);
-            if (currentUser.UserFullName.Contains("Super_User")|| currentUser.UserFullName.Contains("luis"))
+            if (currentUser.UserFullName.Contains("Super_User")|| currentUser.UserFullName.Contains("holotopo"))
                 for (int mi = 0; mi < name.Count(); mi++)
             {
                 if (!RoleManager.RoleExists(name[mi]))

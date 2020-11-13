@@ -1603,3 +1603,4 @@ C:\Users\Holotopo\source\repos\Bitacora\Flex_SGM\obj\Debug\Flex_SGM.csproj.CoreC
 C:\Users\Holotopo\source\repos\Bitacora\Flex_SGM\obj\Debug\Flex_SGM.csproj.CopyComplete
 C:\Users\Holotopo\source\repos\Bitacora\Flex_SGM\obj\Debug\Flex_SGM.dll
 C:\Users\Holotopo\source\repos\Bitacora\Flex_SGM\obj\Debug\Flex_SGM.pdb
+C:\Users\Holotopo\source\repos\Bitacora\Flex_SGM\obj\Debug\Flex_SGM.csprojAssemblyReference.cache
