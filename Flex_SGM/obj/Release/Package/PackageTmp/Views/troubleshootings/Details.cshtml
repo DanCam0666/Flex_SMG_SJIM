@@ -1,0 +1,74 @@
+﻿@model Flex_SGM.Models.troubleshooting
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>troubleshooting</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Maquinas.Area)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Maquinas.Area)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiaHora)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaHora)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.usuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.usuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Problema)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Problema)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Posiblerazon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Posiblerazon)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Solucion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Solucion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comentarios)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comentarios)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Regresar al Menu", "Menu")
+</p>

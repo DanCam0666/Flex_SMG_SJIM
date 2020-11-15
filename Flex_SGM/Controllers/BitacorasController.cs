@@ -4281,6 +4281,8 @@ if (amaquina.Contains("Pintura"))
 
                             foreach (var simplemaquina in maquis)
                             {
+
+
                                 string thistiempo="";
                                 if (btn == "Metricos por Dia")
                                 {
@@ -4321,6 +4323,33 @@ if (amaquina.Contains("Pintura"))
                                     Confiabilidad = 100,
                                     TarjetasTPM = 0
                                 };
+
+                                //tpm
+                                int realizada = 0;
+                                int pendiente = 0;
+                                var alloils = oILs.Where(s => s.Tipo == "TPM").ToList();
+                                if (!string.IsNullOrEmpty(amaquina) && amaquina != "--Todas--")
+                                {
+                                    alloils = alloils.Where(s => s.Maquinas.Area == amaquina).ToList();
+                                }
+                                foreach (OILs oil in alloils)
+                                {
+
+
+                                    if (oil.DiaHora.Year <= kdia)
+                                        pendiente++;
+
+                                    if (oil.Estatus == 1 && oil.DiaHora_Cierre.Value.Year <= kdia)
+                                        realizada++;
+
+
+                                }
+
+
+                                simplemaquinam.TarjetasTPM = Math.Round((realizada / (Double)pendiente) * 100, 2);
+
+                                //ENtpm
+
                                 if (simplemaquinam.CantidadFallas1 != 0)
                                 {
                                     simplemaquinam.MTTR1 = simplemaquinam.TiempoMuerto1 / simplemaquinam.CantidadFallas1;

@@ -1,0 +1,156 @@
+﻿@model IEnumerable<Flex_SGM.Models.controlplanos>
+@using Flex_SGM.Models;
+@using PagedList.Mvc;
+@using PagedList;
+@{
+    Layout = "~/Views/Shared/_LayoutC.cshtml";
+}
+@{
+    ViewBag.Title = "Index";
+}
+<div class="Container">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="x_panel">
+                <div class="x_title clearfix">
+                    <h2>Control de planos<small> Seguimiento a cambios de ingenieria en planos    </small>    @Html.ActionLink("|Agregar nuevo|", "Create")</h2>
+                </div>
+                <div class="x_content clearfix">
+
+                    <div class="row">
+
+                        @foreach (controlplanosview item in ViewBag.items)
+                        {
+                            <div class="col-md-55">
+                                <div class="thumbnail clearfix">
+                                    <div class="image view view-first clearfix">
+                                        <img style="width: 100%; display: block;" src='@item.imgurl' alt=@item.imgname>
+                                        <div class="mask">
+                                            <p>@item.Nombreproyecto -|- @item.fechaactualizacion</p>
+                                            <div class="tools tools-bottom">
+                                                <a href=@Url.Action("program", "controlplanos", new { program = item.href })><span class="fa fa-upload"></span></a>
+                                                -
+                                                <a href="#"><span class="fa fa-times"></span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="caption">
+                                        <span class="col-xs-12 clearfix">
+                                            <span class="col-xs-6">
+                                                <span><span></span> Cantidad de Actualizaciones: @item.actualizaciones</span>
+                                            </span>
+                                            <span class="col-xs-6">
+                                                <span class="col-xs-12">2D - <span class="fa fa-calendar"></span>@item.fechaactualizacion2d</span>
+                                                <span class="col-xs-12">3D - <span class="fa fa-calendar"></span>@item.fechaactualizacion3d</span>
+                                            </span>
+                                        </span>
+                                        <hr />
+                                        <center>
+                                            <h2> @item.Nombreproyecto</h2>
+                                            @item.Descripcion
+                                        </center>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @Html.PagedListPager((IPagedList)ViewBag.items, page => Url.Action("Index", new { page }))
+
+
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Program)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Level)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InternalPN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomerPN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Eng_Level)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Revision)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MathData_3D)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DrawingPN_2D)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Program)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Level)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InternalPN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerPN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Eng_Level)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Revision)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MathData_3D)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DrawingPN_2D)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+@section Scripts {
+
+    <script>
+
+        $(document).ready(function () {
+
+        });
+    </script>
+
+}

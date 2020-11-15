@@ -1,0 +1,150 @@
+﻿@model Flex_SGM.Models.QuaCost
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>QuaCost</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AndonSupervisores.Supervisor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AndonSupervisores.Supervisor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Billto.bill)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Billto.bill)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Primary.Area)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Primary.Area)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QuaCodes.Code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuaCodes.Code)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CPO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CPO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ioc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ioc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.aod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.partnum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.partnum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.issueDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.issueDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rootcause)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rootcause)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Countermeasure)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Countermeasure)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comments)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AVFSR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AVFSR)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

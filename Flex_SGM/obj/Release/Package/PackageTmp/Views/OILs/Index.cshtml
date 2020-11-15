@@ -1,0 +1,632 @@
+﻿@model IEnumerable<Flex_SGM.Models.OILs>
+
+@{
+    ViewBag.Title = "Estado de OILs";
+}
+
+<center>
+    <h1> @Html.ActionLink("Crear un nuevo OIL", "Create")</h1>
+</center>
+
+<div class="x_panel clearfix">
+    <div class="x_title clearfix">
+        <h2 id="alerts">Estatus Tarjetas de TPMs<small> Resumen de Tarjetas de TPMs </small></h2>
+        <ul class="nav navbar-right">
+            <li>
+                <a class="collapse-link"><i class="fa fa-chevron-down"></i></a>
+            </li>
+        </ul>
+    </div>
+    <div class="x_content">
+        <div class="col-xs-12">
+            <div class="col-xs-3">
+                <div class="h2"> Tarjetas de TPMs Totales: @ViewBag.tpmtotal</div>
+                <div class="h2"> Tarjetas de TPMs Realizándose:   @ViewBag.tpmActivos </div>
+                <div class="h2"> Tarjetas de TPMs Terminados:  @ViewBag.tpmrealizada </div>
+                <div class="h2"> Tarjetas de TPMs Pendientes: @ViewBag.tpmpendientes</div>
+                <div class="h2"> Tarjetas de TPMs No Realizados: @ViewBag.tpmNoReali</div>
+
+            </div>
+            <div class="col-xs-9">
+                <canvas width="600" height="200" class="chartjs" id="chart-area" style="width: 600px; height: 200px; display: block;"></canvas>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <h2> Tarjetas de TPMs por Area</h2>
+            <canvas width="600" height="200" class="chartjs" id="chart-area-div" style="width: 600px; height: 200px; display: block;"></canvas>
+        </div>
+        <div class="col-xs-12">
+            <h2> Tarjetas de TPMs por Semana</h2>
+            <canvas width="600" height="200" class="chartjs" id="chart-area-sem" style="width: 600px; height: 200px; display: block;"></canvas>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+@using (Html.BeginForm())
+{
+    <div class="x_panel clearfix">
+        <div class="x_title clearfix">
+            <h2 id="alerts">Filtros de OILs <small> Filtros de busqueda avanzada</small></h2>
+        </div>
+        <div class="body">
+            <div class="col-xs-12">
+
+                <div class="col-xs-3">
+                    <div class="form-group">
+                        <label for="texto">Filtrar por texto...</label>
+                        <input type="text" class="form-control" name="SearchString" />
+                    </div>
+
+                </div>
+
+                <div class="col-xs-3">
+
+                    <div class="form-group">
+                        <label for="amaquina">Filtrar por Tipo de OIL...</label>
+                        <div class="col-md-10">
+                            @Html.DropDownList("Tipo", null, "--Todas--", htmlAttributes: new { @class = "form-control" })
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="col-xs-3">
+
+                    <div class="form-group">
+                        <label for="maquina">Filtrar por Nombre de Maquina...</label>
+                        <div class="col-md-10">
+                            @Html.DropDownList("maquina", null, "--Todas--", htmlAttributes: new { @class = "form-control", id = "Normaldrop" })
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+            <div class="col-xs-12">
+                <div class="col-xs-2">
+                    <label data-toggle="tooltip" title="Selecciona todas las Actividades finalizadas"><input type="checkbox" name="c1" id="arealizada" value=true checked>Actividades Finalizadas</label>
+                </div>
+                <div class="col-xs-2">
+                    <label data-toggle="tooltip" title="Selecciona todas las Actividades sin fecha compromiso"><input type="checkbox" name="c2" id="asinfecha" value=true checked>Actividades sin Fecha</label>
+                </div>
+                <div class="col-xs-2">
+                    <label data-toggle="tooltip" title="Selecciona todas las Actividades en proceso"><input type="checkbox" name="c3" id="confecha" value=true checked>Actividades en Proceso</label>
+                </div>
+                <div class="col-xs-2">
+                    <label data-toggle="tooltip" title="Selecciona todas las Actividades con fecha muy proxima"><input type="checkbox" name="c4" id="afechaprox" value=true checked>Actividades Fecha Proxima</label>
+                </div>
+                <div class="col-xs-2">
+                    <label data-toggle="tooltip" title="Selecciona todas las Actividades no realizadas en tiempo"><input type="checkbox" name="c5" id="anorealizada" value=true checked>Actividades No realizadas</label>
+                </div>
+                <div class="col-xs-2">
+                    <label data-toggle="tooltip" title="Selecciona todas las Actividades urgentes"><input type="checkbox" name="c6" id="aurgente" value=true checked>Actividades Urgentes</label>
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <input data-toggle="tooltip" title="¡Muestra los valores Filtrados en la tabla de abajo!" type="submit" name="btn" value="Buscar OILs" class="btn btn-primary col-lg-offset-2 col-md-4" />
+                <input data-toggle="tooltip" title="¡Exportar a Excel sin formato!" type="submit" name="btn" value="Exportar Excel" class="btn btn-primary col-md-4" />
+            </div>
+        </div>
+    </div>
+}
+
+<div class="x_panel">
+    <div class="x_title clearfix">
+        <h2 id="alerts">OILs <small>Listado de OILs segun filtro aplicado</small></h2>
+    </div>
+    <div class="x_content clearfix">
+        <table class="table table-bordered table-striped" id="proye" style="width:100%; overflow-x:auto; ">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.Label("ID")
+                    </th>
+                    <th>
+                        @Html.Label("Estatus")
+                    </th>
+                    <th>@Html.Label("Menu")</th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Tipo)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Maquinas.Area)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Maquinas.Maquina)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.folio)
+                    </th>
+                    <th style="min-width:400px;">
+                        @Html.DisplayNameFor(model => model.Actividad)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.User_gen)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DiaHora)
+                    </th>
+                    <th>
+                        @Html.DisplayName("Responsable")
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DiaHora_Compromiso)
+                    </th>
+                    <th>
+                        @Html.DisplayName("Asignado")
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DiaHora_Cierre)
+                    </th>
+
+                    <th>
+                        @Html.DisplayName("Material Comentarios")
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Estatus)
+                    </td>
+                    <td>
+                        @if (item.User_res != null && item.User_asig != null)
+                        {
+
+                            @Html.ActionLink("Actualizar", "Update", new { id = item.ID }, new { @class = "btn  btn-success", @target = "_blank" })
+                        }
+                        @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn  btn-default", @target = "_blank" })
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Tipo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Maquinas.Area)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Maquinas.Maquina)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.folio)
+                    </td>
+                    <td >
+                        @Html.DisplayFor(modelItem => item.Actividad)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.User_gen)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DiaHora)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.User_res)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DiaHora_Compromiso)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.User_asig)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DiaHora_Cierre)
+                    </td>
+
+                    <td>
+                        <div class="btn btn-success" data-id="@item.ID" onclick=" $('#@item.ID').modal();"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span></div>
+                       
+                        <div id=@item.ID class="modal fade clearfix" role="dialog">
+                            <div class="modal-dialog clearfix">
+                                <div class="x_panel clearfix">
+                                    <div class="x_title clearfix">
+                                        <h2> OIL No.@item.ID</h2>
+                                    </div>
+                                    <div class="x_content">
+                                        @Html.Label("MAterial de actividad: ")
+                                        @Html.DisplayFor(modelItem => item.Material_necesario)
+                                        <hr>
+                                        @Html.Label("Comentarios de Apertura de actividad: ")
+                                        @Html.DisplayFor(modelItem => item.Comentarios)
+                                        <hr>
+                                        @Html.Label("Comentarios de Cierre de actividad: ")
+                                        @Html.DisplayFor(modelItem => item.Comentarios2)
+                                        <hr>
+                                        @Html.Label("Comentarios de durante de actividad: ")
+                                        <div id="@string.Format("{0}_{1}","commentsBlock", item.ID)" style="border: 1px solid #f1eaea; background-color: #eaf2ff;">
+
+                                            <div class="AddComment">
+                                                <input rows="4" type="text" id="@string.Format("{0}_{1}", "comment", item.ID)" class="form-control" placeholder="Agrega un comentario ..." />
+                                                <button type="button" class="btn btn-default addComment" data-id="@item.ID"><span class="glyphicon glyphicon-comment" aria-hidden="true">Añadir</span></button>
+                                            </div>
+
+                                        </div>
+                                        <div class="@string.Format("{0}_{1}", "allComments", item.ID)">
+                                            @Html.Action("_Comments", "OILs", new { id = item.ID })
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+
+                    </td>
+
+                </tr>
+
+
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="x_panel clearfix">
+    <div class="x_title clearfix">
+        <h2 id="alerts">Estatus Automatizacion<small> Resumen de Actividades </small></h2>
+        <ul class="nav navbar-right">
+            <li>
+                <a class="collapse-link"><i class="fa fa-chevron-down"></i></a>
+            </li>
+        </ul>
+    </div>
+    <div class="x_content">
+        <div class="col-xs-3">
+            <div class="h2">Actividades Totales: @ViewBag.atotal</div>
+            <div class="h2">Actividades Realizándose:   @ViewBag.aActivos </div>
+            <div class="h2">Actividades Terminadas:  @ViewBag.arealizada </div>
+            <div class="h2">Actividades Pendientes: @ViewBag.apendientes</div>
+            <div class="h2">Actividades No Realizadas: @ViewBag.aNoReali</div>
+
+
+
+
+        </div>
+        <div class="col-xs-5">
+            <canvas width="400" height="300" class="chartjs" id="chart-area2" style="width: 600px; height: 200px; display: block;"></canvas>
+        </div>
+        <div class="col-xs-4">
+
+            <h2>Ramon Arredondo y Mario Castilla</h2>
+            <div class="h2">Actividades Asignadas:   @ViewBag.gpActivos </div>
+            <div class="h2">Actividades Terminadas:  @ViewBag.gprealizada </div>
+
+
+            <h2>Pedro dorantes y Jaime Martinez</h2>
+            <div class="h2">Actividades Asignadas:   @ViewBag.ajActivos </div>
+            <div class="h2">Actividades Terminadas:  @ViewBag.ajrealizada </div>
+
+            <h2>Marco Arvizu y Francisco Armenta</h2>
+
+            <div class="h2">Actividades Asignadas:   @ViewBag.mfActivos </div>
+            <div class="h2">Actividades Terminadas:  @ViewBag.mfrealizada </div>
+
+            <h2>Jose Luis Olivarez</h2>
+
+            <div class="h2">Actividades Asignadas:   @ViewBag.jlmfActivos </div>
+            <div class="h2">Actividades Terminadas:  @ViewBag.jlrealizada </div>
+
+
+        </div>
+    </div>
+</div>
+
+<div class="x_panel clearfix">
+    <div class="x_title clearfix">
+        <h2 id="alertsb">Color de estado de OILs</h2> <h2><small> Expande para información y significado de los colores… </small></h2>
+        <ul class="nav navbar-right">
+            <li>
+                <a class="collapse-link"><i class="fa fa-chevron-down"></i></a>
+            </li>
+        </ul>
+    </div>
+    <div class="x_content">
+
+        <center>
+            <div class="alert col-md-6" style="background-color:darkred; color: white;">Estatus 5-Actividad No REALIZADA en tiempo / Existen:@ViewBag.NoReali Actividades</div>
+            <div class="alert col-md-6" style="background-color:yellow;">Estatus 4-Actividad con Fecha compromiso muy próxima / Existen:@ViewBag.Fechaprox Actividades</div>
+            <div class="alert col-md-6" style="background-color:darkseagreen;">Estatus 1-Actividad Finalizada / Existen:@ViewBag.realizada Actividades</div>
+            <div class="alert col-md-6" style="background-color:cornflowerblue;">Estatus 3-Actividad en Proceso / Existen:@ViewBag.ConFecha Actividades</div>
+            <div class="alert col-md-6" style="background-color:lightgray;">Estatus 2-Actividad sin fecha compromiso / Existen:@ViewBag.sinfecha Actividades</div>
+            <div class="alert col-md-6" style="background-color:orangered;  color: white;">Estatus 6-Actividad URGENTE / Existen:@ViewBag.Urgente Actividades</div>
+        </center>
+    </div>
+</div>
+
+
+@section Scripts {
+
+    <script>
+
+
+    $('.addComment').on('click', function () {
+
+        var cid = $(this).attr('data-id');
+        var commentMsg = $('#comment_' + cid).val();
+        //     var dateTimeNow = new Date();
+
+     //   alert('Hello');
+        if (commentMsg != null && commentMsg != "") {
+            $('#loadingImg').show();
+            setTimeout(function () { $('#loadingImg').fadeOut(); }, 3000);
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("AddComment","OILs")',
+                data: { commentMsg, cid },//data: { commentMsg, cid },
+                success: function (response) {
+
+                    $('div[class=allComments_' + cid + ']').remove();
+
+                    var allCommentsArea = $('<div>').addClass('allComments_' + cid);
+                    allCommentsArea.html(response);
+
+                    allCommentsArea.prependTo('#commentsBlock_' + cid);
+                                        $('#comment_' + cid).val("");
+                  // $("input:text").focus(function(){$(this).val("")});
+                    // alert('done');
+                },
+                error: function (response) {
+                    alert('Disculpa: Ocurrio un ERROR');
+                }
+
+            });
+        }
+        else {
+            alert('Escribe un comentario primero!!!');
+                    }
+    });
+
+                        $(document).ready(function () {
+
+              $('[data-toggle="tooltip"]').tooltip();
+            //tpms
+            var ctx = document.getElementById('chart-area');
+            var myPieChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+    datasets: [{
+        data: [ @ViewBag.tpmActivos, @ViewBag.tpmrealizada,  @ViewBag.tpmpendientes, @ViewBag.tpmNoReali],
+         backgroundColor: [
+                'rgba(54, 162, 235, 0.9)',
+                'rgba(54, 235, 162, 0.9)',
+              'rgba(255, 162, 54, 0.9)',
+                'rgba(255, 54, 54, 0.9)'
+            ]
+        }],
+
+    labels: [
+        'Activos',
+        'Terminados',
+        'Pendientes',
+        'No Realizados'
+    ]}
+            });
+             //tpms atreas
+            var ctx = document.getElementById('chart-area-div');
+            var myPieChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        datasets: [{
+                                label: 'Total TPMs Areas',
+            data: [@ViewBag.st, @ViewBag.et, @ViewBag.sot,@ViewBag.mft,@ViewBag.ent],
+            backgroundColor: 'rgba(120, 180, 120, 0.9)',
+            borderWidth: 2
+        },{
+            label: 'Realizadas',
+            data: [@ViewBag.sr, @ViewBag.er, @ViewBag.sor,@ViewBag.mfr,@ViewBag.enr],
+            backgroundColor: 'rgba(54, 235, 162, 0.9)',
+            borderWidth: 2
+        },{
+
+                   label: 'Pendientes',
+                     data: [@ViewBag.sp,@ViewBag.ep,@ViewBag.sop,@ViewBag.mfp,@ViewBag.enp],
+                    backgroundColor: 'rgba(255, 162, 54, 0.9)',
+                    borderWidth: 2
+        }],
+
+    labels: [
+        'Servicios',
+        'Estampado',
+        'Soldadura',
+        'Metal Finish',
+        'Ensamble'
+
+    ]}
+            });
+                                         //tpms atreas
+            var ctx = document.getElementById('chart-area-sem');
+            var myPieChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        datasets: [{
+            label: 'Generadas',
+            data: [@ViewBag.Datas1],
+            backgroundColor: 'rgba(54, 162, 235, 0.9)',
+            borderWidth: 2
+        },{
+
+                   label: 'Realizadas',
+                     data: [@ViewBag.Datas2],
+                    backgroundColor: 'rgba(54, 235, 162, 0.9)',
+                    borderWidth: 2
+        }],
+
+    labels: [@Html.Raw(ViewBag.Objectsem) ]}
+});
+            //Automatizacion
+            var ctx2 = document.getElementById('chart-area2');
+            var myPieChart2 = new Chart(ctx2, {
+    type: 'pie',
+    data: {
+    datasets: [{
+        data: [ @ViewBag.aActivos, @ViewBag.arealizada,  @ViewBag.apendientes, @ViewBag.aNoReali],
+         backgroundColor: [
+                'rgba(54, 162, 235, 0.9)',
+                'rgba(54, 235, 162, 0.9)',
+              'rgba(255, 162, 54, 0.9)',
+                'rgba(255, 54, 54, 0.9)'
+            ]
+        }],
+
+    labels: [
+        'Activos',
+        'Terminados',
+        'Pendientes',
+        'No Realizados'
+    ]}
+});
+
+
+            $("#Normaldrop").chosen();
+
+              var table = document.getElementById('proye');
+            var tbody = table.getElementsByTagName('tbody')[0];
+             var cells = tbody.getElementsByTagName('tr');
+
+            for (var i = 0, len = cells.length; i < len; i++){
+                if (parseInt(cells[i].cells[1].innerHTML, 10) == 6) {
+                    cells[i].cells[0].style.backgroundColor = 'orangered';
+                    cells[i].cells[0].style.color = 'white';
+                   cells[i].cells[1].style.backgroundColor = 'orangered';
+                    cells[i].cells[1].style.color = 'white';
+                      cells[i].cells[2].style.backgroundColor = 'orangered';
+                    cells[i].cells[2].style.color = 'white';
+                     cells[i].cells[3].style.backgroundColor = 'orangered';
+                    cells[i].cells[3].style.color = 'white';
+                                         cells[i].cells[4].style.backgroundColor = 'orangered';
+                    cells[i].cells[4].style.color = 'white';
+    }
+    else {
+        if (parseInt(cells[i].cells[1].innerHTML, 10) == 0||parseInt(cells[i].cells[1].innerHTML, 10) == 2||parseInt(cells[i].cells[1].innerHTML, 10) > 6) {
+            cells[i].cells[0].style.backgroundColor = 'lightgray';
+            cells[i].cells[1].style.backgroundColor = 'lightgray';
+                          cells[i].cells[2].style.backgroundColor = 'lightgray';
+            cells[i].cells[3].style.backgroundColor = 'lightgray';
+                          cells[i].cells[4].style.backgroundColor = 'lightgray';
+        }
+        else
+                    if (parseInt(cells[i].cells[1].innerHTML, 10) == 3) {
+                        cells[i].cells[0].style.backgroundColor = 'cornflowerblue';
+                        cells[i].cells[1].style.backgroundColor = 'cornflowerblue';
+                        cells[i].cells[2].style.backgroundColor = 'cornflowerblue';
+                        cells[i].cells[3].style.backgroundColor = 'cornflowerblue';
+                                                  cells[i].cells[4].style.backgroundColor = 'cornflowerblue';
+            }
+                else
+                    if (parseInt(cells[i].cells[1].innerHTML, 10) == 4) {
+                        cells[i].cells[0].style.backgroundColor = 'yellow';
+                        cells[i].cells[1].style.backgroundColor = 'yellow';
+                        cells[i].cells[2].style.backgroundColor = 'yellow';
+                        cells[i].cells[3].style.backgroundColor = 'yellow';
+                                                  cells[i].cells[4].style.backgroundColor = 'yellow';
+                }
+                else
+                    if (parseInt(cells[i].cells[1].innerHTML, 10) == 5) {
+                        cells[i].cells[0].style.backgroundColor = 'darkred ';
+                        cells[i].cells[0].style.color = 'white';
+                        cells[i].cells[1].style.backgroundColor = 'darkred ';
+                        cells[i].cells[1].style.color = 'white';
+                        cells[i].cells[2].style.backgroundColor = 'darkred ';
+                        cells[i].cells[2].style.color = 'white';
+                        cells[i].cells[3].style.backgroundColor = 'darkred ';
+                        cells[i].cells[3].style.color = 'white';
+                        cells[i].cells[4].style.backgroundColor = 'darkred ';
+                        cells[i].cells[4].style.color = 'white';
+                    }
+                else
+                    if (parseInt(cells[i].cells[1].innerHTML, 10) == 1) {
+                        cells[i].cells[0].style.backgroundColor = 'darkseagreen';
+                        cells[i].cells[1].style.backgroundColor = 'darkseagreen';
+                        cells[i].cells[2].style.backgroundColor = 'darkseagreen';
+                        cells[i].cells[3].style.backgroundColor = 'darkseagreen';
+                        cells[i].cells[4].style.backgroundColor = 'darkseagreen';
+        }
+
+        }
+}
+
+                            $('#proye').DataTable({
+                               "dom": 'lBfrtip',
+                "lengthMenu": [[5, 15, 50, -1], ["5", "15", "50", "Todos"]],
+                   "buttons": ['copy', 'csv','print','pdf','excel'], 
+                        "order": [[0, "desc"]],
+                        "scrollX": true,
+                        "language": {
+                            "sProcessing": "Procesando...",
+                            "sLengthMenu": "Mostrar _MENU_ registros",
+                            "sZeroRecords": "No se encontraron resultados",
+                            "sEmptyTable": "Ningún dato disponible en esta tabla =(",
+                            "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                            "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                            "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                            "sInfoPostFix": "",
+                            "sSearch": "Buscar:",
+                            "sUrl": "",
+                            "sInfoThousands": ",",
+                            "sLoadingRecords": "Cargando...",
+                            "oPaginate": {
+                                "sFirst": "Primero",
+                                "sLast": "Último",
+                                "sNext": "Siguiente",
+                                "sPrevious": "Anterior"
+                            },
+                            "oAria": {
+                                "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                                "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                            },
+                            "buttons": {
+                                "copy": "Copiar",
+                                "colvis": "Visibilidad"
+                            }
+                        }
+                    });
+
+           // if (ViewBag.Fechaprox!= 0)
+                if (typeof window.stackBottomLeft === 'undefined') {
+    window.stackBottomLeft = {
+      'dir1': 'right',
+      'dir2': 'down',
+      'firstpos1': 25,
+      'firstpos2': 25,
+      'push': 'top'
+    };
+  }
+
+                var notice2 = PNotify.notice({
+                    title: 'Nuevas Funciones!!!',
+                    text: 'Si un usuario esta "*Logueado*", en automático se filtra y muestran los OILs que género y en los que aparece como responsable o fue asignado a esa tarea… ',
+                    stack: window.stackBottomLeft,
+                    addClass: 'nonblock'
+                });
+
+                    var proyectos_vencidos = 0;
+                    var proyectos_Proximos = 0;
+                    if(@ViewBag.NoReali!=0)
+                        proyectos_vencidos =  @ViewBag.NoReali;
+                   if(@ViewBag.Fechaprox!=0)
+                    proyectos_Proximos = @ViewBag.Fechaprox;
+
+                   document.getElementById("alertsb").innerHTML ="Existen: '"+proyectos_vencidos+"' OILs vencidos y '"+ proyectos_Proximos +"' OILs proximos a vencer...";
+                 //  window.alert("Existen: "+proyectos_vencidos+"-- OILs vencidos y ademas tienes: "+ proyectos_Proximos +"-- OILs proximos a vencer");
+
+
+
+
+
+
+        });
+
+
+    </script>
+
+}
