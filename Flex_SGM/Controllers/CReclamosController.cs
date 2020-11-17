@@ -275,7 +275,7 @@ namespace Flex_SGM.Controllers
                 //--------------------------------------------------------
                 if (paret == "Defecto")
                 {
-                    var groupdata = datafiltered.GroupBy(g => g.Defecto).OrderByDescending(k => k.Count()).ToList();
+                    var groupdata = datafiltered.GroupBy(g => g.Defecto).OrderByDescending(k => k.Count()).Take(10);
                     labels = "'";
                     gdata = "";
                     gdata2 = "";
@@ -540,7 +540,7 @@ namespace Flex_SGM.Controllers
                 //--------------------------------------------------------
                 if (paret == "Defecto")
                 {
-                    var groupdata = datafiltered.GroupBy(g => g.Defecto).OrderByDescending(k => k.Count());
+                    var groupdata = datafiltered.GroupBy(g => g.Defecto).OrderByDescending(k => k.Count()).Take(10);
                     labels = "'";
                     gdata = "";
                     gdata2 = "";
@@ -811,7 +811,7 @@ namespace Flex_SGM.Controllers
                     //--------------------------------------------------------
                     if (paret == "Defecto")
                     {
-                        var groupdata = datafiltered.GroupBy(g => g.Defecto).OrderByDescending(k => k.Count());
+                        var groupdata = datafiltered.GroupBy(g => g.Defecto).OrderByDescending(k => k.Count()).Take(10);
                         labels = "'";
                         gdata = "";
                         gdata2 = "";
