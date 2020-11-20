@@ -72,8 +72,13 @@ namespace Flex_SGM.Models
         public string Tipos { get; set; }
         [MaxLength(80)]
         public string Descripcion { get; set; }
+        [ForeignKey("Fallas")]
+        [Display(Name = "Codigo de Falla")]
+        public int? FallasID { get; set; }
+
+
         public virtual Maquinas Maquinas { get; set; }
-       // public virtual Fallas Fallas { get; set; }
+        public virtual Fallas Fallas { get; set; }
     }
 
     public class roadmap {

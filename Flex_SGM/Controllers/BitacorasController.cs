@@ -504,7 +504,7 @@ if (amaquina.Contains("Pintura"))
                 return RedirectToAction("roadmap", new { smarea = smarea, searchString = searchString, area = area, amaquina = amaquina, puesto = puesto, maquina = maquina, fecha_inicial = fecha_inicial, fecha_final = fecha_final, t1 = t1, t2 = t2, t3 = t3, nt = nt, fs = fs });
             }
 
-            var bitacoras = db.Bitacoras.Include(b => b.Maquinas);
+            var bitacoras = db.Bitacoras.Include(b => b.Maquinas).Include(b=>b.Fallas);
 
             if(nt)
                 bitacoras = bitacoras.Where(s => s.noterminado==true);
@@ -2032,7 +2032,7 @@ if (amaquina.Contains("Pintura"))
 
         public ActionResult drop3(string Tipo)
         {
-            // TODO: based on the selected country return the cities:
+            // TODO: based on the selected
             var fallas = db.Fallas.Where(f => f.Tipo == Tipo);
             // new SelectList(fallas, "Codigo", "DescripcionCodigo")
 
@@ -2054,7 +2054,7 @@ if (amaquina.Contains("Pintura"))
             var id = User.Identity.GetUserId();
             ApplicationUser currentUser = UserManager.FindById(id);
 
-            string scliente ="";
+            string scliente = "";
             string sarea = currentUser.Area;
             string sarea2 = sarea;
             if (TempData["myarea"] != null)
@@ -2063,23 +2063,23 @@ if (amaquina.Contains("Pintura"))
             {
                 sarea = "Soldadura";
             }
-            if (TempData["mycliente"]!=null)
-            scliente = TempData["mycliente"].ToString();
+            if (TempData["mycliente"] != null)
+                scliente = TempData["mycliente"].ToString();
             if (TempData["myarea"] != null)
-             sarea = TempData["myarea"].ToString();
-            var maquinas = db.Maquinas.Where(m=>m.ID>=0);
+                sarea = TempData["myarea"].ToString();
+            var maquinas = db.Maquinas.Where(m => m.ID >= 0);
             if (!string.IsNullOrEmpty(scliente))
             {
                 if (maquinas.Where(m => m.Cliente == scliente).Count() != 0)
                     maquinas = maquinas.Where(m => m.Cliente == scliente);
             }
-              
+
             if (!string.IsNullOrEmpty(sarea))
             {
                 if (sarea.Contains("MetalFinish"))
                 {
-                    if (maquinas.Where(m => m.Area == "Cromo").Count() != 0|| maquinas.Where(m => m.Area == "Pintura").Count() != 0 || maquinas.Where(m => m.Area == "MetalFinish").Count() != 0)
-                        maquinas = maquinas.Where(m => m.Area == "Cromo" || m.Area== "Pintura" || m.Area == "MetalFinish");
+                    if (maquinas.Where(m => m.Area == "Cromo").Count() != 0 || maquinas.Where(m => m.Area == "Pintura").Count() != 0 || maquinas.Where(m => m.Area == "MetalFinish").Count() != 0)
+                        maquinas = maquinas.Where(m => m.Area == "Cromo" || m.Area == "Pintura" || m.Area == "MetalFinish");
                 }
                 else
                 if (maquinas.Where(m => m.Area == sarea).Count() != 0)
@@ -2095,17 +2095,17 @@ if (amaquina.Contains("Pintura"))
             if (DateTime.Now.Hour >= 6 && DateTime.Now.Hour < 14)
                 lst.Add(new SelectListItem() { Text = "1", Value = "1", Selected = true });
             else
-                lst.Add(new SelectListItem() { Text = "1", Value = "1"});
+                lst.Add(new SelectListItem() { Text = "1", Value = "1" });
 
             if (DateTime.Now.Hour >= 14 && DateTime.Now.Hour < 22)
                 lst.Add(new SelectListItem() { Text = "2", Value = "2", Selected = true });
             else
-                lst.Add(new SelectListItem() { Text = "2", Value = "2"});
+                lst.Add(new SelectListItem() { Text = "2", Value = "2" });
 
             if (DateTime.Now.Hour >= 22 || DateTime.Now.Hour < 6)
                 lst.Add(new SelectListItem() { Text = "3", Value = "3", Selected = true });
             else
-                lst.Add(new SelectListItem() { Text = "3", Value = "3"});
+                lst.Add(new SelectListItem() { Text = "3", Value = "3" });
 
 
             ViewBag.turno = lst;
@@ -2132,7 +2132,7 @@ if (amaquina.Contains("Pintura"))
                 // initially we set the ddl to empty
                 Dess = Enumerable.Empty<SelectListItem>()
             };
-
+            ViewBag.FallasID = new SelectList(db.Fallas.Where(w => w.Area==sarea2), "ID", "Tipo");
             MyViewBitcora bitax = new MyViewBitcora { Bitacora = bitacora, MyViewFallas = model };
 
             return View(bitax);

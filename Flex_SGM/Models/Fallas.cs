@@ -15,17 +15,17 @@ namespace Flex_SGM.Models
         [MaxLength(20)]
         public string Area { get; set; }
 
-        [MaxLength(20)]
+        [MaxLength(50)]
         
         public string Tipo { get; set; }
-        [MaxLength(50)]
+        [MaxLength(100)]
    
         public string Descripcion { get; set; }
-        [MaxLength(50)]
+        [MaxLength(100)]
       
         public string Codigo { get; set; }
 
-        [MaxLength(50)]
+        [MaxLength(150)]
  
         public string DescripcionCodigo { get; set; }
 
