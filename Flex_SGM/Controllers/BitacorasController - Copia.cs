@@ -99,7 +99,7 @@ namespace Flex_SGM.Controllers
             {
                 if (area.Contains("MetalFinish"))
                 {
-                    bitacora = bitacora.Where(s => s.usuario_area == "Cromo" || s.usuario_area == "Pintura" || s.usuario_area == "MetalFinish");
+                    bitacora = bitacora.Where(s => s.usuario_area == "Cromo" || s.usuario_area == "Cromo1" || s.usuario_area == "Cromo2" || s.usuario_area == "AutoPulido1" || s.usuario_area == "AutoPulido2" || s.usuario_area == "Pintura" || s.usuario_area == "Ecoat" || s.usuario_area == "Topcoat" || s.usuario_area == "MetalFinish");
                 }
                 else
                     bitacora = bitacora.Where(s => s.usuario_area.Contains(area));
@@ -111,7 +111,7 @@ namespace Flex_SGM.Controllers
                     amaquina = "Soldadura";
                 }
 
-                                    if (amaquina.Contains("MetalFinish"))
+             if (amaquina.Contains("MetalFinish"))
                 {
                     bitacora = bitacora.Where(s => s.Maquinas.Area == "Cromo" || s.Maquinas.Area == "Cromo1" || s.Maquinas.Area == "Cromo2" || s.Maquinas.Area == "AutoPulido1" || s.Maquinas.Area == "AutoPulido2" || s.Maquinas.Area == "Pintura" || s.Maquinas.Area == "Ecoat" || s.Maquinas.Area == "Topcoat" || s.Maquinas.Area == "MetalFinish");
                 }

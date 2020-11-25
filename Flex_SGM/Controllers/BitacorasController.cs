@@ -99,7 +99,7 @@ namespace Flex_SGM.Controllers
             {
                 if (area.Contains("MetalFinish"))
                 {
-                    bitacora = bitacora.Where(s => s.usuario_area == "Cromo" || s.usuario_area == "Pintura" || s.usuario_area == "MetalFinish");
+                    bitacora = bitacora.Where(s => s.usuario_area == "Cromo" || s.usuario_area == "Cromo1" || s.usuario_area == "Cromo2" || s.usuario_area == "AutoPulido1" || s.usuario_area == "AutoPulido2" || s.usuario_area == "Pintura" || s.usuario_area == "Ecoat" || s.usuario_area == "Topcoat" || s.usuario_area == "MetalFinish");
                 }
                 else
                     bitacora = bitacora.Where(s => s.usuario_area.Contains(area));
@@ -4199,33 +4199,32 @@ if (amaquina.Contains("Pintura"))
 
             if (!String.IsNullOrEmpty(amaquina) && amaquina != "--Todas--")
             {
-                if (amaquina.Contains("Soldadura"))
-                {
-                    amaquina = "Soldadura";
-                }
 
+                
                 if (amaquina.Contains("MetalFinish"))
                 {
                     dataf = dataf.Where(s => s.Maquinas.Area == "Cromo" || s.Maquinas.Area == "Cromo1" || s.Maquinas.Area == "Cromo2" || s.Maquinas.Area == "AutoPulido1" || s.Maquinas.Area == "AutoPulido2" || s.Maquinas.Area == "Pintura" || s.Maquinas.Area == "Ecoat" || s.Maquinas.Area == "Topcoat" || s.Maquinas.Area == "MetalFinish");
+                    var dtdt = dataf.ToList();
                 }
-                else
-                  if (amaquina == "Cromo")
+                else { 
+
+                if (amaquina == "Cromo")
                 {
                     dataf = dataf.Where(s => s.Maquinas.Area == "Cromo" || s.Maquinas.Area == "Cromo1" || s.Maquinas.Area == "Cromo2" || s.Maquinas.Area == "AutoPulido1" || s.Maquinas.Area == "AutoPulido2");
                 }
-                else
-                    if (amaquina.Contains("Pintura"))
+       
+                if (amaquina.Contains("Pintura"))
                 {
                     dataf = dataf.Where(s => s.Maquinas.Area == "Pintura" || s.Maquinas.Area == "Ecoat" || s.Maquinas.Area == "Topcoat");
                 }
-                else
-                    dataf = dataf.Where(s => s.Maquinas.Area.Contains(amaquina));
 
-                if (!string.IsNullOrEmpty(maquina) && amaquina != "--Todas--")
+                if (amaquina.Contains("Soldadura"))
                 {
-                    dataf = dataf.Where(s => s.Maquinas.Maquina == maquina);
-                }
+                    amaquina = "Soldadura";
 
+                }
+                dataf = dataf.Where(s => s.Maquinas.Area.Contains(amaquina));
+                }
             }
 
 
@@ -4235,7 +4234,13 @@ if (amaquina.Contains("Pintura"))
 
             var maquinas = db.Maquinas.Where(m => m.ID > 0);
             if (!string.IsNullOrEmpty(amaquina))
-                maquinas = db.Maquinas.Where(m => m.Area == amaquina);
+                if (amaquina.Contains("MetalFinish"))
+                {
+                    maquinas = db.Maquinas.Where(m => m.Area == "Cromo" || m.Area == "Cromo1" || m.Area == "Cromo2" || m.Area == "AutoPulido1" || m.Area == "AutoPulido2" || m.Area == "Pintura" || m.Area == "Ecoat" || m.Area == "Topcoat" || m.Area == "MetalFinish");
+              
+                }
+                 else
+                 maquinas = db.Maquinas.Where(m => m.Area == amaquina);
             if (!string.IsNullOrEmpty(maquina))
                 maquinas = db.Maquinas.Where(m => m.Maquina == maquina);
 

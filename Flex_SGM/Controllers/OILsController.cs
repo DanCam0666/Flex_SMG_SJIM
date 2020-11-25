@@ -85,7 +85,7 @@ namespace Flex_SGM.Controllers
                     else
                         Soldpendiente++;
                 }
-                if (item.Maquinas.Area.Contains("Cromo")|| item.Maquinas.Area.Contains("Pintura"))
+                if (item.Maquinas.Area.Contains("Cromo")|| item.Maquinas.Area.Contains("Cromo1") || item.Maquinas.Area.Contains("Cromo2") || item.Maquinas.Area.Contains("AutoPulido1") || item.Maquinas.Area.Contains("AutoPulido2") || item.Maquinas.Area.Contains("Ecoat") || item.Maquinas.Area.Contains("Topcoat") || item.Maquinas.Area.Contains("MetalFinish"))
                 {
                     MFtotal++;
                     if (item.Estatus == 1)
