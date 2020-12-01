@@ -73,6 +73,7 @@ namespace Flex_SGM.Models
         public string turno { get; set; }
        [MaxLength(60)]
         public string Tipos { get; set; }
+        [Display(Name = "Codigo de Falla")]
         [MaxLength(80)]
         public string Descripcion { get; set; }
         [ForeignKey("Fallas")]

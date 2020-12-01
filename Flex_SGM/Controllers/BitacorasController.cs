@@ -2171,14 +2171,22 @@ if (amaquina.Contains("Pintura"))
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Mantenimiento")]
-        public async Task<ActionResult> Create([Bind(Include = "ID,DiaHora,turno,UserID,MaquinasID,Sintoma,Causa,AccionCorrectiva,Atendio,Tiempo,Scrap ,Folio,findesemana,Fallaoperacion,MttoPreventivo,MttoCorrectivo,MttoMejora,noterminado,Tipos,Descripcion")] Bitacora bitacora,MyViewFallas MyViewFallas,int MaquinasID)
+        public async Task<ActionResult> Create([Bind(Include = "ID,DiaHora,turno,UserID,MaquinasID,Sintoma,Causa,AccionCorrectiva,Atendio,Tiempo,Scrap ,Folio,findesemana,Fallaoperacion,MttoPreventivo,MttoCorrectivo,MttoMejora,noterminado,Tipos,Descripcion,FallasID")] Bitacora bitacora,MyViewFallas MyViewFallas,int MaquinasID,int? FallasID)
         {
 
             var id = User.Identity.GetUserId();
             ApplicationUser currentUser = UserManager.FindById(id);
             bitacora.MaquinasID = MaquinasID;
-            bitacora.Tipos = MyViewFallas.Area+"|"+ MyViewFallas.Tipo;
+            bitacora.FallasID = FallasID;
+            bitacora.Tipos = MyViewFallas.Area + "|" + MyViewFallas.Tipo;
             bitacora.Descripcion = MyViewFallas.Tipo + "|" + MyViewFallas.Des;
+            if (bitacora.FallasID != null)
+            {
+                var falla = db.Fallas.Where(w => w.ID == bitacora.FallasID);
+                bitacora.Descripcion = falla.FirstOrDefault().Codigo;
+            }
+             
+
             bitacora.usuario = currentUser.UserFullName;
             bitacora.usuario_area = currentUser.Area;
             bitacora.usuario_puesto = currentUser.Puesto;
