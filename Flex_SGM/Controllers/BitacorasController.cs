@@ -2029,7 +2029,18 @@ if (amaquina.Contains("Pintura"))
 
         // GET: Bitacoras/Create
 
+        public ActionResult code(int Codigo)
+        {
+            // TODO: based on the selected
+            var fallas = db.Fallas.Where(f => f.ID == Codigo).ToList();
+            // new SelectList(fallas, "Codigo", "DescripcionCodigo")
 
+
+            string x1des = fallas.FirstOrDefault().Tipo;
+            string x2des = fallas.FirstOrDefault().Descripcion;
+
+            return Json(new { x1des = x1des, x2des = x2des }, JsonRequestBehavior.AllowGet);
+        }
         public ActionResult drop3(string Tipo)
         {
             // TODO: based on the selected
@@ -2129,10 +2140,12 @@ if (amaquina.Contains("Pintura"))
                 Areas = new SelectList(fallas, "Area", "Area"),  //new SelectList(Enum.GetValues(typeof(flex_Areas)).Cast<flex_Areas>().ToList()),
                 // initially we set the ddl to empty
                 Tipos = new SelectList(gfallast, "Key", "Key"),
+                Tipo = "Selecciona",
+                Des ="Selecciona",
                 // initially we set the ddl to empty
                 Dess = Enumerable.Empty<SelectListItem>()
             };
-            ViewBag.FallasID = new SelectList(db.Fallas.Where(w => w.Area==sarea2), "ID", "Tipo");
+            ViewBag.FallasID = new SelectList(db.Fallas.Where(w => w.Area==sarea2), "ID", "Codigo");
             MyViewBitcora bitax = new MyViewBitcora { Bitacora = bitacora, MyViewFallas = model };
 
             return View(bitax);

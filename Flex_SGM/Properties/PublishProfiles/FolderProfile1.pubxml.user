@@ -7246,10 +7246,10 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>10/26/2020 13:25:57</publishTime>
     </File>
     <File Include="bin/Flex_SGM.dll">
-      <publishTime>11/25/2020 15:09:35</publishTime>
+      <publishTime>12/01/2020 13:53:59</publishTime>
     </File>
     <File Include="bin/Flex_SGM.pdb">
-      <publishTime>11/25/2020 15:09:36</publishTime>
+      <publishTime>12/01/2020 13:53:59</publishTime>
     </File>
     <File Include="bin/IBM.Data.DB2.iSeries.dll">
       <publishTime>10/26/2020 13:21:31</publishTime>
@@ -7837,7 +7837,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>11/12/2020 12:03:40</publishTime>
     </File>
     <File Include="Views/Bitacoras/Create.cshtml">
-      <publishTime>11/20/2020 13:52:56</publishTime>
+      <publishTime>12/01/2020 13:52:32</publishTime>
     </File>
     <File Include="Views/Bitacoras/Delete.cshtml">
       <publishTime>10/26/2020 13:21:22</publishTime>
@@ -7867,7 +7867,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>11/15/2020 07:13:07</publishTime>
     </File>
     <File Include="Views/Bitacoras/Repo.cshtml">
-      <publishTime>10/30/2020 13:57:10</publishTime>
+      <publishTime>12/01/2020 11:06:46</publishTime>
     </File>
     <File Include="Views/Bitacoras/roadmap - Copia.cshtml">
       <publishTime>10/26/2020 13:21:23</publishTime>
@@ -7876,7 +7876,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>10/26/2020 13:21:23</publishTime>
     </File>
     <File Include="Views/Bitacoras/Show.cshtml">
-      <publishTime>10/26/2020 13:21:22</publishTime>
+      <publishTime>12/01/2020 11:03:57</publishTime>
     </File>
     <File Include="Views/Calidad/Index.cshtml">
       <publishTime>11/15/2020 07:13:07</publishTime>
