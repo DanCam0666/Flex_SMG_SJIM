@@ -1074,7 +1074,9 @@ if (amaquina.Contains("Pintura"))
             //var bitacorams = bitacora.Where(s => s.Maquinas.Area.Contains("Soldadura"));
             var bitacoraen = bitacora.Where(s => s.Maquinas.Area.Contains("Ensamble"));
             var bitacoraau = bitacora;
-            bitacorase = bitacorase.Where(d => d.Tiempo > 0);
+            var bitacoraseM = bitacorase.Where(d => d.Tiempo > 0 && d.Maquinas.Maquina.ToUpper().Contains("MONTACARGAS"));
+            bitacorase = bitacorase.Where(d => d.Tiempo > 0&& !d.Maquinas.Maquina.ToUpper().Contains("MONTACARGAS"));
+           
             bitacoraes = bitacoraes.Where(d => d.Tiempo > 0);
             bitacoramf = bitacoramf.Where(d => d.Tiempo > 0);
             bitacoraps = bitacoraps.Where(d => d.Tiempo > 0);
@@ -1167,8 +1169,93 @@ if (amaquina.Contains("Pintura"))
 
             }
 
+            query2 = bitacoraseM.GroupBy(p => p.Maquinas.Maquina)
+.Select(g => new { Maquina = g.Key, count = g.Count(), time = g.Sum(x => x.Tiempo) });
+            query = query2.ToList();
+            if (query.Count() >= 1)
+            {
+                int i = 0;
+                string objet;
+                string dat;
+                string tdat;
 
-             query2 = bitacoraes.GroupBy(p => p.Maquinas.Maquina)
+                query = query.OrderByDescending(s => s.time).ToList();
+                List<string> ObjectName2 = new List<string>();
+                List<int> Data2 = new List<int>();
+                foreach (var item in query)
+                {
+
+
+                    ObjectName2.Add(item.Maquina);
+                    Data2.Add(item.time);
+                }
+
+                objet = "'";
+                dat = "";
+                tdat = "";
+                i = 0;
+                foreach (var item in ObjectName2)
+                {
+                    objet = objet + item.ToString() + "','";
+                    i++;
+                    if (i == 3)
+                        break;
+                }
+                i = 0;
+
+                foreach (var item in Data2)
+                {
+                    dat = dat + item.ToString() + ",";
+                    tdat = tdat + Target.ToString() + ",";
+                    i++;
+                    if (i == 3)
+                        break;
+                }
+
+                objet = objet.TrimEnd(',', (char)39);
+                objet = objet + "'";
+                dat = dat.TrimEnd(',', (char)39);
+
+                ViewBag.ObjectName1M = objet;
+                ViewBag.Data1M = dat;
+                ViewBag.tData1M = tdat;
+
+                var bitacora2 = bitacoraseM;
+
+                string xx = ObjectName2.ElementAt(0).ToString();
+                ViewBag.Machine1top1nameM = xx;
+                List<Flex_SGM.Models.Bitacora> Machinetop1 = bitacora2.Where(p => p.Tiempo >= 1 && p.Maquinas.Maquina == xx).ToList();
+                ViewBag.Machine1top1M = Machinetop1.OrderByDescending(o => o.Tiempo);
+                if (query.Count() > 1)
+                {
+                    xx = ObjectName2.ElementAt(1).ToString();
+                    ViewBag.Machine1top2nameM = xx;
+                    List<Flex_SGM.Models.Bitacora> Machinetop2 = bitacora2.Where(p => p.Tiempo >= 1 && p.Maquinas.Maquina == xx).ToList();
+                    ViewBag.Machine1top2M = Machinetop2.OrderByDescending(o => o.Tiempo);
+                }
+                if (query.Count() > 2)
+                {
+                    xx = ObjectName2.ElementAt(2).ToString();
+                    ViewBag.Machine1top3nameM = xx;
+                    List<Flex_SGM.Models.Bitacora> Machinetop3 = bitacora2.Where(p => p.Tiempo >= 1 && p.Maquinas.Maquina == xx).ToList();
+                    ViewBag.Machine1top3M = Machinetop3.OrderByDescending(o => o.Tiempo);
+                }
+
+            }
+            else
+            {
+
+                ViewBag.Machine1top1nameM = "Sin Maquinas con tiempo muerto";
+                ViewBag.Machine1top1M = null;
+
+                // ViewBag.Danger = "No existe la cantidad minima de 1 maquina con falla para poder generar el Reporte!";
+                // TempData["Danger"] = "No existe la cantidad minima de 1 maquina con falla para poder generar el Reporte!";
+                //  return RedirectToAction("Index");
+
+            }
+
+
+            query2 = bitacoraes.GroupBy(p => p.Maquinas.Maquina)
             .Select(g => new { Maquina = g.Key, count = g.Count(), time = g.Sum(x => x.Tiempo) });
              query = query2.ToList();
             if (query.Count() >= 1)
@@ -2190,71 +2277,72 @@ if (amaquina.Contains("Pintura"))
             bitacora.usuario = currentUser.UserFullName;
             bitacora.usuario_area = currentUser.Area;
             bitacora.usuario_puesto = currentUser.Puesto;
-          //  bitacora.DiaHora = DateTime.Now;
+            //  bitacora.DiaHora = DateTime.Now;
+            /*
+           try
+           {
+
+               var fall = db.Bitacoras.Where(s => s.Maquinas.ID==(bitacora.MaquinasID) && s.Tiempo >= 1);
+               double total_fallas = 0;
+               total_fallas = fall.Count();
+               if (bitacora.Tiempo > 0&&!bitacora.Fallaoperacion)
+                   total_fallas = total_fallas + 1;
+               var tiempomue = db.Bitacoras.Where(s => s.Maquinas.ID == (bitacora.MaquinasID) && s.Tiempo >= 1);
+               double tiempomueto = 0;
+               if (total_fallas >= 1)
+                   tiempomueto = tiempomue.Sum(s => s.Tiempo);
+               if (total_fallas > 1&&!bitacora.Fallaoperacion)
+                   tiempomueto = tiempomueto + bitacora.Tiempo;
+
+               var maqui = db.Maquinas.Where(s => s.ID == (bitacora.MaquinasID));
+               DateTime x = Convert.ToDateTime(maqui.FirstOrDefault().DiaHora);
+               DateTime y = DateTime.Now;
+               var z = ((y - x));
+
+               double Tiempo_total_de_funcionamiento = z.TotalMinutes* .75;
+               double MTBF = Tiempo_total_de_funcionamiento;
+               double MTTR = 0;
+
+               if (total_fallas != 0)
+               {
+                   MTBF = Tiempo_total_de_funcionamiento / total_fallas;
+                   MTTR = tiempomueto / total_fallas;
+               }
+
+               double disponibilidad = MTBF / (MTBF + MTTR);
+
+               bitacora.Porcentaje = Math.Round(100 - (disponibilidad * 100), 2); 
+
+               bitacora.MTBF = Math.Round(MTBF, 2); 
+               bitacora.MTTR = Math.Round(MTTR, 2);
+
+           }
+           catch (Exception ex)
+           {
+
+               bitacora.Porcentaje = 0;
+
+               bitacora.MTBF = 0;
+               bitacora.MTTR = 0;
+
+           }
+           */
+            bitacora.Porcentaje = 0;
+
+            bitacora.MTBF = 0;
+            bitacora.MTTR = 0;
+            if (string.IsNullOrEmpty(bitacora.Atendio))
+                bitacora.Atendio = bitacora.usuario;
+            if (string.IsNullOrEmpty(bitacora.Scrap))
+                bitacora.Scrap = "N/A";
+            if (string.IsNullOrEmpty(bitacora.Folio))
+                bitacora.Folio = "N/A";
+            if (!bitacora.Fallaoperacion && !bitacora.MttoCorrectivo && !bitacora.MttoPreventivo && !bitacora.MttoMejora)
+                bitacora.MttoMejora = true;
+
 
             if (ModelState.IsValid)
             {
-       /*
-                try
-                {
-
-                    var fall = db.Bitacoras.Where(s => s.Maquinas.ID==(bitacora.MaquinasID) && s.Tiempo >= 1);
-                    double total_fallas = 0;
-                    total_fallas = fall.Count();
-                    if (bitacora.Tiempo > 0&&!bitacora.Fallaoperacion)
-                        total_fallas = total_fallas + 1;
-                    var tiempomue = db.Bitacoras.Where(s => s.Maquinas.ID == (bitacora.MaquinasID) && s.Tiempo >= 1);
-                    double tiempomueto = 0;
-                    if (total_fallas >= 1)
-                        tiempomueto = tiempomue.Sum(s => s.Tiempo);
-                    if (total_fallas > 1&&!bitacora.Fallaoperacion)
-                        tiempomueto = tiempomueto + bitacora.Tiempo;
-
-                    var maqui = db.Maquinas.Where(s => s.ID == (bitacora.MaquinasID));
-                    DateTime x = Convert.ToDateTime(maqui.FirstOrDefault().DiaHora);
-                    DateTime y = DateTime.Now;
-                    var z = ((y - x));
-
-                    double Tiempo_total_de_funcionamiento = z.TotalMinutes* .75;
-                    double MTBF = Tiempo_total_de_funcionamiento;
-                    double MTTR = 0;
-                   
-                    if (total_fallas != 0)
-                    {
-                        MTBF = Tiempo_total_de_funcionamiento / total_fallas;
-                        MTTR = tiempomueto / total_fallas;
-                    }
-
-                    double disponibilidad = MTBF / (MTBF + MTTR);
-
-                    bitacora.Porcentaje = Math.Round(100 - (disponibilidad * 100), 2); 
-
-                    bitacora.MTBF = Math.Round(MTBF, 2); 
-                    bitacora.MTTR = Math.Round(MTTR, 2);
-
-                }
-                catch (Exception ex)
-                {
-
-                    bitacora.Porcentaje = 0;
-
-                    bitacora.MTBF = 0;
-                    bitacora.MTTR = 0;
-
-                }
-                */
-                bitacora.Porcentaje = 0;
-
-                bitacora.MTBF = 0;
-                bitacora.MTTR = 0;
-                if (string.IsNullOrEmpty(bitacora.Atendio))
-                    bitacora.Atendio = bitacora.usuario;
-                if (string.IsNullOrEmpty(bitacora.Scrap))
-                    bitacora.Scrap = "N/A";
-                if (string.IsNullOrEmpty(bitacora.Folio))
-                    bitacora.Folio = "N/A";
-                if (!bitacora.Fallaoperacion&&!bitacora.MttoCorrectivo&&!bitacora.MttoPreventivo&&!bitacora.MttoMejora)
-                    bitacora.MttoMejora = true;
 
                 db.Bitacoras.Add(bitacora);
                 await db.SaveChangesAsync();

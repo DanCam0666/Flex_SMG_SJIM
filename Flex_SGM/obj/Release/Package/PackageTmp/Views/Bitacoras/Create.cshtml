@@ -79,6 +79,7 @@
                         </div>
 
                         @Html.HiddenFor(x => x.MyViewFallas.Area)
+
                     <div class="form-group col-xs-12">
 
                         <div class="col-xs-4">
@@ -96,6 +97,8 @@
                             @Html.ValidationMessageFor(x => x.MyViewFallas.Des)
                         </div>
                     </div>
+
+
                         <div class="form-group">
                             @Html.LabelFor(model => model.Bitacora.Sintoma, htmlAttributes: new { @class = "control-label col-md-1" })
                             <div class="col-md-10">

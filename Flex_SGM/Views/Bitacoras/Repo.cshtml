@@ -483,7 +483,7 @@
 <div class="col-xs-12 clearfix">
     <div class="x_panel collapse-link ">
         <div class="x_title clearfix">
-            <h2>Servicios <small>@ViewBag.Machine1top1name</small></h2>
+            <h2>Servicios Generales<small>@ViewBag.Machine1top1name</small></h2>
             <ul class="nav navbar-right">
                 <li>
                     <a><i class="fa fa-chevron-down"></i></a>
@@ -502,7 +502,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <table class="table table-bordered table-striped">
+                        <table class="table table-bordered table-striped" width="100%">
                             <tr>
                                 <th>
                                     @Html.DisplayName("DiaHora")
@@ -575,7 +575,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <table class="table-bordered table-striped">
+                                 <table class="table table-bordered table-striped" width="100%">
                                     <tr>
                                         <th>
                                             @Html.DisplayName("DiaHora")
@@ -647,7 +647,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <table class="table-bordered table-striped">
+                                         <table class="table table-bordered table-striped" width="100%">
                                             <tr>
                                                 <th>
                                                     @Html.DisplayName("DiaHora")
@@ -719,6 +719,245 @@
         </div>
     </div>
 
+
+<div class="col-xs-12 clearfix">
+    <div class="x_panel collapse-link ">
+        <div class="x_title clearfix">
+            <h2>Servicios Montacargas <small>@ViewBag.Machine1top1nameM</small></h2>
+            <ul class="nav navbar-right">
+                <li>
+                    <a><i class="fa fa-chevron-down"></i></a>
+                </li>
+                <li>
+                    <a class="close-link"><i class="fa fa-times-circle"></i></a>
+                </li>
+            </ul>
+        </div>
+
+        <canvas id="charttime1M" width="5" height="1"></canvas>
+        <div class="x_content">
+            <table class="table table-bordered">
+                <tr>
+                    <th> <center>@ViewBag.Machine1top1nameM</center></th>
+                </tr>
+                <tr>
+                    <td>
+                        <table class="table table-bordered table-striped" width="100%">
+                            <tr>
+                                <th>
+                                    @Html.DisplayName("DiaHora")
+
+                                </th>
+                                <th>
+                                    @Html.DisplayName("Atendio")
+                                </th>
+                                <th>
+                                    @Html.DisplayName("Folio")
+                                </th>
+                                <th>
+                                    @Html.DisplayName("Codigo de Falla")
+                                </th>
+                                <th>
+                                    @Html.DisplayName("Descripcion de Falla")
+                                </th>
+                                <th>
+                                    @Html.DisplayName("Causa Raiz")
+                                </th>
+                                <th>
+                                    @Html.DisplayName("Accion Inmediata / Correccion / Contencion")
+                                </th>
+                                <th>
+                                    @Html.DisplayName("Tiempo Muerto (minutos)")
+                                </th>
+                                @if (@ViewBag.Machine1top1M != null)
+                                {
+                                    foreach (var item in @ViewBag.Machine1top1M)
+                                    {
+                                    <tr>
+                                        <td>
+                                            @item.DiaHora
+                                        </td>
+                                        <td>
+                                            @item.Atendio
+                                        </td>
+                                        <td>
+                                            @item.Folio
+                                        </td>
+                                        <td>
+                                            @item.Descripcion
+                                        </td>
+                                        <td>
+                                            @item.Sintoma
+                                        </td>
+                                        <td>
+                                            @item.Causa
+                                        </td>
+                                        <td>
+                                            @item.AccionCorrectiva
+                                        </td>
+                                        <td>
+                                            @item.Tiempo
+                                        </td>
+
+                                    </tr>
+
+                                }
+                            }
+
+                            </table>
+                        </td>
+
+                    </tr>
+                    @if (ViewBag.Machine1top2nameM != null)
+                    {
+                        <tr>
+                            <th> <center>@ViewBag.Machine1top2nameM</center></th>
+                        </tr>
+                        <tr>
+                            <td>
+                                 <table class="table table-bordered table-striped" width="100%">
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayName("DiaHora")
+
+                                        </th>
+                                        <th>
+                                            @Html.DisplayName("Atendio")
+                                        </th>
+                                        <th>
+                                            @Html.DisplayName("Folio")
+                                        </th>
+                                        <th>
+                                            @Html.DisplayName("Codigo de Falla")
+                                        </th>
+                                        <th>
+                                            @Html.DisplayName("Descripcion de Falla")
+                                        </th>
+                                        <th>
+                                            @Html.DisplayName("Causa Raiz")
+                                        </th>
+                                        <th>
+                                            @Html.DisplayName("Accion Inmediata / Correccion / Contencion")
+                                        </th>
+                                        <th>
+                                            @Html.DisplayName("Tiempo Muerto (minutos)")
+                                        </th>
+
+                                        @foreach (var item in @ViewBag.Machine1top2M)
+                                        {
+                                        <tr>
+                                            <td>
+                                                @item.DiaHora
+                                            </td>
+                                            <td>
+                                                @item.Atendio
+                                            </td>
+                                            <td>
+                                                @item.Folio
+                                            </td>
+                                            <td>
+                                                @item.Descripcion
+                                            </td>
+                                            <td>
+                                                @item.Sintoma
+                                            </td>
+                                            <td>
+                                                @item.Causa
+                                            </td>
+                                            <td>
+                                                @item.AccionCorrectiva
+                                            </td>
+                                            <td>
+                                                @item.Tiempo
+                                            </td>
+
+                                        </tr>
+
+                                    }
+
+
+                                    </table>
+                                </td>
+
+                            </tr>
+                            if (ViewBag.Machine1top3nameM != null)
+                            {
+                                <tr>
+                                    <th> <center>@ViewBag.Machine1top3nameM</center></th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                         <table class="table table-bordered table-striped" width="100%">
+                                            <tr>
+                                                <th>
+                                                    @Html.DisplayName("DiaHora")
+
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayName("Atendio")
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayName("Folio")
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayName("Codigo de Falla")
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayName("Descripcion de Falla")
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayName("Causa Raiz")
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayName("Accion Inmediata / Correccion / Contencion")
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayName("Tiempo Muerto (minutos)")
+                                                </th>
+
+                                                @foreach (var item in @ViewBag.Machine1top3M)
+                                                {
+                                                <tr>
+                                                    <td>
+                                                        @item.DiaHora
+                                                    </td>
+                                                    <td>
+                                                        @item.Atendio
+                                                    </td>
+                                                    <td>
+                                                        @item.Folio
+                                                    </td>
+                                                    <td>
+                                                        @item.Descripcion
+                                                    </td>
+                                                    <td>
+                                                        @item.Sintoma
+                                                    </td>
+                                                    <td>
+                                                        @item.Causa
+                                                    </td>
+                                                    <td>
+                                                        @item.AccionCorrectiva
+                                                    </td>
+                                                    <td>
+                                                        @item.Tiempo
+                                                    </td><table class="table-bordered table-striped">
+</tr>
+
+                                            }
+
+
+                                            </table>
+                                        </td>
+
+                                    </tr>
+                                }
+                            }
+                </table>
+            </div>
+        </div>
+    </div>
+
     <div class="col-xs-12 clearfix">
         <div class="x_panel collapse-link ">
             <div class="x_title clearfix">
@@ -741,7 +980,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <table class="table table-bordered table-striped">
+                            <table class="table table-bordered table-striped" width="100%">
                                 <tr>
                                     <th>
                                         @Html.DisplayName("DiaHora")
@@ -814,7 +1053,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <table class="table table-bordered table-striped">
+                                    <table class="table table-bordered table-striped" width="100%">
                                         <tr>
                                             <th>
                                                 @Html.DisplayName("DiaHora")
@@ -886,7 +1125,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <table class="table table-bordered table-striped">
+                                            <table class="table table-bordered table-striped" width="100%">
                                                 <tr>
                                                     <th>
                                                         @Html.DisplayName("DiaHora")
@@ -980,7 +1219,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <table class="table table-bordered table-striped">
+                                    <table class="table table-bordered table-striped" width="100%">
                                         <tr>
                                             <th>
                                                 @Html.DisplayName("DiaHora")
@@ -1053,7 +1292,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <table class="table table-bordered table-striped">
+                                            <table class="table table-bordered table-striped" width="100%">
                                                 <tr>
                                                     <th>
                                                         @Html.DisplayName("DiaHora")
@@ -1125,7 +1364,7 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <table class="table table-bordered table-striped">
+                                                    <table class="table table-bordered table-striped" width="100%">
                                                         <tr>
                                                             <th>
                                                                 @Html.DisplayName("DiaHora")
@@ -1224,7 +1463,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <table class="table table-bordered table-striped">
+                                        <table class="table table-bordered table-striped" width="100%">
                                             <tr>
                                                 <th>
                                                     @Html.DisplayName("DiaHora")
@@ -1297,7 +1536,7 @@
                                         </tr>
                                         <tr>
                                             <td>
-                                                <table class="table table-bordered table-striped">
+                                                <table class="table table-bordered table-striped" width="100%">
                                                     <tr>
                                                         <th>
                                                             @Html.DisplayName("DiaHora")
@@ -1369,7 +1608,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <table class="table table-bordered table-striped">
+                                                        <table class="table table-bordered table-striped" width="100%">
                                                             <tr>
                                                                 <th>
                                                                     @Html.DisplayName("DiaHora")
@@ -1467,7 +1706,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <table class="table table-bordered table-striped">
+                                            <table class="table table-bordered table-striped" width="100%">
                                                 <tr>
                                                     <th>
                                                         @Html.DisplayName("DiaHora")
@@ -1540,7 +1779,7 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <table class="table table-bordered table-striped">
+                                                    <table class="table table-bordered table-striped" width="100%">
                                                         <tr>
                                                             <th>
                                                                 @Html.DisplayName("DiaHora")
@@ -1612,7 +1851,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td>
-                                                            <table class="table table-bordered table-striped">
+                                                            <table class="table table-bordered table-striped" width="100%">
                                                                 <tr>
                                                                     <th>
                                                                         @Html.DisplayName("DiaHora")
@@ -1709,7 +1948,7 @@
                                         </tr>
                                         <tr>
                                             <td>
-                                                <table class="table table-bordered table-striped">
+                                                <table class="table table-bordered table-striped" width="100%">
                                                     <tr>
                                                         <th>
                                                             @Html.DisplayName("DiaHora")
@@ -1782,7 +2021,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <table class="table table-bordered table-striped">
+                                                        <table class="table table-bordered table-striped" width="100%">
                                                             <tr>
                                                                 <th>
                                                                     @Html.DisplayName("DiaHora")
@@ -1854,7 +2093,7 @@
                                                         </tr>
                                                         <tr>
                                                             <td>
-                                                                <table class="table table-bordered table-striped">
+                                                                <table class="table table-bordered table-striped" width="100%">
                                                                     <tr>
                                                                         <th>
                                                                             @Html.DisplayName("DiaHora")
@@ -1964,6 +2203,31 @@
                     borderWidth: 4
                 }
                  ]
+                                    };
+
+                                              var barChartData1M =
+            {
+                   labels: [@Html.Raw(ViewBag.ObjectName1M)], //the names displayed on the x-axis, see images below
+                // labels: ['a','b','c','d','e','f',], //the names displayed on the x-axis, see images below
+              datasets: [
+                                                {
+                    type: 'line',
+                    label: 'Tiempo Máximo (minutos)',
+                    data:[@ViewBag.tData1M],
+                    backgroundColor: "#000000",
+                    borderColor: "#ffff09",
+                    borderWidth: 4,
+                    fill: false
+                }
+                ,
+                {
+                    type: 'bar',
+                    label: 'Top 3, Tiempo Perdido Por Maquina',
+                     data: [@ViewBag.Data1M],
+                    backgroundColor: "#6B8CB0",
+                    borderWidth: 4
+                }
+                 ]
             };
 
               var barChartData2 =
@@ -2012,7 +2276,7 @@
                 }]
             };
 
-      
+
 
               var barChartData5 =
             {
@@ -2134,7 +2398,37 @@
                 }
             }
             myChart.data.datasets[1].borderColor = data;
-            myChart.update();
+                                        myChart.update();
+
+           var ctx1M = document.getElementById('charttime1M');
+           var myChartM = new Chart(ctx1M, {
+    type: 'bar',
+    data:barChartData1M,
+    options: {
+        responsive: true,
+        maintainAspectRatio: true,
+                scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+           });
+
+           var dataM =[];
+            var datasetM = myChartM.data.datasets[1];
+            for (var i = 0; i < datasetM.data.length; i++) {
+                if (datasetM.data[i] < colorChangeValue) {
+                    dataM.push("#09ff09");
+                }
+                else {
+                    dataM.push( "#af0a0a");
+                }
+            }
+            myChartM.data.datasets[1].borderColor = dataM;
+            myChartM.update();
 
              var data2 =[];
              var ctx2 = document.getElementById('charttime2');
@@ -2193,7 +2487,7 @@
             }
             myChart3.data.datasets[1].borderColor=data3;
             myChart3.update();
-                                
+
              var data5 =[];
              var ctx5 = document.getElementById('charttime5');
            var myChart5 = new Chart(ctx5, {
