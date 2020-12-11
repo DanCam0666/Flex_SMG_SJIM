@@ -2128,6 +2128,44 @@ if (amaquina.Contains("Pintura"))
 
             return Json(new { x1des = x1des, x2des = x2des }, JsonRequestBehavior.AllowGet);
         }
+        public ActionResult code1(string Tipo)
+        {
+            // TODO: based on the selected
+            var fallas = db.Fallas.Where(f => f.Tipo == Tipo);
+            // new SelectList(fallas, "Codigo", "DescripcionCodigo")
+
+            List<string> codigo = new List<string>();
+
+            foreach (var item in fallas)
+            {
+                codigo.Add(item.Descripcion);
+
+            }
+            // var cities = fallas.ToList();
+            return Json(codigo, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult code2(string Tipo,string Des)
+        {
+            // TODO: based on the selected
+            // TODO: based on the selected
+            var fallas = db.Fallas.Where(f => f.Tipo == Tipo && f.Descripcion == Des).ToList();
+            // new SelectList(fallas, "Codigo", "DescripcionCodigo")
+
+            var codigo = new SelectList(db.Fallas.Where(w => w.ID == fallas.FirstOrDefault().ID), "ID", "Codigo");
+
+          //  List<string> codigo = new List<string>();
+          /*
+            foreach (var item in fallas)
+            {
+                codigo.Add(fallas.FirstOrDefault().Codigo);
+
+            }
+ */
+
+            // var cities = fallas.ToList();
+            return Json(codigo, JsonRequestBehavior.AllowGet);
+        }
         public ActionResult drop3(string Tipo)
         {
             // TODO: based on the selected
@@ -2227,6 +2265,7 @@ if (amaquina.Contains("Pintura"))
                 Areas = new SelectList(fallas, "Area", "Area"),  //new SelectList(Enum.GetValues(typeof(flex_Areas)).Cast<flex_Areas>().ToList()),
                 // initially we set the ddl to empty
                 Tipos = new SelectList(gfallast, "Key", "Key"),
+                
                 Tipo = "Selecciona",
                 Des ="Selecciona",
                 // initially we set the ddl to empty
