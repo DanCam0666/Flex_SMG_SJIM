@@ -110,7 +110,6 @@ namespace Flex_SGM.Models
     public class MyViewBitcora
     {
         public MyViewFallas MyViewFallas { get; set; }
-
         public Bitacora Bitacora { get; set; }
     }
 

@@ -2115,7 +2115,6 @@ if (amaquina.Contains("Pintura"))
         }
 
         // GET: Bitacoras/Create
-
         public ActionResult code(int Codigo)
         {
             // TODO: based on the selected
@@ -2144,7 +2143,6 @@ if (amaquina.Contains("Pintura"))
             // var cities = fallas.ToList();
             return Json(codigo, JsonRequestBehavior.AllowGet);
         }
-
         public ActionResult code2(string Tipo,string Des)
         {
             // TODO: based on the selected
@@ -2152,16 +2150,16 @@ if (amaquina.Contains("Pintura"))
             var fallas = db.Fallas.Where(f => f.Tipo == Tipo && f.Descripcion == Des).ToList();
             // new SelectList(fallas, "Codigo", "DescripcionCodigo")
 
-            var codigo = new SelectList(db.Fallas.Where(w => w.ID == fallas.FirstOrDefault().ID), "ID", "Codigo");
+            var codigo = fallas.FirstOrDefault().Codigo;
 
           //  List<string> codigo = new List<string>();
-          /*
-            foreach (var item in fallas)
-            {
-                codigo.Add(fallas.FirstOrDefault().Codigo);
+            /*
+              foreach (var item in fallas)
+              {
+                  codigo.Add(fallas.FirstOrDefault().Codigo);
 
-            }
- */
+              }
+   */
 
             // var cities = fallas.ToList();
             return Json(codigo, JsonRequestBehavior.AllowGet);
@@ -2297,75 +2295,28 @@ if (amaquina.Contains("Pintura"))
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Mantenimiento")]
-        public async Task<ActionResult> Create([Bind(Include = "ID,DiaHora,turno,UserID,MaquinasID,Sintoma,Causa,AccionCorrectiva,Atendio,Tiempo,Scrap ,Folio,findesemana,Fallaoperacion,MttoPreventivo,MttoCorrectivo,MttoMejora,noterminado,Tipos,Descripcion,FallasID")] Bitacora bitacora,MyViewFallas MyViewFallas,int MaquinasID,int? FallasID)
+        public async Task<ActionResult> Create( Bitacora bitacora,MyViewFallas MyViewFallas,int MaquinasID)
         {
+
 
             var id = User.Identity.GetUserId();
             ApplicationUser currentUser = UserManager.FindById(id);
             bitacora.MaquinasID = MaquinasID;
-            bitacora.FallasID = FallasID;
-            bitacora.Tipos = MyViewFallas.Area + "|" + MyViewFallas.Tipo;
-            bitacora.Descripcion = MyViewFallas.Tipo + "|" + MyViewFallas.Des;
+
+            //         bitacora.Tipos = MyViewFallas.Area + "|" + MyViewFallas.Tipo;
+            //        bitacora.Descripcion = MyViewFallas.Tipo + "|" + MyViewFallas.Des;
+
             if (bitacora.FallasID != null)
             {
                 var falla = db.Fallas.Where(w => w.ID == bitacora.FallasID);
                 bitacora.Descripcion = falla.FirstOrDefault().Codigo;
             }
-             
+
 
             bitacora.usuario = currentUser.UserFullName;
             bitacora.usuario_area = currentUser.Area;
             bitacora.usuario_puesto = currentUser.Puesto;
-            //  bitacora.DiaHora = DateTime.Now;
-            /*
-           try
-           {
 
-               var fall = db.Bitacoras.Where(s => s.Maquinas.ID==(bitacora.MaquinasID) && s.Tiempo >= 1);
-               double total_fallas = 0;
-               total_fallas = fall.Count();
-               if (bitacora.Tiempo > 0&&!bitacora.Fallaoperacion)
-                   total_fallas = total_fallas + 1;
-               var tiempomue = db.Bitacoras.Where(s => s.Maquinas.ID == (bitacora.MaquinasID) && s.Tiempo >= 1);
-               double tiempomueto = 0;
-               if (total_fallas >= 1)
-                   tiempomueto = tiempomue.Sum(s => s.Tiempo);
-               if (total_fallas > 1&&!bitacora.Fallaoperacion)
-                   tiempomueto = tiempomueto + bitacora.Tiempo;
-
-               var maqui = db.Maquinas.Where(s => s.ID == (bitacora.MaquinasID));
-               DateTime x = Convert.ToDateTime(maqui.FirstOrDefault().DiaHora);
-               DateTime y = DateTime.Now;
-               var z = ((y - x));
-
-               double Tiempo_total_de_funcionamiento = z.TotalMinutes* .75;
-               double MTBF = Tiempo_total_de_funcionamiento;
-               double MTTR = 0;
-
-               if (total_fallas != 0)
-               {
-                   MTBF = Tiempo_total_de_funcionamiento / total_fallas;
-                   MTTR = tiempomueto / total_fallas;
-               }
-
-               double disponibilidad = MTBF / (MTBF + MTTR);
-
-               bitacora.Porcentaje = Math.Round(100 - (disponibilidad * 100), 2); 
-
-               bitacora.MTBF = Math.Round(MTBF, 2); 
-               bitacora.MTTR = Math.Round(MTTR, 2);
-
-           }
-           catch (Exception ex)
-           {
-
-               bitacora.Porcentaje = 0;
-
-               bitacora.MTBF = 0;
-               bitacora.MTTR = 0;
-
-           }
-           */
             bitacora.Porcentaje = 0;
 
             bitacora.MTBF = 0;
@@ -2385,12 +2336,16 @@ if (amaquina.Contains("Pintura"))
 
                 db.Bitacoras.Add(bitacora);
                 await db.SaveChangesAsync();
-                
+
                 return RedirectToAction("Index");
             }
 
+            MyViewBitcora nbita = new MyViewBitcora();
+            nbita.Bitacora = bitacora;
+            nbita.MyViewFallas = MyViewFallas;
+
             ViewBag.MaquinasID = new SelectList(db.Maquinas, "ID", "Maquina", bitacora.MaquinasID);
-            return View(bitacora);
+            return View(nbita);
         }
 
         // GET: Bitacoras/Edit/5
