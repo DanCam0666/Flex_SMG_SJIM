@@ -1,4 +1,4 @@
-﻿@model Flex_SGM.Models.MyViewBitcora
+﻿@model Flex_SGM.Models.Bitacora
 
 @{
     ViewBag.Title = "Crear";
@@ -40,158 +40,156 @@
                 <div class="x_content clearfix">
                     <div class="form-horizontal">
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                        @Html.HiddenFor(model => model.Bitacora.ID)
+                        @Html.HiddenFor(model => model.ID)
                         <div class="form-group">
                             @Html.Label("Usuario", htmlAttributes: new { @class = "control-label col-md-1" })
                             <div class="col-md-6">
-                                @Html.EditorFor(model => model.Bitacora.usuario, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
-                                @Html.HiddenFor(model => model.Bitacora.usuario)
-                                @Html.ValidationMessageFor(model => model.Bitacora.usuario, "", new { @class = "text-danger" })
+                                @Html.EditorFor(model => model.usuario, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                                @Html.HiddenFor(model => model.usuario)
+                                @Html.ValidationMessageFor(model => model.usuario, "", new { @class = "text-danger" })
                             </div>
                         </div>
                         <div class="form-group">
-                            @Html.LabelFor(model => model.Bitacora.DiaHora, htmlAttributes: new { @class = "control-label col-md-1" })
+                            @Html.LabelFor(model => model.DiaHora, htmlAttributes: new { @class = "control-label col-md-1" })
                             <div class="col-md-6">
-                                @Html.EditorFor(model => model.Bitacora.DiaHora, new { htmlAttributes = new { @class = "form-control", @autocomplete = "off", @id = "datetimepicker4" } })
-                                @Html.ValidationMessageFor(model => model.Bitacora.DiaHora, "", new { @class = "text-danger" })
+                                @Html.EditorFor(model => model.DiaHora, new { htmlAttributes = new { @class = "form-control", @autocomplete = "off", @id = "datetimepicker4" } })
+                                @Html.ValidationMessageFor(model => model.DiaHora, "", new { @class = "text-danger" })
                             </div>
                         </div>
                         <div class="form-group">
-                            @Html.LabelFor(model => model.Bitacora.turno, "turno", htmlAttributes: new { @class = "control-label col-md-1" })
+                            @Html.LabelFor(model => model.turno, "turno", htmlAttributes: new { @class = "control-label col-md-1" })
                             <div class="col-md-6">
                                 @Html.DropDownList("turno", null, htmlAttributes: new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.Bitacora.turno, "", new { @class = "text-danger" })
+                                @Html.ValidationMessageFor(model => model.turno, "", new { @class = "text-danger" })
                             </div>
                         </div>
                         <div class="form-group">
-                            @Html.LabelFor(model => model.Bitacora.MaquinasID, "MaquinasID", htmlAttributes: new { @class = "control-label col-md-1" })
+                            @Html.LabelFor(model => model.MaquinasID, "MaquinasID", htmlAttributes: new { @class = "control-label col-md-1" })
                             <div class="col-md-6">
                                 @Html.DropDownList("MaquinasID", null, htmlAttributes: new { @class = "form-control", id = "Normaldrop" })
-                                @Html.ValidationMessageFor(model => model.Bitacora.MaquinasID, "", new { @class = "text-danger" })
+                                @Html.ValidationMessageFor(model => model.MaquinasID, "", new { @class = "text-danger" })
                             </div>
                         </div>
+
+          
+
+
+                        <div class="form-group col-xs-12">
+
+                            <div class="col-xs-4">
+                                @Html.Label("Tipo", htmlAttributes: new { @class = "control-label" })
+                                @Html.DropDownList("ltipos", null, htmlAttributes: new { @class = "form-control", data_url = Url.Action("code1"), id = "MyViewFallas_Desx11" })
+                                @Html.ValidationMessage("ltipos")
+                            </div>
+                            <div class="col-xs-4">
+                                @Html.Label("Falla", htmlAttributes: new { @class = "control-label" })
+                                @Html.DropDownList("lareas", null, htmlAttributes: new { @class = "form-control", data_url = Url.Action("code2"), id = "MyViewFallas_Desx22" })
+                                @Html.ValidationMessage("lareas")
+                            </div>
+                        </div>
+
                         <div class="form-group">
-                            @Html.LabelFor(model => model.Bitacora.FallasID, htmlAttributes: new { @class = "control-label col-md-1" })
+                            @Html.LabelFor(model => model.Descripcion, htmlAttributes: new { @class = "control-label col-md-1" })
                             <div class="col-md-6">
-                                @Html.DropDownList("FallasID", null, htmlAttributes: new { @class = "form-control", data_url = Url.Action("code"),id = "Normaldropx" })
-                                @Html.ValidationMessageFor(model => model.Bitacora.FallasID, "", new { @class = "text-danger" })
+                                @Html.EditorFor(model => model.Descripcion, null, new { htmlAttributes = new { @class = "form-control", data_url = Url.Action("code"), id = "Normaldropx"} })
+                                @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
                             </div>
                         </div>
 
-                        @Html.HiddenFor(x => x.MyViewFallas.Area)
-
-                    <div class="form-group col-xs-12">
-
-                        <div class="col-xs-4">
-                            @Html.LabelFor(x => x.MyViewFallas.Tipo, htmlAttributes: new { @class = "control-label" })
-                            @Html.Label(
-                                Model.MyViewFallas.Tipo,
-                                htmlAttributes: new { @class = "form-control", id = "MyViewFallas_Desx1" })
-                            @Html.ValidationMessageFor(x => x.MyViewFallas.Tipo)
-                        </div>
-                        <div class="col-xs-4">
-                            @Html.LabelFor(x => x.MyViewFallas.Des, htmlAttributes: new { @class = "control-label" })
-                            @Html.Label(
-                                Model.MyViewFallas.Des,
-                                htmlAttributes: new { @class = "form-control", id = "MyViewFallas_Desx2" })
-                            @Html.ValidationMessageFor(x => x.MyViewFallas.Des)
-                        </div>
-                    </div>
-
 
                         <div class="form-group">
-                            @Html.LabelFor(model => model.Bitacora.Sintoma, htmlAttributes: new { @class = "control-label col-md-1" })
+                            @Html.LabelFor(model => model.Sintoma, htmlAttributes: new { @class = "control-label col-md-1" })
                             <div class="col-md-10">
-                                @Html.TextAreaFor(model => model.Bitacora.Sintoma, 2, 100, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.Bitacora.Sintoma, "", new { @class = "text-danger" })
+                                @Html.TextAreaFor(model => model.Sintoma, 2, 100, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Sintoma, "", new { @class = "text-danger" })
                             </div>
                         </div>
 
                         <div class="form-group">
-                            @Html.LabelFor(model => model.Bitacora.Causa, htmlAttributes: new { @class = "control-label col-md-1" })
+                            @Html.LabelFor(model => model.Causa, htmlAttributes: new { @class = "control-label col-md-1" })
                             <div class="col-md-10">
-                                @Html.TextAreaFor(model => model.Bitacora.Causa, 4, 100, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.Bitacora.Causa, "", new { @class = "text-danger" })
+                                @Html.TextAreaFor(model => model.Causa, 4, 100, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Causa, "", new { @class = "text-danger" })
                             </div>
                         </div>
 
                         <div class="form-group">
-                            @Html.LabelFor(model => model.Bitacora.AccionCorrectiva, htmlAttributes: new { @class = "control-label col-md-1" })
+                            @Html.LabelFor(model => model.AccionCorrectiva, htmlAttributes: new { @class = "control-label col-md-1" })
                             <div class="col-md-10">
-                                @Html.TextAreaFor(model => model.Bitacora.AccionCorrectiva, 10, 100, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.Bitacora.AccionCorrectiva, "", new { @class = "text-danger" })
+                                @Html.TextAreaFor(model => model.AccionCorrectiva, 10, 100, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.AccionCorrectiva, "", new { @class = "text-danger" })
                             </div>
                         </div>
                         <div class="form-group">
-                            @Html.LabelFor(model => model.Bitacora.Atendio, htmlAttributes: new { @class = "control-label  col-md-1" })
+                            @Html.LabelFor(model => model.Atendio, htmlAttributes: new { @class = "control-label  col-md-1" })
                             <div class="col-md-10">
-                                @Html.EditorFor(model => model.Bitacora.Atendio, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.Bitacora.Atendio, "", new { @class = "text-danger" })
+                                @Html.EditorFor(model => model.Atendio, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Atendio, "", new { @class = "text-danger" })
                             </div>
                         </div>
                         <div class="form-group">
-                            @Html.LabelFor(model => model.Bitacora.Folio, htmlAttributes: new { @class = "control-label  col-md-1" })
+                            @Html.LabelFor(model => model.Folio, htmlAttributes: new { @class = "control-label  col-md-1" })
                             <div class="col-md-10">
-                                @Html.EditorFor(model => model.Bitacora.Folio, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.Bitacora.Folio, "", new { @class = "text-danger" })
+                                @Html.EditorFor(model => model.Folio, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Folio, "", new { @class = "text-danger" })
                             </div>
                         </div>
                         <div class="form-group">
-                            @Html.LabelFor(model => model.Bitacora.Scrap, htmlAttributes: new { @class = "control-label  col-md-1" })
+                            @Html.LabelFor(model => model.Scrap, htmlAttributes: new { @class = "control-label  col-md-1" })
                             <div class="col-md-10">
-                                @Html.EditorFor(model => model.Bitacora.Scrap, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.Bitacora.Scrap, "", new { @class = "text-danger" })
+                                @Html.EditorFor(model => model.Scrap, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Scrap, "", new { @class = "text-danger" })
                             </div>
                         </div>
                         <div class="form-group">
-                            @Html.LabelFor(model => model.Bitacora.Tiempo, htmlAttributes: new { @class = "control-label  col-md-1" })
+                            @Html.LabelFor(model => model.Tiempo, htmlAttributes: new { @class = "control-label  col-md-1" })
                             <div class="col-md-3">
-                                @Html.EditorFor(model => model.Bitacora.Tiempo, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.Bitacora.Tiempo, "", new { @class = "text-danger" })
+                                @Html.EditorFor(model => model.Tiempo, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Tiempo, "", new { @class = "text-danger" })
                             </div>
                         </div>
                         <div class="col-xs-12">
                             <div class="form-group col-xs-3">
-                                @Html.LabelFor(model => model.Bitacora.findesemana, htmlAttributes: new { @class = "control-label " })
+                                @Html.LabelFor(model => model.findesemana, htmlAttributes: new { @class = "control-label " })
                                 <p class="col-md-6">
-                                    @Html.EditorFor(model => model.Bitacora.findesemana, new { htmlAttributes = new { @class = "checkbox2" } })
-                                    @Html.ValidationMessageFor(model => model.Bitacora.findesemana, "", new { @class = "text-danger" })
+                                    @Html.EditorFor(model => model.findesemana, new { htmlAttributes = new { @class = "checkbox2" } })
+                                    @Html.ValidationMessageFor(model => model.findesemana, "", new { @class = "text-danger" })
                                 </p>
                             </div>
                             <div class="form-group col-xs-3">
-                                @Html.LabelFor(model => model.Bitacora.Fallaoperacion, htmlAttributes: new { @class = "control-label" })
+                                @Html.LabelFor(model => model.Fallaoperacion, htmlAttributes: new { @class = "control-label" })
                                 <p class="col-md-6">
-                                    @Html.EditorFor(model => model.Bitacora.Fallaoperacion, new { htmlAttributes = new { @class = "checkbox2" } })
-                                    @Html.ValidationMessageFor(model => model.Bitacora.Fallaoperacion, "", new { @class = "text-danger" })
+                                    @Html.EditorFor(model => model.Fallaoperacion, new { htmlAttributes = new { @class = "checkbox2" } })
+                                    @Html.ValidationMessageFor(model => model.Fallaoperacion, "", new { @class = "text-danger" })
                                 </p>
                             </div>
                             <div class="form-group col-xs-2">
-                                @Html.LabelFor(model => model.Bitacora.MttoPreventivo, htmlAttributes: new { @class = "control-label" })
+                                @Html.LabelFor(model => model.MttoPreventivo, htmlAttributes: new { @class = "control-label" })
                                 <div class="col-md-6">
-                                    @Html.EditorFor(model => model.Bitacora.MttoPreventivo, new { htmlAttributes = new { @class = "checkbox2" } })
-                                    @Html.ValidationMessageFor(model => model.Bitacora.MttoPreventivo, "", new { @class = "text-danger" })
+                                    @Html.EditorFor(model => model.MttoPreventivo, new { htmlAttributes = new { @class = "checkbox2" } })
+                                    @Html.ValidationMessageFor(model => model.MttoPreventivo, "", new { @class = "text-danger" })
                                 </div>
                             </div>
                             <div class="form-group col-xs-2">
-                                @Html.LabelFor(model => model.Bitacora.MttoCorrectivo, htmlAttributes: new { @class = "control-label" })
+                                @Html.LabelFor(model => model.MttoCorrectivo, htmlAttributes: new { @class = "control-label" })
                                 <div class="col-md-6">
-                                    @Html.EditorFor(model => model.Bitacora.MttoCorrectivo, new { htmlAttributes = new { @class = "checkbox2" } })
-                                    @Html.ValidationMessageFor(model => model.Bitacora.MttoCorrectivo, "", new { @class = "text-danger" })
+                                    @Html.EditorFor(model => model.MttoCorrectivo, new { htmlAttributes = new { @class = "checkbox2" } })
+                                    @Html.ValidationMessageFor(model => model.MttoCorrectivo, "", new { @class = "text-danger" })
                                 </div>
                             </div>
                             <div class="form-group col-xs-2">
-                                @Html.LabelFor(model => model.Bitacora.MttoMejora, htmlAttributes: new { @class = "control-label " })
+                                @Html.LabelFor(model => model.MttoMejora, htmlAttributes: new { @class = "control-label " })
                                 <div class="col-md-6">
-                                    @Html.EditorFor(model => model.Bitacora.MttoMejora, new { htmlAttributes = new { @class = "checkbox2" } })
-                                    @Html.ValidationMessageFor(model => model.Bitacora.MttoMejora, "", new { @class = "text-danger" })
+                                    @Html.EditorFor(model => model.MttoMejora, new { htmlAttributes = new { @class = "checkbox2" } })
+                                    @Html.ValidationMessageFor(model => model.MttoMejora, "", new { @class = "text-danger" })
                                 </div>
                             </div>
                         </div>
                         <div class="form-group col-xs-3">
-                            @Html.LabelFor(model => model.Bitacora.noterminado, htmlAttributes: new { @class = "control-label  col-md-9" })
+                            @Html.LabelFor(model => model.noterminado, htmlAttributes: new { @class = "control-label  col-md-9" })
                             <div class="col-md-6">
-                                @Html.EditorFor(model => model.Bitacora.noterminado, new { htmlAttributes = new { @class = "checkbox2" } })
-                                @Html.ValidationMessageFor(model => model.Bitacora.noterminado, "", new { @class = "text-danger" })
+                                @Html.EditorFor(model => model.noterminado, new { htmlAttributes = new { @class = "checkbox2" } })
+                                @Html.ValidationMessageFor(model => model.noterminado, "", new { @class = "text-danger" })
                             </div>
                         </div>
                         <div class="form-group col-xs-9">
@@ -232,15 +230,39 @@
                             
                         });
                     });
-                    $("#Normaldropx").chosen();
-                  
+ 
+
+                    $('#MyViewFallas_Desx11').change(function () {
+                        var url = $(this).data('url');
+                        var data = { Tipo: $(this).val() };
+                        $.getJSON(url, data, function (response) {
+                            $('#MyViewFallas_Desx22').empty(); // remove any existing options
+                            $.each(response, function (index, item) {
+                                $('#MyViewFallas_Desx22').append($('<option></option>').text(item));
+                            });
+
+
+                        });
+                    });
+
+                    $('#MyViewFallas_Desx22').change(function () {
+                        var url = $(this).data('url');
+                        var data = { Tipo: $('#MyViewFallas_Desx11').val(), Des: $(this).val() };
+                        $.getJSON(url, data, function (response) {
+                           
+                            $('#Normaldropx').val(response); // remove any existing options  
+                            $('#Normaldropx').text(response); 
+                          //  $('#Normaldropx').value(response);
+                        });
+                    });
+
         });
 
 
 
         $(function () {
 
-        $("#@Html.IdFor(s => s.Bitacora.Tiempo)")
+        $("#@Html.IdFor(s => s.Tiempo)")
         .on("input",function () {
 
             if ($(this).val() < 0 || $(this).val() > 440) {

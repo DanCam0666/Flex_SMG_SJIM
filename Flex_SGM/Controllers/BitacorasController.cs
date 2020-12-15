@@ -2269,10 +2269,16 @@ if (amaquina.Contains("Pintura"))
                 // initially we set the ddl to empty
                 Dess = Enumerable.Empty<SelectListItem>()
             };
+
+            ViewBag.lareas = new SelectList(fallas, "Area", "Area");  //new SelectList(Enum.GetValues(typeof(flex_Areas)).Cast<flex_Areas>().ToList()),
+                // initially we set the ddl to empty
+            ViewBag.ltipos = new SelectList(gfallast, "Key", "Key");
+
+
             ViewBag.FallasID = new SelectList(db.Fallas.Where(w => w.Area==sarea2), "ID", "Codigo");
             MyViewBitcora bitax = new MyViewBitcora { Bitacora = bitacora, MyViewFallas = model };
 
-            return View(bitax);
+            return View(bitacora);
         }
 
         [Authorize]
@@ -2295,7 +2301,7 @@ if (amaquina.Contains("Pintura"))
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Mantenimiento")]
-        public async Task<ActionResult> Create( Bitacora bitacora,MyViewFallas MyViewFallas,int MaquinasID)
+        public async Task<ActionResult> Create( Bitacora bitacora,int MaquinasID)
         {
 
 
@@ -2342,7 +2348,7 @@ if (amaquina.Contains("Pintura"))
 
             MyViewBitcora nbita = new MyViewBitcora();
             nbita.Bitacora = bitacora;
-            nbita.MyViewFallas = MyViewFallas;
+
 
             ViewBag.MaquinasID = new SelectList(db.Maquinas, "ID", "Maquina", bitacora.MaquinasID);
             return View(nbita);
