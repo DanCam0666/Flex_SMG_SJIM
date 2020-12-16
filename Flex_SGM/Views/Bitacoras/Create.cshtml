@@ -232,7 +232,7 @@
                     });
  
 
-                    $('#MyViewFallas_Desx11').change(function () {
+                    $('#MyViewFallas_Desx11').click(function () {
                         var url = $(this).data('url');
                         var data = { Tipo: $(this).val() };
                         $.getJSON(url, data, function (response) {
@@ -241,11 +241,12 @@
                                 $('#MyViewFallas_Desx22').append($('<option></option>').text(item));
                             });
 
-
+                            $('#MyViewFallas_Desx22').click();
                         });
+                     
                     });
 
-                    $('#MyViewFallas_Desx22').change(function () {
+                    $('#MyViewFallas_Desx22').click(function () {
                         var url = $(this).data('url');
                         var data = { Tipo: $('#MyViewFallas_Desx11').val(), Des: $(this).val() };
                         $.getJSON(url, data, function (response) {
@@ -254,6 +255,13 @@
                             $('#Normaldropx').text(response); 
                           //  $('#Normaldropx').value(response);
                         });
+                    });
+
+
+                    $('#Normaldropx').focusin(function () {
+
+                        $('#MyViewFallas_Desx11').focus();
+
                     });
 
         });

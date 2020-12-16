@@ -71,10 +71,9 @@ namespace Flex_SGM.Models
         public bool findesemana { get; set; }
         [MaxLength(3)]
         public string turno { get; set; }
-       [MaxLength(60)]
-        public string Tipos { get; set; }
+  
         [Display(Name = "Codigo de Falla")]
-        [MaxLength(80)]
+        [MaxLength(200)]
         public string Descripcion { get; set; }
         [ForeignKey("Fallas")]
         [Display(Name = "Codigo de Falla")]

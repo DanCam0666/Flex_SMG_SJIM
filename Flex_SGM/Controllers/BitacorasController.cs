@@ -2150,7 +2150,7 @@ if (amaquina.Contains("Pintura"))
             var fallas = db.Fallas.Where(f => f.Tipo == Tipo && f.Descripcion == Des).ToList();
             // new SelectList(fallas, "Codigo", "DescripcionCodigo")
 
-            var codigo = fallas.FirstOrDefault().Codigo;
+            var codigo = Tipo +"-"+ Des;
 
           //  List<string> codigo = new List<string>();
             /*
@@ -2254,29 +2254,17 @@ if (amaquina.Contains("Pintura"))
             if (fallas.Count() == 0)
                 fallas = db.Fallas;
             // new SelectList(fallas, "Codigo", "DescripcionCodigo")
-            var gfallast = fallas.GroupBy(g => g.Tipo);
+            var fallasg = fallas.GroupBy(g => g.Tipo).ToList();
 
-            var model = new MyViewFallas
-            {
-                Area = sarea2,
-                // TODO: Fetch areas from somewhere               
-                Areas = new SelectList(fallas, "Area", "Area"),  //new SelectList(Enum.GetValues(typeof(flex_Areas)).Cast<flex_Areas>().ToList()),
-                // initially we set the ddl to empty
-                Tipos = new SelectList(gfallast, "Key", "Key"),
-                
-                Tipo = "Selecciona",
-                Des ="Selecciona",
-                // initially we set the ddl to empty
-                Dess = Enumerable.Empty<SelectListItem>()
-            };
-
-            ViewBag.lareas = new SelectList(fallas, "Area", "Area");  //new SelectList(Enum.GetValues(typeof(flex_Areas)).Cast<flex_Areas>().ToList()),
-                // initially we set the ddl to empty
-            ViewBag.ltipos = new SelectList(gfallast, "Key", "Key");
+            ViewBag.ltipos = new SelectList(fallasg, "Key", "Key");    // initially we set the ddl to empty
+            var fallasg2 = fallas.GroupBy(g => g.Descripcion).ToList();
+            ViewBag.lareas = new SelectList(fallasg2, "Key", "Key");  //new SelectList(Enum.GetValues(typeof(flex_Areas)).Cast<flex_Areas>().ToList()),
+            
 
 
-            ViewBag.FallasID = new SelectList(db.Fallas.Where(w => w.Area==sarea2), "ID", "Codigo");
-            MyViewBitcora bitax = new MyViewBitcora { Bitacora = bitacora, MyViewFallas = model };
+
+   
+
 
             return View(bitacora);
         }

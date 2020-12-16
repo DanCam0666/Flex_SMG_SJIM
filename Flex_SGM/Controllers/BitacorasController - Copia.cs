@@ -2119,7 +2119,6 @@ if (amaquina.Contains("Pintura"))
             var id = User.Identity.GetUserId();
             ApplicationUser currentUser = UserManager.FindById(id);
             bitacora.MaquinasID = MaquinasID;
-            bitacora.Tipos = MyViewFallas.Area+"|"+ MyViewFallas.Tipo;
             bitacora.Descripcion = MyViewFallas.Tipo + "|" + MyViewFallas.Des;
             bitacora.usuario = currentUser.UserFullName;
             bitacora.usuario_area = currentUser.Area;
