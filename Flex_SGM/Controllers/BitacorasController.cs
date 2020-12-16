@@ -2384,7 +2384,7 @@ if (amaquina.Contains("Pintura"))
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public async Task<ActionResult> Edit([Bind(Include = "ID,DiaHora,turno,usuario,usuario_area,usuario_puesto,MaquinasID,Sintoma,Causa,AccionCorrectiva,Atendio ,Tiempo,Scrap ,Folio,findesemana,Fallaoperacion ,MttoPreventivo,MttoCorrectivo,MttoMejora, Porcentaje,MTBF,MTTR,Verifico,FechaVerificacion,noterminado,Tipos,Descripcion")] Bitacora bitacora)
+        public async Task<ActionResult> Edit([Bind(Include = "ID,DiaHora,turno,usuario,usuario_area,usuario_puesto,MaquinasID,Sintoma,Causa,AccionCorrectiva,Atendio ,Tiempo,Scrap ,Folio,findesemana,Fallaoperacion ,MttoPreventivo,MttoCorrectivo,MttoMejora, Porcentaje,MTBF,MTTR,Verifico,FechaVerificacion,noterminado,Descripcion")] Bitacora bitacora)
         {
             if (ModelState.IsValid)
             {
