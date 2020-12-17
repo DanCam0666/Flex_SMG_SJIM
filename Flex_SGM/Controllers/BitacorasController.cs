@@ -1033,7 +1033,7 @@ if (amaquina.Contains("Pintura"))
 
             ViewBag.Targetf = Target;
             //************************
-
+            ViewBag.fechaconsulta = "La fecha inicial es: " + f1i.ToString() + "  La Fecha final es: " + f3f.ToString();
 
             bitacora = bitacora.Where(s => (((s.DiaHora.Hour > f1i && s.DiaHora.Hour <= f1f) && (s.DiaHora >= fi && s.DiaHora <= ff)))
                                         || (((s.DiaHora.Hour > f2i && s.DiaHora.Hour <= f2f) && (s.DiaHora >= fi && s.DiaHora <= ff)))
@@ -4376,9 +4376,9 @@ if (amaquina.Contains("Pintura"))
 
 
 
-                            datafiltered1 = datafiltered.Where(s => (s.DiaHora.Hour > 6 && s.DiaHora.Hour <= 14)).ToList();
-                            datafiltered2 = datafiltered.Where(s => (s.DiaHora.Hour > 14 && s.DiaHora.Hour <= 22)).ToList();
-                            datafiltered3 = datafiltered.Where(s => (s.DiaHora.Hour > 22 || s.DiaHora.Hour <= 6)).ToList();
+                            datafiltered1 = datafiltered.Where(s => (s.DiaHora.Hour > 7 && s.DiaHora.Hour <= 15)).ToList();
+                            datafiltered2 = datafiltered.Where(s => (s.DiaHora.Hour > 15 && s.DiaHora.Hour <= 23)).ToList();
+                            datafiltered3 = datafiltered.Where(s => (s.DiaHora.Hour > 23 || s.DiaHora.Hour <= 7)).ToList();
                             fulldatafiltered.AddRange(datafiltered);
 
                             foreach (var simplemaquina in maquis)
