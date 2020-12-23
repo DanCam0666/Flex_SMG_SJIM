@@ -4249,7 +4249,7 @@ if (amaquina.Contains("Pintura"))
             var datafiltered3 = new List<Bitacora>();
             var oILs = db.OILs.Include(o => o.Maquinas);
             List<newmetricos2> Ldata = new List<newmetricos2>();
-
+            List<newmetricos3> Ldata3 = new List<newmetricos3>();
             var fecha = DateTime.Now.AddDays(-2);
             var fechaf = DateTime.Now;
             DateTimeFormatInfo formatoFecha1 = CultureInfo.CurrentCulture.DateTimeFormat;
@@ -4405,6 +4405,8 @@ if (amaquina.Contains("Pintura"))
                                     ViewBag.dx = " Año:" + fecha.AddYears(-5).ToString("yyyy") + " a el Año:" + fecha.ToString("yyyy");
                                     ViewBag.dxx = " Anual";
                                 }
+
+
                                 newmetricos3 simplemaquinam = new newmetricos3
                                 {
                                     TiempoLabel = thistiempo,
@@ -4426,31 +4428,7 @@ if (amaquina.Contains("Pintura"))
                                     TarjetasTPM = 0
                                 };
 
-                                //tpm
-                                int realizada = 0;
-                                int pendiente = 0;
-                                var alloils = oILs.Where(s => s.Tipo == "TPM").ToList();
-                                if (!string.IsNullOrEmpty(amaquina) && amaquina != "--Todas--")
-                                {
-                                    alloils = alloils.Where(s => s.Maquinas.Area == amaquina).ToList();
-                                }
-                                foreach (OILs oil in alloils)
-                                {
 
-
-                                    if (oil.DiaHora.Year <= kdia)
-                                        pendiente++;
-
-                                    if (oil.Estatus == 1 && oil.DiaHora_Cierre.Value.Year <= kdia)
-                                        realizada++;
-
-
-                                }
-
-
-                                simplemaquinam.TarjetasTPM = Math.Round((realizada / (Double)pendiente) * 100, 2);
-
-                                //ENtpm
 
                                 if (simplemaquinam.CantidadFallas1 != 0)
                                 {
@@ -4491,7 +4469,79 @@ if (amaquina.Contains("Pintura"))
 
             }
 
-            ViewBag.metricospermachine = allmaq.ToList();
+            var allmaqbyday1 = allmaq.GroupBy(g => g.maquina).ToList();
+
+            foreach (var inmaq in allmaqbyday1)
+            {
+
+                var sumd1 = inmaq.Sum(s => s.Disponible1);
+                var sumd2 = inmaq.Sum(s => s.Disponible2);
+                var sumd3 = inmaq.Sum(s => s.Disponible3);
+
+                var ft1 = inmaq.Sum(s => s.CantidadFallas1);
+                var ft2 = inmaq.Sum(s => s.CantidadFallas2);
+                var ft3 = inmaq.Sum(s => s.CantidadFallas3);
+
+
+
+                var sumtp1 = inmaq.Sum(s => s.TiempoMuerto1);
+
+                var sumtp2 = inmaq.Sum(s => s.TiempoMuerto2);
+
+                var sumtp3 = inmaq.Sum(s => s.TiempoMuerto3);
+
+                var sumatm1 = ((sumtp1 / sumd1) * 100);
+
+                var sumatm2 = ((sumtp2 / sumd2) * 100);
+
+                var sumatm3 = ((sumtp3 / sumd3) * 100);
+
+                var smttr11 = inmaq.Sum(s => s.MTTR1);
+
+                var smttr12 = inmaq.Sum(s => s.MTTR2);
+
+                var smttr13 = inmaq.Sum(s => s.MTTR3);
+
+                var sumamttr1 = smttr11 / inmaq.Count();
+
+                var sumamttr2 = smttr12 / inmaq.Count();
+
+                var sumamttr3 = smttr13 / inmaq.Count();
+
+                var sumamtbf = inmaq.Sum(s => s.MTBF) / inmaq.Count();
+
+                var sumamttrs = sumamttr1 + sumamttr2 + sumamttr3;
+
+                var sumaMant = ((sumamtbf - sumamttrs) / sumamtbf) * 100;
+
+
+
+                newmetricos3 data_show = new newmetricos3
+                {
+                    TiempoLabel = "-",
+                    maquina = inmaq.Key,                  
+                    CantidadFallas1= ft1,
+                    CantidadFallas2 = ft2,
+                    CantidadFallas3 = ft3,
+                    TiempoMuerto1 = Math.Round(sumatm1, 2),
+                    TiempoMuerto2 = Math.Round(sumatm2, 2),
+                    TiempoMuerto3 = Math.Round(sumatm3, 2),
+                    MTTR1 = Math.Round(sumamttr1, 2),
+                    MTTR2 = Math.Round(sumamttr2, 2),
+                    MTTR3 = Math.Round(sumamttr3, 2),
+                    MTBF = Math.Round(sumamtbf, 2),
+                    Confiabilidad = Math.Round(sumaMant, 2),
+                    TarjetasTPM = 0,
+                    Disponible1 = Math.Round(sumd1, 2),
+                    Disponible2 = Math.Round(sumd2, 2),
+                    Disponible3 = Math.Round(sumd3, 2)
+                    
+
+                };
+                Ldata3.Add(data_show);
+            }
+
+            ViewBag.metricospermachine = Ldata3.ToList();
 
             var allmaqbyday = allmaq.GroupBy(g => g.TiempoLabel).ToList();
 
@@ -4545,7 +4595,31 @@ if (amaquina.Contains("Pintura"))
 
                 var sumaMant = ((sumamtbf- sumamttrs ) / sumamtbf)*100;
 
+                //tpm
+                int realizada = 0;
+                int pendiente = 0;
+                var alloils = oILs.Where(s => s.Tipo == "TPM").ToList();
+                if (!string.IsNullOrEmpty(amaquina) && amaquina != "--Todas--")
+                {
+                    alloils = alloils.Where(s => s.Maquinas.Area == amaquina).ToList();
+                }
+                foreach (OILs oil in alloils)
+                {
 
+
+                    if (oil.DiaHora.Year <= fecha.Year)
+                        pendiente++;
+
+                    if (oil.Estatus == 1 && oil.DiaHora_Cierre.Value.Year <= fecha.Year)
+                        realizada++;
+
+
+                }
+
+
+                var tpmt= Math.Round((realizada / (Double)pendiente) * 100, 2);
+
+                //ENtpm
 
                 /*
                                  var sumamttr1 = sumtp1 / ft1;
@@ -4580,7 +4654,7 @@ if (amaquina.Contains("Pintura"))
 
                 newmetricos2 data_show = new newmetricos2
                 {
-                    TiempoLabel = inmaq.Key,
+                    TiempoLabel = inmaq.Key,                  
                     TiempoMuerto1 = Math.Round(sumatm1,2),
                     TiempoMuerto2 = Math.Round(sumatm2, 2),
                     TiempoMuerto3 = Math.Round(sumatm3, 2),
@@ -4589,7 +4663,7 @@ if (amaquina.Contains("Pintura"))
                     MTTR3 = Math.Round(sumamttr3, 2),
                     MTBF = Math.Round(sumamtbf, 2),
                     Confiabilidad = Math.Round(sumaMant, 2),
-                    TarjetasTPM = 0,
+                    TarjetasTPM = tpmt,
                     Disponible1 = Math.Round(sumd1, 2),
                     Disponible2 = Math.Round(sumd2, 2),
                     Disponible3 = Math.Round(sumd3, 2),
@@ -4604,7 +4678,82 @@ if (amaquina.Contains("Pintura"))
                 Ldata.Add(data_show);
             }
 
+            // Grafica de tiempo  --------------------------------------------
+
+            string labels = "'";
+            string gdata = "";
+            string gdata2 = "";
+            List<decimal> x = new List<decimal>();
+            List<decimal> y = new List<decimal>();
+            int j = 0;
+            foreach (var h in Ldata)
+            {
+                labels = labels+ h.TiempoLabel  +"','";
+
+                gdata = gdata+ Convert.ToString(h.TiempoM1 + h.TiempoM2 + h.TiempoM3)+",";
+
+                j++;
+                x.Add(j);
+                if ((h.TiempoM1 + h.TiempoM2 + h.TiempoM3) != 0)
+                    y.Add(Convert.ToDecimal(h.TiempoM1 + h.TiempoM2 + h.TiempoM3));
+                else
+                    y.Add(0);
+            }
+
+            if (x.Count > 1)
+            {
+                Trendline rvalue = new Trendline(y, x);
+                for (int i = 0; i <= x.Count; i++)
+                {
+                    var tt = i;
+                    var res = rvalue.GetYValue(tt);
+                    gdata2 = gdata2 + string.Format("{0:0.##}", res) + ",";
+                }
+            }
+
+
+            labels = labels.TrimEnd(',', (char)39);
+            labels = labels + "'";
+            gdata = gdata.TrimEnd(',', (char)39);
+            gdata2 = gdata2.TrimEnd(',', (char)39);
+
+
+            labels = labels.Replace('-', '_');
+
+
+            ViewBag.labelsgrap = labels;// Label
+            ViewBag.datasgrap = gdata; // Suma de timepo 
+            ViewBag.data2sgrap = gdata2;// % acumulado
+
+            // Pareto --------------------------------------------
+
+            var groupdata = fulldatafiltered.GroupBy(g => g.Maquinas.SubMaquina).OrderByDescending(o => o.Sum(s => s.Tiempo)).Take(5);
+            labels = "'";
+            gdata = "";
+            gdata2 = "";
+            int stempt = fulldatafiltered.Sum(s => s.Tiempo);
+            int stemp = 0;
+            foreach (var h in groupdata)
+            {
+                labels = labels + h.Key + "','";
+                gdata = gdata + h.Sum(s => s.Tiempo).ToString() + ",";
+                stemp = stemp + h.Sum(s => s.Tiempo);
+                double res = (stemp / (double)stempt) * 100;
+                gdata2 = gdata2 + string.Format("{0:0.##}", res) + ",";
+            }
+
+            labels = labels.TrimEnd(',', (char)39);
+            labels = labels + "'";
+            gdata.TrimEnd(',', (char)39);
+            gdata2.TrimEnd(',', (char)39);
+
+            ViewBag.labelsgrap2 = labels;
+            ViewBag.datasgrap2 = gdata;
+            ViewBag.data2sgrap2 = gdata2;
+
             //--------------------------------------------
+
+
             var id = User.Identity.GetUserId();
             ApplicationUser currentUser = UserManager.FindById(id);
             string cuser = "xxx";
