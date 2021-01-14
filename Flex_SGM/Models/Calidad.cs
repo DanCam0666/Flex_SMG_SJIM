@@ -433,21 +433,6 @@ namespace Flex_SGM.Models
 
         [MaxLength(600)]
         public string Comentarios { get; set; }
-        [MaxLength(500)]
-        [Display(Name = "Acciones a 1 día")]
-        public string a1d { get; set; }
-        [MaxLength(500)]
-        [Display(Name = "Acciones a 5 días")]
-        public string a5d { get; set; }
-        [MaxLength(500)]
-        [Display(Name = "Acciones a 10 días")]
-        public string a10d { get; set; }
-        [MaxLength(500)]
-        [Display(Name = "Acciones a 20 días")]
-        public string a20d { get; set; }
-        [MaxLength(500)]
-        [Display(Name = "Acciones a 30 días")]
-        public string a30d { get; set; }
 
         [MaxLength(500)]
         [Display(Name = "1er Porque")]

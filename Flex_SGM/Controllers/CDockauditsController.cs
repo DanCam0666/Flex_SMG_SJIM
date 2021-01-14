@@ -857,11 +857,6 @@ namespace Flex_SGM.Controllers
          cantidad = reo.Cantidad,
          reporto = reo.AuditorReporto,
          recibio = reo.SupRecibio,
-         a1d = reo.a1d,
-         a5d = reo.a5d,
-                a10d = reo.a10d,
-                a20d = reo.a20d,
-                a30d = reo.a20d,
                 a1why = reo.a1why,
                 a2why = reo.a2why,
                 a3why = reo.a3why,
@@ -941,7 +936,7 @@ namespace Flex_SGM.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,NoDockAudit,Fecha,NoDeParte,Area,Cantidad,cliente,Descripcion,Clasificacion,AreaOrigen,SupOrigen,SupRecibio,AuditorReporto,Comentarios,a1d,a5d,a10d,a20d,a30d,Turno,lote,a1why,a2why,a3why,a4why,a5why,acausa,aaccion")] CDockaudit cDockaudit)
+        public ActionResult Create([Bind(Include = "ID,NoDockAudit,Fecha,NoDeParte,Area,Cantidad,cliente,Descripcion,Clasificacion,AreaOrigen,SupOrigen,SupRecibio,AuditorReporto,Comentarios,Turno,lote,a1why,a2why,a3why,a4why,a5why,acausa,aaccion")] CDockaudit cDockaudit)
         {
             if (ModelState.IsValid)
             {
@@ -976,7 +971,7 @@ namespace Flex_SGM.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,NoDockAudit,Fecha,NoDeParte,Area,Cantidad,cliente,Descripcion,Clasificacion,AreaOrigen,SupOrigen,SupRecibio,AuditorReporto,Comentarios,a1d,a5d,a10d,a20d,a30d,Turno,lote,a1why,a2why,a3why,a4why,a5why,acausa,aaccion")] CDockaudit cDockaudit)
+        public ActionResult Edit([Bind(Include = "ID,NoDockAudit,Fecha,NoDeParte,Area,Cantidad,cliente,Descripcion,Clasificacion,AreaOrigen,SupOrigen,SupRecibio,AuditorReporto,Comentarios,Turno,lote,a1why,a2why,a3why,a4why,a5why,acausa,aaccion")] CDockaudit cDockaudit)
         {
             if (ModelState.IsValid)
             {
