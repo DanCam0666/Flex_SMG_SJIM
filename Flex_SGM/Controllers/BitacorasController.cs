@@ -2951,6 +2951,9 @@ if (amaquina.Contains("Pintura"))
                            (w.Tiempo > 0)
                             );
 
+            if (!string.IsNullOrEmpty(maquina))
+                dataf = dataf.Where(m => m.Maquinas.Maquina == maquina);
+
             if (!String.IsNullOrEmpty(amaquina) && amaquina != "--Todas--")
             {
                 if (amaquina.Contains("Soldadura"))
@@ -4292,7 +4295,8 @@ if (amaquina.Contains("Pintura"))
                            (w.DiaHora.Year <= fechaf.Year) &&
                            (w.Tiempo > 0)
                             );
-
+            if (!string.IsNullOrEmpty(maquina))
+                dataf = dataf.Where(m => m.Maquinas.Maquina == maquina);
 
             if (!String.IsNullOrEmpty(amaquina) && amaquina != "--Todas--")
             {
@@ -4338,6 +4342,7 @@ if (amaquina.Contains("Pintura"))
                 }
                  else
                  maquinas = db.Maquinas.Where(m => m.Area == amaquina);
+
             if (!string.IsNullOrEmpty(maquina))
                 maquinas = db.Maquinas.Where(m => m.Maquina == maquina);
 
@@ -4731,8 +4736,8 @@ if (amaquina.Contains("Pintura"))
             labels = "'";
             gdata = "";
             gdata2 = "";
-            int stempt = fulldatafiltered.Sum(s => s.Tiempo);
-            int stemp = 0;
+            int stempt = 0; 
+            int stemp = fulldatafiltered.Sum(s => s.Tiempo);
             foreach (var h in groupdata)
             {
                 labels = labels + h.Key + "','";
@@ -4752,6 +4757,593 @@ if (amaquina.Contains("Pintura"))
             ViewBag.data2sgrap2 = gdata2;
 
             //--------------------------------------------
+
+            //*******************************************************************************************
+            if (btn == "Metricos por Años")
+            {
+
+                 labels = "'";
+                 gdata = "";
+                 gdata2 = "";
+                //List<decimal> x = new List<decimal>();
+                //List<decimal> y = new List<decimal>();
+                x.Clear();
+                y.Clear();
+                // datafiltered = data;
+                var datatempa = fulldatafiltered.GroupBy(g => g.DiaHora.Year).ToList();
+                datatempa = datatempa.OrderBy(o => o.Key).ToList();
+
+                for (int i = fecha.Year; i <= fechaf.Year; i++)
+                {
+                    var dd = datatempa.Where(w => w.Key == i).ToList();
+                    labels = labels + i.ToString() + "','";
+                    if (dd.Count != 0)
+                        gdata = gdata + dd.FirstOrDefault().Sum(s => s.Tiempo).ToString() + ",";
+                    else
+                        gdata = gdata + "0,";
+
+                    x.Add(i);
+                    if (dd.Count != 0)
+                        y.Add(dd.FirstOrDefault().Count());
+                    else
+                        y.Add(0);
+
+
+
+
+                }
+                if (x.Count > 1)
+                {
+                    Trendline rvalue = new Trendline(y, x);
+                    for (int i = fecha.Year; i <= fechaf.Year; i++)
+                    {
+                        var tt = fecha.Year;
+                        var res = rvalue.GetYValue(tt);
+                        gdata2 = gdata2 + string.Format("{0:0.##}", res) + ",";
+                    }
+                }
+                labels = labels.TrimEnd(',', (char)39);
+                labels = labels + "'";
+                gdata = gdata.TrimEnd(',', (char)39);
+                gdata2 = gdata2.TrimEnd(',', (char)39);
+                ViewBag.labelsgrap = labels;
+                ViewBag.datasgrap = gdata;
+                ViewBag.data2sgrap = gdata2;
+                //--------------------------------------------------------
+                groupdata = fulldatafiltered.GroupBy(g => g.Maquinas.Maquina).OrderByDescending(o => o.Sum(s => s.Tiempo));
+                labels = "'";
+                gdata = "";
+                gdata2 = "";
+                List<IGrouping<String, Bitacora>> hdata = new List<IGrouping<String, Bitacora>>();
+                int exit = 0;
+                int eltiempo = 0;
+                List<newmetricosmaquina> lnmm = new List<newmetricosmaquina>();
+                foreach (var h in groupdata)
+                {
+                    newmetricosmaquina nmm = new newmetricosmaquina();
+                    eltiempo += h.Sum(s => s.Tiempo);
+                    if (exit < 5)
+                    {
+                        hdata.Add(h);
+                        nmm.tiempod = multiplicador;
+                        nmm.maquina = h.Key;
+                        nmm.tiempof = h.Sum(s => s.Tiempo);
+                        nmm.fallas = h.Count();
+                        nmm.mttr = nmm.tiempof / nmm.fallas;
+                        nmm.mtbf = multiplicador / nmm.fallas;
+                        var disponibilidad = nmm.mtbf / (nmm.mtbf + nmm.mttr);
+                        nmm.confiabilidad = disponibilidad;
+                        lnmm.Add(nmm);
+                    }
+                    exit++;
+
+                }
+                ViewBag.lnmm = lnmm;
+
+                var objet = "'";
+                var dat = "";
+                foreach (var item in lnmm)
+                {
+                    objet = objet + item.maquina.ToString() + "','";
+                    dat = dat + item.mttr.ToString() + ",";
+                }
+
+                objet = objet.TrimEnd(',', (char)39);
+                objet = objet + "'";
+                dat = dat.TrimEnd(',', (char)39);
+
+                ViewBag.labelsmttr = objet;
+                ViewBag.Datamttr = dat;
+                objet = "'";
+                dat = "";
+                foreach (var item in lnmm)
+                {
+                    objet = objet + item.maquina.ToString() + "','";
+                    dat = dat + item.tiempof.ToString() + ",";
+                }
+
+                objet = objet.TrimEnd(',', (char)39);
+                objet = objet + "'";
+                dat = dat.TrimEnd(',', (char)39);
+
+                ViewBag.labelstf = objet;
+                ViewBag.Datatf = dat;
+
+                objet = "'";
+                dat = "";
+                foreach (var item in lnmm)
+                {
+                    objet = objet + item.maquina.ToString() + "','";
+                    dat = dat + item.fallas.ToString() + ",";
+                }
+
+                objet = objet.TrimEnd(',', (char)39);
+                objet = objet + "'";
+                dat = dat.TrimEnd(',', (char)39);
+
+                ViewBag.labelsf = objet;
+                ViewBag.Dataf = dat;
+
+                objet = "'";
+                dat = "";
+                foreach (var item in lnmm)
+                {
+                    objet = objet + item.maquina.ToString() + "','";
+                    dat = dat + item.mtbf.ToString() + ",";
+                }
+
+                objet = objet.TrimEnd(',', (char)39);
+                objet = objet + "'";
+                dat = dat.TrimEnd(',', (char)39);
+
+                ViewBag.labelsmtbf = objet;
+                ViewBag.Datamtbf = dat;
+
+
+                 stempt = 0;
+                for (int di = 0; di < hdata.Count; di++)
+                {
+                    stempt += hdata[di].Sum(s => s.Tiempo);
+
+                }
+
+                 stemp = 0;
+                for (int di = 0; di < hdata.Count; di++)
+                {
+                    labels = labels + hdata[di].Key + "','";
+                    double eltiempotemp = hdata[di].Sum(s => s.Tiempo);
+                    double re1 = (eltiempotemp / (double)eltiempo) * 100;
+                    gdata = gdata + string.Format("{0:0.##}", re1) + ",";
+                    stemp = stemp + hdata[di].Sum(s => s.Tiempo);
+                    double res = (stemp / (double)stempt) * 100;
+                    gdata2 = gdata2 + string.Format("{0:0.##}", res) + ",";
+
+                }
+
+                labels = labels.TrimEnd(',', (char)39);
+                labels = labels + "'";
+                gdata = gdata.TrimEnd(',', (char)39);
+                gdata2 = gdata2.TrimEnd(',', (char)39);
+                ViewBag.labelsgrap2 = labels;
+                ViewBag.datasgrap2 = gdata;
+                ViewBag.data2sgrap2 = gdata2;
+                DateTimeFormatInfo formatoFecha = CultureInfo.CurrentCulture.DateTimeFormat;
+                string nombreMes = formatoFecha.GetMonthName(fecha.Month);
+                ViewBag.dx = " Año:" + fecha.AddYears(-5).ToString("yyyy") + " a el Año:" + fecha.ToString("yyyy");
+                ViewBag.dxx = " Anual";
+            }
+            //*******************************************************************************************
+
+            if (btn == "Metricos por Mes")
+            {
+                datafiltered.Clear();
+                 labels = "'";
+                 gdata = "";
+                 gdata2 = "";
+                //List<decimal> x = new List<decimal>();
+                //List<decimal> y = new List<decimal>();
+                x.Clear();
+                y.Clear();
+
+                int i = 1;
+                for (int iaño = fecha.Year; iaño <= fechaf.Year; iaño++)
+                {
+                    var dataaño = fulldatafiltered.Where(w => w.DiaHora.Year == iaño);
+                    for (int jmes = 1; jmes <= 12; jmes++)
+                    {
+                        DateTimeFormatInfo formatoFecha = CultureInfo.CurrentCulture.DateTimeFormat;
+                        string nombreMes = formatoFecha.GetMonthName(jmes);
+                        if (
+                             ((fecha.Year == fechaf.Year) && (fecha.Year == iaño) && (jmes >= fecha.Month) && (jmes <= fechaf.Month))
+                             ||
+                              ((fecha.Year != fechaf.Year) && (fecha.Year == iaño) && (jmes >= fecha.Month))
+                            ||
+                              ((fecha.Year != fechaf.Year) && (fechaf.Year == iaño) && (jmes <= fechaf.Month))
+                            ||
+                            (iaño != fecha.Year && iaño != fechaf.Year)
+                            )
+                        {
+                            labels = labels + iaño.ToString() + "-" + nombreMes + "','";
+
+                            var temp = dataaño.Where(w => w.DiaHora.Year == iaño && w.DiaHora.Month == jmes);
+                            datafiltered.AddRange(temp);
+                            gdata = gdata + temp.Sum(s => s.Tiempo).ToString() + ",";
+                            x.Add(i);
+                            y.Add(temp.Sum(s => s.Tiempo));
+                            i++;
+                        }
+
+
+                    }
+
+                }
+                if (x.Count > 1)
+                {
+                    Trendline rvalue = new Trendline(y, x);
+                    i = 1;
+                    for (int iaño = fecha.Year; iaño <= fechaf.Year; iaño++)
+                    {
+                        for (int jmes = 1; jmes <= 12; jmes++)
+                        {
+                            if (
+                                  ((fecha.Year == fechaf.Year) && (fecha.Year == iaño) && (jmes >= fecha.Month) && (jmes <= fechaf.Month))
+                                 ||
+                                  ((fecha.Year != fechaf.Year) && (fecha.Year == iaño) && (jmes >= fecha.Month))
+                                ||
+                                  ((fecha.Year != fechaf.Year) && (fechaf.Year == iaño) && (jmes <= fechaf.Month))
+                                ||
+                                (iaño != fecha.Year && iaño != fechaf.Year)
+                                )
+                            {
+                                var res = rvalue.GetYValue(i);
+                                gdata2 = gdata2 + string.Format("{0:0.##}", res) + ",";
+                                i++;
+                            }
+
+
+                        }
+
+                    }
+                }
+                labels = labels.TrimEnd(',', (char)39);
+                labels = labels + "'";
+                gdata = gdata.TrimEnd(',', (char)39);
+                gdata2 = gdata2.TrimEnd(',', (char)39);
+
+                ViewBag.labelsgrap = labels;
+                ViewBag.datasgrap = gdata;
+                ViewBag.data2sgrap = gdata2;
+                //--------------------------------------------------------
+                 groupdata = datafiltered.GroupBy(g => g.Maquinas.SubMaquina).OrderByDescending(o => o.Sum(s => s.Tiempo));
+                labels = "'";
+                gdata = "";
+                gdata2 = "";
+                List<IGrouping<String, Bitacora>> hdata = new List<IGrouping<String, Bitacora>>();
+                int exit = 0;
+                int eltiempo = 0;
+                List<newmetricosmaquina> lnmm = new List<newmetricosmaquina>();
+                foreach (var h in groupdata)
+                {
+                    newmetricosmaquina nmm = new newmetricosmaquina();
+                    eltiempo += h.Sum(s => s.Tiempo);
+                    if (exit < 5)
+                    {
+                        hdata.Add(h);
+                        nmm.tiempod = multiplicador;
+                        nmm.maquina = h.Key;
+                        nmm.tiempof = h.Sum(s => s.Tiempo);
+                        nmm.fallas = h.Count();
+                        nmm.mttr = nmm.tiempof / nmm.fallas;
+                        nmm.mtbf = multiplicador / nmm.fallas;
+                        var disponibilidad = nmm.mtbf / (nmm.mtbf + nmm.mttr);
+                        nmm.confiabilidad = disponibilidad;
+                        lnmm.Add(nmm);
+                    }
+                    exit++;
+
+                }
+                ViewBag.lnmm = lnmm;
+
+                var objet = "'";
+                var dat = "";
+                foreach (var item in lnmm)
+                {
+                    objet = objet + item.maquina.ToString() + "','";
+                    dat = dat + item.mttr.ToString() + ",";
+                }
+
+                objet = objet.TrimEnd(',', (char)39);
+                objet = objet + "'";
+                dat = dat.TrimEnd(',', (char)39);
+
+                ViewBag.labelsmttr = objet;
+                ViewBag.Datamttr = dat;
+                objet = "'";
+                dat = "";
+                foreach (var item in lnmm)
+                {
+                    objet = objet + item.maquina.ToString() + "','";
+                    dat = dat + item.tiempof.ToString() + ",";
+                }
+
+                objet = objet.TrimEnd(',', (char)39);
+                objet = objet + "'";
+                dat = dat.TrimEnd(',', (char)39);
+
+                ViewBag.labelstf = objet;
+                ViewBag.Datatf = dat;
+
+                objet = "'";
+                dat = "";
+                foreach (var item in lnmm)
+                {
+                    objet = objet + item.maquina.ToString() + "','";
+                    dat = dat + item.fallas.ToString() + ",";
+                }
+
+                objet = objet.TrimEnd(',', (char)39);
+                objet = objet + "'";
+                dat = dat.TrimEnd(',', (char)39);
+
+                ViewBag.labelsf = objet;
+                ViewBag.Dataf = dat;
+
+                objet = "'";
+                dat = "";
+                foreach (var item in lnmm)
+                {
+                    objet = objet + item.maquina.ToString() + "','";
+                    dat = dat + item.mtbf.ToString() + ",";
+                }
+
+                objet = objet.TrimEnd(',', (char)39);
+                objet = objet + "'";
+                dat = dat.TrimEnd(',', (char)39);
+
+                ViewBag.labelsmtbf = objet;
+                ViewBag.Datamtbf = dat;
+
+                 stempt = 0;
+                for (int di = 0; di < hdata.Count; di++)
+                {
+                    stempt += hdata[di].Sum(s => s.Tiempo);
+
+                }
+
+                 stemp = 0;
+                for (int di = 0; di < hdata.Count; di++)
+                {
+                    labels = labels + hdata[di].Key + "','";
+                    double eltiempotemp = hdata[di].Sum(s => s.Tiempo);
+                    double re1 = (eltiempotemp / (double)eltiempo) * 100;
+                    gdata = gdata + string.Format("{0:0.##}", re1) + ",";
+                    stemp = stemp + hdata[di].Sum(s => s.Tiempo);
+                    double res = (stemp / (double)stempt) * 100;
+                    gdata2 = gdata2 + string.Format("{0:0.##}", res) + ",";
+
+                }
+
+                labels = labels.TrimEnd(',', (char)39);
+                labels = labels + "'";
+                gdata = gdata.TrimEnd(',', (char)39);
+                gdata2 = gdata2.TrimEnd(',', (char)39);
+                ViewBag.labelsgrap2 = labels;
+                ViewBag.datasgrap2 = gdata;
+                ViewBag.data2sgrap2 = gdata2;
+                DateTimeFormatInfo formatoFecha2 = CultureInfo.CurrentCulture.DateTimeFormat;
+                 nombreMes1 = formatoFecha2.GetMonthName(fecha.Month);
+                 nombreMes2 = formatoFecha2.GetMonthName(fechaf.Month);
+                ViewBag.dx = "Mes " + nombreMes1 + " al Mes " + nombreMes2;
+                ViewBag.dxx = " Mes";
+            }
+            //*******************************************************************************************
+
+            if (btn == "Metricos por Dia")
+            {
+                datafiltered.Clear();
+                 labels = "'";
+                 gdata = "";
+                 gdata2 = "";
+                // List<decimal> x = new List<decimal>();
+                // List<decimal> y = new List<decimal>();
+                x.Clear();
+                y.Clear();
+                int i = 1;
+                for (int iaño = fecha.Year; iaño <= fechaf.Year; iaño++)
+                {
+                    var dataaño = fulldatafiltered.Where(w => w.DiaHora.Year == iaño);
+                    for (int jmes = 1; jmes <= 12; jmes++)
+                    {
+                        DateTimeFormatInfo formatoFecha = CultureInfo.CurrentCulture.DateTimeFormat;
+                        string nombreMes = formatoFecha.GetMonthName(jmes);
+                        var dias = DateTime.DaysInMonth(iaño, jmes);
+                        var datames = dataaño.Where(w => w.DiaHora.Month == jmes);
+                        for (int kdia = 1; kdia <= dias; kdia++)
+                        {
+                            DateTime idi = Convert.ToDateTime(kdia.ToString() + "/" + jmes.ToString() + "/" + iaño.ToString());
+
+                            if (idi >= fecha && idi <= fechaf)
+                            {
+                                labels = labels + iaño.ToString() + "-" + nombreMes + "-" + kdia.ToString() + "','";
+                                var temp = datames.Where(w => w.DiaHora.Day == kdia);
+                                datafiltered.AddRange(temp);
+                                gdata = gdata + temp.Sum(s => s.Tiempo).ToString() + ",";
+                                x.Add(i);
+                                y.Add(temp.Sum(s => s.Tiempo));
+                                i++;
+                            }
+
+                        }
+
+
+                    }
+
+                }
+                if (x.Count > 1)
+                {
+                    Trendline rvalue = new Trendline(y, x);
+                    i = 1;
+
+                    for (int iaño = fecha.Year; iaño <= fechaf.Year; iaño++)
+                    {
+                        var dataaño = fulldatafiltered.Where(w => w.DiaHora.Year == iaño);
+                        for (int jmes = 1; jmes <= 12; jmes++)
+                        {
+                            DateTimeFormatInfo formatoFecha = CultureInfo.CurrentCulture.DateTimeFormat;
+                            string nombreMes = formatoFecha.GetMonthName(jmes);
+                            var dias = DateTime.DaysInMonth(iaño, jmes);
+                            var datames = dataaño.Where(w => w.DiaHora.Month == jmes);
+                            for (int kdia = 1; kdia <= dias; kdia++)
+                            {
+                                DateTime idi = Convert.ToDateTime(kdia.ToString() + "/" + jmes.ToString() + "/" + iaño.ToString());
+                                if (idi >= fecha && idi <= fechaf)
+                                {
+                                    var res = rvalue.GetYValue(i);
+                                    gdata2 = gdata2 + string.Format("{0:0.##}", res) + ",";
+                                    i++;
+                                }
+
+                            }
+
+
+                        }
+
+                    }
+
+                    labels = labels.TrimEnd(',', (char)39);
+                    labels = labels + "'";
+                    gdata = gdata.TrimEnd(',', (char)39);
+                    gdata2 = gdata2.TrimEnd(',', (char)39);
+
+                    ViewBag.labelsgrap = labels;
+                    ViewBag.datasgrap = gdata;
+                    ViewBag.data2sgrap = gdata2;
+                    //--------------------------------------------------------
+                    groupdata = datafiltered.GroupBy(g => g.Maquinas.SubMaquina).OrderByDescending(o => o.Sum(s => s.Tiempo));
+                    labels = "'";
+                    gdata = "";
+                    gdata2 = "";
+
+                    List<IGrouping<String, Bitacora>> hdata = new List<IGrouping<String, Bitacora>>();
+                    int exit = 0;
+                    int eltiempo = 0;
+                    List<newmetricosmaquina> lnmm = new List<newmetricosmaquina>();
+                    foreach (var h in groupdata)
+                    {
+                        newmetricosmaquina nmm = new newmetricosmaquina();
+                        eltiempo += h.Sum(s => s.Tiempo);
+                        if (exit < 5)
+                        {
+                            hdata.Add(h);
+                            nmm.tiempod = multiplicador;
+                            nmm.maquina = h.Key;
+                            nmm.tiempof = h.Sum(s => s.Tiempo);
+                            nmm.fallas = h.Count();
+                            nmm.mttr = nmm.tiempof / nmm.fallas;
+                            nmm.mtbf = multiplicador / nmm.fallas;
+                            var disponibilidad = nmm.mtbf / (nmm.mtbf + nmm.mttr);
+                            nmm.confiabilidad = disponibilidad;
+                            lnmm.Add(nmm);
+                        }
+                        exit++;
+
+                    }
+                    ViewBag.lnmm = lnmm;
+
+                    var objet = "'";
+                    var dat = "";
+                    foreach (var item in lnmm)
+                    {
+                        objet = objet + item.maquina.ToString() + "','";
+                        dat = dat + item.mttr.ToString() + ",";
+                    }
+
+                    objet = objet.TrimEnd(',', (char)39);
+                    objet = objet + "'";
+                    dat = dat.TrimEnd(',', (char)39);
+
+                    ViewBag.labelsmttr = objet;
+                    ViewBag.Datamttr = dat;
+                    objet = "'";
+                    dat = "";
+                    foreach (var item in lnmm)
+                    {
+                        objet = objet + item.maquina.ToString() + "','";
+                        dat = dat + item.tiempof.ToString() + ",";
+                    }
+
+                    objet = objet.TrimEnd(',', (char)39);
+                    objet = objet + "'";
+                    dat = dat.TrimEnd(',', (char)39);
+
+                    ViewBag.labelstf = objet;
+                    ViewBag.Datatf = dat;
+
+                    objet = "'";
+                    dat = "";
+                    foreach (var item in lnmm)
+                    {
+                        objet = objet + item.maquina.ToString() + "','";
+                        dat = dat + item.fallas.ToString() + ",";
+                    }
+
+                    objet = objet.TrimEnd(',', (char)39);
+                    objet = objet + "'";
+                    dat = dat.TrimEnd(',', (char)39);
+
+                    ViewBag.labelsf = objet;
+                    ViewBag.Dataf = dat;
+
+                    objet = "'";
+                    dat = "";
+                    foreach (var item in lnmm)
+                    {
+                        objet = objet + item.maquina.ToString() + "','";
+                        dat = dat + item.mtbf.ToString() + ",";
+                    }
+
+                    objet = objet.TrimEnd(',', (char)39);
+                    objet = objet + "'";
+                    dat = dat.TrimEnd(',', (char)39);
+
+                    ViewBag.labelsmtbf = objet;
+                    ViewBag.Datamtbf = dat;
+
+                     stempt = 0;
+                    for (int di = 0; di < hdata.Count; di++)
+                    {
+                        stempt += hdata[di].Sum(s => s.Tiempo);
+
+                    }
+
+                     stemp = 0;
+                    for (int di = 0; di < hdata.Count; di++)
+                    {
+                        labels = labels + hdata[di].Key + "','";
+                        double eltiempotemp = hdata[di].Sum(s => s.Tiempo);
+                        double re1 = (eltiempotemp / (double)eltiempo) * 100;
+                        gdata = gdata + string.Format("{0:0.##}", re1) + ",";
+                        stemp = stemp + hdata[di].Sum(s => s.Tiempo);
+                        double res = (stemp / (double)stempt) * 100;
+                        gdata2 = gdata2 + string.Format("{0:0.##}", res) + ",";
+                    }
+
+                    labels = labels.TrimEnd(',', (char)39);
+                    labels = labels + "'";
+                    gdata = gdata.TrimEnd(',', (char)39);
+                    gdata2 = gdata2.TrimEnd(',', (char)39);
+                    ViewBag.labelsgrap2 = labels;
+                    ViewBag.datasgrap2 = gdata;
+                    ViewBag.data2sgrap2 = gdata2;
+
+                    ViewBag.dx = "Dia " + fecha.ToString("dd") + " al Dia " + fechaf.ToString("dd");
+                    ViewBag.dxx = " Dia";
+                }
+
+            }
+
+
+
 
 
             var id = User.Identity.GetUserId();
