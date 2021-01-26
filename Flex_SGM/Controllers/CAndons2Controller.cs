@@ -969,6 +969,36 @@ namespace Flex_SGM.Controllers
 
         }
 
+        [HttpPost]
+        public ActionResult deleteFile(int id, string t)
+        {
+            if (Request.Files.Count > 0)
+            {
+                var file = Request.Files[0];
+                if (file != null && file.ContentLength > 0)
+                {
+                    var path = "cool";
+                    if (t == "a")
+                        path = Server.MapPath($"~/Evidence/Quality/Andon/before/{id}");
+
+                    if (t == "d")
+                        path = Server.MapPath($"~/Evidence/Quality/Andon/after/{id}");
+
+                    if (!System.IO.Directory.Exists(path))
+                        System.IO.Directory.CreateDirectory(path);
+
+                    path = Path.Combine(path, file.FileName);
+                    file.SaveAs(path);
+                    return Json(true);
+                }
+                else
+                    return Json(false);
+            }
+            else
+                return Json(false);
+
+        }
+
         public FileResult Download(string link)
         {
             string fileName = "";
