@@ -7246,10 +7246,10 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>10/26/2020 13:25:57</publishTime>
     </File>
     <File Include="bin/Flex_SGM.dll">
-      <publishTime>01/15/2021 12:10:16</publishTime>
+      <publishTime>01/26/2021 13:56:38</publishTime>
     </File>
     <File Include="bin/Flex_SGM.pdb">
-      <publishTime>01/15/2021 12:10:16</publishTime>
+      <publishTime>01/26/2021 13:56:38</publishTime>
     </File>
     <File Include="bin/IBM.Data.DB2.iSeries.dll">
       <publishTime>10/26/2020 13:21:31</publishTime>
@@ -7792,19 +7792,19 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>10/26/2020 13:21:22</publishTime>
     </File>
     <File Include="Views/AndonDefectoes/Create.cshtml">
-      <publishTime>10/26/2020 13:21:22</publishTime>
+      <publishTime>01/26/2021 11:43:06</publishTime>
     </File>
     <File Include="Views/AndonDefectoes/Delete.cshtml">
-      <publishTime>10/26/2020 13:21:22</publishTime>
+      <publishTime>01/26/2021 11:43:06</publishTime>
     </File>
     <File Include="Views/AndonDefectoes/Details.cshtml">
-      <publishTime>10/26/2020 13:21:22</publishTime>
+      <publishTime>01/26/2021 11:43:06</publishTime>
     </File>
     <File Include="Views/AndonDefectoes/Edit.cshtml">
-      <publishTime>10/26/2020 13:21:22</publishTime>
+      <publishTime>01/26/2021 11:43:06</publishTime>
     </File>
     <File Include="Views/AndonDefectoes/Index.cshtml">
-      <publishTime>10/26/2020 13:21:22</publishTime>
+      <publishTime>01/26/2021 11:42:25</publishTime>
     </File>
     <File Include="Views/AndonSupervisores/Create.cshtml">
       <publishTime>10/26/2020 13:21:22</publishTime>
@@ -7918,19 +7918,19 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>10/26/2020 13:21:23</publishTime>
     </File>
     <File Include="Views/CAndons2/Create.cshtml">
-      <publishTime>10/26/2020 13:21:23</publishTime>
+      <publishTime>01/26/2021 11:40:09</publishTime>
     </File>
     <File Include="Views/CAndons2/Delete.cshtml">
-      <publishTime>10/26/2020 13:21:23</publishTime>
+      <publishTime>01/26/2021 11:34:48</publishTime>
     </File>
     <File Include="Views/CAndons2/Details.cshtml">
-      <publishTime>10/26/2020 13:21:23</publishTime>
+      <publishTime>01/26/2021 11:34:48</publishTime>
     </File>
     <File Include="Views/CAndons2/Edit.cshtml">
-      <publishTime>10/26/2020 13:21:23</publishTime>
+      <publishTime>01/26/2021 11:40:56</publishTime>
     </File>
     <File Include="Views/CAndons2/Index.cshtml">
-      <publishTime>10/26/2020 13:21:23</publishTime>
+      <publishTime>01/26/2021 11:31:56</publishTime>
     </File>
     <File Include="Views/cAreas/Create.cshtml">
       <publishTime>10/26/2020 13:21:26</publishTime>
@@ -8383,7 +8383,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>10/26/2020 13:21:26</publishTime>
     </File>
     <File Include="Views/UsersAdmin/Edit.cshtml">
-      <publishTime>10/26/2020 13:21:26</publishTime>
+      <publishTime>01/26/2021 11:53:02</publishTime>
     </File>
     <File Include="Views/UsersAdmin/Index.cshtml">
       <publishTime>10/26/2020 13:21:26</publishTime>

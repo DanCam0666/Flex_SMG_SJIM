@@ -216,7 +216,18 @@ namespace AspnetIdentitySample.Controllers
 
             }
 
+ 
+            List<string> sroles = new List<string>();
+            foreach (var x in user.Roles)
+            {
+                var y = RoleManager.FindById(x.RoleId);
+                sroles.Add(y.Name);
+            }
+            ViewBag.AllRoles = sroles;
+
+
             ViewBag.RoleId = new SelectList(RoleManager.Roles, "Id", "Name");
+
 
 
             ViewBag.uId = user.Id;

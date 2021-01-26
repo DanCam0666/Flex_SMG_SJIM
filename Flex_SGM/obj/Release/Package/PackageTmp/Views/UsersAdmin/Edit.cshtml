@@ -63,6 +63,21 @@
         </div>
     </div>
     <hr />
+    <h4>List Of Roles</h4>
+    <table class="table table-striped">
+
+        @foreach (string x in ViewBag.AllRoles)
+        {
+            if (!String.IsNullOrEmpty(x))
+            {
+                <tr>
+                    <td>
+                        @Html.Label(x)
+                    </td>
+                </tr>
+            }
+        }
+    </table>
     <h4>Modify Role for User</h4>
     <hr />
     <div class="switch">

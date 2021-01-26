@@ -258,6 +258,7 @@
     <Compile Include="Models\Comments.cs" />
     <Compile Include="Models\ControldeEquipos.cs" />
     <Compile Include="Models\Disponibilidad.cs" />
+    <Compile Include="Models\Engineering.cs" />
     <Compile Include="Models\Fallas.cs" />
     <Compile Include="Models\flex.cs" />
     <Compile Include="Models\General.cs" />
