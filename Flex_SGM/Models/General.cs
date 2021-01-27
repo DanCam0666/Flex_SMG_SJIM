@@ -21,6 +21,7 @@ namespace Flex_SGM.Models
         [Display(Name = "Cliente")]
         public string Cliente { get; set; }
     }
+
     public class SubClientes
     {
         [Key]
@@ -47,6 +48,7 @@ namespace Flex_SGM.Models
 
         public virtual cClientes Clientes { get; set; }
     }
+
     public class cAreas
     {
         [Key]
@@ -56,8 +58,5 @@ namespace Flex_SGM.Models
         [Display(Name = "Area")]
         public string Area { get; set; }
     }
-
-
-
 
 }

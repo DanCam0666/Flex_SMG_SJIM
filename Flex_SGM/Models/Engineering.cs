@@ -6,118 +6,161 @@ using System.Web;
 
 namespace Flex_SGM.Models
 {
-    public class Engineering
+
+
+    public class pcr
     {
+        [Key]
+        public int ID { get; set; }
+        [Display(Name = "Originator")]
+        public int? OriginatorID { get; set; }
 
-        public class flujopcr
-        {
-            [Key]
-            public int ID { get; set; }
+        [Display(Name = "Department")]
+        public int AreasID { get; set; }
 
-            public int pcrrequestid { get; set; }
+        public DateTime Date { get; set; }
 
-            public int pcrrequestlvl { get; set; }
+        [Display(Name = "Customer")]
+        public int ClientesID { get; set; }
 
-            public int pcrverification { get; set; }
-            public int pcrdecision { get; set; }
+        [Display(Name = "Program")]
+        public int ProyectosID { get; set; }
+        [Display(Name = "Reason")]
+        public int? ReasonID { get; set; }
+        [MaxLength(100)]
+        public string PartNumber { get; set; }
+        [MaxLength(50)]
+        public string RevLevel { get; set; }
+        [MaxLength(200)]
+        public string PartName { get; set; }
+        [Display(Name = "Description Reason")]
+        public string docreason { get; set; }
+        [Display(Name = "Scope")]
+        public string docscope { get; set; }
+        [Display(Name = "type of change")]
+        public string doctypeofchange { get; set; }
 
-            public int pcrclientapproval { get; set; }
+        public double cipieceprice { get; set; }
+        public double cicapital { get; set; }
+        public double citooling { get; set; }
+        public double ciengineering { get; set; }
+        public double cipackaging { get; set; }
+        public double ciobsolescence { get; set; }
+        public double cimaterial { get; set; }
+        public double cifreight { get; set; }
+        public double ciovertime { get; set; }
+        public double ciother { get; set; }
+        public double citotal { get; set; }
+        [MaxLength(15)]
+        public string crannualvolume { get; set; }
+        [MaxLength(15)]
+        public string crcapacityfng { get; set; }
+        [MaxLength(15)]
+        public string crcapacitysupplier { get; set; }
+        [MaxLength(100)]
+        public string Reviewedby { get; set; }
+        public DateTime? Reviewedby_date { get; set; }
+        [MaxLength(5)]
+        public string support_purchasing { get; set; }
+        [MaxLength(5)]
+        public string support_materials { get; set; }
+        [MaxLength(5)]
+        public string support_maintenance { get; set; }
+        [MaxLength(5)]
+        public string support_automation { get; set; }
+        [MaxLength(5)]
+        public string support_quality { get; set; }
+        [MaxLength(5)]
+        public string support_safety { get; set; }
+        [MaxLength(5)]
+        public string support_environmental { get; set; }
+        [MaxLength(5)]
+        public string support_tooling { get; set; }
+        [MaxLength(5)]
+        public string support_stamping { get; set; }
+        [MaxLength(5)]
+        public string support_welding { get; set; }
+        [MaxLength(5)]
+        public string support_chrome { get; set; }
+        [MaxLength(5)]
+        public string support_ecoat { get; set; }
+        [MaxLength(5)]
+        public string support_topcoat { get; set; }
+        [MaxLength(5)]
+        public string support_backcoat { get; set; }
+        [MaxLength(5)]
+        public string support_assembly { get; set; }
+        [MaxLength(5)]
+        public string support_finance { get; set; }
+        [MaxLength(10)]
+        public string Keymilestones_buildmrd1 { get; set; }
+        [MaxLength(10)]
+        public string Keymilestones_buildmrd2 { get; set; }
+        [MaxLength(10)]
+        public string Keymilestones_buildmrd3 { get; set; }
+        [MaxLength(10)]
+        public string Keymilestones_customrrar { get; set; }
+        [MaxLength(10)]
+        public string Keymilestones_ppap { get; set; }
+        [MaxLength(10)]
+        public string Keymilestones_internalsop { get; set; }
+        [MaxLength(10)]
 
-            public int pcrclientdecision { get; set; }
+        public string Keymilestones_customersop { get; set; }
+        [MaxLength(10)]
+        public string Keymilestones_closure { get; set; }
 
-            public int pcrmanagerdecision { get; set; }
+        public double leadtime_engineering { get; set; }
+        public double leadtime_tooling { get; set; }
+        public double leadtime_facilities { get; set; }
+        public double leadtime_capital { get; set; }
+        public double leadtime_material { get; set; }
+        public double leadtime_inventory { get; set; }
+        public double leadtime_approval { get; set; }
+        public double leadtime_totallt { get; set; }
+        //*--------------*//
+        [MaxLength(25)]
+        public string pcrrequestlvl { get; set; }
 
-            public int pcrmanagerclose { get; set; }
-        }
+        public int pcrverification { get; set; }
+        public int pcrdecision { get; set; }
 
-        public class pcr
-        {
-            [Key]
-            public int ID { get; set; }
+        public int pcrclientapproval { get; set; }
 
-            public int Originator { get; set; }
+        public int pcrclientdecision { get; set; }
 
-            public int Department { get; set; }
-            public int Date { get; set; }
+        public int pcrmanagerdecision { get; set; }
 
-            public int Customer { get; set; }
+        public int pcrmanagerclose { get; set; }
 
-            public int Program { get; set; }
-            public int Reason { get; set; }
+        public virtual ereason Reason { get; set; }
+        public virtual eoriginator Originator { get; set; }
+        public virtual cAreas Areas { get; set; }
+        public virtual cClientes Clientes { get; set; }
+        public virtual cProyectos Proyectos { get; set; }
+    }
 
-            public int PartNumber { get; set; }
-
-            public int RevLevel { get; set; }
-            public int PartName { get; set; }
-
-            public int docreason { get; set; }
-            public int docscope { get; set; }
-            public int doctypeofchange { get; set; }
-
-            public int cipieceprice { get; set; }
-            public int cicapital { get; set; }
-            public int citooling { get; set; }
-            public int ciengineering { get; set; }
-            public int cipackaging { get; set; }
-            public int ciobsolescence { get; set; }
-            public int cimaterial { get; set; }
-            public int cifreight { get; set; }
-            public int ciovertime { get; set; }
-            public int ciother { get; set; }
-            public int citotal { get; set; }
-
-            public int crannualvolume { get; set; }
-            public int crcapacityfng { get; set; }
-            public int crcapacitysupplier { get; set; }
-
-            public int Reviewedby { get; set; }
-            public int Reviewedby_date { get; set; }
-
-            public int support_purchasing { get; set; }
-            public int support_materials { get; set; }
-            public int support_maintenance { get; set; }
-            public int support_automation { get; set; }
-            public int support_quality { get; set; }
-            public int support_safety { get; set; }
-            public int support_environmental { get; set; }
-            public int support_tooling { get; set; }
-            public int support_stamping { get; set; }
-            public int support_welding { get; set; }
-            public int support_chrome { get; set; }
-            public int support_ecoat { get; set; }
-            public int support_topcoat { get; set; }
-            public int support_backcoat { get; set; }
-            public int support_assembly { get; set; }
-            public int support_finance { get; set; }
-
-            public int Keymilestones_buildmrd1 { get; set; }
-
-            public int Keymilestones_buildmrd2 { get; set; }
-            public int Keymilestones_buildmrd3 { get; set; }
-
-            public int Keymilestones_customrrar { get; set; }
-            public int Keymilestones_ppap { get; set; }
-            public int Keymilestones_internalsop { get; set; }
-
-            public int Keymilestones_customersop { get; set; }
-            public int Keymilestones_closure { get; set; }
-
-            public int leadtime_engineering { get; set; }
-
-            public int leadtime_tooling { get; set; }
-            public int leadtime_facilities { get; set; }
-            public int leadtime_capital { get; set; }
-            public int leadtime_material { get; set; }
-            public int leadtime_inventory { get; set; }
-            public int leadtime_approval { get; set; }
-            public int leadtime_totallt { get; set; }
-         
-
-        }
+    public class eoriginator
+    {
+        [Key]
+        public int ID { get; set; }
 
 
+        public int AreasID { get; set; }
+        [MaxLength(100)]
+        [Display(Name = "Supervisor Area")]
+        public string Supervisor { get; set; }
 
+        public virtual cAreas Areas { get; set; }
+    }
+    public class ereason
+    {
+        [Key]
+        public int ID { get; set; }
 
+        [MaxLength(250)]
+        public string Reason { get; set; }
 
     }
+
 }

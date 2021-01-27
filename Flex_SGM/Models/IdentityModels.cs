@@ -95,5 +95,11 @@ namespace Flex_SGM.Models
         public System.Data.Entity.DbSet<Flex_SGM.Models.Billto> Billtoes { get; set; }
 
         public System.Data.Entity.DbSet<Flex_SGM.Models.QuaCodes> QuaCodes { get; set; }
+
+        public System.Data.Entity.DbSet<Flex_SGM.Models.eoriginator> eoriginators { get; set; }
+
+        public System.Data.Entity.DbSet<Flex_SGM.Models.ereason> ereasons { get; set; }
+
+        public System.Data.Entity.DbSet<Flex_SGM.Models.pcr> pcrs { get; set; }
     }
 }

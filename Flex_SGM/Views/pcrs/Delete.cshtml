@@ -1,0 +1,561 @@
+﻿@model Flex_SGM.Models.pcr
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutE.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>pcr</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Areas.Area)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Areas.Area)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Clientes.Cliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Clientes.Cliente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Originator.Supervisor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Originator.Supervisor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Proyectos.Proyecto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Proyectos.Proyecto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Reason.Reason)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Reason.Reason)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PartNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PartNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RevLevel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RevLevel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PartName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PartName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.docreason)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.docreason)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.docscope)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.docscope)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.doctypeofchange)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.doctypeofchange)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cipieceprice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cipieceprice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cicapital)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cicapital)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.citooling)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.citooling)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ciengineering)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ciengineering)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cipackaging)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cipackaging)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ciobsolescence)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ciobsolescence)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cimaterial)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cimaterial)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cifreight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cifreight)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ciovertime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ciovertime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ciother)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ciother)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.citotal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.citotal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.crannualvolume)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.crannualvolume)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.crcapacityfng)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.crcapacityfng)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.crcapacitysupplier)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.crcapacitysupplier)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Reviewedby)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Reviewedby)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Reviewedby_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Reviewedby_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.support_purchasing)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.support_purchasing)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.support_materials)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.support_materials)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.support_maintenance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.support_maintenance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.support_automation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.support_automation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.support_quality)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.support_quality)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.support_safety)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.support_safety)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.support_environmental)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.support_environmental)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.support_tooling)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.support_tooling)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.support_stamping)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.support_stamping)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.support_welding)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.support_welding)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.support_chrome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.support_chrome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.support_ecoat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.support_ecoat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.support_topcoat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.support_topcoat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.support_backcoat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.support_backcoat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.support_assembly)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.support_assembly)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.support_finance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.support_finance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Keymilestones_buildmrd1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Keymilestones_buildmrd1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Keymilestones_buildmrd2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Keymilestones_buildmrd2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Keymilestones_buildmrd3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Keymilestones_buildmrd3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Keymilestones_customrrar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Keymilestones_customrrar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Keymilestones_ppap)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Keymilestones_ppap)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Keymilestones_internalsop)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Keymilestones_internalsop)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Keymilestones_customersop)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Keymilestones_customersop)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Keymilestones_closure)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Keymilestones_closure)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.leadtime_engineering)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.leadtime_engineering)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.leadtime_tooling)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.leadtime_tooling)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.leadtime_facilities)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.leadtime_facilities)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.leadtime_capital)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.leadtime_capital)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.leadtime_material)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.leadtime_material)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.leadtime_inventory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.leadtime_inventory)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.leadtime_approval)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.leadtime_approval)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.leadtime_totallt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.leadtime_totallt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pcrrequestlvl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pcrrequestlvl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pcrverification)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pcrverification)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pcrdecision)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pcrdecision)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pcrclientapproval)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pcrclientapproval)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pcrclientdecision)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pcrclientdecision)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pcrmanagerdecision)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pcrmanagerdecision)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pcrmanagerclose)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pcrmanagerclose)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
