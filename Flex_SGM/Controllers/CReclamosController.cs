@@ -1067,12 +1067,14 @@ namespace Flex_SGM.Controllers
         public FileResult deleteFile(string link)
         {
 
-
+            string fileName2 = Server.MapPath("~/Evidence/Delete");
             string fileName = "";
             link = link.Replace(@"../../", "");
+            fileName2 = fileName2 + link;
             link = Server.MapPath("~/" + link);
             fileName = Path.GetFileName(link);
             byte[] fileBytes = System.IO.File.ReadAllBytes(link);
+            System.IO.File.Move(link, fileName2);
             System.IO.File.Delete(link);
             return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
 
