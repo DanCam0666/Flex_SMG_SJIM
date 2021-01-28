@@ -1064,7 +1064,20 @@ namespace Flex_SGM.Controllers
                 return Json(false);
 
         }
+        public FileResult deleteFile(string link)
+        {
 
+
+            string fileName = "";
+            link = link.Replace(@"../../", "");
+            link = Server.MapPath("~/" + link);
+            fileName = Path.GetFileName(link);
+            byte[] fileBytes = System.IO.File.ReadAllBytes(link);
+            System.IO.File.Delete(link);
+            return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
+
+
+        }
         public FileResult Download(string link)
         {
             string fileName = "";

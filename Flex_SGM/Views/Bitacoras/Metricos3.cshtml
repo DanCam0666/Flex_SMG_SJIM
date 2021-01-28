@@ -632,10 +632,8 @@
 
         <script>
 
-            
-        $(document).ready(function () {
 
-                  var barChartData2 =
+          var barChartData2 =
             {
                    labels: [@Html.Raw(ViewBag.labelsmttr)], //the names displayed on the x-axis, see images below
                 // labels: ['a','b','c','d','e','f',], //the names displayed on the x-axis, see images below
@@ -679,6 +677,8 @@
                     borderWidth: 2
                 }]
             };
+        $(document).ready(function () {
+
 
 
             $('#metricox').DataTable({
@@ -716,7 +716,7 @@
                     }
                 }
             });
-   
+
             var table = document.getElementById('metricox');
             var tbody = table.getElementsByTagName('tbody')[0];
             var cells = tbody.getElementsByTagName('tr');

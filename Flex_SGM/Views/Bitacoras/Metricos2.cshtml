@@ -584,27 +584,7 @@
 @section Scripts {
 
     <script>
-
-                //  Chart.defaults.global.defaultFontSize= 18;
-        /*
-         *        $('#mgroup').change(function () {
-                $(this).parents('form').submit();
-            });
-            $('#amaquina').change(function () {
-                $(this).parents('form').submit();
-            });
-            $('#maquina').change(function () {
-                $(this).parents('form').submit();
-            });
-            $('#subamaquina').change(function () {
-                $(this).parents('form').submit();
-            });
-        */
-
-
-        $(document).ready(function () {
-
-                              var barChartData2 =
+              var barChartData2 =
             {
                    labels: [@Html.Raw(ViewBag.labelsmttr)], //the names displayed on the x-axis, see images below
                 // labels: ['a','b','c','d','e','f',], //the names displayed on the x-axis, see images below
@@ -649,12 +629,11 @@
                 }]
             };
 
-                   //     $('#amaquina').change(function () {
-            //    $(this).parents('form').submit();
-              //          });
-              //          $('#maquina').change(function () {
-              //  $(this).parents('form').submit();metricoxmaqui
-           // });
+
+        $(document).ready(function () {
+
+
+
             $('#metricox').DataTable({
                 "dom": 'lBfrtip',
                 "lengthMenu": [[9, -1], ["9", "Todos"]],
