@@ -8,11 +8,11 @@
 
 @using (Html.BeginForm())
 {
-    <div class="col-xs-12 ">
+    <div class="col-md-12 ">
         <div class="x_panel">
             <div class="x_title clearfix">
                 <center>
-                    <div class="input-daterange input-group col-xs-6" id="bs_datepicker_range_container">
+                    <div class="input-daterange input-group col-md-6" id="bs_datepicker_range_container">
 
                         <label for="FechaInicial">Fecha Inicial...</label>
                         <input type="text" class="form-control" name="dti" value=@ViewBag.datei autocomplete="off">
@@ -27,10 +27,10 @@
             </div>
             <div class="x_content">
 
-                    <div class="col-xs-12">
-                        <input class="btn btn-primary col-lg-offset-3 col-xs-2" onclick="$('#loadingImg').show();" type="submit" name="btn" value="Por Años" autocomplete="off">
-                        <input class="btn btn-primary col-xs-2" onclick="$('#loadingImg').show();" type="submit" name="btn" value="Por Mes" autocomplete="off">
-                        <input class="btn btn-primary col-xs-2" onclick="$('#loadingImg').show();" type="submit" name="btn" value="Por Dia" autocomplete="off">
+                    <div class="col-md-12">
+                        <input class="btn btn-primary col-lg-offset-3 col-md-2" onclick="$('#loadingImg').show();" type="submit" name="btn" value="Por Años" autocomplete="off">
+                        <input class="btn btn-primary col-md-2" onclick="$('#loadingImg').show();" type="submit" name="btn" value="Por Mes" autocomplete="off">
+                        <input class="btn btn-primary col-md-2" onclick="$('#loadingImg').show();" type="submit" name="btn" value="Por Dia" autocomplete="off">
                     </div>
 
             </div>
@@ -38,7 +38,7 @@
 
     </div>
 }
-<div class="col-xs-8" style="float:left">
+<div class="col-md-8" style="float:left">
     <div class="x_panel">
         <div class="x_title clearfix">
             <h2>Tiempo Muerto del @ViewBag.dx</h2>
@@ -49,7 +49,7 @@
     </div>
 </div>
 
-<div class="col-xs-4" style="float:left">
+<div class="col-md-4" style="float:left">
     <div class="x_panel">
         <div class="x_title clearfix">
             <h2> Pareto por Maquina</h2>
@@ -60,7 +60,7 @@
     </div>
 </div>
 
-<div class="col-xs-12 ">
+<div class="col-md-12 ">
     <div class="x_panel">
         <div class="x_title clearfix">
             <h2> Lista de Tiempo Muerto del @ViewBag.dx</h2>
@@ -278,7 +278,7 @@
 
 
 <br />
-<div class="col-xs-6 clearfix">
+<div class="col-md-6 clearfix">
     <div class="x_panel">
         <div class="x_title">
             Rolling MTTR
@@ -297,7 +297,7 @@
     </div>
 </div>
 
-<div class="col-xs-6 clearfix">
+<div class="col-md-6 clearfix">
     <div class="x_panel">
         <div class="x_title">
             Pareto Suma Tiempo Fallas
@@ -381,41 +381,7 @@ END
 
         $(document).ready(function () {
 
-                          $('#bitacora').DataTable({
-                "dom": 'lBfrtip',
-                "lengthMenu": [[5, 15, 50, -1], ["5", "15", "50", "Todos"]],
-                   "buttons": ['copy', 'csv','print','pdf','excel'],
-                "order": [[0, "desc"]],
-                "scrollX": true,
-                "language": {
-                    "sProcessing": "Procesando...",
-                    "sLengthMenu": "Mostrar _MENU_ registros",
-                    "sZeroRecords": "No se encontraron resultados",
-                    "sEmptyTable": "Ningún dato disponible en esta tabla =(",
-                    "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-                    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
-                    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
-                    "sInfoPostFix": "",
-                    "sSearch": "Buscar:",
-                    "sUrl": "",
-                    "sInfoThousands": ",",
-                    "sLoadingRecords": "Cargando...",
-                    "oPaginate": {
-                        "sFirst": "Primero",
-                        "sLast": "Último",
-                        "sNext": "Siguiente",
-                        "sPrevious": "Anterior"
-                    },
-                    "oAria": {
-                        "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
-                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-                    },
-                    "buttons": {
-                        "copy": "Copiar",
-                        "colvis": "Visibilidad"
-                    }
-                }
-            });
+                       
 
             var ctqx = document.getElementById('chartme');
             var myChartqe1 = new Chart(ctqx, {

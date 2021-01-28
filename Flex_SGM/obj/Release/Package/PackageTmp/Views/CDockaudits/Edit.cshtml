@@ -11,7 +11,7 @@
     @Html.AntiForgeryToken()
 
     <div class="row">
-        <div class="col-lg-offset-2 col-md-8 col-sm-8 col-xs-8">
+        <div class="col-lg-offset-2 col-md-8 col-sm-8 col-md-8">
             <div class="x_panel clearfix">
                 <div class="x_title">
                     <h2>Editar DockAudit<small>Editar Registro de DockAudit </small></h2>
@@ -20,8 +20,8 @@
                 <div class="x_content">
                     <div class="">
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                        <div class="col-xs-12">
-                            <div class="form-group col-xs-3">
+                        <div class="col-md-12">
+                            <div class="form-group col-md-3">
                                 @Html.LabelFor(model => model.Fecha, htmlAttributes: new { @class = "control-label col-md-12" })
                                 <div class="col-md-10">
                                     <div class="form-line" id="bs_datepicker_container">
@@ -31,7 +31,7 @@
                                     <p>Fecha en la que se origino el Reclamo</p>
                                 </div>
                             </div>
-                            <div class="form-group  col-xs-2">
+                            <div class="form-group  col-md-2">
                                 @Html.LabelFor(model => model.Turno, htmlAttributes: new { @class = "control-label col-md-12" })
                                 <div class="col-md-10">
                                     @Html.EditorFor(model => model.Turno, new { htmlAttributes = new { @class = "form-control" } })
@@ -39,7 +39,7 @@
                                     <p>Turno del Hallazgo</p>
                                 </div>
                             </div>
-                            <div class="form-group col-xs-3">
+                            <div class="form-group col-md-3">
                                 @Html.LabelFor(model => model.NoDockAudit, htmlAttributes: new { @class = "control-label col-md-12" })
                                 <div class="col-md-10">
                                     @Html.EditorFor(model => model.NoDockAudit, new { htmlAttributes = new { @class = "form-control" } })
@@ -49,7 +49,7 @@
                             </div>
 
 
-                            <div class="form-group col-xs-4">
+                            <div class="form-group col-md-4">
 
                                 @Html.LabelFor(model => model.AuditorReporto, htmlAttributes: new { @class = "control-label col-md-12" })
                                 <div class="col-md-10">
@@ -60,15 +60,15 @@
                             </div>
                         </div>
                         <hr class="clearfix" />
-                        <div class="col-xs-12">
-                            <div class="form-group col-xs-2">
+                        <div class="col-md-12">
+                            <div class="form-group col-md-2">
                                 @Html.LabelFor(model => model.lote, htmlAttributes: new { @class = "control-label col-md-12" })
                                 <div class="col-md-10">
                                     @Html.EditorFor(model => model.lote, new { htmlAttributes = new { @class = "form-control" } })
                                     @Html.ValidationMessageFor(model => model.lote, "", new { @class = "text-danger" })
                                 </div>
                             </div>
-                            <div class="form-group col-xs-5">
+                            <div class="form-group col-md-5">
                                 @Html.LabelFor(model => model.cliente, htmlAttributes: new { @class = "control-label col-md-12" })
                                 <div class="col-md-10">
                                     @Html.EditorFor(model => model.cliente, new { htmlAttributes = new { @class = "form-control" } })
@@ -76,7 +76,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group col-xs-5">
+                            <div class="form-group col-md-5">
                                 @Html.LabelFor(model => model.NoDeParte, htmlAttributes: new { @class = "control-label col-md-12" })
                                 <div class="col-md-10">
                                     @Html.EditorFor(model => model.NoDeParte, new { htmlAttributes = new { @class = "form-control" } })
@@ -86,8 +86,8 @@
 
 
                         </div>
-                        <div class="col-xs-12">
-                            <div class="form-group col-xs-5">
+                        <div class="col-md-12">
+                            <div class="form-group col-md-5">
                                 @Html.LabelFor(model => model.Area, htmlAttributes: new { @class = "control-label col-md-12" })
                                 <div class="col-md-10">
                                     @Html.EditorFor(model => model.Area, new { htmlAttributes = new { @class = "form-control" } })
@@ -95,7 +95,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group col-xs-5">
+                            <div class="form-group col-md-5">
                                 @Html.LabelFor(model => model.Cantidad, htmlAttributes: new { @class = "control-label col-md-12" })
                                 <div class="col-md-10">
                                     @Html.EditorFor(model => model.Cantidad, new { htmlAttributes = new { @class = "form-control" } })
@@ -104,9 +104,9 @@
                             </div>
                         </div>
                         <hr class="clearfix" />
-                        <div class="col-xs-12">
+                        <div class="col-md-12">
 
-                            <div class="form-group col-xs-6">
+                            <div class="form-group col-md-6">
                                 @Html.LabelFor(model => model.Descripcion, htmlAttributes: new { @class = "control-label col-md-12" })
                                 <div class="col-md-10">
                                     @Html.TextAreaFor(model => model.Descripcion, new { htmlAttributes = new { @class = "form-control" } })
@@ -114,7 +114,7 @@
                                 </div>
                             </div>
                             <a href="/bitacora/Evidence/Quality/Estandar/Lista de defectos por area.pdf" target="_blank">Lista de Codigos de Clasificacion</a>
-                            <div class="form-group col-xs-6">
+                            <div class="form-group col-md-6">
                                 @Html.LabelFor(model => model.Clasificacion, htmlAttributes: new { @class = "control-label col-md-12" })
                                 <div class="col-md-10">
                                     @Html.TextAreaFor(model => model.Clasificacion, new { htmlAttributes = new { @class = "form-control" } })
@@ -122,9 +122,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xs-12">
+                        <div class="col-md-12">
 
-                            <div class="form-group col-xs-4">
+                            <div class="form-group col-md-4">
                                 @Html.LabelFor(model => model.AreaOrigen, htmlAttributes: new { @class = "control-label col-md-12" })
                                 <div class="col-md-10">
                                     @Html.EditorFor(model => model.AreaOrigen, new { htmlAttributes = new { @class = "form-control" } })
@@ -132,7 +132,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group col-xs-4">
+                            <div class="form-group col-md-4">
                                 @Html.LabelFor(model => model.SupOrigen, htmlAttributes: new { @class = "control-label col-md-12" })
                                 <div class="col-md-10">
                                     @Html.EditorFor(model => model.SupOrigen, new { htmlAttributes = new { @class = "form-control" } })
@@ -140,7 +140,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group col-xs-4">
+                            <div class="form-group col-md-4">
                                 @Html.LabelFor(model => model.SupRecibio, htmlAttributes: new { @class = "control-label col-md-12" })
                                 <div class="col-md-10">
                                     @Html.EditorFor(model => model.SupRecibio, new { htmlAttributes = new { @class = "form-control" } })
@@ -149,8 +149,8 @@
                             </div>
                         </div>
                         <hr class="clearfix" />
-                        <div class="col-xs-12">
-                            <div class="form-group col-xs-8">
+                        <div class="col-md-12">
+                            <div class="form-group col-md-8">
                                 @Html.LabelFor(model => model.Comentarios, htmlAttributes: new { @class = "control-label col-md-12" })
                                 <div class="col-md-12">
                                     @Html.TextAreaFor(model => model.Comentarios, new { htmlAttributes = new { @class = "form-control" } })
@@ -159,7 +159,7 @@
                             </div>
                         </div>
                         <hr class="clearfix" />
-                        <div class="col-xs-12">
+                        <div class="col-md-12">
 
                             <div class="form-group">
                                 @Html.LabelFor(model => model.a1why, htmlAttributes: new { @class = "control-label col-md-12" })
@@ -211,12 +211,12 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xs-12">
+                        <div class="col-md-12">
                             <br />
                             <div class="form-group">
 
                                 <div class="col-md-offset-2 col-md-10">
-                                    <input type="submit" value="Guardar Cambios en Registro" class="btn btn-success col-xs-6" />
+                                    <input type="submit" value="Guardar Cambios en Registro" class="btn btn-success col-md-6" />
                                 </div>
                             </div>
                         </div>
@@ -227,7 +227,7 @@
 
 
         <!-- Basic Example -->
-        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-md-12">
             <div class="x_panel cbr">
                 <div class="x_title">
                     <center><h3> Condicion NG</h3></center>
@@ -304,7 +304,7 @@
             </div>
         </div>
         <!-- Basic Example -->
-        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" id="Evidence">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-md-12" id="Evidence">
             <div class="x_panel cbv">
                 <div class="x_title">
                     <center><h3>Condicion OK</h3></center>

@@ -1,13 +1,10 @@
 ﻿@model IEnumerable<Flex_SGM.Models.CDockaudit>
 @{
+      ViewBag.Title = "Calidad";
     Layout = "~/Views/Shared/_LayoutC.cshtml";
 }
-@{
-    ViewBag.Title = "Calidad";
-}
-
 <Center class="clearfix">
-    <div class="col-xs-6">
+    <div class="col-md-6">
         <a href="https://www.lpaadmin.com/lpaadmin/login.aspx" class="btn btn-default">LPA ADMIN</a>
         <br>
         <br>
@@ -19,7 +16,7 @@
         <br>
         <div>@Html.ActionLink("Costos de calidad", "Index", "QuaCosts", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();", @class = "btn btn-default" })</div>
     </div>
-    <div class="col-xs-6">
+    <div class="col-md-6">
         <br>
         <div>@Html.ActionLink("KBM Gerencial", "Working", "Home", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();", @class = "btn btn-default" })</div>
         <br>

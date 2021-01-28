@@ -8,13 +8,13 @@
 <div class="clearfix">
     @using (Html.BeginForm())
     {
-        <div class="col-xs-12 ">
+        <div class="col-md-12 ">
             <center><h2>Andon's</h2></center>
             <div class="x_panel">
                 <div class="x_title clearfix">
-                    <div class="col-xs-12">
-                        <div class="col-xs-6">
-                            <div class="input-daterange input-group col-lg-offset-2 col-xs-10" id="bs_datepicker_range_container">
+                    <div class="col-md-12">
+                        <div class="col-md-6">
+                            <div class="input-daterange input-group col-lg-offset-2 col-md-10" id="bs_datepicker_range_container">
 
                                 <label for="FechaInicial">Fecha Inicial...</label>
                                 <input type="text" class="form-control" name="dti" value=@ViewBag.datei autocomplete="off">
@@ -26,14 +26,14 @@
 
                             </div>
                         </div>
-                        <div class="form-group col-xs-2">
+                        <div class="form-group col-md-2">
                             <label for="tipor">Mostrar por:</label>
                             <div class="col-md-10" data-toggle="tooltip" title=" Filtro para el pareto ">
                                 @Html.DropDownList("btn", null, htmlAttributes: new { @class = "form-control" })
 
                             </div>
                         </div>
-                        <div class="form-group col-xs-2">
+                        <div class="form-group col-md-2">
                             <label for="tipor">Pareto por:</label>
                             <div class="col-md-10" data-toggle="tooltip" title=" Filtro para el pareto ">
                                 @Html.DropDownList("paret", null, htmlAttributes: new { @class = "form-control" })
@@ -47,11 +47,11 @@
                 </div>
                 <div class="x_content">
                     <center>
-                        <div class="col-lg-offset-3 col-xs-9">
+                        <div class="col-lg-offset-3 col-md-9">
 
                             @Html.ActionLink("Menu Calidad", "Index", "Calidad", null, htmlAttributes: new { @class = "btn btn-default", @onclick = "$('#loadingImg').show();" })
 
-                            <input class="btn btn-primary col-xs-2" onclick="$('#loadingImg').show();" type="submit">
+                            <input class="btn btn-primary col-md-2" onclick="$('#loadingImg').show();" type="submit">
 
 
                         </div>
@@ -61,7 +61,7 @@
 
         </div>
     }
-    <div class="col-xs-8" style="float:left">
+    <div class="col-md-8" style="float:left">
         <div class="x_panel">
             <div class="x_title clearfix">
                 <h2> Andons del @ViewBag.dx</h2>
@@ -72,7 +72,7 @@
         </div>
     </div>
 
-    <div class="col-xs-4" style="float:left">
+    <div class="col-md-4" style="float:left">
         <div class="x_panel">
             <div class="x_title clearfix">
                 <h2> Pareto</h2>
@@ -83,13 +83,13 @@
         </div>
     </div>
 
-    <div class="col-xs-12 ">
+    <div class="col-md-12 ">
         <div class="x_panel">
             <div class="x_title clearfix">
                 <h2> Lista de Andons del @ViewBag.dx</h2>
             </div>
             <div class="x_content ">
-                <table class="table table-bordered table-striped clearfix" style="width:100%" id="tableq">
+                <table class="tabled table-bordered table-striped clearfix" style="width:100%" id="tableq">
                     <thead>
                         <tr>
                             <th>
@@ -333,41 +333,7 @@
 
             $(document).ready(function () {
 
-              $('#tableq').DataTable({
-                "dom": 'lBfrtip',
-                "lengthMenu": [[5, 15, 50, -1], ["5", "15", "50", "Todos"]],
-                   "buttons": ['copy', 'csv','print','pdf','excel'],
-                "order": [[0, "desc"]],
-                "scrollX": true,
-                "language": {
-                    "sProcessing": "Procesando...",
-                    "sLengthMenu": "Mostrar _MENU_ registros",
-                    "sZeroRecords": "No se encontraron resultados",
-                    "sEmptyTable": "Ningún dato disponible en esta tabla =(",
-                    "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-                    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
-                    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
-                    "sInfoPostFix": "",
-                    "sSearch": "Buscar:",
-                    "sUrl": "",
-                    "sInfoThousands": ",",
-                    "sLoadingRecords": "Cargando...",
-                    "oPaginate": {
-                        "sFirst": "Primero",
-                        "sLast": "Último",
-                        "sNext": "Siguiente",
-                        "sPrevious": "Anterior"
-                    },
-                    "oAria": {
-                        "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
-                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-                    },
-                    "buttons": {
-                        "copy": "Copiar",
-                        "colvis": "Visibilidad"
-                    }
-                }
-            });
+
 
 
             var ctqx = document.getElementById('chartme');

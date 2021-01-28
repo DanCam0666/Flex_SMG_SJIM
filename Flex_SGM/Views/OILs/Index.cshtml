@@ -18,8 +18,8 @@
         </ul>
     </div>
     <div class="x_content">
-        <div class="col-xs-12">
-            <div class="col-xs-3">
+        <div class="col-md-12">
+            <div class="col-md-3">
                 <div class="h2"> Tarjetas de TPMs Totales: @ViewBag.tpmtotal</div>
                 <div class="h2"> Tarjetas de TPMs Realizándose:   @ViewBag.tpmActivos </div>
                 <div class="h2"> Tarjetas de TPMs Terminados:  @ViewBag.tpmrealizada </div>
@@ -27,15 +27,15 @@
                 <div class="h2"> Tarjetas de TPMs No Realizados: @ViewBag.tpmNoReali</div>
 
             </div>
-            <div class="col-xs-9">
+            <div class="col-md-9">
                 <canvas width="600" height="200" class="chartjs" id="chart-area" style="width: 600px; height: 200px; display: block;"></canvas>
             </div>
         </div>
-        <div class="col-xs-12">
+        <div class="col-md-12">
             <h2> Tarjetas de TPMs por Area</h2>
             <canvas width="600" height="200" class="chartjs" id="chart-area-div" style="width: 600px; height: 200px; display: block;"></canvas>
         </div>
-        <div class="col-xs-12">
+        <div class="col-md-12">
             <h2> Tarjetas de TPMs por Semana</h2>
             <canvas width="600" height="200" class="chartjs" id="chart-area-sem" style="width: 600px; height: 200px; display: block;"></canvas>
         </div>
@@ -46,16 +46,14 @@
 
 
 
-@using (Html.BeginForm())
-{
-    <div class="x_panel clearfix">
-        <div class="x_title clearfix">
-            <h2 id="alerts">Filtros de OILs <small> Filtros de busqueda avanzada</small></h2>
-        </div>
-        <div class="body">
-            <div class="col-xs-12">
+<div class="x_panel">
+    <div class="x_title clearfix">
+        <h2 id="alerts">OILs <small>Listado de OILs segun filtro aplicado</small></h2>
+        @using (Html.BeginForm())
+        {
+            <div class="col-md-12">
 
-                <div class="col-xs-3">
+                <div class="col-md-3">
                     <div class="form-group">
                         <label for="texto">Filtrar por texto...</label>
                         <input type="text" class="form-control" name="SearchString" />
@@ -63,7 +61,7 @@
 
                 </div>
 
-                <div class="col-xs-3">
+                <div class="col-md-3">
 
                     <div class="form-group">
                         <label for="amaquina">Filtrar por Tipo de OIL...</label>
@@ -76,7 +74,7 @@
                 </div>
 
 
-                <div class="col-xs-3">
+                <div class="col-md-3">
 
                     <div class="form-group">
                         <label for="maquina">Filtrar por Nombre de Maquina...</label>
@@ -90,38 +88,32 @@
 
 
             </div>
-            <div class="col-xs-12">
-                <div class="col-xs-2">
+            <div class="col-md-12">
+                <div class="col-md-2">
                     <label data-toggle="tooltip" title="Selecciona todas las Actividades finalizadas"><input type="checkbox" name="c1" id="arealizada" value=true checked>Actividades Finalizadas</label>
                 </div>
-                <div class="col-xs-2">
+                <div class="col-md-2">
                     <label data-toggle="tooltip" title="Selecciona todas las Actividades sin fecha compromiso"><input type="checkbox" name="c2" id="asinfecha" value=true checked>Actividades sin Fecha</label>
                 </div>
-                <div class="col-xs-2">
+                <div class="col-md-2">
                     <label data-toggle="tooltip" title="Selecciona todas las Actividades en proceso"><input type="checkbox" name="c3" id="confecha" value=true checked>Actividades en Proceso</label>
                 </div>
-                <div class="col-xs-2">
+                <div class="col-md-2">
                     <label data-toggle="tooltip" title="Selecciona todas las Actividades con fecha muy proxima"><input type="checkbox" name="c4" id="afechaprox" value=true checked>Actividades Fecha Proxima</label>
                 </div>
-                <div class="col-xs-2">
+                <div class="col-md-2">
                     <label data-toggle="tooltip" title="Selecciona todas las Actividades no realizadas en tiempo"><input type="checkbox" name="c5" id="anorealizada" value=true checked>Actividades No realizadas</label>
                 </div>
-                <div class="col-xs-2">
+                <div class="col-md-2">
                     <label data-toggle="tooltip" title="Selecciona todas las Actividades urgentes"><input type="checkbox" name="c6" id="aurgente" value=true checked>Actividades Urgentes</label>
                 </div>
             </div>
-            <div class="col-xs-12">
+            <div class="col-md-12">
                 <input data-toggle="tooltip" title="¡Muestra los valores Filtrados en la tabla de abajo!" type="submit" name="btn" value="Buscar OILs" class="btn btn-primary col-lg-offset-2 col-md-4" />
                 <input data-toggle="tooltip" title="¡Exportar a Excel sin formato!" type="submit" name="btn" value="Exportar Excel" class="btn btn-primary col-md-4" />
             </div>
+        }
         </div>
-    </div>
-}
-
-<div class="x_panel">
-    <div class="x_title clearfix">
-        <h2 id="alerts">OILs <small>Listado de OILs segun filtro aplicado</small></h2>
-    </div>
     <div class="x_content clearfix">
         <table class="table table-bordered table-striped" id="proye" style="width:100%; overflow-x:auto; ">
             <thead>
@@ -281,7 +273,7 @@
         </ul>
     </div>
     <div class="x_content">
-        <div class="col-xs-3">
+        <div class="col-md-3">
             <div class="h2">Actividades Totales: @ViewBag.atotal</div>
             <div class="h2">Actividades Realizándose:   @ViewBag.aActivos </div>
             <div class="h2">Actividades Terminadas:  @ViewBag.arealizada </div>
@@ -292,10 +284,10 @@
 
 
         </div>
-        <div class="col-xs-5">
+        <div class="col-md-5">
             <canvas width="400" height="300" class="chartjs" id="chart-area2" style="width: 600px; height: 200px; display: block;"></canvas>
         </div>
-        <div class="col-xs-4">
+        <div class="col-md-4">
 
             <h2>Ramon Arredondo y Mario Castilla</h2>
             <div class="h2">Actividades Asignadas:   @ViewBag.gpActivos </div>

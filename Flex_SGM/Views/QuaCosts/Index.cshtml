@@ -54,116 +54,118 @@
     </div>
 }
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.AndonSupervisores.Supervisor)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Billto.bill)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Location)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Primary.Area)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.QuaCodes.Code)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Fecha)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CPO)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ioc)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.aod)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.partnum)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.price)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.issueDescription)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.rootcause)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Countermeasure)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Comments)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AVFSR)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.AndonSupervisores.Supervisor)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Billto.bill)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Location)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Primary.Area)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.QuaCodes.Code)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Fecha)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.CPO)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.ioc)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.aod)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.partnum)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.price)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.issueDescription)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.rootcause)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Countermeasure)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Comments)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.AVFSR)
-    </td>
-    <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-        @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-    </td>
-</tr>
-    }
-
+<table class="tabled table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AndonSupervisores.Supervisor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Billto.bill)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Primary.Area)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QuaCodes.Code)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fecha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CPO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ioc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.aod)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.partnum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.issueDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.rootcause)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Countermeasure)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Comments)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AVFSR)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AndonSupervisores.Supervisor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Billto.bill)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Location)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Primary.Area)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.QuaCodes.Code)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fecha)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CPO)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ioc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.aod)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.partnum)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.issueDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.rootcause)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Countermeasure)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Comments)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AVFSR)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>

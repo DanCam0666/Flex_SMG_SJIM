@@ -10,7 +10,7 @@
 <div>
     @Html.ActionLink("Create New", "Create", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();", @class = "btn btn-primary" })
     @Html.ActionLink("Registro de Andon v2", "Index", "CAndons2", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();", @class = "btn btn-default" })</div>
-<div class="col-xs-6">
+<div class="col-md-6">
     @Html.ActionLink("Clientes", "Index", "cClientes", null, htmlAttributes: new { @class = "btn btn-default", @onclick = "$('#loadingImg').show();" })
     @Html.ActionLink("Proyectos", "Index", "cProyectos", null, htmlAttributes: new { @class = "btn btn-default", @onclick = "$('#loadingImg').show();" })
     @Html.ActionLink("Areas", "Index", "cAreas", null, htmlAttributes: new { @class = "btn btn-default", @onclick = "$('#loadingImg').show();" })
@@ -19,7 +19,7 @@
     @Html.ActionLink("Auditores", "Index", "AndonAuditors", null, htmlAttributes: new { @class = "btn btn-default", @onclick = "$('#loadingImg').show();" })
 </div>
 <div class="x_panel">
-    <table class="table table-bordered table-striped clearfix" style="width:100%" id="tablecomm">
+    <table class="tabled table-bordered table-striped clearfix" style="width:100%" id="tablecomm">
         <thead>
             <tr>
                 <th>

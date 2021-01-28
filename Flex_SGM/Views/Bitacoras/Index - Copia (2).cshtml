@@ -12,18 +12,18 @@
 @using (Html.BeginForm())
 {
     <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-md-12">
             <div class="card">
                 <div class="body">
                     <div class="row">
-                        <div class="col-xs-5">
+                        <div class="col-md-5">
 
                             <div class="form-group">
                                 <label for="texto">Filtrar por texto...</label>
                                 <input type="text" class="form-control" name="SearchString" />
                             </div>
 
-                            <div class="col-xs-6">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="area">Filtrar por Area usuario...</label>
                                     <div class="col-md-10">
@@ -32,7 +32,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xs-6">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="puesto">Filtrar por Puesto...</label>
                                     <div class="col-md-10">
@@ -43,7 +43,7 @@
                             </div>
                         </div>
 
-                        <div class="col-xs-5">
+                        <div class="col-md-5">
                             <div class="input-daterange input-group" id="bs_datepicker_range_container">
 
                                 <label for="FechaInicial">Fecha Inicial...</label>
@@ -55,7 +55,7 @@
                                 <input type="text" class="form-control" name="fecha_final" value=@ViewBag.fecha_final autocomplete="off">
 
                             </div>
-                            <div class="col-xs-6">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="amaquina">Filtrar por Area Maquina...</label>
                                     <div class="col-md-10">
@@ -65,7 +65,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-xs-6">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="maquina">Filtrar por Nombre de Maquina...</label>
                                     <div class="col-md-10">
@@ -76,7 +76,7 @@
                             </div>
                         </div>
 
-                        <div class="col-xs-2">
+                        <div class="col-md-2">
                             <div class="switch">
                                 <label><input type="checkbox" name="t1" id="t1" value=true checked>Primer Turno</label>
                             </div>
@@ -94,7 +94,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xs-12">
+                    <div class="col-md-12">
 
                         <input data-toggle="tooltip" title="¡Muestra los valores Filtrados en la tabla de abajo!" type="submit" name="btn" value="Buscar Bitacora" class="btn btn-primary col-md-2" />
                         <input data-toggle="tooltip" title="¡Top 5 de los filtros seleccionados!" type="submit" name="btn" value="Top 5" class="btn btn-primary col-md-1" />
@@ -506,39 +506,7 @@
             $('[data-toggle="tooltip"]').tooltip();
             $("#Normaldrop").chosen();
 
-            $('#bitacora').DataTable({
-                "lengthMenu": [[5, 15, 50, -1], [5, 15, 50, "Todos"]],
-                "order": [[0, "desc"]],
-                "scrollX": true,
-                "language": {
-                    "sProcessing": "Procesando...",
-                    "sLengthMenu": "Mostrar _MENU_ registros",
-                    "sZeroRecords": "No se encontraron resultados",
-                    "sEmptyTable": "Ningún dato disponible en esta tabla =(",
-                    "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-                    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
-                    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
-                    "sInfoPostFix": "",
-                    "sSearch": "Buscar:",
-                    "sUrl": "",
-                    "sInfoThousands": ",",
-                    "sLoadingRecords": "Cargando...",
-                    "oPaginate": {
-                        "sFirst": "Primero",
-                        "sLast": "Último",
-                        "sNext": "Siguiente",
-                        "sPrevious": "Anterior"
-                    },
-                    "oAria": {
-                        "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
-                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-                    },
-                    "buttons": {
-                        "copy": "Copiar",
-                        "colvis": "Visibilidad"
-                    }
-                }
-            });
+      
         });
         </script>
 

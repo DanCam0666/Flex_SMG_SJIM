@@ -9,31 +9,34 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Code)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Code_Definition)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Code)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Code_Definition)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.QuaCodesID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.QuaCodesID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.QuaCodesID })
-        </td>
-    </tr>
-}
-
+<table class="tabled table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Code)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Code_Definition)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Code)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Code_Definition)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.QuaCodesID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.QuaCodesID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.QuaCodesID })
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>

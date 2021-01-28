@@ -74,14 +74,14 @@
           
 
 
-                        <div class="form-group col-xs-12">
+                        <div class="form-group col-md-12">
 
-                            <div class="col-xs-4">
+                            <div class="col-md-4">
                                 @Html.Label("Tipo", htmlAttributes: new { @class = "control-label" })
                                 @Html.DropDownList("ltipos", null, htmlAttributes: new { @class = "form-control", data_url = Url.Action("code1"), id = "MyViewFallas_Desx11" })
                                 @Html.ValidationMessage("ltipos")
                             </div>
-                            <div class="col-xs-4">
+                            <div class="col-md-4">
                                 @Html.Label("Falla", htmlAttributes: new { @class = "control-label" })
                                 @Html.DropDownList("lareas", null, htmlAttributes: new { @class = "form-control", data_url = Url.Action("code2"), id = "MyViewFallas_Desx22" })
                                 @Html.ValidationMessage("lareas")
@@ -148,36 +148,36 @@
                                 @Html.ValidationMessageFor(model => model.Tiempo, "", new { @class = "text-danger" })
                             </div>
                         </div>
-                        <div class="col-xs-12">
-                            <div class="form-group col-xs-3">
+                        <div class="col-md-12">
+                            <div class="form-group col-md-3">
                                 @Html.LabelFor(model => model.findesemana, htmlAttributes: new { @class = "control-label " })
                                 <p class="col-md-6">
                                     @Html.EditorFor(model => model.findesemana, new { htmlAttributes = new { @class = "checkbox2" } })
                                     @Html.ValidationMessageFor(model => model.findesemana, "", new { @class = "text-danger" })
                                 </p>
                             </div>
-                            <div class="form-group col-xs-3">
+                            <div class="form-group col-md-3">
                                 @Html.LabelFor(model => model.Fallaoperacion, htmlAttributes: new { @class = "control-label" })
                                 <p class="col-md-6">
                                     @Html.EditorFor(model => model.Fallaoperacion, new { htmlAttributes = new { @class = "checkbox2" } })
                                     @Html.ValidationMessageFor(model => model.Fallaoperacion, "", new { @class = "text-danger" })
                                 </p>
                             </div>
-                            <div class="form-group col-xs-2">
+                            <div class="form-group col-md-2">
                                 @Html.LabelFor(model => model.MttoPreventivo, htmlAttributes: new { @class = "control-label" })
                                 <div class="col-md-6">
                                     @Html.EditorFor(model => model.MttoPreventivo, new { htmlAttributes = new { @class = "checkbox2" } })
                                     @Html.ValidationMessageFor(model => model.MttoPreventivo, "", new { @class = "text-danger" })
                                 </div>
                             </div>
-                            <div class="form-group col-xs-2">
+                            <div class="form-group col-md-2">
                                 @Html.LabelFor(model => model.MttoCorrectivo, htmlAttributes: new { @class = "control-label" })
                                 <div class="col-md-6">
                                     @Html.EditorFor(model => model.MttoCorrectivo, new { htmlAttributes = new { @class = "checkbox2" } })
                                     @Html.ValidationMessageFor(model => model.MttoCorrectivo, "", new { @class = "text-danger" })
                                 </div>
                             </div>
-                            <div class="form-group col-xs-2">
+                            <div class="form-group col-md-2">
                                 @Html.LabelFor(model => model.MttoMejora, htmlAttributes: new { @class = "control-label " })
                                 <div class="col-md-6">
                                     @Html.EditorFor(model => model.MttoMejora, new { htmlAttributes = new { @class = "checkbox2" } })
@@ -185,14 +185,14 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group col-xs-3">
+                        <div class="form-group col-md-3">
                             @Html.LabelFor(model => model.noterminado, htmlAttributes: new { @class = "control-label  col-md-9" })
                             <div class="col-md-6">
                                 @Html.EditorFor(model => model.noterminado, new { htmlAttributes = new { @class = "checkbox2" } })
                                 @Html.ValidationMessageFor(model => model.noterminado, "", new { @class = "text-danger" })
                             </div>
                         </div>
-                        <div class="form-group col-xs-9">
+                        <div class="form-group col-md-9">
                             <div class="col-md-10" id="boton">
                                 <input type="submit" onclick="$('#loadingImg').show();setTimeout(function () { $('#loadingImg').fadeOut(); }, 5000);" value="Crear Registro" class="btn btn-success" style="width:600px;" />
                             </div>

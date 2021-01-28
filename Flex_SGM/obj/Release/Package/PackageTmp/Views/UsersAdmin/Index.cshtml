@@ -18,7 +18,7 @@
 <h2>
     Usuarios sin Rol...
 </h2>
-<table class="table table-bordered table-striped" id="table_id" style="width:100%">
+<table class="tabled table-bordered table-striped" id="table_id" style="width:100%">
     <thead>
         <tr>
             <th>
@@ -55,7 +55,7 @@
 <h2>
     Usuarios de Mantenimiento...
 </h2>
-<table class="table table-bordered table-striped" id="table_id1" style="width:100%">
+<table class="tabled table-bordered table-striped" id="table_id1" style="width:100%">
     <thead>
         <tr>
             <th>
@@ -92,7 +92,7 @@
 <h2>
     Usuarios Supervisores...
 </h2>
-<table class="table table-bordered table-striped" id="table_id2" style="width:100%">
+<table class="tabled table-bordered table-striped" id="table_id2" style="width:100%">
     <thead>
         <tr>
             <th>
@@ -129,7 +129,7 @@
 <h2>
     Usuarios admin...
 </h2>
-<table class="table table-bordered table-striped" id="table_id3" style="width:100%">
+<table class="tabled table-bordered table-striped" id="table_id3" style="width:100%">
     <thead>
         <tr>
             <th>
@@ -164,7 +164,7 @@
 </table>
 <hr />
 <h2>Usuarios Con Rol...</h2>
-<table class="table table-bordered table-striped" id="table_id4" style="width:100%">
+<table class="tabled table-bordered table-striped" id="table_id4" style="width:100%">
     <thead>
         <tr>
             <th>
@@ -198,180 +198,3 @@
     </tbody>
 </table>
 
-
-@section Scripts {
-
-    <script>
-        $(document).ready(function () {
-            $('#table_id').DataTable({
-                "lengthMenu": [[5, 15, 50, -1], [5, 15, 50, "Todos"]],
-                "order": [[0, "desc"]],
-                "scrollX": true,
-                "language": {
-                    "sProcessing": "Procesando...",
-                    "sLengthMenu": "Mostrar _MENU_ registros",
-                    "sZeroRecords": "No se encontraron resultados",
-                    "sEmptyTable": "Ningún dato disponible en esta tabla =(",
-                    "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-                    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
-                    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
-                    "sInfoPostFix": "",
-                    "sSearch": "Buscar:",
-                    "sUrl": "",
-                    "sInfoThousands": ",",
-                    "sLoadingRecords": "Cargando...",
-                    "oPaginate": {
-                        "sFirst": "Primero",
-                        "sLast": "Último",
-                        "sNext": "Siguiente",
-                        "sPrevious": "Anterior"
-                    },
-                    "oAria": {
-                        "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
-                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-                    },
-                    "buttons": {
-                        "copy": "Copiar",
-                        "colvis": "Visibilidad"
-                    }
-                }
-            });
-                        $('#table_id1').DataTable({
-                "lengthMenu": [[5, 15, 50, -1], [5, 15, 50, "Todos"]],
-                "order": [[0, "desc"]],
-                "scrollX": true,
-                "language": {
-                    "sProcessing": "Procesando...",
-                    "sLengthMenu": "Mostrar _MENU_ registros",
-                    "sZeroRecords": "No se encontraron resultados",
-                    "sEmptyTable": "Ningún dato disponible en esta tabla =(",
-                    "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-                    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
-                    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
-                    "sInfoPostFix": "",
-                    "sSearch": "Buscar:",
-                    "sUrl": "",
-                    "sInfoThousands": ",",
-                    "sLoadingRecords": "Cargando...",
-                    "oPaginate": {
-                        "sFirst": "Primero",
-                        "sLast": "Último",
-                        "sNext": "Siguiente",
-                        "sPrevious": "Anterior"
-                    },
-                    "oAria": {
-                        "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
-                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-                    },
-                    "buttons": {
-                        "copy": "Copiar",
-                        "colvis": "Visibilidad"
-                    }
-                }
-            });
-            $('#table_id2').DataTable({
-                "lengthMenu": [[5, 15, 50, -1], [5, 15, 50, "Todos"]],
-                "order": [[0, "desc"]],
-                "scrollX": true,
-                "language": {
-                    "sProcessing": "Procesando...",
-                    "sLengthMenu": "Mostrar _MENU_ registros",
-                    "sZeroRecords": "No se encontraron resultados",
-                    "sEmptyTable": "Ningún dato disponible en esta tabla =(",
-                    "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-                    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
-                    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
-                    "sInfoPostFix": "",
-                    "sSearch": "Buscar:",
-                    "sUrl": "",
-                    "sInfoThousands": ",",
-                    "sLoadingRecords": "Cargando...",
-                    "oPaginate": {
-                        "sFirst": "Primero",
-                        "sLast": "Último",
-                        "sNext": "Siguiente",
-                        "sPrevious": "Anterior"
-                    },
-                    "oAria": {
-                        "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
-                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-                    },
-                    "buttons": {
-                        "copy": "Copiar",
-                        "colvis": "Visibilidad"
-                    }
-                }
-            });
-                        $('#table_id3').DataTable({
-                "lengthMenu": [[5, 15, 50, -1], [5, 15, 50, "Todos"]],
-                "order": [[0, "desc"]],
-                "scrollX": true,
-                "language": {
-                    "sProcessing": "Procesando...",
-                    "sLengthMenu": "Mostrar _MENU_ registros",
-                    "sZeroRecords": "No se encontraron resultados",
-                    "sEmptyTable": "Ningún dato disponible en esta tabla =(",
-                    "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-                    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
-                    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
-                    "sInfoPostFix": "",
-                    "sSearch": "Buscar:",
-                    "sUrl": "",
-                    "sInfoThousands": ",",
-                    "sLoadingRecords": "Cargando...",
-                    "oPaginate": {
-                        "sFirst": "Primero",
-                        "sLast": "Último",
-                        "sNext": "Siguiente",
-                        "sPrevious": "Anterior"
-                    },
-                    "oAria": {
-                        "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
-                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-                    },
-                    "buttons": {
-                        "copy": "Copiar",
-                        "colvis": "Visibilidad"
-                    }
-                }
-                        });
-                        $('#table_id4').DataTable({
-                "lengthMenu": [[5, 15, 50, -1], [5, 15, 50, "Todos"]],
-                "order": [[0, "desc"]],
-                "scrollX": true,
-                "language": {
-                    "sProcessing": "Procesando...",
-                    "sLengthMenu": "Mostrar _MENU_ registros",
-                    "sZeroRecords": "No se encontraron resultados",
-                    "sEmptyTable": "Ningún dato disponible en esta tabla =(",
-                    "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-                    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
-                    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
-                    "sInfoPostFix": "",
-                    "sSearch": "Buscar:",
-                    "sUrl": "",
-                    "sInfoThousands": ",",
-                    "sLoadingRecords": "Cargando...",
-                    "oPaginate": {
-                        "sFirst": "Primero",
-                        "sLast": "Último",
-                        "sNext": "Siguiente",
-                        "sPrevious": "Anterior"
-                    },
-                    "oAria": {
-                        "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
-                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-                    },
-                    "buttons": {
-                        "copy": "Copiar",
-                        "colvis": "Visibilidad"
-                    }
-                }
-            });
-        });
-
-
-
-    </script>
-
-}

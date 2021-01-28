@@ -232,6 +232,7 @@
     <Compile Include="Controllers\ereasonsController.cs" />
     <Compile Include="Controllers\FallasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IngenieriaController.cs" />
     <Compile Include="Controllers\JuntasController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MaquinasController.cs" />
@@ -2937,6 +2938,7 @@
     <Content Include="Views\pcrs\Details.cshtml" />
     <Content Include="Views\pcrs\Edit.cshtml" />
     <Content Include="Views\pcrs\Index.cshtml" />
+    <Content Include="Views\Ingenieria\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
