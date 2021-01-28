@@ -164,7 +164,7 @@ $(function () {
 function ReloadAfterDelay() {
 	setTimeout(function () {
 		window.location.reload(1);
-	}, 4000);
+	}, 2000);
 }
 
 function mOut(obj) {

@@ -159,6 +159,14 @@ $(function () {
     setTimeout(function () { $('.page-loader-wrapper').fadeOut(); }, 50);
 });
 
+
+
+function ReloadAfterDelay() {
+	setTimeout(function () {
+		window.location.reload(1);
+	}, 4000);
+}
+
 function mOut(obj) {
 	//obj.innerHTML = "Mouse Over Me"
 	$('#Nav2').show();

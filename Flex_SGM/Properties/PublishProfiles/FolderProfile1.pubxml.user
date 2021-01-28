@@ -343,7 +343,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>04/01/2020 20:21:24</publishTime>
     </File>
     <File Include="Addon/buildGM/js/mycustom.js">
-      <publishTime>01/28/2021 12:03:22</publishTime>
+      <publishTime>01/28/2021 14:05:35</publishTime>
     </File>
     <File Include="Addon/Charts/Chart.min.css">
       <publishTime>10/26/2020 13:19:59</publishTime>
@@ -7246,10 +7246,10 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>10/26/2020 13:25:57</publishTime>
     </File>
     <File Include="bin/Flex_SGM.dll">
-      <publishTime>01/28/2021 13:55:20</publishTime>
+      <publishTime>01/28/2021 14:07:59</publishTime>
     </File>
     <File Include="bin/Flex_SGM.pdb">
-      <publishTime>01/28/2021 13:55:20</publishTime>
+      <publishTime>01/28/2021 14:07:59</publishTime>
     </File>
     <File Include="bin/IBM.Data.DB2.iSeries.dll">
       <publishTime>10/26/2020 13:21:31</publishTime>
@@ -7924,7 +7924,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>01/26/2021 11:34:48</publishTime>
     </File>
     <File Include="Views/CAndons2/Details.cshtml">
-      <publishTime>01/28/2021 13:35:59</publishTime>
+      <publishTime>01/28/2021 14:06:52</publishTime>
     </File>
     <File Include="Views/CAndons2/Edit.cshtml">
       <publishTime>01/28/2021 08:16:19</publishTime>
@@ -7972,7 +7972,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>06/22/2020 20:49:02</publishTime>
     </File>
     <File Include="Views/CDockaudits/Details.cshtml">
-      <publishTime>01/28/2021 13:46:42</publishTime>
+      <publishTime>01/28/2021 14:06:10</publishTime>
     </File>
     <File Include="Views/CDockaudits/Edit - Copy.cshtml">
       <publishTime>06/22/2020 20:49:14</publishTime>
@@ -8068,7 +8068,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>10/26/2020 13:21:24</publishTime>
     </File>
     <File Include="Views/CReclamos/Details.cshtml">
-      <publishTime>01/28/2021 13:47:27</publishTime>
+      <publishTime>01/28/2021 14:06:32</publishTime>
     </File>
     <File Include="Views/CReclamos/Edit.cshtml">
       <publishTime>01/28/2021 08:16:17</publishTime>
@@ -8239,7 +8239,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>10/26/2020 13:21:25</publishTime>
     </File>
     <File Include="Views/OILs/Details.cshtml">
-      <publishTime>01/28/2021 13:48:06</publishTime>
+      <publishTime>01/28/2021 14:05:35</publishTime>
     </File>
     <File Include="Views/OILs/Edit.cshtml">
       <publishTime>10/26/2020 13:21:25</publishTime>
