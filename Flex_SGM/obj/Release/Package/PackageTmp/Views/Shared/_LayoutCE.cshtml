@@ -51,15 +51,21 @@
                                     <span class="caret"></span>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu2">
-
                                     <li>@Html.ActionLink("-", "Index", "pcrs")</li>
-                                    <li>@Html.ActionLink("PCRs", "Index", "pcrs", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();" })</li>
-                                    <li>@Html.ActionLink("Pcr Originators", "Index", "eoriginators", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();" })</li>
-                                    <li>@Html.ActionLink("Pcr Reasons", "Index", "ereasons", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();" })</li>
                                     <li>@Html.ActionLink("Menu Ingenieria", "Index", "Ingenieria", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();" })</li>
                                 </ul>
                             </li>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    Calidad
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu2">
 
+                                    <li>@Html.ActionLink("-", "Index", "Calidad")</li>
+                                    <li>@Html.ActionLink("Menu Calidad", "Index", "Calidad", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();" })</li>
+                                </ul>
+                            </li>
 
                             <li> @Html.Partial("_LoginPartial")</li>
                         </ul>

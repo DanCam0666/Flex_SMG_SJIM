@@ -14,6 +14,13 @@
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.PartNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RevLevel)
+            </th>
+            <th>Menu</th>
+            <th>
                 @Html.DisplayNameFor(model => model.Areas.Area)
             </th>
             <th>
@@ -30,12 +37,6 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Date)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PartNumber)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RevLevel)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.PartName)
@@ -214,7 +215,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.pcrmanagerclose)
             </th>
-            <th></th>
+
         </tr>
 
     </thead>
@@ -222,214 +223,217 @@
 
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Areas.Area)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Clientes.Cliente)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Originator.Supervisor)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Proyectos.Proyecto)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Reason.Reason)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Date)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PartNumber)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.RevLevel)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PartName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.docreason)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.docscope)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.doctypeofchange)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.cipieceprice)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.cicapital)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.citooling)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ciengineering)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.cipackaging)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ciobsolescence)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.cimaterial)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.cifreight)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ciovertime)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ciother)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.citotal)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.crannualvolume)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.crcapacityfng)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.crcapacitysupplier)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Reviewedby)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Reviewedby_date)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.support_purchasing)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.support_materials)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.support_maintenance)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.support_automation)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.support_quality)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.support_safety)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.support_environmental)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.support_tooling)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.support_stamping)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.support_welding)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.support_chrome)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.support_ecoat)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.support_topcoat)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.support_backcoat)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.support_assembly)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.support_finance)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Keymilestones_buildmrd1)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Keymilestones_buildmrd2)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Keymilestones_buildmrd3)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Keymilestones_customrrar)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Keymilestones_ppap)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Keymilestones_internalsop)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Keymilestones_customersop)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Keymilestones_closure)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.leadtime_engineering)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.leadtime_tooling)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.leadtime_facilities)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.leadtime_capital)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.leadtime_material)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.leadtime_inventory)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.leadtime_approval)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.leadtime_totallt)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.pcrrequestlvl)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.pcrverification)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.pcrdecision)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.pcrclientapproval)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.pcrclientdecision)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.pcrmanagerdecision)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.pcrmanagerclose)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-                </td>
-            </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PartNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RevLevel)
+            </td>
+            <td>
+                @Html.ActionLink("Export", "ExportFormat", new { id = item.ID }, new { @class = "btn btn-success", @target = "_blank" })
+                @Html.ActionLink("Details", "Details", new { id = item.ID }, new { @class = "btn  btn-primary", @target = "_blank" })
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "btn  btn-warning", @target = "_blank" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "btn  btn-danger" })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Areas.Area)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Clientes.Cliente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Originator.Supervisor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Proyectos.Proyecto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Reason.Reason)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.PartName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.docreason)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.docscope)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.doctypeofchange)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cipieceprice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cicapital)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.citooling)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ciengineering)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cipackaging)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ciobsolescence)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cimaterial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cifreight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ciovertime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ciother)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.citotal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.crannualvolume)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.crcapacityfng)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.crcapacitysupplier)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Reviewedby)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Reviewedby_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.support_purchasing)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.support_materials)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.support_maintenance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.support_automation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.support_quality)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.support_safety)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.support_environmental)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.support_tooling)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.support_stamping)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.support_welding)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.support_chrome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.support_ecoat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.support_topcoat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.support_backcoat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.support_assembly)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.support_finance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Keymilestones_buildmrd1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Keymilestones_buildmrd2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Keymilestones_buildmrd3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Keymilestones_customrrar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Keymilestones_ppap)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Keymilestones_internalsop)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Keymilestones_customersop)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Keymilestones_closure)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.leadtime_engineering)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.leadtime_tooling)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.leadtime_facilities)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.leadtime_capital)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.leadtime_material)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.leadtime_inventory)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.leadtime_approval)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.leadtime_totallt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pcrrequestlvl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pcrverification)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pcrdecision)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pcrclientapproval)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pcrclientdecision)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pcrmanagerdecision)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pcrmanagerclose)
+            </td>
+
+        </tr>
         }
     </tbody>
 </table>

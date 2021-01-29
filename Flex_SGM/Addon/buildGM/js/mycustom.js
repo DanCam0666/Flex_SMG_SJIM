@@ -256,10 +256,8 @@ const labels_es_ES = {
 // Panel toolbox
 $(document).ready(function () {
 
-
-
-
-
+	$('#dtc1').datetimepicker({ format: 'DD/MM/YYYY HH:mm:ss' });
+	$('#dtc2').datetimepicker({ format: 'DD/MM/YYYY HH:mm:ss' });
 
 	$('#dtp1').datetimepicker({
 		format: 'MM/YYYY'

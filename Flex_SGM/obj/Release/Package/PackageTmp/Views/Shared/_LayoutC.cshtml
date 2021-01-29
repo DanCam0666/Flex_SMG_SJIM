@@ -60,46 +60,7 @@
                                 </ul>
                             </li>
 
-                            <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                    Mantenimiento
-                                    <span class="caret"></span>
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu2">
-                                    <li>@Html.ActionLink("-", "Index", "Home")</li>
-                                    <li>@Html.ActionLink("Bitacora", "Index", "Bitacoras", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();" })</li>
-                                    <li>@Html.ActionLink("Resumen", "Repo", "Bitacoras", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();" })</li>
-                                    <li>
-                                        @Html.ActionLink(
-                                                    linkText: "Resumen Diario 1er",
-                                                    actionName: "Repo",
-                                                    controllerName: "Bitacoras",
-                                                    routeValues: new { fecha_inicial = DateTime.Now.ToShortDateString(), fecha_final = DateTime.Now.ToShortDateString(), t1 = true, t2 = false, t3 = false },
-                                                    htmlAttributes: new { @onclick = "$('#loadingImg').show();" })
-                                    </li>
-                                    <li>
-                                        @Html.ActionLink(
-                                                    linkText: "Resumen Diario 2do",
-                                                    actionName: "Repo",
-                                                    controllerName: "Bitacoras",
-                                                    routeValues: new { fecha_inicial = DateTime.Now.ToShortDateString(), fecha_final = DateTime.Now.ToShortDateString(), t1 = false, t2 = true, t3 = false },
-                                                    htmlAttributes: new { @onclick = "$('#loadingImg').show();" })
-                                    </li>
-                                    <li>
-                                        @Html.ActionLink(
-                                                    linkText: "Resumen Diario 3er",
-                                                    actionName: "Repo",
-                                                    controllerName: "Bitacoras",
-                                                    routeValues: new { fecha_inicial = DateTime.Now.AddDays(-1).ToShortDateString(), fecha_final = DateTime.Now.AddDays(-1).ToShortDateString(), t1 = false, t2 = false, t3 = true },
-                                                    htmlAttributes: new { @onclick = "$('#loadingImg').show();" })
-                                    </li>
-                                    <li>@Html.ActionLink("OILs(TPMs)", "Index", "OILs", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();" })</li>
-                                    <li>@Html.ActionLink("Metricos", "Metricos2", "Bitacoras", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();" })</li>
-                                    <li>@Html.ActionLink("Metricos V2", "Metricos3", "Bitacoras", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();" })</li>
-                                    <li>@Html.ActionLink("Troubleshooting", "Menu", "troubleshootings", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();" })</li>
-                                </ul>
-                            </li>
-
+             
 
                             <li> @Html.Partial("_LoginPartial")</li>
                         </ul>
@@ -111,8 +72,6 @@
                 <div class=" navbar-fixed-top">
                     <div class="container">
                         <a href="@Url.Action("Index", "Home")" class="navbar-text navbar-right Divider-Vertical-2"> Automatizacion</a>
-                        <a href="@Url.Action("Index", "Home")" class="navbar-text navbar-right Divider-Vertical-2"> Mantenimiento</a>
-                        <a href="@Url.Action("Index", "Home")" class="navbar-text navbar-right Divider-Vertical-2"> Calidad</a>
                         <div class="navbar-brand">
                             <p class="FNG_Blue"> Our Story</p>
                         </div>
