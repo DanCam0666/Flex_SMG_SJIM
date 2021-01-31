@@ -17,6 +17,10 @@ namespace Flex_SGM.Controllers
         // GET: QuaCosts
         public ActionResult Index()
         {
+            ViewBag.datei = DateTime.Now.AddDays(-7);
+            ViewBag.datef = DateTime.Now;
+
+
             var quaCosts = db.QuaCosts.Include(q => q.AndonSupervisores).Include(q => q.Billto).Include(q => q.Primary).Include(q => q.QuaCodes);
             return View(quaCosts.ToList());
         }
@@ -51,7 +55,7 @@ namespace Flex_SGM.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Fecha,BilltoID,Location,CPO,ioc,aod,QuaCodesID,partnum,price,AreasID,AndonSupervisoresID,issueDescription,rootcause,Countermeasure,Comments,AVFSR")] QuaCost quaCost)
+        public ActionResult Create([Bind(Include = "ID,Fecha,BilltoID,Location,CPO,ioc,aod,QuaCodesID,partnum,price,AreasID,AndonSupervisoresID,issueDescription,rootcause,Countermeasure,Comments,INV,AVFSR")] QuaCost quaCost)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +95,7 @@ namespace Flex_SGM.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Fecha,BilltoID,Location,CPO,ioc,aod,QuaCodesID,partnum,price,AreasID,AndonSupervisoresID,issueDescription,rootcause,Countermeasure,Comments,AVFSR")] QuaCost quaCost)
+        public ActionResult Edit([Bind(Include = "ID,Fecha,BilltoID,Location,CPO,ioc,aod,QuaCodesID,partnum,price,AreasID,AndonSupervisoresID,issueDescription,rootcause,Countermeasure,Comments,INV,AVFSR")] QuaCost quaCost)
         {
             if (ModelState.IsValid)
             {

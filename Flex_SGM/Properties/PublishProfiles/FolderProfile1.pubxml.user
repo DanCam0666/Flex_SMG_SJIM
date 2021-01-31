@@ -7246,10 +7246,10 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>10/26/2020 13:25:57</publishTime>
     </File>
     <File Include="bin/Flex_SGM.dll">
-      <publishTime>01/29/2021 14:06:19</publishTime>
+      <publishTime>01/31/2021 12:49:22</publishTime>
     </File>
     <File Include="bin/Flex_SGM.pdb">
-      <publishTime>01/29/2021 14:06:20</publishTime>
+      <publishTime>01/31/2021 12:49:22</publishTime>
     </File>
     <File Include="bin/IBM.Data.DB2.iSeries.dll">
       <publishTime>10/26/2020 13:21:31</publishTime>
@@ -7732,7 +7732,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>10/30/2020 13:57:09</publishTime>
     </File>
     <File Include="Templates/TemplatePCR.xlsx">
-      <publishTime>01/29/2021 14:04:10</publishTime>
+      <publishTime>01/29/2021 14:13:48</publishTime>
     </File>
     <File Include="vids/flexm.mp4">
       <publishTime>10/26/2020 13:25:36</publishTime>
@@ -7825,19 +7825,19 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>01/28/2021 12:32:19</publishTime>
     </File>
     <File Include="Views/Billtoes/Create.cshtml">
-      <publishTime>11/12/2020 12:03:40</publishTime>
+      <publishTime>01/31/2021 12:47:13</publishTime>
     </File>
     <File Include="Views/Billtoes/Delete.cshtml">
-      <publishTime>11/12/2020 12:03:40</publishTime>
+      <publishTime>01/31/2021 12:47:45</publishTime>
     </File>
     <File Include="Views/Billtoes/Details.cshtml">
-      <publishTime>11/12/2020 12:03:40</publishTime>
+      <publishTime>01/31/2021 12:47:47</publishTime>
     </File>
     <File Include="Views/Billtoes/Edit.cshtml">
-      <publishTime>11/12/2020 12:03:40</publishTime>
+      <publishTime>01/31/2021 12:47:47</publishTime>
     </File>
     <File Include="Views/Billtoes/Index.cshtml">
-      <publishTime>11/12/2020 12:03:40</publishTime>
+      <publishTime>01/31/2021 12:47:48</publishTime>
     </File>
     <File Include="Views/Bitacoras/Create.cshtml">
       <publishTime>01/28/2021 08:16:21</publishTime>
@@ -8278,7 +8278,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>01/27/2021 13:28:31</publishTime>
     </File>
     <File Include="Views/pcrs/Edit.cshtml">
-      <publishTime>01/27/2021 13:28:32</publishTime>
+      <publishTime>01/31/2021 09:50:40</publishTime>
     </File>
     <File Include="Views/pcrs/Index.cshtml">
       <publishTime>01/29/2021 13:29:43</publishTime>
@@ -8299,34 +8299,34 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>10/26/2020 13:21:26</publishTime>
     </File>
     <File Include="Views/QuaCodes/Create.cshtml">
-      <publishTime>11/12/2020 12:03:40</publishTime>
+      <publishTime>01/31/2021 12:47:48</publishTime>
     </File>
     <File Include="Views/QuaCodes/Delete.cshtml">
-      <publishTime>11/12/2020 12:03:40</publishTime>
+      <publishTime>01/31/2021 12:47:48</publishTime>
     </File>
     <File Include="Views/QuaCodes/Details.cshtml">
-      <publishTime>11/12/2020 12:03:40</publishTime>
+      <publishTime>01/31/2021 12:47:48</publishTime>
     </File>
     <File Include="Views/QuaCodes/Edit.cshtml">
-      <publishTime>11/12/2020 12:03:40</publishTime>
+      <publishTime>01/31/2021 12:47:48</publishTime>
     </File>
     <File Include="Views/QuaCodes/Index.cshtml">
-      <publishTime>01/28/2021 12:13:52</publishTime>
+      <publishTime>01/31/2021 12:47:48</publishTime>
     </File>
     <File Include="Views/QuaCosts/Create.cshtml">
-      <publishTime>01/29/2021 13:05:09</publishTime>
+      <publishTime>01/31/2021 12:48:21</publishTime>
     </File>
     <File Include="Views/QuaCosts/Delete.cshtml">
-      <publishTime>11/12/2020 13:28:32</publishTime>
+      <publishTime>01/31/2021 12:48:21</publishTime>
     </File>
     <File Include="Views/QuaCosts/Details.cshtml">
-      <publishTime>11/12/2020 13:27:54</publishTime>
+      <publishTime>01/31/2021 12:48:22</publishTime>
     </File>
     <File Include="Views/QuaCosts/Edit.cshtml">
-      <publishTime>11/12/2020 13:26:30</publishTime>
+      <publishTime>01/31/2021 12:48:22</publishTime>
     </File>
     <File Include="Views/QuaCosts/Index.cshtml">
-      <publishTime>01/28/2021 12:13:52</publishTime>
+      <publishTime>01/31/2021 12:48:22</publishTime>
     </File>
     <File Include="Views/reos/Create.cshtml">
       <publishTime>05/06/2020 19:59:16</publishTime>

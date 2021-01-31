@@ -626,7 +626,7 @@ namespace Flex_SGM.Models
         [Display(Name = "Numero de parte")]
         public string partnum { get; set; }// tabla extra con numeros de parte y descripciones
         [Display(Name = "Precio")]
-        public Double price { get; set; }
+        public double? price { get; set; }
 
         [ForeignKey("Primary")]
         [Display(Name = "Areas")]
@@ -641,8 +641,11 @@ namespace Flex_SGM.Models
         public string Countermeasure  { get; set; } ///
         [Display(Name = "Comentarios")]
         public string Comments { get; set; } ///
+        [Display(Name = "INV")]
+        public string INV { get; set; } ///Amounts valued at financial  statments rate
+        
         [Display(Name = "Monto valuado al tipo de cambio del cierre de mes")]
-        public Double AVFSR { get; set; } ///Amounts valued at financial  statments rate
+        public double? AVFSR { get; set; } ///Amounts valued at financial  statments rate
 
         public virtual cAreas Primary { get; set; }
 
