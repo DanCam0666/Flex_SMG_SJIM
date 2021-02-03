@@ -1044,12 +1044,17 @@ namespace Flex_SGM.Controllers
             string fileName = "";
             link = link.Replace(@"../../", "");
             fileName2 = fileName2 + link;
+            string dirName2 = Path.GetDirectoryName(fileName2);
             link = Server.MapPath("~/" + link);
             fileName = Path.GetFileName(link);
             byte[] fileBytes = System.IO.File.ReadAllBytes(link);
-            System.IO.File.Move(link, fileName2);
+            if (!System.IO.Directory.Exists(dirName2))
+                System.IO.Directory.CreateDirectory(dirName2);
+
+            System.IO.File.Copy(link, fileName2);
             System.IO.File.Delete(link);
             return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
+
 
 
         }
