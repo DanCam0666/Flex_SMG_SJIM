@@ -84,9 +84,9 @@ namespace Flex_SGM.Controllers
                     }
                 }
                 labels = labels.TrimEnd(',', (char)39);
-                labels = labels + "'";
-                gdata.TrimEnd(',', (char)39);
-                gdata2.TrimEnd(',', (char)39);
+                labels = labels + "'"; labels = labels.Replace("\r\n", "");
+            gdata= gdata.TrimEnd(',',' ', (char)39);
+            gdata2= gdata2.TrimEnd(',',' ', (char)39);
                 ViewBag.labelsgrap = labels;
                 ViewBag.datasgrap = gdata;
                 ViewBag.data2sgrap = gdata2;
@@ -109,9 +109,9 @@ namespace Flex_SGM.Controllers
                     }
 
                     labels = labels.TrimEnd(',', (char)39);
-                    labels = labels + "'";
-                    gdata.TrimEnd(',', (char)39);
-                    gdata2.TrimEnd(',', (char)39);
+                    labels = labels + "'"; labels = labels.Replace("\r\n", "");
+                gdata= gdata.TrimEnd(',',' ', (char)39);
+                gdata2= gdata2.TrimEnd(',',' ', (char)39);
                     ViewBag.labelsgrap2 = labels;
                     ViewBag.datasgrap2 = gdata;
                     ViewBag.data2sgrap2 = gdata2;
@@ -135,9 +135,9 @@ namespace Flex_SGM.Controllers
                     }
 
                     labels = labels.TrimEnd(',', (char)39);
-                    labels = labels + "'";
-                    gdata.TrimEnd(',', (char)39);
-                    gdata2.TrimEnd(',', (char)39);
+                    labels = labels + "'"; labels = labels.Replace("\r\n", "");
+                gdata= gdata.TrimEnd(',',' ', (char)39);
+                gdata2= gdata2.TrimEnd(',',' ', (char)39);
                     ViewBag.labelsgrap2 = labels;
                     ViewBag.datasgrap2 = gdata;
                     ViewBag.data2sgrap2 = gdata2;
@@ -161,9 +161,9 @@ namespace Flex_SGM.Controllers
                     }
 
                     labels = labels.TrimEnd(',', (char)39);
-                    labels = labels + "'";
-                    gdata.TrimEnd(',', (char)39);
-                    gdata2.TrimEnd(',', (char)39);
+                    labels = labels + "'"; labels = labels.Replace("\r\n", "");
+                gdata= gdata.TrimEnd(',',' ', (char)39);
+                gdata2= gdata2.TrimEnd(',',' ', (char)39);
                     ViewBag.labelsgrap2 = labels;
                     ViewBag.datasgrap2 = gdata;
                     ViewBag.data2sgrap2 = gdata2;
@@ -187,9 +187,9 @@ namespace Flex_SGM.Controllers
                     }
 
                     labels = labels.TrimEnd(',', (char)39);
-                    labels = labels + "'";
-                    gdata.TrimEnd(',', (char)39);
-                    gdata2.TrimEnd(',', (char)39);
+                    labels = labels + "'"; labels = labels.Replace("\r\n", "");
+                gdata= gdata.TrimEnd(',',' ', (char)39);
+                gdata2= gdata2.TrimEnd(',',' ', (char)39);
                     ViewBag.labelsgrap2 = labels;
                     ViewBag.datasgrap2 = gdata;
                     ViewBag.data2sgrap2 = gdata2;
@@ -213,9 +213,9 @@ namespace Flex_SGM.Controllers
                     }
 
                     labels = labels.TrimEnd(',', (char)39);
-                    labels = labels + "'";
-                    gdata.TrimEnd(',', (char)39);
-                    gdata2.TrimEnd(',', (char)39);
+                    labels = labels + "'"; labels = labels.Replace("\r\n", "");
+                gdata= gdata.TrimEnd(',',' ', (char)39);
+                gdata2= gdata2.TrimEnd(',',' ', (char)39);
                     ViewBag.labelsgrap2 = labels;
                     ViewBag.datasgrap2 = gdata;
                     ViewBag.data2sgrap2 = gdata2;
@@ -239,9 +239,9 @@ namespace Flex_SGM.Controllers
                     }
 
                     labels = labels.TrimEnd(',', (char)39);
-                    labels = labels + "'";
-                    gdata.TrimEnd(',', (char)39);
-                    gdata2.TrimEnd(',', (char)39);
+                    labels = labels + "'"; labels = labels.Replace("\r\n", "");
+                gdata= gdata.TrimEnd(',',' ', (char)39);
+                gdata2= gdata2.TrimEnd(',',' ', (char)39);
                     ViewBag.labelsgrap2 = labels;
                     ViewBag.datasgrap2 = gdata;
                     ViewBag.data2sgrap2 = gdata2;
@@ -265,9 +265,9 @@ namespace Flex_SGM.Controllers
                     }
 
                     labels = labels.TrimEnd(',', (char)39);
-                    labels = labels + "'";
-                    gdata.TrimEnd(',', (char)39);
-                    gdata2.TrimEnd(',', (char)39);
+                    labels = labels + "'"; labels = labels.Replace("\r\n", "");
+                gdata= gdata.TrimEnd(',',' ', (char)39);
+                gdata2= gdata2.TrimEnd(',',' ', (char)39);
                     ViewBag.labelsgrap2 = labels;
                     ViewBag.datasgrap2 = gdata;
                     ViewBag.data2sgrap2 = gdata2;
@@ -348,9 +348,9 @@ namespace Flex_SGM.Controllers
                     }
                 }
                 labels = labels.TrimEnd(',', (char)39);
-                labels = labels + "'";
-                gdata.TrimEnd(',', (char)39);
-                gdata2.TrimEnd(',', (char)39);
+                labels = labels + "'"; labels = labels.Replace("\r\n", "");
+            gdata= gdata.TrimEnd(',',' ', (char)39);
+            gdata2= gdata2.TrimEnd(',',' ', (char)39);
 
                 ViewBag.labelsgrap = labels;
                 ViewBag.datasgrap = gdata;
@@ -375,9 +375,9 @@ namespace Flex_SGM.Controllers
                     }
 
                     labels = labels.TrimEnd(',', (char)39);
-                    labels = labels + "'";
-                    gdata.TrimEnd(',', (char)39);
-                    gdata2.TrimEnd(',', (char)39);
+                    labels = labels + "'"; labels = labels.Replace("\r\n", "");
+                gdata= gdata.TrimEnd(',',' ', (char)39);
+                gdata2= gdata2.TrimEnd(',',' ', (char)39);
                     ViewBag.labelsgrap2 = labels;
                     ViewBag.datasgrap2 = gdata;
                     ViewBag.data2sgrap2 = gdata2;
@@ -401,9 +401,9 @@ namespace Flex_SGM.Controllers
                     }
 
                     labels = labels.TrimEnd(',', (char)39);
-                    labels = labels + "'";
-                    gdata.TrimEnd(',', (char)39);
-                    gdata2.TrimEnd(',', (char)39);
+                    labels = labels + "'"; labels = labels.Replace("\r\n", "");
+                gdata= gdata.TrimEnd(',',' ', (char)39);
+                gdata2= gdata2.TrimEnd(',',' ', (char)39);
                     ViewBag.labelsgrap2 = labels;
                     ViewBag.datasgrap2 = gdata;
                     ViewBag.data2sgrap2 = gdata2;
@@ -430,9 +430,9 @@ namespace Flex_SGM.Controllers
                     }
 
                     labels = labels.TrimEnd(',', (char)39);
-                    labels = labels + "'";
-                    gdata.TrimEnd(',', (char)39);
-                    gdata2.TrimEnd(',', (char)39);
+                    labels = labels + "'"; labels = labels.Replace("\r\n", "");
+                gdata= gdata.TrimEnd(',',' ', (char)39);
+                gdata2= gdata2.TrimEnd(',',' ', (char)39);
                     ViewBag.labelsgrap2 = labels;
                     ViewBag.datasgrap2 = gdata;
                     ViewBag.data2sgrap2 = gdata2;
@@ -440,7 +440,7 @@ namespace Flex_SGM.Controllers
                 //--------------------------------------------------------
                 if (paret == "Clasificacion")
                 {
-                    var groupdata = datafiltered.GroupBy(g => g.Clasificacion).OrderByDescending(k => k.Count()).Take(10);
+                    var groupdata = datafiltered.GroupBy(g => g.Clasificacion).OrderByDescending(k => k.Count());
                     labels = "'";
                     gdata = "";
                     gdata2 = "";
@@ -459,9 +459,9 @@ namespace Flex_SGM.Controllers
                     }
 
                     labels = labels.TrimEnd(',', (char)39);
-                    labels = labels + "'";
-                    gdata.TrimEnd(',', (char)39);
-                    gdata2.TrimEnd(',', (char)39);
+                    labels = labels + "'"; labels = labels.Replace("\r\n", "");
+                    gdata= gdata.TrimEnd(',',' ', (char)39);
+                   gdata2= gdata2.TrimEnd(',',' ', (char)39);
                     labels = labels.Replace("\r\n","");
                     ViewBag.labelsgrap2 = labels;
                     ViewBag.datasgrap2 = gdata;
@@ -486,9 +486,9 @@ namespace Flex_SGM.Controllers
                     }
 
                     labels = labels.TrimEnd(',', (char)39);
-                    labels = labels + "'";
-                    gdata.TrimEnd(',', (char)39);
-                    gdata2.TrimEnd(',', (char)39);
+                    labels = labels + "'"; labels = labels.Replace("\r\n", "");
+                gdata= gdata.TrimEnd(',',' ', (char)39);
+                gdata2= gdata2.TrimEnd(',',' ', (char)39);
                     ViewBag.labelsgrap2 = labels;
                     ViewBag.datasgrap2 = gdata;
                     ViewBag.data2sgrap2 = gdata2;
@@ -512,9 +512,9 @@ namespace Flex_SGM.Controllers
                     }
 
                     labels = labels.TrimEnd(',', (char)39);
-                    labels = labels + "'";
-                    gdata.TrimEnd(',', (char)39);
-                    gdata2.TrimEnd(',', (char)39);
+                    labels = labels + "'"; labels = labels.Replace("\r\n", "");
+                gdata= gdata.TrimEnd(',',' ', (char)39);
+                gdata2= gdata2.TrimEnd(',',' ', (char)39);
                     ViewBag.labelsgrap2 = labels;
                     ViewBag.datasgrap2 = gdata;
                     ViewBag.data2sgrap2 = gdata2;
@@ -538,9 +538,9 @@ namespace Flex_SGM.Controllers
                     }
 
                     labels = labels.TrimEnd(',', (char)39);
-                    labels = labels + "'";
-                    gdata.TrimEnd(',', (char)39);
-                    gdata2.TrimEnd(',', (char)39);
+                    labels = labels + "'"; labels = labels.Replace("\r\n", "");
+                gdata= gdata.TrimEnd(',',' ', (char)39);
+                gdata2= gdata2.TrimEnd(',',' ', (char)39);
                     ViewBag.labelsgrap2 = labels;
                     ViewBag.datasgrap2 = gdata;
                     ViewBag.data2sgrap2 = gdata2;
@@ -622,9 +622,9 @@ namespace Flex_SGM.Controllers
                     }
 
                     labels = labels.TrimEnd(',', (char)39);
-                    labels = labels + "'";
-                    gdata.TrimEnd(',', (char)39);
-                    gdata2.TrimEnd(',', (char)39);
+                    labels = labels + "'"; labels = labels.Replace("\r\n", "");
+                gdata= gdata.TrimEnd(',',' ', (char)39);
+                gdata2= gdata2.TrimEnd(',',' ', (char)39);
 
                     ViewBag.labelsgrap = labels;
                     ViewBag.datasgrap = gdata;
@@ -648,9 +648,9 @@ namespace Flex_SGM.Controllers
                         }
 
                         labels = labels.TrimEnd(',', (char)39);
-                        labels = labels + "'";
-                        gdata.TrimEnd(',', (char)39);
-                        gdata2.TrimEnd(',', (char)39);
+                        labels = labels + "'"; labels = labels.Replace("\r\n", "");
+                    gdata= gdata.TrimEnd(',',' ', (char)39);
+                    gdata2= gdata2.TrimEnd(',',' ', (char)39);
                         ViewBag.labelsgrap2 = labels;
                         ViewBag.datasgrap2 = gdata;
                         ViewBag.data2sgrap2 = gdata2;
@@ -674,9 +674,9 @@ namespace Flex_SGM.Controllers
                         }
 
                         labels = labels.TrimEnd(',', (char)39);
-                        labels = labels + "'";
-                        gdata.TrimEnd(',', (char)39);
-                        gdata2.TrimEnd(',', (char)39);
+                        labels = labels + "'"; labels = labels.Replace("\r\n", "");
+                    gdata= gdata.TrimEnd(',',' ', (char)39);
+                    gdata2= gdata2.TrimEnd(',',' ', (char)39);
                         ViewBag.labelsgrap2 = labels;
                         ViewBag.datasgrap2 = gdata;
                         ViewBag.data2sgrap2 = gdata2;
@@ -700,9 +700,9 @@ namespace Flex_SGM.Controllers
                         }
 
                         labels = labels.TrimEnd(',', (char)39);
-                        labels = labels + "'";
-                        gdata.TrimEnd(',', (char)39);
-                        gdata2.TrimEnd(',', (char)39);
+                        labels = labels + "'"; labels = labels.Replace("\r\n", "");
+                    gdata= gdata.TrimEnd(',',' ', (char)39);
+                    gdata2= gdata2.TrimEnd(',',' ', (char)39);
                         ViewBag.labelsgrap2 = labels;
                         ViewBag.datasgrap2 = gdata;
                         ViewBag.data2sgrap2 = gdata2;
@@ -725,10 +725,11 @@ namespace Flex_SGM.Controllers
                             gdata2 = gdata2 + string.Format("{0:0.##}", res) + ",";
                         }
 
-                        labels = labels.TrimEnd(',', (char)39);
-                        labels = labels + "'";
-                        gdata.TrimEnd(',', (char)39);
-                        gdata2.TrimEnd(',', (char)39);
+                        labels = labels.TrimEnd(',',' ',(char)39);
+                        labels = labels + "'"; labels = labels.Replace("\r\n", "");
+                        gdata = gdata.TrimEnd(',',' ', (char)39);
+                        gdata2= gdata2.TrimEnd(',',' ', (char)39);
+                        
                         ViewBag.labelsgrap2 = labels;
                         ViewBag.datasgrap2 = gdata;
                         ViewBag.data2sgrap2 = gdata2;
@@ -752,9 +753,9 @@ namespace Flex_SGM.Controllers
                         }
 
                         labels = labels.TrimEnd(',', (char)39);
-                        labels = labels + "'";
-                        gdata.TrimEnd(',', (char)39);
-                        gdata2.TrimEnd(',', (char)39);
+                        labels = labels + "'"; labels = labels.Replace("\r\n", "");
+                    gdata= gdata.TrimEnd(',',' ', (char)39);
+                    gdata2= gdata2.TrimEnd(',',' ', (char)39);
                         ViewBag.labelsgrap2 = labels;
                         ViewBag.datasgrap2 = gdata;
                         ViewBag.data2sgrap2 = gdata2;
@@ -778,9 +779,9 @@ namespace Flex_SGM.Controllers
                         }
 
                         labels = labels.TrimEnd(',', (char)39);
-                        labels = labels + "'";
-                        gdata.TrimEnd(',', (char)39);
-                        gdata2.TrimEnd(',', (char)39);
+                        labels = labels + "'"; labels = labels.Replace("\r\n", "");
+                    gdata= gdata.TrimEnd(',',' ', (char)39);
+                    gdata2= gdata2.TrimEnd(',',' ', (char)39);
                         ViewBag.labelsgrap2 = labels;
                         ViewBag.datasgrap2 = gdata;
                         ViewBag.data2sgrap2 = gdata2;
@@ -804,9 +805,9 @@ namespace Flex_SGM.Controllers
                         }
 
                         labels = labels.TrimEnd(',', (char)39);
-                        labels = labels + "'";
-                        gdata.TrimEnd(',', (char)39);
-                        gdata2.TrimEnd(',', (char)39);
+                        labels = labels + "'"; labels = labels.Replace("\r\n", "");
+                    gdata= gdata.TrimEnd(',',' ', (char)39);
+                    gdata2= gdata2.TrimEnd(',',' ', (char)39);
                         ViewBag.labelsgrap2 = labels;
                         ViewBag.datasgrap2 = gdata;
                         ViewBag.data2sgrap2 = gdata2;
@@ -940,6 +941,8 @@ namespace Flex_SGM.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (cDockaudit.Clasificacion == null)
+                    cDockaudit.Clasificacion = "TBD";
                 db.CDockaudits.Add(cDockaudit);
                 db.SaveChanges();
                 TempData["Section"] = "Evidence";

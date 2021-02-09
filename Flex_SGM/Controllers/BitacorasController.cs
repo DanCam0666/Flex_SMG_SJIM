@@ -1829,7 +1829,7 @@ if (amaquina.Contains("Pintura"))
                     }
                 }
                 labels = labels.TrimEnd(',', (char)39);
-                labels = labels + "'";
+                labels = labels + "'"; labels = labels.Replace("\r\n", "");
                 gdata.TrimEnd(',', (char)39);
                 gdata2.TrimEnd(',', (char)39);
                 ViewBag.labelsgrap = labels;
@@ -1852,7 +1852,7 @@ if (amaquina.Contains("Pintura"))
                 }
 
                 labels = labels.TrimEnd(',', (char)39);
-                labels = labels + "'";
+                labels = labels + "'"; labels = labels.Replace("\r\n", "");
                 gdata.TrimEnd(',', (char)39);
                 gdata2.TrimEnd(',', (char)39);
                 ViewBag.labelsgrap2 = labels;
@@ -1933,7 +1933,7 @@ if (amaquina.Contains("Pintura"))
                     }
                 }
                 labels = labels.TrimEnd(',', (char)39);
-                labels = labels + "'";
+                labels = labels + "'"; labels = labels.Replace("\r\n", "");
                 gdata.TrimEnd(',', (char)39);
                 gdata2.TrimEnd(',', (char)39);
 
@@ -1957,7 +1957,7 @@ if (amaquina.Contains("Pintura"))
                 }
 
                 labels = labels.TrimEnd(',', (char)39);
-                labels = labels + "'";
+                labels = labels + "'"; labels = labels.Replace("\r\n", "");
                 gdata.TrimEnd(',', (char)39);
                 gdata2.TrimEnd(',', (char)39);
                 ViewBag.labelsgrap2 = labels;
@@ -2039,7 +2039,7 @@ if (amaquina.Contains("Pintura"))
                     }
       
                     labels = labels.TrimEnd(',', (char)39);
-                    labels = labels + "'";
+                    labels = labels + "'"; labels = labels.Replace("\r\n", "");
                     gdata.TrimEnd(',', (char)39);
                     gdata2.TrimEnd(',', (char)39);
 
@@ -2063,7 +2063,7 @@ if (amaquina.Contains("Pintura"))
                     }
 
                     labels = labels.TrimEnd(',', (char)39);
-                    labels = labels + "'";
+                    labels = labels + "'"; labels = labels.Replace("\r\n", "");
                     gdata.TrimEnd(',', (char)39);
                     gdata2.TrimEnd(',', (char)39);
                     ViewBag.labelsgrap2 = labels;
@@ -3685,7 +3685,7 @@ if (amaquina.Contains("Pintura"))
                     }
                 }
                 labels = labels.TrimEnd(',', (char)39);
-                labels = labels + "'";
+                labels = labels + "'"; labels = labels.Replace("\r\n", "");
                 gdata=gdata.TrimEnd(',', (char)39);
                 gdata2=gdata2.TrimEnd(',', (char)39);
                 ViewBag.labelsgrap = labels;
@@ -3803,7 +3803,7 @@ if (amaquina.Contains("Pintura"))
                 }
 
                 labels = labels.TrimEnd(',', (char)39);
-                labels = labels + "'";
+                labels = labels + "'"; labels = labels.Replace("\r\n", "");
                 gdata=gdata.TrimEnd(',', (char)39);
                 gdata2=gdata2.TrimEnd(',', (char)39);
                 ViewBag.labelsgrap2 = labels;
@@ -3885,7 +3885,7 @@ if (amaquina.Contains("Pintura"))
                     }
                 }
                 labels = labels.TrimEnd(',', (char)39);
-                labels = labels + "'";
+                labels = labels + "'"; labels = labels.Replace("\r\n", "");
                 gdata=gdata.TrimEnd(',', (char)39);
                 gdata2 = gdata2.TrimEnd(',', (char)39);
 
@@ -4003,7 +4003,7 @@ if (amaquina.Contains("Pintura"))
                 }
 
                 labels = labels.TrimEnd(',', (char)39);
-                labels = labels + "'";
+                labels = labels + "'"; labels = labels.Replace("\r\n", "");
                 gdata=gdata.TrimEnd(',', (char)39);
                 gdata2=gdata2.TrimEnd(',', (char)39);
                 ViewBag.labelsgrap2 = labels;
@@ -4088,7 +4088,7 @@ if (amaquina.Contains("Pintura"))
                     }
 
                     labels = labels.TrimEnd(',', (char)39);
-                    labels = labels + "'";
+                    labels = labels + "'"; labels = labels.Replace("\r\n", "");
                     gdata=gdata.TrimEnd(',', (char)39);
                     gdata2=gdata2.TrimEnd(',', (char)39);
 
@@ -4206,7 +4206,7 @@ if (amaquina.Contains("Pintura"))
                     }
 
                     labels = labels.TrimEnd(',', (char)39);
-                    labels = labels + "'";
+                    labels = labels + "'"; labels = labels.Replace("\r\n", "");
                     gdata=gdata.TrimEnd(',', (char)39);
                     gdata2=gdata2.TrimEnd(',', (char)39);
                     ViewBag.labelsgrap2 = labels;
@@ -4718,7 +4718,7 @@ if (amaquina.Contains("Pintura"))
 
 
             labels = labels.TrimEnd(',', (char)39);
-            labels = labels + "'";
+            labels = labels + "'"; labels = labels.Replace("\r\n", "");
             gdata = gdata.TrimEnd(',', (char)39);
             gdata2 = gdata2.TrimEnd(',', (char)39);
 
@@ -4748,7 +4748,7 @@ if (amaquina.Contains("Pintura"))
             }
 
             labels = labels.TrimEnd(',', (char)39);
-            labels = labels + "'";
+            labels = labels + "'"; labels = labels.Replace("\r\n", "");
             gdata.TrimEnd(',', (char)39);
             gdata2.TrimEnd(',', (char)39);
 
@@ -4803,7 +4803,7 @@ if (amaquina.Contains("Pintura"))
                     }
                 }
                 labels = labels.TrimEnd(',', (char)39);
-                labels = labels + "'";
+                labels = labels + "'"; labels = labels.Replace("\r\n", "");
                 gdata = gdata.TrimEnd(',', (char)39);
                 gdata2 = gdata2.TrimEnd(',', (char)39);
                 ViewBag.labelsgrap = labels;
@@ -4921,7 +4921,7 @@ if (amaquina.Contains("Pintura"))
                 }
 
                 labels = labels.TrimEnd(',', (char)39);
-                labels = labels + "'";
+                labels = labels + "'"; labels = labels.Replace("\r\n", "");
                 gdata = gdata.TrimEnd(',', (char)39);
                 gdata2 = gdata2.TrimEnd(',', (char)39);
                 ViewBag.labelsgrap2 = labels;
@@ -5006,7 +5006,7 @@ if (amaquina.Contains("Pintura"))
                     }
                 }
                 labels = labels.TrimEnd(',', (char)39);
-                labels = labels + "'";
+                labels = labels + "'"; labels = labels.Replace("\r\n", "");
                 gdata = gdata.TrimEnd(',', (char)39);
                 gdata2 = gdata2.TrimEnd(',', (char)39);
 
@@ -5124,7 +5124,7 @@ if (amaquina.Contains("Pintura"))
                 }
 
                 labels = labels.TrimEnd(',', (char)39);
-                labels = labels + "'";
+                labels = labels + "'"; labels = labels.Replace("\r\n", "");
                 gdata = gdata.TrimEnd(',', (char)39);
                 gdata2 = gdata2.TrimEnd(',', (char)39);
                 ViewBag.labelsgrap2 = labels;
@@ -5211,7 +5211,7 @@ if (amaquina.Contains("Pintura"))
                     }
 
                     labels = labels.TrimEnd(',', (char)39);
-                    labels = labels + "'";
+                    labels = labels + "'"; labels = labels.Replace("\r\n", "");
                     gdata = gdata.TrimEnd(',', (char)39);
                     gdata2 = gdata2.TrimEnd(',', (char)39);
 
@@ -5329,7 +5329,7 @@ if (amaquina.Contains("Pintura"))
                     }
 
                     labels = labels.TrimEnd(',', (char)39);
-                    labels = labels + "'";
+                    labels = labels + "'"; labels = labels.Replace("\r\n", "");
                     gdata = gdata.TrimEnd(',', (char)39);
                     gdata2 = gdata2.TrimEnd(',', (char)39);
                     ViewBag.labelsgrap2 = labels;

@@ -2542,6 +2542,7 @@
     <Content Include="Addon\fullcalendar\timegrid\main.min.css" />
     <Content Include="Addon\fullcalendar\timegrid\main.min.js" />
     <Content Include="Addon\Gauge\gauge.min.js" />
+    <Content Include="Addon\Gauge\JavaScript.js" />
     <Content Include="Addon\morris-charts\Gruntfile.js" />
     <Content Include="Addon\morris-charts\morris.css" />
     <Content Include="Addon\morris-charts\morris.js" />

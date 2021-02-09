@@ -7104,6 +7104,9 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
     <File Include="Addon/Gauge/gauge.min.js">
       <publishTime>10/26/2020 13:20:17</publishTime>
     </File>
+    <File Include="Addon/Gauge/JavaScript.js">
+      <publishTime>02/04/2021 07:39:34</publishTime>
+    </File>
     <File Include="Addon/morris-charts/Gruntfile.js">
       <publishTime>10/26/2020 13:21:07</publishTime>
     </File>
@@ -7246,10 +7249,10 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>10/26/2020 13:25:57</publishTime>
     </File>
     <File Include="bin/Flex_SGM.dll">
-      <publishTime>02/03/2021 14:56:03</publishTime>
+      <publishTime>02/09/2021 13:27:20</publishTime>
     </File>
     <File Include="bin/Flex_SGM.pdb">
-      <publishTime>02/03/2021 14:56:04</publishTime>
+      <publishTime>02/09/2021 13:27:20</publishTime>
     </File>
     <File Include="bin/IBM.Data.DB2.iSeries.dll">
       <publishTime>10/26/2020 13:21:31</publishTime>
@@ -7933,7 +7936,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>01/28/2021 08:16:19</publishTime>
     </File>
     <File Include="Views/CAndons2/Index.cshtml">
-      <publishTime>01/28/2021 10:54:15</publishTime>
+      <publishTime>02/09/2021 10:27:24</publishTime>
     </File>
     <File Include="Views/cAreas/Create.cshtml">
       <publishTime>01/29/2021 12:46:41</publishTime>
@@ -7990,7 +7993,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>06/04/2020 21:38:10</publishTime>
     </File>
     <File Include="Views/CDockaudits/Index.cshtml">
-      <publishTime>01/28/2021 12:08:22</publishTime>
+      <publishTime>02/09/2021 10:29:47</publishTime>
     </File>
     <File Include="Views/ControldeEquipos/Create.cshtml">
       <publishTime>10/26/2020 13:21:24</publishTime>
@@ -8077,7 +8080,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>01/28/2021 08:16:17</publishTime>
     </File>
     <File Include="Views/CReclamos/Index.cshtml">
-      <publishTime>01/28/2021 12:18:47</publishTime>
+      <publishTime>02/09/2021 10:31:50</publishTime>
     </File>
     <File Include="Views/Disponibilidads/Create.cshtml">
       <publishTime>10/26/2020 13:21:24</publishTime>

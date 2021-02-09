@@ -34,7 +34,7 @@
 
                             </div>
                         </div>
-                        <div class="form-group col-md-2">
+                        <div class="form-group col-md-2" >
                             <label for="tipor">Pareto por:</label>
                             <div class="col-md-10" data-toggle="tooltip" title=" Filtro para el pareto ">
                                 @Html.DropDownList("paret", null, htmlAttributes: new { @class = "form-control" })
@@ -80,7 +80,7 @@
         </div>
     </div>
 
-    <div class="col-md-4" style="float:left">
+    <div class="col-md-4" style="float:left" data-toggle="modal" data-target="#myModal">
         <div class="x_panel">
             <div class="x_title clearfix">
                 <h2> Pareto<small> <a href="/bitacora/Evidence/Quality/Estandar/Lista de defectos por area.pdf" target="_blank">Lista de Codigos de Clasificacion</a></small></h2>
@@ -287,6 +287,18 @@
     </div>
 </div>
 
+
+<div class="modal" id="myModal" role="dialog">
+    <div class="modal-content">
+        <div class="modal-header"  data-dismiss="modal">PARETO</div>
+        <div class="modal-body"  data-dismiss="modal">
+            <canvas id="charttimeepareto"></canvas>
+        </div>
+        <div class="modal-footer"  data-dismiss="modal">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+    </div>
+</div>
 @section Scripts {
 
     <script>
@@ -299,7 +311,7 @@
                         offset: 0,
                            color: '#000000'
 });
-       
+
         var barChartqe =
         {
               labels: [@Html.Raw(ViewBag.labelsgrap)],
@@ -357,7 +369,7 @@
         dataType: 'json',
         data: { id: $("#paret").val() },
         success: function (result) {
-              
+
 
         },
         error: function (ex) {
@@ -369,7 +381,7 @@
 
 
 
-        
+
 
             var ctqx = document.getElementById('chartme');
             var myChartqe1 = new Chart(ctqx, {
@@ -412,7 +424,30 @@
                     }
                 });
 
+            var ctqx2 = document.getElementById('charttimeepareto');
 
+            var myChartqe3 = new Chart(ctqx2, {
+                type: 'bar',
+                data: barChartDqe1,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    },
+                    legend: {
+                        labels: {
+                            // This more specific font property overrides the global property
+                            fontColor: 'black',
+                            defaultFontSize: 25,
+                        }
+                    }
+                }
+            });
         });
     </script>
 

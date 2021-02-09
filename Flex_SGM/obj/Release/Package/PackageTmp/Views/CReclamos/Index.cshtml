@@ -87,7 +87,7 @@
         </div>
     </div>
 
-    <div class="col-md-4" style="float:left">
+    <div class="col-md-4" style="float:left" data-toggle="modal" data-target="#myModal">
         <div class="x_panel">
             <div class="x_title clearfix">
                 <h2> Pareto</h2>
@@ -261,6 +261,18 @@
     </div>
 </div>
 
+<div class="modal" id="myModal" role="dialog">
+    <div class="modal-content">
+        <div class="modal-header" data-dismiss="modal">PARETO</div>
+        <div class="modal-body" data-dismiss="modal">
+            <canvas id="charttimeepareto"></canvas>
+        </div>
+        <div class="modal-footer" data-dismiss="modal">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+    </div>
+</div>
+
 @section Scripts {
 
     <script>
@@ -368,7 +380,30 @@
                     }
                 });
 
+            var ctqx2 = document.getElementById('charttimeepareto');
 
+            var myChartqe3 = new Chart(ctqx2, {
+                type: 'bar',
+                data: barChartDqe1,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    },
+                    legend: {
+                        labels: {
+                            // This more specific font property overrides the global property
+                            fontColor: 'black',
+                            defaultFontSize: 25,
+                        }
+                    }
+                }
+            });
         });
     </script>
 
