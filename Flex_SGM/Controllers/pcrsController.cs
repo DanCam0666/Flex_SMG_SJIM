@@ -9,12 +9,54 @@ using System.Web;
 using System.Web.Mvc;
 using Flex_SGM.Models;
 using ClosedXML.Report;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security;
 
 namespace Flex_SGM.Controllers
 {
     public class pcrsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+
+        //user management
+        private ApplicationSignInManager _signInManager;
+        private ApplicationUserManager _userManager;
+
+        public pcrsController()
+        {
+
+        }
+        public pcrsController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
+        {
+            UserManager = userManager;
+            SignInManager = signInManager;
+        }
+
+        public ApplicationSignInManager SignInManager
+        {
+            get
+            {
+                return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
+            }
+            private set
+            {
+                _signInManager = value;
+            }
+        }
+
+        public ApplicationUserManager UserManager
+        {
+            get
+            {
+                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            }
+            private set
+            {
+                _userManager = value;
+            }
+        }
+
         // export
 
         public FileResult ExportFormat(int? id)
@@ -214,6 +256,28 @@ namespace Flex_SGM.Controllers
             ViewBag.OriginatorID = new SelectList(db.eoriginators, "ID", "Supervisor");
             ViewBag.ProyectosID = new SelectList(db.cProyectos, "ID", "Proyecto");
             ViewBag.ReasonID = new SelectList(db.ereasons, "ID", "Reason");
+
+            var userid = User.Identity.GetUserId();
+            var users = UserManager.Users.ToList();
+
+            List<ApplicationUser> Gerentes = new List<ApplicationUser>();
+
+
+            foreach (var user in users)
+            {
+                foreach(var userroles in user.Roles )
+                {
+                    if (userroles.RoleId == "7a269541-b9f5-4bfe-8eea-38c0ebe11373")
+                        Gerentes.Add(user);
+
+
+                }
+
+
+            }
+
+
+            ViewBag.UsersID = new SelectList(db.ereasons, "ID", "Reason");
 
             pcr mpcr =new pcr();
 

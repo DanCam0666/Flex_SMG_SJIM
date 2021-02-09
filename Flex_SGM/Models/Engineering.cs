@@ -12,6 +12,10 @@ namespace Flex_SGM.Models
     {
         [Key]
         public int ID { get; set; }
+
+        [MaxLength(13)]
+        public string PCRID { get; set; }
+
         [Display(Name = "Originator")]
         public int? OriginatorID { get; set; }
 
