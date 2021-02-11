@@ -234,7 +234,8 @@ namespace Flex_SGM.Models
 
     public class templatepcr
     {
-      
+
+        public string pcrID { get; set; }
         public string OriginatorID { get; set; }
 
 
@@ -360,18 +361,6 @@ namespace Flex_SGM.Models
         public string leadtime_totallt { get; set; }
         //*--------------*//
 
-        public string pcrrequestlvl { get; set; }
-
-        public string pcrverification { get; set; }
-        public string pcrdecision { get; set; }
-
-        public string pcrclientapproval { get; set; }
-
-        public string pcrclientdecision { get; set; }
-
-        public string pcrmanagerdecision { get; set; }
-
-        public string pcrmanagerclose { get; set; }
 
     }
     public class eoriginator

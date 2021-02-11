@@ -33,6 +33,8 @@ namespace Flex_SGM.Controllers
 
             templatepcr tempy = new templatepcr
             {
+                pcrID=pcrd.PCRID,
+
                 OriginatorID = pcrd.Originator,
 
                 AreasID = pcrd.Areas.Area
@@ -215,25 +217,7 @@ namespace Flex_SGM.Controllers
                 leadtime_totallt = pcrd.leadtime_totallt.ToString()
       //*--------------*//
 
-      ,
-                pcrrequestlvl = ""
 
-      ,
-                pcrverification = ""
-      ,
-                pcrdecision = ""
-
-      ,
-                pcrclientapproval = ""
-
-      ,
-                pcrclientdecision = ""
-
-      ,
-                pcrmanagerdecision = ""
-
-      ,
-                pcrmanagerclose = ""
 
             };
 
@@ -243,7 +227,7 @@ namespace Flex_SGM.Controllers
             using (MemoryStream stream = new MemoryStream())
             {
                 template.SaveAs(stream);
-                return File(stream.ToArray(), "holotopo", "Product_Process_Change_Request_" + pcrd.ID.ToString() + ".xlsx");
+                return File(stream.ToArray(), "holotopo", "Product_Process_Change_Request_" + pcrd.PCRID + ".xlsx");
             }
 
 
@@ -336,8 +320,17 @@ namespace Flex_SGM.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID,PCRID,Originator,AreasID,Date,ClientesID,ProyectosID,ReasonID,PartNumber,RevLevel,PartName,docreason,docscope,MatrizDecisionID,cipieceprice,cicapital,citooling,ciengineering,cipackaging,ciobsolescence,cimaterial,cifreight,ciovertime,ciother,citotal,crannualvolume,crcapacityfng,crcapacitysupplier,Reviewedby,Reviewedby_date,support_purchasing,support_materials,support_maintenance,support_automation,support_quality,support_safety,support_environmental,support_tooling,support_stamping,support_welding,support_chrome,support_ecoat,support_topcoat,support_backcoat,support_assembly,support_finance,Keymilestones_buildmrd1,Keymilestones_buildmrd2,Keymilestones_buildmrd3,Keymilestones_customrrar,Keymilestones_ppap,Keymilestones_internalsop,Keymilestones_customersop,Keymilestones_closure,leadtime_engineering,leadtime_tooling,leadtime_facilities,leadtime_capital,leadtime_material,leadtime_inventory,leadtime_approval,leadtime_totallt,FConsiderations1,FConsiderations2,FConsiderations3,FConsiderations4,FConsiderations5,FConsiderations6,FConsiderations7,FConsiderations8,FConsiderations9,FConsiderations10,FConsiderations11,FConsiderations12,FConsiderations13,FConsiderations14,FConsiderations15,FRisk1,FRisk2,FRisk3,FRisk4,FRisk5,FRisk6,FRisk7,FRisk8")] pcr pcr)
         {
+            var noPCRS = db.pcrs.Count();
+            var dt = DateTime.Now;
+            string year= dt.ToString("yy");
+            string month= dt.Month.ToString("00");
+
+            noPCRS = noPCRS + 1;
+            string PCRID = "SJI-"+ year + "-"+ noPCRS.ToString("000") + "-"+month;
+
             if (ModelState.IsValid)
             {
+                pcr.PCRID = PCRID;
                 db.pcrs.Add(pcr);
                 db.SaveChanges();
                 return RedirectToAction("Index");
