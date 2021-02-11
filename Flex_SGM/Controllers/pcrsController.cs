@@ -74,7 +74,7 @@ namespace Flex_SGM.Controllers
 
             templatepcr tempy = new templatepcr
             {
-                OriginatorID = pcrd.Originator.Supervisor,
+                OriginatorID = pcrd.Originator,
 
                 AreasID = pcrd.Areas.Area
 
@@ -98,7 +98,7 @@ namespace Flex_SGM.Controllers
 
       , docscope = pcrd.docscope
 
-      , doctypeofchange = pcrd.doctypeofchange
+      , doctypeofchange = pcrd.MatrizDecision.TipoCambio
 
       , cipieceprice = pcrd.cipieceprice.ToString()
 
@@ -229,7 +229,9 @@ namespace Flex_SGM.Controllers
         // GET: pcrs
         public ActionResult Index()
         {
-            var pcrs = db.pcrs.Include(p => p.Areas).Include(p => p.Clientes).Include(p => p.Originator).Include(p => p.Proyectos).Include(p => p.Reason);
+            var pcrs = db.pcrs.Include(p => p.Areas).Include(p => p.Clientes).Include(p => p.Reason).Include(p => p.Proyectos).Include(P=>P.MatrizDecision);
+
+
             return View(pcrs.ToList());
         }
 
@@ -251,21 +253,14 @@ namespace Flex_SGM.Controllers
         // GET: pcrs/Create
         public ActionResult Create()
         {
-            ViewBag.AreasID = new SelectList(db.cAreas, "ID", "Area");
-            ViewBag.ClientesID = new SelectList(db.cClientes, "ID", "Cliente");
-            ViewBag.OriginatorID = new SelectList(db.eoriginators, "ID", "Supervisor");
-            ViewBag.ProyectosID = new SelectList(db.cProyectos, "ID", "Proyecto");
-            ViewBag.ReasonID = new SelectList(db.ereasons, "ID", "Reason");
-
             var userid = User.Identity.GetUserId();
             var users = UserManager.Users.ToList();
-
             List<ApplicationUser> Gerentes = new List<ApplicationUser>();
 
 
             foreach (var user in users)
             {
-                foreach(var userroles in user.Roles )
+                foreach (var userroles in user.Roles)
                 {
                     if (userroles.RoleId == "7a269541-b9f5-4bfe-8eea-38c0ebe11373")
                         Gerentes.Add(user);
@@ -275,6 +270,17 @@ namespace Flex_SGM.Controllers
 
 
             }
+
+            ViewBag.AreasID = new SelectList(db.cAreas, "ID", "Area");
+            ViewBag.ClientesID = new SelectList(db.cClientes, "ID", "Cliente");
+            ViewBag.OriginatorID = new SelectList(db.Users, "ID", "UserFullName");
+            ViewBag.ProyectosID = new SelectList(db.cProyectos, "ID", "Proyecto");
+            ViewBag.ReasonID = new SelectList(db.ereasons, "ID", "Reason");
+            ViewBag.MatrizDecisionID = new SelectList(db.MatrizDecisions, "ID", "TipoCambio");
+
+            ViewBag.GerentesID = new SelectList(Gerentes, "ID", "UserFullName");
+
+
 
 
             ViewBag.UsersID = new SelectList(db.ereasons, "ID", "Reason");
@@ -320,7 +326,7 @@ namespace Flex_SGM.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,OriginatorID,AreasID,Date,ClientesID,ProyectosID,ReasonID,PartNumber,RevLevel,PartName,docreason,docscope,doctypeofchange,cipieceprice,cicapital,citooling,ciengineering,cipackaging,ciobsolescence,cimaterial,cifreight,ciovertime,ciother,citotal,crannualvolume,crcapacityfng,crcapacitysupplier,Reviewedby,Reviewedby_date,support_purchasing,support_materials,support_maintenance,support_automation,support_quality,support_safety,support_environmental,support_tooling,support_stamping,support_welding,support_chrome,support_ecoat,support_topcoat,support_backcoat,support_assembly,support_finance,Keymilestones_buildmrd1,Keymilestones_buildmrd2,Keymilestones_buildmrd3,Keymilestones_customrrar,Keymilestones_ppap,Keymilestones_internalsop,Keymilestones_customersop,Keymilestones_closure,leadtime_engineering,leadtime_tooling,leadtime_facilities,leadtime_capital,leadtime_material,leadtime_inventory,leadtime_approval,leadtime_totallt,pcrrequestlvl,pcrverification,pcrdecision,pcrclientapproval,pcrclientdecision,pcrmanagerdecision,pcrmanagerclose")] pcr pcr)
+        public ActionResult Create([Bind(Include = "ID,Originator,AreasID,Date,ClientesID,ProyectosID,ReasonID,PartNumber,RevLevel,PartName,docreason,docscope,MatrizDecisionID,cipieceprice,cicapital,citooling,ciengineering,cipackaging,ciobsolescence,cimaterial,cifreight,ciovertime,ciother,citotal,crannualvolume,crcapacityfng,crcapacitysupplier,Reviewedby,Reviewedby_date,support_purchasing,support_materials,support_maintenance,support_automation,support_quality,support_safety,support_environmental,support_tooling,support_stamping,support_welding,support_chrome,support_ecoat,support_topcoat,support_backcoat,support_assembly,support_finance,Keymilestones_buildmrd1,Keymilestones_buildmrd2,Keymilestones_buildmrd3,Keymilestones_customrrar,Keymilestones_ppap,Keymilestones_internalsop,Keymilestones_customersop,Keymilestones_closure,leadtime_engineering,leadtime_tooling,leadtime_facilities,leadtime_capital,leadtime_material,leadtime_inventory,leadtime_approval,leadtime_totallt,pcrrequestlvl,pcrverification,pcrdecision,pcrclientapproval,pcrclientdecision,pcrmanagerdecision,pcrmanagerclose")] pcr pcr)
         {
             if (ModelState.IsValid)
             {
@@ -331,9 +337,11 @@ namespace Flex_SGM.Controllers
 
             ViewBag.AreasID = new SelectList(db.cAreas, "ID", "Area", pcr.AreasID);
             ViewBag.ClientesID = new SelectList(db.cClientes, "ID", "Cliente", pcr.ClientesID);
-            ViewBag.OriginatorID = new SelectList(db.eoriginators, "ID", "Supervisor", pcr.OriginatorID);
             ViewBag.ProyectosID = new SelectList(db.cProyectos, "ID", "Proyecto", pcr.ProyectosID);
             ViewBag.ReasonID = new SelectList(db.ereasons, "ID", "Reason", pcr.ReasonID);
+            ViewBag.ReasonID = new SelectList(db.ereasons, "ID", "Reason", pcr.ReasonID);
+            ViewBag.MatrizDecisionID = new SelectList(db.MatrizDecisions, "ID", "TipoCambio",pcr.MatrizDecisionID);
+
             return View(pcr);
         }
 
@@ -351,9 +359,9 @@ namespace Flex_SGM.Controllers
             }
             ViewBag.AreasID = new SelectList(db.cAreas, "ID", "Area", pcr.AreasID);
             ViewBag.ClientesID = new SelectList(db.cClientes, "ID", "Cliente", pcr.ClientesID);
-            ViewBag.OriginatorID = new SelectList(db.eoriginators, "ID", "Supervisor", pcr.OriginatorID);
             ViewBag.ProyectosID = new SelectList(db.cProyectos, "ID", "Proyecto", pcr.ProyectosID);
             ViewBag.ReasonID = new SelectList(db.ereasons, "ID", "Reason", pcr.ReasonID);
+            ViewBag.MatrizDecisionID = new SelectList(db.MatrizDecisions, "ID", "TipoCambio", pcr.MatrizDecisionID);
             return View(pcr);
         }
 
@@ -362,7 +370,7 @@ namespace Flex_SGM.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,OriginatorID,AreasID,Date,ClientesID,ProyectosID,ReasonID,PartNumber,RevLevel,PartName,docreason,docscope,doctypeofchange,cipieceprice,cicapital,citooling,ciengineering,cipackaging,ciobsolescence,cimaterial,cifreight,ciovertime,ciother,citotal,crannualvolume,crcapacityfng,crcapacitysupplier,Reviewedby,Reviewedby_date,support_purchasing,support_materials,support_maintenance,support_automation,support_quality,support_safety,support_environmental,support_tooling,support_stamping,support_welding,support_chrome,support_ecoat,support_topcoat,support_backcoat,support_assembly,support_finance,Keymilestones_buildmrd1,Keymilestones_buildmrd2,Keymilestones_buildmrd3,Keymilestones_customrrar,Keymilestones_ppap,Keymilestones_internalsop,Keymilestones_customersop,Keymilestones_closure,leadtime_engineering,leadtime_tooling,leadtime_facilities,leadtime_capital,leadtime_material,leadtime_inventory,leadtime_approval,leadtime_totallt,pcrrequestlvl,pcrverification,pcrdecision,pcrclientapproval,pcrclientdecision,pcrmanagerdecision,pcrmanagerclose")] pcr pcr)
+        public ActionResult Edit([Bind(Include = "ID,Originator,AreasID,Date,ClientesID,ProyectosID,ReasonID,PartNumber,RevLevel,PartName,docreason,docscope,MatrizDecisionID,cipieceprice,cicapital,citooling,ciengineering,cipackaging,ciobsolescence,cimaterial,cifreight,ciovertime,ciother,citotal,crannualvolume,crcapacityfng,crcapacitysupplier,Reviewedby,Reviewedby_date,support_purchasing,support_materials,support_maintenance,support_automation,support_quality,support_safety,support_environmental,support_tooling,support_stamping,support_welding,support_chrome,support_ecoat,support_topcoat,support_backcoat,support_assembly,support_finance,Keymilestones_buildmrd1,Keymilestones_buildmrd2,Keymilestones_buildmrd3,Keymilestones_customrrar,Keymilestones_ppap,Keymilestones_internalsop,Keymilestones_customersop,Keymilestones_closure,leadtime_engineering,leadtime_tooling,leadtime_facilities,leadtime_capital,leadtime_material,leadtime_inventory,leadtime_approval,leadtime_totallt,pcrrequestlvl,pcrverification,pcrdecision,pcrclientapproval,pcrclientdecision,pcrmanagerdecision,pcrmanagerclose")] pcr pcr)
         {
             if (ModelState.IsValid)
             {
@@ -372,9 +380,9 @@ namespace Flex_SGM.Controllers
             }
             ViewBag.AreasID = new SelectList(db.cAreas, "ID", "Area", pcr.AreasID);
             ViewBag.ClientesID = new SelectList(db.cClientes, "ID", "Cliente", pcr.ClientesID);
-            ViewBag.OriginatorID = new SelectList(db.eoriginators, "ID", "Supervisor", pcr.OriginatorID);
             ViewBag.ProyectosID = new SelectList(db.cProyectos, "ID", "Proyecto", pcr.ProyectosID);
             ViewBag.ReasonID = new SelectList(db.ereasons, "ID", "Reason", pcr.ReasonID);
+            ViewBag.MatrizDecisionID = new SelectList(db.MatrizDecisions, "ID", "TipoCambio", pcr.MatrizDecisionID);
             return View(pcr);
         }
 

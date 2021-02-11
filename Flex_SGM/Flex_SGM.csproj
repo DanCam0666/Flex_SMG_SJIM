@@ -236,6 +236,7 @@
     <Compile Include="Controllers\JuntasController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MaquinasController.cs" />
+    <Compile Include="Controllers\MatrizDecisionsController.cs" />
     <Compile Include="Controllers\OILsController.cs" />
     <Compile Include="Controllers\pcrsController.cs" />
     <Compile Include="Controllers\ProyectosController.cs" />
@@ -2942,6 +2943,11 @@
     <Content Include="Views\Ingenieria\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutCE.cshtml" />
     <Content Include="Templates\TemplatePCR.xlsx" />
+    <Content Include="Views\MatrizDecisions\Create.cshtml" />
+    <Content Include="Views\MatrizDecisions\Delete.cshtml" />
+    <Content Include="Views\MatrizDecisions\Details.cshtml" />
+    <Content Include="Views\MatrizDecisions\Edit.cshtml" />
+    <Content Include="Views\MatrizDecisions\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

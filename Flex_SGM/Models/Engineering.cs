@@ -16,8 +16,9 @@ namespace Flex_SGM.Models
         [MaxLength(13)]
         public string PCRID { get; set; }
 
-        [Display(Name = "Originator")]
-        public int? OriginatorID { get; set; }
+        [Display(Name = "Originator")]/// CAMBIAR POR USUARIO aCTUAL 
+        [MaxLength(128)]
+        public string Originator { get; set; }
 
         [Display(Name = "Department")]
         public int AreasID { get; set; }
@@ -42,7 +43,8 @@ namespace Flex_SGM.Models
         [Display(Name = "Scope")]
         public string docscope { get; set; }
         [Display(Name = "type of change")]
-        public string doctypeofchange { get; set; }
+        public int MatrizDecisionID { get; set; }// SELECCION DESDE TABLA 
+
         [Display(Name = "Piece Price")]
         public double cipieceprice { get; set; }
         [Display(Name = "Capital")]
@@ -74,9 +76,11 @@ namespace Flex_SGM.Models
         [MaxLength(15)]
         [Display(Name = "Capacity Supplier")]
         public string crcapacitysupplier { get; set; }
-        [MaxLength(100)]
-        [Display(Name = "Reviewed by")]
+
+        [Display(Name = "Reviewed by")]/// Reviewed byReviewed by
+        [MaxLength(128)]
         public string Reviewedby { get; set; }
+
         [Display(Name = "Reviewed Date")]
         public DateTime? Reviewedby_date { get; set; }
         [MaxLength(5)]
@@ -183,10 +187,11 @@ namespace Flex_SGM.Models
         public int pcrmanagerclose { get; set; }
 
         public virtual ereason Reason { get; set; }
-        public virtual eoriginator Originator { get; set; }
         public virtual cAreas Areas { get; set; }
         public virtual cClientes Clientes { get; set; }
         public virtual cProyectos Proyectos { get; set; }
+
+        public virtual MatrizDecision MatrizDecision { get; set; }
     }
 
 
@@ -355,4 +360,99 @@ namespace Flex_SGM.Models
 
     }
 
+    public class MatrizDecision
+    {
+        [Key]
+        public int ID { get; set; }
+
+        [Display(Name = "Nivel de Riesgo")]
+        public int NivelRiesgo { get; set; }
+
+        [Display(Name = "Tipo de Cambio/Inpacto")]
+        public string TipoCambio { get; set; }
+
+        [Display(Name = "Comunicacion Hacia el cliente")]
+        public bool commcliente { get; set; }
+        //AR  Aprovaciones requeridas
+        [Display(Name = "Planta")]
+        public bool Arplanta { get; set; }
+        [Display(Name = "Ingenieria")]
+        public bool Aringenieria { get; set; }
+        [Display(Name = "Manufactura")]
+        public bool Armanufactura { get; set; }
+        [Display(Name = "Calidad")]
+        public bool Arcalidad { get; set; }
+        [Display(Name = "Finanzas")]
+        public bool Arfinanzas { get; set; }
+        [Display(Name = "Compras")]
+        public bool Arcompras { get; set; }
+        [Display(Name = "Materiales")]
+        public bool Armateriales { get; set; }
+        [Display(Name = "Mantenimiento")]
+        public bool Armantenimiento  { get; set; }
+        [Display(Name = "Seguridad")]
+        public bool Arseguridad { get; set; }
+        [Display(Name = "Ambiental")]
+        public bool Arambiental { get; set; }
+        [Display(Name = "Tooling")]
+        public bool Artooling { get; set; }
+        [Display(Name = "Estampado")]
+        public bool Arestampado { get; set; }
+        [Display(Name = "Soldadura")]
+        public bool Arsoldadura { get; set; }
+        [Display(Name = "Cromo")]
+        public bool Arcromo { get; set; }
+        [Display(Name = "Pintura")]
+        public bool Arpintura { get; set; }
+        [Display(Name = "Ensamble")]
+        public bool Arensamble { get; set; }
+
+        //DA  documentos afectados
+        [Display(Name = "PPAP")]
+        public bool Ppap { get; set; }
+        [Display(Name = "DRW")]
+        public bool Drw { get; set; }
+        [Display(Name = "SPEC")]
+        public bool Spec { get; set; }
+        [Display(Name = "PFD")]
+        public bool Pfd { get; set; }
+        [Display(Name = "PFMEA")]
+        public bool Pfmea { get; set; }
+        [Display(Name = "SW")]
+        public bool Sw { get; set; }
+        [Display(Name = "PCP")]
+        public bool Pcp { get; set; }
+        [Display(Name = "IS")]
+        public bool Is { get; set; }
+        [Display(Name = "MSA")]
+        public bool Msa { get; set; }
+        [Display(Name = "PS")]
+        public bool Ps { get; set; }
+        [Display(Name = "SC/CC")]
+        public bool Sccc { get; set; }
+        [Display(Name = "PL")]
+        public bool Pl { get; set; }
+        [Display(Name = "CPO")]
+        public bool Cpo { get; set; }
+        [Display(Name = "SPO")]
+        public bool Spo { get; set; }
+        [Display(Name = "IMDS")]
+        public bool Imds { get; set; }
+        [Display(Name = "IM")]
+        public bool Im { get; set; }
+        [Display(Name = "BOM")]
+        public bool Bom { get; set; }
+        [Display(Name = "PR")]
+        public bool Pr { get; set; }
+        [Display(Name = "MSS")]
+        public bool Mss { get; set; }
+        [Display(Name = "VA")]
+        public bool Va { get; set; }
+        [Display(Name = "SM")]
+        public bool Sm { get; set; }
+        [Display(Name = "PTR")]
+        public bool Ptr { get; set; }
+        [Display(Name = "PDR")]
+        public bool Pdr { get; set; }
+    }
 }
