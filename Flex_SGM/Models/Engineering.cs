@@ -171,20 +171,57 @@ namespace Flex_SGM.Models
         public double leadtime_approval { get; set; }
         [Display(Name = "Total LT")]
         public double leadtime_totallt { get; set; }
-        //*--------------*//
-        [MaxLength(25)]
-        public string pcrrequestlvl { get; set; }
+        //*------Feasibility--------*//
+        [Display(Name = "Is product adequately defined (application requirements, etc. to enable feasibility evaluation?")]
+        public bool FConsiderations1 { get; set; }
+        [Display(Name = "Can Engineering Performance Specifications be met as written?")]
+        public bool FConsiderations2 { get; set; }
+        [Display(Name = "Can product be manufactured to tolerances specified on drawing?")]
+        public bool FConsiderations3 { get; set; }
+        [Display(Name = "Can product be manufactured with process capability that meet requirements?")]
+        public bool FConsiderations4 { get; set; }
+        [Display(Name = "Is there adequate capacity to produce product?")]
+        public bool FConsiderations5 { get; set; }
+        [Display(Name = "Does the design allow the use of efficient material handling techniques?")]
+        public bool FConsiderations6 { get; set; }
+        [Display(Name = "Can the product be manufactured without incurring any unusual Costs for capital equipment?")]
+        public bool FConsiderations7 { get; set; }
+        [Display(Name = "Can the product be manufactured without incurring any unusual Costs for tooling?")]
+        public bool FConsiderations8 { get; set; }
+        [Display(Name = "Can the product be manufactured without incurring any unusual Alternative manufacturing methods?")]
+        public bool FConsiderations9 { get; set; }
+        [Display(Name = "Is statistical process control required on the product?")]
+        public bool FConsiderations10 { get; set; }
+        [Display(Name = "Is statistical process control presently used on similar products?")]
+        public bool FConsiderations11 { get; set; }
+        [Display(Name = "Where statistical process control is used on similar products. Are the processesing control reliable and stable?")]
+        public bool FConsiderations12 { get; set; }
+        [Display(Name = "Where statistical process control is used on similar products. Does process capability meet customer requirements?")]
+        public bool FConsiderations13 { get; set; }
+        [Display(Name = "Are due Care and Product Safety Items Involved, and can be met?")]
+        public bool FConsiderations14 { get; set; }
+        [Display(Name = "Were all Customer Specific requirements  reviewed, an can be met?")]
+        public bool FConsiderations15 { get; set; }
+        //*------Risk --------*//
+        [Display(Name = "Does exist any risk asociated with the adoption of this Change?")]
+        public bool FRisk1 { get; set; }
+        [Display(Name = "Use of any special material, for which we do not have expertise?")]
+        public bool FRisk2 { get; set; }
+        [Display(Name = "Use of any Manufacturing Technology for which we do not have actual experience?")]
+        public bool FRisk3 { get; set; }
+        [Display(Name = "Does need any Capital Invesment aditional to the actual installed?")]
+        public bool FRisk4 { get; set; }
+        [Display(Name = "Does need the adoption of any new supplier which we do not have experience with?")]
+        public bool FRisk5 { get; set; }
+        [Display(Name = "Not achievement of the projected volumes by the customer will create a risk?")]
+        public bool FRisk6 { get; set; }
+        [Display(Name = "Does the change represent any safety issue to create a risk?")]
+        public bool FRisk7 { get; set; }
+        [Display(Name = "What is the risk level of the change (1-Low, 2-Med, 3-High)")]
+        public int FRisk8 { get; set; }
 
-        public int pcrverification { get; set; }
-        public int pcrdecision { get; set; }
 
-        public int pcrclientapproval { get; set; }
 
-        public int pcrclientdecision { get; set; }
-
-        public int pcrmanagerdecision { get; set; }
-
-        public int pcrmanagerclose { get; set; }
 
         public virtual ereason Reason { get; set; }
         public virtual cAreas Areas { get; set; }
@@ -454,5 +491,12 @@ namespace Flex_SGM.Models
         public bool Ptr { get; set; }
         [Display(Name = "PDR")]
         public bool Pdr { get; set; }
+    }
+    public class FeasibilitySings
+    {
+        [Key]
+        public int ID { get; set; }
+
+     
     }
 }

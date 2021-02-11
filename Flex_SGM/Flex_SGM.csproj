@@ -2935,11 +2935,6 @@
     <Content Include="Views\ereasons\Edit.cshtml" />
     <Content Include="Views\ereasons\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutE.cshtml" />
-    <Content Include="Views\pcrs\Create.cshtml" />
-    <Content Include="Views\pcrs\Delete.cshtml" />
-    <Content Include="Views\pcrs\Details.cshtml" />
-    <Content Include="Views\pcrs\Edit.cshtml" />
-    <Content Include="Views\pcrs\Index.cshtml" />
     <Content Include="Views\Ingenieria\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutCE.cshtml" />
     <Content Include="Templates\TemplatePCR.xlsx" />
@@ -2948,6 +2943,11 @@
     <Content Include="Views\MatrizDecisions\Details.cshtml" />
     <Content Include="Views\MatrizDecisions\Edit.cshtml" />
     <Content Include="Views\MatrizDecisions\Index.cshtml" />
+    <Content Include="Views\pcrs\Create.cshtml" />
+    <Content Include="Views\pcrs\Delete.cshtml" />
+    <Content Include="Views\pcrs\Details.cshtml" />
+    <Content Include="Views\pcrs\Edit.cshtml" />
+    <Content Include="Views\pcrs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

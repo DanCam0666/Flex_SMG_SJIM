@@ -66,7 +66,8 @@
     <h4>List Of Roles</h4>
     <table class="table table-striped">
 
-        @foreach (string x in ViewBag.AllRoles)
+        @if (ViewBag.AllRoles != null) { 
+        foreach (string x in ViewBag.AllRoles)
         {
             if (!String.IsNullOrEmpty(x))
             {
@@ -76,6 +77,7 @@
                     </td>
                 </tr>
             }
+        }
         }
     </table>
     <h4>Modify Role for User</h4>

@@ -2,60 +2,19 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
-using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Flex_SGM.Models;
 using ClosedXML.Report;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin.Security;
+using System.IO;
 
 namespace Flex_SGM.Controllers
 {
     public class pcrsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-
-        //user management
-        private ApplicationSignInManager _signInManager;
-        private ApplicationUserManager _userManager;
-
-        public pcrsController()
-        {
-
-        }
-        public pcrsController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
-        {
-            UserManager = userManager;
-            SignInManager = signInManager;
-        }
-
-        public ApplicationSignInManager SignInManager
-        {
-            get
-            {
-                return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
-            }
-            private set
-            {
-                _signInManager = value;
-            }
-        }
-
-        public ApplicationUserManager UserManager
-        {
-            get
-            {
-                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
-            }
-            private set
-            {
-                _userManager = value;
-            }
-        }
 
         // export
 
@@ -78,141 +37,206 @@ namespace Flex_SGM.Controllers
 
                 AreasID = pcrd.Areas.Area
 
-      , Date = pcrd.Date.ToString()
+      ,
+                Date = pcrd.Date.ToString()
 
 
-      , ClientesID = pcrd.Clientes.Cliente
+      ,
+                ClientesID = pcrd.Clientes.Cliente
 
 
-      , ProyectosID = pcrd.Proyectos.Proyecto
+      ,
+                ProyectosID = pcrd.Proyectos.Proyecto
 
-      , ReasonID = pcrd.Reason.Reason
+      ,
+                ReasonID = pcrd.Reason.Reason
 
-      , PartNumber = pcrd.PartNumber
+      ,
+                PartNumber = pcrd.PartNumber
 
-      , RevLevel = pcrd.RevLevel
+      ,
+                RevLevel = pcrd.RevLevel
 
-      , PartName = pcrd.PartName
+      ,
+                PartName = pcrd.PartName
 
-      , docreason = pcrd.docreason
+      ,
+                docreason = pcrd.docreason
 
-      , docscope = pcrd.docscope
+      ,
+                docscope = pcrd.docscope
 
-      , doctypeofchange = pcrd.MatrizDecision.TipoCambio
+      ,
+                doctypeofchange = pcrd.MatrizDecision.TipoCambio
 
-      , cipieceprice = pcrd.cipieceprice.ToString()
+      ,
+                cipieceprice = pcrd.cipieceprice.ToString()
 
-      , cicapital= pcrd.cicapital.ToString()
+      ,
+                cicapital = pcrd.cicapital.ToString()
 
-      , citooling= pcrd.citooling.ToString()
+      ,
+                citooling = pcrd.citooling.ToString()
 
-      , ciengineering= pcrd.ciengineering.ToString()
+      ,
+                ciengineering = pcrd.ciengineering.ToString()
 
-      , cipackaging= pcrd.cipackaging.ToString()
+      ,
+                cipackaging = pcrd.cipackaging.ToString()
 
-      , ciobsolescence= pcrd.ciobsolescence.ToString()
+      ,
+                ciobsolescence = pcrd.ciobsolescence.ToString()
 
-      , cimaterial= pcrd.cimaterial.ToString()
+      ,
+                cimaterial = pcrd.cimaterial.ToString()
 
-      , cifreight= pcrd.cifreight.ToString()
+      ,
+                cifreight = pcrd.cifreight.ToString()
 
-      , ciovertime= pcrd.ciovertime.ToString()
+      ,
+                ciovertime = pcrd.ciovertime.ToString()
 
-      , ciother= pcrd.ciother.ToString()
+      ,
+                ciother = pcrd.ciother.ToString()
 
-      , citotal= pcrd.ciother.ToString()
+      ,
+                citotal = pcrd.ciother.ToString()
 
 
-      , crannualvolume= pcrd.crannualvolume
+      ,
+                crannualvolume = pcrd.crannualvolume
 
-      , crcapacityfng= pcrd.crcapacityfng
+      ,
+                crcapacityfng = pcrd.crcapacityfng
 
-      , crcapacitysupplier= pcrd.crcapacitysupplier
+      ,
+                crcapacitysupplier = pcrd.crcapacitysupplier
 
-      , Reviewedby= pcrd.Reviewedby
+      ,
+                Reviewedby = pcrd.Reviewedby
 
-      , Reviewedby_date = pcrd.Reviewedby_date.ToString()
+      ,
+                Reviewedby_date = pcrd.Reviewedby_date.ToString()
 
-      , support_purchasing = pcrd.support_purchasing
+      ,
+                support_purchasing = pcrd.support_purchasing
 
-      , support_materials = pcrd.support_materials
+      ,
+                support_materials = pcrd.support_materials
 
-      , support_maintenance = pcrd.support_maintenance
+      ,
+                support_maintenance = pcrd.support_maintenance
 
-      , support_automation = pcrd.support_automation
+      ,
+                support_automation = pcrd.support_automation
 
-      , support_quality = pcrd.support_quality
+      ,
+                support_quality = pcrd.support_quality
 
-      , support_safety = pcrd.support_safety
+      ,
+                support_safety = pcrd.support_safety
 
-      , support_environmental = pcrd.support_environmental
+      ,
+                support_environmental = pcrd.support_environmental
 
-      , support_tooling = pcrd.support_tooling
+      ,
+                support_tooling = pcrd.support_tooling
 
-      , support_stamping = pcrd.support_stamping
+      ,
+                support_stamping = pcrd.support_stamping
 
-      , support_welding = pcrd.support_welding
+      ,
+                support_welding = pcrd.support_welding
 
-      , support_chrome = pcrd.support_chrome
+      ,
+                support_chrome = pcrd.support_chrome
 
-      , support_ecoat = pcrd.support_ecoat
+      ,
+                support_ecoat = pcrd.support_ecoat
 
-      , support_topcoat = pcrd.support_topcoat
+      ,
+                support_topcoat = pcrd.support_topcoat
 
-      , support_backcoat = pcrd.support_backcoat
+      ,
+                support_backcoat = pcrd.support_backcoat
 
-      , support_assembly = pcrd.support_assembly
+      ,
+                support_assembly = pcrd.support_assembly
 
-      , support_finance = pcrd.support_finance
+      ,
+                support_finance = pcrd.support_finance
 
-      , Keymilestones_buildmrd1 = pcrd.Keymilestones_buildmrd1
+      ,
+                Keymilestones_buildmrd1 = pcrd.Keymilestones_buildmrd1
 
-      , Keymilestones_buildmrd2 = pcrd.Keymilestones_buildmrd2
+      ,
+                Keymilestones_buildmrd2 = pcrd.Keymilestones_buildmrd2
 
-      , Keymilestones_buildmrd3 = pcrd.Keymilestones_buildmrd3
+      ,
+                Keymilestones_buildmrd3 = pcrd.Keymilestones_buildmrd3
 
-      , Keymilestones_customrrar = pcrd.Keymilestones_customrrar
+      ,
+                Keymilestones_customrrar = pcrd.Keymilestones_customrrar
 
-      , Keymilestones_ppap = pcrd.Keymilestones_ppap
+      ,
+                Keymilestones_ppap = pcrd.Keymilestones_ppap
 
-      , Keymilestones_internalsop = pcrd.Keymilestones_internalsop
+      ,
+                Keymilestones_internalsop = pcrd.Keymilestones_internalsop
 
-      , Keymilestones_customersop = pcrd.Keymilestones_customersop
+      ,
+                Keymilestones_customersop = pcrd.Keymilestones_customersop
 
-      , Keymilestones_closure = pcrd.Keymilestones_closure
+      ,
+                Keymilestones_closure = pcrd.Keymilestones_closure
 
-      , leadtime_engineering = pcrd.leadtime_engineering.ToString()
+      ,
+                leadtime_engineering = pcrd.leadtime_engineering.ToString()
 
-      , leadtime_tooling = pcrd.leadtime_tooling.ToString()
+      ,
+                leadtime_tooling = pcrd.leadtime_tooling.ToString()
 
-      , leadtime_facilities = pcrd.leadtime_facilities.ToString()
+      ,
+                leadtime_facilities = pcrd.leadtime_facilities.ToString()
 
-      , leadtime_capital = pcrd.leadtime_capital.ToString()
+      ,
+                leadtime_capital = pcrd.leadtime_capital.ToString()
 
-      , leadtime_material = pcrd.leadtime_material.ToString()
+      ,
+                leadtime_material = pcrd.leadtime_material.ToString()
 
-      , leadtime_inventory = pcrd.leadtime_inventory.ToString()
+      ,
+                leadtime_inventory = pcrd.leadtime_inventory.ToString()
 
-      , leadtime_approval = pcrd.leadtime_approval.ToString()
+      ,
+                leadtime_approval = pcrd.leadtime_approval.ToString()
 
-      , leadtime_totallt = pcrd.leadtime_totallt.ToString()
+      ,
+                leadtime_totallt = pcrd.leadtime_totallt.ToString()
       //*--------------*//
 
-      , pcrrequestlvl = pcrd.pcrrequestlvl
+      ,
+                pcrrequestlvl = ""
 
-      , pcrverification = pcrd.pcrverification.ToString()
-      , pcrdecision = pcrd.pcrdecision.ToString()
+      ,
+                pcrverification = ""
+      ,
+                pcrdecision = ""
 
-      , pcrclientapproval = pcrd.pcrclientapproval.ToString()
+      ,
+                pcrclientapproval = ""
 
-      , pcrclientdecision = pcrd.pcrclientdecision.ToString()
+      ,
+                pcrclientdecision = ""
 
-      , pcrmanagerdecision = pcrd.pcrmanagerdecision.ToString()
+      ,
+                pcrmanagerdecision = ""
 
-      , pcrmanagerclose = pcrd.pcrmanagerclose.ToString()
+      ,
+                pcrmanagerclose = ""
 
             };
-       
+
 
             template.AddVariable(tempy);
             template.Generate();
@@ -225,13 +249,10 @@ namespace Flex_SGM.Controllers
 
         }
 
-
         // GET: pcrs
         public ActionResult Index()
         {
-            var pcrs = db.pcrs.Include(p => p.Areas).Include(p => p.Clientes).Include(p => p.Reason).Include(p => p.Proyectos).Include(P=>P.MatrizDecision);
-
-
+            var pcrs = db.pcrs.Include(p => p.Areas).Include(p => p.Clientes).Include(p => p.MatrizDecision).Include(p => p.Proyectos).Include(p => p.Reason);
             return View(pcrs.ToList());
         }
 
@@ -253,11 +274,10 @@ namespace Flex_SGM.Controllers
         // GET: pcrs/Create
         public ActionResult Create()
         {
-            var userid = User.Identity.GetUserId();
-            var users = UserManager.Users.ToList();
+
+
+            var users = db.Users.ToList();
             List<ApplicationUser> Gerentes = new List<ApplicationUser>();
-
-
             foreach (var user in users)
             {
                 foreach (var userroles in user.Roles)
@@ -273,19 +293,14 @@ namespace Flex_SGM.Controllers
 
             ViewBag.AreasID = new SelectList(db.cAreas, "ID", "Area");
             ViewBag.ClientesID = new SelectList(db.cClientes, "ID", "Cliente");
-            ViewBag.OriginatorID = new SelectList(db.Users, "ID", "UserFullName");
+            ViewBag.MatrizDecisionID = new SelectList(db.MatrizDecisions, "ID", "TipoCambio");
             ViewBag.ProyectosID = new SelectList(db.cProyectos, "ID", "Proyecto");
             ViewBag.ReasonID = new SelectList(db.ereasons, "ID", "Reason");
-            ViewBag.MatrizDecisionID = new SelectList(db.MatrizDecisions, "ID", "TipoCambio");
 
             ViewBag.GerentesID = new SelectList(Gerentes, "ID", "UserFullName");
+            ViewBag.OriginatorID = new SelectList(db.Users, "ID", "UserFullName");
 
-
-
-
-            ViewBag.UsersID = new SelectList(db.ereasons, "ID", "Reason");
-
-            pcr mpcr =new pcr();
+            pcr mpcr = new pcr();
 
             mpcr.Date = DateTime.Now;
             mpcr.cicapital = 0.0;
@@ -309,15 +324,8 @@ namespace Flex_SGM.Controllers
             mpcr.leadtime_tooling = 0.0;
             mpcr.leadtime_totallt = 0.0;
 
-            mpcr.pcrclientapproval = 0;
-            mpcr.pcrclientdecision = 0;
-            mpcr.pcrdecision = 0;
-            mpcr.pcrmanagerclose = 0;
-            mpcr.pcrmanagerdecision = 0;
-            mpcr.pcrverification = 0;
 
-
-
+            mpcr.FRisk8 = 0;
             return View(mpcr);
         }
 
@@ -326,7 +334,7 @@ namespace Flex_SGM.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Originator,AreasID,Date,ClientesID,ProyectosID,ReasonID,PartNumber,RevLevel,PartName,docreason,docscope,MatrizDecisionID,cipieceprice,cicapital,citooling,ciengineering,cipackaging,ciobsolescence,cimaterial,cifreight,ciovertime,ciother,citotal,crannualvolume,crcapacityfng,crcapacitysupplier,Reviewedby,Reviewedby_date,support_purchasing,support_materials,support_maintenance,support_automation,support_quality,support_safety,support_environmental,support_tooling,support_stamping,support_welding,support_chrome,support_ecoat,support_topcoat,support_backcoat,support_assembly,support_finance,Keymilestones_buildmrd1,Keymilestones_buildmrd2,Keymilestones_buildmrd3,Keymilestones_customrrar,Keymilestones_ppap,Keymilestones_internalsop,Keymilestones_customersop,Keymilestones_closure,leadtime_engineering,leadtime_tooling,leadtime_facilities,leadtime_capital,leadtime_material,leadtime_inventory,leadtime_approval,leadtime_totallt,pcrrequestlvl,pcrverification,pcrdecision,pcrclientapproval,pcrclientdecision,pcrmanagerdecision,pcrmanagerclose")] pcr pcr)
+        public ActionResult Create([Bind(Include = "ID,PCRID,Originator,AreasID,Date,ClientesID,ProyectosID,ReasonID,PartNumber,RevLevel,PartName,docreason,docscope,MatrizDecisionID,cipieceprice,cicapital,citooling,ciengineering,cipackaging,ciobsolescence,cimaterial,cifreight,ciovertime,ciother,citotal,crannualvolume,crcapacityfng,crcapacitysupplier,Reviewedby,Reviewedby_date,support_purchasing,support_materials,support_maintenance,support_automation,support_quality,support_safety,support_environmental,support_tooling,support_stamping,support_welding,support_chrome,support_ecoat,support_topcoat,support_backcoat,support_assembly,support_finance,Keymilestones_buildmrd1,Keymilestones_buildmrd2,Keymilestones_buildmrd3,Keymilestones_customrrar,Keymilestones_ppap,Keymilestones_internalsop,Keymilestones_customersop,Keymilestones_closure,leadtime_engineering,leadtime_tooling,leadtime_facilities,leadtime_capital,leadtime_material,leadtime_inventory,leadtime_approval,leadtime_totallt,FConsiderations1,FConsiderations2,FConsiderations3,FConsiderations4,FConsiderations5,FConsiderations6,FConsiderations7,FConsiderations8,FConsiderations9,FConsiderations10,FConsiderations11,FConsiderations12,FConsiderations13,FConsiderations14,FConsiderations15,FRisk1,FRisk2,FRisk3,FRisk4,FRisk5,FRisk6,FRisk7,FRisk8")] pcr pcr)
         {
             if (ModelState.IsValid)
             {
@@ -337,11 +345,9 @@ namespace Flex_SGM.Controllers
 
             ViewBag.AreasID = new SelectList(db.cAreas, "ID", "Area", pcr.AreasID);
             ViewBag.ClientesID = new SelectList(db.cClientes, "ID", "Cliente", pcr.ClientesID);
+            ViewBag.MatrizDecisionID = new SelectList(db.MatrizDecisions, "ID", "TipoCambio", pcr.MatrizDecisionID);
             ViewBag.ProyectosID = new SelectList(db.cProyectos, "ID", "Proyecto", pcr.ProyectosID);
             ViewBag.ReasonID = new SelectList(db.ereasons, "ID", "Reason", pcr.ReasonID);
-            ViewBag.ReasonID = new SelectList(db.ereasons, "ID", "Reason", pcr.ReasonID);
-            ViewBag.MatrizDecisionID = new SelectList(db.MatrizDecisions, "ID", "TipoCambio",pcr.MatrizDecisionID);
-
             return View(pcr);
         }
 
@@ -359,9 +365,9 @@ namespace Flex_SGM.Controllers
             }
             ViewBag.AreasID = new SelectList(db.cAreas, "ID", "Area", pcr.AreasID);
             ViewBag.ClientesID = new SelectList(db.cClientes, "ID", "Cliente", pcr.ClientesID);
+            ViewBag.MatrizDecisionID = new SelectList(db.MatrizDecisions, "ID", "TipoCambio", pcr.MatrizDecisionID);
             ViewBag.ProyectosID = new SelectList(db.cProyectos, "ID", "Proyecto", pcr.ProyectosID);
             ViewBag.ReasonID = new SelectList(db.ereasons, "ID", "Reason", pcr.ReasonID);
-            ViewBag.MatrizDecisionID = new SelectList(db.MatrizDecisions, "ID", "TipoCambio", pcr.MatrizDecisionID);
             return View(pcr);
         }
 
@@ -370,7 +376,7 @@ namespace Flex_SGM.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Originator,AreasID,Date,ClientesID,ProyectosID,ReasonID,PartNumber,RevLevel,PartName,docreason,docscope,MatrizDecisionID,cipieceprice,cicapital,citooling,ciengineering,cipackaging,ciobsolescence,cimaterial,cifreight,ciovertime,ciother,citotal,crannualvolume,crcapacityfng,crcapacitysupplier,Reviewedby,Reviewedby_date,support_purchasing,support_materials,support_maintenance,support_automation,support_quality,support_safety,support_environmental,support_tooling,support_stamping,support_welding,support_chrome,support_ecoat,support_topcoat,support_backcoat,support_assembly,support_finance,Keymilestones_buildmrd1,Keymilestones_buildmrd2,Keymilestones_buildmrd3,Keymilestones_customrrar,Keymilestones_ppap,Keymilestones_internalsop,Keymilestones_customersop,Keymilestones_closure,leadtime_engineering,leadtime_tooling,leadtime_facilities,leadtime_capital,leadtime_material,leadtime_inventory,leadtime_approval,leadtime_totallt,pcrrequestlvl,pcrverification,pcrdecision,pcrclientapproval,pcrclientdecision,pcrmanagerdecision,pcrmanagerclose")] pcr pcr)
+        public ActionResult Edit([Bind(Include = "ID,PCRID,Originator,AreasID,Date,ClientesID,ProyectosID,ReasonID,PartNumber,RevLevel,PartName,docreason,docscope,MatrizDecisionID,cipieceprice,cicapital,citooling,ciengineering,cipackaging,ciobsolescence,cimaterial,cifreight,ciovertime,ciother,citotal,crannualvolume,crcapacityfng,crcapacitysupplier,Reviewedby,Reviewedby_date,support_purchasing,support_materials,support_maintenance,support_automation,support_quality,support_safety,support_environmental,support_tooling,support_stamping,support_welding,support_chrome,support_ecoat,support_topcoat,support_backcoat,support_assembly,support_finance,Keymilestones_buildmrd1,Keymilestones_buildmrd2,Keymilestones_buildmrd3,Keymilestones_customrrar,Keymilestones_ppap,Keymilestones_internalsop,Keymilestones_customersop,Keymilestones_closure,leadtime_engineering,leadtime_tooling,leadtime_facilities,leadtime_capital,leadtime_material,leadtime_inventory,leadtime_approval,leadtime_totallt,FConsiderations1,FConsiderations2,FConsiderations3,FConsiderations4,FConsiderations5,FConsiderations6,FConsiderations7,FConsiderations8,FConsiderations9,FConsiderations10,FConsiderations11,FConsiderations12,FConsiderations13,FConsiderations14,FConsiderations15,FRisk1,FRisk2,FRisk3,FRisk4,FRisk5,FRisk6,FRisk7,FRisk8")] pcr pcr)
         {
             if (ModelState.IsValid)
             {
@@ -380,9 +386,9 @@ namespace Flex_SGM.Controllers
             }
             ViewBag.AreasID = new SelectList(db.cAreas, "ID", "Area", pcr.AreasID);
             ViewBag.ClientesID = new SelectList(db.cClientes, "ID", "Cliente", pcr.ClientesID);
+            ViewBag.MatrizDecisionID = new SelectList(db.MatrizDecisions, "ID", "TipoCambio", pcr.MatrizDecisionID);
             ViewBag.ProyectosID = new SelectList(db.cProyectos, "ID", "Proyecto", pcr.ProyectosID);
             ViewBag.ReasonID = new SelectList(db.ereasons, "ID", "Reason", pcr.ReasonID);
-            ViewBag.MatrizDecisionID = new SelectList(db.MatrizDecisions, "ID", "TipoCambio", pcr.MatrizDecisionID);
             return View(pcr);
         }
 
