@@ -312,13 +312,26 @@ namespace Flex_SGM.Controllers
             mpcr.FRisk8 = 0;
             return View(mpcr);
         }
+    
+        public ActionResult Matrizd(int Codigo)
+        {
+            // TODO: based on the selected
+            var req = db.MatrizDecisions.Where(f => f.ID == Codigo).ToList();
+      
+
+
+            string r1 = req.FirstOrDefault().ID.ToString();
+            string r2 = req.FirstOrDefault().TipoCambio;
+
+            return Json(new { r1 = r1, r2 = r2 }, JsonRequestBehavior.AllowGet);
+        }
 
         // POST: pcrs/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,PCRID,Originator,AreasID,Date,ClientesID,ProyectosID,ReasonID,PartNumber,RevLevel,PartName,docreason,docscope,MatrizDecisionID,cipieceprice,cicapital,citooling,ciengineering,cipackaging,ciobsolescence,cimaterial,cifreight,ciovertime,ciother,citotal,crannualvolume,crcapacityfng,crcapacitysupplier,Reviewedby,Reviewedby_date,support_purchasing,support_materials,support_maintenance,support_automation,support_quality,support_safety,support_environmental,support_tooling,support_stamping,support_welding,support_chrome,support_ecoat,support_topcoat,support_backcoat,support_assembly,support_finance,Keymilestones_buildmrd1,Keymilestones_buildmrd2,Keymilestones_buildmrd3,Keymilestones_customrrar,Keymilestones_ppap,Keymilestones_internalsop,Keymilestones_customersop,Keymilestones_closure,leadtime_engineering,leadtime_tooling,leadtime_facilities,leadtime_capital,leadtime_material,leadtime_inventory,leadtime_approval,leadtime_totallt,FConsiderations1,FConsiderations2,FConsiderations3,FConsiderations4,FConsiderations5,FConsiderations6,FConsiderations7,FConsiderations8,FConsiderations9,FConsiderations10,FConsiderations11,FConsiderations12,FConsiderations13,FConsiderations14,FConsiderations15,FRisk1,FRisk2,FRisk3,FRisk4,FRisk5,FRisk6,FRisk7,FRisk8")] pcr pcr)
+        public ActionResult Create([Bind(Include = "ID,PCRID,Status,Originator,AreasID,Date,ClientesID,ProyectosID,ReasonID,PartNumber,RevLevel,PartName,docreason,docscope,MatrizDecisionID,cipieceprice,cicapital,citooling,ciengineering,cipackaging,ciobsolescence,cimaterial,cifreight,ciovertime,ciother,citotal,crannualvolume,crcapacityfng,crcapacitysupplier,Reviewedby,Reviewedby_date,support_purchasing,support_materials,support_maintenance,support_automation,support_quality,support_safety,support_environmental,support_tooling,support_stamping,support_welding,support_chrome,support_ecoat,support_topcoat,support_backcoat,support_assembly,support_finance,Keymilestones_buildmrd1,Keymilestones_buildmrd2,Keymilestones_buildmrd3,Keymilestones_customrrar,Keymilestones_ppap,Keymilestones_internalsop,Keymilestones_customersop,Keymilestones_closure,leadtime_engineering,leadtime_tooling,leadtime_facilities,leadtime_capital,leadtime_material,leadtime_inventory,leadtime_approval,leadtime_totallt,FConsiderations1,FConsiderations2,FConsiderations3,FConsiderations4,FConsiderations5,FConsiderations6,FConsiderations7,FConsiderations8,FConsiderations9,FConsiderations10,FConsiderations11,FConsiderations12,FConsiderations13,FConsiderations14,FConsiderations15,FRisk1,FRisk2,FRisk3,FRisk4,FRisk5,FRisk6,FRisk7,FRisk8")] pcr pcr)
         {
             var noPCRS = db.pcrs.Count();
             var dt = DateTime.Now;
@@ -330,6 +343,7 @@ namespace Flex_SGM.Controllers
 
             if (ModelState.IsValid)
             {
+                pcr.Status = "Revisión";
                 pcr.PCRID = PCRID;
                 db.pcrs.Add(pcr);
                 db.SaveChanges();
@@ -369,7 +383,7 @@ namespace Flex_SGM.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,PCRID,Originator,AreasID,Date,ClientesID,ProyectosID,ReasonID,PartNumber,RevLevel,PartName,docreason,docscope,MatrizDecisionID,cipieceprice,cicapital,citooling,ciengineering,cipackaging,ciobsolescence,cimaterial,cifreight,ciovertime,ciother,citotal,crannualvolume,crcapacityfng,crcapacitysupplier,Reviewedby,Reviewedby_date,support_purchasing,support_materials,support_maintenance,support_automation,support_quality,support_safety,support_environmental,support_tooling,support_stamping,support_welding,support_chrome,support_ecoat,support_topcoat,support_backcoat,support_assembly,support_finance,Keymilestones_buildmrd1,Keymilestones_buildmrd2,Keymilestones_buildmrd3,Keymilestones_customrrar,Keymilestones_ppap,Keymilestones_internalsop,Keymilestones_customersop,Keymilestones_closure,leadtime_engineering,leadtime_tooling,leadtime_facilities,leadtime_capital,leadtime_material,leadtime_inventory,leadtime_approval,leadtime_totallt,FConsiderations1,FConsiderations2,FConsiderations3,FConsiderations4,FConsiderations5,FConsiderations6,FConsiderations7,FConsiderations8,FConsiderations9,FConsiderations10,FConsiderations11,FConsiderations12,FConsiderations13,FConsiderations14,FConsiderations15,FRisk1,FRisk2,FRisk3,FRisk4,FRisk5,FRisk6,FRisk7,FRisk8")] pcr pcr)
+        public ActionResult Edit([Bind(Include = "ID,PCRID,Status,Originator,AreasID,Date,ClientesID,ProyectosID,ReasonID,PartNumber,RevLevel,PartName,docreason,docscope,MatrizDecisionID,cipieceprice,cicapital,citooling,ciengineering,cipackaging,ciobsolescence,cimaterial,cifreight,ciovertime,ciother,citotal,crannualvolume,crcapacityfng,crcapacitysupplier,Reviewedby,Reviewedby_date,support_purchasing,support_materials,support_maintenance,support_automation,support_quality,support_safety,support_environmental,support_tooling,support_stamping,support_welding,support_chrome,support_ecoat,support_topcoat,support_backcoat,support_assembly,support_finance,Keymilestones_buildmrd1,Keymilestones_buildmrd2,Keymilestones_buildmrd3,Keymilestones_customrrar,Keymilestones_ppap,Keymilestones_internalsop,Keymilestones_customersop,Keymilestones_closure,leadtime_engineering,leadtime_tooling,leadtime_facilities,leadtime_capital,leadtime_material,leadtime_inventory,leadtime_approval,leadtime_totallt,FConsiderations1,FConsiderations2,FConsiderations3,FConsiderations4,FConsiderations5,FConsiderations6,FConsiderations7,FConsiderations8,FConsiderations9,FConsiderations10,FConsiderations11,FConsiderations12,FConsiderations13,FConsiderations14,FConsiderations15,FRisk1,FRisk2,FRisk3,FRisk4,FRisk5,FRisk6,FRisk7,FRisk8")] pcr pcr)
         {
             if (ModelState.IsValid)
             {

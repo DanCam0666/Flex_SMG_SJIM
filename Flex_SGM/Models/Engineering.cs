@@ -16,6 +16,11 @@ namespace Flex_SGM.Models
         [MaxLength(13)]
         public string PCRID { get; set; }
 
+        [MaxLength(20)]
+
+        [Display(Name = "En Proceso de")]/// CAMBIAR POR USUARIO aCTUAL 
+        public string Status { get; set; }
+
         [Display(Name = "Originator")]/// CAMBIAR POR USUARIO aCTUAL 
         [MaxLength(128)]
         public string Originator { get; set; }
