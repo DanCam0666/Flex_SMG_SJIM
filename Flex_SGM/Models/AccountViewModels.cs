@@ -97,6 +97,10 @@ namespace Flex_SGM.Models
         [Display(Name = "Correo Electronico")]
         [EmailAddress]
         public string Email { get; set; }
+
+        [Display(Name = "Departamento Asignado")]
+        [MaxLength(50)]
+        public string Departamento { get; set; }
     }
 
     public class ResetPasswordViewModel

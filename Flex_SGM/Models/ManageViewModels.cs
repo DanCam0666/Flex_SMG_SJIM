@@ -8,6 +8,7 @@ namespace Flex_SGM.Models
     public class IndexViewModel
     {
         public string Nombre { get; set; }
+        public string Departamento { get; set; }
         public string Area { get; set; }
         public string Puesto { get; set; }
         public string idusuario { get; set; }

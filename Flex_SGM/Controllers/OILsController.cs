@@ -404,7 +404,7 @@ namespace Flex_SGM.Controllers
 
 
 
-            ViewBag.Dep = new SelectList(Enum.GetValues(typeof(flex_Depas)).Cast<flex_Depas>().ToList());
+            ViewBag.Dep = new SelectList(Enum.GetValues(typeof(flex_Departamento)).Cast<flex_Departamento>().ToList());
             ViewBag.Tipo = new SelectList(Enum.GetValues(typeof(flex_Oils)).Cast<flex_Oils>().ToList());
 
 

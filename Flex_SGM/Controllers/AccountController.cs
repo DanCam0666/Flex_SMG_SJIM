@@ -152,7 +152,7 @@ namespace Flex_SGM.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email, UserFullName = model.UserFullName, Area = model.Area, Puesto = model.Puesto, Nomina = model.Nomina };
+                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email, UserFullName = model.UserFullName, Area = model.Area, Puesto = model.Puesto, Nomina = model.Nomina,Departamento=model.Departamento };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -177,8 +177,8 @@ namespace Flex_SGM.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+            ViewBag.Departamento = new SelectList(Enum.GetValues(typeof(flex_Departamento)).Cast<flex_Departamento>(), "Departamento");
             ViewBag.Puesto = new SelectList(Enum.GetValues(typeof(flex_Puesto)).Cast<flex_Puesto>(), "Puesto");
-
             ViewBag.Area = new SelectList(Enum.GetValues(typeof(flex_Areas)).Cast<flex_Areas>(), "Areas"); 
             return View();
         }
@@ -190,12 +190,13 @@ namespace Flex_SGM.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
+            ViewBag.Departamento = new SelectList(Enum.GetValues(typeof(flex_Departamento)).Cast<flex_Departamento>(), "Departamento");
             ViewBag.Puesto = new SelectList(Enum.GetValues(typeof(flex_Puesto)).Cast<flex_Puesto>(), "Puesto");
 
             ViewBag.Area = new SelectList(Enum.GetValues(typeof(flex_Areas)).Cast<flex_Areas>(), "Areas");
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email, UserFullName = model.UserFullName, Area = model.Area, Puesto = model.Puesto, Nomina=model.Nomina};
+                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email, UserFullName = model.UserFullName, Area = model.Area, Puesto = model.Puesto, Nomina=model.Nomina,Departamento=model.Departamento};
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -234,6 +235,7 @@ namespace Flex_SGM.Controllers
         [AllowAnonymous]
         public ActionResult ForgotPassword()
         {
+            ViewBag.Departamento = new SelectList(Enum.GetValues(typeof(flex_Departamento)).Cast<flex_Departamento>(), "Departamento");
             ViewBag.Puesto = new SelectList(Enum.GetValues(typeof(flex_Puesto)).Cast<flex_Puesto>(), "Puesto");
             return View();
         }

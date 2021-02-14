@@ -22,11 +22,12 @@ namespace Flex_SGM.Models
         public string Status { get; set; }
 
         [Display(Name = "Originator")]/// CAMBIAR POR USUARIO aCTUAL 
-        [MaxLength(128)]
+        [MaxLength(140)]
         public string Originator { get; set; }
 
         [Display(Name = "Department")]
-        public int AreasID { get; set; }
+        [MaxLength(70)]
+        public string Department { get; set; }
 
         public DateTime Date { get; set; }
 
@@ -83,7 +84,7 @@ namespace Flex_SGM.Models
         public string crcapacitysupplier { get; set; }
 
         [Display(Name = "Reviewed by")]/// Reviewed byReviewed by
-        [MaxLength(128)]
+        [MaxLength(140)]
         public string Reviewedby { get; set; }
 
         [Display(Name = "Reviewed Date")]
@@ -229,7 +230,6 @@ namespace Flex_SGM.Models
 
 
         public virtual ereason Reason { get; set; }
-        public virtual cAreas Areas { get; set; }
         public virtual cClientes Clientes { get; set; }
         public virtual cProyectos Proyectos { get; set; }
 

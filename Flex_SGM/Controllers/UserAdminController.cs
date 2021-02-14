@@ -129,6 +129,7 @@ namespace AspnetIdentitySample.Controllers
         // GET: /Users/Create
         public async Task<ActionResult> Create()
         {
+            ViewBag.Departamento = new SelectList(Enum.GetValues(typeof(flex_Departamento)).Cast<flex_Departamento>(), "Departamento");
             //Get the list of Roles
             ViewBag.Puesto = new SelectList(Enum.GetValues(typeof(flex_Puesto)).Cast<flex_Puesto>(), "Puesto");
 
@@ -204,15 +205,21 @@ namespace AspnetIdentitySample.Controllers
 
             var stringA = Enum.Parse(typeof(flex_Areas), user.Area);
 
-            ViewBag.Puesto = new SelectList(Enum.GetValues(typeof(flex_Puesto)).Cast<flex_Puesto>(), stringp);
+                var stringd = Enum.Parse(typeof(flex_Areas), user.Departamento);
+
+                ViewBag.Puesto = new SelectList(Enum.GetValues(typeof(flex_Puesto)).Cast<flex_Puesto>(), stringp);
 
             ViewBag.Area = new SelectList(Enum.GetValues(typeof(flex_Areas)).Cast<flex_Areas>(), stringA);
+
+                ViewBag.Departamento = new SelectList(Enum.GetValues(typeof(flex_Departamento)).Cast<flex_Departamento>(), stringd);
             }
             else
             {
                 ViewBag.Puesto = new SelectList(Enum.GetValues(typeof(flex_Puesto)).Cast<flex_Puesto>());
 
                 ViewBag.Area = new SelectList(Enum.GetValues(typeof(flex_Areas)).Cast<flex_Areas>());
+
+                ViewBag.Departamento = new SelectList(Enum.GetValues(typeof(flex_Departamento)).Cast<flex_Departamento>());
 
             }
 
@@ -238,12 +245,13 @@ namespace AspnetIdentitySample.Controllers
         // POST: /Users/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "UserName,Id,UserFullName,Nomina,Area,Puesto,Email")] ApplicationUser formuser, string id, string RoleId,bool deleteroles=false)
+        public async Task<ActionResult> Edit([Bind(Include = "UserName,Id,UserFullName,Nomina,Departamento,Area,Puesto,Email")] ApplicationUser formuser, string id, string RoleId,bool deleteroles=false)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            ViewBag.Departamento = new SelectList(Enum.GetValues(typeof(flex_Departamento)).Cast<flex_Departamento>(), "Departamento");
             ViewBag.Puesto = new SelectList(Enum.GetValues(typeof(flex_Puesto)).Cast<flex_Puesto>(), "Puesto");
 
             ViewBag.Area = new SelectList(Enum.GetValues(typeof(flex_Areas)).Cast<flex_Areas>(), "Areas");

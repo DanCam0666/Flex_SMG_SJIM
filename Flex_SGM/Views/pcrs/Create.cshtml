@@ -36,10 +36,10 @@
                 </div>
 
                 <div class="form-group col-md-4">
-                    @Html.LabelFor(model => model.AreasID, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.LabelFor(model => model.Department, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.DropDownList("AreasID", null, htmlAttributes: new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.AreasID, "", new { @class = "text-danger" })
+                        @Html.EditorFor(model => model.Department, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Department, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
@@ -266,7 +266,7 @@
         <div class="form-group col-md-7">
             @Html.LabelFor(model => model.Reviewedby, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("GerentesID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.EditorFor(model => model.Reviewedby, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Reviewedby, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -849,13 +849,15 @@
 @section Scripts {
     <script>
 
-
         $(document).ready(function () {
 
             var ori = "@ViewBag.Originator";
+            var dep = "@ViewBag.Departament";
+            var rev = "@ViewBag.Reviewedby";
 
-        $('#Originator').val(ori);
-            
+            $('#Originator').val(ori);
+            $('#Departament').val(dep);
+            $('#Reviewedby').val(rev);
 
             $('#MatrizDecisionID').click(function () {
 
@@ -878,20 +880,10 @@
                     $('#support_backcoat').val(response.r1.Arcromo);
                     $('#support_assembly').val(response.r1.Arensamble);
                     $('#support_finance').val(response.r1.Arfinanzas);
-
-
-
-
-
                 });
-
-
-
-
             });
 
-
-            $('#FRisk1').click(function () {
+            $('#FRisk1').change(function () {
                 var total = parseInt($('#FRisk8').val());
 
                 if ($(this).is(":checked")) {
@@ -900,119 +892,80 @@
                     $('#FRisk8').val(total);
                 }
                 else if ($(this).is(":not(:checked)")) {
-               
+
                     total=parseInt(total);
                     total = total - 1;
                     $('#FRisk8').val(total);
                 }
-
-
-
-
-
-
-
-
             });
-            $('#FRisk2').click(function () {
+            $('#FRisk2').change(function () {
                 var total = parseInt($('#FRisk8').val());
                 if ($(this).is(":checked")) {
-               
+
                     total = total + 2;
                     $('#FRisk8').val(total);
                 }
                 else if ($(this).is(":not(:checked)")) {
-                  
+
                     total = total - 2;
                     $('#FRisk8').val(total);
                 }
-
-
-
-
-
-
-
-
             });
-            $('#FRisk3').click(function () {
+            $('#FRisk3').change(function () {
                 var total = parseInt($('#FRisk8').val());
                 if ($(this).is(":checked")) {
-                  
+
                     total = total + 3;
                     $('#FRisk8').val(total);
                 }
                 else if ($(this).is(":not(:checked)")) {
-                  
+
                     total = total - 3;
                     $('#FRisk8').val(total);
                 }
-
-
-
-
-
-
-
-
             });
-            $('#FRisk4').click(function () {
+            $('#FRisk4').change(function () {
                 var total = parseInt($('#FRisk8').val());
                 if ($(this).is(":checked")) {
-                  
+
                     total = total + 4;
                     $('#FRisk8').val(total);
                 }
                 else if ($(this).is(":not(:checked)")) {
-                  
+
                     total = total - 4;
                     $('#FRisk8').val(total);
                 }
 
             });
-            $('#FRisk5').click(function () {
+            $('#FRisk5').change(function () {
                 var total = parseInt($('#FRisk8').val());
                 if ($(this).is(":checked")) {
-                  
+
                     total = total + 5;
                     $('#FRisk8').val(total);
                 }
                 else if ($(this).is(":not(:checked)")) {
-                  
+
                     total = total - 5;
                     $('#FRisk8').val(total);
                 }
-
-
-
-
-
-
-
-
             });
-            $('#FRisk6').click(function () {
+            $('#FRisk6').change(function () {
                 var total = parseInt($('#FRisk8').val());
                 if ($(this).is(":checked")) {
-                  
+
                     total = total + 6;
                     $('#FRisk8').val(total);
                 }
                 else if ($(this).is(":not(:checked)")) {
-                  
+
                     total = total - 6;
                     $('#FRisk8').val(total);
                 }
 
-
-
-
-
-
-
-
             });
-            $('#FRisk7').click(function () {
+            $('#FRisk7').change(function () {
                 var total = parseInt($('#FRisk8').val());
                 if ($(this).is(":checked")) {
 
@@ -1025,18 +978,11 @@
                     $('#FRisk8').val(total);
                 }
 
-
-
-
-
-
-
-
             });
         });
 
         /*
-        
+
                                     response.r1.ID
                                     response.r1.NivelRiesgo
                                     response.r1.TipoCambio

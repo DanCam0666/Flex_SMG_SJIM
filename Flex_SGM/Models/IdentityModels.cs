@@ -31,6 +31,9 @@ namespace Flex_SGM.Models
 
         [MaxLength(20)]
         public string Nomina { get; set; }
+
+        [MaxLength(50)]
+        public string Departamento { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
@@ -104,4 +107,6 @@ namespace Flex_SGM.Models
 
         public System.Data.Entity.DbSet<Flex_SGM.Models.MatrizDecision> MatrizDecisions { get; set; }
     }
+
+
 }

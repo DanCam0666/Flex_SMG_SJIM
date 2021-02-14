@@ -11,9 +11,14 @@ namespace Flex_SGM.Models
 
     }
 
-    public enum flex_Depas
+    public enum flex_Depasold
     {
         Produccion, Calidad, Mantenimiento, Herramentales, Ingenieria, Manufactura, Automatizacion, FlexNGate
+
+    }
+    public enum flex_Departamento
+    {
+       FlexNGate, Ingenieria, Manufactura, Calidad, Finanzas, Compras, Materiales, Mantenimiento, Seguridad, Ambiental, Tooling, Estampado, Soldadura, Cromo, Pintura,Ensamble
 
     }
     public enum flex_Areasv1

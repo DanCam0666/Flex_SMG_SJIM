@@ -21,7 +21,7 @@
             </th>
             <th>Menu</th>
             <th>
-                @Html.DisplayNameFor(model => model.Areas.Area)
+                @Html.DisplayNameFor(model => model.Department)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Clientes.Cliente)
@@ -290,7 +290,7 @@
                 @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "btn  btn-danger" })
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Areas.Area)
+                @Html.DisplayFor(modelItem => item.Department)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Clientes.Cliente)
