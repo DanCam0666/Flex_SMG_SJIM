@@ -34,7 +34,7 @@ namespace Flex_SGM.Controllers
             templatepcr tempy = new templatepcr
             {
                 pcrID=pcrd.PCRID,
-
+                
                 OriginatorID = pcrd.Originator,
 
                 AreasID = pcrd.Areas.Area
@@ -280,9 +280,8 @@ namespace Flex_SGM.Controllers
             ViewBag.MatrizDecisionID = new SelectList(db.MatrizDecisions, "ID", "TipoCambio");
             ViewBag.ProyectosID = new SelectList(db.cProyectos, "ID", "Proyecto");
             ViewBag.ReasonID = new SelectList(db.ereasons, "ID", "Reason");
-
             ViewBag.GerentesID = new SelectList(Gerentes, "ID", "UserFullName");
-            ViewBag.OriginatorID = new SelectList(db.Users, "ID", "UserFullName");
+            ViewBag.Originator ="hola mundo";
 
             pcr mpcr = new pcr();
 
@@ -316,14 +315,11 @@ namespace Flex_SGM.Controllers
         public ActionResult Matrizd(int Codigo)
         {
             // TODO: based on the selected
-            var req = db.MatrizDecisions.Where(f => f.ID == Codigo).ToList();
+            var req = db.MatrizDecisions.Where(f => f.ID == Codigo).FirstOrDefault();
       
 
 
-            string r1 = req.FirstOrDefault().ID.ToString();
-            string r2 = req.FirstOrDefault().TipoCambio;
-
-            return Json(new { r1 = r1, r2 = r2 }, JsonRequestBehavior.AllowGet);
+            return Json(new { r1 = req }, JsonRequestBehavior.AllowGet);
         }
 
         // POST: pcrs/Create

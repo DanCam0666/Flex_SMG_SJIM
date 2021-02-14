@@ -1461,7 +1461,6 @@ C:\Users\Holotopo\source\repos\Bitacora\Flex_SGM\obj\Debug\Flex_SGM.csproj.CoreC
 C:\Users\Holotopo\source\repos\Bitacora\Flex_SGM\obj\Debug\Flex_SGM.csproj.CopyComplete
 C:\Users\Holotopo\source\repos\Bitacora\Flex_SGM\obj\Debug\Flex_SGM.dll
 C:\Users\Holotopo\source\repos\Bitacora\Flex_SGM\obj\Debug\Flex_SGM.pdb
-C:\Users\Holotopo\source\repos\Bitacora\Flex_SGM\obj\Debug\Flex_SGM.csprojAssemblyReference.cache
 C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\Flex_SGM.dll.config
 C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\Flex_SGM.dll
 C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\Flex_SGM.pdb
@@ -1604,3 +1603,4 @@ C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\obj\Debug\Flex_SGM.csproj.Copy
 C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\obj\Debug\Flex_SGM.dll
 C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\obj\Debug\Flex_SGM.pdb
 C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\obj\Debug\Flex_SGM.csprojAssemblyReference.cache
+C:\Users\Holotopo\source\repos\Bitacora\Flex_SGM\obj\Debug\Flex_SGM.csprojAssemblyReference.cache

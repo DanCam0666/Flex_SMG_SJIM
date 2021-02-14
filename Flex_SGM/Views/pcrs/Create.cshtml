@@ -29,7 +29,8 @@
                 <div class="form-group col-md-4">
                     @Html.LabelFor(model => model.Originator, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.DropDownList("OriginatorID", null, htmlAttributes: new { @class = "form-control" })
+            
+                        @Html.EditorFor(model => model.Originator, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.Originator, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -847,27 +848,240 @@
 </div>
 @section Scripts {
     <script>
-       
-
-                $(document).ready(function () {
-
-                    $('#MatrizDecisionID').click(function () {
-          
-                        var url = $(this).data('url');
-                        var data = { Codigo: $(this).val() };
-                        $.getJSON(url, data, function (response) {
-                            alert("");
-
-                        });
-
-                   
 
 
-                    });
+        $(document).ready(function () {
+
+            var ori = "@ViewBag.Originator";
+
+        $('#Originator').val(ori);
+            
+
+            $('#MatrizDecisionID').click(function () {
+
+                var url = $(this).data('url');
+                var data = { Codigo: $(this).val() };
+                $.getJSON(url, data, function (response) {
+                    $('#support_purchasing').val(response.r1.Arcompras);
+                    $('#support_materials').val(response.r1.Armateriales);
+                    $('#support_maintenance').val(response.r1.Armantenimiento);
+                    $('#support_automation').val(response.r1.Armantenimiento);
+                    $('#support_quality').val(response.r1.Arcalidad);
+                    $('#support_safety').val(response.r1.Arseguridad);
+                    $('#support_environmental').val(response.r1.Arambiental);
+                    $('#support_tooling').val(response.r1.Artooling);
+                    $('#support_stamping').val(response.r1.Arestampado);
+                    $('#support_welding').val(response.r1.Arsoldadura);
+                    $('#support_chrome').val(response.r1.Arcromo);
+                    $('#support_ecoat').val(response.r1.Arpintura);
+                    $('#support_topcoat').val(response.r1.Arpintura);
+                    $('#support_backcoat').val(response.r1.Arcromo);
+                    $('#support_assembly').val(response.r1.Arensamble);
+                    $('#support_finance').val(response.r1.Arfinanzas);
 
 
+
+
+
+                });
+
+
+
+
+            });
+
+
+            $('#FRisk1').click(function () {
+                var total = parseInt($('#FRisk8').val());
+
+                if ($(this).is(":checked")) {
+
+                    total = total + 1;
+                    $('#FRisk8').val(total);
+                }
+                else if ($(this).is(":not(:checked)")) {
+               
+                    total=parseInt(total);
+                    total = total - 1;
+                    $('#FRisk8').val(total);
+                }
+
+
+
+
+
+
+
+
+            });
+            $('#FRisk2').click(function () {
+                var total = parseInt($('#FRisk8').val());
+                if ($(this).is(":checked")) {
+               
+                    total = total + 2;
+                    $('#FRisk8').val(total);
+                }
+                else if ($(this).is(":not(:checked)")) {
+                  
+                    total = total - 2;
+                    $('#FRisk8').val(total);
+                }
+
+
+
+
+
+
+
+
+            });
+            $('#FRisk3').click(function () {
+                var total = parseInt($('#FRisk8').val());
+                if ($(this).is(":checked")) {
+                  
+                    total = total + 3;
+                    $('#FRisk8').val(total);
+                }
+                else if ($(this).is(":not(:checked)")) {
+                  
+                    total = total - 3;
+                    $('#FRisk8').val(total);
+                }
+
+
+
+
+
+
+
+
+            });
+            $('#FRisk4').click(function () {
+                var total = parseInt($('#FRisk8').val());
+                if ($(this).is(":checked")) {
+                  
+                    total = total + 4;
+                    $('#FRisk8').val(total);
+                }
+                else if ($(this).is(":not(:checked)")) {
+                  
+                    total = total - 4;
+                    $('#FRisk8').val(total);
+                }
+
+            });
+            $('#FRisk5').click(function () {
+                var total = parseInt($('#FRisk8').val());
+                if ($(this).is(":checked")) {
+                  
+                    total = total + 5;
+                    $('#FRisk8').val(total);
+                }
+                else if ($(this).is(":not(:checked)")) {
+                  
+                    total = total - 5;
+                    $('#FRisk8').val(total);
+                }
+
+
+
+
+
+
+
+
+            });
+            $('#FRisk6').click(function () {
+                var total = parseInt($('#FRisk8').val());
+                if ($(this).is(":checked")) {
+                  
+                    total = total + 6;
+                    $('#FRisk8').val(total);
+                }
+                else if ($(this).is(":not(:checked)")) {
+                  
+                    total = total - 6;
+                    $('#FRisk8').val(total);
+                }
+
+
+
+
+
+
+
+
+            });
+            $('#FRisk7').click(function () {
+                var total = parseInt($('#FRisk8').val());
+                if ($(this).is(":checked")) {
+
+                    total = total + 7;
+                    $('#FRisk8').val(total);
+                }
+                else if ($(this).is(":not(:checked)")) {
+
+                    total = total - 7;
+                    $('#FRisk8').val(total);
+                }
+
+
+
+
+
+
+
+
+            });
         });
 
+        /*
+        
+                                    response.r1.ID
+                                    response.r1.NivelRiesgo
+                                    response.r1.TipoCambio
+                                    response.r1.commcliente
+                                    response.r1.Arplanta
+                                    response.r1.Aringenieria
+                                    response.r1.Armanufactura
+                                    response.r1.Arcalidad
+                                    response.r1.Arfinanzas
+                                    response.r1.Arcompras
+                                    response.r1.Armateriales
+                                    response.r1.Armantenimiento
+                                    response.r1.Arseguridad
+                                    response.r1.Arambiental
+                                    response.r1.Artooling
+                                    response.r1.Arestampado
+                                    response.r1.Arsoldadura
+                                    response.r1.Arcromo
+                                    response.r1.Arpintura
+                                    response.r1.Arensamble
+                                    response.r1.Ppap
+                                    response.r1.Drw
+                                    response.r1.Spec
+                                    response.r1.Pfd
+                                    response.r1.Pfmea
+                                    response.r1.Sw
+                                    response.r1.Pcp
+                                    response.r1.Is
+                                    response.r1.Msa
+                                    response.r1.Ps
+                                    response.r1.Sccc
+                                    response.r1.Pl
+                                    response.r1.Cpo
+                                    response.r1.Spo
+                                    response.r1.Imds
+                                    response.r1.Im
+                                    response.r1.Bom
+                                    response.r1.Pr
+                                    response.r1.Mss
+                                    response.r1.Va
+                                    response.r1.Sm
+                                    response.r1.Ptr
+                                    response.r1.Pdr
+        */
 
     </script>
 }
+
