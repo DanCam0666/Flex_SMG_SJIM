@@ -69,6 +69,7 @@ namespace AspnetIdentitySample.Controllers
             
             IdentityRole y = new IdentityRole { Id = "no", Name = "no" };
             y = RoleManager.Roles.Where(r => r.Name == "Mantenimiento").FirstOrDefault();
+            List<ApplicationUser> manager = new List<ApplicationUser>();
             List<ApplicationUser> mtt = new List<ApplicationUser>();
             List<ApplicationUser> supers = new List<ApplicationUser>();
             List<ApplicationUser> admins = new List<ApplicationUser>();
@@ -78,11 +79,14 @@ namespace AspnetIdentitySample.Controllers
             {
              foreach(var urole in uitem.Roles)
                 {
+                    if (urole.RoleId == "7a269541-b9f5-4bfe-8eea-38c0ebe11373")
+                        manager.Add(uitem);
+
                     if (urole.RoleId == "acfa3932-f4ae-423d-94a8-883fc3e5596f")
                         supers.Add(uitem);
 
                     if (urole.RoleId == "e1a04367-19d1-4b44-acae-ecbd2ed9d885")
-                            admins.Add(uitem);
+                        admins.Add(uitem);
 
                     if (urole.RoleId == "da2775b7-5438-4b24-8834-256445f32335")
                         mtt.Add(uitem);
@@ -91,7 +95,7 @@ namespace AspnetIdentitySample.Controllers
 
             }
 
-
+            ViewBag.Usermanager = manager;
             ViewBag.Usermtto = mtt;
 
 
@@ -205,7 +209,7 @@ namespace AspnetIdentitySample.Controllers
 
             var stringA = Enum.Parse(typeof(flex_Areas), user.Area);
 
-                var stringd = Enum.Parse(typeof(flex_Areas), user.Departamento);
+                var stringd = Enum.Parse(typeof(flex_Departamento), user.Departamento);
 
                 ViewBag.Puesto = new SelectList(Enum.GetValues(typeof(flex_Puesto)).Cast<flex_Puesto>(), stringp);
 

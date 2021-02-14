@@ -14,6 +14,7 @@ using Microsoft.AspNet.Identity;
 
 namespace Flex_SGM.Controllers
 {
+    [Authorize]
     public class pcrsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -235,7 +236,8 @@ namespace Flex_SGM.Controllers
 
         }
 
-        // GET: pcrs
+        // GET: pcrs  
+        [AllowAnonymous]
         public ActionResult Index()
         {
             var pcrs = db.pcrs.Include(p => p.Clientes).Include(p => p.MatrizDecision).Include(p => p.Proyectos).Include(p => p.Reason);
@@ -243,6 +245,7 @@ namespace Flex_SGM.Controllers
         }
 
         // GET: pcrs/Details/5
+        [AllowAnonymous]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -287,7 +290,7 @@ namespace Flex_SGM.Controllers
             ViewBag.ReasonID = new SelectList(db.ereasons, "ID", "Reason");
             ViewBag.GerentesID = new SelectList(Gerentes, "ID", "UserFullName");
             ViewBag.Originator = currentUser.UserFullName;
-            ViewBag.Departament = currentUser.Departamento;
+            ViewBag.Department = currentUser.Departamento;
 
             ViewBag.Reviewedby = Gerentes.FirstOrDefault().UserFullName;
 
