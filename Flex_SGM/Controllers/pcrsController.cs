@@ -346,7 +346,7 @@ namespace Flex_SGM.Controllers
             string month= dt.Month.ToString("00");
 
             noPCRS = noPCRS + 1;
-            string PCRID = "SJI-"+ year + "-"+ noPCRS.ToString("000") + "-"+month;
+            string PCRID = "SJI-"+ year + "-"+ noPCRS.ToString("000") + "-M";
 
             if (ModelState.IsValid)
             {
