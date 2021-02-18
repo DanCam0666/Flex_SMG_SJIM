@@ -10,6 +10,7 @@ using Flex_SGM.Models;
 using ClosedXML.Report;
 using System.IO;
 using Microsoft.AspNet.Identity;
+using Flex_SGM.emaildata;
 
 
 namespace Flex_SGM.Controllers
@@ -19,6 +20,7 @@ namespace Flex_SGM.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        private EmailController correo = new EmailController();
         // export
 
         public FileResult ExportFormat(int? id)
@@ -340,6 +342,9 @@ namespace Flex_SGM.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID,PCRID,Status,Originator,Department,Date,ClientesID,ProyectosID,ReasonID,PartNumber,RevLevel,PartName,docreason,docscope,MatrizDecisionID,cipieceprice,cicapital,citooling,ciengineering,cipackaging,ciobsolescence,cimaterial,cifreight,ciovertime,ciother,citotal,crannualvolume,crcapacityfng,crcapacitysupplier,Reviewedby,Reviewedby_date,support_purchasing,support_materials,support_maintenance,support_automation,support_quality,support_safety,support_environmental,support_tooling,support_stamping,support_welding,support_chrome,support_ecoat,support_topcoat,support_backcoat,support_assembly,support_finance,Keymilestones_buildmrd1,Keymilestones_buildmrd2,Keymilestones_buildmrd3,Keymilestones_customrrar,Keymilestones_ppap,Keymilestones_internalsop,Keymilestones_customersop,Keymilestones_closure,leadtime_engineering,leadtime_tooling,leadtime_facilities,leadtime_capital,leadtime_material,leadtime_inventory,leadtime_approval,leadtime_totallt,FConsiderations1,FConsiderations2,FConsiderations3,FConsiderations4,FConsiderations5,FConsiderations6,FConsiderations7,FConsiderations8,FConsiderations9,FConsiderations10,FConsiderations11,FConsiderations12,FConsiderations13,FConsiderations14,FConsiderations15,FRisk1,FRisk2,FRisk3,FRisk4,FRisk5,FRisk6,FRisk7,FRisk8")] pcr pcr)
         {
+            var id = User.Identity.GetUserId();
+            ApplicationUser currentUser = db.Users.Where(w => w.Id == id).FirstOrDefault();
+
             var noPCRS = db.pcrs.Count();
             var dt = DateTime.Now;
             string year= dt.ToString("yy");
@@ -354,6 +359,9 @@ namespace Flex_SGM.Controllers
                 pcr.PCRID = PCRID;
                 db.pcrs.Add(pcr);
                 db.SaveChanges();
+               var currpcr= db.pcrs.Where(w => w.PCRID == PCRID).FirstOrDefault();
+                string[] emails = { "ZVazquez@flexngate.com", currentUser.Email};
+                correo.newpcr(emails, currentUser.UserFullName, pcr.PCRID , currpcr.ID.ToString());
                 return RedirectToAction("Index");
             }
 

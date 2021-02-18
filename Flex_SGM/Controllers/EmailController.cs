@@ -76,6 +76,48 @@ namespace Flex_SGM.emaildata
 
 
         }
+
+        public void newpcr(string[] Correo, string usuario, string comment, string id)
+        {
+            try
+            {
+
+                
+
+
+                var body = "<p>El usuario {0} Genero un PCR!</p><p> El numero de PCR es:</p><p>{1}</p> <p> http://sjimsvap3/bitacora/pcrs/Details/"+id+ "</p> <p>Recuerda Verificar los PCRs!</p><p>No Responder a este Correo|Do not Reply this Email </p>";
+                var message = new MailMessage();
+                foreach(var corr in Correo)
+                {
+                    message.To.Add(new MailAddress(corr));
+
+                }
+               // replace with valid value 
+                message.From = new MailAddress("SJIMBitacora@flexngate.com");  // replace with valid value
+                message.Subject = "Informacion Bitacora, No Responder a este Correo";
+                message.Body = string.Format(body, usuario, comment);
+                message.IsBodyHtml = true;
+
+                using (var smtp = new SmtpClient())
+                {
+                    /*
+                    var credential = new NetworkCredential
+                    {
+                        UserName = "SJIMBitacora@flexngate.com",  // replace with valid value
+                        Password = "Flex2020#"  // replace with valid value
+                    };
+                    smtp.Credentials = credential;
+                    */
+                    smtp.Host = "smtp.flexngate.local";
+                    smtp.Port = 25;
+                    smtp.EnableSsl = false;
+                    smtp.Send(message);
+                }
+            }
+            catch (Exception Ex) { var x = Ex; }
+
+
+        }
     }
 }
 

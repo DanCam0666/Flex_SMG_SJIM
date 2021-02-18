@@ -34,8 +34,9 @@ namespace AspnetIdentitySample.Controllers
             RoleManager = roleManager;
         }
 
-        public UserManager<ApplicationUser> UserManager { get; private set; }    
-        public RoleManager<IdentityRole> RoleManager { get; private set; }
+    public UserManager<ApplicationUser> UserManager { get; private set; }
+
+    public RoleManager<IdentityRole> RoleManager { get; private set; }
         public ApplicationDbContext context { get; private set; }
 
 
@@ -251,6 +252,11 @@ namespace AspnetIdentitySample.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit([Bind(Include = "UserName,Id,UserFullName,Nomina,Departamento,Area,Puesto,Email")] ApplicationUser formuser, string id, string RoleId,bool deleteroles=false)
         {
+            UserManager.UserValidator = new UserValidator<ApplicationUser>(UserManager)
+            {
+                AllowOnlyAlphanumericUserNames = false,
+                RequireUniqueEmail = false
+            };
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -270,7 +276,7 @@ namespace AspnetIdentitySample.Controllers
             if (ModelState.IsValid)
             {
                 //Update the user details
-
+            
                var r= await UserManager.UpdateAsync(user);
                 TempData["Warning"] = r.Errors.FirstOrDefault();
                 //If user has existing Role then remove the user from the role
