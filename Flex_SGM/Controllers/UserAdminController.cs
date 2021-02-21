@@ -270,6 +270,7 @@ namespace AspnetIdentitySample.Controllers
             user.UserName = formuser.UserName;
             user.UserFullName = formuser.UserFullName;
             user.Nomina = formuser.Nomina;
+            user.Departamento = formuser.Departamento;
             user.Area = formuser.Area;
             user.Puesto = formuser.Puesto;
             user.Email = formuser.Email;
@@ -305,7 +306,7 @@ namespace AspnetIdentitySample.Controllers
                         return View();
                     }
                 }
-                return RedirectToAction("Index");
+                return RedirectToAction("Edit","UsersAdmin",id);
             }
             else
             {

@@ -7249,10 +7249,10 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>10/26/2020 13:25:57</publishTime>
     </File>
     <File Include="bin/Flex_SGM.dll">
-      <publishTime>02/18/2021 11:49:28</publishTime>
+      <publishTime>02/21/2021 09:42:34</publishTime>
     </File>
     <File Include="bin/Flex_SGM.pdb">
-      <publishTime>02/18/2021 11:49:28</publishTime>
+      <publishTime>02/21/2021 09:42:34</publishTime>
     </File>
     <File Include="bin/IBM.Data.DB2.iSeries.dll">
       <publishTime>10/26/2020 13:21:31</publishTime>
@@ -8164,7 +8164,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>10/26/2020 13:21:24</publishTime>
     </File>
     <File Include="Views/Ingenieria/Index.cshtml">
-      <publishTime>02/11/2021 08:11:38</publishTime>
+      <publishTime>02/21/2021 09:37:41</publishTime>
     </File>
     <File Include="Views/Juntas/Create.cshtml">
       <publishTime>12/16/2020 14:44:24</publishTime>
@@ -8401,7 +8401,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>01/29/2021 12:51:21</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutE.cshtml">
-      <publishTime>01/29/2021 12:19:03</publishTime>
+      <publishTime>02/21/2021 09:39:10</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutL.cshtml">
       <publishTime>10/26/2020 13:21:26</publishTime>
@@ -8458,10 +8458,10 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>10/26/2020 13:21:26</publishTime>
     </File>
     <File Include="Views/UsersAdmin/Details.cshtml">
-      <publishTime>02/14/2021 10:12:24</publishTime>
+      <publishTime>02/21/2021 09:23:18</publishTime>
     </File>
     <File Include="Views/UsersAdmin/Edit.cshtml">
-      <publishTime>02/17/2021 13:44:11</publishTime>
+      <publishTime>02/21/2021 09:33:39</publishTime>
     </File>
     <File Include="Views/UsersAdmin/Index.cshtml">
       <publishTime>02/14/2021 12:37:38</publishTime>
