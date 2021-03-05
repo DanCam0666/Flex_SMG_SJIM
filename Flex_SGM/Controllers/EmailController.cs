@@ -84,7 +84,7 @@ namespace Flex_SGM.emaildata
             {
                 var bodyb = new StringBuilder();
                 bodyb.AppendFormat("El usuario {0} Genero un PCR!", usuario);
-                bodyb.AppendLine(@"<p>El numero de PCR es:"+ comment + " </p>");
+                bodyb.AppendLine(@"<p>El numero de PCR es: "+ comment + " </p>");
                 var link = @"http://sjimsvap3/bitacora/pcrs/Details/" + id;
                 bodyb.AppendLine("<p><a href=\"" + link+ "\" >"+link+ "</a></p>");
                 bodyb.AppendLine(@"<p>Recuerda Verificar los PCRs! </p>");
