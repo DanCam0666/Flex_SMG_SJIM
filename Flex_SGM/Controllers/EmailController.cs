@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Net.Mail;
 using System.Net;
+using System.Text;
 
 namespace Flex_SGM.emaildata
 {
@@ -81,11 +82,14 @@ namespace Flex_SGM.emaildata
         {
             try
             {
+                var bodyb = new StringBuilder();
+                bodyb.AppendFormat("El usuario {0} Genero un PCR!\n", usuario);
+                bodyb.AppendLine(@"El numero de PCR es: \n");
+                var link = @"http://sjimsvap3/bitacora/pcrs/Details/" + id;
+                bodyb.AppendLine("<a href=\""+link+ "\" > link</a>");
+                bodyb.AppendLine(@"Recuerda Verificar los PCRs! \n");
+                bodyb.AppendLine(@"No Responder a este Correo|Do not Reply this Email \n");
 
-               
-
-
-                   var body = "<p>El usuario {0} Genero un PCR!</p><p> El numero de PCR es:</p><p>{1}</p>  < p >< a href = 'http://sjimsvap3/bitacora/pcrs/Details/" + id + "' > http://sjimsvap3/bitacora/pcrs/Details/" + id + " </ a ></ p ><p>Recuerda Verificar los PCRs!</p><p>No Responder a este Correo|Do not Reply this Email </p>";
                 var message = new MailMessage();
                 foreach(var corr in Correo)
                 {
@@ -95,7 +99,8 @@ namespace Flex_SGM.emaildata
                // replace with valid value 
                 message.From = new MailAddress("SJIMBitacora@flexngate.com");  // replace with valid value
                 message.Subject = "Informacion Bitacora, No Responder a este Correo";
-                message.Body = string.Format(body, usuario, comment);
+                message.IsBodyHtml = true;
+                message.Body = bodyb.ToString();
                 message.IsBodyHtml = true;
 
                 using (var smtp = new SmtpClient())

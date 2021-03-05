@@ -7249,10 +7249,10 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>10/26/2020 13:25:57</publishTime>
     </File>
     <File Include="bin/Flex_SGM.dll">
-      <publishTime>03/05/2021 11:35:16</publishTime>
+      <publishTime>03/05/2021 12:02:37</publishTime>
     </File>
     <File Include="bin/Flex_SGM.pdb">
-      <publishTime>03/05/2021 11:35:16</publishTime>
+      <publishTime>03/05/2021 12:02:37</publishTime>
     </File>
     <File Include="bin/IBM.Data.DB2.iSeries.dll">
       <publishTime>10/26/2020 13:21:31</publishTime>
@@ -8296,7 +8296,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>02/14/2021 10:38:47</publishTime>
     </File>
     <File Include="Views/pcrs/Details.cshtml">
-      <publishTime>03/05/2021 11:24:24</publishTime>
+      <publishTime>03/05/2021 12:01:11</publishTime>
     </File>
     <File Include="Views/pcrs/Edit.cshtml">
       <publishTime>03/05/2021 11:32:57</publishTime>
