@@ -32,7 +32,7 @@ namespace Flex_SGM.Controllers
             ViewBag.btn = new SelectList(array2);
             string[] arrayt = { "1", "2", "Por Dia" };
             ViewBag.Turno= new SelectList(arrayt);
-            string[] array3 = { "Cliente", "Area Genero", "Area Emitio", "Proyecto","Numero de parte", "Defecto","Supervisor","Auditor", "Fecha", "Turno", "Hora", "Lote" };
+            string[] array3 = { "Cliente", "Area Genero", "Area Emitio", "Proyecto","Maquina","Numero de parte", "Defecto","Supervisor","Auditor", "Fecha", "Turno", "Hora", "Lote" };
             ViewBag.paret = new SelectList(array3);
 
             if (!string.IsNullOrEmpty(dti))
@@ -44,7 +44,7 @@ namespace Flex_SGM.Controllers
                 fechaf = Convert.ToDateTime(dtf);
             }
             //---data---
-            var cAndon2 = db.CAndon2.Include(c => c.AndonAuditor).Include(c => c.AndonDefecto).Include(c => c.AndonSupervisores).Include(c => c.Assigned).Include(c => c.Clientes).Include(c => c.Primary).Include(c => c.Proyectos);
+            var cAndon2 = db.CAndon2.Include(c => c.AndonAuditor).Include(c => c.AndonDefecto).Include(c => c.AndonSupervisores).Include(c => c.Assigned).Include(c => c.Clientes).Include(c => c.Primary).Include(c => c.Proyectos).Include(c => c.Maquinas);
             data = cAndon2.ToList();
 
             //*******************************************************************************************
@@ -582,6 +582,32 @@ namespace Flex_SGM.Controllers
                 ViewBag.data2sgrap2 = gdata2;
             }
             //--------------------------------------------------------
+            if (paret == "Maquina")
+            {
+                var groupdata = datafiltered.GroupBy(g => g.Maquinas.SubMaquina).OrderByDescending(k => k.Count()).ToList();
+                var labels = "'";
+                var gdata = "";
+                var gdata2 = "";
+                int stempt = datafiltered.Count();
+                int stemp = 0;
+                foreach (var h in groupdata)
+                {
+                    labels = labels + h.Key + "','";
+                    gdata = gdata + h.Count().ToString() + ",";
+                    stemp = stemp + h.Count();
+                    double res = (stemp / (double)stempt) * 100;
+                    gdata2 = gdata2 + string.Format("{0:0.##}", res) + ",";
+                }
+
+                labels = labels.TrimEnd(',', (char)39);
+                labels = labels + "'"; labels = labels.Replace("\r\n", "");
+                gdata.TrimEnd(',', (char)39);
+                gdata2.TrimEnd(',', (char)39);
+                ViewBag.labelsgrap2 = labels;
+                ViewBag.datasgrap2 = gdata;
+                ViewBag.data2sgrap2 = gdata2;
+            }
+            //--------------------------------------------------------
 
             ViewBag.datei = fecha.ToString("dd/MM/yyyy");
             ViewBag.datef = fechaf.ToString("dd/MM/yyyy");
@@ -868,6 +894,8 @@ namespace Flex_SGM.Controllers
             ViewBag.ClientesID = new SelectList(db.cClientes, "ID", "Cliente");
             ViewBag.AreasgID = new SelectList(db.cAreas, "ID", "Area");
             ViewBag.ProyectosID = new SelectList(db.cProyectos, "ID", "Proyecto");
+     
+            ViewBag.MaquinasID = new SelectList(db.Maquinas, "ID", "SubMaquina", 2033);
             return View();
         }
 
@@ -876,7 +904,7 @@ namespace Flex_SGM.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Fecha,Turno,Hora,AreasgID,AreaseID,ClientesID,ProyectosID,lote,NoDeParte,NombreDeParte,AndonDefectoID,Comentarios,Cantidadpz,AndonAuditorID,AndonSupervisoresID,Asistentes,EstatusAndon,Esproblema,Esproblemaseguridad,Esproblemavario,a1why,a2why,a3why,a4why,a50d,Causas,Acciones")] CAndon2 cAndon2)
+        public ActionResult Create([Bind(Include = "ID,Fecha,Turno,Hora,AreasgID,AreaseID,ClientesID,ProyectosID,MaquinasID,lote,NoDeParte,NombreDeParte,AndonDefectoID,Comentarios,Cantidadpz,AndonAuditorID,AndonSupervisoresID,Asistentes,EstatusAndon,Esproblema,Esproblemaseguridad,Esproblemavario,a1why,a2why,a3why,a4why,a50d,Causas,Acciones")] CAndon2 cAndon2)
         {
             if (ModelState.IsValid)
             {
@@ -898,6 +926,7 @@ namespace Flex_SGM.Controllers
             ViewBag.ClientesID = new SelectList(db.cClientes, "ID", "Cliente", cAndon2.ClientesID);
             ViewBag.AreasgID = new SelectList(db.cAreas, "ID", "Area", cAndon2.AreasgID);
             ViewBag.ProyectosID = new SelectList(db.cProyectos, "ID", "Proyecto", cAndon2.ProyectosID);
+            ViewBag.MaquinasID = new SelectList(db.Maquinas, "ID", "SubMaquina",cAndon2.Maquinas.ID);
             return View(cAndon2);
         }
 
@@ -920,6 +949,7 @@ namespace Flex_SGM.Controllers
             ViewBag.ClientesID = new SelectList(db.cClientes, "ID", "Cliente", cAndon2.ClientesID);
             ViewBag.AreasgID = new SelectList(db.cAreas, "ID", "Area", cAndon2.AreasgID);
             ViewBag.ProyectosID = new SelectList(db.cProyectos, "ID", "Proyecto", cAndon2.ProyectosID);
+            ViewBag.MaquinasID = new SelectList(db.Maquinas, "ID", "SubMaquina", cAndon2.Maquinas.ID);
             return View(cAndon2);
         }
 
@@ -928,7 +958,7 @@ namespace Flex_SGM.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Fecha,Turno,Hora,AreasgID,AreaseID,ClientesID,ProyectosID,lote,NoDeParte,NombreDeParte,AndonDefectoID,Comentarios,Cantidadpz,AndonAuditorID,AndonSupervisoresID,Asistentes,EstatusAndon,Esproblema,Esproblemaseguridad,Esproblemavario,a1why,a2why,a3why,a4why,a50d,Causas,Acciones")] CAndon2 cAndon2)
+        public ActionResult Edit([Bind(Include = "ID,Fecha,Turno,Hora,AreasgID,AreaseID,ClientesID,ProyectosID,MaquinasID,lote,NoDeParte,NombreDeParte,AndonDefectoID,Comentarios,Cantidadpz,AndonAuditorID,AndonSupervisoresID,Asistentes,EstatusAndon,Esproblema,Esproblemaseguridad,Esproblemavario,a1why,a2why,a3why,a4why,a50d,Causas,Acciones")] CAndon2 cAndon2)
         {
             if (ModelState.IsValid)
             {
@@ -943,6 +973,7 @@ namespace Flex_SGM.Controllers
             ViewBag.ClientesID = new SelectList(db.cClientes, "ID", "Cliente", cAndon2.ClientesID);
             ViewBag.AreasgID = new SelectList(db.cAreas, "ID", "Area", cAndon2.AreasgID);
             ViewBag.ProyectosID = new SelectList(db.cProyectos, "ID", "Proyecto", cAndon2.ProyectosID);
+            ViewBag.MaquinasID = new SelectList(db.Maquinas, "ID", "SubMaquina", cAndon2.Maquinas.ID);
             return View(cAndon2);
         }
 

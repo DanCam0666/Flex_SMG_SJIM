@@ -258,6 +258,33 @@ $(document).ready(function () {
 
 	$('#dtc1').datetimepicker({ format: 'DD/MM/YYYY HH:mm:ss' });
 	$('#dtc2').datetimepicker({ format: 'DD/MM/YYYY HH:mm:ss' });
+	$('#dpk1').datetimepicker({
+		format: 'DD/MM/YYYY'
+	});
+	$('#dpk1').datetimepicker({
+		format: 'DD/MM/YYYY'
+	});
+	$('#dpk2').datetimepicker({
+		format: 'DD/MM/YYYY'
+	});
+	$('#dpk3').datetimepicker({
+		format: 'DD/MM/YYYY'
+	});
+	$('#dpk4').datetimepicker({
+		format: 'DD/MM/YYYY'
+	});
+	$('#dpk5').datetimepicker({
+		format: 'DD/MM/YYYY'
+	});
+	$('#dpk6').datetimepicker({
+		format: 'DD/MM/YYYY'
+	});
+	$('#dpk7').datetimepicker({
+		format: 'DD/MM/YYYY'
+	});
+	$('#dpk8').datetimepicker({
+		format: 'DD/MM/YYYY'
+	});
 
 	$('#dtp1').datetimepicker({
 		format: 'MM/YYYY'

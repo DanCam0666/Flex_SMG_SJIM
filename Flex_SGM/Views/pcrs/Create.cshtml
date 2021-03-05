@@ -5,8 +5,6 @@
     Layout = "~/Views/Shared/_LayoutE.cshtml";
 }
 
-<h2>CREATE PCR</h2>
-
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
@@ -112,7 +110,7 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.docreason, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.TextAreaFor(model => model.docreason, 12, 20, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.TextAreaFor(model => model.docreason, 12, 20, new { @class = "form-control"  })
                             @Html.ValidationMessageFor(model => model.docreason, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -120,7 +118,7 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.docscope, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.TextAreaFor(model => model.docscope, 22, 20, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.TextAreaFor(model => model.docscope, 22, 20, new { @class = "form-control" })
                             @Html.ValidationMessageFor(model => model.docscope, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -132,7 +130,12 @@
                             @Html.ValidationMessageFor(model => model.MatrizDecisionID, "", new { @class = "text-danger" })
                         </div>
                     </div>
-
+                    <div class="form-group">
+                        @Html.Label("Risk (1-Low, 2-Med, >3-High)", htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-4">
+                            @Html.TextBox("0", null, htmlAttributes: new { @class = "form-control",@id="Risk" ,@readonly="readonly" })                         
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -436,7 +439,7 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.Keymilestones_buildmrd1, htmlAttributes: new { @class = "control-label col-md-3" })
                         <div class="col-md-8">
-                            @Html.EditorFor(model => model.Keymilestones_buildmrd1, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.EditorFor(model => model.Keymilestones_buildmrd1, new { htmlAttributes = new { @class = "form-control" ,@id="dpk1"} })
                             @Html.ValidationMessageFor(model => model.Keymilestones_buildmrd1, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -444,7 +447,7 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.Keymilestones_buildmrd2, htmlAttributes: new { @class = "control-label col-md-3" })
                         <div class="col-md-8">
-                            @Html.EditorFor(model => model.Keymilestones_buildmrd2, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.EditorFor(model => model.Keymilestones_buildmrd2, new { htmlAttributes = new { @class = "form-control", @id = "dpk2" } })
                             @Html.ValidationMessageFor(model => model.Keymilestones_buildmrd2, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -452,7 +455,7 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.Keymilestones_buildmrd3, htmlAttributes: new { @class = "control-label col-md-3" })
                         <div class="col-md-8">
-                            @Html.EditorFor(model => model.Keymilestones_buildmrd3, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.EditorFor(model => model.Keymilestones_buildmrd3, new { htmlAttributes = new { @class = "form-control", @id = "dpk3" } })
                             @Html.ValidationMessageFor(model => model.Keymilestones_buildmrd3, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -460,7 +463,7 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.Keymilestones_customrrar, htmlAttributes: new { @class = "control-label col-md-3" })
                         <div class="col-md-8">
-                            @Html.EditorFor(model => model.Keymilestones_customrrar, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.EditorFor(model => model.Keymilestones_customrrar, new { htmlAttributes = new { @class = "form-control", @id = "dpk4" } })
                             @Html.ValidationMessageFor(model => model.Keymilestones_customrrar, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -468,7 +471,7 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.Keymilestones_ppap, htmlAttributes: new { @class = "control-label col-md-3" })
                         <div class="col-md-8">
-                            @Html.EditorFor(model => model.Keymilestones_ppap, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.EditorFor(model => model.Keymilestones_ppap, new { htmlAttributes = new { @class = "form-control", @id = "dpk5" } })
                             @Html.ValidationMessageFor(model => model.Keymilestones_ppap, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -476,7 +479,7 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.Keymilestones_internalsop, htmlAttributes: new { @class = "control-label col-md-3" })
                         <div class="col-md-8">
-                            @Html.EditorFor(model => model.Keymilestones_internalsop, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.EditorFor(model => model.Keymilestones_internalsop, new { htmlAttributes = new { @class = "form-control", @id = "dpk6" } })
                             @Html.ValidationMessageFor(model => model.Keymilestones_internalsop, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -484,7 +487,7 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.Keymilestones_customersop, htmlAttributes: new { @class = "control-label col-md-3" })
                         <div class="col-md-8">
-                            @Html.EditorFor(model => model.Keymilestones_customersop, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.EditorFor(model => model.Keymilestones_customersop, new { htmlAttributes = new { @class = "form-control", @id = "dpk7" } })
                             @Html.ValidationMessageFor(model => model.Keymilestones_customersop, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -492,7 +495,7 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.Keymilestones_closure, htmlAttributes: new { @class = "control-label col-md-3" })
                         <div class="col-md-8">
-                            @Html.EditorFor(model => model.Keymilestones_closure, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.EditorFor(model => model.Keymilestones_closure, new { htmlAttributes = new { @class = "form-control", @id = "dpk8" } })
                             @Html.ValidationMessageFor(model => model.Keymilestones_closure, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -825,6 +828,7 @@
                         @Html.LabelFor(model => model.FRisk8, htmlAttributes: new { @class = "control-label col-md-10" })
                         <div class="col-md-2">
                             @Html.EditorFor(model => model.FRisk8, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                          <label id="FRiskstring8"> </label>
                             @Html.ValidationMessageFor(model => model.FRisk8, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -834,8 +838,8 @@
         </div>
 
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+            <div class="col-md-offset-2 col-md-8">
+                <input type="submit" value="Create" class="btn btn-success col-xs-12" />
             </div>
         </div>
     </div>
@@ -865,22 +869,88 @@
                 var url = $(this).data('url');
                 var data = { Codigo: $(this).val() };
                 $.getJSON(url, data, function (response) {
-                    $('#support_purchasing').val(response.r1.Arcompras);
-                    $('#support_materials').val(response.r1.Armateriales);
-                    $('#support_maintenance').val(response.r1.Armantenimiento);
-                    $('#support_automation').val(response.r1.Armantenimiento);
-                    $('#support_quality').val(response.r1.Arcalidad);
-                    $('#support_safety').val(response.r1.Arseguridad);
-                    $('#support_environmental').val(response.r1.Arambiental);
-                    $('#support_tooling').val(response.r1.Artooling);
-                    $('#support_stamping').val(response.r1.Arestampado);
-                    $('#support_welding').val(response.r1.Arsoldadura);
-                    $('#support_chrome').val(response.r1.Arcromo);
-                    $('#support_ecoat').val(response.r1.Arpintura);
-                    $('#support_topcoat').val(response.r1.Arpintura);
-                    $('#support_backcoat').val(response.r1.Arcromo);
-                    $('#support_assembly').val(response.r1.Arensamble);
-                    $('#support_finance').val(response.r1.Arfinanzas);
+                    if (response.r1.Arcompras==true)
+                        $('#support_purchasing').val("P");
+                    else
+                        $('#support_purchasing').val("x");
+
+                    if (response.r1.Armateriales == true)
+                        $('#support_materials').val("P");
+                    else
+                        $('#support_materials').val("x");
+
+                    if (response.r1.Armantenimiento == true)
+                        $('#support_maintenance').val("P");
+                    else
+                        $('#support_maintenance').val("x");
+
+                    if (response.r1.Armantenimiento == true)
+                        $('#support_automation').val("P");
+                    else
+                        $('#support_automation').val("x");
+
+                    if (response.r1.Arcalidad == true)
+                        $('#support_quality').val("P");
+                    else
+                        $('#support_quality').val("x");
+
+                    if (response.r1.Arseguridad == true)
+                        $('#support_safety').val("P");
+                    else
+                        $('#support_safety').val("x");
+
+                    if (response.r1.Arambiental == true)
+                        $('#support_environmental').val("P");
+                    else
+                        $('#support_environmental').val("x");
+
+                    if (response.r1.Artooling == true)
+                        $('#support_tooling').val("P");
+                    else
+                        $('#support_tooling').val("x");
+
+                    if (response.r1.Arestampado == true)
+                        $('#support_stamping').val("P");
+                    else
+                        $('#support_stamping').val("x");
+
+                    if (response.r1.Arsoldadura == true)
+                        $('#support_welding').val("P");
+                    else
+                        $('#support_welding').val("x");
+
+                    if (response.r1.Arcromo == true)
+                        $('#support_chrome').val("P");
+                    else
+                        $('#support_chrome').val("x");
+         
+                    if (response.r1.Arpintura == true)
+                        $('#support_ecoat').val("P");
+                    else
+                        $('#support_ecoat').val("x");
+
+                    if (response.r1.Arpintura == true)
+                        $('#support_topcoat').val("P");
+                    else
+                        $('#support_topcoat').val("x");
+
+                    if (response.r1.Arcromo == true)
+                        $('#support_backcoat').val("P");
+                    else
+                        $('#support_backcoat').val("x");
+
+                    if (response.r1.Arensamble == true)
+                        $('#support_assembly').val("P");
+                    else
+                        $('#support_assembly').val("x");
+
+                    if (response.r1.Arfinanzas == true)
+                        $('#support_finance').val("P");
+                    else
+                        $('#support_finance').val("x");
+   
+
+                    $('#Risk').val(response.r1.NivelRiesgo);
                 });
             });
 
@@ -1059,12 +1129,12 @@
                 var total = parseInt($('#FRisk8').val());
                 if ($(this).is(":checked")) {
 
-                    total = total + 3;
+                    total = total + 2;
                     $('#FRisk8').val(total);
                 }
                 else if ($(this).is(":not(:checked)")) {
 
-                    total = total - 3;
+                    total = total - 2;
                     $('#FRisk8').val(total);
                 }
             });
@@ -1072,12 +1142,12 @@
                 var total = parseInt($('#FRisk8').val());
                 if ($(this).is(":checked")) {
 
-                    total = total + 4;
+                    total = total + 1;
                     $('#FRisk8').val(total);
                 }
                 else if ($(this).is(":not(:checked)")) {
 
-                    total = total - 4;
+                    total = total - 1;
                     $('#FRisk8').val(total);
                 }
 
@@ -1086,12 +1156,12 @@
                 var total = parseInt($('#FRisk8').val());
                 if ($(this).is(":checked")) {
 
-                    total = total + 5;
+                    total = total + 1;
                     $('#FRisk8').val(total);
                 }
                 else if ($(this).is(":not(:checked)")) {
 
-                    total = total - 5;
+                    total = total - 1;
                     $('#FRisk8').val(total);
                 }
             });
@@ -1099,12 +1169,12 @@
                 var total = parseInt($('#FRisk8').val());
                 if ($(this).is(":checked")) {
 
-                    total = total + 6;
+                    total = total + 1;
                     $('#FRisk8').val(total);
                 }
                 else if ($(this).is(":not(:checked)")) {
 
-                    total = total - 6;
+                    total = total - 1;
                     $('#FRisk8').val(total);
                 }
 
@@ -1113,12 +1183,12 @@
                 var total = parseInt($('#FRisk8').val());
                 if ($(this).is(":checked")) {
 
-                    total = total + 7;
+                    total = total + 3;
                     $('#FRisk8').val(total);
                 }
                 else if ($(this).is(":not(:checked)")) {
 
-                    total = total - 7;
+                    total = total - 3;
                     $('#FRisk8').val(total);
                 }
 

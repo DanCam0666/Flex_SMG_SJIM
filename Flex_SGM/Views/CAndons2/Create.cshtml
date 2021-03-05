@@ -100,21 +100,28 @@
                                     @Html.ValidationMessageFor(model => model.ProyectosID, "", new { @class = "text-danger" })
                                 </div>
                             </div>
-                            <div class="form-group col-md-2">
+                            <div class="form-group col-md-3">
+                                @Html.LabelFor(model => model.MaquinasID, "Maquinas", htmlAttributes: new { @class = "control-label col-md-12" })
+                                <div class="col-md-10">
+                                    @Html.DropDownList("MaquinasID", null, htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.MaquinasID, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group col-md-3">
                                 @Html.LabelFor(model => model.lote, "Lote", htmlAttributes: new { @class = "control-label col-md-12" })
                                 <div class="col-md-10">
                                     @Html.EditorFor(model => model.lote, new { htmlAttributes = new { @class = "form-control" } })
                                     @Html.ValidationMessageFor(model => model.lote, "", new { @class = "text-danger" })
                                 </div>
                             </div>
-                            <div class="form-group col-md-4">
+                            <div class="form-group col-md-6">
                                 @Html.LabelFor(model => model.NoDeParte, htmlAttributes: new { @class = "control-label col-md-12" })
                                 <div class="col-md-10">
                                     @Html.EditorFor(model => model.NoDeParte, new { htmlAttributes = new { @class = "form-control" } })
                                     @Html.ValidationMessageFor(model => model.NoDeParte, "", new { @class = "text-danger" })
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group col-md-12">
                                 @Html.LabelFor(model => model.NombreDeParte, htmlAttributes: new { @class = "control-label col-md-12" })
                                 <div class="col-md-12">
                                     @Html.EditorFor(model => model.NombreDeParte, new { htmlAttributes = new { @class = "form-control" } })
@@ -505,7 +512,7 @@
     })
     $("#ProyectosID").chosen();
 
-
+        $("#MaquinasID").chosen();
    $("#AndonSupervisoresID").chosen();
 
 

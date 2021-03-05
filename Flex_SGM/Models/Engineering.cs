@@ -223,7 +223,7 @@ namespace Flex_SGM.Models
         public bool FRisk6 { get; set; }
         [Display(Name = "Does the change represent any safety issue to create a risk?")]
         public bool FRisk7 { get; set; }
-        [Display(Name = "What is the risk level of the change (1-Low, 2-Med, 3-High)")]
+        [Display(Name = "What is the risk level of the change (1-Low, 2-Med, >3-High)")]
         public int FRisk8 { get; set; }
 
 

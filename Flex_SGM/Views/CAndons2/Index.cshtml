@@ -134,6 +134,9 @@
                             <th>
                                 @Html.DisplayNameFor(model => model.Proyectos.Proyecto)
                             </th>
+                                                        <th>
+                                @Html.DisplayNameFor(model => model.Maquinas.SubMaquina)
+                            </th>
                             <th>
                                 @Html.DisplayNameFor(model => model.NoDeParte)
                             </th>
@@ -227,6 +230,9 @@
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.Proyectos.Proyecto)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Maquinas.SubMaquina)
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.NoDeParte)

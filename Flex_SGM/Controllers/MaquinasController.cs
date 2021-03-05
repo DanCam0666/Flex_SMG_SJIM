@@ -85,8 +85,8 @@ namespace Flex_SGM.Controllers
                 return HttpNotFound();
             }
             ViewBag.Puesto = new SelectList(Enum.GetValues(typeof(flex_Puesto)).Cast<flex_Puesto>().ToList());
-            ViewBag.Cliente = new SelectList(Enum.GetValues(typeof(flex_Cliente)).Cast<flex_Cliente>().ToList());
-            ViewBag.Area = new SelectList(Enum.GetValues(typeof(flex_Areas)).Cast<flex_Areas>().ToList());
+            ViewBag.Cliente = new SelectList(Enum.GetValues(typeof(flex_Cliente)).Cast<flex_Cliente>().ToList(), maquinas.Cliente);
+            ViewBag.Area = new SelectList(Enum.GetValues(typeof(flex_Areas)).Cast<flex_Areas>().ToList(), maquinas.Area);
             return View(maquinas);
         }
 

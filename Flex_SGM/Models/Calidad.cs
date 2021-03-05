@@ -257,7 +257,9 @@ namespace Flex_SGM.Models
  
         [Display(Name = "Proyecto")]
         public int ProyectosID { get; set; }
-  
+        [Display(Name = "Proyecto")]
+
+        public int? MaquinasID { get; set; }
         [MaxLength(20)]
         public string lote { get; set; }
 
@@ -327,7 +329,7 @@ namespace Flex_SGM.Models
         public virtual cAreas Primary { get; set; }
 
         public virtual cAreas Assigned { get; set; }
-
+        public virtual Maquinas Maquinas { get; set; }
         public virtual cClientes Clientes { get; set; }
         public virtual cProyectos Proyectos { get; set; }
 
@@ -461,6 +463,8 @@ namespace Flex_SGM.Models
         [MaxLength(1)]
         public string Turno { get; set; }
     }
+
+
     public class Trendline
     {
         public Trendline(IList<decimal> yAxisValues, IList<decimal> xAxisValues) : this(yAxisValues.Select((t, i) => new Tuple<decimal, decimal>(xAxisValues[i], t)))

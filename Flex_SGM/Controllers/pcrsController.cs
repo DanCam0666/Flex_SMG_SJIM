@@ -259,6 +259,7 @@ namespace Flex_SGM.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.Risk = pcr.MatrizDecision.NivelRiesgo;
             return View(pcr);
         }
 
@@ -390,6 +391,7 @@ namespace Flex_SGM.Controllers
             ViewBag.MatrizDecisionID = new SelectList(db.MatrizDecisions, "ID", "TipoCambio", pcr.MatrizDecisionID);
             ViewBag.ProyectosID = new SelectList(db.cProyectos, "ID", "Proyecto", pcr.ProyectosID);
             ViewBag.ReasonID = new SelectList(db.ereasons, "ID", "Reason", pcr.ReasonID);
+            ViewBag.Risk =pcr.MatrizDecision.NivelRiesgo;
             return View(pcr);
         }
 
