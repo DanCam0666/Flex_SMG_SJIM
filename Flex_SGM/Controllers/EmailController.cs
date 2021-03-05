@@ -83,12 +83,12 @@ namespace Flex_SGM.emaildata
             try
             {
                 var bodyb = new StringBuilder();
-                bodyb.AppendFormat("El usuario {0} Genero un PCR!\n", usuario);
-                bodyb.AppendLine(@"El numero de PCR es: \n");
+                bodyb.AppendFormat("El usuario {0} Genero un PCR!", usuario);
+                bodyb.AppendLine(@"<p>El numero de PCR es:"+ comment + " </p>");
                 var link = @"http://sjimsvap3/bitacora/pcrs/Details/" + id;
-                bodyb.AppendLine("<a href=\""+link+ "\" > link</a>");
-                bodyb.AppendLine(@"Recuerda Verificar los PCRs! \n");
-                bodyb.AppendLine(@"No Responder a este Correo|Do not Reply this Email \n");
+                bodyb.AppendLine("<p><a href=\"" + link+ "\" >"+link+ "</a></p>");
+                bodyb.AppendLine(@"<p>Recuerda Verificar los PCRs! </p>");
+                bodyb.AppendLine(@"<p>No Responder a este Correo|Do not Reply this Email</p>");
 
                 var message = new MailMessage();
                 foreach(var corr in Correo)
