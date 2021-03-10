@@ -13,11 +13,10 @@
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
 
-     
         @Html.HiddenFor(model => model.Status)
         <div class="x_panel clearfix">
             <div class="x_title  clearfix">
-                <h3>Product/Process Change Request <small> PCR -    @Html.DisplayFor(model => model.PCRID)</small></h3>
+                <h3>Product/Process Change Request <small> PCR -    @Html.LabelFor(model => model.PCRID)</small></h3>
 
             </div>
 
@@ -837,45 +836,23 @@
     </div>
 </div>
 
-<div class="x_panel">
-    <div class="x_title">
-        <h2>@Html.DisplayFor(model => model.PCRID)</h2>
-        <div class="clearfix"></div>
-    </div>
-    <div class="clearfix"></div>
-    <div class="x_content ">
-        <div class="form-group">
-    
-                <div>Comentarios</div>
-                <textarea class="form-control">    </textarea>
-                <div>Seleccion de Revision</div>
-                <button class="btn btn-danger" value="N" onclick="seguro(this.value)">Rechazar...</button>
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-8">
+        <input type="submit" value="Create" class="btn btn-success col-xs-12" />
 
-                <button class="btn btn-warning" value="C"  onclick="seguro(this.value)">Se necesitan correcciones...</button>
+        <button class="btn btn-warning">Aceptar y continuar proceso...</button>
+        <button class="btn btn-warning">Se necesitan correcciones...</button>
+        <button class="btn btn-warning">Rechazar...</button>
+        <textarea class="form-control">    </textarea>
 
-                <button class="btn btn-success" value="Y" onclick="seguro(this.value)">Aceptar y continuar proceso...</button>
-
-
-
-
-          
-        </div>
     </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
 
 @section Scripts {
     <script>
-        function seguro(any)
-        {
-                alert(any);
-        };
 
         $(document).ready(function () {
-        $('#Risk').val("@ViewBag.Risk");
+    $('#Risk').val("@ViewBag.Risk");
         });
     </script>
 }

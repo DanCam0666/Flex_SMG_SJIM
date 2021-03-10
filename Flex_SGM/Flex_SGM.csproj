@@ -2962,6 +2962,7 @@
     <Content Include="Views\pcrs\Details.cshtml" />
     <Content Include="Views\pcrs\Edit.cshtml" />
     <Content Include="Views\pcrs\Index.cshtml" />
+    <Content Include="Views\pcrs\Review.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
