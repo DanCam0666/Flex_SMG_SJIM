@@ -489,8 +489,22 @@ namespace Flex_SGM.Models
     public class FeasibilitySings
     {
         [Key]
-        public int ID { get; set; }
+        public int sid { get; set; }
 
-     
+        public int pcrID { get; set; }
+
+        [Display(Name = "Dep")]/// Reviewed byReviewed by
+        [MaxLength(100)]
+        public string Dep { get; set; }
+
+        [Display(Name = "Reviewed by")]/// Reviewed byReviewed by
+        [MaxLength(140)]
+        public string Reviewedby { get; set; }
+
+        [Display(Name = "Reviewed Date")]
+        public DateTime? Reviewedby_date { get; set; }
+
+        public virtual pcr pcr { get; set; }
+
     }
 }

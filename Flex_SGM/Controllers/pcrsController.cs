@@ -250,6 +250,7 @@ namespace Flex_SGM.Controllers
         [AllowAnonymous]
         public ActionResult Details(int? id)
         {
+            
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -335,7 +336,7 @@ namespace Flex_SGM.Controllers
 
             return Json(new { r1 = req }, JsonRequestBehavior.AllowGet);
         }
-
+      
         // POST: pcrs/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -356,7 +357,7 @@ namespace Flex_SGM.Controllers
 
             if (ModelState.IsValid)
             {
-                pcr.Status = "Revisión";
+                pcr.Status = "On Review";
                 pcr.PCRID = PCRID;
                 db.pcrs.Add(pcr);
                 db.SaveChanges();
@@ -373,7 +374,133 @@ namespace Flex_SGM.Controllers
             ViewBag.ReasonID = new SelectList(db.ereasons, "ID", "Reason", pcr.ReasonID);
             return View(pcr);
         }
+        [Authorize(Roles = "Admin,Gerentes")]
+        public string firma(int id, string Response, string msg)
+        {
+            var uiid = User.Identity.GetUserId();
+            ApplicationUser currentUser = db.Users.Where(w => w.Id == uiid).FirstOrDefault();
+       
 
+
+            if (!string.IsNullOrEmpty(Response) && id != 0)
+            {
+                pcr pcr = db.pcrs.Find(id);
+                if (pcr.Status == "On Review") { 
+          
+                pcr.Reviewedby_date = DateTime.Now;
+                pcr.Status = "On Authorizations";
+                    // Send the email to autorization personal 
+                }
+                else
+                 if (pcr.Status == "On Authorizations")
+                {
+                    if (User.IsInRole("7a269541-b9f5-4bfe-8eea-38c0ebe11373")) {
+                       
+                        switch(currentUser.Departamento)
+                         {
+                            case ("FlexNGate"):
+                          
+
+                                break;
+                            case ("Ingenieria"):
+
+
+                                break;
+                            case ("Manufactura"):
+
+
+                                break;
+                            case ("Calidad"):
+
+
+                                break;
+                            case ("Finanzas"):
+
+
+                                break;
+                            case ("Compras"):
+
+
+                                break;
+                            case ("Materiales"):
+
+
+                                break;
+                            case ("Mantenimiento"):
+
+
+                                break;
+                            case ("Seguridad"):
+
+
+                                break;
+                            case ("Ambiental"):
+
+
+                                break;
+                            case ("Tooling"):
+
+
+                                break;
+                            case ("Estampado"):
+
+
+                                break;
+                            case ("Soldadura"):
+
+
+                                break;
+                            case ("Cromo"):
+
+
+                                break;
+                            case ("Pintura"):
+
+
+                                break;
+                            case ("Ensamble"):
+
+
+                                break;
+                            default:
+
+
+                                break;
+
+                        }  
+                    }                  
+                }
+
+                db.Entry(pcr).State = EntityState.Modified;
+                db.SaveChanges();
+
+                return Response;
+            }
+            return "Not allowed... anything wasn't change...";
+        }
+        // GET: pcrs/Edit/5
+        [Authorize(Roles = "Admin,Gerentes")]
+        [Authorize(Roles = "Gerentes")]
+        [Authorize(Roles = "Admin")]
+        public ActionResult Review(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            pcr pcr = db.pcrs.Find(id);
+            if (pcr == null)
+            {
+                return HttpNotFound();
+            }
+
+            ViewBag.ClientesID = new SelectList(db.cClientes, "ID", "Cliente", pcr.ClientesID);
+            ViewBag.MatrizDecisionID = new SelectList(db.MatrizDecisions, "ID", "TipoCambio", pcr.MatrizDecisionID);
+            ViewBag.ProyectosID = new SelectList(db.cProyectos, "ID", "Proyecto", pcr.ProyectosID);
+            ViewBag.ReasonID = new SelectList(db.ereasons, "ID", "Reason", pcr.ReasonID);
+            ViewBag.Risk = pcr.MatrizDecision.NivelRiesgo;
+            return View(pcr);
+        }
         // GET: pcrs/Edit/5
         public ActionResult Edit(int? id)
         {

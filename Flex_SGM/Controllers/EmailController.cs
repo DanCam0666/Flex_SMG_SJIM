@@ -123,6 +123,52 @@ namespace Flex_SGM.emaildata
 
 
         }
+        public void newReview(string[] Correo, string usuario, string comment, string id)
+        {
+            try
+            {
+                var bodyb = new StringBuilder();
+                bodyb.AppendFormat("El usuario {0} Verifico un PCR!", usuario);
+                bodyb.AppendLine(@"<p>El numero de PCR es: " + comment + " </p>");
+                var link = @"http://sjimsvap3/bitacora/pcrs/Review/" + id;
+                bodyb.AppendLine("<p><a href=\"" + link + "\" >" + link + "</a></p>");
+                bodyb.AppendLine(@"<p>Se requiere de tu autorizacion! </p>");
+                bodyb.AppendLine(@"<p>Recuerda Verificar los PCRs! </p>");
+                bodyb.AppendLine(@"<p>No Responder a este Correo|Do not Reply this Email</p>");
+
+                var message = new MailMessage();
+                foreach (var corr in Correo)
+                {
+                    message.To.Add(new MailAddress(corr));
+
+                }
+                // replace with valid value 
+                message.From = new MailAddress("SJIMBitacora@flexngate.com");  // replace with valid value
+                message.Subject = "Informacion Bitacora, No Responder a este Correo";
+                message.IsBodyHtml = true;
+                message.Body = bodyb.ToString();
+                message.IsBodyHtml = true;
+
+                using (var smtp = new SmtpClient())
+                {
+                    /*
+                    var credential = new NetworkCredential
+                    {
+                        UserName = "SJIMBitacora@flexngate.com",  // replace with valid value
+                        Password = "Flex2020#"  // replace with valid value
+                    };
+                    smtp.Credentials = credential;
+                    */
+                    smtp.Host = "smtp.flexngate.local";
+                    smtp.Port = 25;
+                    smtp.EnableSsl = false;
+                    smtp.Send(message);
+                }
+            }
+            catch (Exception Ex) { var x = Ex; }
+
+
+        }
     }
 }
 
