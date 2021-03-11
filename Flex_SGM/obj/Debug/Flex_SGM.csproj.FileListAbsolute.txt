@@ -1597,7 +1597,6 @@ C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\es\System.Web.WebPages.Raz
 C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\es\Microsoft.AspNet.Identity.Core.resources.dll
 C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\es\Microsoft.AspNet.Identity.Owin.resources.dll
 C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\es\Microsoft.AspNet.Identity.EntityFramework.resources.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\obj\Debug\Flex_SGM.csprojAssemblyReference.cache
 C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\obj\Debug\Flex_SGM.Migrations.init.resources
 C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\obj\Debug\Flex_SGM.csproj.GenerateResource.cache
 C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\obj\Debug\Flex_SGM.csproj.CoreCompileInputs.cache
