@@ -50,10 +50,6 @@ namespace Flex_SGM.Models
         [MaxLength(12)]
         public string Folio { get; set; }
 
-        public Double Porcentaje { get; set; }
-        public Double MTBF { get; set; }
-        public Double MTTR { get; set; }
-
         [MaxLength(50)]
         public string Verifico { get; set; }
         [DataType(DataType.DateTime)]

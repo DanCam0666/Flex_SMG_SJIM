@@ -229,7 +229,6 @@
     <Compile Include="Controllers\AndonDefectoesController.cs" />
     <Compile Include="Controllers\AndonSupervisoresController.cs" />
     <Compile Include="Controllers\BilltoesController.cs" />
-    <Compile Include="Controllers\BitacorasController - Copia.cs" />
     <Compile Include="Controllers\BitacorasController.cs" />
     <Compile Include="Controllers\CalidadController.cs" />
     <Compile Include="Controllers\CAndons2Controller.cs" />
@@ -2780,7 +2779,6 @@
     <Content Include="Views\OILs\Details.cshtml" />
     <Content Include="Views\OILs\Edit.cshtml" />
     <Content Include="Views\OILs\Index.cshtml" />
-    <Content Include="Views\Bitacoras\Index - Copia.cshtml" />
     <Content Include="Views\Shared\_Result.cshtml" />
     <Content Include="Views\OILs\Index - Copia.cshtml" />
     <Content Include="Views\Home\Working.cshtml" />
@@ -2831,14 +2829,12 @@
     <Content Include="Views\Juntas\Details.cshtml" />
     <Content Include="Views\Juntas\Edit.cshtml" />
     <Content Include="Views\Juntas\Index.cshtml" />
-    <Content Include="Views\Bitacoras\Index - Copia %282%29.cshtml" />
     <Content Include="Views\CPlanos\Create.cshtml" />
     <Content Include="Views\CPlanos\Delete.cshtml" />
     <Content Include="Views\CPlanos\Details.cshtml" />
     <Content Include="Views\CPlanos\Edit.cshtml" />
     <Content Include="Views\CPlanos\Index.cshtml" />
     <Content Include="Views\CPlanos\program.cshtml" />
-    <Content Include="Views\Bitacoras\roadmap - Copia.cshtml" />
     <Content Include="Views\CReclamos\Create.cshtml" />
     <Content Include="Views\CReclamos\Delete.cshtml" />
     <Content Include="Views\CReclamos\Details.cshtml" />

@@ -6,8 +6,6 @@ using System.Web;
 
 namespace Flex_SGM.Models
 {
-
-
     public class pcr
     {
         [Key]
@@ -235,8 +233,6 @@ namespace Flex_SGM.Models
 
         public virtual MatrizDecision MatrizDecision { get; set; }
     }
-
-
     public class templatepcr
     {
 
@@ -490,6 +486,29 @@ namespace Flex_SGM.Models
     {
         [Key]
         public int sid { get; set; }
+
+        public int pcrID { get; set; }
+
+        [Display(Name = "Dep")]/// Reviewed byReviewed by
+        [MaxLength(100)]
+        public string Dep { get; set; }
+
+        [Display(Name = "Reviewed by")]/// Reviewed byReviewed by
+        [MaxLength(140)]
+        public string Reviewedby { get; set; }
+
+        [Display(Name = "Reviewed Date")]
+        public DateTime? Reviewedby_date { get; set; }
+
+        [Display(Name = "MSG")]
+        public string msg { get; set; }
+
+        [Display(Name = "Status")]
+        [MaxLength(100)]
+        public string Status { get; set; }
+
+
+        public virtual pcr pcr { get; set; }
 
     }
 }

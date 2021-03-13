@@ -374,114 +374,151 @@ namespace Flex_SGM.Controllers
             ViewBag.ReasonID = new SelectList(db.ereasons, "ID", "Reason", pcr.ReasonID);
             return View(pcr);
         }
+       
         [Authorize(Roles = "Admin,Gerentes")]
-        public string firma(int id, string Response, string msg)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public string firma(int id, string Response,string msg, string datos)
         {
             var uiid = User.Identity.GetUserId();
             ApplicationUser currentUser = db.Users.Where(w => w.Id == uiid).FirstOrDefault();
-       
-
-
-            if (!string.IsNullOrEmpty(Response) && id != 0)
+            var ok = false;
+           foreach(var rol in currentUser.Roles)
             {
-                pcr pcr = db.pcrs.Find(id);
-                if (pcr.Status == "On Review") { 
-          
-                pcr.Reviewedby_date = DateTime.Now;
-                pcr.Status = "On Authorizations";
-                    // Send the email to autorization personal 
-                }
-                else
-                 if (pcr.Status == "On Authorizations")
+                if (rol.RoleId== "7a269541-b9f5-4bfe-8eea-38c0ebe11373")
                 {
-                    if (User.IsInRole("7a269541-b9f5-4bfe-8eea-38c0ebe11373")) {
-                       
-                        switch(currentUser.Departamento)
-                         {
-                            case ("FlexNGate"):
-                          
 
-                                break;
-                            case ("Ingenieria"):
-
-
-                                break;
-                            case ("Manufactura"):
-
-
-                                break;
-                            case ("Calidad"):
-
-
-                                break;
-                            case ("Finanzas"):
-
-
-                                break;
-                            case ("Compras"):
-
-
-                                break;
-                            case ("Materiales"):
-
-
-                                break;
-                            case ("Mantenimiento"):
-
-
-                                break;
-                            case ("Seguridad"):
-
-
-                                break;
-                            case ("Ambiental"):
-
-
-                                break;
-                            case ("Tooling"):
-
-
-                                break;
-                            case ("Estampado"):
-
-
-                                break;
-                            case ("Soldadura"):
-
-
-                                break;
-                            case ("Cromo"):
-
-
-                                break;
-                            case ("Pintura"):
-
-
-                                break;
-                            case ("Ensamble"):
-
-
-                                break;
-                            default:
-
-
-                                break;
-
-                        }  
-                    }                  
+                    ok = true;
                 }
+            }
+            if (ok)//7a269541-b9f5-4bfe-8eea-38c0ebe11373
+            {
+                if (datos!=null)
+            if (!string.IsNullOrEmpty(Response) && id != 0)
+                {
+                    pcr pcr = db.pcrs.Find(id);
+                    switch (Response) 
+                    {
+                        case ("Acept"):
+
+                            if (pcr.Status == "On Review")
+                            {
+                                pcr.Reviewedby_date = DateTime.Now;
+                                pcr.Status = "On Authorizations";
+                                // Send the email to autorization personal 
+                            }
+                            else
+                             if (pcr.Status == "On Authorizations")
+                            {
+                                    switch (currentUser.Departamento)
+                                    {
+                                        case ("FlexNGate"):
+
+
+                                            break;
+                                        case ("Ingenieria"):
+
+
+                                            break;
+                                        case ("Manufactura"):
+
+
+                                            break;
+                                        case ("Calidad"):
+
+
+                                            break;
+                                        case ("Finanzas"):
+
+
+                                            break;
+                                        case ("Compras"):
+
+
+                                            break;
+                                        case ("Materiales"):
+
+
+                                            break;
+                                        case ("Mantenimiento"):
+
+
+                                            break;
+                                        case ("Seguridad"):
+
+
+                                            break;
+                                        case ("Ambiental"):
+
+
+                                            break;
+                                        case ("Tooling"):
+
+
+                                            break;
+                                        case ("Estampado"):
+
+
+                                            break;
+                                        case ("Soldadura"):
+
+
+                                            break;
+                                        case ("Cromo"):
+
+
+                                            break;
+                                        case ("Pintura"):
+
+
+                                            break;
+                                        case ("Ensamble"):
+
+
+                                            break;
+                                        default:
+
+
+                                            break;
+
+                                    }
+                            
+                            }
+                            else
+                                pcr.Status = "On Review";
+
+                            break;
+                        case ("Changes"):
+                            if (pcr.Status == "On Review")
+                            {
+                                pcr.Reviewedby_date = DateTime.Now;
+                                pcr.Status = "On Authorizations";
+                                pcr.Status = "Need Fixes";
+                                // Send the email to autorization personal 
+                            }
+                            else
+                           if (pcr.Status == "On Authorizations")
+                            {
+                                pcr.Status = currentUser.Departamento+ " need fixes";
+                            }
+                            else
+                                pcr.Status = "On Review";
+                            break;
+                        default:
+                            pcr.Status = currentUser.Departamento + " Cancel";
+                            break;
+                    };
 
                 db.Entry(pcr).State = EntityState.Modified;
                 db.SaveChanges();
 
                 return Response;
             }
+             }
             return "Not allowed... anything wasn't change...";
         }
         // GET: pcrs/Edit/5
         [Authorize(Roles = "Admin,Gerentes")]
-        [Authorize(Roles = "Gerentes")]
-        [Authorize(Roles = "Admin")]
         public ActionResult Review(int? id)
         {
             if (id == null)
@@ -502,6 +539,7 @@ namespace Flex_SGM.Controllers
             return View(pcr);
         }
         // GET: pcrs/Edit/5
+        [Authorize(Roles = "Admin,Gerentes")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -527,6 +565,7 @@ namespace Flex_SGM.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin,Gerentes")]
         public ActionResult Edit([Bind(Include = "ID,PCRID,Status,Originator,Department,Date,ClientesID,ProyectosID,ReasonID,PartNumber,RevLevel,PartName,docreason,docscope,MatrizDecisionID,cipieceprice,cicapital,citooling,ciengineering,cipackaging,ciobsolescence,cimaterial,cifreight,ciovertime,ciother,citotal,crannualvolume,crcapacityfng,crcapacitysupplier,Reviewedby,Reviewedby_date,support_purchasing,support_materials,support_maintenance,support_automation,support_quality,support_safety,support_environmental,support_tooling,support_stamping,support_welding,support_chrome,support_ecoat,support_topcoat,support_backcoat,support_assembly,support_finance,Keymilestones_buildmrd1,Keymilestones_buildmrd2,Keymilestones_buildmrd3,Keymilestones_customrrar,Keymilestones_ppap,Keymilestones_internalsop,Keymilestones_customersop,Keymilestones_closure,leadtime_engineering,leadtime_tooling,leadtime_facilities,leadtime_capital,leadtime_material,leadtime_inventory,leadtime_approval,leadtime_totallt,FConsiderations1,FConsiderations2,FConsiderations3,FConsiderations4,FConsiderations5,FConsiderations6,FConsiderations7,FConsiderations8,FConsiderations9,FConsiderations10,FConsiderations11,FConsiderations12,FConsiderations13,FConsiderations14,FConsiderations15,FRisk1,FRisk2,FRisk3,FRisk4,FRisk5,FRisk6,FRisk7,FRisk8")] pcr pcr)
         {
             if (ModelState.IsValid)

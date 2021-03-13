@@ -888,6 +888,8 @@ C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\WebGrease.dll
 C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\ClosedXML.pdb
 C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\ClosedXML.xml
 C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\DocumentFormat.OpenXml.xml
+C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\EntityFramework.xml
+C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\EntityFramework.SqlServer.xml
 C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\ExcelNumberFormat.xml
 C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\MoreLinq.xml
 C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\PagedList.xml
@@ -904,8 +906,6 @@ C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\System.Web.WebPages.Deploy
 C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\System.Web.WebPages.Razor.xml
 C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\Newtonsoft.Json.xml
 C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\Antlr3.Runtime.pdb
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\EntityFramework.xml
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\EntityFramework.SqlServer.xml
 C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\Microsoft.AspNet.Identity.Core.xml
 C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\Microsoft.AspNet.Identity.Owin.xml
 C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\Microsoft.AspNet.Identity.EntityFramework.xml
@@ -919,6 +919,8 @@ C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\Microsoft.Owin.Security.Tw
 C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\Microsoft.Owin.Security.OAuth.xml
 C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\es\EntityFramework.resources.dll
+C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\es\EntityFramework.SqlServer.resources.dll
 C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\es\System.Web.Helpers.resources.dll
 C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\es\System.Web.Mvc.resources.dll
 C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\es\System.Web.Optimization.resources.dll
@@ -926,15 +928,12 @@ C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\es\System.Web.Razor.resour
 C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\es\System.Web.WebPages.resources.dll
 C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\es\System.Web.WebPages.Deployment.resources.dll
 C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\es\System.Web.WebPages.Razor.resources.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\es\EntityFramework.resources.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\es\EntityFramework.SqlServer.resources.dll
 C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\es\Microsoft.AspNet.Identity.Core.resources.dll
 C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\es\Microsoft.AspNet.Identity.Owin.resources.dll
 C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\es\Microsoft.AspNet.Identity.EntityFramework.resources.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\obj\Release\Flex_SGM.Migrations.Init.resources
+C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\obj\Release\Flex_SGM.Migrations.init.resources
 C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\obj\Release\Flex_SGM.csproj.GenerateResource.cache
+C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\obj\Release\Flex_SGM.csproj.CoreCompileInputs.cache
 C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\obj\Release\Flex_SGM.csproj.CopyComplete
 C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\obj\Release\Flex_SGM.dll
 C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\obj\Release\Flex_SGM.pdb
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\obj\Release\Flex_SGM.csproj.CoreCompileInputs.cache
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\obj\Release\Flex_SGM.csprojAssemblyReference.cache

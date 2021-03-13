@@ -1,11 +1,12 @@
 ﻿@model Flex_SGM.Models.pcr
-
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_LayoutE.cshtml";
 }
 
 <h2>Details</h2>
+
+    @Html.AntiForgeryToken()
 
 <div>
     <div class="form-horizontal clearfix">
@@ -856,15 +857,15 @@
         <div class="form-group">
 
             <div>Comentarios</div>
-            <textarea class="form-control">    </textarea>
+            <textarea class="form-control" id="msg"></textarea>
 
             <div class="pull-right">
                 <div>Seleccion de Revision</div>
-                <button class="btn btn-danger" value="Reject" onclick="seguro(this.value)" data-toggle="modal" data-target="#myModal">Rechazar...</button>
+                <button class="btn btn-danger" value="Reject" onclick="seguro(this.value);">Rechazar...</button>
 
-                <button class="btn btn-warning" value="Review" onclick="seguro(this.value)" data-toggle="modal" data-target="#myModal">Se necesitan correcciones...</button>
+                <button class="btn btn-warning" value="Review" onclick="seguro(this.value);">Se necesitan correcciones...</button>
 
-                <button class="btn btn-success" value="Acept" onclick="seguro(this.value)" data-toggle="modal" data-target="#myModal">Aceptar y continuar proceso...</button>
+                <button class="btn btn-success" value="Acept" onclick="seguro(this.value);">Aceptar y continuar proceso...</button>
             </div>
 
 
@@ -882,14 +883,24 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">PCR -    @Html.DisplayFor(model => model.PCRID)</h4>
+                <h4 class="modal-title">PCR -@Html.DisplayFor(model => model.PCRID)</h4>
             </div>
             <div class="modal-body">
-                <p>Are you sure of <span id="seg1"></span> </p>
-                <button type="button" class="btn btn-default" onclick="seguro2()" data-dismiss="modal">Yes</button>
+                <p>Are you sure of <span id="res"></span> the PCR: @Html.DisplayFor(model => model.PCRID)?</p>
+
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                <div class="col-xs-4">
+                    <button type="button" class="btn btn-danger btn-block" data-dismiss="modal">No</button>
+                </div>
+                <div class="col-xs-4">
+
+                </div>
+                <div class="col-xs-4">
+                    <button type="button" class="btn btn-success btn-block" onclick="seguro2()" data-dismiss="modal">Yes</button>
+                </div>
+
+
             </div>
         </div>
 
@@ -905,29 +916,66 @@
     <script>
 
         var y;
+        var formData = new FormData($('form')[0]);
         function seguro(any)
         {
-            y = any;
-            $('#seg1').val = any;
-        };
-        function seguro2() {
 
-            if (y == "Reject")
-                $.get('@Url.Action("firma", "pcrs", new { id = Model.ID, Response = "Reject",msg="d" })', function (success) { alert(success) });
-            if (y =="Review")
-                $.get('@Url.Action("firma", "pcrs", new { id = Model.ID, Response = "Review", msg = "d" })', function (success) { alert(success) });
-            if (y =="Acept")
-                $.get('@Url.Action("firma", "pcrs", new { id = Model.ID, Response = "Acept", msg = "d" })', function (success) {
+            y = any;
+            $('#myModal').modal('show');
+            $('#res').html(y);
+        };
+
+
+        function seguro2() {
+            var msgi = $('#msg').val();
+            var token = $("[name='__RequestVerificationToken']").val();
+              var url = "@Html.Raw(Url.Action("firma", "pcrs", new {id = "param-id", Response = "param-Response", datos = "param-datos", msg = "param-msg" }))";
+            url = url.replace("param-id", @Model.ID).replace("param-Response", y).replace("param-msg", msgi).replace("param-datos", "hola");
+            $.post(url,{ __RequestVerificationToken: token }, function (success) {
                     alert(success);
-                      if (success == "Acept") {
+               
                           window.location.replace( '@Url.Action("Index", "pcrs")');
-                      }
-                       });
+                 
+
+            });
+
+
+
+
+
         };
 
         $(document).ready(function () {
-        $('#Risk').val("@ViewBag.Risk");
+            $('#Risk').val("@ViewBag.Risk");
+
         });
+
+        /*
+         *
+         *        $.post(url,{ __RequestVerificationToken: token }, function (success) {
+                    alert(success);
+                   if (success == "Acept") {
+                          window.location.replace( 'Url.Action("Index", "pcrs")');
+                    }
+
+            });
+
+        $.ajax({
+                url: url,
+                type: 'POST',
+                data: {
+                    __RequestVerificationToken: token
+                },
+                success: function (result) {
+                    alert(result);
+                    if (result == "Acept") {
+                          window.location.replace( 'Url.Action("Index", "pcrs")');
+                    }}
+            });
+
+
+*/
     </script>
 }
+
 

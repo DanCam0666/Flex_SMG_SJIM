@@ -7210,7 +7210,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>03/02/2015 09:32:42</publishTime>
     </File>
     <File Include="bin/es/EntityFramework.SqlServer.resources.dll">
-      <publishTime>10/26/2020 13:25:55</publishTime>
+      <publishTime>03/02/2015 09:32:42</publishTime>
     </File>
     <File Include="bin/es/Microsoft.AspNet.Identity.Core.resources.dll">
       <publishTime>10/26/2020 13:25:58</publishTime>
@@ -7249,10 +7249,10 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>10/26/2020 13:25:57</publishTime>
     </File>
     <File Include="bin/Flex_SGM.dll">
-      <publishTime>03/11/2021 14:58:49</publishTime>
+      <publishTime>03/13/2021 12:49:56</publishTime>
     </File>
     <File Include="bin/Flex_SGM.pdb">
-      <publishTime>03/11/2021 14:58:49</publishTime>
+      <publishTime>03/13/2021 12:49:56</publishTime>
     </File>
     <File Include="bin/IBM.Data.DB2.iSeries.dll">
       <publishTime>10/26/2020 13:21:31</publishTime>
@@ -7849,13 +7849,13 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>01/28/2021 08:16:21</publishTime>
     </File>
     <File Include="Views/Bitacoras/Delete.cshtml">
-      <publishTime>12/16/2020 14:15:42</publishTime>
+      <publishTime>03/13/2021 12:47:14</publishTime>
     </File>
     <File Include="Views/Bitacoras/Details.cshtml">
-      <publishTime>12/16/2020 14:33:02</publishTime>
+      <publishTime>03/13/2021 12:47:14</publishTime>
     </File>
     <File Include="Views/Bitacoras/Edit.cshtml">
-      <publishTime>01/28/2021 08:16:21</publishTime>
+      <publishTime>03/13/2021 12:47:14</publishTime>
     </File>
     <File Include="Views/Bitacoras/Index - Copia %282%29.cshtml">
       <publishTime>01/28/2021 08:42:55</publishTime>
@@ -8305,7 +8305,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>02/14/2021 10:38:47</publishTime>
     </File>
     <File Include="Views/pcrs/Review.cshtml">
-      <publishTime>03/11/2021 12:36:58</publishTime>
+      <publishTime>03/13/2021 12:18:23</publishTime>
     </File>
     <File Include="Views/Proyectos/Create.cshtml">
       <publishTime>10/26/2020 13:21:25</publishTime>
@@ -8476,7 +8476,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>10/26/2020 13:21:26</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>03/11/2021 14:58:52</publishTime>
+      <publishTime>03/13/2021 12:52:16</publishTime>
     </File>
   </ItemGroup>
 </Project>

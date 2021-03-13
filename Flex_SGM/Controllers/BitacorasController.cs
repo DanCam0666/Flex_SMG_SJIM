@@ -255,9 +255,9 @@ namespace Flex_SGM.Controllers
                     ws.Cell(i, 12).Value = bita.Fallaoperacion;
                     ws.Cell(i, 13).Value = bita.Scrap;
                     ws.Cell(i, 14).Value = bita.Folio;
-                    ws.Cell(i, 15).Value = bita.Porcentaje;
-                    ws.Cell(i, 16).Value = bita.MTBF;
-                    ws.Cell(i, 17).Value = bita.MTTR;
+                    ws.Cell(i, 15).Value = 0;// bita.Porcentaje;
+                    ws.Cell(i, 16).Value = 0;//bita.MTBF;
+                    ws.Cell(i, 17).Value = 0;//bita.MTTR;
                     ws.Cell(i, 18).Value = bita.Verifico;
                     ws.Cell(i, 19).Value = bita.FechaVerificacion;
 
@@ -2311,10 +2311,10 @@ if (amaquina.Contains("Pintura"))
             bitacora.usuario_area = currentUser.Area;
             bitacora.usuario_puesto = currentUser.Puesto;
 
-            bitacora.Porcentaje = 0;
+           // bitacora.Porcentaje = 0;
 
-            bitacora.MTBF = 0;
-            bitacora.MTTR = 0;
+           // bitacora.MTBF = 0;
+          //  bitacora.MTTR = 0;
             if (string.IsNullOrEmpty(bitacora.Atendio))
                 bitacora.Atendio = bitacora.usuario;
             if (string.IsNullOrEmpty(bitacora.Scrap))
@@ -2384,7 +2384,7 @@ if (amaquina.Contains("Pintura"))
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public async Task<ActionResult> Edit([Bind(Include = "ID,DiaHora,turno,usuario,usuario_area,usuario_puesto,MaquinasID,Sintoma,Causa,AccionCorrectiva,Atendio ,Tiempo,Scrap ,Folio,findesemana,Fallaoperacion ,MttoPreventivo,MttoCorrectivo,MttoMejora, Porcentaje,MTBF,MTTR,Verifico,FechaVerificacion,noterminado,Descripcion")] Bitacora bitacora)
+        public async Task<ActionResult> Edit([Bind(Include = "ID,DiaHora,turno,usuario,usuario_area,usuario_puesto,MaquinasID,Sintoma,Causa,AccionCorrectiva,Atendio ,Tiempo,Scrap ,Folio,findesemana,Fallaoperacion ,MttoPreventivo,MttoCorrectivo,MttoMejora,Verifico,FechaVerificacion,noterminado,Descripcion")] Bitacora bitacora)
         {
             if (ModelState.IsValid)
             {
@@ -2567,8 +2567,8 @@ if (amaquina.Contains("Pintura"))
     time2 = 0,
     count3 = 0,
     time3 = 0,
-    Minmtbf = g.Min(zx1 => zx1.MTBF),
-    Maxmttr = g.Max(zz2 => zz2.MTTR),
+   // Minmtbf = g.Min(zx1 => zx1.MTBF),
+   // Maxmttr = g.Max(zz2 => zz2.MTTR),
     NewMinmtbf1 = 0.0,
     NewMaxmttr1 = 0.0,
     NewMinmtbf2 = 0.0,
@@ -2591,8 +2591,8 @@ if (amaquina.Contains("Pintura"))
                time2 = 0,
                count3 = 0,
                time3 = 0,
-               Minmtbf = g.Min(z1 => z1.MTBF),
-               Maxmttr = g.Max(z2 => z2.MTTR),
+              // Minmtbf = g.Min(z1 => z1.MTBF),
+              // Maxmttr = g.Max(z2 => z2.MTTR),
                NewMinmtbf1 = 0.0,
                NewMaxmttr1 = 0.0,
                NewMinmtbf2 = 0.0,
@@ -2613,8 +2613,8 @@ if (amaquina.Contains("Pintura"))
                time2 = 0,
                count3 = 0,
                time3 = 0,
-               Minmtbf = g.Min(z2 => z2.MTBF),
-               Maxmttr = g.Max(z3 => z3.MTTR),
+             //  Minmtbf = g.Min(z2 => z2.MTBF),
+              // Maxmttr = g.Max(z3 => z3.MTTR),
                 NewMinmtbf1 = 0.0,
                NewMaxmttr1 = 0.0,
                NewMinmtbf2 = 0.0,
@@ -2635,8 +2635,8 @@ if (amaquina.Contains("Pintura"))
                time2 = 0,
                count3 = 0,
                time3 = 0,
-               Minmtbf = g.Min(z3 => z3.MTBF),
-               Maxmttr = g.Max(z4 => z4.MTTR),
+               //  Minmtbf = g.Min(z3 => z3.MTBF),
+               // Maxmttr = g.Max(z4 => z4.MTTR),
                NewMinmtbf1 = 0.0,
                NewMaxmttr1 = 0.0,
                NewMinmtbf2 = 0.0,
