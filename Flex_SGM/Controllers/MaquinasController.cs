@@ -56,7 +56,7 @@ namespace Flex_SGM.Controllers
         [Authorize(Roles = "Admin,Mantenimiento")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Area,Cliente,Codigo,Maquina,SubMaquina,DiaHora,Ubicacion")] Maquinas maquinas)
+        public ActionResult Create([Bind(Include = "ID,Area,Cliente,Codigo,Maquina,SubMaquina,DiaHora,Ubicacion,Critica")] Maquinas maquinas)
         {
             maquinas.DiaHora = DateTime.Now;
 
@@ -84,9 +84,37 @@ namespace Flex_SGM.Controllers
             {
                 return HttpNotFound();
             }
+            var clien = Enum.GetValues(typeof(flex_Cliente)).Cast<flex_Cliente>().ToList();
+         
+            var list = clien.FirstOrDefault();
+            for (int ii = 0; ii < clien.Count(); ii++) 
+            {
+                if (clien[ii].ToString() == maquinas.Cliente) 
+                {
+                    list = clien[ii];
+                    break;
+                };
+            }
+            var clienl= new SelectList(clien, list);
+
+    
+
+            var are = Enum.GetValues(typeof(flex_Areas)).Cast<flex_Areas>().ToList();
+            var list2 = are.FirstOrDefault();
+            for (int ii = 0; ii < are.Count(); ii++)
+            {
+                if (are[ii].ToString() == maquinas.Area)
+                {
+                    list2 = are[ii];
+                    break;
+                };
+            }
+            var arel = new SelectList(are, list2);
+
+
             ViewBag.Puesto = new SelectList(Enum.GetValues(typeof(flex_Puesto)).Cast<flex_Puesto>().ToList());
-            ViewBag.Cliente = new SelectList(Enum.GetValues(typeof(flex_Cliente)).Cast<flex_Cliente>().ToList(), maquinas.Cliente);
-            ViewBag.Area = new SelectList(Enum.GetValues(typeof(flex_Areas)).Cast<flex_Areas>().ToList(), maquinas.Area);
+            ViewBag.Cliente = clienl;
+            ViewBag.Area = arel;
             return View(maquinas);
         }
 
@@ -98,7 +126,7 @@ namespace Flex_SGM.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Area,Cliente,Codigo,Maquina,SubMaquina,DiaHora,Ubicacion")] Maquinas maquinas)
+        public ActionResult Edit([Bind(Include = "ID,Area,Cliente,Codigo,Maquina,SubMaquina,DiaHora,Ubicacion,Critica")] Maquinas maquinas)
         {
             if (ModelState.IsValid)
             {

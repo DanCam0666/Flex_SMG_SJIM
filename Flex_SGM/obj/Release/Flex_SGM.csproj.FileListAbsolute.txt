@@ -937,3 +937,4 @@ C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\obj\Release\Flex_SGM.csproj.Co
 C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\obj\Release\Flex_SGM.csproj.CopyComplete
 C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\obj\Release\Flex_SGM.dll
 C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\obj\Release\Flex_SGM.pdb
+C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\obj\Release\Flex_SGM.csprojAssemblyReference.cache

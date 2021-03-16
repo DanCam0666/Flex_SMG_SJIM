@@ -31,7 +31,7 @@ namespace Flex_SGM.Models
 
         [Required(AllowEmptyStrings = false)]
         public string Ubicacion{ get; set; }
-
+        public bool Critica { get; set; }
         public virtual ICollection<Bitacora> Bitacora { get; set; }
 
         public virtual ICollection<OILs> OILs { get; set; }
