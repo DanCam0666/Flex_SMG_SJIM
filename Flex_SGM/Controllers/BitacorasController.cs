@@ -2226,17 +2226,17 @@ if (amaquina.Contains("Pintura"))
 
             List<SelectListItem> lst = new List<SelectListItem>();
 
-            if (DateTime.Now.Hour >= 6 && DateTime.Now.Hour < 14)
+            if (DateTime.Now.Hour >= 7 && DateTime.Now.Hour < 15)
                 lst.Add(new SelectListItem() { Text = "1", Value = "1", Selected = true });
             else
                 lst.Add(new SelectListItem() { Text = "1", Value = "1" });
 
-            if (DateTime.Now.Hour >= 14 && DateTime.Now.Hour < 22)
+            if (DateTime.Now.Hour >= 15 && DateTime.Now.Hour < 23)
                 lst.Add(new SelectListItem() { Text = "2", Value = "2", Selected = true });
             else
                 lst.Add(new SelectListItem() { Text = "2", Value = "2" });
 
-            if (DateTime.Now.Hour >= 22 || DateTime.Now.Hour < 6)
+            if (DateTime.Now.Hour >= 23 || DateTime.Now.Hour < 7)
                 lst.Add(new SelectListItem() { Text = "3", Value = "3", Selected = true });
             else
                 lst.Add(new SelectListItem() { Text = "3", Value = "3" });
