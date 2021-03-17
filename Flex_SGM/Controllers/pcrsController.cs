@@ -393,10 +393,12 @@ namespace Flex_SGM.Controllers
             }
             if (ok)//7a269541-b9f5-4bfe-8eea-38c0ebe11373
             {
-                if (datos!=null)
+            if (datos!=null&& msg!=null)
             if (!string.IsNullOrEmpty(Response) && id != 0)
                 {
                     pcr pcr = db.pcrs.Find(id);
+                    FeasibilitySings sing = new FeasibilitySings();
+ 
                     switch (Response) 
                     {
                         case ("Acept"):
@@ -405,11 +407,32 @@ namespace Flex_SGM.Controllers
                             {
                                 pcr.Reviewedby_date = DateTime.Now;
                                 pcr.Status = "On Authorizations";
+                                    sing.msg = msg;
+                                    sing.Reviewedby_date = DateTime.Now;
+                                    sing.pcrID = id;
+                                    sing.Status = "Review";
+                                    sing.Reviewedby = uiid;
+                                    sing.Dep = currentUser.Departamento;
                                 // Send the email to autorization personal 
                             }
                             else
                              if (pcr.Status == "On Authorizations")
                             {
+                                  var sings=  db.FeasibilitySings.Where(w => w.pcrID == id);
+
+                                    foreach (var minising in sings) 
+                                    {
+                                        if (minising.Dep == currentUser.Departamento)
+                                            goto alreadysin;
+                                    }
+
+                                    sing.msg = msg;
+                                    sing.Reviewedby_date = DateTime.Now;
+                                    sing.pcrID = id;
+                                    sing.Status = "Authorization";
+                                    sing.Reviewedby = uiid;
+                                    sing.Dep = currentUser.Departamento;
+                           
                                     switch (currentUser.Departamento)
                                     {
                                         case ("FlexNGate"):
@@ -492,15 +515,41 @@ namespace Flex_SGM.Controllers
                             if (pcr.Status == "On Review")
                             {
                                 pcr.Reviewedby_date = DateTime.Now;
-                                pcr.Status = "On Authorizations";
-                                pcr.Status = "Need Fixes";
-                                // Send the email to autorization personal 
-                            }
+                                pcr.Status = "Need fixes";
+                                    // Send the email to autorization personal 
+                                //    foreach (var minising in sings)
+                               //     {
+                                 //         if (minising.Dep == currentUser.Departamento)
+                                 //             goto alreadysin;
+                                 //     }
+
+                                    sing.msg = msg;
+                                    sing.Reviewedby_date = DateTime.Now;
+                                    sing.pcrID = id;
+                                    sing.Status = "Need fixes";
+                                    sing.Reviewedby = uiid;
+                                    sing.Dep = currentUser.Departamento;
+                                }
                             else
                            if (pcr.Status == "On Authorizations")
                             {
                                 pcr.Status = currentUser.Departamento+ " need fixes";
-                            }
+
+                                    var sings = db.FeasibilitySings.Where(w => w.pcrID == id);
+
+                                    foreach (var minising in sings)
+                                    {
+                                        if (minising.Dep == currentUser.Departamento)
+                                            goto alreadysin;
+                                    }
+
+                                    sing.msg = msg;
+                                    sing.Reviewedby_date = DateTime.Now;
+                                    sing.pcrID = id;
+                                    sing.Status = "Need fixes";
+                                    sing.Reviewedby = uiid;
+                                    sing.Dep = currentUser.Departamento;
+                                }
                             else
                                 pcr.Status = "On Review";
                             break;
@@ -510,12 +559,15 @@ namespace Flex_SGM.Controllers
                     };
 
                 db.Entry(pcr).State = EntityState.Modified;
+                db.FeasibilitySings.Add(sing);
                 db.SaveChanges();
 
                 return Response;
             }
              }
             return "Not allowed... anything wasn't change...";
+            alreadysin: 
+            return "this PCR was sing for you departamen ";
         }
         // GET: pcrs/Edit/5
         [Authorize(Roles = "Admin,Gerentes")]

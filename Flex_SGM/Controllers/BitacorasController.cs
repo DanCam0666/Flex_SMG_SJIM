@@ -66,20 +66,20 @@ namespace Flex_SGM.Controllers
             string turnos = "";
             if (t1)
             {
-                f1i = 6;
-                f1f = 14;
+                f1i = 7;
+                f1f = 15;
                 turnos = turnos + "| 1er ";
             }
             if (t2)
             {
-                f2i = 14;
-                f2f = 22;
+                f2i = 15;
+                f2f = 23;
                 turnos = turnos + "| 2do ";
             }
             if (t3)
             {
-                f3i = 22;
-                f3f = 6;
+                f3i = 23;
+                f3f = 7;
                 ff3 = ff.AddDays(1);
                 turnos = turnos + "| 3er ";
             }
@@ -299,20 +299,20 @@ namespace Flex_SGM.Controllers
             string turnos = "";
             if (t1)
             {
-                f1i = 6;
-                f1f = 14;
+                f1i = 7;
+                f1f = 15;
                 turnos = turnos + "| 1er ";
             }
             if (t2)
             {
-                f2i = 14;
-                f2f = 22;
+                f2i = 15;
+                f2f = 23;
                 turnos = turnos + "| 2do ";
             }
             if (t3)
             {
-                f3i = 22;
-                f3f = 6;
+                f3i = 23;
+                f3f = 7;
                 ff3 = ff.AddDays(1);
                 turnos = turnos + "| 3er ";
             }
@@ -803,20 +803,20 @@ if (amaquina.Contains("Pintura"))
             string turnos = "";
             if (t1)
             {
-                f1i = 6;
-                f1f = 14;
+                f1i = 7;
+                f1f = 15;
                 turnos = turnos + "| 1er ";
             }
             if (t2)
             {
-                f2i = 14;
-                f2f = 22;
+                f2i = 15;
+                f2f = 23;
                 turnos = turnos + "| 2do ";
             }
             if (t3)
             {
-                f3i = 22;
-                f3f = 6;
+                f3i = 23;
+                f3f = 7;
                 ff3 = ff.AddDays(1);
                 turnos = turnos + "| 3er ";
             }
@@ -1020,7 +1020,7 @@ if (amaquina.Contains("Pintura"))
             if (t3)
             {
                 f3i = 23;
-                f3f = 6;
+                f3f = 7;
                 ff3 = ff.AddDays(1);
                 turnos = turnos + "| 3er ";
                 Target += 15;
@@ -2357,17 +2357,17 @@ if (amaquina.Contains("Pintura"))
             }
             List<SelectListItem> lst = new List<SelectListItem>();
 
-            if (DateTime.Now.Hour >= 6 && DateTime.Now.Hour < 14)
+            if (DateTime.Now.Hour >= 7 && DateTime.Now.Hour < 15)
                 lst.Add(new SelectListItem() { Text = "1", Value = "1", Selected = true });
             else
                 lst.Add(new SelectListItem() { Text = "1", Value = "1" });
 
-            if (DateTime.Now.Hour >= 14 && DateTime.Now.Hour < 22)
+            if (DateTime.Now.Hour >= 15 && DateTime.Now.Hour < 23)
                 lst.Add(new SelectListItem() { Text = "2", Value = "2", Selected = true });
             else
                 lst.Add(new SelectListItem() { Text = "2", Value = "2" });
 
-            if (DateTime.Now.Hour >= 22 || DateTime.Now.Hour < 6)
+            if (DateTime.Now.Hour >= 23 || DateTime.Now.Hour < 7)
                 lst.Add(new SelectListItem() { Text = "3", Value = "3", Selected = true });
             else
                 lst.Add(new SelectListItem() { Text = "3", Value = "3" });
@@ -2528,20 +2528,20 @@ if (amaquina.Contains("Pintura"))
             string turnos = "";
             if (t1)
             {
-                f1i = 6;
-                f1f = 14;
+                f1i = 7;
+                f1f = 15;
                 turnos = turnos + "| 1er ";
             }
             if (t2)
             {
-                f2i = 14;
-                f2f = 22;
+                f2i = 15;
+                f2f = 23;
                 turnos = turnos + "| 2do ";
             }
             if (t3)
             {
-                f3i = 22;
-                f3f = 6;
+                f3i = 23;
+                f3f = 7;
                 ff3 = ff;
                 turnos = turnos + "| 3er ";
             }
@@ -4374,9 +4374,9 @@ if (amaquina.Contains("Pintura"))
                         {
 
                             //datafiltered = dataf.Where(w => w.DiaHora.Year == idi.Year && w.DiaHora.Month == idi.Month && w.DiaHora.Day == idi.Day && w.DiaHora.Day != 1).ToList();
-                            datafiltered = dataf.Where(w => w.DiaHora.Year == idi.Year && w.DiaHora.Month == idi.Month && w.DiaHora.Day == idi.Day && w.DiaHora.Hour > 6).ToList();
+                            datafiltered = dataf.Where(w => w.DiaHora.Year == idi.Year && w.DiaHora.Month == idi.Month && w.DiaHora.Day == idi.Day && w.DiaHora.Hour > 7).ToList();
                             //datafiltered.AddRange(temp1);
-                            var temp2 = dataf.Where(w => w.DiaHora.Year == idi3er.Year && w.DiaHora.Month == idi3er.Month && w.DiaHora.Day == idi3er.Day && w.DiaHora.Hour <= 6).ToList();
+                            var temp2 = dataf.Where(w => w.DiaHora.Year == idi3er.Year && w.DiaHora.Month == idi3er.Month && w.DiaHora.Day == idi3er.Day && w.DiaHora.Hour <= 7).ToList();
                             datafiltered.AddRange(temp2);
 
 
@@ -4495,11 +4495,11 @@ if (amaquina.Contains("Pintura"))
 
                 var sumtp3 = inmaq.Sum(s => s.TiempoMuerto3);
 
-                var sumatm1 = ((sumtp1 / sumd1) * 100);
+                var sumatm1 = sumtp1;// ((sumtp1 / sumd1) * 100);
 
-                var sumatm2 = ((sumtp2 / sumd2) * 100);
+                var sumatm2 = sumtp2;//((sumtp2 / sumd2) * 100);
 
-                var sumatm3 = ((sumtp3 / sumd3) * 100);
+                var sumatm3 = sumtp2;//((sumtp3 / sumd3) * 100);
 
                 var smttr11 = inmaq.Sum(s => s.MTTR1);
 
@@ -4513,7 +4513,7 @@ if (amaquina.Contains("Pintura"))
 
                 var sumamttr3 = smttr13 / inmaq.Count();
 
-                var sumamtbf = inmaq.Sum(s => s.MTBF) / inmaq.Count();
+                var sumamtbf = (sumd1 + sumd2 + sumd3) / (ft1 + ft2 + ft3); //inmaq.Sum(s => s.MTBF) / inmaq.Count();
 
                 var sumamttrs = sumamttr1 + sumamttr2 + sumamttr3;
 
@@ -5507,9 +5507,9 @@ if (amaquina.Contains("Pintura"))
                         {
 
                             //datafiltered = dataf.Where(w => w.DiaHora.Year == idi.Year && w.DiaHora.Month == idi.Month && w.DiaHora.Day == idi.Day && w.DiaHora.Day != 1).ToList();
-                            datafiltered = dataf.Where(w => w.DiaHora.Year == idi.Year && w.DiaHora.Month == idi.Month && w.DiaHora.Day == idi.Day && w.DiaHora.Hour > 6).ToList();
+                            datafiltered = dataf.Where(w => w.DiaHora.Year == idi.Year && w.DiaHora.Month == idi.Month && w.DiaHora.Day == idi.Day && w.DiaHora.Hour > 7).ToList();
                             //datafiltered.AddRange(temp1);
-                            var temp2 = dataf.Where(w => w.DiaHora.Year == idi3er.Year && w.DiaHora.Month == idi3er.Month && w.DiaHora.Day == idi3er.Day && w.DiaHora.Hour <= 6).ToList();
+                            var temp2 = dataf.Where(w => w.DiaHora.Year == idi3er.Year && w.DiaHora.Month == idi3er.Month && w.DiaHora.Day == idi3er.Day && w.DiaHora.Hour <= 7).ToList();
                             datafiltered.AddRange(temp2);
 
 
@@ -5567,6 +5567,7 @@ if (amaquina.Contains("Pintura"))
                                 };
 
 
+                            
 
                                 if (simplemaquinam.CantidadFallas1 != 0)
                                 {
@@ -5580,6 +5581,7 @@ if (amaquina.Contains("Pintura"))
                                 {
                                     simplemaquinam.MTTR3 = simplemaquinam.TiempoMuerto3 / simplemaquinam.CantidadFallas3;
                                 }
+
                                 var SumDisponobilidad = simplemaquinam.Disponible1 + simplemaquinam.Disponible2 + simplemaquinam.Disponible3;
                                 simplemaquinam.MTBF = SumDisponobilidad;
                                 if (simplemaquinam.CantidadFallas1 != 0 || simplemaquinam.CantidadFallas2 != 0 || simplemaquinam.CantidadFallas3 != 0)
@@ -5628,11 +5630,11 @@ if (amaquina.Contains("Pintura"))
 
                 var sumtp3 = inmaq.Sum(s => s.TiempoMuerto3);
 
-                var sumatm1 = ((sumtp1 / sumd1) * 100);
+                var sumatm1 = sumtp1;// ((sumtp1 / sumd1) * 100);
 
-                var sumatm2 = ((sumtp2 / sumd2) * 100);
+                var sumatm2 = sumtp2;// ((sumtp2 / sumd2) * 100);
 
-                var sumatm3 = ((sumtp3 / sumd3) * 100);
+                var sumatm3 = sumtp3;// ((sumtp3 / sumd3) * 100);
 
                 var smttr11 = inmaq.Sum(s => s.MTTR1);
 
@@ -5640,13 +5642,13 @@ if (amaquina.Contains("Pintura"))
 
                 var smttr13 = inmaq.Sum(s => s.MTTR3);
 
-                var sumamttr1 = smttr11 / inmaq.Count();
+                var sumamttr1 = sumatm1 / ft1;
 
-                var sumamttr2 = smttr12 / inmaq.Count();
+                var sumamttr2 = sumatm2 / ft2;
 
-                var sumamttr3 = smttr13 / inmaq.Count();
+                var sumamttr3 = sumatm3 / ft3;
 
-                var sumamtbf = inmaq.Sum(s => s.MTBF) / inmaq.Count();
+                var sumamtbf = (sumd1 + sumd2 + sumd3) / (ft1 + ft2 + ft3); //inmaq.Sum(s => s.MTBF) / inmaq.Count();
 
                 var sumamttrs = sumamttr1 + sumamttr2 + sumamttr3;
 

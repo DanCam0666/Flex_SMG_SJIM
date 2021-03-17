@@ -267,21 +267,21 @@
         <table class="tabled table-bordered table-striped" id="metricoxmaqui">
             <thead>
                 <tr>
-                    <th>@Html.Label("Fecha")</th>
+
                     <th>@Html.Label("Nombre Maquina")</th>
-                    <th>@Html.Label("MTBF")</th>
-                    <th>@Html.Label("Tiempo Disponible 1")</th>
-                    <th>@Html.Label("Cantidad de Fallas 1")</th>
-                    <th>@Html.Label("Tiempo Muerto 1")</th>
-                    <th>@Html.Label("MTTR 1")</th>
-                    <th>@Html.Label("Tiempo Disponible 2")</th>
-                    <th>@Html.Label("Cantidad de Fallas 2")</th>
-                    <th>@Html.Label("Tiempo Muerto 2")</th>
-                    <th>@Html.Label("MTTR 2")</th>
-                    <th>@Html.Label("Tiempo Disponible 3")</th>
-                    <th>@Html.Label("Cantidad de Fallas 3")</th>
-                    <th>@Html.Label("Tiempo Muerto 3")</th>
-                    <th>@Html.Label("MTTR 3")</th>
+                    <th>@Html.Label("MTBF minutos")</th>
+                    <th>@Html.Label("Tiempo Disponible 1er  minutos")</th>
+                    <th>@Html.Label("Cantidad de Fallas 1er")</th>
+                    <th>@Html.Label("Tiempo Muerto 1er  minutos")</th>
+                    <th>@Html.Label("MTTR 1er  minutos")</th>
+                    <th>@Html.Label("Tiempo Disponible 2do minutos")</th>
+                    <th>@Html.Label("Cantidad de Fallas 2do")</th>
+                    <th>@Html.Label("Tiempo Muerto 2do minutos")</th>
+                    <th>@Html.Label("MTTR 2do minutos")</th>
+                    <th>@Html.Label("Tiempo Disponible 3er  minutos")</th>
+                    <th>@Html.Label("Cantidad de Fallas 3er")</th>
+                    <th>@Html.Label("Tiempo Muerto 3er  minutos")</th>
+                    <th>@Html.Label("MTTR 3er  minutos")</th>
 
 
                 </tr>
@@ -291,9 +291,7 @@
                 @foreach (var item in @ViewBag.metricospermachine)
                 {
                     <tr>
-                        <td>
-                            @item.TiempoLabel
-                        </td>
+
                         <td>
                             @item.maquina
                         </td>
@@ -347,7 +345,7 @@
     </div>
         <br />
         <hr />
-        <div class="x_panel">
+    <div class="x_panel">
             <div class="x_title clearfix">
                 <h2> Lista de Registros </h2>
             </div>
@@ -559,7 +557,6 @@
                 </table>
             </div>
         </div>
-
     </div>
     <br />
     <br />

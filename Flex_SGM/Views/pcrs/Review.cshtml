@@ -929,12 +929,12 @@
         function seguro2() {
             var msgi = $('#msg').val();
             var token = $("[name='__RequestVerificationToken']").val();
-              var url = "@Html.Raw(Url.Action("firma", "pcrs", new {id = "param-id", Response = "param-Response", datos = "param-datos", msg = "param-msg" }))";
-            url = url.replace("param-id", @Model.ID).replace("param-Response", y).replace("param-msg", msgi).replace("param-datos", "hola");
+            var url = "@Html.Raw(Url.Action("firma", "pcrs", new {id = "param-id", Response = "param-Response", datos = "param-datos", msg = "param-msg" }))";
+            url = url.replace("param-id", @Model.ID).replace("param-Response", y).replace("param-msg", msgi).replace("param-datos", "Holo");
             $.post(url,{ __RequestVerificationToken: token }, function (success) {
                     alert(success);
-               
-                          window.location.replace( '@Url.Action("Index", "pcrs")');
+                if(success=="Acept")
+                   window.location.replace( '@Url.Action("Index", "pcrs")');
                  
 
             });
