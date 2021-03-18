@@ -128,11 +128,13 @@ namespace Flex_SGM.emaildata
             try
             {
                 var bodyb = new StringBuilder();
-                bodyb.AppendFormat("El usuario {0} Verifico un PCR!", usuario);
+                bodyb.AppendFormat("El usuario {0} Genero un PCR!", usuario);
                 bodyb.AppendLine(@"<p>El numero de PCR es: " + comment + " </p>");
+                bodyb.AppendLine(@"<p>En el siguiente link podras autorizar el PCR:</p>");
                 var link = @"http://sjimsvap3/bitacora/pcrs/Review/" + id;
                 bodyb.AppendLine("<p><a href=\"" + link + "\" >" + link + "</a></p>");
-                bodyb.AppendLine(@"<p>Se requiere de tu autorizacion! </p>");
+                bodyb.AppendLine(@"<p>Al autorizar el PCR se confirmara en el departamento correspondiente</p>");
+
                 bodyb.AppendLine(@"<p>Recuerda Verificar los PCRs! </p>");
                 bodyb.AppendLine(@"<p>No Responder a este Correo|Do not Reply this Email</p>");
 

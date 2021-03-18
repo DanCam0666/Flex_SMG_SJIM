@@ -22,7 +22,7 @@ namespace Flex_SGM.Controllers
 
         private EmailController correo = new EmailController();
         // export
-
+        private bool email = false;
         public FileResult ExportFormat(int? id)
         {
 
@@ -242,6 +242,15 @@ namespace Flex_SGM.Controllers
         [AllowAnonymous]
         public ActionResult Index()
         {
+            var uiid = User.Identity.GetUserId();
+            ApplicationUser currentUser = db.Users.Where(w => w.Id == uiid).FirstOrDefault();
+      
+
+            ViewBag.Admin = false;
+            if (currentUser!=null)
+            if (currentUser.UserName.Contains("luis"))
+            ViewBag.Admin = true;
+
             var pcrs = db.pcrs.Include(p => p.Clientes).Include(p => p.MatrizDecision).Include(p => p.Proyectos).Include(p => p.Reason);
             return View(pcrs.ToList());
         }
@@ -363,7 +372,12 @@ namespace Flex_SGM.Controllers
                 db.SaveChanges();
                var currpcr= db.pcrs.Where(w => w.PCRID == PCRID).FirstOrDefault();
                 string[] emails = { "ZVazquez@flexngate.com", currentUser.Email};
+                string[] emailsa = { "lolivarez@flexngate.com", currentUser.Email };
+                if (email) { 
                 correo.newpcr(emails, currentUser.UserFullName, pcr.PCRID , currpcr.ID.ToString());
+
+                }
+                correo.newReview(emailsa, currentUser.UserFullName, pcr.PCRID, currpcr.ID.ToString());
                 return RedirectToAction("Index");
             }
 
@@ -397,9 +411,17 @@ namespace Flex_SGM.Controllers
             if (!string.IsNullOrEmpty(Response) && id != 0)
                 {
                     pcr pcr = db.pcrs.Find(id);
-                    FeasibilitySings sing = new FeasibilitySings();
- 
-                    switch (Response) 
+                        FeasibilitySigns sign = new FeasibilitySigns();
+
+                        var signs = db.FeasibilitySigns.Where(w => w.pcrID == id);
+
+                        foreach (var minisign in signs)
+                        {
+                            if (minisign.Dep == currentUser.Departamento)
+                                goto alreadysin;
+                        }
+
+                        switch (Response) 
                     {
                         case ("Acept"):
 
@@ -407,31 +429,23 @@ namespace Flex_SGM.Controllers
                             {
                                 pcr.Reviewedby_date = DateTime.Now;
                                 pcr.Status = "On Authorizations";
-                                    sing.msg = msg;
-                                    sing.Reviewedby_date = DateTime.Now;
-                                    sing.pcrID = id;
-                                    sing.Status = "Review";
-                                    sing.Reviewedby = uiid;
-                                    sing.Dep = currentUser.Departamento;
+                                    sign.msg = msg;
+                                    sign.Reviewedby_date = DateTime.Now;
+                                    sign.pcrID = id;
+                                    sign.Status = "Review";
+                                    sign.Reviewedby = uiid;
+                                    sign.Dep = currentUser.Departamento;
                                 // Send the email to autorization personal 
                             }
                             else
                              if (pcr.Status == "On Authorizations")
                             {
-                                  var sings=  db.FeasibilitySings.Where(w => w.pcrID == id);
-
-                                    foreach (var minising in sings) 
-                                    {
-                                        if (minising.Dep == currentUser.Departamento)
-                                            goto alreadysin;
-                                    }
-
-                                    sing.msg = msg;
-                                    sing.Reviewedby_date = DateTime.Now;
-                                    sing.pcrID = id;
-                                    sing.Status = "Authorization";
-                                    sing.Reviewedby = uiid;
-                                    sing.Dep = currentUser.Departamento;
+                                    sign.msg = msg;
+                                    sign.Reviewedby_date = DateTime.Now;
+                                    sign.pcrID = id;
+                                    sign.Status = "Authorization";
+                                    sign.Reviewedby = uiid;
+                                    sign.Dep = currentUser.Departamento;
                            
                                     switch (currentUser.Departamento)
                                     {
@@ -517,49 +531,48 @@ namespace Flex_SGM.Controllers
                                 pcr.Reviewedby_date = DateTime.Now;
                                 pcr.Status = "Need fixes";
                                     // Send the email to autorization personal 
-                                //    foreach (var minising in sings)
+                                //    foreach (var minisign in signs)
                                //     {
-                                 //         if (minising.Dep == currentUser.Departamento)
+                                 //         if (minisign.Dep == currentUser.Departamento)
                                  //             goto alreadysin;
                                  //     }
 
-                                    sing.msg = msg;
-                                    sing.Reviewedby_date = DateTime.Now;
-                                    sing.pcrID = id;
-                                    sing.Status = "Need fixes";
-                                    sing.Reviewedby = uiid;
-                                    sing.Dep = currentUser.Departamento;
+                                    sign.msg = msg;
+                                    sign.Reviewedby_date = DateTime.Now;
+                                    sign.pcrID = id;
+                                    sign.Status = "Need fixes";
+                                    sign.Reviewedby = uiid;
+                                    sign.Dep = currentUser.Departamento;
                                 }
                             else
                            if (pcr.Status == "On Authorizations")
                             {
                                 pcr.Status = currentUser.Departamento+ " need fixes";
 
-                                    var sings = db.FeasibilitySings.Where(w => w.pcrID == id);
-
-                                    foreach (var minising in sings)
-                                    {
-                                        if (minising.Dep == currentUser.Departamento)
-                                            goto alreadysin;
-                                    }
-
-                                    sing.msg = msg;
-                                    sing.Reviewedby_date = DateTime.Now;
-                                    sing.pcrID = id;
-                                    sing.Status = "Need fixes";
-                                    sing.Reviewedby = uiid;
-                                    sing.Dep = currentUser.Departamento;
+                                    sign.msg = msg;
+                                    sign.Reviewedby_date = DateTime.Now;
+                                    sign.pcrID = id;
+                                    sign.Status = "Need fixes";
+                                    sign.Reviewedby = uiid;
+                                    sign.Dep = currentUser.Departamento;
                                 }
                             else
                                 pcr.Status = "On Review";
                             break;
                         default:
                             pcr.Status = currentUser.Departamento + " Cancel";
-                            break;
+                                sign.msg = msg;
+                                sign.Reviewedby_date = DateTime.Now;
+                                sign.pcrID = id;
+                                sign.Status = "Canceled";
+                                sign.Reviewedby = uiid;
+                                sign.Dep = currentUser.Departamento;
+                                break;
                     };
 
                 db.Entry(pcr).State = EntityState.Modified;
-                db.FeasibilitySings.Add(sing);
+                 if(sign.pcrID!=0)
+                db.FeasibilitySigns.Add(sign);
                 db.SaveChanges();
 
                 return Response;
@@ -567,7 +580,7 @@ namespace Flex_SGM.Controllers
              }
             return "Not allowed... anything wasn't change...";
             alreadysin: 
-            return "this PCR was sing for you departamen ";
+            return "your department has already sign for this PCR ... ";
         }
         // GET: pcrs/Edit/5
         [Authorize(Roles = "Admin,Gerentes")]
@@ -590,6 +603,25 @@ namespace Flex_SGM.Controllers
             ViewBag.Risk = pcr.MatrizDecision.NivelRiesgo;
             return View(pcr);
         }
+
+        // GET: pcrs/Details/5
+        [AllowAnonymous]
+        public ActionResult Signatures(int? id)
+        {
+
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var signs = db.FeasibilitySigns.Where(w => w.pcrID == id);
+            if (signs == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(signs.ToList());
+        }
+
         // GET: pcrs/Edit/5
         [Authorize(Roles = "Admin,Gerentes")]
         public ActionResult Edit(int? id)
@@ -660,13 +692,13 @@ namespace Flex_SGM.Controllers
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
+        protected override void Dispose(bool disposign)
         {
-            if (disposing)
+            if (disposign)
             {
                 db.Dispose();
             }
-            base.Dispose(disposing);
+            base.Dispose(disposign);
         }
     }
 }

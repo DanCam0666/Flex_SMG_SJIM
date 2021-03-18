@@ -284,10 +284,13 @@
                 @Html.DisplayFor(modelItem => item.Status)
             </td>
             <td>
-                @Html.ActionLink("Export", "ExportFormat", new { id = item.ID }, new { @class = "btn btn-success", @target = "_blank" })
                 @Html.ActionLink("Details", "Details", new { id = item.ID }, new { @class = "btn  btn-primary", @target = "_blank" })
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "btn  btn-warning", @target = "_blank" })
-                @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "btn  btn-danger" })
+                @Html.ActionLink("Signatures", "Signatures", new { id = item.ID }, new { @class = "btn btn-success", @target = "_blank" })
+                @if (ViewBag.Admin)
+                {
+                    @Html.ActionLink("Export", "ExportFormat", new { id = item.ID }, new { @class = "btn btn-default", @target = "_blank" })
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "btn btn-default", @target = "_blank" })
+                }
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Department)

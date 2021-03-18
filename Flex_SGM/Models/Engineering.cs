@@ -482,7 +482,7 @@ namespace Flex_SGM.Models
         [Display(Name = "PDR")]
         public bool Pdr { get; set; }
     }
-    public class FeasibilitySings
+    public class FeasibilitySigns
     {
         [Key]
         public int sid { get; set; }

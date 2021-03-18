@@ -931,9 +931,9 @@
             var token = $("[name='__RequestVerificationToken']").val();
             var url = "@Html.Raw(Url.Action("firma", "pcrs", new {id = "param-id", Response = "param-Response", datos = "param-datos", msg = "param-msg" }))";
             url = url.replace("param-id", @Model.ID).replace("param-Response", y).replace("param-msg", msgi).replace("param-datos", "Holo");
-            $.post(url,{ __RequestVerificationToken: token }, function (success) {
-                    alert(success);
-                if(success=="Acept")
+            $.post(url, { __RequestVerificationToken: token }, function (result) {
+                alert(result);
+                if (result == "Acept" || result == "Reject" || result == "Review")
                    window.location.replace( '@Url.Action("Index", "pcrs")');
                  
 
@@ -968,7 +968,7 @@
                 },
                 success: function (result) {
                     alert(result);
-                    if (result == "Acept") {
+                    if (result == "Acept"||result == "Reject"||result == "Review") {
                           window.location.replace( 'Url.Action("Index", "pcrs")');
                     }}
             });
