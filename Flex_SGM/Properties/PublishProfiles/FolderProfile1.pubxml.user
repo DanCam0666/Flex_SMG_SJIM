@@ -7249,10 +7249,10 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>10/26/2020 13:25:57</publishTime>
     </File>
     <File Include="bin/Flex_SGM.dll">
-      <publishTime>03/18/2021 13:59:29</publishTime>
+      <publishTime>03/21/2021 11:37:08</publishTime>
     </File>
     <File Include="bin/Flex_SGM.pdb">
-      <publishTime>03/18/2021 13:59:29</publishTime>
+      <publishTime>03/21/2021 11:37:08</publishTime>
     </File>
     <File Include="bin/IBM.Data.DB2.iSeries.dll">
       <publishTime>10/26/2020 13:21:31</publishTime>
@@ -7875,6 +7875,9 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
     <File Include="Views/Bitacoras/Metricos3.cshtml">
       <publishTime>03/17/2021 09:33:38</publishTime>
     </File>
+    <File Include="Views/Bitacoras/Metricos4.cshtml">
+      <publishTime>03/21/2021 11:00:06</publishTime>
+    </File>
     <File Include="Views/Bitacoras/Repo.cshtml">
       <publishTime>01/28/2021 08:16:20</publishTime>
     </File>
@@ -8224,19 +8227,19 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>10/26/2020 13:21:25</publishTime>
     </File>
     <File Include="Views/Maquinas/Create.cshtml">
-      <publishTime>03/16/2021 11:49:09</publishTime>
+      <publishTime>03/21/2021 11:20:22</publishTime>
     </File>
     <File Include="Views/Maquinas/Delete.cshtml">
-      <publishTime>03/16/2021 11:48:48</publishTime>
+      <publishTime>03/21/2021 11:19:58</publishTime>
     </File>
     <File Include="Views/Maquinas/Details.cshtml">
-      <publishTime>03/16/2021 11:48:31</publishTime>
+      <publishTime>03/21/2021 11:19:41</publishTime>
     </File>
     <File Include="Views/Maquinas/Edit.cshtml">
-      <publishTime>03/16/2021 11:47:59</publishTime>
+      <publishTime>03/21/2021 11:19:25</publishTime>
     </File>
     <File Include="Views/Maquinas/Index.cshtml">
-      <publishTime>03/16/2021 11:47:08</publishTime>
+      <publishTime>03/21/2021 11:18:52</publishTime>
     </File>
     <File Include="Views/MatrizDecisions/Create.cshtml">
       <publishTime>02/11/2021 07:59:07</publishTime>

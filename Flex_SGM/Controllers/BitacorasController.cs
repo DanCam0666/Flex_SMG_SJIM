@@ -5371,7 +5371,7 @@ if (amaquina.Contains("Pintura"))
 
             return View("Metricos3", fulldatafiltered);
         }
-        public ActionResult Metricos4(string amaquina, string maquina, string submaquina, string mgroup, string xmgroup, string btn = "Metricos por Dia", string dti = "", string dtf = "")
+        public ActionResult Metricos4(string amaquina, string cliente, string grupo, string maquina, string submaquina, string mgroup, string xmgroup, string btn = "Metricos por Dia", string dti = "", string dtf = "")
         {
             var fulldatafiltered = new List<Bitacora>();
             var datafiltered = new List<Bitacora>();
@@ -5421,10 +5421,17 @@ if (amaquina.Contains("Pintura"))
             ViewBag.xmgroup = mindia.ToString();
             var dataf = db.Bitacoras.Where(w => (w.DiaHora.Year >= fecha.Year) &&(w.DiaHora.Year <= fechaf.Year) &&(w.Tiempo > 0)&&(w.Maquinas.Critica==true)
                             );
+            
             if (!string.IsNullOrEmpty(maquina))
                 dataf = dataf.Where(m => m.Maquinas.Maquina == maquina);
 
-            if (!String.IsNullOrEmpty(amaquina) && amaquina != "--Todas--")
+            if (!string.IsNullOrEmpty(cliente))
+                dataf = dataf.Where(m => m.Maquinas.Cliente == cliente);
+
+            if (!string.IsNullOrEmpty(grupo))
+                dataf = dataf.Where(m => m.Maquinas.Grupo == grupo);
+
+            if (!string.IsNullOrEmpty(amaquina) && amaquina != "--Todas--")
             {
                 if (amaquina.Contains("MetalFinish"))
                 {
@@ -5460,6 +5467,8 @@ if (amaquina.Contains("Pintura"))
             ViewBag.mgroup = new SelectList(array);
 
             var maquinas = db.Maquinas.Where(m => m.Critica ==true);
+
+
             if (!string.IsNullOrEmpty(amaquina))
                 if (amaquina.Contains("MetalFinish"))
                 {
@@ -5470,18 +5479,31 @@ if (amaquina.Contains("Pintura"))
                     if (amaquina.Contains("Soldadura"))
                     {
                         amaquina = "Soldadura";
+                        maquinas = maquinas.Where(m => m.Area == amaquina);
                     }
                     else { 
                     maquinas = maquinas.Where(m => m.Area == amaquina);
                     }
                 }
-              maquinas = maquinas.Where(m => m.Area == amaquina);
+            //  maquinas = maquinas.Where(m => m.Area == amaquina);
+            if (!string.IsNullOrEmpty(cliente))
+                maquinas = maquinas.Where(m => m.Cliente==cliente);
+
+            if (!string.IsNullOrEmpty(grupo))
+                maquinas = maquinas.Where(m => m.Grupo == grupo);
+
             if (!string.IsNullOrEmpty(maquina))
-                maquinas = db.Maquinas.Where(m => m.Maquina == maquina);
+                maquinas = maquinas.Where(m => m.Maquina == maquina);
 
             var maquis = maquinas.GroupBy(g => g.Maquina).ToList();
 
             var mul_maquinas = maquis.Count();
+
+
+            ViewBag.cliente = new SelectList(maquinas.GroupBy(g => g.Cliente), "Key", "Key");
+
+            ViewBag.grupo = new SelectList(maquinas.GroupBy(g => g.Grupo), "Key", "Key");
+
             ViewBag.maquina = new SelectList(maquinas.GroupBy(g => g.Maquina), "Key", "Key");
 
             ViewBag.submaquina = new SelectList(maquinas, "ID", "SubMaquina");
@@ -6504,7 +6526,7 @@ if (amaquina.Contains("Pintura"))
             ViewBag.datei = fecha.ToString("dd/MM/yyyy");
             ViewBag.datef = fechaf.ToString("dd/MM/yyyy");
 
-            return View("Metricos3", fulldatafiltered);
+            return View("Metricos4", fulldatafiltered);
         }
 
         public static T Clamp<T>(T value, T min, T max)

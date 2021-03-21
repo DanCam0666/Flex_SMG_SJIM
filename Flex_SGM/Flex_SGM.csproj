@@ -2960,6 +2960,7 @@
     <Content Include="Views\pcrs\Index.cshtml" />
     <Content Include="Views\pcrs\Review.cshtml" />
     <Content Include="Views\pcrs\Signatures.cshtml" />
+    <Content Include="Views\Bitacoras\Metricos4.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -56,7 +56,7 @@ namespace Flex_SGM.Controllers
         [Authorize(Roles = "Admin,Mantenimiento")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Area,Cliente,Codigo,Maquina,SubMaquina,DiaHora,Ubicacion,Critica")] Maquinas maquinas)
+        public ActionResult Create([Bind(Include = "ID,Area,Cliente,Grupo,Codigo,Maquina,SubMaquina,DiaHora,Ubicacion,Critica")] Maquinas maquinas)
         {
             maquinas.DiaHora = DateTime.Now;
 
@@ -126,7 +126,7 @@ namespace Flex_SGM.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Area,Cliente,Codigo,Maquina,SubMaquina,DiaHora,Ubicacion,Critica")] Maquinas maquinas)
+        public ActionResult Edit([Bind(Include = "ID,Area,Cliente,Grupo,Codigo,Maquina,SubMaquina,DiaHora,Ubicacion,Critica")] Maquinas maquinas)
         {
             if (ModelState.IsValid)
             {

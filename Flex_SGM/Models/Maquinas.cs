@@ -14,6 +14,8 @@ namespace Flex_SGM.Models
         public string Area { get; set; }
         [MaxLength(50)]
         public string Cliente { get; set; }
+        [MaxLength(100)]
+        public string Grupo { get; set; }
         [Display(Name = "Maquina")]
         [MaxLength(100)]
         [Required(AllowEmptyStrings = false)]
