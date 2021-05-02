@@ -604,6 +604,41 @@ namespace Flex_SGM.Models
         public string aacion { get; set; }
 
     }
+
+    public class templatere
+    {
+        public string name { get; set; }
+
+        public IEnumerable<Flex_SGM.Models.CReclamos> templaterec { get; set; }
+
+  //      public List<templaterec> templaterec { get; set; }
+    }
+    public class templaterec
+    {
+        public string tipo { get; set; }
+        public string NoReclamoFNG { get; set; }
+        public string Fecha { get; set; }
+        //
+        public string NoReclamoCliente { get; set; }
+        public string NoParte { get; set; }
+        public string Area { get; set; }
+
+        public string Cantidadpz { get; set; }
+        public string Cliente { get; set; }
+        public string Planta { get; set; }
+        public string Defecto { get; set; }
+        //
+        public string a1d { get; set; }
+        public string a5d { get; set; }
+        public string a10d { get; set; }
+        public string a20d { get; set; }
+        public string a30d { get; set; }
+        public string IngCalidad { get; set; }
+
+        public string PLM { get; set; }
+
+
+    }
     //---------------------------------------------------------------------------------
 
     public class QuaCost

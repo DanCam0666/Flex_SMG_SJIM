@@ -20,6 +20,26 @@ namespace Flex_SGM.Controllers
 
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        public FileResult Exportall()
+        {
+            IEnumerable<Flex_SGM.Models.CReclamos> dta = TempData["myModel"] as IEnumerable<Flex_SGM.Models.CReclamos>;
+         
+
+            //******************************
+            var templatepath = Server.MapPath($"~/Evidence/Quality/TemplateMatrizdeReclamos.xlsx");
+
+            var template = new XLTemplate(templatepath);
+
+            template.AddVariable("templaterec", dta);
+            template.Generate();
+            using (MemoryStream stream = new MemoryStream())
+            {
+                template.SaveAs(stream);
+                return File(stream.ToArray(), "holotopo", "Reclamos_SJQAF.01002.S.xlsx");
+            }
+
+
+        }
         public FileResult ExportFormat(int? id)
         {
 
@@ -947,6 +967,8 @@ namespace Flex_SGM.Controllers
 
             ViewBag.datei = fecha.ToString("dd/MM/yyyy");
             ViewBag.datef = fechaf.ToString("dd/MM/yyyy");
+
+            TempData["myModel"] = data;
 
             return View(datafiltered);
         }
