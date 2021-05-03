@@ -7249,10 +7249,10 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>10/26/2020 13:25:57</publishTime>
     </File>
     <File Include="bin/Flex_SGM.dll">
-      <publishTime>03/21/2021 11:37:08</publishTime>
+      <publishTime>05/03/2021 07:49:47</publishTime>
     </File>
     <File Include="bin/Flex_SGM.pdb">
-      <publishTime>03/21/2021 11:37:08</publishTime>
+      <publishTime>05/03/2021 07:49:47</publishTime>
     </File>
     <File Include="bin/IBM.Data.DB2.iSeries.dll">
       <publishTime>10/26/2020 13:21:31</publishTime>
@@ -7737,6 +7737,9 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
     <File Include="Templates/TemplateDock.xlsx">
       <publishTime>10/30/2020 13:57:09</publishTime>
     </File>
+    <File Include="Templates/TemplateMatrizdeReclamos.xlsx">
+      <publishTime>05/03/2021 07:28:52</publishTime>
+    </File>
     <File Include="Templates/TemplatePCR.xlsx">
       <publishTime>01/29/2021 14:13:48</publishTime>
     </File>
@@ -8086,7 +8089,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>01/28/2021 08:16:17</publishTime>
     </File>
     <File Include="Views/CReclamos/Index.cshtml">
-      <publishTime>02/09/2021 10:31:50</publishTime>
+      <publishTime>05/03/2021 07:28:52</publishTime>
     </File>
     <File Include="Views/Disponibilidads/Create.cshtml">
       <publishTime>10/26/2020 13:21:24</publishTime>
@@ -8482,7 +8485,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>10/26/2020 13:21:26</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>03/13/2021 12:52:16</publishTime>
+      <publishTime>05/03/2021 07:49:52</publishTime>
     </File>
   </ItemGroup>
 </Project>

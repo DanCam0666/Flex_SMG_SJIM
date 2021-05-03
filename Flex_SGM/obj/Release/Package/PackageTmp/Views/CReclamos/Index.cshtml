@@ -102,7 +102,10 @@
     <div class="col-md-12 ">
         <div class="x_panel">
             <div class="x_title clearfix">
-                <h2> Lista de Reclamos del @ViewBag.dx</h2>
+                <h2>
+                    @Html.ActionLink("Exportar Lista", "Exportall", new { }, new { @class = "btn btn-success", @target = "_blank" })
+                    Lista de Reclamos del @ViewBag.dx
+                </h2>
             </div>
             <div class="x_content ">
                 <table class="tabled table-bordered table-striped clearfix" style="width:100%" id="tableq">
