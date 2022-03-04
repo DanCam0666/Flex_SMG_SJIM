@@ -2718,8 +2718,7 @@
     <Content Include="Addon\fullcalendar\timegrid\main.js.map" />
     <Content Include="Addon\fullcalendar\timegrid\package.json" />
     <Content Include="Addon\fullcalendar\timegrid\README.md" />
-    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
-    <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
+    <None Include="Properties\PublishProfiles\SJIMSVAP7 Bitacora.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\date.js" />
     <Content Include="Scripts\JavaScript.js" />

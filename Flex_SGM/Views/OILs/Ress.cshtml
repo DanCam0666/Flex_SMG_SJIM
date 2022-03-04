@@ -48,57 +48,54 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in Model)
+               @foreach (var item in Model)
                 {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Estatus)
-                    </td>
-                    <td>
-                        @if (ViewBag.cuser.Contains(item.User_res) || ViewBag.cuser.Contains(item.User_asig))
-                        {@Html.ActionLink("Actualizar", "Update", new { id = item.ID }, new { @class = "btn  btn-success" })}
-                        @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn  btn-default" })
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Tipo)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Maquinas.Area)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Maquinas.Maquina)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.folio)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Actividad)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.User_gen)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DiaHora)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.User_res)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DiaHora_Compromiso)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.User_asig)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DiaHora_Cierre)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Comentarios)
-                    </td>
-
-                </tr>
-
-
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Estatus)
+                        </td>
+                        <td>
+                            @if (ViewBag.cuser.Contains(item.User_res) || ViewBag.cuser.Contains(item.User_asig))
+                            {@Html.ActionLink("Actualizar", "Update", new { id = item.ID }, new { @class = "btn  btn-success" })}
+                            @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn  btn-default" })
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Tipo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Maquinas.Area)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Maquinas.Maquina)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.folio)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Actividad)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.User_gen)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DiaHora)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.User_res)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DiaHora_Compromiso)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.User_asig)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DiaHora_Cierre)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Comentarios)
+                        </td>
+                    </tr>
                 }
             </tbody>
         </table>
@@ -108,72 +105,71 @@
 <script language="javascript">
    // Your scripts here
   
-              var table = document.getElementById('proye');
-            var tbody = table.getElementsByTagName('tbody')[0];
-             var cells = tbody.getElementsByTagName('tr');
+    var table = document.getElementById('proye');
+    var tbody = table.getElementsByTagName('tbody')[0];
+    var cells = tbody.getElementsByTagName('tr');
 
-            for (var i = 0, len = cells.length; i < len; i++){
-                if (parseInt(cells[i].cells[0].innerHTML, 10) == 6) {
-        cells[i].style.backgroundColor = 'orangered';
-        cells[i].style.color = 'white';
-    }
-    else {
-        if (parseInt(cells[i].cells[0].innerHTML, 10) == 0||parseInt(cells[i].cells[0].innerHTML, 10) == 2||parseInt(cells[i].cells[0].innerHTML, 10) > 6) {
-            cells[i].style.backgroundColor = 'lightgray';
-            cells[i].style.back = 'lightgray';
+    for (var i = 0, len = cells.length; i < len; i++){
+        if (parseInt(cells[i].cells[0].innerHTML, 10) == 6) {
+            cells[i].style.backgroundColor = 'orangered';
+            cells[i].style.color = 'white';
         }
-        else
-                    if (parseInt(cells[i].cells[0].innerHTML, 10) == 3) {
-        cells[i].style.backgroundColor = 'cornflowerblue';
+        else {
+            if (parseInt(cells[i].cells[0].innerHTML, 10) == 0||parseInt(cells[i].cells[0].innerHTML, 10) == 2||parseInt(cells[i].cells[0].innerHTML, 10) > 6) {
+                cells[i].style.backgroundColor = 'lightgray';
+                cells[i].style.back = 'lightgray';
             }
-                else
-                    if (parseInt(cells[i].cells[0].innerHTML, 10) == 4) {
-        cells[i].style.backgroundColor = 'yellow';
-                }
-                else
-                    if (parseInt(cells[i].cells[0].innerHTML, 10) == 5) {
-                        cells[i].style.backgroundColor = 'darkred ';
-                                cells[i].style.color = 'white';
-                    }
-                else
-                    if (parseInt(cells[i].cells[0].innerHTML, 10) == 1) {
-        cells[i].style.backgroundColor = 'darkseagreen';
+            else
+            if (parseInt(cells[i].cells[0].innerHTML, 10) == 3) {
+                cells[i].style.backgroundColor = 'cornflowerblue';
+            }
+            else
+            if (parseInt(cells[i].cells[0].innerHTML, 10) == 4) {
+                cells[i].style.backgroundColor = 'yellow';
+            }
+            else
+            if (parseInt(cells[i].cells[0].innerHTML, 10) == 5) {
+                cells[i].style.backgroundColor = 'darkred ';
+                        cells[i].style.color = 'white';
+            }
+            else
+            if (parseInt(cells[i].cells[0].innerHTML, 10) == 1) {
+                cells[i].style.backgroundColor = 'darkseagreen';
+            }
         }
+    }
 
+    $('#proye').DataTable({
+        "lengthMenu": [[5, 15, 50, -1], [5, 15, 50, "Todos"]],
+        "order": [[0, "desc"]],
+        "scrollX": true,
+        "language": {
+            "sProcessing": "Procesando...",
+            "sLengthMenu": "Mostrar _MENU_ registros",
+            "sZeroRecords": "No se encontraron resultados",
+            "sEmptyTable": "Ningun dato disponible en esta tabla =(",
+            "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+            "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+            "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+            "sInfoPostFix": "",
+            "sSearch": "Buscar:",
+            "sUrl": "",
+            "sInfoThousands": ",",
+            "sLoadingRecords": "Cargando...",
+            "oPaginate": {
+                "sFirst": "Primero",
+                "sLast": "ultimo",
+                "sNext": "Siguiente",
+                "sPrevious": "Anterior"
+            },
+            "oAria": {
+                "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+            },
+            "buttons": {
+                "copy": "Copiar",
+                "colvis": "Visibilidad"
+            }
         }
-}
-
-             $('#proye').DataTable({
-                        "lengthMenu": [[5, 15, 50, -1], [5, 15, 50, "Todos"]],
-                        "order": [[0, "desc"]],
-                        "scrollX": true,
-                        "language": {
-                            "sProcessing": "Procesando...",
-                            "sLengthMenu": "Mostrar _MENU_ registros",
-                            "sZeroRecords": "No se encontraron resultados",
-                            "sEmptyTable": "Ningún dato disponible en esta tabla =(",
-                            "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-                            "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
-                            "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
-                            "sInfoPostFix": "",
-                            "sSearch": "Buscar:",
-                            "sUrl": "",
-                            "sInfoThousands": ",",
-                            "sLoadingRecords": "Cargando...",
-                            "oPaginate": {
-                                "sFirst": "Primero",
-                                "sLast": "Último",
-                                "sNext": "Siguiente",
-                                "sPrevious": "Anterior"
-                            },
-                            "oAria": {
-                                "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
-                                "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-                            },
-                            "buttons": {
-                                "copy": "Copiar",
-                                "colvis": "Visibilidad"
-                            }
-                        }
-                    });
+    });
 </script>

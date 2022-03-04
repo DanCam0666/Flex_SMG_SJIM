@@ -6034,13 +6034,13 @@
 
     //! moment.js locale configuration
 
-    var months$3 = 'leden_únor_březen_duben_květen_červen_červenec_srpen_září_říjen_listopad_prosinec'.split('_'),
-        monthsShort = 'led_úno_bře_dub_kvě_čvn_čvc_srp_zář_říj_lis_pro'.split('_');
+    var months$3 = 'leden_unor_březen_duben_květen_červen_červenec_srpen_září_říjen_listopad_prosinec'.split('_'),
+        monthsShort = 'led_uno_bře_dub_kvě_čvn_čvc_srp_zář_říj_lis_pro'.split('_');
 
-    var monthsParse = [/^led/i, /^úno/i, /^bře/i, /^dub/i, /^kvě/i, /^(čvn|červen$|června)/i, /^(čvc|červenec|července)/i, /^srp/i, /^zář/i, /^říj/i, /^lis/i, /^pro/i];
+    var monthsParse = [/^led/i, /^uno/i, /^bře/i, /^dub/i, /^kvě/i, /^(čvn|červen$|června)/i, /^(čvc|červenec|července)/i, /^srp/i, /^zář/i, /^říj/i, /^lis/i, /^pro/i];
     // NOTE: 'červen' is substring of 'červenec'; therefore 'červenec' must precede 'červen' in the regex to be fully matched.
     // Otherwise parser matches '1. červenec' as '1. červen' + 'ec'.
-    var monthsRegex$1 = /^(leden|únor|březen|duben|květen|červenec|července|červen|června|srpen|září|říjen|listopad|prosinec|led|úno|bře|dub|kvě|čvn|čvc|srp|zář|říj|lis|pro)/i;
+    var monthsRegex$1 = /^(leden|unor|březen|duben|květen|červenec|července|červen|června|srpen|září|říjen|listopad|prosinec|led|uno|bře|dub|kvě|čvn|čvc|srp|zář|říj|lis|pro)/i;
 
     function plural$1(n) {
         return (n > 1) && (n < 5) && (~~(n / 10) !== 1);
@@ -6112,14 +6112,14 @@
         monthsShortRegex : monthsRegex$1,
         // NOTE: 'červen' is substring of 'červenec'; therefore 'červenec' must precede 'červen' in the regex to be fully matched.
         // Otherwise parser matches '1. červenec' as '1. červen' + 'ec'.
-        monthsStrictRegex : /^(leden|ledna|února|únor|březen|března|duben|dubna|květen|května|červenec|července|červen|června|srpen|srpna|září|říjen|října|listopadu|listopad|prosinec|prosince)/i,
-        monthsShortStrictRegex : /^(led|úno|bře|dub|kvě|čvn|čvc|srp|zář|říj|lis|pro)/i,
+        monthsStrictRegex : /^(leden|ledna|unora|unor|březen|března|duben|dubna|květen|května|červenec|července|červen|června|srpen|srpna|září|říjen|října|listopadu|listopad|prosinec|prosince)/i,
+        monthsShortStrictRegex : /^(led|uno|bře|dub|kvě|čvn|čvc|srp|zář|říj|lis|pro)/i,
         monthsParse : monthsParse,
         longMonthsParse : monthsParse,
         shortMonthsParse : monthsParse,
-        weekdays : 'neděle_pondělí_úterý_středa_čtvrtek_pátek_sobota'.split('_'),
-        weekdaysShort : 'ne_po_út_st_čt_pá_so'.split('_'),
-        weekdaysMin : 'ne_po_út_st_čt_pá_so'.split('_'),
+        weekdays : 'neděle_pondělí_uterý_středa_čtvrtek_pátek_sobota'.split('_'),
+        weekdaysShort : 'ne_po_ut_st_čt_pá_so'.split('_'),
+        weekdaysMin : 'ne_po_ut_st_čt_pá_so'.split('_'),
         longDateFormat : {
             LT: 'H:mm',
             LTS : 'H:mm:ss',
@@ -7999,7 +7999,7 @@
             past : '%s lyn',
             s : 'in pear sekonden',
             ss : '%d sekonden',
-            m : 'ien minút',
+            m : 'ien minut',
             mm : '%d minuten',
             h : 'ien oere',
             hh : '%d oeren',
@@ -8024,10 +8024,10 @@
 
 
     var months$5 = [
-        'Eanáir', 'Feabhra', 'Márta', 'Aibreán', 'Bealtaine', 'Méitheamh', 'Iúil', 'Lúnasa', 'Meán Fómhair', 'Deaireadh Fómhair', 'Samhain', 'Nollaig'
+        'Eanáir', 'Feabhra', 'Márta', 'Aibreán', 'Bealtaine', 'Méitheamh', 'Iuil', 'Lunasa', 'Meán Fómhair', 'Deaireadh Fómhair', 'Samhain', 'Nollaig'
     ];
 
-    var monthsShort$4 = ['Eaná', 'Feab', 'Márt', 'Aibr', 'Beal', 'Méit', 'Iúil', 'Lúna', 'Meán', 'Deai', 'Samh', 'Noll'];
+    var monthsShort$4 = ['Eaná', 'Feab', 'Márt', 'Aibr', 'Beal', 'Méit', 'Iuil', 'Luna', 'Meán', 'Deai', 'Samh', 'Noll'];
 
     var weekdays$1 = ['Dé Domhnaigh', 'Dé Luain', 'Dé Máirt', 'Dé Céadaoin', 'Déardaoin', 'Dé hAoine', 'Dé Satharn'];
 
@@ -8061,7 +8061,7 @@
         relativeTime: {
             future: 'i %s',
             past: '%s ó shin',
-            s: 'cúpla soicind',
+            s: 'cupla soicind',
             ss: '%d soicind',
             m: 'nóiméad',
             mm: '%d nóiméad',
@@ -8810,12 +8810,12 @@
         return '';
     }
     function week(isFuture) {
-        return (isFuture ? '' : '[múlt] ') + '[' + weekEndings[this.day()] + '] LT[-kor]';
+        return (isFuture ? '' : '[mult] ') + '[' + weekEndings[this.day()] + '] LT[-kor]';
     }
 
     hooks.defineLocale('hu', {
-        months : 'január_február_március_április_május_június_július_augusztus_szeptember_október_november_december'.split('_'),
-        monthsShort : 'jan_feb_márc_ápr_máj_jún_júl_aug_szept_okt_nov_dec'.split('_'),
+        months : 'január_február_március_április_május_junius_julius_augusztus_szeptember_október_november_december'.split('_'),
+        monthsShort : 'jan_feb_márc_ápr_máj_jun_jul_aug_szept_okt_nov_dec'.split('_'),
         weekdays : 'vasárnap_hétfő_kedd_szerda_csütörtök_péntek_szombat'.split('_'),
         weekdaysShort : 'vas_hét_kedd_sze_csüt_pén_szo'.split('_'),
         weekdaysMin : 'v_h_k_sze_cs_p_szo'.split('_'),
@@ -8851,7 +8851,7 @@
             sameElse : 'L'
         },
         relativeTime : {
-            future : '%s múlva',
+            future : '%s mulva',
             past : '%s',
             s : translate$4,
             ss : translate$4,
@@ -9041,21 +9041,21 @@
         var result = number + ' ';
         switch (key) {
             case 's':
-                return withoutSuffix || isFuture ? 'nokkrar sekúndur' : 'nokkrum sekúndum';
+                return withoutSuffix || isFuture ? 'nokkrar sekundur' : 'nokkrum sekundum';
             case 'ss':
                 if (plural$2(number)) {
-                    return result + (withoutSuffix || isFuture ? 'sekúndur' : 'sekúndum');
+                    return result + (withoutSuffix || isFuture ? 'sekundur' : 'sekundum');
                 }
-                return result + 'sekúnda';
+                return result + 'sekunda';
             case 'm':
-                return withoutSuffix ? 'mínúta' : 'mínútu';
+                return withoutSuffix ? 'mínuta' : 'mínutu';
             case 'mm':
                 if (plural$2(number)) {
-                    return result + (withoutSuffix || isFuture ? 'mínútur' : 'mínútum');
+                    return result + (withoutSuffix || isFuture ? 'mínutur' : 'mínutum');
                 } else if (withoutSuffix) {
-                    return result + 'mínúta';
+                    return result + 'mínuta';
                 }
-                return result + 'mínútu';
+                return result + 'mínutu';
             case 'hh':
                 if (plural$2(number)) {
                     return result + (withoutSuffix || isFuture ? 'klukkustundir' : 'klukkustundum');
@@ -9102,8 +9102,8 @@
     }
 
     hooks.defineLocale('is', {
-        months : 'janúar_febrúar_mars_apríl_maí_júní_júlí_ágúst_september_október_nóvember_desember'.split('_'),
-        monthsShort : 'jan_feb_mar_apr_maí_jún_júl_ágú_sep_okt_nóv_des'.split('_'),
+        months : 'januar_februar_mars_apríl_maí_juní_julí_águst_september_október_nóvember_desember'.split('_'),
+        monthsShort : 'jan_feb_mar_apr_maí_jun_jul_águ_sep_okt_nóv_des'.split('_'),
         weekdays : 'sunnudagur_mánudagur_þriðjudagur_miðvikudagur_fimmtudagur_föstudagur_laugardagur'.split('_'),
         weekdaysShort : 'sun_mán_þri_mið_fim_fös_lau'.split('_'),
         weekdaysMin : 'Su_Má_Þr_Mi_Fi_Fö_La'.split('_'),
@@ -11816,8 +11816,8 @@
             lastDay: '[Ontem às] LT',
             lastWeek: function () {
                 return (this.day() === 0 || this.day() === 6) ?
-                    '[Último] dddd [às] LT' : // Saturday + Sunday
-                    '[Última] dddd [às] LT'; // Monday - Friday
+                    '[ultimo] dddd [às] LT' : // Saturday + Sunday
+                    '[ultima] dddd [às] LT'; // Monday - Friday
             },
             sameElse: 'L'
         },
@@ -11865,8 +11865,8 @@
             lastDay: '[Ontem às] LT',
             lastWeek: function () {
                 return (this.day() === 0 || this.day() === 6) ?
-                    '[Último] dddd [às] LT' : // Saturday + Sunday
-                    '[Última] dddd [às] LT'; // Monday - Friday
+                    '[ultimo] dddd [às] LT' : // Saturday + Sunday
+                    '[ultima] dddd [às] LT'; // Monday - Friday
             },
             sameElse: 'L'
         },
@@ -12322,8 +12322,8 @@
 
     //! moment.js locale configuration
 
-    var months$9 = 'január_február_marec_apríl_máj_jún_júl_august_september_október_november_december'.split('_'),
-        monthsShort$6 = 'jan_feb_mar_apr_máj_jún_júl_aug_sep_okt_nov_dec'.split('_');
+    var months$9 = 'január_február_marec_apríl_máj_jun_jul_august_september_október_november_december'.split('_'),
+        monthsShort$6 = 'jan_feb_mar_apr_máj_jun_jul_aug_sep_okt_nov_dec'.split('_');
     function plural$5(n) {
         return (n > 1) && (n < 5);
     }
@@ -12331,21 +12331,21 @@
         var result = number + ' ';
         switch (key) {
             case 's':  // a few seconds / in a few seconds / a few seconds ago
-                return (withoutSuffix || isFuture) ? 'pár sekúnd' : 'pár sekundami';
+                return (withoutSuffix || isFuture) ? 'pár sekund' : 'pár sekundami';
             case 'ss': // 9 seconds / in 9 seconds / 9 seconds ago
                 if (withoutSuffix || isFuture) {
-                    return result + (plural$5(number) ? 'sekundy' : 'sekúnd');
+                    return result + (plural$5(number) ? 'sekundy' : 'sekund');
                 } else {
                     return result + 'sekundami';
                 }
                 break;
             case 'm':  // a minute / in a minute / a minute ago
-                return withoutSuffix ? 'minúta' : (isFuture ? 'minútu' : 'minútou');
+                return withoutSuffix ? 'minuta' : (isFuture ? 'minutu' : 'minutou');
             case 'mm': // 9 minutes / in 9 minutes / 9 minutes ago
                 if (withoutSuffix || isFuture) {
-                    return result + (plural$5(number) ? 'minúty' : 'minút');
+                    return result + (plural$5(number) ? 'minuty' : 'minut');
                 } else {
-                    return result + 'minútami';
+                    return result + 'minutami';
                 }
                 break;
             case 'h':  // an hour / in an hour / an hour ago
@@ -12425,17 +12425,17 @@
             lastWeek: function () {
                 switch (this.day()) {
                     case 0:
-                        return '[minulú nedeľu o] LT';
+                        return '[minulu nedeľu o] LT';
                     case 1:
                     case 2:
                         return '[minulý] dddd [o] LT';
                     case 3:
-                        return '[minulú stredu o] LT';
+                        return '[minulu stredu o] LT';
                     case 4:
                     case 5:
                         return '[minulý] dddd [o] LT';
                     case 6:
-                        return '[minulú sobotu o] LT';
+                        return '[minulu sobotu o] LT';
                 }
             },
             sameElse: 'L'
@@ -13716,9 +13716,9 @@
     hooks.defineLocale('tzl', {
         months : 'Januar_Fevraglh_Març_Avrïu_Mai_Gün_Julia_Guscht_Setemvar_Listopäts_Noemvar_Zecemvar'.split('_'),
         monthsShort : 'Jan_Fev_Mar_Avr_Mai_Gün_Jul_Gus_Set_Lis_Noe_Zec'.split('_'),
-        weekdays : 'Súladi_Lúneçi_Maitzi_Márcuri_Xhúadi_Viénerçi_Sáturi'.split('_'),
-        weekdaysShort : 'Súl_Lún_Mai_Már_Xhú_Vié_Sát'.split('_'),
-        weekdaysMin : 'Sú_Lú_Ma_Má_Xh_Vi_Sá'.split('_'),
+        weekdays : 'Suladi_Luneçi_Maitzi_Márcuri_Xhuadi_Viénerçi_Sáturi'.split('_'),
+        weekdaysShort : 'Sul_Lun_Mai_Már_Xhu_Vié_Sát'.split('_'),
+        weekdaysMin : 'Su_Lu_Ma_Má_Xh_Vi_Sá'.split('_'),
         longDateFormat : {
             LT : 'HH.mm',
             LTS : 'HH.mm.ss',
@@ -14341,11 +14341,11 @@
             llll : 'ddd, D MMM YYYY HH:mm'
         },
         calendar : {
-            sameDay: '[Hôm nay lúc] LT',
-            nextDay: '[Ngày mai lúc] LT',
-            nextWeek: 'dddd [tuần tới lúc] LT',
-            lastDay: '[Hôm qua lúc] LT',
-            lastWeek: 'dddd [tuần rồi lúc] LT',
+            sameDay: '[Hôm nay luc] LT',
+            nextDay: '[Ngày mai luc] LT',
+            nextWeek: 'dddd [tuần tới luc] LT',
+            lastDay: '[Hôm qua luc] LT',
+            lastWeek: 'dddd [tuần rồi luc] LT',
             sameElse: 'L'
         },
         relativeTime : {
@@ -14353,8 +14353,8 @@
             past : '%s trước',
             s : 'vài giây',
             ss : '%d giây' ,
-            m : 'một phút',
-            mm : '%d phút',
+            m : 'một phut',
+            mm : '%d phut',
             h : 'một giờ',
             hh : '%d giờ',
             d : 'một ngày',
@@ -14377,12 +14377,12 @@
     //! moment.js locale configuration
 
     hooks.defineLocale('x-pseudo', {
-        months : 'J~áñúá~rý_F~ébrú~árý_~Márc~h_Áp~ríl_~Máý_~Júñé~_Júl~ý_Áú~gúst~_Sép~témb~ér_Ó~ctób~ér_Ñ~óvém~bér_~Décé~mbér'.split('_'),
-        monthsShort : 'J~áñ_~Féb_~Már_~Ápr_~Máý_~Júñ_~Júl_~Áúg_~Sép_~Óct_~Ñóv_~Déc'.split('_'),
+        months : 'J~áñuá~rý_F~ébru~árý_~Márc~h_Áp~ríl_~Máý_~Juñé~_Jul~ý_Áu~gust~_Sép~témb~ér_Ó~ctób~ér_Ñ~óvém~bér_~Décé~mbér'.split('_'),
+        monthsShort : 'J~áñ_~Féb_~Már_~Ápr_~Máý_~Juñ_~Jul_~Áug_~Sép_~Óct_~Ñóv_~Déc'.split('_'),
         monthsParseExact : true,
-        weekdays : 'S~úñdá~ý_Mó~ñdáý~_Túé~sdáý~_Wéd~ñésd~áý_T~húrs~dáý_~Fríd~áý_S~átúr~dáý'.split('_'),
-        weekdaysShort : 'S~úñ_~Móñ_~Túé_~Wéd_~Thú_~Frí_~Sát'.split('_'),
-        weekdaysMin : 'S~ú_Mó~_Tú_~Wé_T~h_Fr~_Sá'.split('_'),
+        weekdays : 'S~uñdá~ý_Mó~ñdáý~_Tué~sdáý~_Wéd~ñésd~áý_T~hurs~dáý_~Fríd~áý_S~átur~dáý'.split('_'),
+        weekdaysShort : 'S~uñ_~Móñ_~Tué_~Wéd_~Thu_~Frí_~Sát'.split('_'),
+        weekdaysMin : 'S~u_Mó~_Tu_~Wé_T~h_Fr~_Sá'.split('_'),
         weekdaysParseExact : true,
         longDateFormat : {
             LT : 'HH:mm',
@@ -14404,10 +14404,10 @@
             past : '%s á~gó',
             s : 'á ~féw ~sécó~ñds',
             ss : '%d s~écóñ~ds',
-            m : 'á ~míñ~úté',
-            mm : '%d m~íñú~tés',
-            h : 'á~ñ hó~úr',
-            hh : '%d h~óúrs',
+            m : 'á ~míñ~uté',
+            mm : '%d m~íñu~tés',
+            h : 'á~ñ hó~ur',
+            hh : '%d h~óurs',
             d : 'á ~dáý',
             dd : '%d d~áýs',
             M : 'á ~móñ~th',

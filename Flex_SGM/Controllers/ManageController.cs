@@ -64,8 +64,8 @@ namespace Flex_SGM.Controllers
                 : message == ManageMessageId.SetPasswordSuccess ? "Su contraseña se ha establecido."
                 : message == ManageMessageId.SetTwoFactorSuccess ? "Su proveedor de autenticación de dos factores se ha establecido."
                 : message == ManageMessageId.Error ? "Se ha producido un error."
-                : message == ManageMessageId.AddPhoneSuccess ? "Se ha agregado su número de teléfono."
-                : message == ManageMessageId.RemovePhoneSuccess ? "Se ha quitado su número de teléfono."
+                : message == ManageMessageId.AddPhoneSuccess ? "Se ha agregado su numero de teléfono."
+                : message == ManageMessageId.RemovePhoneSuccess ? "Se ha quitado su numero de teléfono."
                 : "";
             var userId = User.Identity.GetUserId();
             ApplicationUser currentUser = UserManager.FindById(userId);
@@ -93,8 +93,8 @@ namespace Flex_SGM.Controllers
                 : message == ManageMessageId.SetPasswordSuccess ? "Su contraseña se ha establecido."
                 : message == ManageMessageId.SetTwoFactorSuccess ? "Su proveedor de autenticación de dos factores se ha establecido."
                 : message == ManageMessageId.Error ? "Se ha producido un error."
-                : message == ManageMessageId.AddPhoneSuccess ? "Se ha agregado su número de teléfono."
-                : message == ManageMessageId.RemovePhoneSuccess ? "Se ha quitado su número de teléfono."
+                : message == ManageMessageId.AddPhoneSuccess ? "Se ha agregado su numero de teléfono."
+                : message == ManageMessageId.RemovePhoneSuccess ? "Se ha quitado su numero de teléfono."
                 : "";
 
             var id = User.Identity.GetUserId();
@@ -137,8 +137,8 @@ namespace Flex_SGM.Controllers
                 : message == ManageMessageId.SetPasswordSuccess ? "Su contraseña se ha establecido."
                 : message == ManageMessageId.SetTwoFactorSuccess ? "Su proveedor de autenticación de dos factores se ha establecido."
                 : message == ManageMessageId.Error ? "Se ha producido un error."
-                : message == ManageMessageId.AddPhoneSuccess ? "Se ha agregado su número de teléfono."
-                : message == ManageMessageId.RemovePhoneSuccess ? "Se ha quitado su número de teléfono."
+                : message == ManageMessageId.AddPhoneSuccess ? "Se ha agregado su numero de teléfono."
+                : message == ManageMessageId.RemovePhoneSuccess ? "Se ha quitado su numero de teléfono."
                 : "";
 
             var id = User.Identity.GetUserId();
@@ -288,7 +288,7 @@ namespace Flex_SGM.Controllers
         public async Task<ActionResult> VerifyPhoneNumber(string phoneNumber)
         {
             var code = await UserManager.GenerateChangePhoneNumberTokenAsync(User.Identity.GetUserId(), phoneNumber);
-            // Enviar un SMS a través del proveedor de SMS para verificar el número de teléfono
+            // Enviar un SMS a través del proveedor de SMS para verificar el numero de teléfono
             return phoneNumber == null ? View("Error") : View(new VerifyPhoneNumberViewModel { PhoneNumber = phoneNumber });
         }
 

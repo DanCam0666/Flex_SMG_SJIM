@@ -1115,8 +1115,8 @@
                 doy: 4 // The week that contains Jan 4th is the first week of the year.
             },
             buttonText: {
-                prev: "Predchádzajúci",
-                next: "Nasledujúci",
+                prev: "Predchádzajuci",
+                next: "Nasledujuci",
                 today: "Dnes",
                 month: "Mesiac",
                 week: "Týždeň",

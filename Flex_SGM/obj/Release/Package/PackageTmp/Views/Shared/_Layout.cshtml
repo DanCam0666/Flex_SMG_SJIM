@@ -6,8 +6,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="x-ua-compatible"  content="IE=11" >
-    <link rel="shortcut icon" href="~/favicon.ico">
-    <title>@ViewBag.Title - Automatizacion</title>
+    <link rel="shortcut icon" href="./favicon.ico">
+    <title>@ViewBag.Title - Ingenieria</title>
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/fcc")
     <!-- View specific styles -->
@@ -47,95 +47,95 @@
                         <ul class="nav navbar-nav navbar-right">
                             <li class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                    Mantenimiento
+                                    Ingenieria
                                     <span class="caret"></span>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu2">
-                                    <li>@Html.ActionLink("-", "Index", "Home")</li>
-                                    <li>@Html.ActionLink("Bitacora", "Index", "Bitacoras", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();" })</li>
-                                    <li>@Html.ActionLink("Resumen", "Repo", "Bitacoras", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();" })</li>
-                                    <li>
-                                        @Html.ActionLink(
-                                                    linkText: "Resumen Diario 1er",
-                                                    actionName: "Repo",
-                                                    controllerName: "Bitacoras",
-                                                    routeValues: new { fecha_inicial = DateTime.Now.ToShortDateString(), fecha_final = DateTime.Now.ToShortDateString(), t1 = true, t2 = false, t3 = false },
-                                                    htmlAttributes: new { @onclick = "$('#loadingImg').show();" })
-                                    </li>
-                                    <li>
-                                        @Html.ActionLink(
-                                                    linkText: "Resumen Diario 2do",
-                                                    actionName: "Repo",
-                                                    controllerName: "Bitacoras",
-                                                    routeValues: new { fecha_inicial = DateTime.Now.ToShortDateString(), fecha_final = DateTime.Now.ToShortDateString(), t1 = false, t2 = true, t3 = false },
-                                                    htmlAttributes: new { @onclick = "$('#loadingImg').show();" })
-                                    </li>
-                                    <li>
-                                        @Html.ActionLink(
-                                                    linkText: "Resumen Diario 3er",
-                                                    actionName: "Repo",
-                                                    controllerName: "Bitacoras",
-                                                    routeValues: new { fecha_inicial = DateTime.Now.AddDays(-1).ToShortDateString(), fecha_final = DateTime.Now.AddDays(-1).ToShortDateString(), t1 = false, t2 = false, t3 = true },
-                                                    htmlAttributes: new { @onclick = "$('#loadingImg').show();" })
-                                    </li>
-                                    <li>@Html.ActionLink("OILs(TPMs)", "Index", "OILs", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();" })</li>
-                                    <li>@Html.ActionLink("Metricos", "Metricos3", "Bitacoras", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();" })</li>
-                                    <li>@Html.ActionLink("Metricos Criticos", "Metricos4", "Bitacoras", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();" })</li>
-                                    <li>@Html.ActionLink("Troubleshooting", "Menu", "troubleshootings", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();" })</li>
-                                </ul>
-                            </li>
+                                <li>@Html.ActionLink("-", "Index", "Home")</li>
+                                <li>@Html.ActionLink("Bitacora", "Index", "Bitacoras", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();" })</li>
+                                <li>@Html.ActionLink("Resumen", "Repo", "Bitacoras", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();" })</li>
+                                <!-- <li>
+                                    @Html.ActionLink(
+                                                linkText: "Resumen Diario 1er",
+                                                actionName: "Repo",
+                                                controllerName: "Bitacoras",
+                                                routeValues: new { fecha_inicial = DateTime.Now.ToShortDateString(), fecha_final = DateTime.Now.ToShortDateString(), t1 = true, t2 = false, t3 = false },
+                                                htmlAttributes: new { @onclick = "$('#loadingImg').show();" })
+                                </li>
+                                <li>
+                                    @Html.ActionLink(
+                                                linkText: "Resumen Diario 2do",
+                                                actionName: "Repo",
+                                                controllerName: "Bitacoras",
+                                                routeValues: new { fecha_inicial = DateTime.Now.ToShortDateString(), fecha_final = DateTime.Now.ToShortDateString(), t1 = false, t2 = true, t3 = false },
+                                                htmlAttributes: new { @onclick = "$('#loadingImg').show();" })
+                                </li>
+                                <li>@Html.ActionLink("PCRs", "Index", "pcrs", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();" })</li>
+                                <li>
+                                    @Html.ActionLink(
+                                                linkText: "Resumen Diario 3er",
+                                                actionName: "Repo",
+                                                controllerName: "Bitacoras",
+                                                routeValues: new { fecha_inicial = DateTime.Now.AddDays(-1).ToShortDateString(), fecha_final = DateTime.Now.AddDays(-1).ToShortDateString(), t1 = false, t2 = false, t3 = true },
+                                                htmlAttributes: new { @onclick = "$('#loadingImg').show();" })
+                                </li> -->
+                                <li>@Html.ActionLink("OILs(TPMs)", "Index", "OILs", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();" })</li>
+                                <li>@Html.ActionLink("Metricos", "Metricos3", "Bitacoras", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();" })</li>
+                                <li>@Html.ActionLink("Metricos Criticos", "Metricos4", "Bitacoras", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();" })</li>
+                                <li>@Html.ActionLink("Troubleshooting", "Menu", "troubleshootings", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();" })</li>
+                            </ul>
+                        </li>
 
 
-                            <li> @Html.Partial("_LoginPartial")</li>
-                        </ul>
+                        <li> @Html.Partial("_LoginPartial")</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="Nav2">
+            <div class=" navbar-fixed-top">
+                <div class="container">
+                    <a href="@Url.Action("Index", "Home")" class="navbar-text navbar-right Divider-Vertical-2"> Ingenieria</a>
+                    <div class="navbar-brand">
+                        <p class="FNG_Blue"> Ingenieria/Manufactura</p>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div id="Nav2">
-                <div class=" navbar-fixed-top">
-                    <div class="container">
-                        <a href="@Url.Action("Index", "Home")" class="navbar-text navbar-right Divider-Vertical-2"> Automatizacion</a>
-                        <div class="navbar-brand">
-                            <p class="FNG_Blue"> Our Story</p>
-                        </div>
-                    </div>
+
+        <div id="Nav3">
+            <div class="navbar-fixed-top">
+                <div class="col-md-12">
+                    <h3>Where Solutions are Built</h3>
                 </div>
             </div>
+        </div>
 
-
-            <div id="Nav3">
-                <div class="navbar-fixed-top">
-                    <div class="col-md-12">
-                        <h3>Where Solutions are Built</h3>
-                    </div>
+        <div id="Nav4">
+            <div class="navbar-fixed-top">
+                <div class="col-tp-12">
+                    <a href="https://www.flex-n-gate.com/PDF/COVID-19%20HR%20Communication.pdf">
+                        <img src="~/img/COVID-19.jpg" width="900" height="39">
+                    </a>
                 </div>
             </div>
+        </div>
 
-            <div id="Nav4">
-                <div class="navbar-fixed-top">
-                    <div class="col-tp-12">
-                        <a href="https://www.flex-n-gate.com/PDF/COVID-19%20HR%20Communication.pdf">
-                            <img src="~/img/COVID-19.jpg" width="900" height="39
-		  ">
-                        </a>
-                    </div>
-                </div>
-            </div>
+    </section>
+    <div class="container body-content clearfix">
+        @RenderBody()
+        <hr />
 
-        </section>
-        <div class="container body-content clearfix">
-            @RenderBody()
-            <hr />
-
-            <div class="Footer FooterLower clearfix">
+        <div class="Footer FooterLower clearfix">
+            <div class="container text-center">
+                <img src="~/img/Logos_small-07.png" class="Footerpadding-right">
+                Flex-N-Gate México, S. De R.L. De C.V.
+                <img src="~/img/Logos_small-05.png" class="Footerpadding-left"> <!-- <img src="img/Logos_small-06.png" class="Footerpadding-left"/> -->
+</div>
                 <div class="container text-center">
-                    <img src="~/img/Logos_small-07.png" class="Footerpadding-right">
-                    Flex-N-Gate México, S. De R.L. De C.V.
-                    <img src="~/img/Logos_small-05.png" class="Footerpadding-left"> <!-- <img src="img/Logos_small-06.png" class="Footerpadding-left"/> -->
-                </div>
-                <div class="container text-center">
-                    <p>&copy; @DateTime.Now.Year - Automatizacion Flex|N|Gate Mexico</p>
+                    <p>&copy; @DateTime.Now.Year - Flex|N|Gate Mexico</p>
                 </div>
             </div>
         </div>

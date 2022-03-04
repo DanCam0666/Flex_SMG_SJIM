@@ -10,7 +10,7 @@
 
 <div class="x_panel clearfix">
     <div class="x_title clearfix">
-        <h2 id="alerts">Estatus Tarjetas de TPMs<small> Resumen de Tarjetas de TPMs </small></h2>
+        <!--<h2 id="alerts">Estatus Tarjetas de TPMs<small> Resumen de Tarjetas de TPMs </small></h2>-->
         <ul class="nav navbar-right">
             <li>
                 <a class="collapse-link"><i class="fa fa-chevron-down"></i></a>
@@ -49,7 +49,7 @@
 <div class="x_panel">
     <div class="x_title clearfix">
         <h2 id="alerts">OILs <small>Listado de OILs segun filtro aplicado</small></h2>
-        @using (Html.BeginForm())
+       @using (Html.BeginForm())
         {
             <div class="col-md-12">
 
@@ -113,7 +113,7 @@
                 <input data-toggle="tooltip" title="¡Exportar a Excel sin formato!" type="submit" name="btn" value="Exportar Excel" class="btn btn-primary col-md-4" />
             </div>
         }
-        </div>
+    </div>
     <div class="x_content clearfix">
         <table class="table table-bordered table-striped" id="proye" style="width:100%; overflow-x:auto; ">
             <thead>
@@ -165,98 +165,94 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in Model)
+               @foreach (var item in Model)
                 {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ID)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Estatus)
-                    </td>
-                    <td>
-                        @if (item.User_res != null && item.User_asig != null)
-                        {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Estatus)
+                        </td>
+                        <td>
+                            @if (item.User_res != null && item.User_asig != null)
+                            {
 
-                            @Html.ActionLink("Actualizar", "Update", new { id = item.ID }, new { @class = "btn  btn-success", @target = "_blank" })
-                        }
-                        @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn  btn-default", @target = "_blank" })
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Tipo)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Maquinas.Area)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Maquinas.Maquina)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.folio)
-                    </td>
-                    <td >
-                        @Html.DisplayFor(modelItem => item.Actividad)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.User_gen)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DiaHora)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.User_res)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DiaHora_Compromiso)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.User_asig)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DiaHora_Cierre)
-                    </td>
+                                @Html.ActionLink("Actualizar", "Update", new { id = item.ID }, new { @class = "btn  btn-success", @target = "_blank" })
+                            }
+                            @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn  btn-default", @target = "_blank" })
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Tipo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Maquinas.Area)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Maquinas.Maquina)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.folio)
+                        </td>
+                        <td >
+                            @Html.DisplayFor(modelItem => item.Actividad)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.User_gen)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DiaHora)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.User_res)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DiaHora_Compromiso)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.User_asig)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DiaHora_Cierre)
+                        </td>
 
-                    <td>
-                        <div class="btn btn-success" data-id="@item.ID" onclick=" $('#@item.ID').modal();"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span></div>
+                        <td>
+                            <div class="btn btn-success" data-id="@item.ID" onclick=" $('#@item.ID').modal();"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span></div>
                        
-                        <div id=@item.ID class="modal fade clearfix" role="dialog">
-                            <div class="modal-dialog clearfix">
-                                <div class="x_panel clearfix">
-                                    <div class="x_title clearfix">
-                                        <h2> OIL No.@item.ID</h2>
-                                    </div>
-                                    <div class="x_content">
-                                        @Html.Label("MAterial de actividad: ")
-                                        @Html.DisplayFor(modelItem => item.Material_necesario)
-                                        <hr>
-                                        @Html.Label("Comentarios de Apertura de actividad: ")
-                                        @Html.DisplayFor(modelItem => item.Comentarios)
-                                        <hr>
-                                        @Html.Label("Comentarios de Cierre de actividad: ")
-                                        @Html.DisplayFor(modelItem => item.Comentarios2)
-                                        <hr>
-                                        @Html.Label("Comentarios de durante de actividad: ")
-                                        <div id="@string.Format("{0}_{1}","commentsBlock", item.ID)" style="border: 1px solid #f1eaea; background-color: #eaf2ff;">
+                            <div id=@item.ID class="modal fade clearfix" role="dialog">
+                                <div class="modal-dialog clearfix">
+                                    <div class="x_panel clearfix">
+                                        <div class="x_title clearfix">
+                                            <h2> OIL No.@item.ID</h2>
+                                        </div>
+                                        <div class="x_content">
+                                            @Html.Label("MAterial de actividad: ")
+                                            @Html.DisplayFor(modelItem => item.Material_necesario)
+                                            <hr>
+                                            @Html.Label("Comentarios de Apertura de actividad: ")
+                                            @Html.DisplayFor(modelItem => item.Comentarios)
+                                            <hr>
+                                            @Html.Label("Comentarios de Cierre de actividad: ")
+                                            @Html.DisplayFor(modelItem => item.Comentarios2)
+                                            <hr>
+                                            @Html.Label("Comentarios de durante de actividad: ")
+                                            <div id="@string.Format("{0}_{1}","commentsBlock", item.ID)" style="border: 1px solid #f1eaea; background-color: #eaf2ff;">
 
-                                            <div class="AddComment">
-                                                <input rows="4" type="text" id="@string.Format("{0}_{1}", "comment", item.ID)" class="form-control" placeholder="Agrega un comentario ..." />
-                                                <button type="button" class="btn btn-default addComment" data-id="@item.ID"><span class="glyphicon glyphicon-comment" aria-hidden="true">Añadir</span></button>
+                                                <div class="AddComment">
+                                                    <input rows="4" type="text" id="@string.Format("{0}_{1}", "comment", item.ID)" class="form-control" placeholder="Agrega un comentario ..." />
+                                                    <button type="button" class="btn btn-default addComment" data-id="@item.ID"><span class="glyphicon glyphicon-comment" aria-hidden="true">Añadir</span></button>
+                                                </div>
+
                                             </div>
-
-                                        </div>
-                                        <div class="@string.Format("{0}_{1}", "allComments", item.ID)">
-                                            @Html.Action("_Comments", "OILs", new { id = item.ID })
+                                            <div class="@string.Format("{0}_{1}", "allComments", item.ID)">
+                                                @Html.Action("_Comments", "OILs", new { id = item.ID })
+                                            </div>
                                         </div>
                                     </div>
+                                    </div>
                                 </div>
-                                </div>
-                            </div>
-
-                    </td>
-
-                </tr>
-
-
+                        </td>
+                    </tr>
                 }
             </tbody>
         </table>
@@ -265,7 +261,7 @@
 
 <div class="x_panel clearfix">
     <div class="x_title clearfix">
-        <h2 id="alerts">Estatus Automatizacion<small> Resumen de Actividades </small></h2>
+        <h2 id="alerts">Estatus Ingieneria<small> Resumen de Actividades </small></h2>
         <ul class="nav navbar-right">
             <li>
                 <a class="collapse-link"><i class="fa fa-chevron-down"></i></a>
@@ -279,10 +275,6 @@
             <div class="h2">Actividades Terminadas:  @ViewBag.arealizada </div>
             <div class="h2">Actividades Pendientes: @ViewBag.apendientes</div>
             <div class="h2">Actividades No Realizadas: @ViewBag.aNoReali</div>
-
-
-
-
         </div>
         <div class="col-md-5">
             <canvas width="400" height="300" class="chartjs" id="chart-area2" style="width: 600px; height: 200px; display: block;"></canvas>
@@ -323,7 +315,6 @@
         </ul>
     </div>
     <div class="x_content">
-
         <center>
             <div class="alert col-md-6" style="background-color:darkred; color: white;">Estatus 5-Actividad No REALIZADA en tiempo / Existen:@ViewBag.NoReali Actividades</div>
             <div class="alert col-md-6" style="background-color:yellow;">Estatus 4-Actividad con Fecha compromiso muy próxima / Existen:@ViewBag.Fechaprox Actividades</div>
@@ -337,17 +328,14 @@
 
 
 @section Scripts {
-
-    <script>
-
+<script>
 
     $('.addComment').on('click', function () {
 
         var cid = $(this).attr('data-id');
         var commentMsg = $('#comment_' + cid).val();
         //     var dateTimeNow = new Date();
-
-     //   alert('Hello');
+        //   alert('Hello');
         if (commentMsg != null && commentMsg != "") {
             $('#loadingImg').show();
             setTimeout(function () { $('#loadingImg').fadeOut(); }, 3000);
@@ -358,13 +346,11 @@
                 success: function (response) {
 
                     $('div[class=allComments_' + cid + ']').remove();
-
                     var allCommentsArea = $('<div>').addClass('allComments_' + cid);
                     allCommentsArea.html(response);
-
                     allCommentsArea.prependTo('#commentsBlock_' + cid);
-                                        $('#comment_' + cid).val("");
-                  // $("input:text").focus(function(){$(this).val("")});
+                    $('#comment_' + cid).val("");
+                    // $("input:text").focus(function(){$(this).val("")});
                     // alert('done');
                 },
                 error: function (response) {
@@ -375,250 +361,241 @@
         }
         else {
             alert('Escribe un comentario primero!!!');
-                    }
+        }
     });
 
-                        $(document).ready(function () {
+    $(document).ready(function () {
 
-              $('[data-toggle="tooltip"]').tooltip();
-            //tpms
-            var ctx = document.getElementById('chart-area');
-            var myPieChart = new Chart(ctx, {
-    type: 'pie',
-    data: {
-    datasets: [{
-        data: [ @ViewBag.tpmActivos, @ViewBag.tpmrealizada,  @ViewBag.tpmpendientes, @ViewBag.tpmNoReali],
-         backgroundColor: [
-                'rgba(54, 162, 235, 0.9)',
-                'rgba(54, 235, 162, 0.9)',
-              'rgba(255, 162, 54, 0.9)',
-                'rgba(255, 54, 54, 0.9)'
-            ]
-        }],
+            $('[data-toggle="tooltip"]').tooltip();
+        //tpms
+        var ctx = document.getElementById('chart-area');
+        var myPieChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                datasets: [{
+                    data: [ @ViewBag.tpmActivos, @ViewBag.tpmrealizada,  @ViewBag.tpmpendientes, @ViewBag.tpmNoReali],
+                    backgroundColor: [
+                        'rgba(54, 162, 235, 0.9)',
+                        'rgba(54, 235, 162, 0.9)',
+                        'rgba(255, 162, 54, 0.9)',
+                        'rgba(255, 54, 54, 0.9)'
+                    ]
+                }],
 
-    labels: [
-        'Activos',
-        'Terminados',
-        'Pendientes',
-        'No Realizados'
-    ]}
-            });
-             //tpms atreas
-            var ctx = document.getElementById('chart-area-div');
-            var myPieChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        datasets: [{
-                                label: 'Total TPMs Areas',
-            data: [@ViewBag.st, @ViewBag.et, @ViewBag.sot,@ViewBag.mft,@ViewBag.ent],
-            backgroundColor: 'rgba(120, 180, 120, 0.9)',
-            borderWidth: 2
-        },{
-            label: 'Realizadas',
-            data: [@ViewBag.sr, @ViewBag.er, @ViewBag.sor,@ViewBag.mfr,@ViewBag.enr],
-            backgroundColor: 'rgba(54, 235, 162, 0.9)',
-            borderWidth: 2
-        },{
+                labels: [
+                    'Activos',
+                    'Terminados',
+                    'Pendientes',
+                    'No Realizados'
+                ]
+            }
+        });
+            //tpms atreas
+        var ctx = document.getElementById('chart-area-div');
+        var myPieChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                datasets: [{
 
-                   label: 'Pendientes',
-                     data: [@ViewBag.sp,@ViewBag.ep,@ViewBag.sop,@ViewBag.mfp,@ViewBag.enp],
-                    backgroundColor: 'rgba(255, 162, 54, 0.9)',
+                    label: 'Total TPMs Areas',
+                    data: [@ViewBag.st, @ViewBag.et, @ViewBag.sot,@ViewBag.mft,@ViewBag.ent],
+                    backgroundColor: 'rgba(120, 180, 120, 0.9)',
                     borderWidth: 2
-        }],
-
-    labels: [
-        'Servicios',
-        'Estampado',
-        'Soldadura',
-        'Metal Finish',
-        'Ensamble'
-
-    ]}
-            });
-                                         //tpms atreas
-            var ctx = document.getElementById('chart-area-sem');
-            var myPieChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        datasets: [{
-            label: 'Generadas',
-            data: [@ViewBag.Datas1],
-            backgroundColor: 'rgba(54, 162, 235, 0.9)',
-            borderWidth: 2
-        },{
-
-                   label: 'Realizadas',
-                     data: [@ViewBag.Datas2],
+                },{
+                    label: 'Realizadas',
+                    data: [@ViewBag.sr, @ViewBag.er, @ViewBag.sor,@ViewBag.mfr,@ViewBag.enr],
                     backgroundColor: 'rgba(54, 235, 162, 0.9)',
                     borderWidth: 2
-        }],
+                },{
+                    label: 'Pendientes',
+                    data: [@ViewBag.sp,@ViewBag.ep,@ViewBag.sop,@ViewBag.mfp,@ViewBag.enp],
+                    backgroundColor: 'rgba(255, 162, 54, 0.9)',
+                    borderWidth: 2
+                }],
 
-    labels: [@Html.Raw(ViewBag.Objectsem) ]}
-});
-            //Automatizacion
-            var ctx2 = document.getElementById('chart-area2');
-            var myPieChart2 = new Chart(ctx2, {
-    type: 'pie',
-    data: {
-    datasets: [{
-        data: [ @ViewBag.aActivos, @ViewBag.arealizada,  @ViewBag.apendientes, @ViewBag.aNoReali],
-         backgroundColor: [
-                'rgba(54, 162, 235, 0.9)',
-                'rgba(54, 235, 162, 0.9)',
-              'rgba(255, 162, 54, 0.9)',
-                'rgba(255, 54, 54, 0.9)'
-            ]
-        }],
-
-    labels: [
-        'Activos',
-        'Terminados',
-        'Pendientes',
-        'No Realizados'
-    ]}
-});
-
-
-            $("#Normaldrop").chosen();
-
-              var table = document.getElementById('proye');
-            var tbody = table.getElementsByTagName('tbody')[0];
-             var cells = tbody.getElementsByTagName('tr');
-
-            for (var i = 0, len = cells.length; i < len; i++){
-                if (parseInt(cells[i].cells[1].innerHTML, 10) == 6) {
-                    cells[i].cells[0].style.backgroundColor = 'orangered';
-                    cells[i].cells[0].style.color = 'white';
-                   cells[i].cells[1].style.backgroundColor = 'orangered';
-                    cells[i].cells[1].style.color = 'white';
-                      cells[i].cells[2].style.backgroundColor = 'orangered';
-                    cells[i].cells[2].style.color = 'white';
-                     cells[i].cells[3].style.backgroundColor = 'orangered';
-                    cells[i].cells[3].style.color = 'white';
-                                         cells[i].cells[4].style.backgroundColor = 'orangered';
-                    cells[i].cells[4].style.color = 'white';
-    }
-    else {
-        if (parseInt(cells[i].cells[1].innerHTML, 10) == 0||parseInt(cells[i].cells[1].innerHTML, 10) == 2||parseInt(cells[i].cells[1].innerHTML, 10) > 6) {
-            cells[i].cells[0].style.backgroundColor = 'lightgray';
-            cells[i].cells[1].style.backgroundColor = 'lightgray';
-                          cells[i].cells[2].style.backgroundColor = 'lightgray';
-            cells[i].cells[3].style.backgroundColor = 'lightgray';
-                          cells[i].cells[4].style.backgroundColor = 'lightgray';
-        }
-        else
-                    if (parseInt(cells[i].cells[1].innerHTML, 10) == 3) {
-                        cells[i].cells[0].style.backgroundColor = 'cornflowerblue';
-                        cells[i].cells[1].style.backgroundColor = 'cornflowerblue';
-                        cells[i].cells[2].style.backgroundColor = 'cornflowerblue';
-                        cells[i].cells[3].style.backgroundColor = 'cornflowerblue';
-                                                  cells[i].cells[4].style.backgroundColor = 'cornflowerblue';
+                labels: [
+                    'Servicios',
+                    'Estampado',
+                    'Soldadura',
+                    'Metal Finish',
+                    'Ensamble'
+                ]
             }
-                else
-                    if (parseInt(cells[i].cells[1].innerHTML, 10) == 4) {
-                        cells[i].cells[0].style.backgroundColor = 'yellow';
-                        cells[i].cells[1].style.backgroundColor = 'yellow';
-                        cells[i].cells[2].style.backgroundColor = 'yellow';
-                        cells[i].cells[3].style.backgroundColor = 'yellow';
-                                                  cells[i].cells[4].style.backgroundColor = 'yellow';
-                }
-                else
-                    if (parseInt(cells[i].cells[1].innerHTML, 10) == 5) {
-                        cells[i].cells[0].style.backgroundColor = 'darkred ';
-                        cells[i].cells[0].style.color = 'white';
-                        cells[i].cells[1].style.backgroundColor = 'darkred ';
-                        cells[i].cells[1].style.color = 'white';
-                        cells[i].cells[2].style.backgroundColor = 'darkred ';
-                        cells[i].cells[2].style.color = 'white';
-                        cells[i].cells[3].style.backgroundColor = 'darkred ';
-                        cells[i].cells[3].style.color = 'white';
-                        cells[i].cells[4].style.backgroundColor = 'darkred ';
-                        cells[i].cells[4].style.color = 'white';
-                    }
-                else
-                    if (parseInt(cells[i].cells[1].innerHTML, 10) == 1) {
-                        cells[i].cells[0].style.backgroundColor = 'darkseagreen';
-                        cells[i].cells[1].style.backgroundColor = 'darkseagreen';
-                        cells[i].cells[2].style.backgroundColor = 'darkseagreen';
-                        cells[i].cells[3].style.backgroundColor = 'darkseagreen';
-                        cells[i].cells[4].style.backgroundColor = 'darkseagreen';
-        }
+        });
+        //tpms atreas
+        var ctx = document.getElementById('chart-area-sem');
+        var myPieChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                datasets: [{
+                    label: 'Generadas',
+                    data: [@ViewBag.Datas1],
+                    backgroundColor: 'rgba(54, 162, 235, 0.9)',
+                    borderWidth: 2
+                },{
+                    label: 'Realizadas',
+                    data: [@ViewBag.Datas2],
+                    backgroundColor: 'rgba(54, 235, 162, 0.9)',
+                    borderWidth: 2
+                }],
 
-        }
-}
+                labels: [@Html.Raw(ViewBag.Objectsem) ]
+            }
+        });
+        //Automatizacion
+        var ctx2 = document.getElementById('chart-area2');
+        var myPieChart2 = new Chart(ctx2, {
+            type: 'pie',
+            data: {
+                datasets: [{
+                    data: [ @ViewBag.aActivos, @ViewBag.arealizada,  @ViewBag.apendientes, @ViewBag.aNoReali],
+                    backgroundColor: [
+                        'rgba(54, 162, 235, 0.9)',
+                        'rgba(54, 235, 162, 0.9)',
+                        'rgba(255, 162, 54, 0.9)',
+                        'rgba(255, 54, 54, 0.9)'
+                    ]
+                }],
 
-                            $('#proye').DataTable({
-                               "dom": 'lBfrtip',
-                "lengthMenu": [[5, 15, 50, -1], ["5", "15", "50", "Todos"]],
-                   "buttons": ['copy', 'csv','print','pdf','excel'], 
-                        "order": [[0, "desc"]],
-                        "scrollX": true,
-                        "language": {
-                            "sProcessing": "Procesando...",
-                            "sLengthMenu": "Mostrar _MENU_ registros",
-                            "sZeroRecords": "No se encontraron resultados",
-                            "sEmptyTable": "Ningún dato disponible en esta tabla =(",
-                            "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-                            "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
-                            "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
-                            "sInfoPostFix": "",
-                            "sSearch": "Buscar:",
-                            "sUrl": "",
-                            "sInfoThousands": ",",
-                            "sLoadingRecords": "Cargando...",
-                            "oPaginate": {
-                                "sFirst": "Primero",
-                                "sLast": "Último",
-                                "sNext": "Siguiente",
-                                "sPrevious": "Anterior"
-                            },
-                            "oAria": {
-                                "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
-                                "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-                            },
-                            "buttons": {
-                                "copy": "Copiar",
-                                "colvis": "Visibilidad"
-                            }
-                        }
-                    });
-
-           // if (ViewBag.Fechaprox!= 0)
-                if (typeof window.stackBottomLeft === 'undefined') {
-    window.stackBottomLeft = {
-      'dir1': 'right',
-      'dir2': 'down',
-      'firstpos1': 25,
-      'firstpos2': 25,
-      'push': 'top'
-    };
-  }
-
-                var notice2 = PNotify.notice({
-                    title: 'Nuevas Funciones!!!',
-                    text: 'Si un usuario esta "*Logueado*", en automático se filtra y muestran los OILs que género y en los que aparece como responsable o fue asignado a esa tarea… ',
-                    stack: window.stackBottomLeft,
-                    addClass: 'nonblock'
-                });
-
-                    var proyectos_vencidos = 0;
-                    var proyectos_Proximos = 0;
-                    if(@ViewBag.NoReali!=0)
-                        proyectos_vencidos =  @ViewBag.NoReali;
-                   if(@ViewBag.Fechaprox!=0)
-                    proyectos_Proximos = @ViewBag.Fechaprox;
-
-                   document.getElementById("alertsb").innerHTML ="Existen: '"+proyectos_vencidos+"' OILs vencidos y '"+ proyectos_Proximos +"' OILs proximos a vencer...";
-                 //  window.alert("Existen: "+proyectos_vencidos+"-- OILs vencidos y ademas tienes: "+ proyectos_Proximos +"-- OILs proximos a vencer");
-
-
-
-
-
-
+                labels: [
+                    'Activos',
+                    'Terminados',
+                    'Pendientes',
+                    'No Realizados'
+                ]
+            }
         });
 
+        $("#Normaldrop").chosen();
 
-    </script>
+        var table = document.getElementById('proye');
+        var tbody = table.getElementsByTagName('tbody')[0];
+        var cells = tbody.getElementsByTagName('tr');
 
+        for (var i = 0, len = cells.length; i < len; i++){
+            if (parseInt(cells[i].cells[1].innerHTML, 10) == 6) {
+                cells[i].cells[0].style.backgroundColor = 'orangered';
+                cells[i].cells[0].style.color = 'white';
+                cells[i].cells[1].style.backgroundColor = 'orangered';
+                cells[i].cells[1].style.color = 'white';
+                cells[i].cells[2].style.backgroundColor = 'orangered';
+                cells[i].cells[2].style.color = 'white';
+                cells[i].cells[3].style.backgroundColor = 'orangered';
+                cells[i].cells[3].style.color = 'white';
+                cells[i].cells[4].style.backgroundColor = 'orangered';
+                cells[i].cells[4].style.color = 'white';
+            }
+            else {
+                if (parseInt(cells[i].cells[1].innerHTML, 10) == 0||parseInt(cells[i].cells[1].innerHTML, 10) == 2||parseInt(cells[i].cells[1].innerHTML, 10) > 6) {
+                    cells[i].cells[0].style.backgroundColor = 'lightgray';
+                    cells[i].cells[1].style.backgroundColor = 'lightgray';
+                    cells[i].cells[2].style.backgroundColor = 'lightgray';
+                    cells[i].cells[3].style.backgroundColor = 'lightgray';
+                    cells[i].cells[4].style.backgroundColor = 'lightgray';
+                }
+                else
+                if (parseInt(cells[i].cells[1].innerHTML, 10) == 3) {
+                    cells[i].cells[0].style.backgroundColor = 'cornflowerblue';
+                    cells[i].cells[1].style.backgroundColor = 'cornflowerblue';
+                    cells[i].cells[2].style.backgroundColor = 'cornflowerblue';
+                    cells[i].cells[3].style.backgroundColor = 'cornflowerblue';
+                    cells[i].cells[4].style.backgroundColor = 'cornflowerblue';
+                }
+                else
+                if (parseInt(cells[i].cells[1].innerHTML, 10) == 4) {
+                    cells[i].cells[0].style.backgroundColor = 'yellow';
+                    cells[i].cells[1].style.backgroundColor = 'yellow';
+                    cells[i].cells[2].style.backgroundColor = 'yellow';
+                    cells[i].cells[3].style.backgroundColor = 'yellow';
+                    cells[i].cells[4].style.backgroundColor = 'yellow';
+                }
+                else
+                if (parseInt(cells[i].cells[1].innerHTML, 10) == 5) {
+                    cells[i].cells[0].style.backgroundColor = 'darkred ';
+                    cells[i].cells[0].style.color = 'white';
+                    cells[i].cells[1].style.backgroundColor = 'darkred ';
+                    cells[i].cells[1].style.color = 'white';
+                    cells[i].cells[2].style.backgroundColor = 'darkred ';
+                    cells[i].cells[2].style.color = 'white';
+                    cells[i].cells[3].style.backgroundColor = 'darkred ';
+                    cells[i].cells[3].style.color = 'white';
+                    cells[i].cells[4].style.backgroundColor = 'darkred ';
+                    cells[i].cells[4].style.color = 'white';
+                }
+                else
+                if (parseInt(cells[i].cells[1].innerHTML, 10) == 1) {
+                    cells[i].cells[0].style.backgroundColor = 'darkseagreen';
+                    cells[i].cells[1].style.backgroundColor = 'darkseagreen';
+                    cells[i].cells[2].style.backgroundColor = 'darkseagreen';
+                    cells[i].cells[3].style.backgroundColor = 'darkseagreen';
+                    cells[i].cells[4].style.backgroundColor = 'darkseagreen';
+                }
+            }
+        }
+
+        $('#proye').DataTable({
+            "dom": 'lBfrtip',
+            "lengthMenu": [[5, 15, 50, -1], ["5", "15", "50", "Todos"]],
+            "buttons": ['copy', 'csv','print','pdf','excel'], 
+            "order": [[0, "desc"]],
+            "scrollX": true,
+            "language": {
+                "sProcessing": "Procesando...",
+                "sLengthMenu": "Mostrar _MENU_ registros",
+                "sZeroRecords": "No se encontraron resultados",
+                "sEmptyTable": "Ningún dato disponible en esta tabla =(",
+                "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                "sInfoPostFix": "",
+                "sSearch": "Buscar:",
+                "sUrl": "",
+                "sInfoThousands": ",",
+                "sLoadingRecords": "Cargando...",
+                "oPaginate": {
+                    "sFirst": "Primero",
+                    "sLast": "Último",
+                    "sNext": "Siguiente",
+                    "sPrevious": "Anterior"
+                },
+                "oAria": {
+                    "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                    "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                },
+                "buttons": {
+                    "copy": "Copiar",
+                    "colvis": "Visibilidad"
+                }
+            }
+        });
+
+        // if (ViewBag.Fechaprox!= 0)
+        if (typeof window.stackBottomLeft === 'undefined') {
+            window.stackBottomLeft = {
+                'dir1': 'right',
+                'dir2': 'down',
+                'firstpos1': 25,
+                'firstpos2': 25,
+                'push': 'top'
+            };
+        }
+
+        var notice2 = PNotify.notice({
+            title: 'Nuevas Funciones!!!',
+            text: 'Si un usuario esta "*Logueado*", en automático se filtra y muestran los OILs que género y en los que aparece como responsable o fue asignado a esa tarea… ',
+            stack: window.stackBottomLeft,
+            addClass: 'nonblock'
+        });
+
+        var proyectos_vencidos = 0;
+        var proyectos_Proximos = 0;
+        if(@ViewBag.NoReali!=0)
+            proyectos_vencidos =  @ViewBag.NoReali;
+        if(@ViewBag.Fechaprox!=0)
+            proyectos_Proximos = @ViewBag.Fechaprox;
+
+        document.getElementById("alertsb").innerHTML ="Existen: '"+proyectos_vencidos+"' OILs vencidos y '"+ proyectos_Proximos +"' OILs proximos a vencer...";
+        //  window.alert("Existen: "+proyectos_vencidos+"-- OILs vencidos y ademas tienes: "+ proyectos_Proximos +"-- OILs proximos a vencer");
+    });
+</script>
 }

@@ -150,7 +150,7 @@ function init_morris_charts() {
 			
 }
 function x() {
-    if (document.title === "Repo - Automatizacion" || document.title === "Create - Automatizacion" || document.title === "Estado de OILs - Automatizacion" || document.title === "IPs - Automatizacion")
+	if (document.title === "Repo - Ingenieria" || document.title === "Create - Ingenieria" || document.title === "Estado de OILs - Ingenieria" || document.title === "IPs - Ingenieria")
     $('.collapse-link').trigger("click");
 }
 
@@ -225,7 +225,7 @@ const labels_es_ES = {
 			"sProcessing": "Procesando...",
 			"sLengthMenu": "Mostrar _MENU_ registros",
 			"sZeroRecords": "No se encontraron resultados",
-			"sEmptyTable": "Ningún dato disponible en esta tabla =(",
+			"sEmptyTable": "Ningun dato disponible en esta tabla =(",
 			"sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
 			"sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
 			"sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
@@ -236,7 +236,7 @@ const labels_es_ES = {
 			"sLoadingRecords": "Cargando...",
 			"oPaginate": {
 				"sFirst": "Primero",
-				"sLast": "Último",
+				"sLast": "ultimo",
 				"sNext": "Siguiente",
 				"sPrevious": "Anterior"
 			},

@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Flex_SGM")]
-[assembly: AssemblyCopyright("Copyright ©  2019")]
+[assembly: AssemblyCopyright("Copyright ©  2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -26,10 +26,10 @@ using System.Runtime.InteropServices;
 //
 //      Versión principal
 //      Versión secundaria
-//      Número de compilación
+//      Numero de compilación
 //      Revisión
 //
-// Puede especificar todos los valores o puede predeterminar los números de compilación y de revisión
+// Puede especificar todos los valores o puede predeterminar los numeros de compilación y de revisión
 // mediante el carácter '*', como se muestra a continuación:
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]

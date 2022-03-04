@@ -67,7 +67,7 @@ namespace Flex_SGM.Models
     {
         [Required]
         [Phone]
-        [Display(Name = "Número de teléfono")]
+        [Display(Name = "Numero de teléfono")]
         public string Number { get; set; }
     }
 
@@ -79,7 +79,7 @@ namespace Flex_SGM.Models
 
         [Required]
         [Phone]
-        [Display(Name = "Número de teléfono")]
+        [Display(Name = "Numero de teléfono")]
         public string PhoneNumber { get; set; }
     }
 

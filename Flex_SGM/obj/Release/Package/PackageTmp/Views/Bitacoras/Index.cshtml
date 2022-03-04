@@ -4,11 +4,9 @@
     ViewBag.Title = "Bitacora";
 }
 <center>
-    <h1 style="background-color:orange">
-        @Html.ActionLink("|||Crear Nueva! <= Presiona aquí para crear un nuevo registro...|||", "Create")
-
-    </h1>
+    <h1> @Html.ActionLink("Crear un nuevo registro", "Create")</h1>
 </center>
+
 @using (Html.BeginForm())
 {
     <div class="row">
@@ -17,7 +15,6 @@
                 <div class="x_content">
                     <div class="row">
                         <div class="col-md-5">
-
                             <div class="form-group">
                                 <label for="texto">Filtrar por texto...</label>
                                 <input type="text" class="form-control" name="SearchString" />
@@ -28,19 +25,19 @@
                                     <label for="area">Filtrar por Area usuario...</label>
                                     <div class="col-md-10">
                                         @Html.DropDownList("area", null, "--Todas--", htmlAttributes: new { @class = "form-control" })
-
                                     </div>
                                 </div>
                             </div>
+
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="puesto">Filtrar por Puesto...</label>
                                     <div class="col-md-10">
                                         @Html.DropDownList("puesto", null, "--Todas--", htmlAttributes: new { @class = "form-control" })
-
                                     </div>
                                 </div>
                             </div>
+
                         </div>
 
                         <div class="col-md-5">
@@ -55,12 +52,12 @@
                                 <input type="text" class="form-control" name="fecha_final" value=@ViewBag.fecha_final autocomplete="off">
 
                             </div>
+
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="amaquina">Filtrar por Area Maquina...</label>
                                     <div class="col-md-10">
                                         @Html.DropDownList("amaquina", null, "--Todas--", htmlAttributes: new { @class = "form-control", onchange = "SelectedIndexChanged()" })
-
                                     </div>
                                 </div>
                             </div>
@@ -70,10 +67,10 @@
                                     <label for="maquina">Filtrar por Nombre de Maquina...</label>
                                     <div class="col-md-10">
                                         @Html.DropDownList("maquina", null, "--Todas--", htmlAttributes: new { @class = "form-control", id = "Normaldrop" })
-
                                     </div>
                                 </div>
                             </div>
+
                         </div>
 
                         <div class="col-md-2">
@@ -87,7 +84,7 @@
                                 <label><input type="checkbox" name="t3" id="t3" value=true checked>Tercer Turno</label>
                             </div>
                             <div class="switch">
-                                <label><input type="checkbox" name="nt" id="nt" value=true >Sin Terminar</label>
+                                <label><input type="checkbox" name="nt" id="nt" value=true>Sin Terminar</label>
                             </div>
                             <div class="switch">
                                 <label><input type="checkbox" name="fs" id="fs" value=true>Fin de Semana</label>
@@ -111,256 +108,256 @@
                 </div>
             </div>
         </div>
-      </div>
-   
-    }
-    <div class="row">
-        <center> @{Html.RenderPartial("_Result");}</center>
     </div>
 
-    <div class="x_panel">
-        <div class="x_content clearfix">
-            <table class="table table-bordered table-striped clearfix" style="width:100%" id="bitacora">
-                <thead>
-                    <tr>
-                        <th>
-                            @Html.DisplayName("ID")
-                        </th>
-                        <th>
-                            @Html.Label("Menu")
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.DiaHora)
-                        </th>
-                        <th>
-                            @Html.DisplayName("Usuario")
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Maquinas.SubMaquina)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Descripcion)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Sintoma)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Causa)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.AccionCorrectiva)
-                        </th>
-                        <th style="width:10px;">
-                            @Html.DisplayNameFor(model => model.Tiempo)
-                        </th>
-                        <th style="width:10px;">
-                            @Html.DisplayNameFor(model => model.Folio)
-                        </th>
+}
+<div class="row">
+    <center> @{Html.RenderPartial("_Result");}</center>
+</div>
 
-                    </tr>
-                </thead>
+<div class="x_panel">
+    <div class="x_content clearfix">
+        <table class="table table-bordered table-striped clearfix" style="width:100%" id="bitacora">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayName("ID")
+                    </th>
+                    <th>
+                        @Html.Label("Menu")
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DiaHora)
+                    </th>
+                    <th>
+                        @Html.DisplayName("Usuario")
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Maquinas.SubMaquina)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Descripcion)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Sintoma)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Causa)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.AccionCorrectiva)
+                    </th>
+                    <th style="width:10px;">
+                        @Html.DisplayNameFor(model => model.Tiempo)
+                    </th>
+                    <th style="width:10px;">
+                        @Html.DisplayNameFor(model => model.Folio)
+                    </th>
 
-                <tbody>
-                    @foreach (var item in Model)
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    if (!item.noterminado && !item.findesemana)
                     {
-                        if (!item.noterminado && !item.findesemana)
-                        {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.ID)
-                        </td>
-                        <td>
-                            @if (item.FechaVerificacion == null)
-                            {
-                                // @Html.Label("Esperando Verificacion")
-                                if (ViewBag.super)
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ID)
+                            </td>
+                            <td>
+                                @if (item.FechaVerificacion == null)
                                 {
-                                    <button onclick=" $(this).hide(); return Verify(@item.ID); ">Verificar</button>
+                                    // @Html.Label("Esperando Verificacion")
+                                    if (ViewBag.super)
+                                    {
+                                        <button onclick=" $(this).hide(); return Verify(@item.ID); ">Verificar</button>
+                                    }
                                 }
-                            }
-                            else
-                            {
-                                @Html.Label("Verificada, " + item.Verifico)
-                            }
-                            @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn  btn-info", @target = "_blank" })
-                            @if (ViewBag.cuser.Contains(item.usuario))
-                            {
-                                @Html.ActionLink("Editar", "Edit", new { id = item.ID }, new { @class = "btn  btn-default", @target = "_blank" })
-                            }
-                            @if ((ViewBag.super && ViewBag.uarea.Contains(item.usuario_area))||ViewBag.cuser.Contains(item.usuario))
-                            {
-                                @Html.ActionLink("Borrar", "Delete", new { id = item.ID }, new { @class = "btn  btn-danger", @target = "_blank" })
-                            }
-                            @if (ViewBag.uarea.Contains(item.usuario_area) && item.noterminado)
-                            {
-                                @Html.ActionLink("Terminar", "Finish", new { id = item.ID, searchString = ViewBag.searchString2, area = ViewBag.area2, amaquina = ViewBag.amaquina2, puesto = ViewBag.puesto2, maquina = ViewBag.maquina2, fecha_inicial = ViewBag.fecha_inicial, fecha_final = ViewBag.fecha_final, t1 = ViewBag.t1, t2 = ViewBag.t2, t3 = ViewBag.t3 }, new { @class = "btn  btn-success" })
-                            }
-                        </td>
-                        <td>
-                            @item.DiaHora.ToString("yyyy/MM/dd hh:MM")
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.usuario)
-                        </td>
-                        <td style="width:10px;">
-                            @Html.DisplayFor(modelItem => item.Maquinas.SubMaquina)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Descripcion)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Sintoma)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Causa)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.AccionCorrectiva)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Tiempo)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Folio)
-                        </td>
-                    </tr>
+                                else
+                                {
+                                    @Html.Label("Verificada, " + item.Verifico)
+                                }
+                                @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn  btn-info", @target = "_blank" })
+                                @if (ViewBag.cuser.Contains(item.usuario))
+                                {
+                                    @Html.ActionLink("Editar", "Edit", new { id = item.ID }, new { @class = "btn  btn-default", @target = "_blank" })
+                                }
+                                @if ((ViewBag.super && ViewBag.uarea.Contains(item.usuario_area)) || ViewBag.cuser.Contains(item.usuario))
+                                {
+                                    @Html.ActionLink("Borrar", "Delete", new { id = item.ID }, new { @class = "btn  btn-danger", @target = "_blank" })
+                                }
+                                @if (ViewBag.uarea.Contains(item.usuario_area) && item.noterminado)
+                                {
+                                    @Html.ActionLink("Terminar", "Finish", new { id = item.ID, searchString = ViewBag.searchString2, area = ViewBag.area2, amaquina = ViewBag.amaquina2, puesto = ViewBag.puesto2, maquina = ViewBag.maquina2, fecha_inicial = ViewBag.fecha_inicial, fecha_final = ViewBag.fecha_final, t1 = ViewBag.t1, t2 = ViewBag.t2, t3 = ViewBag.t3 }, new { @class = "btn  btn-success" })
+                                }
+                            </td>
+                            <td>
+                                @item.DiaHora.ToString("yyyy/MM/dd hh:MM")
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.usuario)
+                            </td>
+                            <td style="width:10px;">
+                                @Html.DisplayFor(modelItem => item.Maquinas.SubMaquina)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Descripcion)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Sintoma)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Causa)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.AccionCorrectiva)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Tiempo)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Folio)
+                            </td>
+                        </tr>
+                    }
+                    else
+                    {
+                        if (item.noterminado)
+                        {
+                            <tr class="danger">
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ID)
+                                </td>
+                                <td>
+                                    @if (item.FechaVerificacion == null)
+                                    {
+                                        @Html.Label("Esperando Verificacion")
+                                        if (ViewBag.super)
+                                        {
+                                            <button onclick=" $(this).hide(); return Verify(@item.ID);">Verificar</button>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        @Html.Label("Verificada, " + item.Verifico)
+                                    }
+                                    @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn  btn-info", @target = "_blank" })
+                                    @if (ViewBag.cuser.Contains(item.usuario))
+                                    {
+                                        @Html.ActionLink("Editar", "Edit", new { id = item.ID }, new { @class = "btn  btn-default", @target = "_blank" })
+                                    }
+                                    @if (ViewBag.super && ViewBag.uarea.Contains(item.usuario_area))
+                                    {
+                                        @Html.ActionLink("Borrar", "Delete", new { id = item.ID }, new { @class = "btn  btn-danger", @target = "_blank" })
+                                    }
+                                    @if (ViewBag.uarea.Contains(item.usuario_area) && item.noterminado)
+                                    {
+                                        @Html.ActionLink("Finalizar", "Finish", new { id = item.ID, searchString = ViewBag.searchString2, area = ViewBag.area2, amaquina = ViewBag.amaquina2, puesto = ViewBag.puesto2, maquina = ViewBag.maquina2, fecha_inicial = ViewBag.fecha_inicial, fecha_final = ViewBag.fecha_final, t1 = ViewBag.t1, t2 = ViewBag.t2, t3 = ViewBag.t3 }, new { @class = "btn  btn-success" })
+                                    }
+                                </td>
+                                <td>
+                                    @item.DiaHora.ToString("yyyy/MM/dd hh:MM")
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.usuario)
+                                </td>
+                                <td style="width:10px;">
+                                    @Html.DisplayFor(modelItem => item.Maquinas.SubMaquina)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Descripcion)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Sintoma)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Causa)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.AccionCorrectiva)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Tiempo)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Folio)
+                                </td>
+                            </tr>
                         }
                         else
                         {
-                            if (item.noterminado)
-                            {
-                <tr class="danger">
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ID)
-                    </td>
-                    <td>
-                        @if (item.FechaVerificacion == null)
-                        {
-                            @Html.Label("Esperando Verificacion")
-                            if (ViewBag.super)
-                            {
-                                <button onclick=" $(this).hide(); return Verify(@item.ID);">Verificar</button>
-                            }
-                        }
-                        else
-                        {
-                            @Html.Label("Verificada, " + item.Verifico)
-                        }
-                        @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn  btn-info", @target = "_blank" })
-                        @if (ViewBag.cuser.Contains(item.usuario))
-                        {
-                            @Html.ActionLink("Editar", "Edit", new { id = item.ID }, new { @class = "btn  btn-default", @target = "_blank" })
-                        }
-                        @if (ViewBag.super && ViewBag.uarea.Contains(item.usuario_area))
-                        {
-                            @Html.ActionLink("Borrar", "Delete", new { id = item.ID }, new { @class = "btn  btn-danger", @target = "_blank" })
-                        }
-                        @if (ViewBag.uarea.Contains(item.usuario_area) && item.noterminado)
-                        {
-                            @Html.ActionLink("Finalizar", "Finish", new { id = item.ID, searchString = ViewBag.searchString2, area = ViewBag.area2, amaquina = ViewBag.amaquina2, puesto = ViewBag.puesto2, maquina = ViewBag.maquina2, fecha_inicial = ViewBag.fecha_inicial, fecha_final = ViewBag.fecha_final, t1 = ViewBag.t1, t2 = ViewBag.t2, t3 = ViewBag.t3 }, new { @class = "btn  btn-success" })
-                        }
-                    </td>
-                    <td>
-                        @item.DiaHora.ToString("yyyy/MM/dd hh:MM")
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.usuario)
-                    </td>
-                    <td style="width:10px;">
-                        @Html.DisplayFor(modelItem => item.Maquinas.SubMaquina)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Descripcion)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Sintoma)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Causa)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.AccionCorrectiva)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Tiempo)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Folio)
-                    </td>
-                </tr>
-                            }
-                            else
-                            {
-                <tr class="warning">
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ID)
-                    </td>
-                    <td>
-                        @if (item.FechaVerificacion == null)
-                        {
-                            @Html.Label("Esperando Verificacion")
-                            if (ViewBag.super)
-                            {
-                                <button onclick=" $(this).hide(); return Verify(@item.ID);">Verificar</button>
-                            }
-                        }
-                        else
-                        {
-                            @Html.Label("Verificada, " + item.Verifico)
-                        }
-                        @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn  btn-info", @target = "_blank" })
-                        @if (ViewBag.cuser.Contains(item.usuario))
-                        {
-                            @Html.ActionLink("Editar", "Edit", new { id = item.ID }, new { @class = "btn  btn-default", @target = "_blank" })
-                        }
-                        @if ((ViewBag.super && ViewBag.uarea.Contains(item.usuario_area)) || ViewBag.cuser.Contains(item.usuario))
-                        {
-                            @Html.ActionLink("Borrar", "Delete", new { id = item.ID }, new { @class = "btn  btn-danger", @target = "_blank" })
-                        }
-                        @if (ViewBag.uarea.Contains(item.usuario_area) && item.noterminado)
-                        {
-                            @Html.ActionLink("Finalizar", "Finish", new { id = item.ID, searchString = ViewBag.searchString2, area = ViewBag.area2, amaquina = ViewBag.amaquina2, puesto = ViewBag.puesto2, maquina = ViewBag.maquina2, fecha_inicial = ViewBag.fecha_inicial, fecha_final = ViewBag.fecha_final, t1 = ViewBag.t1, t2 = ViewBag.t2, t3 = ViewBag.t3 }, new { @class = "btn  btn-success" })
-                        }
-                    </td>
-                    <td>
-                        @item.DiaHora.ToString("yyyy/MM/dd hh:MM")
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.usuario)
-                    </td>
-                    <td style="width:10px;">
-                        @Html.DisplayFor(modelItem => item.Maquinas.SubMaquina)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Descripcion)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Sintoma)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Causa)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.AccionCorrectiva)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Tiempo)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Folio)
-                    </td>
-                </tr>
-                            }
+                            <tr class="warning">
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ID)
+                                </td>
+                                <td>
+                                    @if (item.FechaVerificacion == null)
+                                    {
+                                        @Html.Label("Esperando Verificacion")
+                                        if (ViewBag.super)
+                                        {
+                                            <button onclick=" $(this).hide(); return Verify(@item.ID);">Verificar</button>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        @Html.Label("Verificada, " + item.Verifico)
+                                    }
+                                    @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn  btn-info", @target = "_blank" })
+                                    @if (ViewBag.cuser.Contains(item.usuario))
+                                    {
+                                        @Html.ActionLink("Editar", "Edit", new { id = item.ID }, new { @class = "btn  btn-default", @target = "_blank" })
+                                    }
+                                    @if ((ViewBag.super && ViewBag.uarea.Contains(item.usuario_area)) || ViewBag.cuser.Contains(item.usuario))
+                                    {
+                                        @Html.ActionLink("Borrar", "Delete", new { id = item.ID }, new { @class = "btn  btn-danger", @target = "_blank" })
+                                    }
+                                    @if (ViewBag.uarea.Contains(item.usuario_area) && item.noterminado)
+                                    {
+                                        @Html.ActionLink("Finalizar", "Finish", new { id = item.ID, searchString = ViewBag.searchString2, area = ViewBag.area2, amaquina = ViewBag.amaquina2, puesto = ViewBag.puesto2, maquina = ViewBag.maquina2, fecha_inicial = ViewBag.fecha_inicial, fecha_final = ViewBag.fecha_final, t1 = ViewBag.t1, t2 = ViewBag.t2, t3 = ViewBag.t3 }, new { @class = "btn  btn-success" })
+                                    }
+                                </td>
+                                <td>
+                                    @item.DiaHora.ToString("yyyy/MM/dd hh:MM")
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.usuario)
+                                </td>
+                                <td style="width:10px;">
+                                    @Html.DisplayFor(modelItem => item.Maquinas.SubMaquina)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Descripcion)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Sintoma)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Causa)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.AccionCorrectiva)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Tiempo)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Folio)
+                                </td>
+                            </tr>
                         }
                     }
-                </tbody>
-            </table>
-        </div>
+                }
+            </tbody>
+        </table>
     </div>
+</div>
 
-    @section Scripts {
+@section Scripts {
 
-        <script>
+    <script>
 
 
      function Verify(idx)
@@ -401,7 +398,7 @@
                         "sProcessing": "Procesando...",
                         "sLengthMenu": "Mostrar _MENU_ registros",
                         "sZeroRecords": "No se encontraron resultados",
-                        "sEmptyTable": "Ningún dato disponible en esta tabla =(",
+                        "sEmptyTable": "Ningun dato disponible en esta tabla =(",
                         "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
                         "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
                         "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
@@ -412,7 +409,7 @@
                         "sLoadingRecords": "Cargando...",
                         "oPaginate": {
                             "sFirst": "Primero",
-                            "sLast": "Último",
+                            "sLast": "ultimo",
                             "sNext": "Siguiente",
                             "sPrevious": "Anterior"
                         },
@@ -427,6 +424,6 @@
                     }
                 });
         });
-        </script>
+    </script>
 
-    }
+}
