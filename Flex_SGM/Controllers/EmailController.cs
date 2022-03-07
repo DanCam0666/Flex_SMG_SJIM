@@ -57,21 +57,21 @@ namespace Flex_SGM.emaildata
             message.Body = string.Format(body, usuario, comment);
             message.IsBodyHtml = true;
 
-            using (var smtp = new SmtpClient())
-            {
-                /*
-                var credential = new NetworkCredential
+                using (var smtp = new SmtpClient())
                 {
-                    UserName = "SJIMBitacora@flexngate.com",  // replace with valid value
-                    Password = "Flex2020#"  // replace with valid value
-                };
-                smtp.Credentials = credential;
-                */
-                smtp.Host = "smtp.flexngate.local";
-                smtp.Port = 25;
-                smtp.EnableSsl = false;
-                smtp.Send(message);
-            }
+                    /*
+                    var credential = new NetworkCredential
+                    {
+                        UserName = "SJIMBitacora@flexngate.com",  // replace with valid value
+                        Password = "Flex2020#"  // replace with valid value
+                    };
+                    smtp.Credentials = credential;
+                    */
+                    smtp.Host = "smtp.flexngate.local";
+                    smtp.Port = 25;
+                    smtp.EnableSsl = false;
+                    smtp.Send(message);
+                }
             }
             catch (Exception Ex) { var x = Ex; }
 

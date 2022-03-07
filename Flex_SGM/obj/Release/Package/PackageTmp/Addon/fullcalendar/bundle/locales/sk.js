@@ -11,20 +11,20 @@
             doy: 4 // The week that contains Jan 4th is the first week of the year.
         },
         buttonText: {
-            prev: "Predchádzajuci",
-            next: "Nasledujuci",
-            today: "Dnes",
-            month: "Mesiac",
-            week: "Týždeň",
-            day: "Deň",
-            list: "Rozvrh"
+            prev: "Anterior",
+            next: "Próxima",
+            today: "Hoy",
+            month: "Mes",
+            week: "Semana",
+            day: "Día",
+            list: "Calendario"
         },
-        weekLabel: "Ty",
-        allDayText: "Celý deň",
+        weekLabel: "Tú",
+        allDayText: "Todo el Días",
         eventLimitText: function (n) {
-            return "+ďalšie: " + n;
+            return "+Próxima: " + n;
         },
-        noEventsMessage: "Žiadne akcie na zobrazenie"
+        noEventsMessage: "No hay acciones para mostrar"
     };
 
     return sk;

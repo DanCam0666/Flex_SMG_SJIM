@@ -201,7 +201,7 @@ namespace Flex_SGM.Controllers
 
             Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
 
-            foreach (OILs oil in oILs.Where(s => s.Tipo == "Automatizacion").ToList())
+            foreach (OILs oil in oILs.Where(s => s.Tipo == "Ingenieria" || s.Tipo == "Manufactura").ToList())
             {
 
                 if (oil.Estatus == 1)
@@ -226,7 +226,7 @@ namespace Flex_SGM.Controllers
 
             Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
 
-            foreach (OILs oil in oILs.Where(s => s.Tipo == "Automatizacion" &&( s.User_res == "Pedro Luis Ramirez Lopez" || s.User_asig == "Pedro Luis Ramirez Lopez" || s.User_res == "José Mario Castilla González" || s.User_asig == "José Mario Castilla González")).ToList())
+            foreach (OILs oil in oILs.Where(s => s.Tipo == "Automatizacion" && ( s.User_res == "Pedro Luis Ramirez Lopez" || s.User_asig == "Pedro Luis Ramirez Lopez" || s.User_res == "José Mario Castilla González" || s.User_asig == "José Mario Castilla González")).ToList())
             {
 
                 if (oil.Estatus == 1)
@@ -312,7 +312,7 @@ namespace Flex_SGM.Controllers
             ViewBag.mfActivos = NoReali + sinfecha + Urgente + Fechaprox + ConFecha + realizada;
             Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
 
-            foreach (OILs oil in oILs.Where(s => s.Tipo == "Automatizacion" && ((s.User_res == "Jose Luis Olivarez Dominguez" && s.User_asig == "-") || s.User_asig == "Jose Luis Olivarez Dominguez" )).ToList())
+            foreach (OILs oil in oILs.Where(s => (s.Tipo == "Ingenieria" || s.Tipo == "Manufactura") && ((s.User_res == "Daniel Camacho Larriva" && s.User_asig == "-") || s.User_asig == "Daniel Camacho Larriva")).ToList())
             {
 
                 if (oil.Estatus == 1)
@@ -329,8 +329,8 @@ namespace Flex_SGM.Controllers
                     Urgente++;
 
             }
-            ViewBag.jlrealizada = realizada;
-            ViewBag.jlmfActivos = NoReali + sinfecha + Urgente + Fechaprox + ConFecha + realizada;
+            ViewBag.dCrealizada = realizada;
+            ViewBag.dCmfActivos = NoReali + sinfecha + Urgente + Fechaprox + ConFecha + realizada;
 
             Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
 
