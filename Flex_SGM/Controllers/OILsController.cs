@@ -312,7 +312,7 @@ namespace Flex_SGM.Controllers
             ViewBag.mfActivos = NoReali + sinfecha + Urgente + Fechaprox + ConFecha + realizada;
             Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
 
-            foreach (OILs oil in oILs.Where(s => (s.Tipo == "Ingenieria" || s.Tipo == "Manufactura") && ((s.User_res == "Daniel Camacho Larriva" && s.User_asig == "-") || s.User_asig == "Daniel Camacho Larriva")).ToList())
+            foreach (OILs oil in oILs.Where(s => (s.Tipo == "Ingenieria" || s.Tipo == "Manufactura") && ((s.User_res == "Jose Erasmo Arellano Grimaldo" && s.User_asig == "-") || s.User_asig == "Jose Erasmo Arellano Grimaldo")).ToList())
             {
 
                 if (oil.Estatus == 1)
@@ -329,10 +329,31 @@ namespace Flex_SGM.Controllers
                     Urgente++;
 
             }
-            ViewBag.dCrealizada = realizada;
-            ViewBag.dCmfActivos = NoReali + sinfecha + Urgente + Fechaprox + ConFecha + realizada;
-
+            ViewBag.eArealizada = realizada;
+            ViewBag.eAActivos = NoReali + sinfecha + Urgente + Fechaprox + ConFecha + realizada;
             Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
+
+            foreach (OILs oil in oILs.Where(s => (s.Tipo == "Ingenieria" || s.Tipo == "Manufactura") && ((s.User_res == "Vicente Olvera Gonzalez" && s.User_asig == "-") || s.User_asig == "Vicente Olvera Gonzalez")).ToList())
+            {
+
+                if (oil.Estatus == 1)
+                    realizada++;
+                if (oil.Estatus == 2)
+                    sinfecha++;
+                if (oil.Estatus == 3)
+                    ConFecha++;
+                if (oil.Estatus == 4)
+                    Fechaprox++;
+                if (oil.Estatus == 5)
+                    NoReali++;
+                if (oil.Estatus == 6)
+                    Urgente++;
+
+            }
+            ViewBag.vOrealizada = realizada;
+            ViewBag.vOActivos = NoReali + sinfecha + Urgente + Fechaprox + ConFecha + realizada;
+            Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
+
 
             if (string.IsNullOrEmpty(""))
             {

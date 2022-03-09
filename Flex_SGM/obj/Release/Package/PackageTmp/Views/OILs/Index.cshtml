@@ -8,36 +8,37 @@
     <h1> @Html.ActionLink("Crear un nuevo OIL", "Create")</h1>
 </center>
 
+<
 <div class="x_panel clearfix">
-    <div class="x_title clearfix">
-        <!--<h2 id="alerts">Estatus Tarjetas de TPMs<small> Resumen de Tarjetas de TPMs </small></h2>-->
-        <ul class="nav navbar-right">
-            <li>
-                <a class="collapse-link"><i class="fa fa-chevron-down"></i></a>
-            </li>
-        </ul>
-    </div>
-    <div class="x_content">
-        <div class="col-md-12">
-            <div class="col-md-3">
-                <div class="h2"> OILs Totales: @ViewBag.tpmtotal</div>
-                <div class="h2"> OILs Realizándose:   @ViewBag.tpmActivos </div>
-                <div class="h2"> OILs Terminados:  @ViewBag.tpmrealizada </div>
-                <div class="h2"> OILs Pendientes: @ViewBag.tpmpendientes</div>
-                <div class="h2"> OILs No Realizados: @ViewBag.tpmNoReali</div>
-            </div>
-            <div class="col-md-9">
-                <canvas width="600" height="200" class="chartjs" id="chart-area" style="width: 600px; height: 200px; display: block;"></canvas>
-            </div>
-        </div>
-        <div class="col-md-12">
-            <h2> Tarjetas de TPMs por Area</h2>
-            <canvas width="600" height="200" class="chartjs" id="chart-area-div" style="width: 600px; height: 200px; display: block;"></canvas>
-        </div>
-        <div class="col-md-12">
-            <h2> Tarjetas de TPMs por Semana</h2>
-            <canvas width="600" height="200" class="chartjs" id="chart-area-sem" style="width: 600px; height: 200px; display: block;"></canvas>
-        </div>
+   <div class="x_title clearfix">
+       <h2 id="alerts">Estatus Tarjetas de TPMs<small> Resumen de Tarjetas de TPMs </small></h2>
+       <ul class="nav navbar-right">
+           <li>
+               <a class="collapse-link"><i class="fa fa-chevron-down"></i></a>
+           </li>
+       </ul>
+       </div>
+       <div class="x_content">
+           <div class="col-md-12">
+               <div class="col-md-3">
+                   <div class="h2"> OILs Totales: @ViewBag.tpmtotal</div>
+                   <div class="h2"> OILs Realizándose:   @ViewBag.tpmActivos </div>
+                   <div class="h2"> OILs Terminados:  @ViewBag.tpmrealizada </div>
+                   <div class="h2"> OILs Pendientes: @ViewBag.tpmpendientes</div>
+                   <div class="h2"> OILs No Realizados: @ViewBag.tpmNoReali</div>
+               </div>
+               <div class="col-md-9">
+                   <canvas width="600" height="200" class="chartjs" id="chart-area" style="width: 600px; height: 200px; display: block;"></canvas>
+               </div>
+           </div>
+           <div class="col-md-12">
+               <h2> Tarjetas de TPMs por Area</h2>
+               <canvas width="600" height="200" class="chartjs" id="chart-area-div" style="width: 600px; height: 200px; display: block;"></canvas>
+           </div>
+           <div class="col-md-12">
+               <h2> Tarjetas de TPMs por Semana</h2>
+               <canvas width="600" height="200" class="chartjs" id="chart-area-sem" style="width: 600px; height: 200px; display: block;"></canvas>
+           </div>
     </div>
 </div>
 
@@ -46,7 +47,7 @@
 <div class="x_panel">
     <div class="x_title clearfix">
         <h2 id="alerts">OILs <small>Listado de OILs segun filtro aplicado</small></h2>
-       @using (Html.BeginForm())
+        @using (Html.BeginForm())
         {
             <div class="col-md-12">
                 <div class="col-md-3">
@@ -151,7 +152,7 @@
                 </tr>
             </thead>
             <tbody>
-               @foreach (var item in Model)
+                @foreach (var item in Model)
                 {
                     <tr>
                         <td>
@@ -180,7 +181,7 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.folio)
                         </td>
-                        <td >
+                        <td>
                             @Html.DisplayFor(modelItem => item.Actividad)
                         </td>
                         <td>
@@ -204,7 +205,7 @@
 
                         <td>
                             <div class="btn btn-success" data-id="@item.ID" onclick=" $('#@item.ID').modal();"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span></div>
-                       
+
                             <div id=@item.ID class="modal fade clearfix" role="dialog">
                                 <div class="modal-dialog clearfix">
                                     <div class="x_panel clearfix">
@@ -233,8 +234,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    </div>
                                 </div>
+                            </div>
                         </td>
                     </tr>
                 }
@@ -301,7 +302,7 @@
             <h4>Joel Quintana Vasquez</h4>
             <div class="h6">Asignadas:   @ViewBag.ajActivos &emsp; Terminadas:  @ViewBag.ajrealizada </div>
             <h4>Jose Erasmo Arellano Grimaldo</h4>
-            <div class="h6">Asignadas:   @ViewBag.mfActivos &emsp; Terminadas:  @ViewBag.mfrealizada </div>
+            <div class="h6">Asignadas:   @ViewBag.eAActivos &emsp; Terminadas:  @ViewBag.eArealizada </div>
             <h4>Jose Juan Arvizu Arvizu</h4>
             <div class="h6">Asignadas:   @ViewBag.dCmfActivos &emsp; Terminadas:  @ViewBag.dCrealizada </div>
             <h4>Juan Antonio Rojas Garcia</h4>
@@ -309,7 +310,7 @@
             <h4>Manuel Jiménez Garcia</h4>
             <div class="h6">Asignadas:   @ViewBag.ajActivos &emsp; Terminadas:  @ViewBag.ajrealizada </div>
             <h4>Vicente Olvera Gonzalez</h4>
-            <div class="h6">Asignadas:   @ViewBag.mfActivos &emsp; Terminadas:  @ViewBag.mfrealizada </div>
+            <div class="h6">Asignadas:   @ViewBag.vOActivos &emsp; Terminadas:  @ViewBag.vOrealizada </div>
             <h4>Víctor Manuel Bastida Santana</h4>
             <div class="h6">Asignadas:   @ViewBag.dCmfActivos &emsp; Terminadas:  @ViewBag.dCrealizada </div>
         </div>
@@ -339,7 +340,7 @@
 
 
 @section Scripts {
-<script>
+    <script>
 
     $('.addComment').on('click', function () {
 
@@ -546,8 +547,8 @@
 
         $('#proye').DataTable({
             "dom": 'lBfrtip',
-            "lengthMenu": [[5, 15, 50, -1], ["5", "15", "50", "Todos"]],
-            "buttons": ['copy', 'csv','print','pdf','excel'], 
+            "lengthMenu": [[15, 35, 50, -1], ["5", "15", "50", "Todos"]],
+            "buttons": ['copy', 'csv','print','pdf','excel'],
             "order": [[0, "desc"]],
             "scrollX": true,
             "language": {
@@ -608,5 +609,5 @@
         document.getElementById("alertsb").innerHTML ="Existen: '"+proyectos_vencidos+"' OILs vencidos y '"+ proyectos_Proximos +"' OILs proximos a vencer...";
         //  window.alert("Existen: "+proyectos_vencidos+"-- OILs vencidos y ademas tienes: "+ proyectos_Proximos +"-- OILs proximos a vencer");
     });
-</script>
+    </script>
 }
