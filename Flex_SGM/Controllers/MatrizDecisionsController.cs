@@ -46,7 +46,7 @@ namespace Flex_SGM.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,NivelRiesgo,TipoCambio,commcliente,Arplanta,Aringenieria,Armanufactura,Arcalidad,Arfinanzas,Arcompras,Armateriales,Armantenimiento,Arseguridad,Arambiental,Artooling,Arestampado,Arsoldadura,Arcromo,Arpintura,Arensamble,Ppap,Drw,Spec,Pfd,Pfmea,Sw,Pcp,Is,Msa,Ps,Sccc,Pl,Cpo,Spo,Imds,Im,Bom,Pr,Mss,Va,Sm,Ptr,Pdr")] MatrizDecision matrizDecision)
+        public ActionResult Create([Bind(Include = "ID,NivelRiesgo,TipoCambio,commcliente,Arplanta,ArIngenieria,Armanufactura,Arcalidad,Arfinanzas,Arcompras,Armateriales,Armantenimiento,Arseguridad,Arambiental,Artooling,Arestampado,Arsoldadura,Arcromo,Arpintura,Arensamble,Ppap,Drw,Spec,Pfd,Pfmea,Sw,Pcp,Is,Msa,Ps,Sccc,Pl,Cpo,Spo,Imds,Im,Bom,Pr,Mss,Va,Sm,Ptr,Pdr")] MatrizDecision matrizDecision)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace Flex_SGM.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,NivelRiesgo,TipoCambio,commcliente,Arplanta,Aringenieria,Armanufactura,Arcalidad,Arfinanzas,Arcompras,Armateriales,Armantenimiento,Arseguridad,Arambiental,Artooling,Arestampado,Arsoldadura,Arcromo,Arpintura,Arensamble,Ppap,Drw,Spec,Pfd,Pfmea,Sw,Pcp,Is,Msa,Ps,Sccc,Pl,Cpo,Spo,Imds,Im,Bom,Pr,Mss,Va,Sm,Ptr,Pdr")] MatrizDecision matrizDecision)
+        public ActionResult Edit([Bind(Include = "ID,NivelRiesgo,TipoCambio,commcliente,Arplanta,ArIngenieria,Armanufactura,Arcalidad,Arfinanzas,Arcompras,Armateriales,Armantenimiento,Arseguridad,Arambiental,Artooling,Arestampado,Arsoldadura,Arcromo,Arpintura,Arensamble,Ppap,Drw,Spec,Pfd,Pfmea,Sw,Pcp,Is,Msa,Ps,Sccc,Pl,Cpo,Spo,Imds,Im,Bom,Pr,Mss,Va,Sm,Ptr,Pdr")] MatrizDecision matrizDecision)
         {
             if (ModelState.IsValid)
             {

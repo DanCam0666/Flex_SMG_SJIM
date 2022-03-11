@@ -19,7 +19,6 @@ namespace Flex_SGM.Controllers
     public class OILsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-
         private ApplicationUserManager _userManager;
         public ApplicationUserManager UserManager
         {
@@ -32,14 +31,13 @@ namespace Flex_SGM.Controllers
                 _userManager = value;
             }
         }
+
         // GET: OILs
         public async Task<ActionResult> Index(string searchString, string tipo, string Dep,  string maquina, bool 
             c1=false,bool c2 = false, bool c3 = false, bool c4 = false, bool c5 = false, bool c6 = false,string area= "",string btn="")
         {
             var oILs = db.OILs.Include(o => o.Maquinas);
             var dw = dayofweek.GetIso8601WeekOfYear(DateTime.Now);
-
-
             var objet = "'";
             var dat = "";
             var dat2 = "";
@@ -58,7 +56,6 @@ namespace Flex_SGM.Controllers
             foreach (var item in oILs.Where(s => s.Tipo == "TPM"))
             {
                 semanas[dayofweek.GetIso8601WeekOfYear(item.DiaHora)]++;
-
                 tsemanas[dayofweek.GetIso8601WeekOfYear(item.DiaHora_Cierre)]++;
                 if (item.Maquinas.Area.Contains("Servicios"))
                 {
@@ -101,9 +98,7 @@ namespace Flex_SGM.Controllers
                     else
                         ENpendiente++;
                 }
-
             }
-
 
             ViewBag.sr = Serrealizado;
             ViewBag.sp = Serpendiente;
@@ -121,19 +116,16 @@ namespace Flex_SGM.Controllers
             ViewBag.enp = ENpendiente;
             ViewBag.ent = ENtotal;
 
-
             bool bypass = true;
             foreach (var item in semanas)
             {
-                if(!bypass)
-                dat = dat + item.ToString() + ",";
+                if(!bypass) dat = dat + item.ToString() + ",";
                 bypass = false;
             }
             bypass = true;
             foreach (var item in tsemanas)
             {
-                if (!bypass)
-                    dat2 = dat2 + item.ToString() + ",";
+                if (!bypass) dat2 = dat2 + item.ToString() + ",";
                 bypass = false;
             }
 
@@ -145,8 +137,6 @@ namespace Flex_SGM.Controllers
             ViewBag.Objectsem = objet;
             ViewBag.Datas1 = dat;
             ViewBag.Datas2 = dat2;
-
-
 
             int Urgente = 0, NoReali = 0, Fechaprox = 0, ConFecha = 0, sinfecha = 0, realizada = 0;
             var id = User.Identity.GetUserId();
@@ -178,7 +168,6 @@ namespace Flex_SGM.Controllers
 
             foreach (OILs oil in oILs.Where(s=>s.Tipo=="TPM"))
             {
-
                 if (oil.Estatus == 1)
                     realizada++;
                 if (oil.Estatus == 2)
@@ -191,7 +180,6 @@ namespace Flex_SGM.Controllers
                     NoReali++;
                 if (oil.Estatus == 6)
                     Urgente++;
-
             }
             ViewBag.tpmrealizada = realizada;
             ViewBag.tpmActivos = ConFecha;
@@ -203,7 +191,6 @@ namespace Flex_SGM.Controllers
 
             foreach (OILs oil in oILs.Where(s => s.Tipo == "Ingenieria" || s.Tipo == "Manufactura").ToList())
             {
-
                 if (oil.Estatus == 1)
                     realizada++;
                 if (oil.Estatus == 2)
@@ -216,7 +203,6 @@ namespace Flex_SGM.Controllers
                     NoReali++;
                 if (oil.Estatus == 6)
                     Urgente++;
-
             }
             ViewBag.arealizada = realizada;
             ViewBag.aActivos = ConFecha;
@@ -228,7 +214,6 @@ namespace Flex_SGM.Controllers
 
             foreach (OILs oil in oILs.Where(s => s.Tipo == "Automatizacion" && ( s.User_res == "Pedro Luis Ramirez Lopez" || s.User_asig == "Pedro Luis Ramirez Lopez" || s.User_res == "José Mario Castilla González" || s.User_asig == "José Mario Castilla González")).ToList())
             {
-
                 if (oil.Estatus == 1)
                     realizada++;
                 if (oil.Estatus == 2)
@@ -241,7 +226,6 @@ namespace Flex_SGM.Controllers
                     NoReali++;
                 if (oil.Estatus == 6)
                     Urgente++;
-
             }
             ViewBag.pmrealizada = realizada;
             ViewBag.pmActivos =  NoReali + sinfecha + Urgente + Fechaprox + ConFecha ;
@@ -250,7 +234,6 @@ namespace Flex_SGM.Controllers
 
             foreach (OILs oil in oILs.Where(s => s.Tipo == "Automatizacion" && (s.User_res == "José Mario Castilla González" || s.User_asig == "José Mario Castilla González" || s.User_res == "Juan Ramon Arredondo Pacheco" || s.User_asig == "Juan Ramon Arredondo Pacheco")).ToList())
             {
-
                 if (oil.Estatus == 1)
                     realizada++;
                 if (oil.Estatus == 2)
@@ -263,7 +246,6 @@ namespace Flex_SGM.Controllers
                     NoReali++;
                 if (oil.Estatus == 6)
                     Urgente++;
-
             }
             ViewBag.gprealizada = realizada;
             ViewBag.gpActivos = NoReali + sinfecha + Urgente + Fechaprox + ConFecha+ realizada;
@@ -272,7 +254,6 @@ namespace Flex_SGM.Controllers
 
             foreach (OILs oil in oILs.Where(s => s.Tipo == "Automatizacion" && (s.User_res == "Pedro Dorantes Sanchez" || s.User_asig == "Pedro Dorantes Sanchez" || s.User_res == "Jaime Martinez Prado" || s.User_asig == "Jaime Martinez Prado")).ToList())
             {
-
                 if (oil.Estatus == 1)
                     realizada++;
                 if (oil.Estatus == 2)
@@ -285,15 +266,13 @@ namespace Flex_SGM.Controllers
                     NoReali++;
                 if (oil.Estatus == 6)
                     Urgente++;
-
             }
             ViewBag.ajrealizada = realizada;
             ViewBag.ajActivos = NoReali + sinfecha + Urgente + Fechaprox + ConFecha + realizada;
             Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
 
-            foreach (OILs oil in oILs.Where(s => s.Tipo == "Automatizacion" && (s.User_res == "Marco Arvizu" || s.User_asig == "Marco Arvizu" || s.User_res == "Francisco Armenta Martínez" || s.User_asig == "Francisco Armenta Martínez")).ToList())
+            foreach (OILs oil in oILs.Where(s => (s.Tipo == "Ingenieria" || s.Tipo == "Manufactura") && ((s.User_res == "Hector Salomon Bucio" && s.User_asig == "-") || s.User_asig == "Hector Salomon Bucio")).ToList())
             {
-
                 if (oil.Estatus == 1)
                     realizada++;
                 if (oil.Estatus == 2)
@@ -306,15 +285,13 @@ namespace Flex_SGM.Controllers
                     NoReali++;
                 if (oil.Estatus == 6)
                     Urgente++;
-
             }
-            ViewBag.mfrealizada = realizada;
-            ViewBag.mfActivos = NoReali + sinfecha + Urgente + Fechaprox + ConFecha + realizada;
+            ViewBag.hSrealizada = realizada;
+            ViewBag.hSActivos = NoReali + sinfecha + Urgente + Fechaprox + ConFecha + realizada;
             Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
 
             foreach (OILs oil in oILs.Where(s => (s.Tipo == "Ingenieria" || s.Tipo == "Manufactura") && ((s.User_res == "Jose Erasmo Arellano Grimaldo" && s.User_asig == "-") || s.User_asig == "Jose Erasmo Arellano Grimaldo")).ToList())
             {
-
                 if (oil.Estatus == 1)
                     realizada++;
                 if (oil.Estatus == 2)
@@ -327,7 +304,6 @@ namespace Flex_SGM.Controllers
                     NoReali++;
                 if (oil.Estatus == 6)
                     Urgente++;
-
             }
             ViewBag.eArealizada = realizada;
             ViewBag.eAActivos = NoReali + sinfecha + Urgente + Fechaprox + ConFecha + realizada;
@@ -335,7 +311,6 @@ namespace Flex_SGM.Controllers
 
             foreach (OILs oil in oILs.Where(s => (s.Tipo == "Ingenieria" || s.Tipo == "Manufactura") && ((s.User_res == "Vicente Olvera Gonzalez" && s.User_asig == "-") || s.User_asig == "Vicente Olvera Gonzalez")).ToList())
             {
-
                 if (oil.Estatus == 1)
                     realizada++;
                 if (oil.Estatus == 2)
@@ -348,18 +323,15 @@ namespace Flex_SGM.Controllers
                     NoReali++;
                 if (oil.Estatus == 6)
                     Urgente++;
-
             }
             ViewBag.vOrealizada = realizada;
             ViewBag.vOActivos = NoReali + sinfecha + Urgente + Fechaprox + ConFecha + realizada;
             Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
 
-
             if (string.IsNullOrEmpty(""))
             {
                 foreach (OILs oil in oILs.ToList())
                 {
-
                     if (oil.Estatus == 1)
                         realizada++;
                     if (oil.Estatus == 2)
@@ -378,7 +350,6 @@ namespace Flex_SGM.Controllers
             {
                 foreach (OILs oil in oILs.Where(p => p.User_res == cuser).ToList())
                 {
-
                     if (oil.Estatus == 1)
                         realizada++;
                     if (oil.Estatus == 2)
@@ -423,103 +394,90 @@ namespace Flex_SGM.Controllers
             else
                 ViewBag.super = false;
 
-
-
             ViewBag.Dep = new SelectList(Enum.GetValues(typeof(flex_Departamento)).Cast<flex_Departamento>().ToList());
             ViewBag.Tipo = new SelectList(Enum.GetValues(typeof(flex_Oils)).Cast<flex_Oils>().ToList());
 
-
             if(btn.Contains("Buscar OILs")) { 
-            if (!String.IsNullOrEmpty(searchString))
-            {
-                oILs = oILs.Where(s => s.Tipo.Contains(searchString)
-                   || s.Maquinas.Area.Contains(searchString)
-                       || s.Maquinas.SubMaquina.Contains(searchString)
+                if (!String.IsNullOrEmpty(searchString))
+                {
+                    oILs = oILs.Where(s => s.Tipo.Contains(searchString)
+                        || s.Maquinas.Area.Contains(searchString)
+                        || s.Maquinas.SubMaquina.Contains(searchString)
                         || s.Maquinas.Maquina.Contains(searchString)
-                         || s.User_asig.Contains(searchString)
-                          || s.User_gen.Contains(searchString)
-                          || s.User_res.Contains(searchString)
-                           || s.Actividad.Contains(searchString)
-                            || s.Comentarios.Contains(searchString)
-                                 );
-            }
+                        || s.User_asig.Contains(searchString)
+                        || s.User_gen.Contains(searchString)
+                        || s.User_res.Contains(searchString)
+                        || s.Actividad.Contains(searchString)
+                        || s.Comentarios.Contains(searchString)
+                    );
+                }
 
-            if (!String.IsNullOrEmpty(tipo) && tipo != "--Todas--")
-            {
-                oILs = oILs.Where(s => s.Tipo == tipo);
-            }
+                if (!String.IsNullOrEmpty(tipo) && tipo != "--Todas--")
+                {
+                    oILs = oILs.Where(s => s.Tipo == tipo);
+                }
 
-            if (area.Contains("Soldadura"))
-                area = "Soldadura";
-            if (!String.IsNullOrEmpty(area) && area != "--Todas--")
-            {
-                oILs = oILs.Where(s => s.Maquinas.Area == area);
-            }
+                if (area.Contains("Soldadura"))
+                    area = "Soldadura";
+                if (!String.IsNullOrEmpty(area) && area != "--Todas--")
+                {
+                    oILs = oILs.Where(s => s.Maquinas.Area == area);
+                }
 
-            if (!String.IsNullOrEmpty(Dep) && Dep != "--Todas--")
-            {
-                oILs = oILs.Where(s => s.User_res == Dep);
-            }
+                if (!String.IsNullOrEmpty(Dep) && Dep != "--Todas--")
+                {
+                    oILs = oILs.Where(s => s.User_res == Dep);
+                }
 
-            if (!String.IsNullOrEmpty(maquina) && maquina != "--Todas--")
-            {
-                oILs = oILs.Where(s => s.Maquinas.SubMaquina == maquina);
+                if (!String.IsNullOrEmpty(maquina) && maquina != "--Todas--")
+                {
+                    oILs = oILs.Where(s => s.Maquinas.SubMaquina == maquina);
 
-            }
+                }
 
-            int a1=0, a2 = 0, a3 = 0, a4 = 0, a5 = 0, a6 = 0;
+                int a1=0, a2 = 0, a3 = 0, a4 = 0, a5 = 0, a6 = 0;
 
-            if (c1)
-                a1 = 1;
-            if (c2)
-                a2 = 2;
-            if (c3)
-                a3 = 3;
-            if (c4)
-                a4 = 4;
-            if (c5)
-                a5 = 5;
-            if (c6)
-                a6 = 6;
-
-            if (c1 == false&& c2 == false && c3 == false && c4 == false && c5 == false && c6 == false)
-            {
-
+                if (c1)
                     a1 = 1;
-
+                if (c2)
                     a2 = 2;
-
+                if (c3)
                     a3 = 3;
-
+                if (c4)
                     a4 = 4;
-
+                if (c5)
                     a5 = 5;
-
+                if (c6)
                     a6 = 6;
 
-            }
+                if (c1 == false&& c2 == false && c3 == false && c4 == false && c5 == false && c6 == false)
+                {
+                        a1 = 1;
+                        a2 = 2;
+                        a3 = 3;
+                        a4 = 4;
+                        a5 = 5;
+                        a6 = 6;
+                }
 
-         oILs = oILs.Where(s => s.Estatus == a1
-            || s.Estatus == a2
-            || s.Estatus == a3
-            || s.Estatus == a4
-            || s.Estatus == a5
-            || s.Estatus == a6
-            );
+             oILs = oILs.Where(s => s.Estatus == a1
+                || s.Estatus == a2
+                || s.Estatus == a3
+                || s.Estatus == a4
+                || s.Estatus == a5
+                || s.Estatus == a6
+                );
             }
             else
             {
                 if (!String.IsNullOrEmpty(cuser)&&cuser!= "xxx")
                 {
                     oILs = oILs.Where(s => s.User_asig.Contains(cuser)
-                              || s.User_gen.Contains(cuser)
-                              || s.User_res.Contains(cuser)
-                                     );
+                        || s.User_gen.Contains(cuser)
+                        || s.User_res.Contains(cuser)
+                    );
                 }
-
             }
-
-
             return View(await oILs.ToListAsync());
         }
 
@@ -552,7 +510,6 @@ namespace Flex_SGM.Controllers
                 if (oil.DiaHora_Cierre != null)
                     oil.Estatus = 1;
 
-
                 db.Entry(oil).State = EntityState.Modified;
                 db.SaveChanges();
             }
@@ -562,7 +519,6 @@ namespace Flex_SGM.Controllers
             {
                 foreach (OILs oil in oILs.ToList())
                 {
-
                     if (oil.Estatus == 1)
                         realizada++;
                     if (oil.Estatus == 2)
@@ -581,7 +537,6 @@ namespace Flex_SGM.Controllers
             {
                 foreach (OILs oil in oILs.Where(p => p.User_res == cuser).ToList())
                 {
-
                     if (oil.Estatus == 1)
                         realizada++;
                     if (oil.Estatus == 2)
@@ -621,6 +576,7 @@ namespace Flex_SGM.Controllers
             }
             return View(oILs);
         }
+
         [Authorize]
         // GET: OILs/Create
         public ActionResult Create()
@@ -655,11 +611,10 @@ namespace Flex_SGM.Controllers
 
             if (ModelState.IsValid)
             {
-                
                 if (string.IsNullOrEmpty(oILs.User_asig))
                     oILs.User_asig = "-";
                 if (string.IsNullOrEmpty(oILs.User_res))
-                    oILs.User_res = "Jose Luis Olivarez Dominguez";
+                    oILs.User_res = "** NO ASIGNADO **";
 
                 db.OILs.Add(oILs);
                 await db.SaveChangesAsync();
@@ -667,21 +622,20 @@ namespace Flex_SGM.Controllers
                 ApplicationUser cUser2 = UserManager.Users.Where(u => u.UserFullName.Contains(oILs.User_asig)).FirstOrDefault();
                 //ApplicationUser cUser3 = UserManager.Users.Where(u => u.UserFullName.Contains(oILs.User_gen)).FirstOrDefault();
                 var scorreo = new EmailController();
+
                 if (cUser1 != null)
                 {
                     if (cUser1.Email != null && cUser1.UserFullName != cuser)
                     if (cUser1.Email.Contains("@flexngate.com"))
                     {
-
                         scorreo.newoil(cUser1.Email, cuser, oILs.Actividad);
                     }
                 }
                 if (cUser2 != null)
                 {
                     if (cUser2.Email != null && cUser2.UserFullName != cuser)
-                        if (cUser2.Email.Contains("@flexngate.com"))
+                    if (cUser2.Email.Contains("@flexngate.com"))
                     {
-
                         scorreo.newoil(cUser2.Email, cuser, oILs.Actividad);
                     }
                 }
@@ -698,21 +652,18 @@ namespace Flex_SGM.Controllers
                 */
                 return RedirectToAction("Index");
             }
-           
             ViewBag.MaquinasID = new SelectList(db.Maquinas, "ID", "Area", oILs.MaquinasID);
             return View(oILs);
         }
        
         public PartialViewResult _Comments(int id)
         {
-
             var comme = db.Comments.Where(i=>i.OILs.ID==id).AsQueryable();
 
             return PartialView("~/Views/Shared/_Comments.cshtml", comme);
         }
 
         [HttpPost]
-       
         public ActionResult AddComment(string commentMsg, int cid)
         {
             var id = User.Identity.GetUserId();
@@ -728,7 +679,6 @@ namespace Flex_SGM.Controllers
                 fecha = DateTime.Now,
                 message = commentMsg,
                 Usuario = cuser
-
             };
             db.Comments.Add(Commente);
             db.SaveChanges();
@@ -739,9 +689,9 @@ namespace Flex_SGM.Controllers
             if (cUser1 != null)
             {
                 if (cUser1.Email != null && cUser1.UserFullName != cuser)
-                if (cUser1.Email.Contains("@flexngate.com")) {
-                   
-                      scorreo.updateoil(cUser1.Email, cuser, cid.ToString(), commentMsg);
+                if (cUser1.Email.Contains("@flexngate.com")) 
+                {
+                    scorreo.updateoil(cUser1.Email, cuser, cid.ToString(), commentMsg);
                 }
             }
             if (cUser2 != null )
@@ -749,7 +699,6 @@ namespace Flex_SGM.Controllers
                 if(cUser2.Email != null && cUser2.UserFullName != cuser)
                 if (cUser2.Email.Contains("@flexngate.com"))
                 {
-
                     scorreo.updateoil(cUser2.Email, cuser, cid.ToString(), commentMsg);
                 }
             }
@@ -758,19 +707,14 @@ namespace Flex_SGM.Controllers
                 if( cUser3.Email != null && cUser3.UserFullName != cuser)
                 if (cUser3.Email.Contains("@flexngate.com"))
                 {
-
                     scorreo.updateoil(cUser3.Email, cuser, cid.ToString(), commentMsg);
                 }
             }
             return RedirectToAction("_Comments", "OILs", new { id = cid });
-
         }
-
 
         public ActionResult Update(int? id)
         {
-
-
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -783,11 +727,10 @@ namespace Flex_SGM.Controllers
             }
             SelectList selectList1 = new SelectList(db.Users, "UserFullName", "UserFullName", OILs.User_asig);
 
-
             ViewBag.User_asig = selectList1;
-
             return View(OILs);
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Update([Bind(Include = "ID,Tipo,Folio,MaquinasID ,Actividad ,User_gen,DiaHora ,User_res ,DiaHora_Compromiso ,User_asig ,DiaHora_Cierre ,DiaHora_Verificado ,Usuario_Verifico ,Comentarios,Comentarios2,Material_necesario,urgente,Estatus")] OILs OILs, bool Actividad_Finalizada)
@@ -830,7 +773,6 @@ namespace Flex_SGM.Controllers
                 {
                     ViewBag.Warning = "No existe imagenes de Evidencia( Para poder cerrar un OIL hay que subir imagenes de evidencia)";
                     return View(OILs);
-
                 }
 
                 }
@@ -843,7 +785,6 @@ namespace Flex_SGM.Controllers
                     if (cuser != "Anonimo")
                     OILs.User_asig= cuser;
                 }
-                  
 
                 db.Entry(OILs).State = EntityState.Modified;
                 db.SaveChanges();
@@ -856,7 +797,6 @@ namespace Flex_SGM.Controllers
                     if(cUser1.Email != null && cUser1.UserFullName != cuser)
                     if (cUser1.Email.Contains("@flexngate.com"))
                     {
-
                         scorreo.updateoil(cUser1.Email, cuser, OILs.ID.ToString(), "Actualización de Actividades");
                     }
                 }
@@ -865,7 +805,6 @@ namespace Flex_SGM.Controllers
                     if (cUser2.Email != null && cUser2.UserFullName != cuser)
                     if (cUser2.Email.Contains("@flexngate.com"))
                     {
-
                         scorreo.updateoil(cUser2.Email, cuser, OILs.ID.ToString(), "Actualización de Actividades");
                     }
                 }
@@ -881,7 +820,6 @@ namespace Flex_SGM.Controllers
             }
             return View(OILs);
         }
-
 
         [HttpPost]
         public ActionResult fileud(OILs model, HttpPostedFileBase someFile)
@@ -958,7 +896,6 @@ namespace Flex_SGM.Controllers
                     fName = Guid.NewGuid().ToString(); //file.FileName;
                     if (file != null && file.ContentLength > 0)
                     {
-
                         var originalDirectory = new System.IO.DirectoryInfo(string.Format("{0}Images\\uploaded", Server.MapPath(@"\")));
                         string pathString = System.IO.Path.Combine(originalDirectory.ToString(), "imagepath");
                         var fileName1 = System.IO.Path.GetFileName(file.FileName);
@@ -1011,9 +948,9 @@ namespace Flex_SGM.Controllers
                 return Json(false);
 
         }
+
         public FileResult deleteFile(string link)
         {
-
             string fileName2 = Server.MapPath("~/Evidence/Delete");
             string fileName = "";
             link = link.Replace(@"../../", "");
@@ -1024,13 +961,11 @@ namespace Flex_SGM.Controllers
             byte[] fileBytes = System.IO.File.ReadAllBytes(link);
             if(!System.IO.Directory.Exists(dirName2))
             System.IO.Directory.CreateDirectory(dirName2);
-
             System.IO.File.Copy(link, fileName2);
             System.IO.File.Delete(link);
             return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
-
-
         }
+
         public FileResult Download(string link)
         {
             string fileName = "";
@@ -1110,7 +1045,6 @@ namespace Flex_SGM.Controllers
             var allcoment = db.Comments.Where(c => c.OILs.ID == id);
             db.Comments.RemoveRange(allcoment);
             db.OILs.Remove(oILs);
-
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }

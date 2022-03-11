@@ -8402,7 +8402,7 @@ function pageOrientation(pageOrientationString, currentPageOrientation) {
 	} else if (isString(pageOrientationString) && (pageOrientationString.toLowerCase() === 'landscape')) {
 		return 'landscape';
 	} else {
-		return 'portrait';
+        return 'landscape';
 	}
 }
 
@@ -13266,7 +13266,7 @@ function fixPageSize(pageSize, pageOrientation) {
 	function isNeedSwapPageSizes(pageOrientation) {
 		if (isString(pageOrientation)) {
 			pageOrientation = pageOrientation.toLowerCase();
-			return ((pageOrientation === 'portrait') && (size.width > size.height)) ||
+            return ((pageOrientation === 'landscape') && (size.width > size.height)) ||
 				((pageOrientation === 'landscape') && (size.width < size.height));
 		}
 		return false;
@@ -13281,7 +13281,7 @@ function fixPageSize(pageSize, pageOrientation) {
 	if (isNeedSwapPageSizes(pageOrientation)) { // swap page sizes
 		size = {width: size.height, height: size.width};
 	}
-	size.orientation = size.width > size.height ? 'landscape' : 'portrait';
+    size.orientation = size.width > size.height ? 'landscape' : 'landscape';
 	return size;
 }
 
@@ -13374,7 +13374,7 @@ function pageSize2widthAndHeight(pageSize) {
 }
 
 function updatePageOrientationInOptions(currentPage, pdfKitDoc) {
-	var previousPageOrientation = pdfKitDoc.options.size[0] > pdfKitDoc.options.size[1] ? 'landscape' : 'portrait';
+    var previousPageOrientation = pdfKitDoc.options.size[0] > pdfKitDoc.options.size[1] ? 'landscape' : 'landscape';
 
 	if (currentPage.pageSize.orientation !== previousPageOrientation) {
 		var width = pdfKitDoc.options.size[0];
@@ -24118,7 +24118,7 @@ By Devon Govett
         options = {};
       }
       this.size = options.size || 'letter';
-      this.layout = options.layout || 'portrait';
+        this.layout = options.layout || 'landscape';
       if (typeof options.margin === 'number') {
         this.margins = {
           top: options.margin,
@@ -24130,8 +24130,8 @@ By Devon Govett
         this.margins = options.margins || DEFAULT_MARGINS;
       }
       dimensions = Array.isArray(this.size) ? this.size : SIZES[this.size.toUpperCase()];
-      this.width = dimensions[this.layout === 'portrait' ? 0 : 1];
-      this.height = dimensions[this.layout === 'portrait' ? 1 : 0];
+        this.width = dimensions[this.layout === 'landscape' ? 0 : 1];
+        this.height = dimensions[this.layout === 'landscape' ? 1 : 0];
       this.content = this.document.ref();
       this.resources = this.document.ref({
         ProcSet: ['PDF', 'Text', 'ImageB', 'ImageC', 'ImageI']

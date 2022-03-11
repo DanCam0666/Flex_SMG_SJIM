@@ -150,7 +150,7 @@ function init_morris_charts() {
 			
 }
 function x() {
-	if (document.title === "Repo - Ingenieria" || document.title === "Create - Ingenieria" || document.title === "Estado de OILs - Ingenieria" || document.title === "IPs - Ingenieria")
+	if (document.title === "Repo - Ingeniería" || document.title === "Create - Ingeniería" || document.title === "Estado de OILs - Ingeniería" || document.title === "IPs - Ingeniería")
     $('.collapse-link').trigger("click");
 }
 
