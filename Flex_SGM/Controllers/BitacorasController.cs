@@ -18,12 +18,9 @@ using System.Globalization;
 
 namespace Flex_SGM.Controllers
 {
-      public class BitacorasController : Controller
+    public class BitacorasController : Controller
     {
-
-
         private ApplicationDbContext db = new ApplicationDbContext();
-
         private ApplicationUserManager _userManager;
         public ApplicationUserManager UserManager
         {
@@ -84,10 +81,7 @@ namespace Flex_SGM.Controllers
                 turnos = turnos + "| 3er ";
             }
 
-
-
             //************************
-
 
             var bitacora = from s in db.Bitacoras.Include(b => b.Maquinas)
                            select s;
@@ -111,12 +105,12 @@ namespace Flex_SGM.Controllers
                     amaquina = "Soldadura";
                 }
 
-                                    if (amaquina.Contains("MetalFinish"))
+                if (amaquina.Contains("MetalFinish"))
                 {
                     bitacora = bitacora.Where(s => s.Maquinas.Area == "Cromo" || s.Maquinas.Area == "Cromo1" || s.Maquinas.Area == "Cromo2" || s.Maquinas.Area == "AutoPulido1" || s.Maquinas.Area == "AutoPulido2" || s.Maquinas.Area == "Pintura" || s.Maquinas.Area == "Ecoat" || s.Maquinas.Area == "Topcoat" || s.Maquinas.Area == "MetalFinish");
                 }
                 else
-             if (amaquina=="Cromo")
+                if (amaquina=="Cromo")
                 {
                     bitacora = bitacora.Where(s => s.Maquinas.Area == "Cromo" || s.Maquinas.Area == "Cromo1" || s.Maquinas.Area == "Cromo2" || s.Maquinas.Area == "AutoPulido1" || s.Maquinas.Area == "AutoPulido2");
                 }
@@ -131,12 +125,10 @@ namespace Flex_SGM.Controllers
             if (!String.IsNullOrEmpty(puesto) && puesto != "--Todas--")
             {
                 bitacora = bitacora.Where(s => s.usuario_puesto.Contains(puesto));
-
             }
             if (!String.IsNullOrEmpty(maquina) && maquina != "--Todas--")
             {
                 bitacora = bitacora.Where(s => s.MaquinasID.ToString().Contains(maquina));
-
             }
             if (!String.IsNullOrEmpty(searchString))
             {
@@ -147,12 +139,12 @@ namespace Flex_SGM.Controllers
                                        || s.Maquinas.SubMaquina.Contains(searchString)
                                        || s.Sintoma.Contains(searchString)
                                        || s.Causa.Contains(searchString)
-                                        || s.Folio.Contains(searchString)
+                                       || s.Folio.Contains(searchString)
                                        || s.AccionCorrectiva.Contains(searchString));
             }
             bitacora = bitacora.Where(s => (((s.DiaHora.Hour > f1i && s.DiaHora.Hour <= f1f) && (s.DiaHora >= fi && s.DiaHora <= ff)))
-                                        || (((s.DiaHora.Hour > f2i && s.DiaHora.Hour <= f2f) && (s.DiaHora >= fi && s.DiaHora <= ff)))
-                                        || ((s.DiaHora.Hour > f3i || s.DiaHora.Hour <= f3f) && (s.DiaHora >= fi && s.DiaHora <= ff3)));
+                                       || (((s.DiaHora.Hour > f2i && s.DiaHora.Hour <= f2f) && (s.DiaHora >= fi && s.DiaHora <= ff)))
+                                       || ((s.DiaHora.Hour > f3i || s.DiaHora.Hour <= f3f) && (s.DiaHora >= fi && s.DiaHora <= ff3)));
             // var path = Server.MapPath("~/Temp");
 
             var wb = new XLWorkbook();
@@ -224,7 +216,6 @@ namespace Flex_SGM.Controllers
                     ws.Cell(8, 18).Value = "Verificado Por";
                     ws.Cell(8, 19).Value = "Fecha de vrificacion";
 
-
                     ws.Ranges($"A8:{x}8").Style.Fill.SetBackgroundColor(XLColor.LightGray);
 
                     ws.Cells($"A8:{x}8").Style.Border.SetOutsideBorder(XLBorderStyleValues.Thin);
@@ -240,7 +231,6 @@ namespace Flex_SGM.Controllers
                         color = false;
                     }
                     else color = true;
-
                     ws.Cell(i, 1).Value = bita.usuario;
                     ws.Cell(i, 2).Value = bita.DiaHora;
                     ws.Cell(i, 3).Value = bita.Maquinas.Cliente;
@@ -260,24 +250,17 @@ namespace Flex_SGM.Controllers
                     ws.Cell(i, 17).Value = 0;//bita.MTTR;
                     ws.Cell(i, 18).Value = bita.Verifico;
                     ws.Cell(i, 19).Value = bita.FechaVerificacion;
-
                     ws.Cells($"A{i}:{x}{i}").Style.Border.SetOutsideBorder(XLBorderStyleValues.Thin);
                     ws.Cells($"A{i}:{x}{i}").Style.Border.SetOutsideBorderColor(XLColor.Black);
-
                     i++;
                 }
-
-
             }
-
 
             using (MemoryStream stream = new MemoryStream())
             {
                 wb.SaveAs(stream);
                 return File(stream.ToArray(), "holotopo", "Bitacora.xlsx");
             }
-
-
         }
 
         public FileResult Exportsuper(string searchString, string area, string puesto, string amaquina, string maquina, string fecha_inicial, string fecha_final, bool t1 = false, bool t2 = false, bool t3 = false, bool nt = false, bool fs = false)
@@ -297,6 +280,7 @@ namespace Flex_SGM.Controllers
             var f3i = 25;
             var f3f = -1;
             string turnos = "";
+
             if (t1)
             {
                 f1i = 7;
@@ -316,15 +300,10 @@ namespace Flex_SGM.Controllers
                 ff3 = ff.AddDays(1);
                 turnos = turnos + "| 3er ";
             }
-
-
-
             //************************
-
 
             var bitacora = from s in db.Bitacoras.Include(b => b.Maquinas)
                            select s;
-
             if (nt)
                 bitacora = bitacora.Where(s => s.noterminado == true);
             if (fs)
@@ -350,12 +329,12 @@ namespace Flex_SGM.Controllers
                     bitacora = bitacora.Where(s => s.Maquinas.Area == "Cromo" || s.Maquinas.Area == "Cromo1" || s.Maquinas.Area == "Cromo2" || s.Maquinas.Area == "AutoPulido1" || s.Maquinas.Area == "AutoPulido2" || s.Maquinas.Area == "Pintura" || s.Maquinas.Area == "Ecoat" || s.Maquinas.Area == "Topcoat" || s.Maquinas.Area == "MetalFinish");
                 }
                 else
-if (amaquina.Contains("Cromo"))
+                if (amaquina.Contains("Cromo"))
                 {
                     bitacora = bitacora.Where(s => s.Maquinas.Area == "Cromo" || s.Maquinas.Area == "Cromo1" || s.Maquinas.Area == "Cromo2" || s.Maquinas.Area == "AutoPulido1" || s.Maquinas.Area == "AutoPulido2");
                 }
                 else
-if (amaquina.Contains("Pintura"))
+                if (amaquina.Contains("Pintura"))
                 {
                     bitacora = bitacora.Where(s => s.Maquinas.Area == "Pintura" || s.Maquinas.Area == "Ecoat" || s.Maquinas.Area == "Topcoat");
                 }
@@ -381,12 +360,12 @@ if (amaquina.Contains("Pintura"))
                                        || s.Maquinas.SubMaquina.Contains(searchString)
                                        || s.Sintoma.Contains(searchString)
                                        || s.Causa.Contains(searchString)
-                                        || s.Folio.Contains(searchString)
+                                       || s.Folio.Contains(searchString)
                                        || s.AccionCorrectiva.Contains(searchString));
             }
             bitacora = bitacora.Where(s => (((s.DiaHora.Hour > f1i && s.DiaHora.Hour <= f1f) && (s.DiaHora >= fi && s.DiaHora <= ff)))
-                                        || (((s.DiaHora.Hour > f2i && s.DiaHora.Hour <= f2f) && (s.DiaHora >= fi && s.DiaHora <= ff)))
-                                        || ((s.DiaHora.Hour > f3i || s.DiaHora.Hour <= f3f) && (s.DiaHora >= fi && s.DiaHora <= ff3)));
+                                       || (((s.DiaHora.Hour > f2i && s.DiaHora.Hour <= f2f) && (s.DiaHora >= fi && s.DiaHora <= ff)))
+                                       || ((s.DiaHora.Hour > f3i || s.DiaHora.Hour <= f3f) && (s.DiaHora >= fi && s.DiaHora <= ff3)));
             // var path = Server.MapPath("~/Temp");
 
             var wb = new XLWorkbook();
@@ -440,8 +419,6 @@ if (amaquina.Contains("Pintura"))
 
                 if (!string.IsNullOrEmpty(bita.usuario))
                 {
-
-
                     ws.Cell(i, 3).Value = bita.Maquinas.SubMaquina;
                     ws.Cell(i, 4).Value = bita.Sintoma + " - " + bita.Causa;
                     ws.Cell(i, 5).Value = bita.AccionCorrectiva;
@@ -466,14 +443,11 @@ if (amaquina.Contains("Pintura"))
                 ws.Range($"A1:{x}{i - 1}").Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
             }
 
-
             using (MemoryStream stream = new MemoryStream())
             {
                 wb.SaveAs(stream);
                 return File(stream.ToArray(), "holotopo", "Actividades_" + fecha_inicial + ".xlsx");
             }
-
-
         }
         // GET: Bitacoras
         [AllowAnonymous]
@@ -559,8 +533,6 @@ if (amaquina.Contains("Pintura"))
                 turnos = turnos + "| 3er ";
             }
 
-
-
             //************************
 
             ViewBag.t1 = t1;
@@ -619,12 +591,10 @@ if (amaquina.Contains("Pintura"))
             if (!String.IsNullOrEmpty(puesto) && puesto != "--Todas--")
             {
                 bitacoras = bitacoras.Where(s => s.usuario_puesto.Contains(puesto));
-
             }
             if (!String.IsNullOrEmpty(maquina) && maquina != "--Todas--")
             {
                 bitacoras = bitacoras.Where(s => s.MaquinasID.ToString().Contains(maquina));
-
             }
             if (!String.IsNullOrEmpty(searchString))
             {
@@ -635,15 +605,13 @@ if (amaquina.Contains("Pintura"))
                                        || s.Maquinas.SubMaquina.Contains(searchString)
                                        || s.Sintoma.Contains(searchString)
                                        || s.Causa.Contains(searchString)
-                                        || s.Folio.Contains(searchString)
+                                       || s.Folio.Contains(searchString)
                                        || s.AccionCorrectiva.Contains(searchString));
             }
 
             bitacoras = bitacoras.Where(s => (((s.DiaHora.Hour > f1i && s.DiaHora.Hour <= f1f) && (s.DiaHora >= fi && s.DiaHora <= ff)))
-                                        || (((s.DiaHora.Hour > f2i && s.DiaHora.Hour <= f2f) && (s.DiaHora >= fi && s.DiaHora <= ff)))
-                                        || ((s.DiaHora.Hour > f3i || s.DiaHora.Hour <= f3f) &&( s.DiaHora >= fi && s.DiaHora <= ff3)));
-
-
+                                       || (((s.DiaHora.Hour > f2i && s.DiaHora.Hour <= f2f) && (s.DiaHora >= fi && s.DiaHora <= ff)))
+                                       || ((s.DiaHora.Hour > f3i || s.DiaHora.Hour <= f3f) &&( s.DiaHora >= fi && s.DiaHora <= ff3)));
 
             var id = User.Identity.GetUserId();
             ApplicationUser currentUser = UserManager.FindById(id); 
@@ -663,9 +631,7 @@ if (amaquina.Contains("Pintura"))
             else
                 ViewBag.super = false;
 
-           
             return View(await bitacoras.ToListAsync());
-       
         }
 
         [Authorize]
@@ -675,7 +641,7 @@ if (amaquina.Contains("Pintura"))
             {
                 // return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 return "Error de ID";
-             }
+            }
             Bitacora bitacora =  db.Bitacoras.Find(id);
             if (bitacora == null)
             {
@@ -716,7 +682,6 @@ if (amaquina.Contains("Pintura"))
         }
         public ActionResult Show(string searchString, string area, string puesto, string amaquina, string maquina, string fecha_inicial, string fecha_final, bool t1 = false, bool t2 = false, bool t3 = false, bool nt = false, bool fs = false)
         {
-
             var bitacora = from s in db.Bitacoras
                            select s;
             if (nt)
@@ -743,12 +708,12 @@ if (amaquina.Contains("Pintura"))
                     bitacora = bitacora.Where(s => s.Maquinas.Area == "Cromo" || s.Maquinas.Area == "Cromo1" || s.Maquinas.Area == "Cromo2" || s.Maquinas.Area == "AutoPulido1" || s.Maquinas.Area == "AutoPulido2" || s.Maquinas.Area == "Pintura" || s.Maquinas.Area == "Ecoat" || s.Maquinas.Area == "Topcoat" || s.Maquinas.Area == "MetalFinish");
                 }
                 else
-if (amaquina.Contains("Cromo"))
+                if (amaquina.Contains("Cromo"))
                 {
                     bitacora = bitacora.Where(s => s.Maquinas.Area == "Cromo" || s.Maquinas.Area == "Cromo1" || s.Maquinas.Area == "Cromo2" || s.Maquinas.Area == "AutoPulido1" || s.Maquinas.Area == "AutoPulido2");
                 }
                 else
-if (amaquina.Contains("Pintura"))
+                if (amaquina.Contains("Pintura"))
                 {
                     bitacora = bitacora.Where(s => s.Maquinas.Area == "Pintura" || s.Maquinas.Area == "Ecoat" || s.Maquinas.Area == "Topcoat");
                 }
@@ -758,12 +723,10 @@ if (amaquina.Contains("Pintura"))
             if (!String.IsNullOrEmpty(puesto) && puesto != "--Todas--")
             {
                 bitacora = bitacora.Where(s => s.usuario_puesto.Contains(puesto));
-
             }
             if (!String.IsNullOrEmpty(maquina) && maquina != "--Todas--")
             {
                 bitacora = bitacora.Where(s => s.MaquinasID.ToString().Contains(maquina));
-
             }
             if (!String.IsNullOrEmpty(searchString))
             {
@@ -773,7 +736,7 @@ if (amaquina.Contains("Pintura"))
                                        || s.Maquinas.Maquina.Contains(searchString)
                                        || s.Sintoma.Contains(searchString)
                                        || s.Causa.Contains(searchString)
-                                        || s.Folio.Contains(searchString)
+                                       || s.Folio.Contains(searchString)
                                        || s.AccionCorrectiva.Contains(searchString));
             }
             if (string.IsNullOrEmpty(fecha_inicial))
@@ -787,7 +750,6 @@ if (amaquina.Contains("Pintura"))
                 t2 = true;
                 t3 = true;
             }
-
             //******************************
             var fi = Convert.ToDateTime(fecha_inicial);
             fi = fi + new TimeSpan(7, 0, 0);
@@ -821,14 +783,12 @@ if (amaquina.Contains("Pintura"))
                 turnos = turnos + "| 3er ";
             }
 
-
-
             //************************
             bitacora = bitacora.Where(x => x.Tiempo >= 1);
             var query2 = bitacora.Where(s => (((s.DiaHora.Hour > f1i && s.DiaHora.Hour <= f1f) && (s.DiaHora >= fi && s.DiaHora <= ff)))
                                         || (((s.DiaHora.Hour > f2i && s.DiaHora.Hour <= f2f) && (s.DiaHora >= fi && s.DiaHora <= ff)))
                                         || ((s.DiaHora.Hour > f3i || s.DiaHora.Hour <= f3f) && (s.DiaHora >= fi && s.DiaHora <= ff3))).GroupBy(p => p.Maquinas.Maquina)
-                        .Select(g => new { Maquina = g.Key, count = g.Count(), time = g.Sum(x => x.Tiempo) });
+                                .Select(g => new { Maquina = g.Key, count = g.Count(), time = g.Sum(x => x.Tiempo) });
 
             var query = query2.ToList();
             if (query.Count() >= 1)
@@ -840,7 +800,6 @@ if (amaquina.Contains("Pintura"))
                 {
                     ObjectName.Add(item.Maquina);
                     Data.Add(item.count);
-
                 }
                 string objet;
                 string dat;
@@ -876,8 +835,6 @@ if (amaquina.Contains("Pintura"))
                     List<int> Data2 = new List<int>();
                     foreach (var item in query)
                     {
-
-
                         ObjectName2.Add(item.Maquina);
                         Data2.Add(item.time);
                     }
@@ -907,7 +864,6 @@ if (amaquina.Contains("Pintura"))
                     ViewBag.ObjectName2 = objet;
                     ViewBag.Data2 = dat;
                     
-
                     var bitacora2 = from s in db.Bitacoras
                                     select s;
 
@@ -921,56 +877,53 @@ if (amaquina.Contains("Pintura"))
                     if (!string.IsNullOrEmpty(area))                  
                         bitacora2 = bitacora2.Where(s => s.usuario_area.Contains(area)); 
 
-                        string xx = ObjectName2.ElementAt(0).ToString();
+                    string xx = ObjectName2.ElementAt(0).ToString();
                     ViewBag.Machinetop1name = xx;                  
+
                     List<Flex_SGM.Models.Bitacora> Machinetop1 = bitacora2.Where(p => p.Tiempo >= 1 && p.Maquinas.Maquina == xx).ToList();
                     ViewBag.Machinetop1 = Machinetop1;
+
                     if (query.Count() > 1) { 
                         xx = ObjectName2.ElementAt(1).ToString();
-                    ViewBag.Machinetop2name = xx;
-                    List<Flex_SGM.Models.Bitacora> Machinetop2 = bitacora2.Where(p => p.Tiempo >= 1 && p.Maquinas.Maquina == xx).ToList();
-                    ViewBag.Machinetop2 = Machinetop2;
+                        ViewBag.Machinetop2name = xx;
+                        List<Flex_SGM.Models.Bitacora> Machinetop2 = bitacora2.Where(p => p.Tiempo >= 1 && p.Maquinas.Maquina == xx).ToList();
+                        ViewBag.Machinetop2 = Machinetop2;
                     }
                     if (query.Count() > 2)
                     {
                         xx = ObjectName2.ElementAt(2).ToString();
-                    ViewBag.Machinetop3name = xx;
-                    List<Flex_SGM.Models.Bitacora> Machinetop3 = bitacora2.Where(p => p.Tiempo >= 1 && p.DiaHora >= fi && p.DiaHora <= ff && p.Maquinas.Maquina == xx ).ToList();
-                    ViewBag.Machinetop3 = Machinetop3;
+                        ViewBag.Machinetop3name = xx;
+                        List<Flex_SGM.Models.Bitacora> Machinetop3 = bitacora2.Where(p => p.Tiempo >= 1 && p.DiaHora >= fi && p.DiaHora <= ff && p.Maquinas.Maquina == xx ).ToList();
+                        ViewBag.Machinetop3 = Machinetop3;
                     }
                     if (query.Count() > 3)
                     {
                         xx = ObjectName2.ElementAt(3).ToString();
-                    ViewBag.Machinetop4name = xx;
-                    List<Flex_SGM.Models.Bitacora> Machinetop4 = bitacora2.Where(p => p.Tiempo >= 1 && p.Maquinas.Maquina == xx).ToList();
-                    ViewBag.Machinetop4 = Machinetop4;
+                        ViewBag.Machinetop4name = xx;
+                        List<Flex_SGM.Models.Bitacora> Machinetop4 = bitacora2.Where(p => p.Tiempo >= 1 && p.Maquinas.Maquina == xx).ToList();
+                        ViewBag.Machinetop4 = Machinetop4;
                     }
                     if (query.Count() > 4)
                     {
                         xx = ObjectName2.ElementAt(4).ToString();
-                    ViewBag.Machinetop5name = xx;
-                    List<Flex_SGM.Models.Bitacora> Machinetop5 = bitacora2.Where(p => p.Tiempo >= 1 && p.Maquinas.Maquina == xx).ToList();
-                    ViewBag.Machinetop5 = Machinetop5;
+                        ViewBag.Machinetop5name = xx;
+                        List<Flex_SGM.Models.Bitacora> Machinetop5 = bitacora2.Where(p => p.Tiempo >= 1 && p.Maquinas.Maquina == xx).ToList();
+                        ViewBag.Machinetop5 = Machinetop5;
                     }
-
-
-
                 }
                 ViewBag.fecha_inicial = fi.ToShortDateString();
                 ViewBag.fecha_final = ff.ToShortDateString();
 
-
                 return View();
             }
-                            else
-                            {
-                               ViewBag.Danger = "No existe la cantidad minima de 1 maquina con falla para poder generar el Reporte!";
-                                TempData["Danger"] = "No existe la cantidad minima de 1 maquina con falla para poder generar el Reporte!";
-                               return RedirectToAction("Index");
+            else
+            {
+                ViewBag.Danger = "No existe la cantidad minima de 1 maquina con falla para poder generar el Reporte!";
+                TempData["Danger"] = "No existe la cantidad minima de 1 maquina con falla para poder generar el Reporte!";
+                return RedirectToAction("Index");
+            }
 
-                            }
-
-                        }
+        }
 
         public ActionResult Repo (string searchString, string area, string puesto, string amaquina, string maquina, string fecha_inicial, string fecha_final, bool t1 = false, bool t2 = false, bool t3 = false, bool nt = false, bool fs = false)
         {
@@ -1030,7 +983,6 @@ if (amaquina.Contains("Pintura"))
 
             Target = Target * Math.Round(tdays.TotalDays);
 
-
             ViewBag.Targetf = Target;
             //************************
             ViewBag.fechaconsulta = "La fecha inicial es: " + f1i.ToString() + "  La Fecha final es: " + f3f.ToString();
@@ -1054,12 +1006,12 @@ if (amaquina.Contains("Pintura"))
                     bitacora = bitacora.Where(s => s.Maquinas.Area == "Cromo" || s.Maquinas.Area == "Cromo1" || s.Maquinas.Area == "Cromo2" || s.Maquinas.Area == "AutoPulido1" || s.Maquinas.Area == "AutoPulido2" || s.Maquinas.Area == "Pintura" || s.Maquinas.Area == "Ecoat" || s.Maquinas.Area == "Topcoat" || s.Maquinas.Area == "MetalFinish");
                 }
                 else
-if (amaquina.Contains("Cromo"))
+                if (amaquina.Contains("Cromo"))
                 {
                     bitacora = bitacora.Where(s => s.Maquinas.Area == "Cromo" || s.Maquinas.Area == "Cromo1" || s.Maquinas.Area == "Cromo2" || s.Maquinas.Area == "AutoPulido1" || s.Maquinas.Area == "AutoPulido2");
                 }
                 else
-if (amaquina.Contains("Pintura"))
+                if (amaquina.Contains("Pintura"))
                 {
                     bitacora = bitacora.Where(s => s.Maquinas.Area == "Pintura" || s.Maquinas.Area == "Ecoat" || s.Maquinas.Area == "Topcoat");
                 }
@@ -1071,7 +1023,7 @@ if (amaquina.Contains("Pintura"))
             var bitacoraes = bitacora.Where(s => s.Maquinas.Area.Contains("Estampado"));
             var bitacoramf = bitacora.Where(s => s.Maquinas.Area == "Cromo" || s.Maquinas.Area == "Cromo1" || s.Maquinas.Area == "Cromo2" || s.Maquinas.Area == "AutoPulido1" || s.Maquinas.Area == "AutoPulido2" || s.Maquinas.Area == "Pintura" || s.Maquinas.Area == "Ecoat" || s.Maquinas.Area == "Topcoat" || s.Maquinas.Area == "MetalFinish");
             var bitacoraps = bitacora.Where(s => s.Maquinas.Area.Contains("Soldadura"));
-            //var bitacorams = bitacora.Where(s => s.Maquinas.Area.Contains("Soldadura"));
+          //var bitacorams = bitacora.Where(s => s.Maquinas.Area.Contains("Soldadura"));
             var bitacoraen = bitacora.Where(s => s.Maquinas.Area.Contains("Ensamble"));
             var bitacoraau = bitacora;
             var bitacoraseM = bitacorase.Where(d => d.Tiempo > 0 && d.Maquinas.Maquina.ToUpper().Contains("MONTACARGAS"));
@@ -1080,7 +1032,7 @@ if (amaquina.Contains("Pintura"))
             bitacoraes = bitacoraes.Where(d => d.Tiempo > 0);
             bitacoramf = bitacoramf.Where(d => d.Tiempo > 0);
             bitacoraps = bitacoraps.Where(d => d.Tiempo > 0);
-         //   bitacorams = bitacorams.Where(d => d.Tiempo > 0);
+          //bitacorams = bitacorams.Where(d => d.Tiempo > 0);
             bitacoraen = bitacoraen.Where(d => d.Tiempo > 0);
             bitacoraau = bitacoraau.Where(d => d.Tiempo > 0);
 
@@ -1096,28 +1048,26 @@ if (amaquina.Contains("Pintura"))
                 string tdat;
 
                 query = query.OrderByDescending(s => s.time).ToList();
-                    List<string> ObjectName2 = new List<string>();
-                    List<int> Data2 = new List<int>();
-                    foreach (var item in query)
-                    {
+                List<string> ObjectName2 = new List<string>();
+                List<int> Data2 = new List<int>();
+                foreach (var item in query)
+                {
+                    ObjectName2.Add(item.Maquina);
+                    Data2.Add(item.time);
+                }
+                objet = "'";
+                dat = "";
+                tdat = "";
+                i = 0;
 
-
-                        ObjectName2.Add(item.Maquina);
-                        Data2.Add(item.time);
-                    }
-
-                    objet = "'";
-                    dat = "";
-                     tdat = "";
-                      i = 0;
-                    foreach (var item in ObjectName2)
-                    {
-                        objet = objet + item.ToString() + "','";
+                foreach (var item in ObjectName2)
+                {
+                    objet = objet + item.ToString() + "','";
                     i++;
-                        if (i == 3)
-                            break;
-                    }
-                    i = 0;
+                    if (i == 3)
+                        break;
+                }
+                i = 0;
 
                 foreach (var item in Data2)
                 {
@@ -1129,33 +1079,33 @@ if (amaquina.Contains("Pintura"))
                 }
 
                 objet = objet.TrimEnd(',', (char)39);
-                    objet = objet + "'";
-                    dat = dat.TrimEnd(',', (char)39);
+                objet = objet + "'";
+                dat = dat.TrimEnd(',', (char)39);
                 tdat = tdat.TrimEnd(',', (char)39);
 
                 ViewBag.ObjectName1 = objet;
-                    ViewBag.Data1 = dat;
+                ViewBag.Data1 = dat;
                 ViewBag.tData1 = tdat;
 
                 var bitacora2 = bitacorase;
 
-                    string xx = ObjectName2.ElementAt(0).ToString();
-                    ViewBag.Machine1top1name = xx;
-                    List<Flex_SGM.Models.Bitacora> Machinetop1 = bitacora2.Where(p => p.Tiempo >= 1 && p.Maquinas.Maquina == xx).ToList();
-                    ViewBag.Machine1top1 = Machinetop1.OrderByDescending(o=>o.Tiempo);
-                    if (query.Count() > 1)
-                    {
-                        xx = ObjectName2.ElementAt(1).ToString();
-                        ViewBag.Machine1top2name = xx;
-                        List<Flex_SGM.Models.Bitacora> Machinetop2 = bitacora2.Where(p => p.Tiempo >= 1 && p.Maquinas.Maquina == xx).ToList();
-                        ViewBag.Machine1top2 = Machinetop2.OrderByDescending(o => o.Tiempo);
+                string xx = ObjectName2.ElementAt(0).ToString();
+                ViewBag.Machine1top1name = xx;
+                List<Flex_SGM.Models.Bitacora> Machinetop1 = bitacora2.Where(p => p.Tiempo >= 1 && p.Maquinas.Maquina == xx).ToList();
+                ViewBag.Machine1top1 = Machinetop1.OrderByDescending(o=>o.Tiempo);
+                if (query.Count() > 1)
+                {
+                    xx = ObjectName2.ElementAt(1).ToString();
+                    ViewBag.Machine1top2name = xx;
+                    List<Flex_SGM.Models.Bitacora> Machinetop2 = bitacora2.Where(p => p.Tiempo >= 1 && p.Maquinas.Maquina == xx).ToList();
+                    ViewBag.Machine1top2 = Machinetop2.OrderByDescending(o => o.Tiempo);
                 }
-                    if (query.Count() > 2)
-                    {
-                        xx = ObjectName2.ElementAt(2).ToString();
-                        ViewBag.Machine1top3name = xx;
-                        List<Flex_SGM.Models.Bitacora> Machinetop3 = bitacora2.Where(p => p.Tiempo >= 1 && p.Maquinas.Maquina == xx).ToList();
-                        ViewBag.Machine1top3 = Machinetop3.OrderByDescending(o => o.Tiempo);
+                if (query.Count() > 2)
+                {
+                    xx = ObjectName2.ElementAt(2).ToString();
+                    ViewBag.Machine1top3name = xx;
+                    List<Flex_SGM.Models.Bitacora> Machinetop3 = bitacora2.Where(p => p.Tiempo >= 1 && p.Maquinas.Maquina == xx).ToList();
+                    ViewBag.Machine1top3 = Machinetop3.OrderByDescending(o => o.Tiempo);
                 }
             }
             else
@@ -1166,11 +1116,10 @@ if (amaquina.Contains("Pintura"))
               //  ViewBag.Danger = "No existe la cantidad minima de 1 maquina con falla para poder generar el Reporte!";
                // TempData["Danger"] = "No existe la cantidad minima de 1 maquina con falla para poder generar el Reporte!";
               //  return RedirectToAction("Index");
-
             }
 
             query2 = bitacoraseM.GroupBy(p => p.Maquinas.Maquina)
-.Select(g => new { Maquina = g.Key, count = g.Count(), time = g.Sum(x => x.Tiempo) });
+            .Select(g => new { Maquina = g.Key, count = g.Count(), time = g.Sum(x => x.Tiempo) });
             query = query2.ToList();
             if (query.Count() >= 1)
             {
@@ -1240,18 +1189,15 @@ if (amaquina.Contains("Pintura"))
                     List<Flex_SGM.Models.Bitacora> Machinetop3 = bitacora2.Where(p => p.Tiempo >= 1 && p.Maquinas.Maquina == xx).ToList();
                     ViewBag.Machine1top3M = Machinetop3.OrderByDescending(o => o.Tiempo);
                 }
-
             }
             else
             {
-
                 ViewBag.Machine1top1nameM = "Sin Maquinas con tiempo muerto";
                 ViewBag.Machine1top1M = null;
 
                 // ViewBag.Danger = "No existe la cantidad minima de 1 maquina con falla para poder generar el Reporte!";
                 // TempData["Danger"] = "No existe la cantidad minima de 1 maquina con falla para poder generar el Reporte!";
                 //  return RedirectToAction("Index");
-
             }
 
 
@@ -1270,8 +1216,6 @@ if (amaquina.Contains("Pintura"))
                 List<int> Data2 = new List<int>();
                 foreach (var item in query)
                 {
-
-
                     ObjectName2.Add(item.Maquina);
                     Data2.Add(item.time);
                 }
@@ -1326,7 +1270,6 @@ if (amaquina.Contains("Pintura"))
                     List<Flex_SGM.Models.Bitacora> Machinetop3 = bitacora2.Where(p => p.Tiempo >= 1 && p.Maquinas.Maquina == xx).ToList();
                     ViewBag.Machine2top3 = Machinetop3.OrderByDescending(o => o.Tiempo);
                 }
-
             }
             else
             {
@@ -1341,7 +1284,7 @@ if (amaquina.Contains("Pintura"))
             }
 
             query2 = bitacoraps.GroupBy(p => p.Maquinas.Maquina)
-.Select(g => new { Maquina = g.Key, count = g.Count(), time = g.Sum(x => x.Tiempo) });
+            .Select(g => new { Maquina = g.Key, count = g.Count(), time = g.Sum(x => x.Tiempo) });
             query = query2.ToList();
             if (query.Count() >= 1)
             {
@@ -1355,8 +1298,6 @@ if (amaquina.Contains("Pintura"))
                 List<int> Data2 = new List<int>();
                 foreach (var item in query)
                 {
-
-
                     ObjectName2.Add(item.Maquina);
                     Data2.Add(item.time);
                 }
@@ -1416,14 +1357,14 @@ if (amaquina.Contains("Pintura"))
             {
                 ViewBag.Machine3top1name = "Sin Maquinas con tiempo muerto";
                 ViewBag.Machine3top1 = null;
-              //  ViewBag.Danger = "No existe la cantidad minima de 1 maquina con falla para poder generar el Reporte!";
-              //  TempData["Danger"] = "No existe la cantidad minima de 1 maquina con falla para poder generar el Reporte!";
-                //  return RedirectToAction("Index");
+              //ViewBag.Danger = "No existe la cantidad minima de 1 maquina con falla para poder generar el Reporte!";
+              //TempData["Danger"] = "No existe la cantidad minima de 1 maquina con falla para poder generar el Reporte!";
+              //return RedirectToAction("Index");
 
             }
             /*
             query2 = bitacorams.GroupBy(p => p.Maquinas.Maquina)
-.Select(g => new { Maquina = g.Key, count = g.Count(), time = g.Sum(x => x.Tiempo) });
+            .Select(g => new { Maquina = g.Key, count = g.Count(), time = g.Sum(x => x.Tiempo) });
             query = query2.ToList();
             if (query.Count() >= 1)
             {
@@ -1437,8 +1378,6 @@ if (amaquina.Contains("Pintura"))
                 List<int> Data2 = new List<int>();
                 foreach (var item in query)
                 {
-
-
                     ObjectName2.Add(item.Maquina);
                     Data2.Add(item.time);
                 }
@@ -1493,21 +1432,19 @@ if (amaquina.Contains("Pintura"))
                     List<Flex_SGM.Models.Bitacora> Machinetop3 = bitacora2.Where(p => p.Tiempo >= 1 && p.Maquinas.Maquina == xx).ToList();
                     ViewBag.Machine4top3 = Machinetop3.OrderByDescending(o => o.Tiempo);
                 }
-            }
-            else
-            {
+                }
+                else
+                {
+                    ViewBag.Machine4top1name = "Sin Maquinas con tiempo muerto";
+                    ViewBag.Machine4top1 = null;
 
-                ViewBag.Machine4top1name = "Sin Maquinas con tiempo muerto";
-                ViewBag.Machine4top1 = null;
-
-              //  ViewBag.Danger = "No existe la cantidad minima de 1 maquina con falla para poder generar el Reporte!";
-              //  TempData["Danger"] = "No existe la cantidad minima de 1 maquina con falla para poder generar el Reporte!";
-                //  return RedirectToAction("Index");
-
-            }
-            */
+                  //ViewBag.Danger = "No existe la cantidad minima de 1 maquina con falla para poder generar el Reporte!";
+                  //TempData["Danger"] = "No existe la cantidad minima de 1 maquina con falla para poder generar el Reporte!";
+                  //return RedirectToAction("Index");
+                }
+                */
             query2 = bitacoramf.GroupBy(p => p.Maquinas.Maquina)
-.Select(g => new { Maquina = g.Key, count = g.Count(), time = g.Sum(x => x.Tiempo) });
+            .Select(g => new { Maquina = g.Key, count = g.Count(), time = g.Sum(x => x.Tiempo) });
             query = query2.ToList();
             if (query.Count() >= 1)
             {
@@ -1521,8 +1458,6 @@ if (amaquina.Contains("Pintura"))
                 List<int> Data2 = new List<int>();
                 foreach (var item in query)
                 {
-
-
                     ObjectName2.Add(item.Maquina);
                     Data2.Add(item.time);
                 }
@@ -1577,21 +1512,19 @@ if (amaquina.Contains("Pintura"))
                     List<Flex_SGM.Models.Bitacora> Machinetop3 = bitacora2.Where(p => p.Tiempo >= 1 && p.Maquinas.Maquina == xx).ToList();
                     ViewBag.Machine5top3 = Machinetop3.OrderByDescending(o => o.Tiempo);
                 }
-
             }
             else
             {
 
                 ViewBag.Machine5top1name = "Sin Maquinas con tiempo muerto";
                 ViewBag.Machine5top1 = null;
-             //   ViewBag.Danger = "No existe la cantidad minima de 1 maquina con falla para poder generar el Reporte!";
-              //  TempData["Danger"] = "No existe la cantidad minima de 1 maquina con falla para poder generar el Reporte!";
-                //  return RedirectToAction("Index");
-
+             // ViewBag.Danger = "No existe la cantidad minima de 1 maquina con falla para poder generar el Reporte!";
+             // TempData["Danger"] = "No existe la cantidad minima de 1 maquina con falla para poder generar el Reporte!";
+             // return RedirectToAction("Index");
             }
 
             query2 = bitacoraen.GroupBy(p => p.Maquinas.Maquina)
-.Select(g => new { Maquina = g.Key, count = g.Count(), time = g.Sum(x => x.Tiempo) });
+            .Select(g => new { Maquina = g.Key, count = g.Count(), time = g.Sum(x => x.Tiempo) });
             query = query2.ToList();
             if (query.Count() >= 1)
             {
@@ -1605,8 +1538,6 @@ if (amaquina.Contains("Pintura"))
                 List<int> Data2 = new List<int>();
                 foreach (var item in query)
                 {
-
-
                     ObjectName2.Add(item.Maquina);
                     Data2.Add(item.time);
                 }
@@ -1660,22 +1591,19 @@ if (amaquina.Contains("Pintura"))
                     ViewBag.Machine6top3name = xx;
                     List<Flex_SGM.Models.Bitacora> Machinetop3 = bitacora2.Where(p => p.Tiempo >= 1 && p.Maquinas.Maquina == xx).ToList();
                     ViewBag.Machine6top3 = Machinetop3.OrderByDescending(o => o.Tiempo);
-                    
                 }
             }
             else
             {
-
                 ViewBag.Machine6top1name = "Sin Maquinas con tiempo muerto";
                 ViewBag.Machine6top1 = null;
-            //    ViewBag.Danger = "No existe la cantidad minima de 1 maquina con falla para poder generar el Reporte!";
-            //    TempData["Danger"] = "No existe la cantidad minima de 1 maquina con falla para poder generar el Reporte!";
-                //  return RedirectToAction("Index");
-
+             // ViewBag.Danger = "No existe la cantidad minima de 1 maquina con falla para poder generar el Reporte!";
+             // TempData["Danger"] = "No existe la cantidad minima de 1 maquina con falla para poder generar el Reporte!";
+             // return RedirectToAction("Index");
             }
            
             query2 = bitacoraau.GroupBy(p => p.Maquinas.Maquina)
-.Select(g => new { Maquina = g.Key, count = g.Count(), time = g.Sum(x => x.Tiempo) });
+            .Select(g => new { Maquina = g.Key, count = g.Count(), time = g.Sum(x => x.Tiempo) });
             query = query2.ToList();
             if (query.Count() >= 1)
             {
@@ -1689,8 +1617,6 @@ if (amaquina.Contains("Pintura"))
                 List<int> Data2 = new List<int>();
                 foreach (var item in query)
                 {
-
-
                     ObjectName2.Add(item.Maquina);
                     Data2.Add(item.time);
                 }
@@ -1731,13 +1657,13 @@ if (amaquina.Contains("Pintura"))
                 List<Flex_SGM.Models.Bitacora> Machinetop1 = bitacora2.Where(p => p.Tiempo >= 1 && p.Maquinas.Maquina == xx).ToList();
                 ViewBag.Machine7top1 = Machinetop1.OrderByDescending(o => o.Tiempo);
 
-                    if (query.Count() > 1)
+                if (query.Count() > 1)
                 {
                     xx = ObjectName2.ElementAt(1).ToString();
                     ViewBag.Machine7top2name = xx;
                     List<Flex_SGM.Models.Bitacora> Machinetop2 = bitacora2.Where(p => p.Tiempo >= 1 && p.Maquinas.Maquina == xx).ToList();
                     ViewBag.Machine7top2 = Machinetop2.OrderByDescending(o => o.Tiempo);
-                    }
+                }
                 if (query.Count() > 2)
                 {
                     xx = ObjectName2.ElementAt(2).ToString();
@@ -1745,27 +1671,22 @@ if (amaquina.Contains("Pintura"))
                     List<Flex_SGM.Models.Bitacora> Machinetop3 = bitacora2.Where(p => p.Tiempo >= 1 && p.Maquinas.Maquina == xx).ToList();
                     ViewBag.Machine7top3 = Machinetop3.OrderByDescending(o => o.Tiempo);
 
-               }
-
+                }
             }
             else
             {
 
                 ViewBag.Machine7top1name = "Sin Maquinas con tiempo muerto";
                 ViewBag.Machine7top1 = null;
-             //   ViewBag.Danger = "No existe la cantidad minima de 1 maquina con falla para poder generar el Reporte!";
-             //   TempData["Danger"] = "No existe la cantidad minima de 1 maquina con falla para poder generar el Reporte!";
-                //  return RedirectToAction("Index");
-
+             // ViewBag.Danger = "No existe la cantidad minima de 1 maquina con falla para poder generar el Reporte!";
+             // TempData["Danger"] = "No existe la cantidad minima de 1 maquina con falla para poder generar el Reporte!";
+             // return RedirectToAction("Index");
             }
-
-
             return View();
         }
 
         public ActionResult roadmap(string searchString, string area, string puesto, string amaquina, string maquina, string fecha_inicial, string fecha_final, bool t1 = false, bool t2 = false, bool t3 = false, bool nt = false, bool fs = false, string btn = "mes", string dti = "", string dtf = "")
         {
-
             var data = new List<Bitacora>();
             var datafiltered = new List<Bitacora>();
             var fecha = DateTime.Now.AddDays(-7);
@@ -1784,12 +1705,11 @@ if (amaquina.Contains("Pintura"))
             data = db.Bitacoras.Where(w => (w.DiaHora.Year >= fecha.Year) &&
                                       (w.DiaHora.Year <= fechaf.Year) &&
                                       (w.Tiempo > 0)
-                                     ).ToList();
+                                      ).ToList();
 
             //*******************************************************************************************
             if (btn == "Por Años")
             {
-
                 string labels = "'";
                 string gdata = "";
                 string gdata2 = "";
@@ -1899,10 +1819,7 @@ if (amaquina.Contains("Pintura"))
                             y.Add(temp.Sum(s => s.Tiempo));
                             i++;
                         }
-
-
                     }
-
                 }
                 if (x.Count > 1)
                 {
@@ -1926,10 +1843,7 @@ if (amaquina.Contains("Pintura"))
                                 gdata2 = gdata2 + string.Format("{0:0.##}", res) + ",";
                                 i++;
                             }
-
-
                         }
-
                     }
                 }
                 labels = labels.TrimEnd(',', (char)39);
@@ -2000,12 +1914,8 @@ if (amaquina.Contains("Pintura"))
                                 y.Add(temp.Sum(s => s.Tiempo));
                                 i++;
                             }
-
                         }
-
-
                     }
-
                 }
                 if (x.Count > 1)
                 {
@@ -2030,12 +1940,8 @@ if (amaquina.Contains("Pintura"))
                                     gdata2 = gdata2 + string.Format("{0:0.##}", res) + ",";
                                     i++;
                                 }
-
                             }
-
-
                         }
-
                     }
       
                     labels = labels.TrimEnd(',', (char)39);
@@ -2073,7 +1979,6 @@ if (amaquina.Contains("Pintura"))
                     ViewBag.dx = "Dia " + fecha.ToString("dd") + " al Dia " + fechaf.ToString("dd");
                     ViewBag.dxx = " Dia";
                 }
-
             }
 
             ViewBag.datei = fecha.ToString("dd/MM/yyyy");
@@ -2138,7 +2043,6 @@ if (amaquina.Contains("Pintura"))
             foreach (var item in fallas)
             {
                 codigo.Add(item.Descripcion);
-
             }
             // var cities = fallas.ToList();
             return Json(codigo, JsonRequestBehavior.AllowGet);
@@ -2152,14 +2056,14 @@ if (amaquina.Contains("Pintura"))
 
             var codigo = Tipo +"-"+ Des;
 
-          //  List<string> codigo = new List<string>();
+            //  List<string> codigo = new List<string>();
             /*
-              foreach (var item in fallas)
-              {
-                  codigo.Add(fallas.FirstOrDefault().Codigo);
+            foreach (var item in fallas)
+            {
+                codigo.Add(fallas.FirstOrDefault().Codigo);
 
-              }
-   */
+            }
+            */
 
             // var cities = fallas.ToList();
             return Json(codigo, JsonRequestBehavior.AllowGet);
@@ -2175,8 +2079,6 @@ if (amaquina.Contains("Pintura"))
             foreach (var item in fallas)
             {
                 codigo.Add(item.Descripcion);
-
-
             }
             // var cities = fallas.ToList();
             return Json(codigo, JsonRequestBehavior.AllowGet);
@@ -2223,7 +2125,6 @@ if (amaquina.Contains("Pintura"))
             ViewBag.UserID = new SelectList(db.Users, "Id", "UserFullName");
             ViewBag.MaquinasID = new SelectList(maquinas, "ID", "SubMaquina");
 
-
             List<SelectListItem> lst = new List<SelectListItem>();
 
             if (DateTime.Now.Hour >= 7 && DateTime.Now.Hour < 15)
@@ -2240,7 +2141,6 @@ if (amaquina.Contains("Pintura"))
                 lst.Add(new SelectListItem() { Text = "3", Value = "3", Selected = true });
             else
                 lst.Add(new SelectListItem() { Text = "3", Value = "3" });
-
 
             ViewBag.turno = lst;
             Bitacora bitacora = new Bitacora();
@@ -2259,12 +2159,6 @@ if (amaquina.Contains("Pintura"))
             ViewBag.ltipos = new SelectList(fallasg, "Key", "Key");    // initially we set the ddl to empty
             var fallasg2 = fallas.GroupBy(g => g.Descripcion).ToList();
             ViewBag.lareas = new SelectList(fallasg2, "Key", "Key");  //new SelectList(Enum.GetValues(typeof(flex_Areas)).Cast<flex_Areas>().ToList()),
-            
-
-
-
-   
-
 
             return View(bitacora);
         }
@@ -2291,14 +2185,12 @@ if (amaquina.Contains("Pintura"))
         [Authorize(Roles = "Mantenimiento")]
         public async Task<ActionResult> Create( Bitacora bitacora,int MaquinasID)
         {
-
-
             var id = User.Identity.GetUserId();
             ApplicationUser currentUser = UserManager.FindById(id);
             bitacora.MaquinasID = MaquinasID;
 
-            //         bitacora.Tipos = MyViewFallas.Area + "|" + MyViewFallas.Tipo;
-            //        bitacora.Descripcion = MyViewFallas.Tipo + "|" + MyViewFallas.Des;
+         // bitacora.Tipos = MyViewFallas.Area + "|" + MyViewFallas.Tipo;
+         // bitacora.Descripcion = MyViewFallas.Tipo + "|" + MyViewFallas.Des;
 
             if (bitacora.FallasID != null)
             {
@@ -2306,15 +2198,14 @@ if (amaquina.Contains("Pintura"))
                 bitacora.Descripcion = falla.FirstOrDefault().Codigo;
             }
 
-
             bitacora.usuario = currentUser.UserFullName;
             bitacora.usuario_area = currentUser.Area;
             bitacora.usuario_puesto = currentUser.Puesto;
 
-           // bitacora.Porcentaje = 0;
+            // bitacora.Porcentaje = 0;
+            // bitacora.MTBF = 0;
+            // bitacora.MTTR = 0;
 
-           // bitacora.MTBF = 0;
-          //  bitacora.MTTR = 0;
             if (string.IsNullOrEmpty(bitacora.Atendio))
                 bitacora.Atendio = bitacora.usuario;
             if (string.IsNullOrEmpty(bitacora.Scrap))
@@ -2324,10 +2215,8 @@ if (amaquina.Contains("Pintura"))
             if (!bitacora.Fallaoperacion && !bitacora.MttoCorrectivo && !bitacora.MttoPreventivo && !bitacora.MttoMejora)
                 bitacora.MttoMejora = true;
 
-
             if (ModelState.IsValid)
             {
-
                 db.Bitacoras.Add(bitacora);
                 await db.SaveChangesAsync();
 
@@ -2335,9 +2224,7 @@ if (amaquina.Contains("Pintura"))
             }
 
             MyViewBitcora nbita = new MyViewBitcora();
-            nbita.Bitacora = bitacora;
-
-
+        
             ViewBag.MaquinasID = new SelectList(db.Maquinas, "ID", "Maquina", bitacora.MaquinasID);
             return View(nbita);
         }
@@ -2371,7 +2258,6 @@ if (amaquina.Contains("Pintura"))
                 lst.Add(new SelectListItem() { Text = "3", Value = "3", Selected = true });
             else
                 lst.Add(new SelectListItem() { Text = "3", Value = "3" });
-
 
             ViewBag.turno = lst;
             ViewBag.MaquinasID = new SelectList(db.Maquinas, "ID", "SubMaquina", bitacora.MaquinasID);
@@ -2424,14 +2310,13 @@ if (amaquina.Contains("Pintura"))
             return RedirectToAction("Index");
         }
 
-
         public ActionResult Metricos(string searchString, string area, string puesto, string amaquina, string maquina, string fecha_inicial, string fecha_final, bool t1 = false, bool t2 = false, bool t3 = false, bool nt = false, bool fs = false)
         {
 
             string stemp = "";
 
             var bitacora = from s in db.Bitacoras
-                           select s;
+                            select s;
             newmetricos marea = new newmetricos
             {
                 Maquina = "1 Total-" + amaquina,
@@ -2464,12 +2349,12 @@ if (amaquina.Contains("Pintura"))
                     bitacora = bitacora.Where(s => s.Maquinas.Area == "Cromo" || s.Maquinas.Area == "Cromo1" || s.Maquinas.Area == "Cromo2" || s.Maquinas.Area == "AutoPulido1" || s.Maquinas.Area == "AutoPulido2" || s.Maquinas.Area == "Pintura" || s.Maquinas.Area == "Ecoat" || s.Maquinas.Area == "Topcoat" || s.Maquinas.Area == "MetalFinish");
                 }
                 else
-if (amaquina.Contains("Cromo"))
+                if (amaquina.Contains("Cromo"))
                 {
                     bitacora = bitacora.Where(s => s.Maquinas.Area == "Cromo" || s.Maquinas.Area == "Cromo1" || s.Maquinas.Area == "Cromo2" || s.Maquinas.Area == "AutoPulido1" || s.Maquinas.Area == "AutoPulido2");
                 }
                 else
-if (amaquina.Contains("Pintura"))
+                if (amaquina.Contains("Pintura"))
                 {
                     bitacora = bitacora.Where(s => s.Maquinas.Area == "Pintura" || s.Maquinas.Area == "Ecoat" || s.Maquinas.Area == "Topcoat");
                 }
@@ -2491,16 +2376,15 @@ if (amaquina.Contains("Pintura"))
             if (!String.IsNullOrEmpty(searchString))
             {
                 bitacora = bitacora.Where(s => s.usuario.Contains(searchString)
-                                       || s.Maquinas.Cliente.Contains(searchString)
-                                       || s.Maquinas.Area.Contains(searchString)
-                                       || s.Maquinas.Maquina.Contains(searchString)
-                                       || s.Sintoma.Contains(searchString)
-                                       || s.Causa.Contains(searchString)
+                                        || s.Maquinas.Cliente.Contains(searchString)
+                                        || s.Maquinas.Area.Contains(searchString)
+                                        || s.Maquinas.Maquina.Contains(searchString)
+                                        || s.Sintoma.Contains(searchString)
+                                        || s.Causa.Contains(searchString)
                                         || s.Folio.Contains(searchString)
-                                       || s.AccionCorrectiva.Contains(searchString));
+                                        || s.AccionCorrectiva.Contains(searchString));
             }
             */
-
 
             if (string.IsNullOrEmpty(fecha_inicial))
             {
@@ -2546,7 +2430,6 @@ if (amaquina.Contains("Pintura"))
                 turnos = turnos + "| 3er ";
             }
 
-
             bitacora = bitacora.Where(s => s.Tiempo > 0 && (s.DiaHora >= fi && s.DiaHora <= ff3));
 
             var bitacora1 = bitacora.Where(s => (s.DiaHora.Hour > f1i && s.DiaHora.Hour <= f1f)&&(s.DiaHora >= fi && s.DiaHora <= ff));
@@ -2557,94 +2440,92 @@ if (amaquina.Contains("Pintura"))
 
             var quef = bitacora.GroupBy(p => p.Maquinas.Maquina)
             .Select(g => new newmetricos
-{
-   Maquina = g.Key,
-   count = g.Count(),
-    time = g.Sum(xx1 => xx1.Tiempo),
-    count1 = 0,
-    time1 = 0,
-    count2 = 0,
-    time2 = 0,
-    count3 = 0,
-    time3 = 0,
-   // Minmtbf = g.Min(zx1 => zx1.MTBF),
-   // Maxmttr = g.Max(zz2 => zz2.MTTR),
-    NewMinmtbf1 = 0.0,
-    NewMaxmttr1 = 0.0,
-    NewMinmtbf2 = 0.0,
-    NewMaxmttr2 = 0.0,
-    NewMinmtbf3 = 0.0,
-    NewMaxmttr3 = 0.0
+            {
+                Maquina = g.Key,
+                count = g.Count(),
+                time = g.Sum(xx1 => xx1.Tiempo),
+                count1 = 0,
+                time1 = 0,
+                count2 = 0,
+                time2 = 0,
+                count3 = 0,
+                time3 = 0,
+                // Minmtbf = g.Min(zx1 => zx1.MTBF),
+                // Maxmttr = g.Max(zz2 => zz2.MTTR),
+                NewMinmtbf1 = 0.0,
+                NewMaxmttr1 = 0.0,
+                NewMinmtbf2 = 0.0,
+                NewMaxmttr2 = 0.0,
+                NewMinmtbf3 = 0.0,
+                NewMaxmttr3 = 0.0
 
-}).ToList();
-
+            }).ToList();
 
             var que1 = bitacora1.GroupBy(p => p.Maquinas.Maquina)
-           .Select(g => new newmetricos
-           {
-               Maquina = g.Key,
-               count = g.Count(),
-               time = g.Sum(x1 => x1.Tiempo),
-               count1 =0,
-               time1 = 0,
-               count2 = 0,
-               time2 = 0,
-               count3 = 0,
-               time3 = 0,
-              // Minmtbf = g.Min(z1 => z1.MTBF),
-              // Maxmttr = g.Max(z2 => z2.MTTR),
-               NewMinmtbf1 = 0.0,
-               NewMaxmttr1 = 0.0,
-               NewMinmtbf2 = 0.0,
-               NewMaxmttr2 = 0.0,
-               NewMinmtbf3 = 0.0,
-               NewMaxmttr3 = 0.0
-           }).ToList();
+            .Select(g => new newmetricos
+            {
+                Maquina = g.Key,
+                count = g.Count(),
+                time = g.Sum(x1 => x1.Tiempo),
+                count1 =0,
+                time1 = 0,
+                count2 = 0,
+                time2 = 0,
+                count3 = 0,
+                time3 = 0,
+                // Minmtbf = g.Min(z1 => z1.MTBF),
+                // Maxmttr = g.Max(z2 => z2.MTTR),
+                NewMinmtbf1 = 0.0,
+                NewMaxmttr1 = 0.0,
+                NewMinmtbf2 = 0.0,
+                NewMaxmttr2 = 0.0,
+                NewMinmtbf3 = 0.0,
+                NewMaxmttr3 = 0.0
+            }).ToList();
 
             var que2 = bitacora2.GroupBy(p => p.Maquinas.Maquina)
-           .Select(g => new newmetricos
-           {
-               Maquina = g.Key,
-               count = g.Count(),
-               time = g.Sum(x2 => x2.Tiempo),
-               count1 = 0,
-               time1 = 0,
-               count2 = 0,
-               time2 = 0,
-               count3 = 0,
-               time3 = 0,
-             //  Minmtbf = g.Min(z2 => z2.MTBF),
-              // Maxmttr = g.Max(z3 => z3.MTTR),
+            .Select(g => new newmetricos
+            {
+                Maquina = g.Key,
+                count = g.Count(),
+                time = g.Sum(x2 => x2.Tiempo),
+                count1 = 0,
+                time1 = 0,
+                count2 = 0,
+                time2 = 0,
+                count3 = 0,
+                time3 = 0,
+                //  Minmtbf = g.Min(z2 => z2.MTBF),
+                // Maxmttr = g.Max(z3 => z3.MTTR),
                 NewMinmtbf1 = 0.0,
-               NewMaxmttr1 = 0.0,
-               NewMinmtbf2 = 0.0,
-               NewMaxmttr2 = 0.0,
-               NewMinmtbf3 = 0.0,
-               NewMaxmttr3 = 0.0
-           }).ToList();
+                NewMaxmttr1 = 0.0,
+                NewMinmtbf2 = 0.0,
+                NewMaxmttr2 = 0.0,
+                NewMinmtbf3 = 0.0,
+                NewMaxmttr3 = 0.0
+            }).ToList();
 
             var que3 = bitacora3.GroupBy(p => p.Maquinas.Maquina)
-           .Select(g => new newmetricos
-           {
-               Maquina = g.Key,
-               count = g.Count(),
-               time = g.Sum(x3 => x3.Tiempo),
-               count1 = 0,
-               time1 = 0,
-               count2 = 0,
-               time2 = 0,
-               count3 = 0,
-               time3 = 0,
-               //  Minmtbf = g.Min(z3 => z3.MTBF),
-               // Maxmttr = g.Max(z4 => z4.MTTR),
-               NewMinmtbf1 = 0.0,
-               NewMaxmttr1 = 0.0,
-               NewMinmtbf2 = 0.0,
-               NewMaxmttr2 = 0.0,
-               NewMinmtbf3 = 0.0,
-               NewMaxmttr3 = 0.0
-           }).ToList();
-
+            .Select(g => new newmetricos
+            {
+                Maquina = g.Key,
+                count = g.Count(),
+                time = g.Sum(x3 => x3.Tiempo),
+                count1 = 0,
+                time1 = 0,
+                count2 = 0,
+                time2 = 0,
+                count3 = 0,
+                time3 = 0,
+                //  Minmtbf = g.Min(z3 => z3.MTBF),
+                // Maxmttr = g.Max(z4 => z4.MTTR),
+                NewMinmtbf1 = 0.0,
+                NewMaxmttr1 = 0.0,
+                NewMinmtbf2 = 0.0,
+                NewMaxmttr2 = 0.0,
+                NewMinmtbf3 = 0.0,
+                NewMaxmttr3 = 0.0
+            }).ToList();
 
             List<newmetricos> allmaquinas = new List<newmetricos>();
             allmaquinas.Add(marea);
@@ -2655,28 +2536,27 @@ if (amaquina.Contains("Pintura"))
             double Tiempo_total_de_funcionamiento = z.TotalMinutes * .72;
             double Tiempo_total_de_funcionamiento_p = 0.0;
 
-
             foreach (var allmaqui in quef.Where(w => w.time > 0))
             {
                 newmetricos tempmaqui = new newmetricos
                 {
-                Maquina = allmaqui.Maquina,
-                count = allmaqui.count,
-               time = allmaqui.time,
-               count1 = 0,
-               time1 = 0,
-               count2 = 0,
-               time2 = 0,
-               count3 = 0,
-               time3 = 0,
-               Minmtbf =0.0,
-               Maxmttr =0.0,
-               NewMinmtbf1 = 0.0,
-               NewMaxmttr1 = 0.0,
-               NewMinmtbf2 = 0.0,
-               NewMaxmttr2 = 0.0,
-               NewMinmtbf3 = 0.0,
-               NewMaxmttr3 = 0.0
+                    Maquina = allmaqui.Maquina,
+                    count = allmaqui.count,
+                    time = allmaqui.time,
+                    count1 = 0,
+                    time1 = 0,
+                    count2 = 0,
+                    time2 = 0,
+                    count3 = 0,
+                    time3 = 0,
+                    Minmtbf =0.0,
+                    Maxmttr =0.0,
+                    NewMinmtbf1 = 0.0,
+                    NewMaxmttr1 = 0.0,
+                    NewMinmtbf2 = 0.0,
+                    NewMaxmttr2 = 0.0,
+                    NewMinmtbf3 = 0.0,
+                    NewMaxmttr3 = 0.0
 
                 };
 
@@ -2686,7 +2566,6 @@ if (amaquina.Contains("Pintura"))
                     {
                         tempmaqui.count1 = maqui1.count;
                         tempmaqui.time1 = maqui1.time;
-
                         tempmaqui.NewMinmtbf1 = Tiempo_total_de_funcionamiento;
 
                         if (tempmaqui.count1 != 0)
@@ -2694,10 +2573,7 @@ if (amaquina.Contains("Pintura"))
                             tempmaqui.NewMinmtbf1 = Tiempo_total_de_funcionamiento / tempmaqui.count1;
                             tempmaqui.NewMaxmttr1 = tempmaqui.time1 / tempmaqui.count1;
                         }
-
-
                     }
-
                 }
 
                 foreach (var maqui12 in que2)
@@ -2706,7 +2582,6 @@ if (amaquina.Contains("Pintura"))
                     {
                         tempmaqui.count2 = maqui12.count;
                         tempmaqui.time2 = maqui12.time;
-
                         tempmaqui.NewMinmtbf2 = Tiempo_total_de_funcionamiento;
 
                         if (tempmaqui.count2 != 0)
@@ -2714,10 +2589,7 @@ if (amaquina.Contains("Pintura"))
                             tempmaqui.NewMinmtbf2 = Tiempo_total_de_funcionamiento / tempmaqui.count2;
                             tempmaqui.NewMaxmttr2 = tempmaqui.time2 / tempmaqui.count2;
                         }
-
-
                     }
-
                 }
 
                 foreach (var maqui3 in que3)
@@ -2726,7 +2598,6 @@ if (amaquina.Contains("Pintura"))
                     {
                         tempmaqui.count3 = maqui3.count;
                         tempmaqui.time3 = maqui3.time;
-
                         tempmaqui.NewMinmtbf3 = Tiempo_total_de_funcionamiento;
 
                         if (tempmaqui.count3 != 0)
@@ -2734,15 +2605,12 @@ if (amaquina.Contains("Pintura"))
                             tempmaqui.NewMinmtbf3 = Tiempo_total_de_funcionamiento / tempmaqui.count3;
                             tempmaqui.NewMaxmttr3 = tempmaqui.time3 / tempmaqui.count3;
                         }
-
-
                     }
-
                 }
 
                 tempmaqui.Minmtbf = Tiempo_total_de_funcionamiento;
-               // tempmaqui.count = tempmaqui.count1 + tempmaqui.count2 + tempmaqui.count3;
-               // tempmaqui.time = tempmaqui.time1 + tempmaqui.time2 + tempmaqui.time3;
+                // tempmaqui.count = tempmaqui.count1 + tempmaqui.count2 + tempmaqui.count3;
+                // tempmaqui.time = tempmaqui.time1 + tempmaqui.time2 + tempmaqui.time3;
                 if (tempmaqui.count != 0)
                 {
                     tempmaqui.Minmtbf = Tiempo_total_de_funcionamiento / tempmaqui.count;
@@ -2784,11 +2652,9 @@ if (amaquina.Contains("Pintura"))
                     allmaquinas.ElementAt(0).NewMinmtbf3 = Tiempo_total_de_funcionamiento / allmaquinas.ElementAt(0).count3;
                     allmaquinas.ElementAt(0).NewMaxmttr3 = allmaquinas.ElementAt(0).time3 / allmaquinas.ElementAt(0).count3;
                 }
-
                 allmaquinas.Add(tempmaqui);
             }
                     ///***************
-
 
             List<string> ObjectName = new List<string>();
             List<double> Data = new List<double>();
@@ -2796,7 +2662,6 @@ if (amaquina.Contains("Pintura"))
             {
                 ObjectName.Add(item.Maquina);
                 Data.Add(item.Minmtbf);
-
             }
 
             string objet;
@@ -2820,55 +2685,46 @@ if (amaquina.Contains("Pintura"))
                 ViewBag.ObjectName = objet;
                 ViewBag.Data = dat;
                
-
-            List<string> ObjectName2 = new List<string>();
-            List<double> Data2 = new List<double>();
-            foreach (var item in allmaquinas.OrderByDescending(o=>o.Maxmttr))
-            {
-                ObjectName2.Add(item.Maquina);
-                Data2.Add(item.Maxmttr);
-
-            }
-            if (Data2.Count() >= 1)
-            {
-
-                objet = "'";
-                dat = "";
-                foreach (var item in ObjectName2)
+                List<string> ObjectName2 = new List<string>();
+                List<double> Data2 = new List<double>();
+                foreach (var item in allmaquinas.OrderByDescending(o=>o.Maxmttr))
                 {
-                    objet = objet + item.ToString() + "','";
+                    ObjectName2.Add(item.Maquina);
+                    Data2.Add(item.Maxmttr);
                 }
-                foreach (var item in Data2)
+                if (Data2.Count() >= 1)
                 {
-                    dat = dat + item.ToString() + ",";
-                }
+                    objet = "'";
+                    dat = "";
+                    foreach (var item in ObjectName2)
+                    {
+                        objet = objet + item.ToString() + "','";
+                    }
+                    foreach (var item in Data2)
+                    {
+                        dat = dat + item.ToString() + ",";
+                    }
                     objet = objet.TrimEnd(',', (char)39);
                     objet = objet + "'";
                     dat = dat.TrimEnd(',', (char)39);
 
                     ViewBag.ObjectName2 = objet;
-                ViewBag.Data2 = dat;
+                    ViewBag.Data2 = dat;
+                }
 
-
-            }
                 ViewBag.items = Data.Count();
                 if (Data2.Count() > Data.Count())
                 ViewBag.items = Data2.Count();
                 ViewBag.info = stemp;
 
-
                 return View(allmaquinas);
-
-
-    }
-    else
+            }
+            else
             {
                 ViewBag.Danger = "No existe la cantidad minima de 1 maquina con falla para poder generar el Reporte!";
                 TempData["Danger"] = "No existe la cantidad minima de 1 maquina con falla para poder generar el Reporte!";
                 return RedirectToAction("Index");
-
             }
-
         }
 
         public ActionResult Metricos2(string amaquina, string maquina, string submaquina,string mgroup, string xmgroup, string btn = "Metricos por Dia", string dti = "", string dtf = "")
@@ -2945,7 +2801,6 @@ if (amaquina.Contains("Pintura"))
                  multiplicador = mindia;
             }
 
-
             var dataf = db.Bitacoras.Where(w => (w.DiaHora.Year >= fecha.Year) &&
                            (w.DiaHora.Year <= fechaf.Year) &&
                            (w.Tiempo > 0)
@@ -2978,12 +2833,10 @@ if (amaquina.Contains("Pintura"))
                 else
                     dataf = dataf.Where(s => s.Maquinas.Area.Contains(amaquina));
 
-
                 if (!string.IsNullOrEmpty(maquina) && amaquina != "--Todas--")
                 {
                     dataf = dataf.Where(s => s.Maquinas.Maquina==maquina);                
                 }
-
             }
 
             ViewBag.amaquina = new SelectList(Enum.GetValues(typeof(flex_Areas)).Cast<flex_Areas>().ToList());
@@ -3003,17 +2856,14 @@ if (amaquina.Contains("Pintura"))
             */
                 
             var mul_maquinas = maquis.Count();
-           ViewBag.maquina = new SelectList(maquinas.GroupBy(g => g.Maquina), "Key", "Key");
+            ViewBag.maquina = new SelectList(maquinas.GroupBy(g => g.Maquina), "Key", "Key");
 
             ViewBag.submaquina = new SelectList(maquinas, "ID", "SubMaquina");
-
-
 
             var data = dataf.ToList();
             //*******************************************************************************************
             if (btn == "Metricos por Años")
             {
-
                 datafiltered = data;
 
                 var datatempa = data.GroupBy(g => g.DiaHora.Year).ToList();
@@ -3041,17 +2891,12 @@ if (amaquina.Contains("Pintura"))
                             }
                             foreach (OILs oil in alloils)
                             {
-
-
                                 if (oil.DiaHora.Year <= i)
                                     pendiente++;
 
                                 if (oil.Estatus == 1 && oil.DiaHora_Cierre.Value.Year <= i)
                                     realizada++;
-
-
                             }
-
 
                             datasd.TarjetasTPM = Math.Round((realizada / (Double)pendiente) * 100, 2);
                             //---- primero
@@ -3094,7 +2939,6 @@ if (amaquina.Contains("Pintura"))
                             //datasd.MTBF1 = Math.Round(MTBF, 2);
                             datasd.MTTR1 = Math.Round(MTTR, 2);
 
-                            
                             //-------------------------------------------------------------------------------------------
 
                             datafiltered2 = item.Where(s => (s.DiaHora.Hour > 15 && s.DiaHora.Hour <= 23)).ToList();
@@ -3128,7 +2972,6 @@ if (amaquina.Contains("Pintura"))
                                 MTBF = (Tiempo_total_de_funcionamiento / total_fallas)/ mul_maquinas;
                                 MTTR = tiempomueto / total_fallas;
                             }
-
 
                             datasd.MTTR2 = Math.Round(MTTR, 2);
 
@@ -3184,13 +3027,7 @@ if (amaquina.Contains("Pintura"))
                             Ldata.Add(datasd);
                         }
                     }
-
-
-
                 }
-
-                //--------------------------------------------------------
-
             }
             //*******************************************************************************************
             if (btn == "Metricos por Mes")
@@ -3334,24 +3171,21 @@ if (amaquina.Contains("Pintura"))
                             datasd.TiempoM2 = tiempomueto;
                             datasd.FallasT2 = total_fallas;
                             MTBF = Tiempo_total_de_funcionamiento;
-                                MTTR = 0;
-                                datasd.TiempoMuerto2 = Math.Round((tiempomueto / Tiempo_total_de_funcionamiento) * 100,2);
-                                if (total_fallas != 0)
-                                {
+                            MTTR = 0;
+                            datasd.TiempoMuerto2 = Math.Round((tiempomueto / Tiempo_total_de_funcionamiento) * 100,2);
+                            if (total_fallas != 0)
+                            {
                                 total_fallas_full += total_fallas;
                                 tiempomueto_full += tiempomueto;
                                 MTBF = (Tiempo_total_de_funcionamiento / total_fallas)/ mul_maquinas;
                                 MTTR = tiempomueto / total_fallas;
-                                }
+                            }
 
-                                datasd.MTTR2 = Math.Round(MTTR, 2);
+                            datasd.MTTR2 = Math.Round(MTTR, 2);
 
-                                //-------------------------------------------------------------------------------------------
-                                datafiltered3 = datafiltered.Where(s => ((s.DiaHora.Hour > 23 || s.DiaHora.Hour <= 7)&& s.DiaHora.Day!=1)).ToList();
-
-                                datafiltered3.AddRange(datafiltered.Where(s => ((s.DiaHora.Hour > 23 ) && s.DiaHora.Day == 1)).ToList());
-
-
+                            //-------------------------------------------------------------------------------------------
+                            datafiltered3 = datafiltered.Where(s => ((s.DiaHora.Hour > 23 || s.DiaHora.Hour <= 7)&& s.DiaHora.Day!=1)).ToList();
+                            datafiltered3.AddRange(datafiltered.Where(s => ((s.DiaHora.Hour > 23 ) && s.DiaHora.Day == 1)).ToList());
 
                             total_fallas = 0;
                                 total_fallas = datafiltered3.Count();
@@ -3372,23 +3206,20 @@ if (amaquina.Contains("Pintura"))
                             datasd.TiempoM3 = tiempomueto;
                             datasd.FallasT3 = total_fallas;
                             MTBF = Tiempo_total_de_funcionamiento;
-                                MTTR = 0;
-                                datasd.TiempoMuerto3 = Math.Round((tiempomueto / Tiempo_total_de_funcionamiento) * 100,2);
-                                if (total_fallas != 0)
-                                {
+                            MTTR = 0;
+                            datasd.TiempoMuerto3 = Math.Round((tiempomueto / Tiempo_total_de_funcionamiento) * 100,2);
+                            if (total_fallas != 0)
+                            {
                                 total_fallas_full += total_fallas;
                                 tiempomueto_full += tiempomueto;
                                 MTBF = (Tiempo_total_de_funcionamiento / total_fallas)/ mul_maquinas;
-                                    MTTR = tiempomueto / total_fallas;
-                                }
+                                MTTR = tiempomueto / total_fallas;
+                            }
 
-                                datasd.MTTR3 = Math.Round(MTTR, 2);
-
+                            datasd.MTTR3 = Math.Round(MTTR, 2);
 
                             Tiempo_total_de_funcionamiento = Tiempo_total_de_funcionamiento * 3;
                             MTBF = Tiempo_total_de_funcionamiento;
-
-
 
                             if (total_fallas_full != 0)
                             {
@@ -3408,28 +3239,15 @@ if (amaquina.Contains("Pintura"))
                             
                             var disponibilidad = MTBF / (MTBF + MTTR);
 
-
-
                             datasd.Confiabilidad = Math.Round((disponibilidad * 100), 2);
-
-                               
-                             datasd.MTBF = Clamp(Math.Round(MTBF, 2), 0, (multiplicador * 3));
-
-
+                            datasd.MTBF = Clamp(Math.Round(MTBF, 2), 0, (multiplicador * 3));
 
                             Ldata.Add(datasd);
                             
-
-
                             i++;
                         }
-
-
                     }
-             
                 }
-            
-               
             }
             //*******************************************************************************************
             if (btn == "Metricos por Dia")
@@ -3437,7 +3255,6 @@ if (amaquina.Contains("Pintura"))
                 int i = 1;
                 for (int iaño = fecha.Year; iaño <= fechaf.Year; iaño++)
                 {
-                   
                     for (int jmes = 1; jmes <= 12; jmes++)
                     {
                         DateTimeFormatInfo formatoFecha = CultureInfo.CurrentCulture.DateTimeFormat;
@@ -3472,17 +3289,14 @@ if (amaquina.Contains("Pintura"))
                                 }
                                 foreach (OILs oil in alloils)
                                 {
-
-
-                                        if (oil.DiaHora.Year < iaño )
-                                            pendiente++;
-                                        else
-                                        if (oil.DiaHora.Year == iaño && oil.DiaHora.Month < jmes)
-                                            pendiente++;
-                                        else
-                                        if (oil.DiaHora.Year == iaño && oil.DiaHora.Month == jmes && oil.DiaHora.Day <= kdia)
-                                            pendiente++;
-
+                                    if (oil.DiaHora.Year < iaño )
+                                        pendiente++;
+                                    else
+                                    if (oil.DiaHora.Year == iaño && oil.DiaHora.Month < jmes)
+                                        pendiente++;
+                                    else
+                                    if (oil.DiaHora.Year == iaño && oil.DiaHora.Month == jmes && oil.DiaHora.Day <= kdia)
+                                        pendiente++;
 
                                     if (oil.Estatus == 1 && oil.DiaHora_Cierre.Value.Year < iaño)
                                             realizada++;
@@ -3492,12 +3306,9 @@ if (amaquina.Contains("Pintura"))
                                     else
                                     if (oil.Estatus == 1 && oil.DiaHora_Cierre.Value.Year == iaño && oil.DiaHora_Cierre.Value.Month == jmes && oil.DiaHora_Cierre.Value.Day <= kdia)
                                             realizada++;
-                                  
                                 }
 
-
                                 datasd.TarjetasTPM = Math.Round((realizada / (Double)pendiente) * 100,2);
-
 
                                 datafiltered1 = datafiltered.Where(s => (s.DiaHora.Hour > 7 && s.DiaHora.Hour <= 15)).ToList();
 
@@ -3529,9 +3340,7 @@ if (amaquina.Contains("Pintura"))
                                     MTBF = (Tiempo_total_de_funcionamiento / total_fallas)/ mul_maquinas;
                                     MTTR = tiempomueto / total_fallas;
                                 }
-
                                 datasd.MTTR1 = Math.Round(MTTR, 2);
-
 
                                 //-------------------------------------------------------------------------------------------
 
@@ -3569,7 +3378,6 @@ if (amaquina.Contains("Pintura"))
                                 datasd.MTTR2 = Math.Round(MTTR, 2);
 
                                 //-------------------------------------------------------------------------------------------
-
 
                                 datafiltered3 = datafiltered.Where(s => (s.DiaHora.Hour > 23)).ToList();
                                 var tdata3 = temp3er.Where(s => (s.DiaHora.Hour <= 7)).ToList();
@@ -3625,18 +3433,10 @@ if (amaquina.Contains("Pintura"))
 
                                 i++;
                             }
-
                         }
-
-
                     }
-
                 }
-             
             }
-
-            //---------------------------------------------
-
 
             ViewBag.data = Ldata;
 
@@ -3645,7 +3445,6 @@ if (amaquina.Contains("Pintura"))
             //*******************************************************************************************
             if (btn == "Metricos por Años")
             {
-
                 string labels = "'";
                 string gdata = "";
                 string gdata2 = "";
@@ -3669,10 +3468,6 @@ if (amaquina.Contains("Pintura"))
                         y.Add(dd.FirstOrDefault().Count());
                     else
                         y.Add(0);
-
-
-
-
                 }
                 if (x.Count > 1)
                 {
@@ -3718,7 +3513,6 @@ if (amaquina.Contains("Pintura"))
                         lnmm.Add(nmm);
                     }
                     exit++;
-
                 }
                 ViewBag.lnmm = lnmm;
 
@@ -3781,12 +3575,10 @@ if (amaquina.Contains("Pintura"))
                 ViewBag.labelsmtbf = objet;
                 ViewBag.Datamtbf = dat;
 
-
                 int stempt = 0;
                 for (int di = 0; di < hdata.Count; di++)
                 {
                     stempt += hdata[di].Sum(s => s.Tiempo);
-
                 }
 
                 int stemp = 0;
@@ -3851,10 +3643,7 @@ if (amaquina.Contains("Pintura"))
                             y.Add(temp.Sum(s => s.Tiempo));
                             i++;
                         }
-
-
                     }
-
                 }
                 if (x.Count > 1)
                 {
@@ -3878,10 +3667,7 @@ if (amaquina.Contains("Pintura"))
                                 gdata2 = gdata2 + string.Format("{0:0.##}", res) + ",";
                                 i++;
                             }
-
-
                         }
-
                     }
                 }
                 labels = labels.TrimEnd(',', (char)39);
@@ -3919,7 +3705,6 @@ if (amaquina.Contains("Pintura"))
                         lnmm.Add(nmm);
                     }
                     exit++;
-
                 }
                 ViewBag.lnmm = lnmm;
 
@@ -3986,7 +3771,6 @@ if (amaquina.Contains("Pintura"))
                 for (int di = 0; di < hdata.Count; di++)
                 {
                     stempt += hdata[di].Sum(s => s.Tiempo);
-
                 }
                
                 int stemp = 0;
@@ -3999,7 +3783,6 @@ if (amaquina.Contains("Pintura"))
                     stemp = stemp + hdata[di].Sum(s => s.Tiempo);
                     double res = (stemp / (double)stempt) * 100;
                     gdata2 = gdata2 + string.Format("{0:0.##}", res) + ",";
-
                 }
 
                 labels = labels.TrimEnd(',', (char)39);
@@ -4049,12 +3832,8 @@ if (amaquina.Contains("Pintura"))
                                 y.Add(temp.Sum(s => s.Tiempo));
                                 i++;
                             }
-
                         }
-
-
                     }
-
                 }
                 if (x.Count > 1)
                 {
@@ -4079,12 +3858,8 @@ if (amaquina.Contains("Pintura"))
                                     gdata2 = gdata2 + string.Format("{0:0.##}", res) + ",";
                                     i++;
                                 }
-
                             }
-
-
                         }
-
                     }
 
                     labels = labels.TrimEnd(',', (char)39);
@@ -4123,26 +3898,25 @@ if (amaquina.Contains("Pintura"))
                             lnmm.Add(nmm);
                         }
                         exit++;
-
                     }
                     ViewBag.lnmm = lnmm;
 
-                        var objet = "'";
-                        var dat = "";
-                        foreach (var item in lnmm)
-                        {
-                            objet = objet + item.maquina.ToString() + "','";
-                            dat = dat + item.mttr.ToString() + ",";
+                    var objet = "'";
+                    var dat = "";
+                    foreach (var item in lnmm)
+                    {
+                        objet = objet + item.maquina.ToString() + "','";
+                        dat = dat + item.mttr.ToString() + ",";
                     }
 
-                        objet = objet.TrimEnd(',', (char)39);
-                        objet = objet + "'";
-                        dat = dat.TrimEnd(',', (char)39);
+                    objet = objet.TrimEnd(',', (char)39);
+                    objet = objet + "'";
+                    dat = dat.TrimEnd(',', (char)39);
 
-                        ViewBag.labelsmttr = objet;
-                        ViewBag.Datamttr = dat;
-                     objet = "'";
-                     dat = "";
+                    ViewBag.labelsmttr = objet;
+                    ViewBag.Datamttr = dat;
+                    objet = "'";
+                    dat = "";
                     foreach (var item in lnmm)
                     {
                         objet = objet + item.maquina.ToString() + "','";
@@ -4190,7 +3964,6 @@ if (amaquina.Contains("Pintura"))
                     for (int di = 0; di < hdata.Count; di++)
                     {
                         stempt += hdata[di].Sum(s => s.Tiempo);
-
                     }
 
                     int stemp = 0;
@@ -4216,7 +3989,6 @@ if (amaquina.Contains("Pintura"))
                     ViewBag.dx = "Dia " + fecha.ToString("dd") + " al Dia " + fechaf.ToString("dd");
                     ViewBag.dxx = " Dia";
                 }
-
             }
 
             //--------------------------------------------
@@ -4286,7 +4058,6 @@ if (amaquina.Contains("Pintura"))
                 {
                     mindia = 440.0d;
                 }
-
             }
             var multiplicador = mindia;
 
@@ -4300,34 +4071,29 @@ if (amaquina.Contains("Pintura"))
 
             if (!String.IsNullOrEmpty(amaquina) && amaquina != "--Todas--")
             {
-
-                
                 if (amaquina.Contains("MetalFinish"))
                 {
                     dataf = dataf.Where(s => s.Maquinas.Area == "Cromo" || s.Maquinas.Area == "Cromo1" || s.Maquinas.Area == "Cromo2" || s.Maquinas.Area == "AutoPulido1" || s.Maquinas.Area == "AutoPulido2" || s.Maquinas.Area == "Pintura" || s.Maquinas.Area == "Ecoat" || s.Maquinas.Area == "Topcoat" || s.Maquinas.Area == "MetalFinish");
                     var dtdt = dataf.ToList();
                 }
                 else { 
-
-                if (amaquina == "Cromo")
-                {
-                    dataf = dataf.Where(s => s.Maquinas.Area == "Cromo" || s.Maquinas.Area == "Cromo1" || s.Maquinas.Area == "Cromo2" || s.Maquinas.Area == "AutoPulido1" || s.Maquinas.Area == "AutoPulido2");
-                }
+                    if (amaquina == "Cromo")
+                    {
+                        dataf = dataf.Where(s => s.Maquinas.Area == "Cromo" || s.Maquinas.Area == "Cromo1" || s.Maquinas.Area == "Cromo2" || s.Maquinas.Area == "AutoPulido1" || s.Maquinas.Area == "AutoPulido2");
+                    }
        
-                if (amaquina.Contains("Pintura"))
-                {
-                    dataf = dataf.Where(s => s.Maquinas.Area == "Pintura" || s.Maquinas.Area == "Ecoat" || s.Maquinas.Area == "Topcoat");
-                }
+                    if (amaquina.Contains("Pintura"))
+                    {
+                        dataf = dataf.Where(s => s.Maquinas.Area == "Pintura" || s.Maquinas.Area == "Ecoat" || s.Maquinas.Area == "Topcoat");
+                    }
 
-                if (amaquina.Contains("Soldadura"))
-                {
-                    amaquina = "Soldadura";
-
-                }
-                dataf = dataf.Where(s => s.Maquinas.Area.Contains(amaquina));
+                    if (amaquina.Contains("Soldadura"))
+                    {
+                        amaquina = "Soldadura";
+                    }
+                    dataf = dataf.Where(s => s.Maquinas.Area.Contains(amaquina));
                 }
             }
-
 
             ViewBag.amaquina = new SelectList(Enum.GetValues(typeof(flex_Areas)).Cast<flex_Areas>().ToList());
             string[] array = { "Maquina", "Falla", "Area", "SubMaquina" };
@@ -4340,8 +4106,8 @@ if (amaquina.Contains("Pintura"))
                     maquinas = db.Maquinas.Where(m => m.Area == "Cromo" || m.Area == "Cromo1" || m.Area == "Cromo2" || m.Area == "AutoPulido1" || m.Area == "AutoPulido2" || m.Area == "Pintura" || m.Area == "Ecoat" || m.Area == "Topcoat" || m.Area == "MetalFinish");
               
                 }
-                 else
-                 maquinas = db.Maquinas.Where(m => m.Area == amaquina);
+                else
+                    maquinas = db.Maquinas.Where(m => m.Area == amaquina);
 
             if (!string.IsNullOrEmpty(maquina))
                 maquinas = db.Maquinas.Where(m => m.Maquina == maquina);
@@ -4355,10 +4121,8 @@ if (amaquina.Contains("Pintura"))
 
             List<newmetricos3> allmaq = new List<newmetricos3>();
 
-
             for (int iaño = fecha.Year; iaño <= fechaf.Year; iaño++)
             {
-
                 for (int jmes = 1; jmes <= 12; jmes++)
                 {
                     DateTimeFormatInfo formatoFecha = CultureInfo.CurrentCulture.DateTimeFormat;
@@ -4372,15 +4136,11 @@ if (amaquina.Contains("Pintura"))
 
                         if (idi >= fecha && idi <= fechaf)
                         {
-
                             //datafiltered = dataf.Where(w => w.DiaHora.Year == idi.Year && w.DiaHora.Month == idi.Month && w.DiaHora.Day == idi.Day && w.DiaHora.Day != 1).ToList();
                             datafiltered = dataf.Where(w => w.DiaHora.Year == idi.Year && w.DiaHora.Month == idi.Month && w.DiaHora.Day == idi.Day && w.DiaHora.Hour > 7).ToList();
                             //datafiltered.AddRange(temp1);
                             var temp2 = dataf.Where(w => w.DiaHora.Year == idi3er.Year && w.DiaHora.Month == idi3er.Month && w.DiaHora.Day == idi3er.Day && w.DiaHora.Hour <= 7).ToList();
                             datafiltered.AddRange(temp2);
-
-
-
                             datafiltered1 = datafiltered.Where(s => (s.DiaHora.Hour > 7 && s.DiaHora.Hour <= 15)).ToList();
                             datafiltered2 = datafiltered.Where(s => (s.DiaHora.Hour > 15 && s.DiaHora.Hour <= 23)).ToList();
                             datafiltered3 = datafiltered.Where(s => (s.DiaHora.Hour > 23 || s.DiaHora.Hour <= 7)).ToList();
@@ -4388,8 +4148,6 @@ if (amaquina.Contains("Pintura"))
 
                             foreach (var simplemaquina in maquis)
                             {
-
-
                                 string thistiempo="";
                                 if (btn == "Metricos por Dia")
                                 {
@@ -4410,8 +4168,6 @@ if (amaquina.Contains("Pintura"))
                                     ViewBag.dx = " Año:" + fecha.AddYears(-5).ToString("yyyy") + " a el Año:" + fecha.ToString("yyyy");
                                     ViewBag.dxx = " Anual";
                                 }
-
-
                                 newmetricos3 simplemaquinam = new newmetricos3
                                 {
                                     TiempoLabel = thistiempo,
@@ -4432,8 +4188,6 @@ if (amaquina.Contains("Pintura"))
                                     Confiabilidad = 100,
                                     TarjetasTPM = 0
                                 };
-
-
 
                                 if (simplemaquinam.CantidadFallas1 != 0)
                                 {
@@ -4458,69 +4212,38 @@ if (amaquina.Contains("Pintura"))
                                   //  simplemaquinam.Confiabilidad = simplemaquinam.MTBF / (simplemaquinam.MTBF + MTTR);
                                     simplemaquinam.Confiabilidad = (simplemaquinam.MTBF - MTTR) / simplemaquinam.MTBF;
                                 }
-
                                 allmaq.Add(simplemaquinam);
                             }
-
-
-
-
                         }
-
                     }
-
-
                 }
-
             }
 
             var allmaqbyday1 = allmaq.GroupBy(g => g.maquina).ToList();
 
             foreach (var inmaq in allmaqbyday1)
             {
-
                 var sumd1 = inmaq.Sum(s => s.Disponible1);
                 var sumd2 = inmaq.Sum(s => s.Disponible2);
                 var sumd3 = inmaq.Sum(s => s.Disponible3);
-
                 var ft1 = inmaq.Sum(s => s.CantidadFallas1);
                 var ft2 = inmaq.Sum(s => s.CantidadFallas2);
                 var ft3 = inmaq.Sum(s => s.CantidadFallas3);
-
-
-
                 var sumtp1 = inmaq.Sum(s => s.TiempoMuerto1);
-
                 var sumtp2 = inmaq.Sum(s => s.TiempoMuerto2);
-
                 var sumtp3 = inmaq.Sum(s => s.TiempoMuerto3);
-
                 var sumatm1 = sumtp1;// ((sumtp1 / sumd1) * 100);
-
                 var sumatm2 = sumtp2;//((sumtp2 / sumd2) * 100);
-
                 var sumatm3 = sumtp2;//((sumtp3 / sumd3) * 100);
-
                 var smttr11 = inmaq.Sum(s => s.MTTR1);
-
                 var smttr12 = inmaq.Sum(s => s.MTTR2);
-
                 var smttr13 = inmaq.Sum(s => s.MTTR3);
-
                 var sumamttr1 = smttr11 / inmaq.Count();
-
                 var sumamttr2 = smttr12 / inmaq.Count();
-
                 var sumamttr3 = smttr13 / inmaq.Count();
-
                 var sumamtbf = (sumd1 + sumd2 + sumd3) / (ft1 + ft2 + ft3); //inmaq.Sum(s => s.MTBF) / inmaq.Count();
-
                 var sumamttrs = sumamttr1 + sumamttr2 + sumamttr3;
-
                 var sumaMant = ((sumamtbf - sumamttrs) / sumamtbf) * 100;
-
-
-
                 newmetricos3 data_show = new newmetricos3
                 {
                     TiempoLabel = "-",
@@ -4540,8 +4263,6 @@ if (amaquina.Contains("Pintura"))
                     Disponible1 = Math.Round(sumd1, 2),
                     Disponible2 = Math.Round(sumd2, 2),
                     Disponible3 = Math.Round(sumd3, 2)
-                    
-
                 };
                 Ldata3.Add(data_show);
             }
@@ -4552,52 +4273,27 @@ if (amaquina.Contains("Pintura"))
 
             foreach (var inmaq in allmaqbyday)
             {
-
                 var sumd1 = inmaq.Sum(s => s.Disponible1);
                 var sumd2 = inmaq.Sum(s => s.Disponible2);
                 var sumd3 = inmaq.Sum(s => s.Disponible3);
-
                 var ft1 = inmaq.Sum(s => s.CantidadFallas1);
                 var ft2 = inmaq.Sum(s => s.CantidadFallas2);
                 var ft3 = inmaq.Sum(s => s.CantidadFallas3);
-
-
-
                 var sumtp1 = inmaq.Sum(s => s.TiempoMuerto1);
                 var sumtp2 = inmaq.Sum(s => s.TiempoMuerto2);
                 var sumtp3 = inmaq.Sum(s => s.TiempoMuerto3);
-
-
                 var sumatm1 = ((sumtp1/ sumd1) *100);
-
                 var sumatm2 = ((sumtp2 / sumd2) * 100);
-
                 var sumatm3 = ((sumtp3 / sumd3) * 100);
-
-
                 var smttr11 = inmaq.Sum(s => s.MTTR1);
-
                 var smttr12 = inmaq.Sum(s => s.MTTR2);
-
                 var smttr13 = inmaq.Sum(s => s.MTTR3);
-
-
                 var sumamttr1 = smttr11 / inmaq.Count();
                 var sumamttr2 = smttr12 / inmaq.Count();
                 var sumamttr3 = smttr13 / inmaq.Count();
-
-
                 var sumamtbf = inmaq.Sum(s => s.MTBF) / inmaq.Count();
                 // var sumamtbf = ((sumd1 + sumd2 + sumd3) / 1);
-
-                //       if ((ft1 != 0 || ft2 !=0 || ft3 != 0))
-                //            sumamtbf = ((sumd1 + sumd2 + sumd3) / (ft1 + ft2 + ft3));
-
-
-                //  var sumaMant = inmaq.Sum(s => s.Confiabilidad) / inmaq.Count();
-
                 var sumamttrs = sumamttr1 + sumamttr2 + sumamttr3;
-
                 var sumaMant = ((sumamtbf- sumamttrs ) / sumamtbf)*100;
 
                 //tpm
@@ -4610,52 +4306,14 @@ if (amaquina.Contains("Pintura"))
                 }
                 foreach (OILs oil in alloils)
                 {
-
-
                     if (oil.DiaHora.Year <= fecha.Year)
                         pendiente++;
 
                     if (oil.Estatus == 1 && oil.DiaHora_Cierre.Value.Year <= fecha.Year)
                         realizada++;
-
-
                 }
 
-
                 var tpmt= Math.Round((realizada / (Double)pendiente) * 100, 2);
-
-                //ENtpm
-
-                /*
-                                 var sumamttr1 = sumtp1 / ft1;
-
-                var sumamttr2 = sumtp2 / ft2;
-
-                var sumamttr3 = sumtp3 / ft3;
-
-                var sumamtbf = ((sumd1+ sumd2 + sumd3)  / (ft1+ ft2+ ft3));
-                
-                 
-                var sumamttr1 = 0.0;
-                if (ft1 != 0)
-                 sumamttr1 = smttr11 / ft1;
-
-                var sumamttr2 = 0.0;
-                if (ft2 != 0)
-                     sumamttr2 = sumd2 / ft2;
-
-                var sumamttr3 = 0.0;
-                if (ft3 != 0)
-                     sumamttr3 = sumd3 / ft3;
-
-                var sumamttrs = sumamttr1 + sumamttr2+sumamttr3;
-                 
-                 
-                 */
-
-
-
-
 
                 newmetricos2 data_show = new newmetricos2
                 {
@@ -4691,6 +4349,7 @@ if (amaquina.Contains("Pintura"))
             List<decimal> x = new List<decimal>();
             List<decimal> y = new List<decimal>();
             int j = 0;
+
             foreach (var h in Ldata)
             {
                 labels = labels+ h.TiempoLabel  +"','";
@@ -4716,15 +4375,11 @@ if (amaquina.Contains("Pintura"))
                 }
             }
 
-
             labels = labels.TrimEnd(',', (char)39);
             labels = labels + "'"; labels = labels.Replace("\r\n", "");
             gdata = gdata.TrimEnd(',', (char)39);
             gdata2 = gdata2.TrimEnd(',', (char)39);
-
-
             labels = labels.Replace('-', '_');
-
 
             ViewBag.labelsgrap = labels;// Label
             ViewBag.datasgrap = gdata; // Suma de timepo 

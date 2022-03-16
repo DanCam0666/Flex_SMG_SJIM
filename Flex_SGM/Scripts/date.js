@@ -3,7 +3,7 @@
     $('#bs_datepicker_container input').datepicker({
         autoclose: true,
         container: '#bs_datepicker_container',
-       language: "es",
+        language: "es",
         calendarWeeks: true,
         todayHighlight: true,
         forceParse:true,
@@ -32,9 +32,10 @@
     });
 
     $.validator.addMethod('date',
-            function (value, element, params) {
-                return true;
-            });
+        function (value, element, params) {
+            return true;
+        }
+    );
 
 });
 
