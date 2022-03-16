@@ -53,7 +53,7 @@ namespace Flex_SGM.Controllers
             int MFrealizado = 0, MFpendiente = 0, MFtotal = 0;
             int ENrealizado = 0, ENpendiente = 0, ENtotal = 0;
 
-            foreach (var item in oILs.Where(s => s.Tipo == "TPM"))
+            foreach (var item in oILs.Where(s => s.Tipo == "Ingenieria" || s.Tipo == "Manufactura"))
             {
                 semanas[dayofweek.GetIso8601WeekOfYear(item.DiaHora)]++;
                 tsemanas[dayofweek.GetIso8601WeekOfYear(item.DiaHora_Cierre)]++;
@@ -166,7 +166,7 @@ namespace Flex_SGM.Controllers
                 db.SaveChanges();
             }
 
-            foreach (OILs oil in oILs.Where(s=>s.Tipo=="TPM"))
+            foreach (OILs oil in oILs.Where(s => s.Tipo == "Ingenieria" || s.Tipo == "Manufactura"))
             {
                 if (oil.Estatus == 1)
                     realizada++;
@@ -212,7 +212,7 @@ namespace Flex_SGM.Controllers
 
             Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
 
-            foreach (OILs oil in oILs.Where(s => s.Tipo == "Automatizacion" && ( s.User_res == "Pedro Luis Ramirez Lopez" || s.User_asig == "Pedro Luis Ramirez Lopez" || s.User_res == "José Mario Castilla González" || s.User_asig == "José Mario Castilla González")).ToList())
+            foreach (OILs oil in oILs.Where(s => (s.Tipo == "Ingenieria" || s.Tipo == "Manufactura") && ((s.User_res == "Ana Zaideth Vazquez Robles" && s.User_asig == "-") || s.User_asig == "Ana Zaideth Vazquez Robles")).ToList())
             {
                 if (oil.Estatus == 1)
                     realizada++;
@@ -227,12 +227,12 @@ namespace Flex_SGM.Controllers
                 if (oil.Estatus == 6)
                     Urgente++;
             }
-            ViewBag.pmrealizada = realizada;
-            ViewBag.pmActivos =  NoReali + sinfecha + Urgente + Fechaprox + ConFecha ;
+            ViewBag.zVrealizada = realizada;
+            ViewBag.zVActivos =  NoReali + sinfecha + Urgente + Fechaprox + ConFecha ;
 
             Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
 
-            foreach (OILs oil in oILs.Where(s => s.Tipo == "Automatizacion" && (s.User_res == "José Mario Castilla González" || s.User_asig == "José Mario Castilla González" || s.User_res == "Juan Ramon Arredondo Pacheco" || s.User_asig == "Juan Ramon Arredondo Pacheco")).ToList())
+            foreach (OILs oil in oILs.Where(s => (s.Tipo == "Ingenieria" || s.Tipo == "Manufactura") && (s.User_res == "Carlos Manuel Carapia Murillo" || s.User_asig == "Carlos Manuel Carapia Murillo")).ToList())
             {
                 if (oil.Estatus == 1)
                     realizada++;
@@ -247,12 +247,12 @@ namespace Flex_SGM.Controllers
                 if (oil.Estatus == 6)
                     Urgente++;
             }
-            ViewBag.gprealizada = realizada;
-            ViewBag.gpActivos = NoReali + sinfecha + Urgente + Fechaprox + ConFecha+ realizada;
+            ViewBag.cCrealizada = realizada;
+            ViewBag.cCActivos = NoReali + sinfecha + Urgente + Fechaprox + ConFecha+ realizada;
 
             Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
 
-            foreach (OILs oil in oILs.Where(s => s.Tipo == "Automatizacion" && (s.User_res == "Pedro Dorantes Sanchez" || s.User_asig == "Pedro Dorantes Sanchez" || s.User_res == "Jaime Martinez Prado" || s.User_asig == "Jaime Martinez Prado")).ToList())
+            foreach (OILs oil in oILs.Where(s => (s.Tipo == "Ingenieria" || s.Tipo == "Manufactura") && (s.User_res == "Cynthia Veronica Alvarez Figueroa" || s.User_asig == "Cynthia Veronica Alvarez Figueroa")).ToList())
             {
                 if (oil.Estatus == 1)
                     realizada++;
@@ -267,8 +267,189 @@ namespace Flex_SGM.Controllers
                 if (oil.Estatus == 6)
                     Urgente++;
             }
-            ViewBag.ajrealizada = realizada;
-            ViewBag.ajActivos = NoReali + sinfecha + Urgente + Fechaprox + ConFecha + realizada;
+            ViewBag.cArealizada = realizada;
+            ViewBag.cAActivos = NoReali + sinfecha + Urgente + Fechaprox + ConFecha + realizada;
+
+            Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
+
+            foreach (OILs oil in oILs.Where(s => (s.Tipo == "Ingenieria" || s.Tipo == "Manufactura") && (s.User_res == "Donato Salazar Jiménez" || s.User_asig == "Donato Salazar Jiménez")).ToList())
+            {
+                if (oil.Estatus == 1)
+                    realizada++;
+                if (oil.Estatus == 2)
+                    sinfecha++;
+                if (oil.Estatus == 3)
+                    ConFecha++;
+                if (oil.Estatus == 4)
+                    Fechaprox++;
+                if (oil.Estatus == 5)
+                    NoReali++;
+                if (oil.Estatus == 6)
+                    Urgente++;
+            }
+            ViewBag.dSrealizada = realizada;
+            ViewBag.dSActivos = NoReali + sinfecha + Urgente + Fechaprox + ConFecha + realizada;
+
+            Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
+
+            foreach (OILs oil in oILs.Where(s => (s.Tipo == "Ingenieria" || s.Tipo == "Manufactura") && (s.User_res == "Gabriela Vazquez Castillo" || s.User_asig == "Gabriela Vazquez Castillo")).ToList())
+            {
+                if (oil.Estatus == 1)
+                    realizada++;
+                if (oil.Estatus == 2)
+                    sinfecha++;
+                if (oil.Estatus == 3)
+                    ConFecha++;
+                if (oil.Estatus == 4)
+                    Fechaprox++;
+                if (oil.Estatus == 5)
+                    NoReali++;
+                if (oil.Estatus == 6)
+                    Urgente++;
+            }
+            ViewBag.gVrealizada = realizada;
+            ViewBag.gVActivos = NoReali + sinfecha + Urgente + Fechaprox + ConFecha + realizada;
+
+            Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
+
+            foreach (OILs oil in oILs.Where(s => (s.Tipo == "Ingenieria" || s.Tipo == "Manufactura") && (s.User_res == "José Armando Prado Ruvalcaba" || s.User_asig == "José Armando Prado Ruvalcaba")).ToList())
+            {
+                if (oil.Estatus == 1)
+                    realizada++;
+                if (oil.Estatus == 2)
+                    sinfecha++;
+                if (oil.Estatus == 3)
+                    ConFecha++;
+                if (oil.Estatus == 4)
+                    Fechaprox++;
+                if (oil.Estatus == 5)
+                    NoReali++;
+                if (oil.Estatus == 6)
+                    Urgente++;
+            }
+            ViewBag.aPrealizada = realizada;
+            ViewBag.aPActivos = NoReali + sinfecha + Urgente + Fechaprox + ConFecha + realizada;
+
+            Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
+
+            foreach (OILs oil in oILs.Where(s => (s.Tipo == "Ingenieria" || s.Tipo == "Manufactura") && (s.User_res == "Jessica Franco Moreno" || s.User_asig == "Jessica Franco Moreno")).ToList())
+            {
+                if (oil.Estatus == 1)
+                    realizada++;
+                if (oil.Estatus == 2)
+                    sinfecha++;
+                if (oil.Estatus == 3)
+                    ConFecha++;
+                if (oil.Estatus == 4)
+                    Fechaprox++;
+                if (oil.Estatus == 5)
+                    NoReali++;
+                if (oil.Estatus == 6)
+                    Urgente++;
+            }
+            ViewBag.jFrealizada = realizada;
+            ViewBag.jFActivos = NoReali + sinfecha + Urgente + Fechaprox + ConFecha + realizada;
+
+            Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
+
+            foreach (OILs oil in oILs.Where(s => (s.Tipo == "Ingenieria" || s.Tipo == "Manufactura") && (s.User_res == "José Carlos Olvera Dominguez" || s.User_asig == "José Carlos Olvera Dominguez")).ToList())
+            {
+                if (oil.Estatus == 1)
+                    realizada++;
+                if (oil.Estatus == 2)
+                    sinfecha++;
+                if (oil.Estatus == 3)
+                    ConFecha++;
+                if (oil.Estatus == 4)
+                    Fechaprox++;
+                if (oil.Estatus == 5)
+                    NoReali++;
+                if (oil.Estatus == 6)
+                    Urgente++;
+            }
+            ViewBag.cOrealizada = realizada;
+            ViewBag.cOActivos = NoReali + sinfecha + Urgente + Fechaprox + ConFecha + realizada;
+
+            Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
+
+            foreach (OILs oil in oILs.Where(s => (s.Tipo == "Ingenieria" || s.Tipo == "Manufactura") && (s.User_res == "Marcelino Prado Mendoza" || s.User_asig == "Marcelino Prado Mendoza")).ToList())
+            {
+                if (oil.Estatus == 1)
+                    realizada++;
+                if (oil.Estatus == 2)
+                    sinfecha++;
+                if (oil.Estatus == 3)
+                    ConFecha++;
+                if (oil.Estatus == 4)
+                    Fechaprox++;
+                if (oil.Estatus == 5)
+                    NoReali++;
+                if (oil.Estatus == 6)
+                    Urgente++;
+            }
+            ViewBag.mPrealizada = realizada;
+            ViewBag.mPActivos = NoReali + sinfecha + Urgente + Fechaprox + ConFecha + realizada;
+
+            Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
+
+            foreach (OILs oil in oILs.Where(s => (s.Tipo == "Ingenieria" || s.Tipo == "Manufactura") && (s.User_res == "Miguel Angel Coronado Villatoro" || s.User_asig == "Miguel Angel Coronado Villatoro")).ToList())
+            {
+                if (oil.Estatus == 1)
+                    realizada++;
+                if (oil.Estatus == 2)
+                    sinfecha++;
+                if (oil.Estatus == 3)
+                    ConFecha++;
+                if (oil.Estatus == 4)
+                    Fechaprox++;
+                if (oil.Estatus == 5)
+                    NoReali++;
+                if (oil.Estatus == 6)
+                    Urgente++;
+            }
+            ViewBag.mCrealizada = realizada;
+            ViewBag.mCActivos = NoReali + sinfecha + Urgente + Fechaprox + ConFecha + realizada;
+
+            Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
+
+            foreach (OILs oil in oILs.Where(s => (s.Tipo == "Ingenieria" || s.Tipo == "Manufactura") && (s.User_res == "Adriana Velazquez García" || s.User_asig == "Adriana Velazquez García")).ToList())
+            {
+                if (oil.Estatus == 1)
+                    realizada++;
+                if (oil.Estatus == 2)
+                    sinfecha++;
+                if (oil.Estatus == 3)
+                    ConFecha++;
+                if (oil.Estatus == 4)
+                    Fechaprox++;
+                if (oil.Estatus == 5)
+                    NoReali++;
+                if (oil.Estatus == 6)
+                    Urgente++;
+            }
+            ViewBag.aVrealizada = realizada;
+            ViewBag.aVActivos = NoReali + sinfecha + Urgente + Fechaprox + ConFecha + realizada;
+
+            Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
+
+            foreach (OILs oil in oILs.Where(s => (s.Tipo == "Ingenieria" || s.Tipo == "Manufactura") && (s.User_res == "Carlos Rodriguez Grimaldo" || s.User_asig == "Carlos Rodriguez Grimaldo")).ToList())
+            {
+                if (oil.Estatus == 1)
+                    realizada++;
+                if (oil.Estatus == 2)
+                    sinfecha++;
+                if (oil.Estatus == 3)
+                    ConFecha++;
+                if (oil.Estatus == 4)
+                    Fechaprox++;
+                if (oil.Estatus == 5)
+                    NoReali++;
+                if (oil.Estatus == 6)
+                    Urgente++;
+            }
+            ViewBag.cRrealizada = realizada;
+            ViewBag.cRActivos = NoReali + sinfecha + Urgente + Fechaprox + ConFecha + realizada;
+
             Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
 
             foreach (OILs oil in oILs.Where(s => (s.Tipo == "Ingenieria" || s.Tipo == "Manufactura") && ((s.User_res == "Hector Salomon Bucio" && s.User_asig == "-") || s.User_asig == "Hector Salomon Bucio")).ToList())
@@ -290,6 +471,63 @@ namespace Flex_SGM.Controllers
             ViewBag.hSActivos = NoReali + sinfecha + Urgente + Fechaprox + ConFecha + realizada;
             Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
 
+            foreach (OILs oil in oILs.Where(s => (s.Tipo == "Ingenieria" || s.Tipo == "Manufactura") && ((s.User_res == "Hipolito Gutierrez Salazar" && s.User_asig == "-") || s.User_asig == "Hipolito Gutierrez Salazar")).ToList())
+            {
+                if (oil.Estatus == 1)
+                    realizada++;
+                if (oil.Estatus == 2)
+                    sinfecha++;
+                if (oil.Estatus == 3)
+                    ConFecha++;
+                if (oil.Estatus == 4)
+                    Fechaprox++;
+                if (oil.Estatus == 5)
+                    NoReali++;
+                if (oil.Estatus == 6)
+                    Urgente++;
+            }
+            ViewBag.hGrealizada = realizada;
+            ViewBag.hGActivos = NoReali + sinfecha + Urgente + Fechaprox + ConFecha + realizada;
+            Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
+
+            foreach (OILs oil in oILs.Where(s => (s.Tipo == "Ingenieria" || s.Tipo == "Manufactura") && ((s.User_res == "Ismael Galindo Muñoz" && s.User_asig == "-") || s.User_asig == "Ismael Galindo Muñoz")).ToList())
+            {
+                if (oil.Estatus == 1)
+                    realizada++;
+                if (oil.Estatus == 2)
+                    sinfecha++;
+                if (oil.Estatus == 3)
+                    ConFecha++;
+                if (oil.Estatus == 4)
+                    Fechaprox++;
+                if (oil.Estatus == 5)
+                    NoReali++;
+                if (oil.Estatus == 6)
+                    Urgente++;
+            }
+            ViewBag.iGrealizada = realizada;
+            ViewBag.iGActivos = NoReali + sinfecha + Urgente + Fechaprox + ConFecha + realizada;
+            Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
+
+            foreach (OILs oil in oILs.Where(s => (s.Tipo == "Ingenieria" || s.Tipo == "Manufactura") && ((s.User_res == "Joel Quintana Vasque" && s.User_asig == "-") || s.User_asig == "Joel Quintana Vasque")).ToList())
+            {
+                if (oil.Estatus == 1)
+                    realizada++;
+                if (oil.Estatus == 2)
+                    sinfecha++;
+                if (oil.Estatus == 3)
+                    ConFecha++;
+                if (oil.Estatus == 4)
+                    Fechaprox++;
+                if (oil.Estatus == 5)
+                    NoReali++;
+                if (oil.Estatus == 6)
+                    Urgente++;
+            }
+            ViewBag.jQrealizada = realizada;
+            ViewBag.jQActivos = NoReali + sinfecha + Urgente + Fechaprox + ConFecha + realizada;
+            Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
+
             foreach (OILs oil in oILs.Where(s => (s.Tipo == "Ingenieria" || s.Tipo == "Manufactura") && ((s.User_res == "Jose Erasmo Arellano Grimaldo" && s.User_asig == "-") || s.User_asig == "Jose Erasmo Arellano Grimaldo")).ToList())
             {
                 if (oil.Estatus == 1)
@@ -309,6 +547,63 @@ namespace Flex_SGM.Controllers
             ViewBag.eAActivos = NoReali + sinfecha + Urgente + Fechaprox + ConFecha + realizada;
             Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
 
+            foreach (OILs oil in oILs.Where(s => (s.Tipo == "Ingenieria" || s.Tipo == "Manufactura") && ((s.User_res == "Jose Juan Arvizu Arvizu" && s.User_asig == "-") || s.User_asig == "Jose Juan Arvizu Arvizu")).ToList())
+            {
+                if (oil.Estatus == 1)
+                    realizada++;
+                if (oil.Estatus == 2)
+                    sinfecha++;
+                if (oil.Estatus == 3)
+                    ConFecha++;
+                if (oil.Estatus == 4)
+                    Fechaprox++;
+                if (oil.Estatus == 5)
+                    NoReali++;
+                if (oil.Estatus == 6)
+                    Urgente++;
+            }
+            ViewBag.jArealizada = realizada;
+            ViewBag.jAActivos = NoReali + sinfecha + Urgente + Fechaprox + ConFecha + realizada;
+            Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
+
+            foreach (OILs oil in oILs.Where(s => (s.Tipo == "Ingenieria" || s.Tipo == "Manufactura") && ((s.User_res == "Juan Antonio Rojas Garcia" && s.User_asig == "-") || s.User_asig == "Juan Antonio Rojas Garcia")).ToList())
+            {
+                if (oil.Estatus == 1)
+                    realizada++;
+                if (oil.Estatus == 2)
+                    sinfecha++;
+                if (oil.Estatus == 3)
+                    ConFecha++;
+                if (oil.Estatus == 4)
+                    Fechaprox++;
+                if (oil.Estatus == 5)
+                    NoReali++;
+                if (oil.Estatus == 6)
+                    Urgente++;
+            }
+            ViewBag.aRrealizada = realizada;
+            ViewBag.aRActivos = NoReali + sinfecha + Urgente + Fechaprox + ConFecha + realizada;
+            Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
+
+            foreach (OILs oil in oILs.Where(s => (s.Tipo == "Ingenieria" || s.Tipo == "Manufactura") && ((s.User_res == "Manuel Jiménez Garcia" && s.User_asig == "-") || s.User_asig == "Manuel Jiménez Garcia")).ToList())
+            {
+                if (oil.Estatus == 1)
+                    realizada++;
+                if (oil.Estatus == 2)
+                    sinfecha++;
+                if (oil.Estatus == 3)
+                    ConFecha++;
+                if (oil.Estatus == 4)
+                    Fechaprox++;
+                if (oil.Estatus == 5)
+                    NoReali++;
+                if (oil.Estatus == 6)
+                    Urgente++;
+            }
+            ViewBag.mJrealizada = realizada;
+            ViewBag.mJActivos = NoReali + sinfecha + Urgente + Fechaprox + ConFecha + realizada;
+            Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
+
             foreach (OILs oil in oILs.Where(s => (s.Tipo == "Ingenieria" || s.Tipo == "Manufactura") && ((s.User_res == "Vicente Olvera Gonzalez" && s.User_asig == "-") || s.User_asig == "Vicente Olvera Gonzalez")).ToList())
             {
                 if (oil.Estatus == 1)
@@ -326,6 +621,25 @@ namespace Flex_SGM.Controllers
             }
             ViewBag.vOrealizada = realizada;
             ViewBag.vOActivos = NoReali + sinfecha + Urgente + Fechaprox + ConFecha + realizada;
+            Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
+
+            foreach (OILs oil in oILs.Where(s => (s.Tipo == "Ingenieria" || s.Tipo == "Manufactura") && ((s.User_res == "Víctor Manuel Bastida Santana" && s.User_asig == "-") || s.User_asig == "Víctor Manuel Bastida Santana")).ToList())
+            {
+                if (oil.Estatus == 1)
+                    realizada++;
+                if (oil.Estatus == 2)
+                    sinfecha++;
+                if (oil.Estatus == 3)
+                    ConFecha++;
+                if (oil.Estatus == 4)
+                    Fechaprox++;
+                if (oil.Estatus == 5)
+                    NoReali++;
+                if (oil.Estatus == 6)
+                    Urgente++;
+            }
+            ViewBag.vBrealizada = realizada;
+            ViewBag.vBActivos = NoReali + sinfecha + Urgente + Fechaprox + ConFecha + realizada;
             Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
 
             if (string.IsNullOrEmpty(""))
@@ -450,7 +764,7 @@ namespace Flex_SGM.Controllers
                 if (c6)
                     a6 = 6;
 
-                if (c1 == false&& c2 == false && c3 == false && c4 == false && c5 == false && c6 == false)
+                if (c1 == false && c2 == false && c3 == false && c4 == false && c5 == false && c6 == false)
                 {
                         a1 = 1;
                         a2 = 2;
@@ -590,6 +904,8 @@ namespace Flex_SGM.Controllers
 
             ViewBag.User_res = new SelectList(db.Users, "UserFullName", "UserFullName");
             ViewBag.Tipo = new SelectList(Enum.GetValues(typeof(flex_Oils)).Cast<flex_Oils>().ToList());
+            ViewBag.Dep = new SelectList(Enum.GetValues(typeof(flex_Departamento)).Cast<flex_Departamento>().ToList());
+            ViewBag.Client = new SelectList(Enum.GetValues(typeof(flex_Cliente)).Cast<flex_Cliente>().ToList());
             ViewBag.MaquinasID = new SelectList(db.Maquinas, "ID", "SubMaquina");
             return View(oils);
         }
@@ -750,23 +1066,23 @@ namespace Flex_SGM.Controllers
                 if (Actividad_Finalizada) { 
                 string path = Path.Combine(Server.MapPath("~/Evidence"), "before", OILs.ID.ToString());
                 string path2 = Path.Combine(Server.MapPath("~/Evidence"), "after", OILs.ID.ToString());
-                if (!Directory.Exists(path2))//!Directory.Exists(path)||
+                /*if (!Directory.Exists(path2))//!Directory.Exists(path)||
                     {
                     ViewBag.Danger = "No existe Carpeta de Evidencia( Para poder cerrar un OIL hay que subir imagenes de evidencia)";
                     return View(OILs);
 
-                }
+                }*/
 
                 DirectoryInfo Folder;
                 FileInfo[] Images;
-                 /*   Folder = new DirectoryInfo(path);
+                    Folder = new DirectoryInfo(path);
                     Images = Folder.GetFiles();
                 if (Images.Count()==0)
                 {
                     ViewBag.Danger = "No existe imagenes de Evidencia( Para poder cerrar un OIL hay que subir imagenes de evidencia)";
                     return View(OILs);
 
-                }*/
+                }
                 Folder = new DirectoryInfo(path2);
                 Images = Folder.GetFiles();
                 if (Images.Count() == 0)

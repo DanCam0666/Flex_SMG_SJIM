@@ -403,7 +403,7 @@ namespace Flex_SGM.Models
         //AR  Aprovaciones requeridas
         [Display(Name = "Planta")]
         public bool Arplanta { get; set; }
-        [Display(Name = "Ingeniería")]
+        [Display(Name = "Ingenieria")]
         public bool ArIngenieria { get; set; }
         [Display(Name = "Manufactura")]
         public bool Armanufactura { get; set; }
