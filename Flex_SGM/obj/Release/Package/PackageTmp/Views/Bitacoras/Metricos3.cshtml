@@ -11,7 +11,6 @@
     <div class="col-md-12 ">
         <div class="x_panel">
             <div class="x_title clearfix">
-
                 <row>
                     <center>
                         <div class="input-daterange input-group col-md-6" id="bs_datepicker_range_container">
@@ -29,16 +28,8 @@
                 </row>
                 <row>
                     <center>
-                        <div class="form-group col-md-2" data-toggle="tooltip" title=" Año: x 295.494 || Mes: x 24.624  || dia: x 1">
-                            <div class="">
-                                <label for="submaquina">Tiempo disponible por Turno en minutos:</label>
-                            </div>
-                            <label class=" form-control">
-                              @ViewBag.xmgroup
-                            </label>
-                        </div>
                         <div class="form-group col-md-2">
-                            <label for="amaquina">Filtrar por Area Maquina...</label>
+                            <label for="amaquina">Filtrar por Area...</label>
                             <div class="col-md-10">
                                 @Html.DropDownList("amaquina", null, "--Todas--", htmlAttributes: new { @class = "form-control" })
 
@@ -52,7 +43,7 @@
                             </div>
                         </div>
                         <div class="form-group col-md-2">
-                            <label for="submaquina">Filtrar SubMaquina...(*no funciona)</label>
+                            <label for="submaquina">Filtrar Sub-Maquina...(*no funciona)</label>
                             <div class="col-md-10">
                                 @Html.DropDownList("submaquina", null, "--Todas--", htmlAttributes: new { @class = "form-control" })
 

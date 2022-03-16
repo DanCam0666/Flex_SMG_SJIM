@@ -2595,6 +2595,7 @@
     <Content Include="Content\DataTables-1.10.20\images\sort_desc_disabled.png" />
     <Content Include="Content\Login.css" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="img\chosen-sprite.png" />
     <Content Include="loading.gif" />
     <Content Include="loading3.gif" />
     <Content Include="favicon.ico" />
