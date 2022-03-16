@@ -16,20 +16,26 @@ namespace Flex_SGM.Models
         [MaxLength(100)]
         [Display(Name = "Tipo de OIL")]
         public string Tipo { get; set; }
-        [Display(Name = "No. Folio o PCR")]
+        [MaxLength(100)]
+        [Display(Name = "Departamento")]
+        public string Dep { get; set; }
+        [MaxLength(100)]
+        [Display(Name = "Cliente")]
+        public string Client { get; set; }
+        [Display(Name = "Proyecto:")]
         [MaxLength(50)]
         public string folio { get; set; }
-        [Display(Name = "Detalles de la Actividad a realizar, Ser especifico...")]
+        [Display(Name = "Actividad:")]
         public string Actividad { get; set; }
         [MaxLength(100)]
-        [Display(Name = "Genero")]
+        [Display(Name = "Genero:")]
         public string User_gen{ get; set; }
-        [Display(Name = "Fecha Creacion")]
+        [Display(Name = "Fecha Creacion:")]
         [DataType(DataType.DateTime)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy H:mm}")]
         public DateTime DiaHora { get; set; }
         [MaxLength(100)]
-        [Display(Name = "Responsable")]
+        [Display(Name = "Responsable:")]
         public string User_res { get; set; }
         [Display(Name = "Fecha Compromiso")]
         [DataType(DataType.DateTime)]
@@ -49,7 +55,7 @@ namespace Flex_SGM.Models
         [MaxLength(100)]
         [Display(Name = "Actividad Verificada por")]
         public string Usuario_Verifico { get; set; }
-        [Display(Name = "Comentarios de Apertura de actividad: ")]
+        [Display(Name = "Observaciones:")]
         public string Comentarios { get; set; }
         [Display(Name = "Comentarios de Cierre de actividad: ")]
         public string Comentarios2 { get; set; }

@@ -1060,8 +1060,6 @@ C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\Microsof
 C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\Microsoft.Owin.Security.OAuth.xml
 C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\es\EntityFramework.resources.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\es\EntityFramework.SqlServer.resources.dll
 C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\es\System.Web.Helpers.resources.dll
 C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\es\System.Web.Mvc.resources.dll
 C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\es\System.Web.Optimization.resources.dll

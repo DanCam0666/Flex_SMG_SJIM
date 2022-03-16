@@ -7,28 +7,28 @@ namespace Flex_SGM.Models
 {
     public enum flex_Cliente
     {
-        GM,FCA, Nissan, Volkswagen, Toyota, Ford, FlexNGate
+        GM, Stellantis, Ford, Toyota, Nissan, Volkswagen
 
     }
 
     public enum flex_Depasold
     {
-        Materiales, Produccion, Calidad, Mantenimiento, Herramentales, Ingeniería, Manufactura, Automatizacion, FlexNGate
+        Materiales, Produccion, Calidad, Mantenimiento, Herramentales, Ingenieria, Manufactura, Automatizacion, FlexNGate
 
     }
     public enum flex_Departamento
     {
-       FlexNGate, Ingeniería, Manufactura, Calidad, Finanzas, Compras, Materiales, Mantenimiento, Seguridad, Ambiental, Tooling, Estampado, Soldadura, Cromo, Pintura,Ensamble
+       Estampado, Rolado, Soldadura, Cromo, Ecoat, Topcoat, Ensamble
 
     }
     public enum flex_Areasv1
     {
-        Ingeniería, Manufactura, Servicios, Estampado,MetalFinish, Cromo, Pintura, Mtto_Soldadura, Proc_Soldadura, Ensamble, Automatizacion, FlexNGate
+        Ingenieria, Manufactura, Servicios, Estampado,MetalFinish, Cromo, Pintura, Mtto_Soldadura, Proc_Soldadura, Ensamble, Automatizacion, FlexNGate
 
     }
     public enum flex_Areas
     {
-        Ingeniería, Manufactura, Servicios, Estampado, MetalFinish, Cromo1, Cromo2, AutoPulido1, AutoPulido2, Ecoat, Topcoat, Soldadura, Ensamble, Automatizacion, FlexNGate
+        Ingenieria, Manufactura, Servicios, Estampado, MetalFinish, Cromo1, Cromo2, AutoPulido1, AutoPulido2, Ecoat, Topcoat, Soldadura, Ensamble, Automatizacion, FlexNGate
     }
     public enum flex_Puesto
     {
@@ -38,7 +38,7 @@ namespace Flex_SGM.Models
 
     public enum flex_Oils
     {
-        Ingeniería, Manufactura
+        Ingenieria, Manufactura
 
     }
 
