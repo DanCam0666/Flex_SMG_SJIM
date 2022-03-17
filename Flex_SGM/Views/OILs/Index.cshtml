@@ -128,9 +128,9 @@
                             @if (item.User_res != null && item.User_asig != null)
                             {
 
-                                @Html.ActionLink("Actualizar", "Update", new { id = item.ID }, new { @class = "btn  btn-success", @target = "_blank" })
+                                @Html.ActionLink("Actualizar", "Update", new { id = item.ID }, new { @class = "btn  btn-success" })
                             }
-                            @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn  btn-default", @target = "_blank" })
+                            @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn  btn-default" })
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Tipo)
