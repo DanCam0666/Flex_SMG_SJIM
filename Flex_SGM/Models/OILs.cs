@@ -37,7 +37,7 @@ namespace Flex_SGM.Models
         [MaxLength(100)]
         [Display(Name = "Responsable:")]
         public string User_res { get; set; }
-        [Display(Name = "Fecha Compromiso")]
+        [Display(Name = "Fecha Compromiso:")]
         [DataType(DataType.DateTime)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy H:mm}")]
         public DateTime? DiaHora_Compromiso { get; set; }

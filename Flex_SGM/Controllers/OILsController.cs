@@ -916,8 +916,8 @@ namespace Flex_SGM.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "ID,Tipo,Folio,MaquinasID,Actividad,User_Gen,User_res,DiaHora,Comentarios,Comentarios2,Material_necesario,urgente")] OILs oILs)
-        {
+        public async Task<ActionResult> Create([Bind(Include = "ID, Tipo, Folio, MaquinasID, Actividad, User_Gen,User_res, DiaHora_Compromiso, DiaHora, Comentarios, Comentarios2, Material_necesario, urgente")] OILs oILs)
+        { 
             var id = User.Identity.GetUserId();
             ApplicationUser currentUser = UserManager.FindById(id);
 
@@ -1049,7 +1049,7 @@ namespace Flex_SGM.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Update([Bind(Include = "ID,Tipo,Folio,MaquinasID ,Actividad ,User_gen,DiaHora ,User_res ,DiaHora_Compromiso ,User_asig ,DiaHora_Cierre ,DiaHora_Verificado ,Usuario_Verifico ,Comentarios,Comentarios2,Material_necesario,urgente,Estatus")] OILs OILs, bool Actividad_Finalizada)
+        public ActionResult Update([Bind(Include = "ID, Tipo, Folio, MaquinasID, Actividad, User_gen, DiaHora, User_res, DiaHora_Compromiso, User_asig, DiaHora_Cierre, DiaHora_Verificado, Usuario_Verifico, Comentarios, Comentarios2,Material_necesario, urgente,Estatus")] OILs OILs, bool Actividad_Finalizada)
         {
             SelectList selectList1 = new SelectList(db.Users, "UserFullName", "UserFullName", OILs.User_asig);
             ViewBag.User_asig = selectList1;
