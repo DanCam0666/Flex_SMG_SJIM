@@ -31,11 +31,11 @@
         format: "dd/mm/yyyy"
     });
 
-    /*$.validator.addMethod('date',
+    $.validator.addMethod('date',
         function (value, element, params) {
             return true;
         }
-    );*/
+    );
 
 });
 
