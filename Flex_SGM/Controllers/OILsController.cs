@@ -703,7 +703,7 @@ namespace Flex_SGM.Controllers
             }
             ViewBag.uarea = cuare;
             ViewBag.cuser = cuser;
-            if (cpuesto.Contains("Supervisor") || cpuesto.Contains("Asistente") || cpuesto.Contains("SuperIntendente") || cpuesto.Contains("Gerente"))
+            if (cpuesto.Contains("Supervisor") || cpuesto.Contains("SuperIntendente") || cpuesto.Contains("Gerente"))
                 ViewBag.super = true;
             else
                 ViewBag.super = false;
@@ -1031,6 +1031,11 @@ namespace Flex_SGM.Controllers
 
         public ActionResult Update(int? id)
         {
+            string cpuesto = "xxx";
+            string cuare = "xxx";
+            var Id = User.Identity.GetUserId();
+            ApplicationUser currentUser = UserManager.FindById(Id);
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -1042,6 +1047,17 @@ namespace Flex_SGM.Controllers
                 return HttpNotFound();
             }
             SelectList selectList1 = new SelectList(db.Users, "UserFullName", "UserFullName", OILs.User_asig);
+
+            if (currentUser != null)
+            {
+                cpuesto = currentUser.Puesto;
+                cuare = currentUser.Area;
+            }
+
+            if (cpuesto.Contains("Supervisor") || cpuesto.Contains("SuperIntendente") || cpuesto.Contains("Gerente"))
+                ViewBag.super = true;
+            else
+                ViewBag.super = false;
 
             ViewBag.User_asig = selectList1;
             return View(OILs);
@@ -1066,31 +1082,41 @@ namespace Flex_SGM.Controllers
                 if (Actividad_Finalizada) { 
                 string path = Path.Combine(Server.MapPath("~/Evidence"), "before", OILs.ID.ToString());
                 string path2 = Path.Combine(Server.MapPath("~/Evidence"), "after", OILs.ID.ToString());
-                /*if (!Directory.Exists(path2))//!Directory.Exists(path)||
-                    {
-                    ViewBag.Danger = "No existe Carpeta de Evidencia( Para poder cerrar un OIL hay que subir imagenes de evidencia)";
-                    return View(OILs);
 
-                }*/
-
-                DirectoryInfo Folder;
-                FileInfo[] Images;
+                    DirectoryInfo Folder;
+                    FileInfo[] Images;
                     Folder = new DirectoryInfo(path);
-                    Images = Folder.GetFiles();
-                if (Images.Count()==0)
-                {
-                    ViewBag.Danger = "No existe imagenes de Evidencia( Para poder cerrar un OIL hay que subir imagenes de evidencia)";
-                    return View(OILs);
 
-                }
-                Folder = new DirectoryInfo(path2);
-                Images = Folder.GetFiles();
-                if (Images.Count() == 0)
-                {
-                    ViewBag.Warning = "No existe imagenes de Evidencia( Para poder cerrar un OIL hay que subir imagenes de evidencia)";
-                    return View(OILs);
-                }
+                    if (Folder.Exists)
+                    {
+                        Images = Folder.GetFiles();
+                        if (Images.Count() == 0)
+                        {
+                            ViewBag.Danger = "No existe imagenes de Evidencia ANTES ( Para poder cerrar un OIL hay que subir imagenes de evidencia)";
+                            return View(OILs);
+                        }
+                    }
+                    else 
+                    {
+                        ViewBag.Danger = "No existe imagenes de Evidencia ANTES ( Para poder cerrar un OIL hay que subir imagenes de evidencia)";
+                        return View(OILs);
+                    }
 
+                    Folder = new DirectoryInfo(path2);
+                    if (Folder.Exists)
+                    {
+                        Images = Folder.GetFiles();
+                        if (Images.Count() == 0)
+                        {
+                            ViewBag.Warning = "No existe imagenes de Evidencia DESPUÉS ( Para poder cerrar un OIL hay que subir imagenes de evidencia)";
+                            return View(OILs);
+                        }
+                    }
+                    else
+                    {
+                        ViewBag.Danger = "No existe imagenes de Evidencia DESPUÉS ( Para poder cerrar un OIL hay que subir imagenes de evidencia)";
+                        return View(OILs);
+                    }
                 }
                 if (string.IsNullOrEmpty(OILs.User_asig))
                     OILs.User_asig = "-";
@@ -1336,7 +1362,6 @@ namespace Flex_SGM.Controllers
         }
 
         // GET: OILs/Delete/5
-        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
@@ -1352,7 +1377,6 @@ namespace Flex_SGM.Controllers
         }
 
         // POST: OILs/Delete/5
-        [Authorize(Roles = "Admin")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)

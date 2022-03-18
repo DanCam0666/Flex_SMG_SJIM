@@ -103,7 +103,7 @@
             </div>
         </div>
 
-        @if (Model.DiaHora_Compromiso == null)
+        @if (Model.DiaHora_Compromiso == null || ViewBag.super == true)
         {
             <div class="form-group col-md-6">
                 @Html.LabelFor(model => model.DiaHora_Compromiso, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -123,7 +123,6 @@
                     @Html.HiddenFor(model => model.DiaHora_Compromiso)
                 </div>
             </div>
-
         }
         <div class="form-group col-md-6">
             @Html.LabelFor(model => model.User_asig, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -375,8 +374,6 @@
             $("#Normaldrop").chosen();
             $("#Normaldrop1").chosen();
 
-            // $('td[name ="tcol1"]').filepond({ allowMultiple: true, server: '@Url.Action("SaveFile", "oils", new { id= Model.ID , t = "a" })' });
-                // $('td[name ="tcol1"]') .filepond({ allowMultiple: true, server: '@Url.Action("SaveFile", "oils", new { id= Model.ID, t = "d" })' });
         });
 
         /*

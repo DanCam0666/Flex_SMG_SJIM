@@ -2781,7 +2781,6 @@
     <Content Include="Views\OILs\Edit.cshtml" />
     <Content Include="Views\OILs\Index.cshtml" />
     <Content Include="Views\Shared\_Result.cshtml" />
-    <Content Include="Views\OILs\Index - Copia.cshtml" />
     <Content Include="Views\Home\Working.cshtml" />
     <Content Include="Views\Maquinas\Create.cshtml" />
     <Content Include="Views\Maquinas\Delete.cshtml" />
@@ -2803,7 +2802,6 @@
     <Content Include="Views\Manage\Contacs.cshtml" />
     <Content Include="Views\Manage\Profile.cshtml" />
     <Content Include="Views\Manage\Deleteu.cshtml" />
-    <Content Include="Views\OILs\Index - Copia %282%29.cshtml" />
     <Content Include="Views\Bitacoras\Metricos.cshtml" />
     <Content Include="Views\Bitacoras\Repo.cshtml" />
     <Content Include="Views\OILs\Ress.cshtml" />
@@ -2858,7 +2856,6 @@
     <Content Include="Views\CDockaudits\Details.cshtml" />
     <Content Include="Views\CDockaudits\Edit.cshtml" />
     <Content Include="Views\CDockaudits\Index.cshtml" />
-    <Content Include="Views\OILs\Update - Copy.cshtml" />
     <Content Include="Views\Calidad\Index.cshtml" />
     <Content Include="Views\Disponibilidads\Create.cshtml" />
     <Content Include="Views\Disponibilidads\Delete.cshtml" />

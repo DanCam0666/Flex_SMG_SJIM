@@ -4,7 +4,7 @@
     ViewBag.Title = "Crear";
 }
     <div style="max-width: 1000px; margin: auto;">
-        <center><h1>Crear Bitacora</h1></center>
+        <center><h1>Crear Registro</h1></center>
 
           
         <div class="x_panel">
@@ -17,8 +17,8 @@
 
                        @{foreach (System.Web.Mvc.SelectListItem x in @ViewBag.listcliente)
                             {
-                                <span style="font-size:20px; color:black;">
-                                    <label><input class="checkbox2" type="checkbox" name=cliente value=@x.Text>@x.Text</label>
+                                <span style="font-size:30px; color:black;">
+                                    <label><input class="checkbox2" type="checkbox" name=cliente value=@x.Text>    @x.Text</label>
                                 </span>
                             };
                          }

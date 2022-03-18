@@ -110,6 +110,4 @@ namespace Flex_SGM.Models
         public System.Data.Entity.DbSet<Flex_SGM.Models.FeasibilitySigns> FeasibilitySigns { get; set; }
 
     }
-
-
 }

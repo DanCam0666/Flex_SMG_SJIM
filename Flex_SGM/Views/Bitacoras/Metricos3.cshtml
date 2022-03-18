@@ -68,15 +68,15 @@
 }
 <div class="x_panel">
     <div class="x_title clearfix">
-        <h2>Metricos del @ViewBag.dx</h2>
+        <h2>Inicadores del @ViewBag.dx</h2>
     </div>
     <div class="x_content">
         <table class="table table-bordered table-striped" style="width:100%" id="metricox">
             <thead>
                 <tr>
-                    <td>Descripcion / Tiempo</td>
-                    <td>Referencia</td>
-                    <td>Objetivo</td>
+                    <td style="width:20%;"><h3>Descripción</h3></td>
+                    <td style="width:20%;"><h3>Responsable</h3></td>
+                    <td style="width:20%;"><h3>Meta</h3></td>
                     @foreach (var item in ViewBag.data)
                     {
                         <td>@item.TiempoLabel</td>
@@ -85,167 +85,186 @@
             </thead>
             <tbody>
                 <tr>
-                    <th scope="row">06 - % Tiempo Muerto 1 turno</th>
-                    <th scope="row">Menor</th>
-                    <th scope="row">3%</th>
+                    <th scope="row">Safety (H&S)</th>
+                    <th scope="row">Joel Quintana</th>
+                    <th scope="row">0 Incidents</th>
                     @foreach (var item in ViewBag.data)
                     {
                         <td>@item.TiempoMuerto1</td>
                     }
                 </tr>
                 <tr>
-                    <th scope="row">07 - % Tiempo Muerto 2 turno</th>
-                    <th scope="row">Menor</th>
-                    <th scope="row">3%</th>
+                    <th scope="row">Scrap</th>
+                    <th scope="row">Erasmo Arellano</th>
+                    <th scope="row">$ 0 /0.25%%</th>
                     @foreach (var item in ViewBag.data)
                     {
                         <td>@item.TiempoMuerto2</td>
                     }
                 </tr>
                 <tr>
-                    <th scope="row">08 - % Tiempo Muerto 3 turno</th>
-                    <th scope="row">Menor</th>
-                    <th scope="row">3%</th>
+                    <th scope="row">LPA / Covid</th>
+                    <th scope="row">Miguel Coronado</th>
+                    <th scope="row">100% Completed</th>
                     @foreach (var item in ViewBag.data)
                     {
                         <td>@item.TiempoMuerto3</td>
                     }
                 </tr>
                 <tr>
-                    <th scope="row">09 - MTTR 1 turno</th>
-                    <th scope="row">Menor</th>
-                    <th scope="row">15 Mins</th>
+                    <th scope="row">PLM / Launch Matrix</th>
+                    <th scope="row">Armando Prado</th>
+                    <th scope="row">100% Closed on time</th>
                     @foreach (var item in ViewBag.data)
                     {
                         <td>@item.MTTR1</td>
                     }
                 </tr>
                 <tr>
-                    <th scope="row">10 - MTTR 2 turno</th>
-                    <th scope="row">Menor</th>
-                    <th scope="row">15 Mins</th>
+                    <th scope="row">GAPS</th>
+                    <th scope="row">(TBD)</th>
+                    <th scope="row">100% Completed</th>
                     @foreach (var item in ViewBag.data)
                     {
                         <td>@item.MTTR2</td>
                     }
                 </tr>
                 <tr>
-                    <th scope="row">11 - MTTR 3 turno</th>
-                    <th scope="row">Menor</th>
-                    <th scope="row">15 Mins</th>
+                    <th scope="row">ECN’s / PCR´s</th>
+                    <th scope="row">Zaideth Vasquez</th>
+                    <th scope="row">100% Completed</th>
                     @foreach (var item in ViewBag.data)
                     {
                         <td>@item.MTTR3</td>
                     }
                 </tr>
                 <tr>
-                    <th scope="row">12 - MTBF</th>
-                    <th scope="row">Mayor</th>
-                    <th scope="row">480 Mins</th>
+                    <th scope="row">Capacities</th>
+                    <th scope="row">Adriana Velazquez</th>
+                    <th scope="row">Monthly Report</th>
                     @foreach (var item in ViewBag.data)
                     {
                         <td>@item.MTBF</td>
                     }
                 </tr>
                 <tr>
-                    <th scope="row">13 -  Tajetas TPM</th>
-                    <th scope="row">Mayor</th>
-                    <th scope="row">90%</th>
+                    <th scope="row">Customer Complaints  ( Eng )</th>
+                    <th scope="row">Donato Salazar</th>
+                    <th scope="row">0 complaints</th>
                     @foreach (var item in ViewBag.data)
                     {
                         <td>@item.TarjetasTPM</td>
                     }
                 </tr>
                 <tr>
-                    <th scope="row">18 -  Mantebilidad</th>
-                    <th scope="row">Mayor</th>
-                    <th scope="row">98%</th>
+                    <th scope="row">Lay Out</th>
+                    <th scope="row">Hipolito Gutierrez</th>
+                    <th scope="row">0 differences</th>
                     @foreach (var item in ViewBag.data)
                     {
                         <td>@item.Confiabilidad</td>
                     }
                 </tr>
                 <tr>
-                    <th scope="row">20 - Disponibilidad 1</th>
-                    <th scope="row">Informativo</th>
-                    <th scope="row">1er Turno</th>
+                    <th scope="row">Continous Improvement / Manpower</th>
+                    <th scope="row">Gabriela Vasquez</th>
+                    <th scope="row">100% Monthly /1 project month</th>
                     @foreach (var item in ViewBag.data)
                     {
                         <td>@item.Disponible1</td>
                     }
                 </tr>
                 <tr>
-                    <th scope="row">21 - # Fallas 1</th>
-                    <th scope="row">Informativo</th>
-                    <th scope="row">1er Turno</th>
+                    <th scope="row">TOC/H&S Audits</th>
+                    <th scope="row">Juan Arvizu</th>
+                    <th scope="row">100%</th>
                     @foreach (var item in ViewBag.data)
                     {
                         <td>@item.FallasT1</td>
                     }
                 </tr>
                 <tr>
-                    <th scope="row">22 - # Tiempo Perdido 1</th>
-                    <th scope="row">Informativo</th>
-                    <th scope="row">1er Turno</th>
+                    <th scope="row">Customer Score Cards</th>
+                    <th scope="row">Cynthia Alvarez</th>
+                    <th scope="row">3 Ideas p/ person p/ month</th>
                     @foreach (var item in ViewBag.data)
                     {
                         <td>@item.TiempoM1</td>
                     }
                 </tr>
                 <tr>
-                    <th scope="row">23 - Disponibilidad 2</th>
-                    <th scope="row">Informativo</th>
-                    <th scope="row">2do Turno</th>
+                    <th scope="row">Parts Delivery on time </th>
+                    <th scope="row">Carlos Olvera</th>
+                    <th scope="row">Delivery according to schedule</th>
                     @foreach (var item in ViewBag.data)
                     {
                         <td>@item.Disponible1</td>
                     }
                 </tr>
                 <tr>
-                    <th scope="row">24 - # Fallas 2</th>
-                    <th scope="row">Informativo</th>
-                    <th scope="row">2do Turno</th>
+                    <th scope="row">LIM Inventory & Control</th>
+                    <th scope="row">Victor Bastida</th>
+                    <th scope="row">0% Difference</th>
                     @foreach (var item in ViewBag.data)
                     {
                         <td>@item.FallasT2</td>
                     }
                 </tr>
                 <tr>
-                    <th scope="row">25 - # Tiempo Perdido 2</th>
-                    <th scope="row">Informativo</th>
-                    <th scope="row">2do Turno</th>
+                    <th scope="row">Quality and H&S 5 min Talk</th>
+                    <th scope="row">Carlos Rodriguez</th>
+                    <th scope="row">100% Completed</th>
                     @foreach (var item in ViewBag.data)
                     {
                         <td>@item.TiempoM2</td>
                     }
                 </tr>
                 <tr>
-                    <th scope="row">26 - Disponibilidad 3</th>
-                    <th scope="row">Informativo</th>
-                    <th scope="row">3er Turno</th>
+                    <th scope="row">Blue Book Vs CMS</th>
+                    <th scope="row">(TBD)</th>
+                    <th scope="row">98% Accuracy and 100% audits</th>
                     @foreach (var item in ViewBag.data)
                     {
                         <td>@item.Disponible1</td>
                     }
                 </tr>
                 <tr>
-                    <th scope="row">27 - # Fallas 3</th>
-                    <th scope="row">Informativo</th>
-                    <th scope="row">3er Turno</th>
+                    <th scope="row">Red Rabbits</th>
+                    <th scope="row">Hector Salomon</th>
+                    <th scope="row">100% on time & implemented</th>
                     @foreach (var item in ViewBag.data)
                     {
                         <td>@item.FallasT3</td>
                     }
                 </tr>
                 <tr>
-                    <th scope="row">28 - # Tiempo Perdido 3</th>
-                    <th scope="row">Informativo</th>
-                    <th scope="row">3er Turno</th>
+                    <th scope="row">AMEF</th>
+                    <th scope="row">Manuel Jimenez</th>
+                    <th scope="row">100% Complete</th>
                     @foreach (var item in ViewBag.data)
                     {
                         <td>@item.TiempoM3</td>
                     }
                 </tr>
+                <tr>
+                    <th scope="row">Packaging Portals</th>
+                    <th scope="row">Antonio Rojas</th>
+                    <th scope="row">100% Approved</th>
+                    @foreach (var item in ViewBag.data)
+                    {
+                        <td>@item.TiempoM3</td>
+                    }
+                </tr>
+                <tr>
+                    <th scope="row">Yellow Sheet & BOM´s audited</th>
+                    <th scope="row">Jessica Franco</th>
+                    <th scope="row">100%</th>
+                    @foreach (var item in ViewBag.data)
+                    {
+                        <td>@item.TiempoM3</td>
+                    }
+                </tr>
+
             </tbody>
         </table>
     </div>
@@ -261,18 +280,18 @@
 
                     <th>@Html.Label("Nombre Maquina")</th>
                     <th>@Html.Label("MTBF minutos")</th>
-                    <th>@Html.Label("Tiempo Disponible 1er  minutos")</th>
+                    <th>@Html.Label("Tiempo Disponible 1er minutos")</th>
                     <th>@Html.Label("Cantidad de Fallas 1er")</th>
-                    <th>@Html.Label("Tiempo Muerto 1er  minutos")</th>
+                    <th>@Html.Label("Tiempo Muerto 1er minutos")</th>
                     <th>@Html.Label("MTTR 1er  minutos")</th>
                     <th>@Html.Label("Tiempo Disponible 2do minutos")</th>
                     <th>@Html.Label("Cantidad de Fallas 2do")</th>
                     <th>@Html.Label("Tiempo Muerto 2do minutos")</th>
                     <th>@Html.Label("MTTR 2do minutos")</th>
-                    <th>@Html.Label("Tiempo Disponible 3er  minutos")</th>
+                    <th>@Html.Label("Tiempo Disponible 3er minutos")</th>
                     <th>@Html.Label("Cantidad de Fallas 3er")</th>
-                    <th>@Html.Label("Tiempo Muerto 3er  minutos")</th>
-                    <th>@Html.Label("MTTR 3er  minutos")</th>
+                    <th>@Html.Label("Tiempo Muerto 3er minutos")</th>
+                    <th>@Html.Label("MTTR 3er minutos")</th>
 
 
                 </tr>
@@ -616,58 +635,57 @@
     <br />
     <br />
 
-    @section Scripts {
+ @section Scripts {
 
-        <script>
+    <script>
 
 
-          var barChartData2 =
-            {
-                   labels: [@Html.Raw(ViewBag.labelsmttr)], //the names displayed on the x-axis, see images below
-                // labels: ['a','b','c','d','e','f',], //the names displayed on the x-axis, see images below
-                datasets: [{
-                    label: 'MTTR Peores 5 maquinas  (Minutos Promedio para Reparar una Falla)',
-                     data: [@ViewBag.Datamttr],
-                    backgroundColor: ["#af0a0a"],
-                    borderWidth: 2
-                }]
+        var barChartData2 =
+        {
+                labels: [@Html.Raw(ViewBag.labelsmttr)], //the names displayed on the x-axis, see images below
+            // labels: ['a','b','c','d','e','f',], //the names displayed on the x-axis, see images below
+            datasets: [{
+                label: 'MTTR Peores 5 maquinas  (Minutos Promedio para Reparar una Falla)',
+                    data: [@ViewBag.Datamttr],
+                backgroundColor: ["#af0a0a"],
+                borderWidth: 2
+            }]
         };
           var barChartData3 =
-            {
-                   labels: [@Html.Raw(ViewBag.labelstf)], //the names displayed on the x-axis, see images below
-                // labels: ['a','b','c','d','e','f',], //the names displayed on the x-axis, see images below
-                datasets: [{
-                    label: 'Tiempo Perdido Peores 5 maquinas  (Acumulado de Tiempo Perdido)',
-                     data: [@ViewBag.Datatf],
-                    backgroundColor: ["#af0a0a"],
-                    borderWidth: 2
-                }]
+        {
+                labels: [@Html.Raw(ViewBag.labelstf)], //the names displayed on the x-axis, see images below
+            // labels: ['a','b','c','d','e','f',], //the names displayed on the x-axis, see images below
+            datasets: [{
+                label: 'Tiempo Perdido Peores 5 maquinas  (Acumulado de Tiempo Perdido)',
+                    data: [@ViewBag.Datatf],
+                backgroundColor: ["#af0a0a"],
+                borderWidth: 2
+            }]
         };
           var barChartData4 =
-            {
-                   labels: [@Html.Raw(ViewBag.labelsmtbf)], //the names displayed on the x-axis, see images below
-                // labels: ['a','b','c','d','e','f',], //the names displayed on the x-axis, see images below
-                datasets: [{
-                    label: 'MTBF Peores 5 maquinas  (Minutos Promedio Entre Fallas)',
-                     data: [@ViewBag.Datamtbf],
-                    backgroundColor: ["#af0a0a"],
-                    borderWidth: 2
-                }]
+        {
+                labels: [@Html.Raw(ViewBag.labelsmtbf)], //the names displayed on the x-axis, see images below
+            // labels: ['a','b','c','d','e','f',], //the names displayed on the x-axis, see images below
+            datasets: [{
+                label: 'MTBF Peores 5 maquinas  (Minutos Promedio Entre Fallas)',
+                    data: [@ViewBag.Datamtbf],
+                backgroundColor: ["#af0a0a"],
+                borderWidth: 2
+            }]
         };
-          var barChartData5 =
-            {
-                   labels: [@Html.Raw(ViewBag.labelsf)], //the names displayed on the x-axis, see images below
-                // labels: ['a','b','c','d','e','f',], //the names displayed on the x-axis, see images below
-                datasets: [{
-                    label: 'Total Fallas Peores 5 maquinas  (Cantidad de fallas)',
-                     data: [@ViewBag.Dataf],
-                    backgroundColor: ["#af0a0a"],
-                    borderWidth: 2
-                }]
-            };
+        var barChartData5 =
+        {
+                labels: [@Html.Raw(ViewBag.labelsf)], //the names displayed on the x-axis, see images below
+            // labels: ['a','b','c','d','e','f',], //the names displayed on the x-axis, see images below
+            datasets: [{
+                label: 'Total Fallas Peores 5 maquinas  (Cantidad de fallas)',
+                    data: [@ViewBag.Dataf],
+                backgroundColor: ["#af0a0a"],
+                borderWidth: 2
+            }]
+        };
+
         $(document).ready(function () {
-
-
 
             $('#metricox').DataTable({
                 "dom": 'lBfrtip',
@@ -834,7 +852,7 @@
             });
         });
 
-                Chart.helpers.merge(Chart.defaults.global.plugins.datalabels, {
+        Chart.helpers.merge(Chart.defaults.global.plugins.datalabels, {
             align: 'end',
             anchor: 'end',
             offset: 1,
@@ -853,15 +871,15 @@
                     borderColor: "#aa0909",
                     borderWidth: 2,
                     fill: false
-                }
-                ,
+                },
                 {
                     type: 'bar',
                     label: 'Tiempo por @ViewBag.dxx',
                     data: [@ViewBag.datasgrap],
                     backgroundColor: "#FFA500",
                     borderWidth: 2
-                }]
+                }
+            ]
         };
         var barChartDqe2 =
         {
@@ -875,8 +893,7 @@
                     borderColor: "#aa0909",
                     borderWidth: 2,
                     fill: false
-                }
-                ,
+                },
                 {
                     type: 'bar',
                     label: '% de tiempo perdido por Maquina',
@@ -884,7 +901,6 @@
                     backgroundColor: "#6B8CB0",
                     borderWidth: 2
                 }
-
             ]
         };
 
@@ -974,9 +990,7 @@
         }
         myChart3.update();
 
-
         //----
-
         var ctx5 = document.getElementById('chartfails');
         var myChart5 = new Chart(ctx5, {
             type: 'horizontalBar',
@@ -1006,7 +1020,5 @@
         myChart5.update();
 
         //---
-
-        </script>
-
-    }
+    </script>
+ }
