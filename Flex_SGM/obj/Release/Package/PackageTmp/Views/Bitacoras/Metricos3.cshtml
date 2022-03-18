@@ -74,9 +74,9 @@
         <table class="table table-bordered table-striped" style="width:100%" id="metricox">
             <thead>
                 <tr>
-                    <td>Descripcion</td>
-                    <td>Responsable</td>
-                    <td>Goal</td>
+                    <td style="width:20%;"><h3>Descripción</h3></td>
+                    <td style="width:20%;"><h3>Responsable</h3></td>
+                    <td style="width:20%;"><h3>Meta</h3></td>
                     @foreach (var item in ViewBag.data)
                     {
                         <td>@item.TiempoLabel</td>
@@ -85,7 +85,7 @@
             </thead>
             <tbody>
                 <tr>
-                    <th scope="row">Safety ( H&S)</th>
+                    <th scope="row">Safety (H&S)</th>
                     <th scope="row">Joel Quintana</th>
                     <th scope="row">0 Incidents</th>
                     @foreach (var item in ViewBag.data)
@@ -635,58 +635,57 @@
     <br />
     <br />
 
-    @section Scripts {
+ @section Scripts {
 
-        <script>
+    <script>
 
 
-          var barChartData2 =
-            {
-                   labels: [@Html.Raw(ViewBag.labelsmttr)], //the names displayed on the x-axis, see images below
-                // labels: ['a','b','c','d','e','f',], //the names displayed on the x-axis, see images below
-                datasets: [{
-                    label: 'MTTR Peores 5 maquinas  (Minutos Promedio para Reparar una Falla)',
-                     data: [@ViewBag.Datamttr],
-                    backgroundColor: ["#af0a0a"],
-                    borderWidth: 2
-                }]
+        var barChartData2 =
+        {
+                labels: [@Html.Raw(ViewBag.labelsmttr)], //the names displayed on the x-axis, see images below
+            // labels: ['a','b','c','d','e','f',], //the names displayed on the x-axis, see images below
+            datasets: [{
+                label: 'MTTR Peores 5 maquinas  (Minutos Promedio para Reparar una Falla)',
+                    data: [@ViewBag.Datamttr],
+                backgroundColor: ["#af0a0a"],
+                borderWidth: 2
+            }]
         };
           var barChartData3 =
-            {
-                   labels: [@Html.Raw(ViewBag.labelstf)], //the names displayed on the x-axis, see images below
-                // labels: ['a','b','c','d','e','f',], //the names displayed on the x-axis, see images below
-                datasets: [{
-                    label: 'Tiempo Perdido Peores 5 maquinas  (Acumulado de Tiempo Perdido)',
-                     data: [@ViewBag.Datatf],
-                    backgroundColor: ["#af0a0a"],
-                    borderWidth: 2
-                }]
+        {
+                labels: [@Html.Raw(ViewBag.labelstf)], //the names displayed on the x-axis, see images below
+            // labels: ['a','b','c','d','e','f',], //the names displayed on the x-axis, see images below
+            datasets: [{
+                label: 'Tiempo Perdido Peores 5 maquinas  (Acumulado de Tiempo Perdido)',
+                    data: [@ViewBag.Datatf],
+                backgroundColor: ["#af0a0a"],
+                borderWidth: 2
+            }]
         };
           var barChartData4 =
-            {
-                   labels: [@Html.Raw(ViewBag.labelsmtbf)], //the names displayed on the x-axis, see images below
-                // labels: ['a','b','c','d','e','f',], //the names displayed on the x-axis, see images below
-                datasets: [{
-                    label: 'MTBF Peores 5 maquinas  (Minutos Promedio Entre Fallas)',
-                     data: [@ViewBag.Datamtbf],
-                    backgroundColor: ["#af0a0a"],
-                    borderWidth: 2
-                }]
+        {
+                labels: [@Html.Raw(ViewBag.labelsmtbf)], //the names displayed on the x-axis, see images below
+            // labels: ['a','b','c','d','e','f',], //the names displayed on the x-axis, see images below
+            datasets: [{
+                label: 'MTBF Peores 5 maquinas  (Minutos Promedio Entre Fallas)',
+                    data: [@ViewBag.Datamtbf],
+                backgroundColor: ["#af0a0a"],
+                borderWidth: 2
+            }]
         };
-          var barChartData5 =
-            {
-                   labels: [@Html.Raw(ViewBag.labelsf)], //the names displayed on the x-axis, see images below
-                // labels: ['a','b','c','d','e','f',], //the names displayed on the x-axis, see images below
-                datasets: [{
-                    label: 'Total Fallas Peores 5 maquinas  (Cantidad de fallas)',
-                     data: [@ViewBag.Dataf],
-                    backgroundColor: ["#af0a0a"],
-                    borderWidth: 2
-                }]
-            };
+        var barChartData5 =
+        {
+                labels: [@Html.Raw(ViewBag.labelsf)], //the names displayed on the x-axis, see images below
+            // labels: ['a','b','c','d','e','f',], //the names displayed on the x-axis, see images below
+            datasets: [{
+                label: 'Total Fallas Peores 5 maquinas  (Cantidad de fallas)',
+                    data: [@ViewBag.Dataf],
+                backgroundColor: ["#af0a0a"],
+                borderWidth: 2
+            }]
+        };
+
         $(document).ready(function () {
-
-
 
             $('#metricox').DataTable({
                 "dom": 'lBfrtip',
@@ -853,7 +852,7 @@
             });
         });
 
-                Chart.helpers.merge(Chart.defaults.global.plugins.datalabels, {
+        Chart.helpers.merge(Chart.defaults.global.plugins.datalabels, {
             align: 'end',
             anchor: 'end',
             offset: 1,
@@ -872,15 +871,15 @@
                     borderColor: "#aa0909",
                     borderWidth: 2,
                     fill: false
-                }
-                ,
+                },
                 {
                     type: 'bar',
                     label: 'Tiempo por @ViewBag.dxx',
                     data: [@ViewBag.datasgrap],
                     backgroundColor: "#FFA500",
                     borderWidth: 2
-                }]
+                }
+            ]
         };
         var barChartDqe2 =
         {
@@ -894,8 +893,7 @@
                     borderColor: "#aa0909",
                     borderWidth: 2,
                     fill: false
-                }
-                ,
+                },
                 {
                     type: 'bar',
                     label: '% de tiempo perdido por Maquina',
@@ -903,7 +901,6 @@
                     backgroundColor: "#6B8CB0",
                     borderWidth: 2
                 }
-
             ]
         };
 
@@ -993,9 +990,7 @@
         }
         myChart3.update();
 
-
         //----
-
         var ctx5 = document.getElementById('chartfails');
         var myChart5 = new Chart(ctx5, {
             type: 'horizontalBar',
@@ -1025,7 +1020,5 @@
         myChart5.update();
 
         //---
-
-        </script>
-
-    }
+    </script>
+ }
