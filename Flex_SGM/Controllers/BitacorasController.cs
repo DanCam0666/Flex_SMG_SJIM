@@ -2084,7 +2084,7 @@ namespace Flex_SGM.Controllers
             return Json(codigo, JsonRequestBehavior.AllowGet);
         }
 
-        [Authorize]
+        //  [Authorize]
         public ActionResult Create()
         {
             var id = User.Identity.GetUserId();
