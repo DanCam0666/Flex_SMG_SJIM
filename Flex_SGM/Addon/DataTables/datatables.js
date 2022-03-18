@@ -17381,33 +17381,33 @@ module.exports = StyleContextStack;
 "use strict";
 
 
-var TraversalTracker = __webpack_require__(77);
-var isString = __webpack_require__(0).isString;
+	var TraversalTracker = __webpack_require__(77);
+	var isString = __webpack_require__(0).isString;
 
-/**
- * Creates an instance of DocumentContext - a store for current x, y positions and available width/height.
- * It facilitates column divisions and vertical sync
- */
-function DocumentContext(pageSize, pageMargins) {
-	this.pages = [];
+	/**
+	 * Creates an instance of DocumentContext - a store for current x, y positions and available width/height.
+	 * It facilitates column divisions and vertical sync
+	 */
+	function DocumentContext(pageSize, pageMargins) {
+		this.pages = [];
 
-	this.pageMargins = pageMargins;
+		this.pageMargins = pageMargins;
 
-	this.x = pageMargins.left;
-	this.availableWidth = pageSize.width - pageMargins.left - pageMargins.right;
-	this.availableHeight = 0;
-	this.page = -1;
+		this.x = pageMargins.left;
+		this.availableWidth = pageSize.width - pageMargins.left - pageMargins.right;
+		this.availableHeight = 0;
+		this.page = -1;
 
-	this.snapshots = [];
+		this.snapshots = [];
 
-	this.endingCell = null;
+		this.endingCell = null;
 
-	this.tracker = new TraversalTracker();
+		this.tracker = new TraversalTracker();
 
-	this.addPage(pageSize);
+		this.addPage(pageSize);
 
-	this.hasBackground = false;
-}
+		this.hasBackground = false;
+	}
 
 DocumentContext.prototype.beginColumnGroup = function () {
 	this.snapshots.push({

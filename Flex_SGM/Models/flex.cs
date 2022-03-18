@@ -8,23 +8,18 @@ namespace Flex_SGM.Models
     public enum flex_Cliente
     {
         GM, Stellantis, Ford, Toyota, Nissan, Volkswagen
-
     }
-
     public enum flex_Depasold
     {
         Materiales, Produccion, Calidad, Mantenimiento, Herramentales, Ingenieria, Manufactura, Automatizacion, FlexNGate
-
     }
     public enum flex_Departamento
     {
        Estampado, Rolado, Soldadura, Cromo, Ecoat, Topcoat, Ensamble
-
     }
     public enum flex_Areasv1
     {
         Ingenieria, Manufactura, Servicios, Estampado,MetalFinish, Cromo, Pintura, Mtto_Soldadura, Proc_Soldadura, Ensamble, Automatizacion, FlexNGate
-
     }
     public enum flex_Areas
     {
@@ -33,13 +28,10 @@ namespace Flex_SGM.Models
     public enum flex_Puesto
     {
         Gerente, SuperIntendente, Asistente, Supervisor, Ingeniero, Lider, Tecnico, Aprendiz, FlexNGate
-
     }
-
     public enum flex_Oils
     {
         Ingenieria, Manufactura
-
     }
 
 

@@ -359,70 +359,66 @@
 
     <script>
 
+        function Verify(idx)
+        {
+            $.post("@Url.Action("Verify","Bitacoras")",{ id:idx} ,function(data){
+                alert(data);
+            });
+        }
+        $(document).ready(function () {
 
-     function Verify(idx)
-     {
-          $.post("@Url.Action("Verify","Bitacoras")",{ id:idx} ,function(data){
-              alert(data);
-          });
-
-    }
-            $(document).ready(function () {
-
-
-                      if (typeof window.stackBottomLeft === 'undefined') {
-    window.stackBottomLeft = {
-      'dir1': 'up',
-      'dir2': 'left',
-      'firstpos1': 25,
-      'firstpos2': 25
-    };
-  }
+            if (typeof window.stackBottomLeft === 'undefined') {
+                window.stackBottomLeft = {
+                    'dir1': 'up',
+                    'dir2': 'left',
+                    'firstpos1': 25,
+                    'firstpos2': 25
+                };
+            }
 
             var notice2 = PNotify.info({
                 title: 'Nuevas Funciones',
                 text: 'Existen nuevas funciones de Control de Usuario... Se continua trabajando en el reporte automatico de fallas!',
                 stack: window.stackBottomLeft,
                 addClass: 'nonblock'
-});
+            });
             $('[data-toggle="tooltip"]').tooltip();
             $("#Normaldrop").chosen();
-
-                $('#bitacora').DataTable({
-                    "dom": 'lBfrtip',
-                    "lengthMenu": [[5, 15, 50, -1], ["5", "15", "50", "Todos"]],
-                    "buttons": ['copy', 'csv', 'print', 'pdf', 'excel'],
-                    "order": [[0, "desc"]],
-                    "scrollX": true,
-                    "language": {
-                        "sProcessing": "Procesando...",
-                        "sLengthMenu": "Mostrar _MENU_ registros",
-                        "sZeroRecords": "No se encontraron resultados",
-                        "sEmptyTable": "Ningun dato disponible en esta tabla =(",
-                        "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-                        "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
-                        "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
-                        "sInfoPostFix": "",
-                        "sSearch": "Buscar:",
-                        "sUrl": "",
-                        "sInfoThousands": ",",
-                        "sLoadingRecords": "Cargando...",
-                        "oPaginate": {
-                            "sFirst": "Primero",
-                            "sLast": "ultimo",
-                            "sNext": "Siguiente",
-                            "sPrevious": "Anterior"
-                        },
-                        "oAria": {
-                            "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
-                            "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-                        },
-                        "buttons": {
-                            "copy": "Copiar",
-                            "colvis": "Visibilidad"
-                        }
+            $('#bitacora').DataTable({
+                "dom": 'lBfrtip',
+                "lengthMenu": [[5, 15, 50, -1], ["5", "15", "50", "Todos"]],
+                "buttons": ['copy', 'csv', 'print', 'pdf', 'excel'],
+                "order": [[0, "desc"]],
+                "scrollX": true,
+                "language": {
+                    "sProcessing": "Procesando...",
+                    "sLengthMenu": "Mostrar _MENU_ registros",
+                    "sZeroRecords": "No se encontraron resultados",
+                    "sEmptyTable": "Ningun dato disponible en esta tabla =(",
+                    "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                    "sInfoPostFix": "",
+                    "sSearch": "Buscar:",
+                    "sUrl": "",
+                    "sInfoThousands": ",",
+                    "sLoadingRecords": "Cargando...",
+                    "oPaginate": {
+                        "sFirst": "Primero",
+                        "sLast": "ultimo",
+                        "sNext": "Siguiente",
+                        "sPrevious": "Anterior"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                    },
+                    "buttons": {
+                        "copy": "Copiar",
+                        "colvis": "Visibilidad"
                     }
-                });
+                }
+            });
         });
     </script>
 

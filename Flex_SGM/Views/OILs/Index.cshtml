@@ -59,9 +59,8 @@
                     <label data-toggle="tooltip" title="Selecciona todas las Actividades urgentes"><input type="checkbox" name="c6" id="aurgente" value=true checked>Actividades Urgentes</label>
                 </div>
             </div>
-            <div class="col-md-12">
+            <div class="col-md-offset-3">
                 <input data-toggle="tooltip" title="¡Muestra los valores Filtrados en la tabla de abajo!" type="submit" name="btn" value="Buscar OILs" class="btn btn-primary col-lg-offset-2 col-md-4" />
-                <input data-toggle="tooltip" title="¡Exportar a Excel sin formato!" type="submit" name="btn" value="Exportar Excel" class="btn btn-primary col-md-4" />
             </div>
         }
     </div>
@@ -128,10 +127,13 @@
                         <td>
                             @if (item.User_res != null && item.User_asig != null)
                             {
-
-                                @Html.ActionLink("Actualizar", "Update", new { id = item.ID }, new { @class = "btn  btn-success", @target = "_blank" })
+                                @Html.ActionLink("Actualizar", "Update", new { id = item.ID }, new { @class = "btn  btn-success" })
                             }
-                            @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn  btn-default", @target = "_blank" })
+                            @if (ViewBag.super == true)
+                            {
+                                @Html.ActionLink("Borrar", "Delete", new { id = item.ID }, new { @class = "btn  btn-danger" })
+                            }
+                            @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn  btn-warning" })
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Tipo)
@@ -304,17 +306,34 @@
 
 <div class="x_panel clearfix">
     <div class="x_title clearfix">
+        <h2 id="alerts">Estatus de OILs<small> Resumen de OILs </small></h2>
         <ul class="nav navbar-right">
             <li>
-                <a class="collapse-link"><i></i></a>
+                <a class="collapse-link"><i class="fa fa-chevron-down"></i></a>
             </li>
         </ul>
     </div>
     <div class="x_content">
-        <canvas id="chart-area"></canvas>
-        <canvas id="chart-area-div"></canvas>
-        <canvas id="chart-area-sem"></canvas>
+        <div class="col-md-3">
+            <div class="h2">Actividades Totales: @ViewBag.atotal</div>
+            <div class="h2">Actividades Realizándose:   @ViewBag.aActivos </div>
+            <div class="h2">Actividades Terminadas:  @ViewBag.arealizada </div>
+            <div class="h2">Actividades Pendientes: @ViewBag.apendientes</div>
+            <div class="h2">Actividades No Realizadas: @ViewBag.aNoReali</div>
+        </div>
+        <div class="col-md-9">
+            <canvas width="800" height="200" class="chartjs" id="chart-area" style="width: 800px; height: 200px; display: block;"></canvas>
+        </div>
+        <div class="col-md-12">
+            <h2> OILs por Area</h2>
+            <canvas width="600" height="200" class="chartjs" id="chart-area-div" style="width: 600px; height: 200px; display: block;"></canvas>
+        </div>
+        <div class="col-md-12">
+            <h2> OILs por Semana</h2>
+            <canvas width="600" height="200" class="chartjs" id="chart-area-sem" style="width: 600px; height: 200px; display: block;"></canvas>
+        </div>
     </div>
+</div>
 </div>
 
 
@@ -389,7 +408,7 @@
             data: {
                 datasets: [{
 
-                    label: 'Total TPMs Areas',
+                    label: 'Total OILs Areas',
                     data: [@ViewBag.st, @ViewBag.et, @ViewBag.sot,@ViewBag.mft,@ViewBag.ent],
                     backgroundColor: 'rgba(120, 180, 120, 0.9)',
                     borderWidth: 2
@@ -406,10 +425,12 @@
                 }],
 
                 labels: [
-                    'Servicios',
                     'Estampado',
+                    'Rolado',
                     'Soldadura',
-                    'Metal Finish',
+                    'Cromo',
+                    'Ecoat',
+                    'Topcoart',
                     'Ensamble'
                 ]
             }
@@ -527,7 +548,7 @@
 
         $('#proye').DataTable({
             "dom": 'lBfrtip',
-            "lengthMenu": [[15, 35, 50, -1], ["5", "15", "50", "Todos"]],
+            "lengthMenu": [[5, 25, 50, -1], ["5", "25", "50", "Todos"]],
             "buttons": ['copy', 'csv','print','pdf','excel'],
             "order": [[0, "desc"]],
             "scrollX": true,

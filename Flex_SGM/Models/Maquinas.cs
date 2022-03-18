@@ -16,11 +16,11 @@ namespace Flex_SGM.Models
         public string Cliente { get; set; }
         [MaxLength(100)]
         public string Grupo { get; set; }
-        [Display(Name = "Maquina")]
+        [Display(Name = "Programa")]
         [MaxLength(100)]
         [Required(AllowEmptyStrings = false)]
         public string Maquina { get; set; }
-        [Display(Name = "Sub Maquina")]
+        [Display(Name = "Sub Programa")]
         [MaxLength(100)]
         [Required(AllowEmptyStrings = false)]
         public string SubMaquina { get; set; }
