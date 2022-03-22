@@ -99,7 +99,7 @@ namespace Flex_SGM.Controllers
 
             var id = User.Identity.GetUserId();
             ApplicationUser currentUser = UserManager.FindById(id);
-            if (currentUser.Nomina != "20806") { 
+            if (currentUser.Nomina != "21369") { 
             string sarea = currentUser.Area;
             var userId = User.Identity.GetUserId();
             List<ApplicationUser> allUser = UserManager.Users.Where(u=>u.Area==sarea).OrderBy(u=>u.Puesto).ToList();

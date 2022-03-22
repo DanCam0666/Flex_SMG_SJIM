@@ -19,7 +19,7 @@ namespace Flex_SGM.Models
     }
     public enum flex_Areasv1
     {
-        Ingenieria, Manufactura, Servicios, Estampado,MetalFinish, Cromo, Pintura, Mtto_Soldadura, Proc_Soldadura, Ensamble, Automatizacion, FlexNGate
+        Safety_HS, Scrap, LPA_COVID, PLM, GAPs, ECNs_PCRs, Capacities, Customer_Complaints, Lay_Out, Cont_Imprv_ManP, TOC_HS_Audits, Cust_Score_Cards, Parts_Delivery, LIM_Invt_Ctrl, Quality_HS, Blue_Book, Red_Rabbits, AMEF, Packaging, Yellow_Sheets
     }
     public enum flex_Areas
     {

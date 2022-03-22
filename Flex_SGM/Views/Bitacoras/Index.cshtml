@@ -14,87 +14,64 @@
             <div class="x_panel">
                 <div class="x_content">
                     <div class="row">
-                        <div class="col-md-5">
-                            <div class="form-group">
-                                <label for="texto">Filtrar por texto...</label>
-                                <input type="text" class="form-control" name="SearchString" />
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="area">Filtrar por Area usuario...</label>
-                                    <div class="col-md-10">
-                                        @Html.DropDownList("area", null, "--Todas--", htmlAttributes: new { @class = "form-control" })
+                        <div class="col-md-12">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="texto">Filtrar por texto...</label>
+                                        <input type="text" class="form-control" name="SearchString" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="input-daterange input-group" id="bs_datepicker_range_container">
+                                        <label for="FechaInicial">Fecha Inicial...</label>
+                                        <input type="text" class="form-control" name="fecha_inicial" value=@ViewBag.fecha_inicial autocomplete="off">
+                                        <span class="input-group-addon">- A -</span>
+                                        <label for="FechaFinal">Fecha Final...</label>
+                                        <input type="text" class="form-control" name="fecha_final" value=@ViewBag.fecha_final autocomplete="off">
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="puesto">Filtrar por Puesto...</label>
-                                    <div class="col-md-10">
-                                        @Html.DropDownList("puesto", null, "--Todas--", htmlAttributes: new { @class = "form-control" })
+                            <div class="col-md-12">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="area">Filtrar por Area usuario...</label>
+                                        <div class="col-md-10">
+                                            @Html.DropDownList("area", null, "--Todas--", htmlAttributes: new { @class = "form-control" })
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-
-                        </div>
-
-                        <div class="col-md-5">
-                            <div class="input-daterange input-group" id="bs_datepicker_range_container">
-
-                                <label for="FechaInicial">Fecha Inicial...</label>
-                                <input type="text" class="form-control" name="fecha_inicial" value=@ViewBag.fecha_inicial autocomplete="off">
-
-                                <span class="input-group-addon">- A -</span>
-
-                                <label for="FechaFinal">Fecha Final...</label>
-                                <input type="text" class="form-control" name="fecha_final" value=@ViewBag.fecha_final autocomplete="off">
-
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="amaquina">Filtrar por Area Maquina...</label>
-                                    <div class="col-md-10">
-                                        @Html.DropDownList("amaquina", null, "--Todas--", htmlAttributes: new { @class = "form-control", onchange = "SelectedIndexChanged()" })
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="puesto">Filtrar por Puesto...</label>
+                                        <div class="col-md-10">
+                                            @Html.DropDownList("puesto", null, "--Todas--", htmlAttributes: new { @class = "form-control" })
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="maquina">Filtrar por Nombre de Maquina...</label>
-                                    <div class="col-md-10">
-                                        @Html.DropDownList("maquina", null, "--Todas--", htmlAttributes: new { @class = "form-control", id = "Normaldrop" })
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="amaquina">Filtrar por Area Maquina...</label>
+                                        <div class="col-md-10">
+                                            @Html.DropDownList("amaquina", null, "--Todas--", htmlAttributes: new { @class = "form-control", onchange = "SelectedIndexChanged()" })
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-
-                        </div>
-
-                        <div class="col-md-2">
-                            <div class="switch">
-                                <label><input type="checkbox" name="t1" id="t1" value=true checked>Primer Turno</label>
-                            </div>
-                            <div class="switch">
-                                <label><input type="checkbox" name="t2" id="t2" value=true checked>Segundo Turno</label>
-                            </div>
-                            <div class="switch">
-                                <label><input type="checkbox" name="t3" id="t3" value=true checked>Tercer Turno</label>
-                            </div>
-                            <div class="switch">
-                                <label><input type="checkbox" name="nt" id="nt" value=true>Sin Terminar</label>
-                            </div>
-                            <div class="switch">
-                                <label><input type="checkbox" name="fs" id="fs" value=true>Fin de Semana</label>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="maquina">Filtrar por Nombre de Maquina...</label>
+                                        <div class="col-md-10">
+                                            @Html.DropDownList("maquina", null, "--Todas--", htmlAttributes: new { @class = "form-control", id = "Normaldrop" })
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-12">
-
-                        <input onclick="$('#loadingImg').show();setTimeout(function () { $('#loadingImg').fadeOut(); }, 5000);" data-toggle="tooltip" title="¡Muestra los valores Filtrados en la tabla de abajo!" type="submit" name="btn" value="Buscar Bitacora" class="btn btn-primary col-md-2" />
-                        <input onclick="$('#loadingImg').show();setTimeout(function () { $('#loadingImg').fadeOut(); }, 5000);" data-toggle="tooltip" title="¡Top 5 de los filtros seleccionados!" type="submit" name="btn" value="Top 5" class="btn btn-primary col-md-1" />
+                    <div class="col-md-offset-3">
+                        <br />
+                        <input onclick="$('#loadingImg').show();setTimeout(function () { $('#loadingImg').fadeOut(); }, 5000);" data-toggle="tooltip" title="¡Muestra los valores Filtrados en la tabla de abajo!" type="submit" name="btn" value="Buscar Bitacora" class="btn btn-primary  col-lg-offset-2 col-md-4" />
+                        <!--<input onclick="$('#loadingImg').show();setTimeout(function () { $('#loadingImg').fadeOut(); }, 5000);" data-toggle="tooltip" title="¡Top 5 de los filtros seleccionados!" type="submit" name="btn" value="Top 5" class="btn btn-primary col-md-1" />
                         <input onclick="$('#loadingImg').show();setTimeout(function () { $('#loadingImg').fadeOut(); }, 5000);" data-toggle="tooltip" title="¡Resumen de los dias seleccionados!" type="submit" name="btn" value="Resumen" class="btn btn-primary col-md-1" />
                         <input onclick="$('#loadingImg').show();setTimeout(function () { $('#loadingImg').fadeOut(); }, 5000);" data-toggle="tooltip" title="¡RoadMap de los filtros seleccionados!" type="submit" name="btn" value="RoadMap" class="btn btn-primary col-md-1" />
                         <input onclick="$('#loadingImg').show();setTimeout(function () { $('#loadingImg').fadeOut(); }, 5000);" data-toggle="tooltip" title="¡Exportar a Excel sin formato!" type="submit" name="btn" value="Exportar Excel" class="btn btn-primary col-md-1" />
@@ -103,7 +80,7 @@
                         {
                             <button data-toggle="tooltip" title="Para actualizar informacion de las juntas diarias!" class="btn btn-primary col-sm-offset-1 col-md-2" onclick="location.href='@Url.Action("index", "juntas")';return false;">Diarios de Juntas</button>
                         }
-                        <input data-toggle="tooltip" title="¡Metricos MTBF y MTTR!" type="submit" name="btn" value="Metricos" class="btn btn-primary col-md-1" formtarget="_blank" />
+                        <input data-toggle="tooltip" title="¡Metricos MTBF y MTTR!" type="submit" name="btn" value="Metricos" class="btn btn-primary col-md-1" formtarget="_blank" />-->
                     </div>
                 </div>
             </div>
@@ -111,9 +88,9 @@
     </div>
 
 }
-<div class="row">
-    <center> @{Html.RenderPartial("_Result");}</center>
-</div>
+    <div class="row">
+        <center> @{Html.RenderPartial("_Result");}</center>
+    </div>
 
 <div class="x_panel">
     <div class="x_content clearfix">
@@ -179,14 +156,14 @@
                                 {
                                     @Html.Label("Verificada, " + item.Verifico)
                                 }
-                                @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn  btn-info", @target = "_blank" })
+                                @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn  btn-info" })
                                 @if (ViewBag.cuser.Contains(item.usuario))
                                 {
-                                    @Html.ActionLink("Editar", "Edit", new { id = item.ID }, new { @class = "btn  btn-default", @target = "_blank" })
+                                    @Html.ActionLink("Editar", "Edit", new { id = item.ID }, new { @class = "btn  btn-default" })
                                 }
                                 @if ((ViewBag.super && ViewBag.uarea.Contains(item.usuario_area)) || ViewBag.cuser.Contains(item.usuario))
                                 {
-                                    @Html.ActionLink("Borrar", "Delete", new { id = item.ID }, new { @class = "btn  btn-danger", @target = "_blank" })
+                                    @Html.ActionLink("Borrar", "Delete", new { id = item.ID }, new { @class = "btn  btn-danger" })
                                 }
                                 @if (ViewBag.uarea.Contains(item.usuario_area) && item.noterminado)
                                 {
@@ -243,14 +220,14 @@
                                     {
                                         @Html.Label("Verificada, " + item.Verifico)
                                     }
-                                    @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn  btn-info", @target = "_blank" })
+                                    @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn  btn-info" })
                                     @if (ViewBag.cuser.Contains(item.usuario))
                                     {
-                                        @Html.ActionLink("Editar", "Edit", new { id = item.ID }, new { @class = "btn  btn-default", @target = "_blank" })
+                                        @Html.ActionLink("Editar", "Edit", new { id = item.ID }, new { @class = "btn  btn-default" })
                                     }
                                     @if (ViewBag.super && ViewBag.uarea.Contains(item.usuario_area))
                                     {
-                                        @Html.ActionLink("Borrar", "Delete", new { id = item.ID }, new { @class = "btn  btn-danger", @target = "_blank" })
+                                        @Html.ActionLink("Borrar", "Delete", new { id = item.ID }, new { @class = "btn  btn-danger" })
                                     }
                                     @if (ViewBag.uarea.Contains(item.usuario_area) && item.noterminado)
                                     {
@@ -305,14 +282,14 @@
                                     {
                                         @Html.Label("Verificada, " + item.Verifico)
                                     }
-                                    @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn  btn-info", @target = "_blank" })
+                                    @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn  btn-info" })
                                     @if (ViewBag.cuser.Contains(item.usuario))
                                     {
-                                        @Html.ActionLink("Editar", "Edit", new { id = item.ID }, new { @class = "btn  btn-default", @target = "_blank" })
+                                        @Html.ActionLink("Editar", "Edit", new { id = item.ID }, new { @class = "btn  btn-default" })
                                     }
                                     @if ((ViewBag.super && ViewBag.uarea.Contains(item.usuario_area)) || ViewBag.cuser.Contains(item.usuario))
                                     {
-                                        @Html.ActionLink("Borrar", "Delete", new { id = item.ID }, new { @class = "btn  btn-danger", @target = "_blank" })
+                                        @Html.ActionLink("Borrar", "Delete", new { id = item.ID }, new { @class = "btn  btn-danger" })
                                     }
                                     @if (ViewBag.uarea.Contains(item.usuario_area) && item.noterminado)
                                     {

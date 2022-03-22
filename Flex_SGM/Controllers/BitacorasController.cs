@@ -489,11 +489,23 @@ namespace Flex_SGM.Controllers
             {
                 fecha_final = DateTime.Now.ToShortDateString();
                 if (DateTime.Now.Hour < 15)
-                    fecha_inicial = DateTime.Now.AddDays(-1).ToShortDateString();
+                    fecha_inicial = DateTime.Now.AddDays(-7).ToShortDateString();
                 else
                     fecha_inicial = DateTime.Now.ToShortDateString();
                 t1 = true;
                 t2 = true;
+                t3 = true;
+            }
+            if (DateTime.Now.Hour >= 7 && DateTime.Now.Hour < 15)
+            {
+                t1 = true;
+            }
+            else if (DateTime.Now.Hour >= 15 && DateTime.Now.Hour < 23)
+            {
+                t2 = true;
+            }
+            else
+            {
                 t3 = true;
             }
             ViewBag.user = "x";
@@ -513,7 +525,7 @@ namespace Flex_SGM.Controllers
             var f3i = 25;
             var f3f = -1;
             string turnos = "";
-            if (t1)
+             if (t1)
             {
                 f1i = 7;
                 f1f = 15;
@@ -553,7 +565,7 @@ namespace Flex_SGM.Controllers
             ViewBag.puesto2 = puesto;
             ViewBag.amaquina2 = amaquina;
             ViewBag.maquina2 = maquina;
-             ViewBag.searchString2 = searchString;
+            ViewBag.searchString2 = searchString;
             if (!String.IsNullOrEmpty(area) && area != "--Todas--")
             {
                 if (area.Contains("MetalFinish"))
@@ -609,9 +621,9 @@ namespace Flex_SGM.Controllers
                                        || s.AccionCorrectiva.Contains(searchString));
             }
 
-            bitacoras = bitacoras.Where(s => (((s.DiaHora.Hour > f1i && s.DiaHora.Hour <= f1f) && (s.DiaHora >= fi && s.DiaHora <= ff)))
-                                       || (((s.DiaHora.Hour > f2i && s.DiaHora.Hour <= f2f) && (s.DiaHora >= fi && s.DiaHora <= ff)))
-                                       || ((s.DiaHora.Hour > f3i || s.DiaHora.Hour <= f3f) &&( s.DiaHora >= fi && s.DiaHora <= ff3)));
+            bitacoras = bitacoras.Where(s => (((s.DiaHora.Hour >= f1i && s.DiaHora.Hour < f1f) && (s.DiaHora >= fi && s.DiaHora < ff)))
+                                       || (((s.DiaHora.Hour >= f2i && s.DiaHora.Hour < f2f) && (s.DiaHora >= fi && s.DiaHora < ff)))
+                                       || ((s.DiaHora.Hour >= f3i || s.DiaHora.Hour < f3f) &&( s.DiaHora >= fi && s.DiaHora < ff3)));
 
             var id = User.Identity.GetUserId();
             ApplicationUser currentUser = UserManager.FindById(id); 
@@ -626,7 +638,7 @@ namespace Flex_SGM.Controllers
             }
             ViewBag.uarea = cuare;
             ViewBag.cuser = cuser;
-            if (cpuesto.Contains("Supervisor") || cpuesto.Contains("Asistente") || cpuesto.Contains("SuperIntendente") || cpuesto.Contains("Gerente"))
+            if (cpuesto.Contains("Supervisor") || cpuesto.Contains("SuperIntendente") || cpuesto.Contains("Gerente"))
                 ViewBag.super = true;
             else
                 ViewBag.super = false;
@@ -2121,7 +2133,7 @@ namespace Flex_SGM.Controllers
                 if (maquinas.Where(m => m.Area == sarea).Count() != 0)
                     maquinas = maquinas.Where(m => m.Area == sarea);
             }
-
+            ViewBag.Area = sarea;
             ViewBag.UserID = new SelectList(db.Users, "Id", "UserFullName");
             ViewBag.MaquinasID = new SelectList(maquinas, "ID", "SubMaquina");
 
@@ -2148,7 +2160,7 @@ namespace Flex_SGM.Controllers
             bitacora.DiaHora = DateTime.Now;
             bitacora.Tiempo = 0;
             ViewBag.listcliente = new SelectList(Enum.GetValues(typeof(flex_Cliente)).Cast<flex_Cliente>().ToList());
-            ViewBag.listarea = new SelectList(Enum.GetValues(typeof(flex_Areas)).Cast<flex_Areas>().ToList());
+            ViewBag.listarea = new SelectList(Enum.GetValues(typeof(flex_Areasv1)).Cast<flex_Areasv1>().ToList());
 
             var fallas = db.Fallas.Where(f => f.Area == sarea2);
             if (fallas.Count() == 0)
@@ -2182,7 +2194,7 @@ namespace Flex_SGM.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Mantenimiento")]
+        //  [Authorize(Roles = "Mantenimiento")]
         public async Task<ActionResult> Create( Bitacora bitacora,int MaquinasID)
         {
             var id = User.Identity.GetUserId();
@@ -4025,7 +4037,7 @@ namespace Flex_SGM.Controllers
             var oILs = db.OILs.Include(o => o.Maquinas);
             List<newmetricos2> Ldata = new List<newmetricos2>();
             List<newmetricos3> Ldata3 = new List<newmetricos3>();
-            var fecha = DateTime.Now.AddDays(-2);
+            var fecha = DateTime.Now.AddDays(-7);
             var fechaf = DateTime.Now;
             DateTimeFormatInfo formatoFecha1 = CultureInfo.CurrentCulture.DateTimeFormat;
             string nombreMes1 = formatoFecha1.GetMonthName(fecha.Month);
