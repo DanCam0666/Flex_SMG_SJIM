@@ -53,34 +53,6 @@
                                 <ul class="dropdown-menu dropdown-menu2">
                                 <li>@Html.ActionLink("-", "Index", "Home")</li>
                                 <li>@Html.ActionLink("Bitacora", "Index", "Bitacoras", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();" })</li>
-                                <!-- <li>@Html.ActionLink("Resumen", "Repo", "Bitacoras", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();" })</li>
-                                <li>
-                                    @Html.ActionLink(
-                                                linkText: "Resumen Diario 1er",
-                                                actionName: "Repo",
-                                                controllerName: "Bitacoras",
-                                                routeValues: new { fecha_inicial = DateTime.Now.ToShortDateString(), fecha_final = DateTime.Now.ToShortDateString(), t1 = true, t2 = false, t3 = false },
-                                                htmlAttributes: new { @onclick = "$('#loadingImg').show();" })
-                                </li>
-                                <li>
-                                    @Html.ActionLink(
-                                                linkText: "Resumen Diario 2do",
-                                                actionName: "Repo",
-                                                controllerName: "Bitacoras",
-                                                routeValues: new { fecha_inicial = DateTime.Now.ToShortDateString(), fecha_final = DateTime.Now.ToShortDateString(), t1 = false, t2 = true, t3 = false },
-                                                htmlAttributes: new { @onclick = "$('#loadingImg').show();" })
-                                </li>
-                                <li>@Html.ActionLink("PCRs", "Index", "pcrs", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();" })</li>
-                                <li>
-                                    @Html.ActionLink(
-                                                linkText: "Resumen Diario 3er",
-                                                actionName: "Repo",
-                                                controllerName: "Bitacoras",
-                                                routeValues: new { fecha_inicial = DateTime.Now.AddDays(-1).ToShortDateString(), fecha_final = DateTime.Now.AddDays(-1).ToShortDateString(), t1 = false, t2 = false, t3 = true },
-                                                htmlAttributes: new { @onclick = "$('#loadingImg').show();" })
-                                <li>@Html.ActionLink("Troubleshooting", "Menu", "troubleshootings", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();" })</li>
-                                <li>@Html.ActionLink("Metricos Criticos", "Metricos4", "Bitacoras", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();" })</li>
-                                </li> -->
                                 <li>@Html.ActionLink("OILs", "Index", "OILs", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();" })</li>
                                 <li>@Html.ActionLink("Metricos", "Metricos3", "Bitacoras", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();" })</li>
                                 <li>@Html.ActionLink("Home", "Index", "Home", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();" })</li>
