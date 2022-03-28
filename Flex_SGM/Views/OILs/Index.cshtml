@@ -74,7 +74,9 @@
                     <th>
                         @Html.Label("Estatus")
                     </th>
-                    <th>@Html.Label("Menu")</th>
+                    <th>
+                        @Html.Label("Menu")
+                    </th>
                     <th>
                         @Html.DisplayNameFor(model => model.Tipo)
                     </th>
@@ -87,7 +89,7 @@
                     <th>
                         @Html.DisplayNameFor(model => model.folio)
                     </th>
-                    <th style="min-width:400px;">
+                    <th style="min-width:300px;">
                         @Html.DisplayNameFor(model => model.Actividad)
                     </th>
                     <th>
@@ -266,7 +268,7 @@
             <h4 style="background-color: lightcyan">Ismael Galindo Muñoz</h4>
             <div class="h5" style="background-color: whitesmoke">Asignadas:   @ViewBag.iGActivos &emsp; Terminadas:  @ViewBag.iGrealizada </div>
             <h4 style="background-color: lightcyan">Joel Quintana Vasquez</h4>
-            <div class="h5" style="background-color: whitesmoke">Asignadas:   @ViewBag.ajQctivos &emsp; Terminadas:  @ViewBag.jQrealizada </div>
+            <div class="h5" style="background-color: whitesmoke">Asignadas:   @ViewBag.jQActivos &emsp; Terminadas:  @ViewBag.jQrealizada </div>
             <h4 style="background-color: lightcyan">Jose Erasmo Arellano Grimaldo</h4>
             <div class="h5" style="background-color: whitesmoke">Asignadas:   @ViewBag.eAActivos &emsp; Terminadas:  @ViewBag.eArealizada </div>
             <h4 style="background-color: lightcyan">Jose Juan Arvizu Arvizu</h4>
@@ -294,12 +296,12 @@
     </div>
     <div class="x_content">
         <center>
-            <div class="alert col-md-6" style="background-color:darkred; color: white;">Estatus 5-Actividad No REALIZADA en tiempo / Existen:@ViewBag.NoReali Actividades</div>
+            <div class="alert col-md-6" style="background-color:#ff4a4a; color: white;">Estatus 5-Actividad No REALIZADA en tiempo / Existen:@ViewBag.NoReali Actividades</div>
             <div class="alert col-md-6" style="background-color:yellow;">Estatus 4-Actividad con Fecha compromiso muy próxima / Existen:@ViewBag.Fechaprox Actividades</div>
-            <div class="alert col-md-6" style="background-color:darkseagreen;">Estatus 1-Actividad Finalizada / Existen:@ViewBag.realizada Actividades</div>
-            <div class="alert col-md-6" style="background-color:cornflowerblue;">Estatus 3-Actividad en Proceso / Existen:@ViewBag.ConFecha Actividades</div>
+            <div class="alert col-md-6" style="background-color:#4aedab;">Estatus 1-Actividad Finalizada / Existen:@ViewBag.realizada Actividades</div>
+            <div class="alert col-md-6" style="background-color:#4aabed;">Estatus 3-Actividad en Proceso / Existen:@ViewBag.ConFecha Actividades</div>
             <div class="alert col-md-6" style="background-color:lightgray;">Estatus 2-Actividad sin fecha compromiso / Existen:@ViewBag.sinfecha Actividades</div>
-            <div class="alert col-md-6" style="background-color:orangered;  color: white;">Estatus 6-Actividad URGENTE / Existen:@ViewBag.Urgente Actividades</div>
+            <div class="alert col-md-6" style="background-color:#8b0000;  color: white;">Estatus 6-Actividad URGENTE / Existen:@ViewBag.Urgente Actividades</div>
         </center>
     </div>
 </div>
@@ -388,7 +390,7 @@
                     backgroundColor: [
                         'rgba(54, 162, 235, 0.9)',
                         'rgba(54, 235, 162, 0.9)',
-                        'rgba(255, 162, 54, 0.9)',
+                        'rgba(255, 255, 0, 255)',
                         'rgba(255, 54, 54, 0.9)'
                     ]
                 }],
@@ -410,7 +412,7 @@
 
                     label: 'Total OILs Areas',
                     data: [@ViewBag.st, @ViewBag.et, @ViewBag.sot,@ViewBag.mft,@ViewBag.ent],
-                    backgroundColor: 'rgba(120, 180, 120, 0.9)',
+                    backgroundColor: 'rgba(54, 162, 235, 0.9)',
                     borderWidth: 2
                 },{
                     label: 'Realizadas',
@@ -420,7 +422,7 @@
                 },{
                     label: 'Pendientes',
                     data: [@ViewBag.sp,@ViewBag.ep,@ViewBag.sop,@ViewBag.mfp,@ViewBag.enp],
-                    backgroundColor: 'rgba(255, 162, 54, 0.9)',
+                    backgroundColor: 'rgba(255, 255, 0, 255)',
                     borderWidth: 2
                 }],
 
@@ -465,7 +467,7 @@
                     backgroundColor: [
                         'rgba(54, 162, 235, 0.9)',
                         'rgba(54, 235, 162, 0.9)',
-                        'rgba(255, 162, 54, 0.9)',
+                        'rgba(255, 255, 0, 255)',
                         'rgba(255, 54, 54, 0.9)'
                     ]
                 }],
@@ -487,15 +489,15 @@
 
         for (var i = 0, len = cells.length; i < len; i++){
             if (parseInt(cells[i].cells[1].innerHTML, 10) == 6) {
-                cells[i].cells[0].style.backgroundColor = 'orangered';
+                cells[i].cells[0].style.backgroundColor = '#8b0000';
                 cells[i].cells[0].style.color = 'white';
-                cells[i].cells[1].style.backgroundColor = 'orangered';
+                cells[i].cells[1].style.backgroundColor = '#8b0000';
                 cells[i].cells[1].style.color = 'white';
-                cells[i].cells[2].style.backgroundColor = 'orangered';
+                cells[i].cells[2].style.backgroundColor = '#8b0000';
                 cells[i].cells[2].style.color = 'white';
-                cells[i].cells[3].style.backgroundColor = 'orangered';
+                cells[i].cells[3].style.backgroundColor = '#8b0000';
                 cells[i].cells[3].style.color = 'white';
-                cells[i].cells[4].style.backgroundColor = 'orangered';
+                cells[i].cells[4].style.backgroundColor = '#8b0000';
                 cells[i].cells[4].style.color = 'white';
             }
             else {
@@ -508,11 +510,11 @@
                 }
                 else
                 if (parseInt(cells[i].cells[1].innerHTML, 10) == 3) {
-                    cells[i].cells[0].style.backgroundColor = 'cornflowerblue';
-                    cells[i].cells[1].style.backgroundColor = 'cornflowerblue';
-                    cells[i].cells[2].style.backgroundColor = 'cornflowerblue';
-                    cells[i].cells[3].style.backgroundColor = 'cornflowerblue';
-                    cells[i].cells[4].style.backgroundColor = 'cornflowerblue';
+                    cells[i].cells[0].style.backgroundColor = '#36A2EB';
+                    cells[i].cells[1].style.backgroundColor = '#36A2EB';
+                    cells[i].cells[2].style.backgroundColor = '#36A2EB';
+                    cells[i].cells[3].style.backgroundColor = '#36A2EB';
+                    cells[i].cells[4].style.backgroundColor = '#36A2EB';
                 }
                 else
                 if (parseInt(cells[i].cells[1].innerHTML, 10) == 4) {
@@ -524,24 +526,24 @@
                 }
                 else
                 if (parseInt(cells[i].cells[1].innerHTML, 10) == 5) {
-                    cells[i].cells[0].style.backgroundColor = 'darkred ';
+                    cells[i].cells[0].style.backgroundColor = '#ff4a4a ';
                     cells[i].cells[0].style.color = 'white';
-                    cells[i].cells[1].style.backgroundColor = 'darkred ';
+                    cells[i].cells[1].style.backgroundColor = '#ff4a4a ';
                     cells[i].cells[1].style.color = 'white';
-                    cells[i].cells[2].style.backgroundColor = 'darkred ';
+                    cells[i].cells[2].style.backgroundColor = '#ff4a4a ';
                     cells[i].cells[2].style.color = 'white';
-                    cells[i].cells[3].style.backgroundColor = 'darkred ';
+                    cells[i].cells[3].style.backgroundColor = '#ff4a4a ';
                     cells[i].cells[3].style.color = 'white';
-                    cells[i].cells[4].style.backgroundColor = 'darkred ';
+                    cells[i].cells[4].style.backgroundColor = '#ff4a4a ';
                     cells[i].cells[4].style.color = 'white';
                 }
                 else
                 if (parseInt(cells[i].cells[1].innerHTML, 10) == 1) {
-                    cells[i].cells[0].style.backgroundColor = 'darkseagreen';
-                    cells[i].cells[1].style.backgroundColor = 'darkseagreen';
-                    cells[i].cells[2].style.backgroundColor = 'darkseagreen';
-                    cells[i].cells[3].style.backgroundColor = 'darkseagreen';
-                    cells[i].cells[4].style.backgroundColor = 'darkseagreen';
+                    cells[i].cells[0].style.backgroundColor = '#4aedab';
+                    cells[i].cells[1].style.backgroundColor = '#4aedab';
+                    cells[i].cells[2].style.backgroundColor = '#4aedab';
+                    cells[i].cells[3].style.backgroundColor = '#4aedab';
+                    cells[i].cells[4].style.backgroundColor = '#4aedab';
                 }
             }
         }

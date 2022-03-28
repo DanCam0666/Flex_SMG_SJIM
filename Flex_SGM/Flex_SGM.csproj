@@ -293,6 +293,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scripts\dayofweek.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Views\Metricos\CI_MPController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Addon\bootstrap-datepicker\css\bootstrap-datepicker.css" />
@@ -2960,6 +2961,12 @@
     <Content Include="Views\pcrs\Signatures.cshtml" />
     <Content Include="Views\Bitacoras\Metricos4.cshtml" />
     <Content Include="Templates\TemplateMatrizdeReclamos.xlsx" />
+    <Content Include="Views\Metricos\Cont_Imprv_ManP.cshtml" />
+    <Content Include="Views\CI_MP\Create.cshtml" />
+    <Content Include="Views\CI_MP\Delete.cshtml" />
+    <Content Include="Views\CI_MP\Details.cshtml" />
+    <Content Include="Views\CI_MP\Edit.cshtml" />
+    <Content Include="Views\CI_MP\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
