@@ -46,7 +46,7 @@ namespace Flex_SGM.Controllers
                  return wb.Deliver("generatedFile.xlsx", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
              }
          }*/
-        public FileResult Export(string searchString, string area, string puesto, string amaquina, string maquina, string fecha_inicial, string fecha_final, bool t1 = false, bool t2 = false, bool t3 = false,bool nt=false, bool fs = false)
+        public FileResult Export(string searchString, string area, string puesto, string usuario, string amaquina, string maquina, string fecha_inicial, string fecha_final, bool t1 = false, bool t2 = false, bool t3 = false,bool nt=false, bool fs = false)
         {
             //******************************
             var fi = Convert.ToDateTime(fecha_inicial);
@@ -93,10 +93,10 @@ namespace Flex_SGM.Controllers
             {
                 if (area.Contains("MetalFinish"))
                 {
-                    bitacora = bitacora.Where(s => s.usuario_area == "Cromo" || s.usuario_area == "Cromo1" || s.usuario_area == "Cromo2" || s.usuario_area == "AutoPulido1" || s.usuario_area == "AutoPulido2" || s.usuario_area == "Pintura" || s.usuario_area == "Ecoat" || s.usuario_area == "Topcoat" || s.usuario_area == "MetalFinish");
+                    bitacora = bitacora.Where(s => s.Usuario_area == "Cromo" || s.Usuario_area == "Cromo1" || s.Usuario_area == "Cromo2" || s.Usuario_area == "AutoPulido1" || s.Usuario_area == "AutoPulido2" || s.Usuario_area == "Pintura" || s.Usuario_area == "Ecoat" || s.Usuario_area == "Topcoat" || s.Usuario_area == "MetalFinish");
                 }
                 else
-                    bitacora = bitacora.Where(s => s.usuario_area.Contains(area));
+                    bitacora = bitacora.Where(s => s.Usuario_area.Contains(area));
             }
             if (!String.IsNullOrEmpty(amaquina) && amaquina != "--Todas--")
             {
@@ -124,7 +124,11 @@ namespace Flex_SGM.Controllers
             }
             if (!String.IsNullOrEmpty(puesto) && puesto != "--Todas--")
             {
-                bitacora = bitacora.Where(s => s.usuario_puesto.Contains(puesto));
+                bitacora = bitacora.Where(s => s.Usuario_puesto.Contains(puesto));
+            }
+            if (!String.IsNullOrEmpty(usuario) && usuario != "--Todas--")
+            {
+                bitacora = bitacora.Where(s => s.Usuario.Contains(usuario));
             }
             if (!String.IsNullOrEmpty(maquina) && maquina != "--Todas--")
             {
@@ -132,7 +136,7 @@ namespace Flex_SGM.Controllers
             }
             if (!String.IsNullOrEmpty(searchString))
             {
-                bitacora = bitacora.Where(s => s.usuario.Contains(searchString)
+                bitacora = bitacora.Where(s => s.Usuario.Contains(searchString)
                                        || s.Maquinas.Cliente.Contains(searchString)
                                        || s.Maquinas.Area.Contains(searchString)
                                        || s.Maquinas.Maquina.Contains(searchString)
@@ -223,7 +227,7 @@ namespace Flex_SGM.Controllers
                     inhibit = false;
                 }
 
-                if (!string.IsNullOrEmpty(bita.usuario))
+                if (!string.IsNullOrEmpty(bita.Usuario))
                 {
                     if (color)
                     {
@@ -231,7 +235,7 @@ namespace Flex_SGM.Controllers
                         color = false;
                     }
                     else color = true;
-                    ws.Cell(i, 1).Value = bita.usuario;
+                    ws.Cell(i, 1).Value = bita.Usuario;
                     ws.Cell(i, 2).Value = bita.DiaHora;
                     ws.Cell(i, 3).Value = bita.Maquinas.Cliente;
                     ws.Cell(i, 4).Value = bita.Maquinas.Area;
@@ -313,10 +317,10 @@ namespace Flex_SGM.Controllers
             {
                 if (area.Contains("MetalFinish"))
                 {
-                    bitacora = bitacora.Where(s => s.usuario_area == "Cromo" || s.usuario_area == "Pintura" || s.usuario_area == "MetalFinish");
+                    bitacora = bitacora.Where(s => s.Usuario_area == "Cromo" || s.Usuario_area == "Pintura" || s.Usuario_area == "MetalFinish");
                 }
                 else
-                    bitacora = bitacora.Where(s => s.usuario_area.Contains(area));
+                    bitacora = bitacora.Where(s => s.Usuario_area.Contains(area));
             }
             if (!String.IsNullOrEmpty(amaquina) && amaquina != "--Todas--")
             {
@@ -343,7 +347,7 @@ namespace Flex_SGM.Controllers
             }
             if (!String.IsNullOrEmpty(puesto) && puesto != "--Todas--")
             {
-                bitacora = bitacora.Where(s => s.usuario_puesto.Contains(puesto));
+                bitacora = bitacora.Where(s => s.Usuario_puesto.Contains(puesto));
 
             }
             if (!String.IsNullOrEmpty(maquina) && maquina != "--Todas--")
@@ -353,7 +357,7 @@ namespace Flex_SGM.Controllers
             }
             if (!String.IsNullOrEmpty(searchString))
             {
-                bitacora = bitacora.Where(s => s.usuario.Contains(searchString)
+                bitacora = bitacora.Where(s => s.Usuario.Contains(searchString)
                                        || s.Maquinas.Cliente.Contains(searchString)
                                        || s.Maquinas.Area.Contains(searchString)
                                        || s.Maquinas.Maquina.Contains(searchString)
@@ -417,7 +421,7 @@ namespace Flex_SGM.Controllers
                     inhibit = false;
                 }
 
-                if (!string.IsNullOrEmpty(bita.usuario))
+                if (!string.IsNullOrEmpty(bita.Usuario))
                 {
                     ws.Cell(i, 3).Value = bita.Maquinas.SubMaquina;
                     ws.Cell(i, 4).Value = bita.Sintoma + " - " + bita.Causa;
@@ -570,10 +574,10 @@ namespace Flex_SGM.Controllers
             {
                 if (area.Contains("MetalFinish"))
                 {
-                    bitacoras = bitacoras.Where(s => s.usuario_area == "Cromo" || s.usuario_area == "Pintura" || s.usuario_area == "MetalFinish");
+                    bitacoras = bitacoras.Where(s => s.Usuario_area == "Cromo" || s.Usuario_area == "Pintura" || s.Usuario_area == "MetalFinish");
                 }
                 else
-                    bitacoras = bitacoras.Where(s => s.usuario_area.Contains(area));
+                    bitacoras = bitacoras.Where(s => s.Usuario_area.Contains(area));
             }
             if (!String.IsNullOrEmpty(amaquina) && amaquina != "--Todas--")
             {
@@ -602,7 +606,7 @@ namespace Flex_SGM.Controllers
             }
             if (!String.IsNullOrEmpty(puesto) && puesto != "--Todas--")
             {
-                bitacoras = bitacoras.Where(s => s.usuario_puesto.Contains(puesto));
+                bitacoras = bitacoras.Where(s => s.Usuario_puesto.Contains(puesto));
             }
             if (!String.IsNullOrEmpty(maquina) && maquina != "--Todas--")
             {
@@ -610,7 +614,7 @@ namespace Flex_SGM.Controllers
             }
             if (!String.IsNullOrEmpty(searchString))
             {
-                bitacoras = bitacoras.Where(s => s.usuario.Contains(searchString)
+                bitacoras = bitacoras.Where(s => s.Usuario.Contains(searchString)
                                        || s.Maquinas.Cliente.Contains(searchString)
                                        || s.Maquinas.Area.Contains(searchString)
                                        || s.Maquinas.Maquina.Contains(searchString)
@@ -704,10 +708,10 @@ namespace Flex_SGM.Controllers
             {
                 if (area.Contains("MetalFinish"))
                 {
-                    bitacora = bitacora.Where(s => s.usuario_area == "Cromo" || s.usuario_area == "Pintura" || s.usuario_area == "MetalFinish");
+                    bitacora = bitacora.Where(s => s.Usuario_area == "Cromo" || s.Usuario_area == "Pintura" || s.Usuario_area == "MetalFinish");
                 }
                 else
-                bitacora = bitacora.Where(s => s.usuario_area.Contains(area));
+                bitacora = bitacora.Where(s => s.Usuario_area.Contains(area));
             }
             if (!String.IsNullOrEmpty(amaquina) && amaquina != "--Todas--")
             {
@@ -734,7 +738,7 @@ namespace Flex_SGM.Controllers
             }
             if (!String.IsNullOrEmpty(puesto) && puesto != "--Todas--")
             {
-                bitacora = bitacora.Where(s => s.usuario_puesto.Contains(puesto));
+                bitacora = bitacora.Where(s => s.Usuario_puesto.Contains(puesto));
             }
             if (!String.IsNullOrEmpty(maquina) && maquina != "--Todas--")
             {
@@ -742,7 +746,7 @@ namespace Flex_SGM.Controllers
             }
             if (!String.IsNullOrEmpty(searchString))
             {
-                bitacora = bitacora.Where(s => s.usuario.Contains(searchString)
+                bitacora = bitacora.Where(s => s.Usuario.Contains(searchString)
                                        || s.Maquinas.Cliente.Contains(searchString)
                                        || s.Maquinas.Area.Contains(searchString)
                                        || s.Maquinas.Maquina.Contains(searchString)
@@ -887,7 +891,7 @@ namespace Flex_SGM.Controllers
                     if (fs)
                         bitacora2 = bitacora2.Where(s => s.findesemana == true);
                     if (!string.IsNullOrEmpty(area))                  
-                        bitacora2 = bitacora2.Where(s => s.usuario_area.Contains(area)); 
+                        bitacora2 = bitacora2.Where(s => s.Usuario_area.Contains(area)); 
 
                     string xx = ObjectName2.ElementAt(0).ToString();
                     ViewBag.Machinetop1name = xx;                  
@@ -2156,7 +2160,7 @@ namespace Flex_SGM.Controllers
 
             ViewBag.turno = lst;
             Bitacora bitacora = new Bitacora();
-            bitacora.usuario = currentUser.UserFullName;
+            bitacora.Usuario = currentUser.UserFullName;
             bitacora.DiaHora = DateTime.Now;
             bitacora.Tiempo = 0;
             ViewBag.listcliente = new SelectList(Enum.GetValues(typeof(flex_Cliente)).Cast<flex_Cliente>().ToList());
@@ -2210,16 +2214,16 @@ namespace Flex_SGM.Controllers
                 bitacora.Descripcion = falla.FirstOrDefault().Codigo;
             }
 
-            bitacora.usuario = currentUser.UserFullName;
-            bitacora.usuario_area = currentUser.Area;
-            bitacora.usuario_puesto = currentUser.Puesto;
+            bitacora.Usuario = currentUser.UserFullName;
+            bitacora.Usuario_area = currentUser.Area;
+            bitacora.Usuario_puesto = currentUser.Puesto;
 
             // bitacora.Porcentaje = 0;
             // bitacora.MTBF = 0;
             // bitacora.MTTR = 0;
 
             if (string.IsNullOrEmpty(bitacora.Atendio))
-                bitacora.Atendio = bitacora.usuario;
+                bitacora.Atendio = bitacora.Usuario;
             if (string.IsNullOrEmpty(bitacora.Scrap))
                 bitacora.Scrap = "N/A";
             if (string.IsNullOrEmpty(bitacora.Folio))
@@ -2344,10 +2348,10 @@ namespace Flex_SGM.Controllers
             {
                 if (area.Contains("MetalFinish"))
                 {
-                    bitacora = bitacora.Where(s => s.usuario_area == "Cromo" || s.usuario_area == "Pintura" || s.usuario_area == "MetalFinish");
+                    bitacora = bitacora.Where(s => s.Usuario_area == "Cromo" || s.Usuario_area == "Pintura" || s.Usuario_area == "MetalFinish");
                 }
                 else
-                    bitacora = bitacora.Where(s => s.usuario_area.Contains(area));
+                    bitacora = bitacora.Where(s => s.Usuario_area.Contains(area));
             }
             */
             if (!String.IsNullOrEmpty(amaquina) && amaquina != "--Todas--")
@@ -2376,7 +2380,7 @@ namespace Flex_SGM.Controllers
             /*
             if (!String.IsNullOrEmpty(puesto) && puesto != "--Todas--")
             {
-                bitacora = bitacora.Where(s => s.usuario_puesto.Contains(puesto));
+                bitacora = bitacora.Where(s => s.Usuario_puesto.Contains(puesto));
 
             }
             if (!String.IsNullOrEmpty(maquina) && maquina != "--Todas--")
@@ -2387,7 +2391,7 @@ namespace Flex_SGM.Controllers
 
             if (!String.IsNullOrEmpty(searchString))
             {
-                bitacora = bitacora.Where(s => s.usuario.Contains(searchString)
+                bitacora = bitacora.Where(s => s.Usuario.Contains(searchString)
                                         || s.Maquinas.Cliente.Contains(searchString)
                                         || s.Maquinas.Area.Contains(searchString)
                                         || s.Maquinas.Maquina.Contains(searchString)

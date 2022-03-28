@@ -141,16 +141,16 @@
                                                     else
                                                     {@Html.Label("Verificada, " + item.Verifico)}
                                                             @Html.ActionLink("Detalles", "Details", new { id = item.ID })
-                                                            @if (ViewBag.cuser.Contains(item.usuario))
+                                                            @if (ViewBag.cuser.Contains(item.Usuario))
                                                             {@Html.ActionLink("Editar", "Edit", new { id = item.ID })}
-                                                            @if (ViewBag.super && ViewBag.uarea.Contains(item.usuario_area))
+                                                            @if (ViewBag.super && ViewBag.uarea.Contains(item.Usuario_area))
                                                             {@Html.ActionLink("Borrar", "Delete", new { id = item.ID })}
                                                         </td>
                                                         <td>
                                                             @Html.DisplayFor(modelItem => item.DiaHora)
                                                         </td>
                                                         <td>
-                                                            @Html.DisplayFor(modelItem => item.usuario)
+                                                            @Html.DisplayFor(modelItem => item.Usuario)
                                                         </td>
                                                         <td style="width:10px;">
                                                             @Html.DisplayFor(modelItem => item.Maquinas.Maquina)

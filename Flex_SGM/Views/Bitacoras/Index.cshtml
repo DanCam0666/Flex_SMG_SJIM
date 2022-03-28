@@ -157,15 +157,15 @@
                                     @Html.Label("Verificada, " + item.Verifico)
                                 }
                                 @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn  btn-info" })
-                                @if (ViewBag.cuser.Contains(item.usuario))
+                                @if (ViewBag.cuser.Contains(item.Usuario))
                                 {
                                     @Html.ActionLink("Editar", "Edit", new { id = item.ID }, new { @class = "btn  btn-default" })
                                 }
-                                @if ((ViewBag.super && ViewBag.uarea.Contains(item.usuario_area)) || ViewBag.cuser.Contains(item.usuario))
+                                @if ((ViewBag.super && ViewBag.uarea.Contains(item.Usuario_area)) || ViewBag.cuser.Contains(item.Usuario))
                                 {
                                     @Html.ActionLink("Borrar", "Delete", new { id = item.ID }, new { @class = "btn  btn-danger" })
                                 }
-                                @if (ViewBag.uarea.Contains(item.usuario_area) && item.noterminado)
+                                @if (ViewBag.uarea.Contains(item.Usuario_area) && item.noterminado)
                                 {
                                     @Html.ActionLink("Terminar", "Finish", new { id = item.ID, searchString = ViewBag.searchString2, area = ViewBag.area2, amaquina = ViewBag.amaquina2, puesto = ViewBag.puesto2, maquina = ViewBag.maquina2, fecha_inicial = ViewBag.fecha_inicial, fecha_final = ViewBag.fecha_final, t1 = ViewBag.t1, t2 = ViewBag.t2, t3 = ViewBag.t3 }, new { @class = "btn  btn-success" })
                                 }
@@ -174,7 +174,7 @@
                                 @item.DiaHora.ToString("yyyy/MM/dd hh:MM")
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.usuario)
+                                @Html.DisplayFor(modelItem => item.Usuario)
                             </td>
                             <td style="width:10px;">
                                 @Html.DisplayFor(modelItem => item.Maquinas.SubMaquina)
@@ -221,15 +221,15 @@
                                         @Html.Label("Verificada, " + item.Verifico)
                                     }
                                     @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn  btn-info" })
-                                    @if (ViewBag.cuser.Contains(item.usuario))
+                                    @if (ViewBag.cuser.Contains(item.Usuario))
                                     {
                                         @Html.ActionLink("Editar", "Edit", new { id = item.ID }, new { @class = "btn  btn-default" })
                                     }
-                                    @if (ViewBag.super && ViewBag.uarea.Contains(item.usuario_area))
+                                    @if (ViewBag.super && ViewBag.uarea.Contains(item.Usuario_area))
                                     {
                                         @Html.ActionLink("Borrar", "Delete", new { id = item.ID }, new { @class = "btn  btn-danger" })
                                     }
-                                    @if (ViewBag.uarea.Contains(item.usuario_area) && item.noterminado)
+                                    @if (ViewBag.uarea.Contains(item.Usuario_area) && item.noterminado)
                                     {
                                         @Html.ActionLink("Finalizar", "Finish", new { id = item.ID, searchString = ViewBag.searchString2, area = ViewBag.area2, amaquina = ViewBag.amaquina2, puesto = ViewBag.puesto2, maquina = ViewBag.maquina2, fecha_inicial = ViewBag.fecha_inicial, fecha_final = ViewBag.fecha_final, t1 = ViewBag.t1, t2 = ViewBag.t2, t3 = ViewBag.t3 }, new { @class = "btn  btn-success" })
                                     }
@@ -238,7 +238,7 @@
                                     @item.DiaHora.ToString("yyyy/MM/dd hh:MM")
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.usuario)
+                                    @Html.DisplayFor(modelItem => item.Usuario)
                                 </td>
                                 <td style="width:10px;">
                                     @Html.DisplayFor(modelItem => item.Maquinas.SubMaquina)
@@ -283,15 +283,15 @@
                                         @Html.Label("Verificada, " + item.Verifico)
                                     }
                                     @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn  btn-info" })
-                                    @if (ViewBag.cuser.Contains(item.usuario))
+                                    @if (ViewBag.cuser.Contains(item.Usuario))
                                     {
                                         @Html.ActionLink("Editar", "Edit", new { id = item.ID }, new { @class = "btn  btn-default" })
                                     }
-                                    @if ((ViewBag.super && ViewBag.uarea.Contains(item.usuario_area)) || ViewBag.cuser.Contains(item.usuario))
+                                    @if ((ViewBag.super && ViewBag.uarea.Contains(item.Usuario_area)) || ViewBag.cuser.Contains(item.Usuario))
                                     {
                                         @Html.ActionLink("Borrar", "Delete", new { id = item.ID }, new { @class = "btn  btn-danger" })
                                     }
-                                    @if (ViewBag.uarea.Contains(item.usuario_area) && item.noterminado)
+                                    @if (ViewBag.uarea.Contains(item.Usuario_area) && item.noterminado)
                                     {
                                         @Html.ActionLink("Finalizar", "Finish", new { id = item.ID, searchString = ViewBag.searchString2, area = ViewBag.area2, amaquina = ViewBag.amaquina2, puesto = ViewBag.puesto2, maquina = ViewBag.maquina2, fecha_inicial = ViewBag.fecha_inicial, fecha_final = ViewBag.fecha_final, t1 = ViewBag.t1, t2 = ViewBag.t2, t3 = ViewBag.t3 }, new { @class = "btn  btn-success" })
                                     }
@@ -300,7 +300,7 @@
                                     @item.DiaHora.ToString("yyyy/MM/dd hh:MM")
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.usuario)
+                                    @Html.DisplayFor(modelItem => item.Usuario)
                                 </td>
                                 <td style="width:10px;">
                                     @Html.DisplayFor(modelItem => item.Maquinas.SubMaquina)

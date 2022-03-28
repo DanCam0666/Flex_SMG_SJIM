@@ -1080,11 +1080,3 @@ C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\Flex_SGM
 C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\Flex_SGM.pdb
 C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\obj\Release\Flex_SGM.dll
 C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\obj\Release\Flex_SGM.pdb
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\roslyn\Microsoft.Win32.Primitives.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\roslyn\System.Globalization.Calendars.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\roslyn\System.IO.Compression.ZipFile.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\roslyn\System.Net.Http.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\roslyn\System.Net.Sockets.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\roslyn\System.Threading.Tasks.Extensions.dll

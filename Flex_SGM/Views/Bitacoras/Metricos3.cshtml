@@ -16,15 +16,11 @@
                 <row>
                     <center>
                         <div class="input-daterange input-group col-md-6" id="bs_datepicker_range_container">
-
                             <label for="FechaInicial">Fecha Inicial...</label>
                             <input type="text" class="form-control" name="dti" value=@ViewBag.datei autocomplete="off">
-
                             <span class="input-group-addon">- A -</span>
-
                             <label for="FechaFinal">Fecha Final...</label>
                             <input type="text" class="form-control" name="dtf" value=@ViewBag.datef autocomplete="off">
-
                         </div>
                     </center>
                 </row>
@@ -69,6 +65,11 @@
 <div class="x_panel">
     <div class="x_title clearfix">
         <h2>Inicadores del @ViewBag.dx</h2>
+        <ul class="nav navbar-right">
+            <li>
+                <a class="collapse-link"><i class="fa fa-chevron-down"></i></a>
+            </li>
+        </ul>
     </div>
     <div class="x_content">
         <table class="table table-bordered table-striped" style="width:100%" id="metricox">
@@ -269,10 +270,14 @@
         </table>
     </div>
 </div>
-<hr />
 <div class="x_panel">
     <div class="x_title clearfix">
         <h2> Lista de Registros </h2>
+        <ul class="nav navbar-right">
+            <li>
+                <a class="collapse-link"><i class="fa fa-chevron-down"></i></a>
+            </li>
+        </ul>
     </div>
     <div class="x_content ">
         <table class="tabled table-bordered table-striped clearfix" id="metricox2" style="width:100%">
@@ -313,7 +318,7 @@
             </thead>
 
             <tbody>
-                @foreach (var item in Model)
+               @foreach (var item in Model)
                 {
                     if (!item.noterminado && !item.findesemana)
                     {
@@ -325,7 +330,7 @@
                                 @item.DiaHora.ToString("yyyy/MM/dd HH:mm")
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.usuario)
+                                @Html.DisplayFor(modelItem => item.Usuario)
                             </td>
                             <td style="width:10px;">
                                 @Html.DisplayFor(modelItem => item.Maquinas.SubMaquina)
@@ -372,15 +377,15 @@
                                         @Html.Label("Verificada, " + item.Verifico)
                                     }
                                     @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn  btn-info", @target = "_blank" })
-                                    @if (ViewBag.cuser.Contains(item.usuario))
+                                    @if (ViewBag.cuser.Contains(item.Usuario))
                                     {
                                         @Html.ActionLink("Editar", "Edit", new { id = item.ID }, new { @class = "btn  btn-default", @target = "_blank" })
                                     }
-                                    @if (ViewBag.super && ViewBag.uarea.Contains(item.usuario_area))
+                                    @if (ViewBag.super && ViewBag.uarea.Contains(item.Usuario_area))
                                     {
                                         @Html.ActionLink("Borrar", "Delete", new { id = item.ID }, new { @class = "btn  btn-danger", @target = "_blank" })
                                     }
-                                    @if (ViewBag.uarea.Contains(item.usuario_area) && item.noterminado)
+                                    @if (ViewBag.uarea.Contains(item.Usuario_area) && item.noterminado)
                                     {
                                         @Html.ActionLink("Finalizar", "Finish", new { id = item.ID, searchString = ViewBag.searchString2, area = ViewBag.area2, amaquina = ViewBag.amaquina2, puesto = ViewBag.puesto2, maquina = ViewBag.maquina2, fecha_inicial = ViewBag.fecha_inicial, fecha_final = ViewBag.fecha_final, t1 = ViewBag.t1, t2 = ViewBag.t2, t3 = ViewBag.t3 }, new { @class = "btn  btn-success" })
                                     }
@@ -389,7 +394,7 @@
                                     @item.DiaHora.ToString("yyyy/MM/dd HH:mm")
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.usuario)
+                                    @Html.DisplayFor(modelItem => item.Usuario)
                                 </td>
                                 <td style="width:10px;">
                                     @Html.DisplayFor(modelItem => item.Maquinas.SubMaquina)
@@ -434,15 +439,15 @@
                                         @Html.Label("Verificada, " + item.Verifico)
                                     }
                                     @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn  btn-info", @target = "_blank" })
-                                    @if (ViewBag.cuser.Contains(item.usuario))
+                                    @if (ViewBag.cuser.Contains(item.Usuario))
                                     {
                                         @Html.ActionLink("Editar", "Edit", new { id = item.ID }, new { @class = "btn  btn-default", @target = "_blank" })
                                     }
-                                    @if (ViewBag.super && ViewBag.uarea.Contains(item.usuario_area))
+                                    @if (ViewBag.super && ViewBag.uarea.Contains(item.Usuario_area))
                                     {
                                         @Html.ActionLink("Borrar", "Delete", new { id = item.ID }, new { @class = "btn  btn-danger", @target = "_blank" })
                                     }
-                                    @if (ViewBag.uarea.Contains(item.usuario_area) && item.noterminado)
+                                    @if (ViewBag.uarea.Contains(item.Usuario_area) && item.noterminado)
                                     {
                                         @Html.ActionLink("Finalizar", "Finish", new { id = item.ID, searchString = ViewBag.searchString2, area = ViewBag.area2, amaquina = ViewBag.amaquina2, puesto = ViewBag.puesto2, maquina = ViewBag.maquina2, fecha_inicial = ViewBag.fecha_inicial, fecha_final = ViewBag.fecha_final, t1 = ViewBag.t1, t2 = ViewBag.t2, t3 = ViewBag.t3 }, new { @class = "btn  btn-success" })
                                     }
@@ -451,7 +456,7 @@
                                     @item.DiaHora.ToString("yyyy/MM/dd HH:mm")
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.usuario)
+                                    @Html.DisplayFor(modelItem => item.Usuario)
                                 </td>
                                 <td style="width:10px;">
                                     @Html.DisplayFor(modelItem => item.Maquinas.SubMaquina)
@@ -483,74 +488,80 @@
     </div>
 </div>
 <br />
-<div class="col-md-8" style="float:left">
-    <div class="x_panel">
-        <div class="x_title clearfix">
-            <h2>Tiempo Muerto del @ViewBag.dx</h2>
+<div class="x_panel">
+    <ul class="nav navbar-right">
+        <li>
+            <a class="collapse-link"><i class="fa fa-chevron-down"></i></a>
+        </li>
+    </ul>
+    <div class="col-md-7" style="float:left">
+        <div class="x_panel">
+            <div class="x_title clearfix">
+                <h2>Tiempo Muerto del @ViewBag.dx</h2>
+            </div>
+            <div class="x_content">
+                <canvas id="chartme" width="100" height="39"></canvas>
+            </div>
         </div>
-        <div class="x_content">
-            <canvas id="chartme" width="100" height="39"></canvas>
+    </div>
+    <div class="col-md-4" style="float:left">
+        <div class="x_panel">
+            <div class="x_title clearfix">
+                <h2> Pareto por % de Tiempo Perdido</h2>
+            </div>
+            <div class="x_content">
+                <canvas id="charttimee" width="100" height="83"></canvas>
+            </div>
+        </div>
+    </div>
+
+
+    <br />
+    <div class="col-md-6 clearfix">
+        <div class="x_panel">
+            <div class="x_title">
+                Worst 5  MTTR
+            </div>
+            <div class="x_content">
+                <canvas id="chartmttr" width="100" height="44" "></canvas>
+            </div>
+        </div>
+        <div class="x_panel">
+            <div class="x_title">
+                Worst 5 MTBF
+            </div>
+            <div class="x_content">
+                <canvas id="chartm" width="100" height="44"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 clearfix">
+        <div class="x_panel">
+            <div class="x_title">
+                Worst 5  Suma Tiempo Fallas
+            </div>
+            <div class="x_content">
+                <canvas id="charttime" width="100" height="44"></canvas>
+            </div>
+        </div>
+        <div class="x_panel">
+            <div class="x_title">
+                Worst 5  Cantidad Fallas
+            </div>
+            <div class="x_content">
+                <canvas id="chartfails" width="100" height="44"></canvas>
+            </div>
         </div>
     </div>
 </div>
 
-<div class="col-md-4" style="float:left">
-    <div class="x_panel">
-        <div class="x_title clearfix">
-            <h2> Pareto por % de Tiempo Perdido</h2>
-        </div>
-        <div class="x_content">
-            <canvas id="charttimee" width="100" height="83"></canvas>
-        </div>
-    </div>
-</div>
+    <br />
+    <br />
 
+    @section Scripts {
 
-<br />
-<div class="col-md-6 clearfix">
-    <div class="x_panel">
-        <div class="x_title">
-            Worst 5  MTTR
-        </div>
-        <div class="x_content">
-            <canvas id="chartmttr" width="100" height="44" "></canvas>
-        </div>
-    </div>
-    <div class="x_panel">
-        <div class="x_title">
-            Worst 5 MTBF
-        </div>
-        <div class="x_content">
-            <canvas id="chartm" width="100" height="44"></canvas>
-        </div>
-    </div>
-</div>
-
-<div class="col-md-6 clearfix">
-    <div class="x_panel">
-        <div class="x_title">
-            Worst 5  Suma Tiempo Fallas
-        </div>
-        <div class="x_content">
-            <canvas id="charttime" width="100" height="44"></canvas>
-        </div>
-    </div>
-    <div class="x_panel">
-        <div class="x_title">
-            Worst 5  Cantidad Fallas
-        </div>
-        <div class="x_content">
-            <canvas id="chartfails" width="100" height="44"></canvas>
-        </div>
-    </div>
-</div>
-
-<br />
-<br />
-
-@section Scripts {
-
-    <script>
+        <script>
 
 
         var barChartData2 =
@@ -1023,5 +1034,5 @@
         myChart5.update();
 
         //---
-    </script>
-}
+        </script>
+    }
