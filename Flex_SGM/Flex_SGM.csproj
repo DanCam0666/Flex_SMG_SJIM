@@ -293,6 +293,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scripts\dayofweek.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Controllers\GAPsController.cs" />
     <Compile Include="Views\Metricos\CI_MPController.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -2967,6 +2968,11 @@
     <Content Include="Views\CI_MP\Details.cshtml" />
     <Content Include="Views\CI_MP\Edit.cshtml" />
     <Content Include="Views\CI_MP\Index.cshtml" />
+    <Content Include="Views\GAPs\Index.cshtml" />
+    <Content Include="Views\GAPs\Create.cshtml" />
+    <Content Include="Views\GAPs\Delete.cshtml" />
+    <Content Include="Views\GAPs\Details.cshtml" />
+    <Content Include="Views\GAPs\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
