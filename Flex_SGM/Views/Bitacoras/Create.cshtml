@@ -9,7 +9,7 @@
           
         <div class="x_panel">
             <div class="x_title clearfix">
-               @using (Html.BeginForm("Createa", "Bitacoras"))
+                @using (Html.BeginForm("Createa", "Bitacoras"))
                 {
                     string area = ViewBag.Area;
                     <center><label>Filtrar Registro por @area</label></center>
@@ -25,7 +25,64 @@
                     switch (area)
                     {
                         case "Cont_Imprv_ManP":
-                            <meta http-equiv="refresh" content="0; URL=http://localhost:44356/CI_MP/Create"/>
+                            <meta http-equiv="refresh" content="0; URL=http://localhost:44356/CI_MP/Create" />
+                            break;
+                        case "Safety_HS":
+                            <meta http-equiv="refresh" content="0; URL=http://localhost:44356/Safety_HS/Create" />
+                            break;
+                        case "Scrap":
+                            <meta http-equiv="refresh" content="0; URL=http://localhost:44356/Scrap/Create" />
+                            break;
+                        case "LPA_COVID":
+                            <meta http-equiv="refresh" content="0; URL=http://localhost:44356/LPA_COVID/Create" />
+                            break;
+                        case "PLM":
+                            <meta http-equiv="refresh" content="0; URL=http://localhost:44356/PLM/Create" />
+                            break;
+                        case "GAPs":
+                            <meta http-equiv="refresh" content="0; URL=http://localhost:44356/GAPs/Create" />
+                            break;
+                        case "ECNs_PCRs":
+                            <meta http-equiv="refresh" content="0; URL=http://localhost:44356/ECNs_PCRs/Create" />
+                            break;
+                        case "Capacities":
+                            <meta http-equiv="refresh" content="0; URL=http://localhost:44356/Capacities/Create" />
+                            break;
+                        case "Customer_Complaints":
+                            <meta http-equiv="refresh" content="0; URL=http://localhost:44356/Customer_Complaints/Create" />
+                            break;
+                        case "Lay_Out":
+                            <meta http-equiv="refresh" content="0; URL=http://localhost:44356/Lay_Out/Create" />
+                            break;
+                        case "TOC_HS_Audits":
+                            <meta http-equiv="refresh" content="0; URL=http://localhost:44356/TOC_HS_Audits/Create" />
+                            break;
+                        case "Cust_Score_Cards":
+                            <meta http-equiv="refresh" content="0; URL=http://localhost:44356/Cust_Score_Cards/Create" />
+                            break;
+                        case "Parts_Delivery":
+                            <meta http-equiv="refresh" content="0; URL=http://localhost:44356/Parts_Delivery/Create" />
+                            break;
+                        case "LIM_Invt_Ctrl":
+                            <meta http-equiv="refresh" content="0; URL=http://localhost:44356/LIM_Invt_Ctrl/Create" />
+                            break;
+                        case "Quality_HS":
+                            <meta http-equiv="refresh" content="0; URL=http://localhost:44356/Quality_HS/Create" />
+                            break;
+                        case "Blue_Book":
+                            <meta http-equiv="refresh" content="0; URL=http://localhost:44356/Blue_Book/Create" />
+                            break;
+                        case "Red_Rabbits":
+                            <meta http-equiv="refresh" content="0; URL=http://localhost:44356/Red_Rabbits/Create" />
+                            break;
+                        case "AMEF":
+                            <meta http-equiv="refresh" content="0; URL=http://localhost:44356/AMEF/Create" />
+                            break;
+                        case "Packaging":
+                            <meta http-equiv="refresh" content="0; URL=http://localhost:44356/Packaging/Create" />
+                            break;
+                        case "Yellow_Sheets":
+                            <meta http-equiv="refresh" content="0; URL=http://localhost:44356/Yellow_Sheets/Create" />
                             break;
                     }
                 }

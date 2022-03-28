@@ -1,0 +1,209 @@
+﻿@model Flex_SGM.Models.Bitacora
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Bitacora</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Fallas.Area)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fallas.Area)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Maquinas.Area)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Maquinas.Area)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiaHora)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaHora)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Usuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Usuario_area)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usuario_area)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Usuario_puesto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usuario_puesto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sintoma)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sintoma)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Causa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Causa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccionCorrectiva)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccionCorrectiva)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Atendio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Atendio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fallaoperacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fallaoperacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tiempo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tiempo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Scrap)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Scrap)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Folio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Folio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Verifico)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Verifico)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaVerificacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaVerificacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MttoPreventivo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MttoPreventivo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MttoCorrectivo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MttoCorrectivo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MttoMejora)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MttoMejora)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.noterminado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.noterminado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.findesemana)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.findesemana)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.turno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.turno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

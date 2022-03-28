@@ -1,0 +1,166 @@
+﻿@model IEnumerable<Flex_SGM.Models.Bitacora>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Fallas.Area)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Maquinas.Area)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DiaHora)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Usuario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Usuario_area)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Usuario_puesto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sintoma)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Causa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AccionCorrectiva)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Atendio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fallaoperacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tiempo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Scrap)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Folio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Verifico)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaVerificacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MttoPreventivo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MttoCorrectivo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MttoMejora)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.noterminado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.findesemana)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.turno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fallas.Area)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Maquinas.Area)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiaHora)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Usuario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Usuario_area)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Usuario_puesto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sintoma)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Causa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AccionCorrectiva)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Atendio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fallaoperacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tiempo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Scrap)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Folio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Verifico)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaVerificacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MttoPreventivo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MttoCorrectivo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MttoMejora)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.noterminado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.findesemana)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.turno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripcion)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
