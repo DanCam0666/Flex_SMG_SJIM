@@ -17,11 +17,11 @@ namespace Flex_SGM.Models
         public DateTime DiaHora { get; set; }
         [Display(Name = "Usuario")]
         [MaxLength(100)]
-        public string usuario { get; set; }
+        public string Usuario { get; set; }
         [MaxLength(25)]
-        public string usuario_area { get; set; }
+        public string Usuario_area { get; set; }
         [MaxLength(25)]
-        public string usuario_puesto { get; set; }
+        public string Usuario_puesto { get; set; }
         [Required]
         public int MaquinasID { get; set; }
         [Required]

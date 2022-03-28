@@ -99,7 +99,7 @@ namespace Flex_SGM.Controllers
 
             var id = User.Identity.GetUserId();
             ApplicationUser currentUser = UserManager.FindById(id);
-            if (currentUser.Nomina != "20806") { 
+            if (currentUser.Nomina != "21369") { 
             string sarea = currentUser.Area;
             var userId = User.Identity.GetUserId();
             List<ApplicationUser> allUser = UserManager.Users.Where(u=>u.Area==sarea).OrderBy(u=>u.Puesto).ToList();
@@ -130,7 +130,7 @@ namespace Flex_SGM.Controllers
             ApplicationUser exteUser = await UserManager.FindByNameAsync(name);
             var oils=db.OILs.Where(b => b.User_res == exteUser.UserFullName).Include(b => b.Maquinas);
 
-            var bitacoras = db.Bitacoras.Where(b=>b.usuario== exteUser.UserFullName).Include(b => b.Maquinas);
+            var bitacoras = db.Bitacoras.Where(b=>b.Usuario== exteUser.UserFullName).Include(b => b.Maquinas);
 
             ViewBag.StatusMessage =
                 message == ManageMessageId.ChangePasswordSuccess ? "Su contraseña se ha cambiado."
