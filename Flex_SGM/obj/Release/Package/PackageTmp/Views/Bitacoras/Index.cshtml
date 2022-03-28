@@ -1,0 +1,402 @@
+﻿@model IEnumerable<Flex_SGM.Models.Bitacora>
+
+@{
+    ViewBag.Title = "Bitacora";
+}
+<center>
+    <h1> @Html.ActionLink("Crear un nuevo registro", "Create")</h1>
+</center>
+
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-md-12">
+            <div class="x_panel">
+                <div class="x_content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="texto">Filtrar por texto...</label>
+                                        <input type="text" class="form-control" name="SearchString" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="input-daterange input-group" id="bs_datepicker_range_container">
+                                        <label for="FechaInicial">Fecha Inicial...</label>
+                                        <input type="text" class="form-control" name="fecha_inicial" value=@ViewBag.fecha_inicial autocomplete="off">
+                                        <span class="input-group-addon">- A -</span>
+                                        <label for="FechaFinal">Fecha Final...</label>
+                                        <input type="text" class="form-control" name="fecha_final" value=@ViewBag.fecha_final autocomplete="off">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="area">Filtrar por Area usuario...</label>
+                                        <div class="col-md-10">
+                                            @Html.DropDownList("area", null, "--Todas--", htmlAttributes: new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="puesto">Filtrar por Puesto...</label>
+                                        <div class="col-md-10">
+                                            @Html.DropDownList("puesto", null, "--Todas--", htmlAttributes: new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="amaquina">Filtrar por Area Maquina...</label>
+                                        <div class="col-md-10">
+                                            @Html.DropDownList("amaquina", null, "--Todas--", htmlAttributes: new { @class = "form-control", onchange = "SelectedIndexChanged()" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="maquina">Filtrar por Nombre de Maquina...</label>
+                                        <div class="col-md-10">
+                                            @Html.DropDownList("maquina", null, "--Todas--", htmlAttributes: new { @class = "form-control", id = "Normaldrop" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-offset-3">
+                        <br />
+                        <input onclick="$('#loadingImg').show();setTimeout(function () { $('#loadingImg').fadeOut(); }, 5000);" data-toggle="tooltip" title="¡Muestra los valores Filtrados en la tabla de abajo!" type="submit" name="btn" value="Buscar Bitacora" class="btn btn-primary  col-lg-offset-2 col-md-4" />
+                        <!--<input onclick="$('#loadingImg').show();setTimeout(function () { $('#loadingImg').fadeOut(); }, 5000);" data-toggle="tooltip" title="¡Top 5 de los filtros seleccionados!" type="submit" name="btn" value="Top 5" class="btn btn-primary col-md-1" />
+                        <input onclick="$('#loadingImg').show();setTimeout(function () { $('#loadingImg').fadeOut(); }, 5000);" data-toggle="tooltip" title="¡Resumen de los dias seleccionados!" type="submit" name="btn" value="Resumen" class="btn btn-primary col-md-1" />
+                        <input onclick="$('#loadingImg').show();setTimeout(function () { $('#loadingImg').fadeOut(); }, 5000);" data-toggle="tooltip" title="¡RoadMap de los filtros seleccionados!" type="submit" name="btn" value="RoadMap" class="btn btn-primary col-md-1" />
+                        <input onclick="$('#loadingImg').show();setTimeout(function () { $('#loadingImg').fadeOut(); }, 5000);" data-toggle="tooltip" title="¡Exportar a Excel sin formato!" type="submit" name="btn" value="Exportar Excel" class="btn btn-primary col-md-1" />
+                        <input onclick="$('#loadingImg').show();setTimeout(function () { $('#loadingImg').fadeOut(); }, 5000);" data-toggle="tooltip" title="¡Exportar a Excel con formato!" type="submit" name="btn" value="Exportar Formato" class="btn btn-primary col-md-1" />
+                        @if (ViewBag.super)
+                        {
+                            <button data-toggle="tooltip" title="Para actualizar informacion de las juntas diarias!" class="btn btn-primary col-sm-offset-1 col-md-2" onclick="location.href='@Url.Action("index", "juntas")';return false;">Diarios de Juntas</button>
+                        }
+                        <input data-toggle="tooltip" title="¡Metricos MTBF y MTTR!" type="submit" name="btn" value="Metricos" class="btn btn-primary col-md-1" formtarget="_blank" />-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+    <div class="row">
+        <center> @{Html.RenderPartial("_Result");}</center>
+    </div>
+
+<div class="x_panel">
+    <div class="x_content clearfix">
+        <table class="table table-bordered table-striped clearfix" style="width:100%" id="bitacora">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayName("ID")
+                    </th>
+                    <th>
+                        @Html.Label("Menu")
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DiaHora)
+                    </th>
+                    <th>
+                        @Html.DisplayName("Usuario")
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Maquinas.SubMaquina)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Descripcion)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Sintoma)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Causa)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.AccionCorrectiva)
+                    </th>
+                    <th style="width:10px;">
+                        @Html.DisplayNameFor(model => model.Tiempo)
+                    </th>
+                    <th style="width:10px;">
+                        @Html.DisplayNameFor(model => model.Folio)
+                    </th>
+
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    if (!item.noterminado && !item.findesemana)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ID)
+                            </td>
+                            <td>
+                                @if (item.FechaVerificacion == null)
+                                {
+                                    // @Html.Label("Esperando Verificacion")
+                                    if (ViewBag.super)
+                                    {
+                                        <button onclick=" $(this).hide(); return Verify(@item.ID); ">Verificar</button>
+                                    }
+                                }
+                                else
+                                {
+                                    @Html.Label("Verificada, " + item.Verifico)
+                                }
+                                @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn  btn-info" })
+                                @if (ViewBag.cuser.Contains(item.Usuario))
+                                {
+                                    @Html.ActionLink("Editar", "Edit", new { id = item.ID }, new { @class = "btn  btn-default" })
+                                }
+                                @if ((ViewBag.super && ViewBag.uarea.Contains(item.Usuario_area)) || ViewBag.cuser.Contains(item.Usuario))
+                                {
+                                    @Html.ActionLink("Borrar", "Delete", new { id = item.ID }, new { @class = "btn  btn-danger" })
+                                }
+                                @if (ViewBag.uarea.Contains(item.Usuario_area) && item.noterminado)
+                                {
+                                    @Html.ActionLink("Terminar", "Finish", new { id = item.ID, searchString = ViewBag.searchString2, area = ViewBag.area2, amaquina = ViewBag.amaquina2, puesto = ViewBag.puesto2, maquina = ViewBag.maquina2, fecha_inicial = ViewBag.fecha_inicial, fecha_final = ViewBag.fecha_final, t1 = ViewBag.t1, t2 = ViewBag.t2, t3 = ViewBag.t3 }, new { @class = "btn  btn-success" })
+                                }
+                            </td>
+                            <td>
+                                @item.DiaHora.ToString("yyyy/MM/dd hh:MM")
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Usuario)
+                            </td>
+                            <td style="width:10px;">
+                                @Html.DisplayFor(modelItem => item.Maquinas.SubMaquina)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Descripcion)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Sintoma)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Causa)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.AccionCorrectiva)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Tiempo)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Folio)
+                            </td>
+                        </tr>
+                    }
+                    else
+                    {
+                        if (item.noterminado)
+                        {
+                            <tr class="danger">
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ID)
+                                </td>
+                                <td>
+                                    @if (item.FechaVerificacion == null)
+                                    {
+                                        @Html.Label("Esperando Verificacion")
+                                        if (ViewBag.super)
+                                        {
+                                            <button onclick=" $(this).hide(); return Verify(@item.ID);">Verificar</button>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        @Html.Label("Verificada, " + item.Verifico)
+                                    }
+                                    @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn  btn-info" })
+                                    @if (ViewBag.cuser.Contains(item.Usuario))
+                                    {
+                                        @Html.ActionLink("Editar", "Edit", new { id = item.ID }, new { @class = "btn  btn-default" })
+                                    }
+                                    @if (ViewBag.super && ViewBag.uarea.Contains(item.Usuario_area))
+                                    {
+                                        @Html.ActionLink("Borrar", "Delete", new { id = item.ID }, new { @class = "btn  btn-danger" })
+                                    }
+                                    @if (ViewBag.uarea.Contains(item.Usuario_area) && item.noterminado)
+                                    {
+                                        @Html.ActionLink("Finalizar", "Finish", new { id = item.ID, searchString = ViewBag.searchString2, area = ViewBag.area2, amaquina = ViewBag.amaquina2, puesto = ViewBag.puesto2, maquina = ViewBag.maquina2, fecha_inicial = ViewBag.fecha_inicial, fecha_final = ViewBag.fecha_final, t1 = ViewBag.t1, t2 = ViewBag.t2, t3 = ViewBag.t3 }, new { @class = "btn  btn-success" })
+                                    }
+                                </td>
+                                <td>
+                                    @item.DiaHora.ToString("yyyy/MM/dd hh:MM")
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Usuario)
+                                </td>
+                                <td style="width:10px;">
+                                    @Html.DisplayFor(modelItem => item.Maquinas.SubMaquina)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Descripcion)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Sintoma)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Causa)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.AccionCorrectiva)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Tiempo)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Folio)
+                                </td>
+                            </tr>
+                        }
+                        else
+                        {
+                            <tr class="warning">
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ID)
+                                </td>
+                                <td>
+                                    @if (item.FechaVerificacion == null)
+                                    {
+                                        @Html.Label("Esperando Verificacion")
+                                        if (ViewBag.super)
+                                        {
+                                            <button onclick=" $(this).hide(); return Verify(@item.ID);">Verificar</button>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        @Html.Label("Verificada, " + item.Verifico)
+                                    }
+                                    @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn  btn-info" })
+                                    @if (ViewBag.cuser.Contains(item.Usuario))
+                                    {
+                                        @Html.ActionLink("Editar", "Edit", new { id = item.ID }, new { @class = "btn  btn-default" })
+                                    }
+                                    @if ((ViewBag.super && ViewBag.uarea.Contains(item.Usuario_area)) || ViewBag.cuser.Contains(item.Usuario))
+                                    {
+                                        @Html.ActionLink("Borrar", "Delete", new { id = item.ID }, new { @class = "btn  btn-danger" })
+                                    }
+                                    @if (ViewBag.uarea.Contains(item.Usuario_area) && item.noterminado)
+                                    {
+                                        @Html.ActionLink("Finalizar", "Finish", new { id = item.ID, searchString = ViewBag.searchString2, area = ViewBag.area2, amaquina = ViewBag.amaquina2, puesto = ViewBag.puesto2, maquina = ViewBag.maquina2, fecha_inicial = ViewBag.fecha_inicial, fecha_final = ViewBag.fecha_final, t1 = ViewBag.t1, t2 = ViewBag.t2, t3 = ViewBag.t3 }, new { @class = "btn  btn-success" })
+                                    }
+                                </td>
+                                <td>
+                                    @item.DiaHora.ToString("yyyy/MM/dd hh:MM")
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Usuario)
+                                </td>
+                                <td style="width:10px;">
+                                    @Html.DisplayFor(modelItem => item.Maquinas.SubMaquina)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Descripcion)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Sintoma)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Causa)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.AccionCorrectiva)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Tiempo)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Folio)
+                                </td>
+                            </tr>
+                        }
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section Scripts {
+
+    <script>
+
+        function Verify(idx)
+        {
+            $.post("@Url.Action("Verify","Bitacoras")",{ id:idx} ,function(data){
+                alert(data);
+            });
+        }
+        $(document).ready(function () {
+
+            if (typeof window.stackBottomLeft === 'undefined') {
+                window.stackBottomLeft = {
+                    'dir1': 'up',
+                    'dir2': 'left',
+                    'firstpos1': 25,
+                    'firstpos2': 25
+                };
+            }
+
+            //  var notice2 = PNotify.info({
+              //  title: 'Nuevas Funciones',
+              //  text: 'Existen nuevas funciones de Control de Usuario... Se continua trabajando en el reporte automatico de fallas!',
+              //  stack: window.stackBottomLeft,
+              //  addClass: 'nonblock'
+            //  });
+            $('[data-toggle="tooltip"]').tooltip();
+            $("#Normaldrop").chosen();
+            $('#bitacora').DataTable({
+                "dom": 'lBfrtip',
+                "lengthMenu": [[5, 15, 50, -1], ["5", "15", "50", "Todos"]],
+                "buttons": ['copy', 'csv', 'print', 'pdf', 'excel'],
+                "order": [[0, "desc"]],
+                "scrollX": true,
+                "language": {
+                    "sProcessing": "Procesando...",
+                    "sLengthMenu": "Mostrar _MENU_ registros",
+                    "sZeroRecords": "No se encontraron resultados",
+                    "sEmptyTable": "Ningun dato disponible en esta tabla =(",
+                    "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                    "sInfoPostFix": "",
+                    "sSearch": "Buscar:",
+                    "sUrl": "",
+                    "sInfoThousands": ",",
+                    "sLoadingRecords": "Cargando...",
+                    "oPaginate": {
+                        "sFirst": "Primero",
+                        "sLast": "ultimo",
+                        "sNext": "Siguiente",
+                        "sPrevious": "Anterior"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                    },
+                    "buttons": {
+                        "copy": "Copiar",
+                        "colvis": "Visibilidad"
+                    }
+                }
+            });
+        });
+    </script>
+
+}

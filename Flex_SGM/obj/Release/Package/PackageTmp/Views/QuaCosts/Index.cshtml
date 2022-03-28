@@ -1,0 +1,181 @@
+﻿@model IEnumerable<Flex_SGM.Models.QuaCost>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutC.cshtml";
+}
+
+<h2>Index</h2>
+@using (Html.BeginForm())
+{
+    <div class="col-xs-12 ">
+        <center><h2>Costos de Calidad</h2></center>
+        <div class="x_panel">
+            <div class="x_title clearfix">
+                <div class="col-xs-12">
+                    @Html.ActionLink("Menu Calidad", "Index", "Calidad", null, htmlAttributes: new { @class = "btn btn-default", @onclick = "$('#loadingImg').show();" })
+
+                    <div class="col-xs-6">
+                        <div class="input-daterange input-group col-lg-offset-2 col-xs-10" id="bs_datepicker_range_container">
+
+                            <label for="FechaInicial">Fecha Inicial...</label>
+                            <input type="text" class="form-control" name="dti" value=@ViewBag.datei autocomplete="off">
+
+                            <span class="input-group-addon">- A -</span>
+
+                            <label for="FechaFinal">Fecha Final...</label>
+                            <input type="text" class="form-control" name="dtf" value=@ViewBag.datef autocomplete="off">
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="x_content">
+                <center>
+                    <div class="col-xs-12">
+
+                        <input class="btn btn-primary col-xs-2" onclick="$('#loadingImg').show();" type="submit">
+                        <div class="col-xs-2">
+                            @Html.ActionLink("Registrar Nuevo Costo", "Create", null, new { @class = "btn btn-danger", @onclick = "$('#loadingImg').show();" })
+                        </div>
+                        <div class="col-xs-6">
+                            @Html.ActionLink("Bill to", "Index", "Billtoes", null, htmlAttributes: new { @class = "btn btn-default", @onclick = "$('#loadingImg').show();" })
+                            @Html.ActionLink("Quality Codes", "Index", "QuaCodes", null, htmlAttributes: new { @class = "btn btn-default", @onclick = "$('#loadingImg').show();" })
+                            @Html.ActionLink("Areas", "Index", "cAreas", null, htmlAttributes: new { @class = "btn btn-default", @onclick = "$('#loadingImg').show();" })
+                            @Html.ActionLink("Champions", "Index", "AndonSupervisores", null, htmlAttributes: new { @class = "btn btn-default", @onclick = "$('#loadingImg').show();" })
+
+                        </div>
+                    </div>
+                </center>
+            </div>
+        </div>
+
+    </div>
+}
+
+<table class="tabled table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AndonSupervisores.Supervisor)
+            </th>
+            <th>Menu</th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Billto.bill)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Primary.Area)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QuaCodes.Code)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fecha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CPO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ioc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.aod)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.partnum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.issueDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.rootcause)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Countermeasure)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Comments)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.INV)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AVFSR)
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AndonSupervisores.Supervisor)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Billto.bill)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Primary.Area)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuaCodes.Code)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fecha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CPO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ioc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.aod)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.partnum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.issueDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.rootcause)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Countermeasure)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comments)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.INV)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AVFSR)
+            </td>
+
+        </tr>
+        }
+    </tbody>
+</table>

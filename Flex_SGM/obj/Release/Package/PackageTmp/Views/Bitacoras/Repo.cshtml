@@ -1,0 +1,2581 @@
+﻿@model IQueryable<Flex_SGM.Models.Bitacora>
+@using Flex_SGM.Scripts;
+
+@{
+    ViewBag.Title = "Repo";
+}
+<br>
+<br>
+<div class="col-md-12 clearfix">
+    <div class="x_panel">
+        <div class="x_title clearfix">
+            <h2>ABSOLUTOS ...<small>de Seguridad, Ingieneros ...</small></h2>
+        </div>
+        <div class="x_content">
+            <h3><spam style="color:gray">1.- La Seguridad es una </spam><spam style="color:red">Responsabilidad de TODOS.</spam></h3>
+            <h3><spam style="color:gray">2.- Todos los incidentes y lesiones</spam> <spam style="color:red">pueden y deben de prevenirse.</spam></h3>
+            <h3><spam style="color:gray">3.- Nuestro enfoque es la prevencion, El reto:</spam><spam style="color:red"> CERO incidentes.</spam></h3>
+            <h3><spam style="color:gray">4.- No hay trabajo mas Urgente o Mas importante</spam><spam style="color:red"> que no se pueda hacer con Seguridad</spam></h3>
+            <h3><spam style="color:gray">5.- Cada integrante de Mantenimiento es un </spam><spam style="color:red">PROMOTOR de la  SEGURIDAD.</spam></h3>
+
+
+
+
+        </div>
+        </div>
+    </div>
+
+<div class="col-md-12 clearfix">
+    <div class="x_panel clearfix">
+        <div class="x_title collapse-link clearfix">
+            <center> <h2> Hoy es el día @DateTime.Now.DayOfYear.ToString() del año @DateTime.Now.Year.ToString(), Semana @dayofweek.GetIso8601WeekOfYear(@DateTime.Now) en curso...<small>@ViewBag.fechaconsulta </small></h2></center>
+            <ul class="nav navbar-right">
+                <li>
+                    <a><i class="fa fa-chevron-down"></i></a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="x_content" style="overflow-x:auto;">
+            <table class="table table-bordered table-striped table-condensed" style="width:100%">
+                <tr>
+                    <th>
+                        @Html.DisplayName("Accidentes o Incidentes")
+
+                    </th>
+                    <th>
+                        @Html.DisplayName("Dia del ultimo accidente")
+                    </th>
+                    <th>
+                        @Html.DisplayName("OILs Seguridad")
+                    </th>
+                    <th>
+                        @Html.DisplayName("OILs nuevos proyectos")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Oshas")
+                    </th>
+
+
+
+                <tr>
+                    <td>
+                        @ViewBag.Junta.Accidente
+                    </td>
+                    <td>
+                        <label>@ViewBag.Junta.Dia_Accidente.ToString("yyyy-MM-dd  HH:mm:ss")</label>
+                        <br>
+                        <time class="timeago" datetime="@ViewBag.Junta.Dia_Accidente.ToString("yyyy-MM-ddTHH:mm:sszzz")"> @ViewBag.Junta.Dia_Accidente.ToString("yyyy-MM-ddTHH:mm:sszzz") </time>
+
+                    </td>
+                    <td>
+
+                        <div class="col-md-6">
+                            @ViewBag.Junta.OILSSeguridad
+                        </div>
+
+                    </td>
+                    <td>
+
+                        <div class="col-md-6">
+                            @ViewBag.Junta.OILSnuevosproyectos
+
+                        </div>
+
+
+                    </td>
+                    <td>
+
+                        <div class="col-md-6">
+                            @ViewBag.Junta.Oshas
+
+                        </div>
+
+                    </td>
+
+                </tr>
+                <tr>
+                    <th>
+                        @Html.DisplayName("Relevante Seguridad")
+
+                    </th>
+
+                    <th style="min-width:220px;">
+                        @Html.DisplayName("Toc Pendientes")
+                    </th>
+                    <th style="min-width:220px;">
+                        @Html.DisplayName("Vacaciones o incapacidades")
+                    </th>
+                    <th style="min-width:220px;">
+                        @Html.DisplayName("Estatus de Preventivos")
+                    </th>
+
+
+                <tr>
+                    <td>
+                        @ViewBag.Junta.RelevanteSafety
+                    </td>
+
+                    <td>
+
+                        <div class="col-md-6">
+                            @if (!string.IsNullOrEmpty(@ViewBag.Junta.ToC_Pendientes.Servicios))
+                            {
+                                <h4> @Html.DisplayName("Servicios: ")</h4> @ViewBag.Junta.ToC_Pendientes.Servicios
+                                <hr>
+                            }
+                            @if (!string.IsNullOrEmpty(@ViewBag.Junta.ToC_Pendientes.Montacargas))
+                            {
+                                <h4> @Html.DisplayName("Montacargas: ")</h4> @ViewBag.Junta.ToC_Pendientes.Montacargas
+                                <hr>
+                            }
+                            @if (!string.IsNullOrEmpty(@ViewBag.Junta.ToC_Pendientes.Estampado))
+                            {
+                                <h4> @Html.DisplayName("Estampado: ")</h4> @ViewBag.Junta.ToC_Pendientes.Estampado
+                                <hr>
+                            }
+                            @if (!string.IsNullOrEmpty(@ViewBag.Junta.ToC_Pendientes.Soldadura))
+                            {
+                                <h4> @Html.DisplayName("Soldadura: ")</h4> @ViewBag.Junta.ToC_Pendientes.Soldadura
+                                <hr>
+                            }
+                            @if (!string.IsNullOrEmpty(@ViewBag.Junta.ToC_Pendientes.Ensamble))
+                            {
+                                <h4>  @Html.DisplayName("Ensamble: ")</h4> @ViewBag.Junta.ToC_Pendientes.Ensamble
+                                
+                            }
+                        </div>
+                        <div class="col-md-6">
+
+                            @if (!string.IsNullOrEmpty(@ViewBag.Junta.ToC_Pendientes.Cromo1))
+                            {
+                                <h4>
+                                    @Html.DisplayName("Cromo 1: ")
+                                </h4> @ViewBag.Junta.ToC_Pendientes.Cromo1
+                                <hr>
+                            }
+                            
+                            @if (!string.IsNullOrEmpty(@ViewBag.Junta.ToC_Pendientes.Pulido1))
+                            {
+                                <h4>
+                                    @Html.DisplayName("Pulido 1: ")
+                                </h4> @ViewBag.Junta.ToC_Pendientes.Pulido1
+                                <hr>
+                            }
+                            @if (!string.IsNullOrEmpty(@ViewBag.Junta.ToC_Pendientes.Cromo2))
+                            {
+                                <h4>
+                                    @Html.DisplayName("Cromo 2: ")
+                                </h4> @ViewBag.Junta.ToC_Pendientes.Cromo2
+                                <hr>
+                            }
+                            @if (!string.IsNullOrEmpty(@ViewBag.Junta.ToC_Pendientes.Pulido2))
+                            {
+                                <h4>
+                                    @Html.DisplayName("Pulido 2: ")
+                                </h4> @ViewBag.Junta.ToC_Pendientes.Pulido2
+                                <hr>
+                            }
+                            @if (!string.IsNullOrEmpty(@ViewBag.Junta.ToC_Pendientes.E_Coat))
+                            {
+                                <h4>
+                                    @Html.DisplayName("E Coat: ")
+                                </h4> @ViewBag.Junta.ToC_Pendientes.E_Coat
+                                <hr>
+                            }
+                            @if (!string.IsNullOrEmpty(@ViewBag.Junta.ToC_Pendientes.Top_Coat))
+                            {
+                                <h4>        @Html.DisplayName("Top Coat: ")</h4> @ViewBag.Junta.ToC_Pendientes.Top_Coat
+                            }
+                        </div>
+
+                    </td>
+                    <td>
+
+                        <div class="col-md-6">
+
+                            @if (!string.IsNullOrEmpty(@ViewBag.Junta.Vacaciones.Servicios))
+                            {
+                                <h4> @Html.DisplayName("Servicios: ")</h4> @ViewBag.Junta.Vacaciones.Servicios
+                                <hr>
+                            }
+                            @if (!string.IsNullOrEmpty(@ViewBag.Junta.Vacaciones.Montacargas))
+                            {
+                                <h4> @Html.DisplayName("Montacargas: ")</h4> @ViewBag.Junta.Vacaciones.Montacargas
+                                <hr>
+                            }
+                            @if (!string.IsNullOrEmpty(@ViewBag.Junta.Vacaciones.Estampado))
+                            {
+                                <h4> @Html.DisplayName("Estampado: ")</h4> @ViewBag.Junta.Vacaciones.Estampado
+                                <hr>
+                            }
+                            @if (!string.IsNullOrEmpty(@ViewBag.Junta.Vacaciones.Soldadura))
+                            {
+                                <h4> @Html.DisplayName("Soldadura: ")</h4> @ViewBag.Junta.Vacaciones.Soldadura
+                                <hr>
+                            }
+                            @if (!string.IsNullOrEmpty(@ViewBag.Junta.Vacaciones.Ensamble))
+                            {
+                                <h4>  @Html.DisplayName("Ensamble: ")</h4> @ViewBag.Junta.Vacaciones.Ensamble
+                            }
+                            </div>
+                        <div class="col-md-6">
+                            
+                            @if (!string.IsNullOrEmpty(@ViewBag.Junta.Vacaciones.Cromo1))
+                            {
+                                <h4>
+                                    @Html.DisplayName("Cromo 1: ")
+                                </h4> @ViewBag.Junta.Vacaciones.Cromo1
+                            }
+                            @if (!string.IsNullOrEmpty(@ViewBag.Junta.Vacaciones.Pulido1))
+                            {
+                                <h4>
+                                    @Html.DisplayName("Pulido 1: ")
+                                </h4> @ViewBag.Junta.Vacaciones.Pulido1
+                            }
+                            @if (!string.IsNullOrEmpty(@ViewBag.Junta.Vacaciones.Cromo2))
+                            {
+                                <h4>
+                                    @Html.DisplayName("Cromo 2: ")
+                                </h4> @ViewBag.Junta.Vacaciones.Cromo2
+                            }
+                            @if (!string.IsNullOrEmpty(@ViewBag.Junta.Vacaciones.Pulido2))
+                            {
+                                <h4>
+                                    @Html.DisplayName("Pulido 2: ")
+                                </h4> @ViewBag.Junta.Vacaciones.Pulido2
+                            }
+                            @if (!string.IsNullOrEmpty(@ViewBag.Junta.Vacaciones.E_Coat))
+                            {
+                                <h4>
+                                    @Html.DisplayName("E Coat: ")
+                                </h4> @ViewBag.Junta.Vacaciones.E_Coat
+                            }
+                            @if (!string.IsNullOrEmpty(@ViewBag.Junta.Vacaciones.Top_Coat))
+                            {
+                                <h4>        @Html.DisplayName("Top Coat: ")</h4> @ViewBag.Junta.Vacaciones.Top_Coat
+                            }
+
+                            </div>
+
+                    </td>
+                    <td>
+
+                        <div class="col-md-12">
+
+                            @if (!string.IsNullOrEmpty(@ViewBag.Junta.Preventivos.Servicios))
+                            {
+                                <h4> @Html.DisplayName("Servicios: ")</h4> @ViewBag.Junta.Preventivos.Servicios
+                                <hr>
+                            }
+                            @if (!string.IsNullOrEmpty(@ViewBag.Junta.Preventivos.Montacargas))
+                            {
+                                <h4> @Html.DisplayName("Montacargas: ")</h4> @ViewBag.Junta.Preventivos.Montacargas
+                                <hr>
+                            }
+                            @if (!string.IsNullOrEmpty(@ViewBag.Junta.Preventivos.Estampado))
+                            {
+                                <h4> @Html.DisplayName("Estampado: ")</h4> @ViewBag.Junta.Preventivos.Estampado
+                                <hr>
+                            }
+                            @if (!string.IsNullOrEmpty(@ViewBag.Junta.Preventivos.Soldadura))
+                            {
+                                <h4> @Html.DisplayName("Soldadura: ")</h4> @ViewBag.Junta.Preventivos.Soldadura
+                                <hr>
+                            }
+                            @if (!string.IsNullOrEmpty(@ViewBag.Junta.Preventivos.Montacargas))
+                            {
+                                <h4>  @Html.DisplayName("Ensamble: ")</h4> @ViewBag.Junta.Preventivos.Ensamble
+                            }
+
+                            </div>
+
+
+                    </td>
+                    <td>
+                        <div class="col-md-12">
+                            
+                            @if (!string.IsNullOrEmpty(@ViewBag.Junta.Preventivos.Cromo1))
+                            {
+                                <h4>
+                                    @Html.DisplayName("Cromo 1: ")
+                                </h4> @ViewBag.Junta.Preventivos.Cromo1
+                                <hr>
+                            }
+                            @if (!string.IsNullOrEmpty(@ViewBag.Junta.Preventivos.Pulido1))
+                            {
+                                <h4>
+                                    @Html.DisplayName("Pulido 1: ")
+                                </h4> @ViewBag.Junta.Preventivos.Pulido1
+                                <hr>
+                            }
+                            @if (!string.IsNullOrEmpty(@ViewBag.Junta.Preventivos.Cromo2))
+                            {
+                                <h4>
+                                    @Html.DisplayName("Cromo 2: ")
+                                </h4> @ViewBag.Junta.Preventivos.Cromo2
+                                <hr>
+                            }
+                            @if (!string.IsNullOrEmpty(@ViewBag.Junta.Preventivos.Pulido2))
+                            {
+                                <h4>
+                                    @Html.DisplayName("Pulido 2: ")
+                                </h4> @ViewBag.Junta.Preventivos.Pulido2
+                                <hr>
+                            }
+                            @if (!string.IsNullOrEmpty(@ViewBag.Junta.Preventivos.E_Coat))
+                            {
+                                <h4>
+                                    @Html.DisplayName("E Coat: ")
+                                </h4> @ViewBag.Junta.Preventivos.E_Coat
+                                <hr>
+                            }
+                            @if (!string.IsNullOrEmpty(@ViewBag.Junta.Preventivos.Top_Coat))
+                            {
+                                <h4>        @Html.DisplayName("Top Coat: ")</h4> @ViewBag.Junta.Preventivos.Top_Coat
+
+                            }
+
+                            </div>
+
+                    </td>
+                </tr>
+            </table>
+            <table class="table table-bordered table-striped table-condensed" style="width:100%">
+                <tr>
+                    <th>
+                        @Html.DisplayName("Relevantes de Areas")
+
+                    </th>
+
+                </tr>
+                <tr>
+
+                    <td>
+                        @if (!string.IsNullOrEmpty(@ViewBag.Junta.comentariosa.Servicios))
+                        {
+                            <h4> @Html.DisplayName("Servicios: ")</h4> @ViewBag.Junta.comentariosa.Servicios
+                            <hr>
+                        }
+                        @if (!string.IsNullOrEmpty(@ViewBag.Junta.comentariosa.Montacargas))
+                        {
+                            <h4> @Html.DisplayName("Montacargas: ")</h4> @ViewBag.Junta.comentariosa.Montacargas
+                            <hr>
+                        }
+                        @if (!string.IsNullOrEmpty(@ViewBag.Junta.comentariosa.Estampado))
+                        {
+                            <h4> @Html.DisplayName("Estampado: ")</h4> @ViewBag.Junta.comentariosa.Estampado
+                            <hr>
+                        }
+                        @if (!string.IsNullOrEmpty(@ViewBag.Junta.comentariosa.Soldadura))
+                        {
+                            <h4> @Html.DisplayName("Soldadura: ")</h4> @ViewBag.Junta.comentariosa.Soldadura
+                            <hr>
+                        }
+                        @if (!string.IsNullOrEmpty(@ViewBag.Junta.comentariosa.Ensamble))
+                        {
+                            <h4>  @Html.DisplayName("Ensamble: ")</h4> @ViewBag.Junta.comentariosa.Ensamble
+                            <hr>
+                        }
+                        @if (!string.IsNullOrEmpty(@ViewBag.Junta.comentariosa.Cromo1))
+                        {
+                            <h4>
+                                @Html.DisplayName("Cromo 1: ")
+                            </h4> @ViewBag.Junta.comentariosa.Cromo1
+                            <hr>
+                        }
+                        @if (!string.IsNullOrEmpty(@ViewBag.Junta.comentariosa.Pulido1))
+                        {
+                            <h4>
+                                @Html.DisplayName("Pulido 1: ")
+                            </h4> @ViewBag.Junta.comentariosa.Pulido1
+                            <hr>
+                        }
+                        @if (!string.IsNullOrEmpty(@ViewBag.Junta.comentariosa.Cromo2))
+                        {
+                            <h4>
+                                @Html.DisplayName("Cromo 2: ")
+                            </h4> @ViewBag.Junta.comentariosa.Cromo2
+                            <hr>
+                        }
+                        @if (!string.IsNullOrEmpty(@ViewBag.Junta.comentariosa.Pulido2))
+                        {
+                            <h4>
+                                @Html.DisplayName("Pulido 2: ")
+                            </h4> @ViewBag.Junta.comentariosa.Pulido2
+                            <hr>
+                        }
+                        @if (!string.IsNullOrEmpty(@ViewBag.Junta.comentariosa.E_Coat))
+                        {
+                            <h4>
+                                @Html.DisplayName("E Coat: ")
+                            </h4> @ViewBag.Junta.comentariosa.E_Coat
+                            <hr>
+                        }
+                        @if (!string.IsNullOrEmpty(@ViewBag.Junta.comentariosa.Top_Coat))
+                        {
+                            <h4>        @Html.DisplayName("Top Coat: ")</h4> @ViewBag.Junta.comentariosa.Top_Coat
+                        }
+
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        @Html.DisplayName("Avances 1er turno")
+
+                    </th>
+
+                </tr>
+                <tr>
+
+                    <td>
+
+                        <div class="col-md-6">
+                            @ViewBag.Junta.comentarios
+
+                        </div>
+
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        @Html.DisplayName("Avances 2do turno")
+
+                    </th>
+
+                </tr>
+                <tr>
+
+                    <td>
+
+                        <div class="col-md-6">
+                            @ViewBag.Junta.comentarios2
+
+                        </div>
+
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        @Html.DisplayName("Avances 3er turno")
+
+                    </th>
+
+                </tr>
+                <tr>
+
+                    <td>
+
+                        <div class="col-md-6">
+                            @ViewBag.Junta.comentarios3
+
+                        </div>
+
+                    </td>
+                </tr>
+            </table>
+            <button data-toggle="tooltip" title="Para actualizar informacion de las juntas diarias!" class="btn btn-primary col-md-12" onclick="location.href='@Url.Action("index", "juntas")';return false;">Diarios de Juntas</button>
+
+        </div>
+    </div>
+</div>
+
+<div class="col-md-12 clearfix">
+    <div class="x_panel collapse-link ">
+        <div class="x_title clearfix">
+            <h2>Servicios Generales<small>@ViewBag.Machine1top1name</small></h2>
+            <ul class="nav navbar-right">
+                <li>
+                    <a><i class="fa fa-chevron-down"></i></a>
+                </li>
+                <li>
+                    <a class="close-link"><i class="fa fa-times-circle"></i></a>
+                </li>
+            </ul>
+        </div>
+
+        <canvas id="charttime1" width="5" height="1"></canvas>
+        <div class="x_content">
+            <table class="table table-bordered">
+                <tr>
+                    <th> <center>@ViewBag.Machine1top1name</center></th>
+                </tr>
+                <tr>
+                    <td>
+                        <table class="table table-bordered table-striped" width="100%">
+                            <tr>
+                                <th>
+                                    @Html.DisplayName("DiaHora")
+
+                                </th>
+                                <th>
+                                    @Html.DisplayName("Atendio")
+                                </th>
+                                <th>
+                                    @Html.DisplayName("Folio")
+                                </th>
+                                <th>
+                                    @Html.DisplayName("Codigo de Falla")
+                                </th>
+                                <th>
+                                    @Html.DisplayName("Descripcion de Falla")
+                                </th>
+                                <th>
+                                    @Html.DisplayName("Causa Raiz")
+                                </th>
+                                <th>
+                                    @Html.DisplayName("Accion Inmediata / Correccion / Contencion")
+                                </th>
+                                <th>
+                                    @Html.DisplayName("Tiempo Muerto (minutos)")
+                                </th>
+                                @if (@ViewBag.Machine1top1 != null)
+                                {
+                                    foreach (var item in @ViewBag.Machine1top1)
+                                    {
+<tr>
+                                <td>
+                                    @item.DiaHora
+                                </td>
+                                <td>
+                                    @item.Atendio
+                                </td>
+                                <td>
+                                    @item.Folio
+                                </td>
+                                <td>
+                                    @item.Descripcion
+                                </td>
+                                <td>
+                                    @item.Sintoma
+                                </td>
+                                <td>
+                                    @item.Causa
+                                </td>
+                                <td>
+                                    @item.AccionCorrectiva
+                                </td>
+                                <td>
+                                    @item.Tiempo
+                                </td>
+
+                            </tr>
+
+                                }
+                            }
+
+                            </table>
+                        </td>
+
+                    </tr>
+                    @if (ViewBag.Machine1top2name != null)
+                    {
+                        <tr>
+                            <th> <center>@ViewBag.Machine1top2name</center></th>
+                        </tr>
+                        <tr>
+                            <td>
+                                 <table class="table table-bordered table-striped" width="100%">
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayName("DiaHora")
+
+                                        </th>
+                                        <th>
+                                            @Html.DisplayName("Atendio")
+                                        </th>
+                                        <th>
+                                            @Html.DisplayName("Folio")
+                                        </th>
+                                        <th>
+                                            @Html.DisplayName("Codigo de Falla")
+                                        </th>
+                                        <th>
+                                            @Html.DisplayName("Descripcion de Falla")
+                                        </th>
+                                        <th>
+                                            @Html.DisplayName("Causa Raiz")
+                                        </th>
+                                        <th>
+                                            @Html.DisplayName("Accion Inmediata / Correccion / Contencion")
+                                        </th>
+                                        <th>
+                                            @Html.DisplayName("Tiempo Muerto (minutos)")
+                                        </th>
+
+                                        @foreach (var item in @ViewBag.Machine1top2)
+                                        {
+<tr>
+                                        <td>
+                                            @item.DiaHora
+                                        </td>
+                                        <td>
+                                            @item.Atendio
+                                        </td>
+                                        <td>
+                                            @item.Folio
+                                        </td>
+                                        <td>
+                                            @item.Descripcion
+                                        </td>
+                                        <td>
+                                            @item.Sintoma
+                                        </td>
+                                        <td>
+                                            @item.Causa
+                                        </td>
+                                        <td>
+                                            @item.AccionCorrectiva
+                                        </td>
+                                        <td>
+                                            @item.Tiempo
+                                        </td>
+
+                                    </tr>
+
+                                    }
+
+
+                                    </table>
+                                </td>
+
+                            </tr>
+                            if (ViewBag.Machine1top3name != null)
+                            {
+                                <tr>
+                                    <th> <center>@ViewBag.Machine1top3name</center></th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                         <table class="table table-bordered table-striped" width="100%">
+                                            <tr>
+                                                <th>
+                                                    @Html.DisplayName("DiaHora")
+
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayName("Atendio")
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayName("Folio")
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayName("Codigo de Falla")
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayName("Descripcion de Falla")
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayName("Causa Raiz")
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayName("Accion Inmediata / Correccion / Contencion")
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayName("Tiempo Muerto (minutos)")
+                                                </th>
+
+                                                @foreach (var item in @ViewBag.Machine1top3)
+                                                {
+<tr>
+                                                <td>
+                                                    @item.DiaHora
+                                                </td>
+                                                <td>
+                                                    @item.Atendio
+                                                </td>
+                                                <td>
+                                                    @item.Folio
+                                                </td>
+                                                <td>
+                                                    @item.Descripcion
+                                                </td>
+                                                <td>
+                                                    @item.Sintoma
+                                                </td>
+                                                <td>
+                                                    @item.Causa
+                                                </td>
+                                                <td>
+                                                    @item.AccionCorrectiva
+                                                </td>
+                                                <td>
+                                                    @item.Tiempo
+                                                </td>
+
+                                            </tr>
+
+                                            }
+
+
+                                            </table>
+                                        </td>
+
+                                    </tr>
+                                }
+                            }
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+<div class="col-md-12 clearfix">
+    <div class="x_panel collapse-link ">
+        <div class="x_title clearfix">
+            <h2>Servicios Montacargas <small>@ViewBag.Machine1top1nameM</small></h2>
+            <ul class="nav navbar-right">
+                <li>
+                    <a><i class="fa fa-chevron-down"></i></a>
+                </li>
+                <li>
+                    <a class="close-link"><i class="fa fa-times-circle"></i></a>
+                </li>
+            </ul>
+        </div>
+
+        <canvas id="charttime1M" width="5" height="1"></canvas>
+        <div class="x_content">
+            <table class="table table-bordered">
+                <tr>
+                    <th> <center>@ViewBag.Machine1top1nameM</center></th>
+                </tr>
+                <tr>
+                    <td>
+                        <table class="table table-bordered table-striped" width="100%">
+                            <tr>
+                                <th>
+                                    @Html.DisplayName("DiaHora")
+
+                                </th>
+                                <th>
+                                    @Html.DisplayName("Atendio")
+                                </th>
+                                <th>
+                                    @Html.DisplayName("Folio")
+                                </th>
+                                <th>
+                                    @Html.DisplayName("Codigo de Falla")
+                                </th>
+                                <th>
+                                    @Html.DisplayName("Descripcion de Falla")
+                                </th>
+                                <th>
+                                    @Html.DisplayName("Causa Raiz")
+                                </th>
+                                <th>
+                                    @Html.DisplayName("Accion Inmediata / Correccion / Contencion")
+                                </th>
+                                <th>
+                                    @Html.DisplayName("Tiempo Muerto (minutos)")
+                                </th>
+                                @if (@ViewBag.Machine1top1M != null)
+                                {
+                                    foreach (var item in @ViewBag.Machine1top1M)
+                                    {
+                                    <tr>
+                                        <td>
+                                            @item.DiaHora
+                                        </td>
+                                        <td>
+                                            @item.Atendio
+                                        </td>
+                                        <td>
+                                            @item.Folio
+                                        </td>
+                                        <td>
+                                            @item.Descripcion
+                                        </td>
+                                        <td>
+                                            @item.Sintoma
+                                        </td>
+                                        <td>
+                                            @item.Causa
+                                        </td>
+                                        <td>
+                                            @item.AccionCorrectiva
+                                        </td>
+                                        <td>
+                                            @item.Tiempo
+                                        </td>
+
+                                    </tr>
+
+                                }
+                            }
+
+                            </table>
+                        </td>
+
+                    </tr>
+                    @if (ViewBag.Machine1top2nameM != null)
+                    {
+                        <tr>
+                            <th> <center>@ViewBag.Machine1top2nameM</center></th>
+                        </tr>
+                        <tr>
+                            <td>
+                                 <table class="table table-bordered table-striped" width="100%">
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayName("DiaHora")
+
+                                        </th>
+                                        <th>
+                                            @Html.DisplayName("Atendio")
+                                        </th>
+                                        <th>
+                                            @Html.DisplayName("Folio")
+                                        </th>
+                                        <th>
+                                            @Html.DisplayName("Codigo de Falla")
+                                        </th>
+                                        <th>
+                                            @Html.DisplayName("Descripcion de Falla")
+                                        </th>
+                                        <th>
+                                            @Html.DisplayName("Causa Raiz")
+                                        </th>
+                                        <th>
+                                            @Html.DisplayName("Accion Inmediata / Correccion / Contencion")
+                                        </th>
+                                        <th>
+                                            @Html.DisplayName("Tiempo Muerto (minutos)")
+                                        </th>
+
+                                        @foreach (var item in @ViewBag.Machine1top2M)
+                                        {
+                                        <tr>
+                                            <td>
+                                                @item.DiaHora
+                                            </td>
+                                            <td>
+                                                @item.Atendio
+                                            </td>
+                                            <td>
+                                                @item.Folio
+                                            </td>
+                                            <td>
+                                                @item.Descripcion
+                                            </td>
+                                            <td>
+                                                @item.Sintoma
+                                            </td>
+                                            <td>
+                                                @item.Causa
+                                            </td>
+                                            <td>
+                                                @item.AccionCorrectiva
+                                            </td>
+                                            <td>
+                                                @item.Tiempo
+                                            </td>
+
+                                        </tr>
+
+                                    }
+
+
+                                    </table>
+                                </td>
+
+                            </tr>
+                            if (ViewBag.Machine1top3nameM != null)
+                            {
+                                <tr>
+                                    <th> <center>@ViewBag.Machine1top3nameM</center></th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                         <table class="table table-bordered table-striped" width="100%">
+                                            <tr>
+                                                <th>
+                                                    @Html.DisplayName("DiaHora")
+
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayName("Atendio")
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayName("Folio")
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayName("Codigo de Falla")
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayName("Descripcion de Falla")
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayName("Causa Raiz")
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayName("Accion Inmediata / Correccion / Contencion")
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayName("Tiempo Muerto (minutos)")
+                                                </th>
+
+                                                @foreach (var item in @ViewBag.Machine1top3M)
+                                                {
+                                                <tr>
+                                                    <td>
+                                                        @item.DiaHora
+                                                    </td>
+                                                    <td>
+                                                        @item.Atendio
+                                                    </td>
+                                                    <td>
+                                                        @item.Folio
+                                                    </td>
+                                                    <td>
+                                                        @item.Descripcion
+                                                    </td>
+                                                    <td>
+                                                        @item.Sintoma
+                                                    </td>
+                                                    <td>
+                                                        @item.Causa
+                                                    </td>
+                                                    <td>
+                                                        @item.AccionCorrectiva
+                                                    </td>
+                                                    <td>
+                                                        @item.Tiempo
+                                                    </td><table class="table-bordered table-striped">
+</tr>
+
+                                            }
+
+
+                                            </table>
+                                        </td>
+
+                                    </tr>
+                                }
+                            }
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12 clearfix">
+        <div class="x_panel collapse-link ">
+            <div class="x_title clearfix">
+                <h2>Estampado <small>@ViewBag.Machine2top1name</small></h2>
+                <ul class="nav navbar-right">
+                    <li>
+                        <a ><i class="fa fa-chevron-down"></i></a>
+                    </li>
+                    <li>
+                        <a class="close-link"><i class="fa fa-times-circle"></i></a>
+                    </li>
+                </ul>
+            </div>
+
+            <canvas id="charttime2" width="5" height="1"></canvas>
+            <div class="x_content">
+                <table class="table table-bordered">
+                    <tr>
+                        <th> <center>@ViewBag.Machine2top1name</center></th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table class="table table-bordered table-striped" width="100%">
+                                <tr>
+                                    <th>
+                                        @Html.DisplayName("DiaHora")
+
+                                    </th>
+                                    <th>
+                                        @Html.DisplayName("Atendio")
+                                    </th>
+                                    <th>
+                                        @Html.DisplayName("Folio")
+                                    </th>
+                                    <th>
+                                        @Html.DisplayName("Codigo de Falla")
+                                    </th>
+                                    <th>
+                                        @Html.DisplayName("Descripcion de Falla")
+                                    </th>
+                                    <th>
+                                        @Html.DisplayName("Causa Raiz")
+                                    </th>
+                                    <th>
+                                        @Html.DisplayName("Accion Inmediata / Correccion / Contencion")
+                                    </th>
+                                    <th>
+                                        @Html.DisplayName("Tiempo Muerto (minutos)")
+                                    </th>
+                                    @if (@ViewBag.Machine2top1 != null)
+                                    {
+                                        foreach (var item in @ViewBag.Machine2top1)
+                                        {
+<tr>
+                                    <td>
+                                        @item.DiaHora
+                                    </td>
+                                    <td>
+                                        @item.Atendio
+                                    </td>
+                                    <td>
+                                        @item.Folio
+                                    </td>
+                                    <td>
+                                        @item.Descripcion
+                                    </td>
+                                    <td>
+                                        @item.Sintoma
+                                    </td>
+                                    <td>
+                                        @item.Causa
+                                    </td>
+                                    <td>
+                                        @item.AccionCorrectiva
+                                    </td>
+                                    <td>
+                                        @item.Tiempo
+                                    </td>
+
+                                </tr>
+
+                                    }
+                                }
+
+                                </table>
+                            </td>
+
+                        </tr>
+                        @if (ViewBag.Machine2top2name != null)
+                        {
+                            <tr>
+                                <th> <center>@ViewBag.Machine2top2name</center></th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table class="table table-bordered table-striped" width="100%">
+                                        <tr>
+                                            <th>
+                                                @Html.DisplayName("DiaHora")
+
+                                            </th>
+                                            <th>
+                                                @Html.DisplayName("Atendio")
+                                            </th>
+                                            <th>
+                                                @Html.DisplayName("Folio")
+                                            </th>
+                                            <th>
+                                                @Html.DisplayName("Codigo de Falla")
+                                            </th>
+                                            <th>
+                                                @Html.DisplayName("Descripcion de Falla")
+                                            </th>
+                                            <th>
+                                                @Html.DisplayName("Causa Raiz")
+                                            </th>
+                                            <th>
+                                                @Html.DisplayName("Accion Inmediata / Correccion / Contencion")
+                                            </th>
+                                            <th>
+                                                @Html.DisplayName("Tiempo Muerto (minutos)")
+                                            </th>
+
+                                            @foreach (var item in @ViewBag.Machine2top2)
+                                            {
+<tr>
+                                            <td>
+                                                @item.DiaHora
+                                            </td>
+                                            <td>
+                                                @item.Atendio
+                                            </td>
+                                            <td>
+                                                @item.Folio
+                                            </td>
+                                            <td>
+                                                @item.Descripcion
+                                            </td>
+                                            <td>
+                                                @item.Sintoma
+                                            </td>
+                                            <td>
+                                                @item.Causa
+                                            </td>
+                                            <td>
+                                                @item.AccionCorrectiva
+                                            </td>
+                                            <td>
+                                                @item.Tiempo
+                                            </td>
+
+                                        </tr>
+
+                                        }
+
+
+                                        </table>
+                                    </td>
+
+                                </tr>
+                                if (ViewBag.Machine2top3name != null)
+                                {
+                                    <tr>
+                                        <th> <center>@ViewBag.Machine2top3name</center></th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <table class="table table-bordered table-striped" width="100%">
+                                                <tr>
+                                                    <th>
+                                                        @Html.DisplayName("DiaHora")
+
+                                                    </th>
+                                                    <th>
+                                                        @Html.DisplayName("Atendio")
+                                                    </th>
+                                                    <th>
+                                                        @Html.DisplayName("Folio")
+                                                    </th>
+                                                    <th>
+                                                        @Html.DisplayName("Codigo de Falla")
+                                                    </th>
+                                                    <th>
+                                                        @Html.DisplayName("Descripcion de Falla")
+                                                    </th>
+                                                    <th>
+                                                        @Html.DisplayName("Causa Raiz")
+                                                    </th>
+                                                    <th>
+                                                        @Html.DisplayName("Accion Inmediata / Correccion / Contencion")
+                                                    </th>
+                                                    <th>
+                                                        @Html.DisplayName("Tiempo Muerto (minutos)")
+                                                    </th>
+
+                                                    @foreach (var item in @ViewBag.Machine2top3)
+                                                    {
+<tr>
+                                                    <td>
+                                                        @item.DiaHora
+                                                    </td>
+                                                    <td>
+                                                        @item.Atendio
+                                                    </td>
+                                                    <td>
+                                                        @item.Folio
+                                                    </td>
+                                                    <td>
+                                                        @item.Descripcion
+                                                    </td>
+                                                    <td>
+                                                        @item.Sintoma
+                                                    </td>
+                                                    <td>
+                                                        @item.Causa
+                                                    </td>
+                                                    <td>
+                                                        @item.AccionCorrectiva
+                                                    </td>
+                                                    <td>
+                                                        @item.Tiempo
+                                                    </td>
+
+                                                </tr>
+
+                                                }
+
+
+                                                </table>
+                                            </td>
+
+                                        </tr>
+                                    }
+                                }
+
+                    </table>
+                </div>
+            </div>
+        </div>
+
+            <div class="col-md-12 clearfix">
+                <div class="x_panel collapse-link ">
+                    <div class="x_title clearfix">
+                        <h2>Soldadura <small>@ViewBag.Machine3top1name</small></h2>
+                        <ul class="nav navbar-right">
+                            <li>
+                                <a><i class="fa fa-chevron-down"></i></a>
+                            </li>
+                            <li>
+                                <a class="close-link"><i class="fa fa-times-circle"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <canvas id="charttime3" width="5" height="1"></canvas>
+                    <div class="x_content">
+                        <table class="table table-bordered">
+                            <tr>
+                                <th> <center>@ViewBag.Machine3top1name</center></th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table class="table table-bordered table-striped" width="100%">
+                                        <tr>
+                                            <th>
+                                                @Html.DisplayName("DiaHora")
+
+                                            </th>
+                                            <th>
+                                                @Html.DisplayName("Atendio")
+                                            </th>
+                                            <th>
+                                                @Html.DisplayName("Folio")
+                                            </th>
+                                            <th>
+                                                @Html.DisplayName("Codigo de Falla")
+                                            </th>
+                                            <th>
+                                                @Html.DisplayName("Descripcion de Falla")
+                                            </th>
+                                            <th>
+                                                @Html.DisplayName("Causa Raiz")
+                                            </th>
+                                            <th>
+                                                @Html.DisplayName("Accion Inmediata / Correccion / Contencion")
+                                            </th>
+                                            <th>
+                                                @Html.DisplayName("Tiempo Muerto (minutos)")
+                                            </th>
+                                            @if (@ViewBag.Machine3top1 != null)
+                                            {
+                                                foreach (var item in @ViewBag.Machine3top1)
+                                                {
+<tr>
+                                            <td>
+                                                @item.DiaHora
+                                            </td>
+                                            <td>
+                                                @item.Atendio
+                                            </td>
+                                            <td>
+                                                @item.Folio
+                                            </td>
+                                            <td>
+                                                @item.Descripcion
+                                            </td>
+                                            <td>
+                                                @item.Sintoma
+                                            </td>
+                                            <td>
+                                                @item.Causa
+                                            </td>
+                                            <td>
+                                                @item.AccionCorrectiva
+                                            </td>
+                                            <td>
+                                                @item.Tiempo
+                                            </td>
+
+                                        </tr>
+
+                                            }
+                                        }
+
+                                        </table>
+                                    </td>
+
+                                </tr>
+                                @if (ViewBag.Machine3top2name != null)
+                                {
+                                    <tr>
+                                        <th> <center>@ViewBag.Machine3top2name</center></th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <table class="table table-bordered table-striped" width="100%">
+                                                <tr>
+                                                    <th>
+                                                        @Html.DisplayName("DiaHora")
+
+                                                    </th>
+                                                    <th>
+                                                        @Html.DisplayName("Atendio")
+                                                    </th>
+                                                    <th>
+                                                        @Html.DisplayName("Folio")
+                                                    </th>
+                                                    <th>
+                                                        @Html.DisplayName("Codigo de Falla")
+                                                    </th>
+                                                    <th>
+                                                        @Html.DisplayName("Descripcion de Falla")
+                                                    </th>
+                                                    <th>
+                                                        @Html.DisplayName("Causa Raiz")
+                                                    </th>
+                                                    <th>
+                                                        @Html.DisplayName("Accion Inmediata / Correccion / Contencion")
+                                                    </th>
+                                                    <th>
+                                                        @Html.DisplayName("Tiempo Muerto (minutos)")
+                                                    </th>
+
+                                                    @foreach (var item in @ViewBag.Machine3top2)
+                                                    {
+<tr>
+                                                    <td>
+                                                        @item.DiaHora
+                                                    </td>
+                                                    <td>
+                                                        @item.Atendio
+                                                    </td>
+                                                    <td>
+                                                        @item.Folio
+                                                    </td>
+                                                    <td>
+                                                        @item.Descripcion
+                                                    </td>
+                                                    <td>
+                                                        @item.Sintoma
+                                                    </td>
+                                                    <td>
+                                                        @item.Causa
+                                                    </td>
+                                                    <td>
+                                                        @item.AccionCorrectiva
+                                                    </td>
+                                                    <td>
+                                                        @item.Tiempo
+                                                    </td>
+
+                                                </tr>
+
+                                                }
+
+
+                                                </table>
+                                            </td>
+
+                                        </tr>
+                                        if (ViewBag.Machine3top3name != null)
+                                        {
+                                            <tr>
+                                                <th> <center>@ViewBag.Machine3top3name</center></th>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <table class="table table-bordered table-striped" width="100%">
+                                                        <tr>
+                                                            <th>
+                                                                @Html.DisplayName("DiaHora")
+
+                                                            </th>
+                                                            <th>
+                                                                @Html.DisplayName("Atendio")
+                                                            </th>
+                                                            <th>
+                                                                @Html.DisplayName("Folio")
+                                                            </th>
+                                                            <th>
+                                                                @Html.DisplayName("Codigo de Falla")
+                                                            </th>
+                                                            <th>
+                                                                @Html.DisplayName("Descripcion de Falla")
+                                                            </th>
+                                                            <th>
+                                                                @Html.DisplayName("Causa Raiz")
+                                                            </th>
+                                                            <th>
+                                                                @Html.DisplayName("Accion Inmediata / Correccion / Contencion")
+                                                            </th>
+                                                            <th>
+                                                                @Html.DisplayName("Tiempo Muerto (minutos)")
+                                                            </th>
+
+                                                            @foreach (var item in @ViewBag.Machine3top3)
+                                                            {
+<tr>
+                                                            <td>
+                                                                @item.DiaHora
+                                                            </td>
+                                                            <td>
+                                                                @item.Atendio
+                                                            </td>
+                                                            <td>
+                                                                @item.Folio
+                                                            </td>
+                                                            <td>
+                                                                @item.Descripcion
+                                                            </td>
+                                                            <td>
+                                                                @item.Sintoma
+                                                            </td>
+                                                            <td>
+                                                                @item.Causa
+                                                            </td>
+                                                            <td>
+                                                                @item.AccionCorrectiva
+                                                            </td>
+                                                            <td>
+                                                                @item.Tiempo
+                                                            </td>
+
+                                                        </tr>
+
+                                                        }
+
+
+                                                        </table>
+                                                    </td>
+
+                                                </tr>
+
+
+
+                                            }
+                                        }
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="col-md-12 clearfix">
+                    <div class="x_panel collapse-link ">
+                        <div class="x_title clearfix">
+                            <h2>Metal Finish <small>@ViewBag.Machine5top1name</small></h2>
+                            <ul class="nav navbar-right">
+                                <li>
+                                    <a><i class="fa fa-chevron-down"></i></a>
+                                </li>
+                                <li>
+                                    <a class="close-link"><i class="fa fa-times-circle"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <canvas id="charttime5" width="5" height="1"></canvas>
+                        <div class="x_content">
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th> <center>@ViewBag.Machine5top1name</center></th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <table class="table table-bordered table-striped" width="100%">
+                                            <tr>
+                                                <th>
+                                                    @Html.DisplayName("DiaHora")
+
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayName("Atendio")
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayName("Folio")
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayName("Codigo de Falla")
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayName("Descripcion de Falla")
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayName("Causa Raiz")
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayName("Accion Inmediata / Correccion / Contencion")
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayName("Tiempo Muerto (minutos)")
+                                                </th>
+                                                @if (@ViewBag.Machine5top1 != null)
+                                                {
+                                                    foreach (var item in @ViewBag.Machine5top1)
+                                                    {
+<tr>
+                                                <td>
+                                                    @item.DiaHora
+                                                </td>
+                                                <td>
+                                                    @item.Atendio
+                                                </td>
+                                                <td>
+                                                    @item.Folio
+                                                </td>
+                                                <td>
+                                                    @item.Descripcion
+                                                </td>
+                                                <td>
+                                                    @item.Sintoma
+                                                </td>
+                                                <td>
+                                                    @item.Causa
+                                                </td>
+                                                <td>
+                                                    @item.AccionCorrectiva
+                                                </td>
+                                                <td>
+                                                    @item.Tiempo
+                                                </td>
+
+                                            </tr>
+
+                                                }
+                                            }
+
+                                            </table>
+                                        </td>
+
+                                    </tr>
+                                    @if (ViewBag.Machine5top2name != null)
+                                    {
+                                        <tr>
+                                            <th> <center>@ViewBag.Machine5top2name</center></th>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <table class="table table-bordered table-striped" width="100%">
+                                                    <tr>
+                                                        <th>
+                                                            @Html.DisplayName("DiaHora")
+
+                                                        </th>
+                                                        <th>
+                                                            @Html.DisplayName("Atendio")
+                                                        </th>
+                                                        <th>
+                                                            @Html.DisplayName("Folio")
+                                                        </th>
+                                                        <th>
+                                                            @Html.DisplayName("Codigo de Falla")
+                                                        </th>
+                                                        <th>
+                                                            @Html.DisplayName("Descripcion de Falla")
+                                                        </th>
+                                                        <th>
+                                                            @Html.DisplayName("Causa Raiz")
+                                                        </th>
+                                                        <th>
+                                                            @Html.DisplayName("Accion Inmediata / Correccion / Contencion")
+                                                        </th>
+                                                        <th>
+                                                            @Html.DisplayName("Tiempo Muerto (minutos)")
+                                                        </th>
+
+                                                        @foreach (var item in @ViewBag.Machine5top2)
+                                                        {
+<tr>
+                                                        <td>
+                                                            @item.DiaHora
+                                                        </td>
+                                                        <td>
+                                                            @item.Atendio
+                                                        </td>
+                                                        <td>
+                                                            @item.Folio
+                                                        </td>
+                                                        <td>
+                                                            @item.Descripcion
+                                                        </td>
+                                                        <td>
+                                                            @item.Sintoma
+                                                        </td>
+                                                        <td>
+                                                            @item.Causa
+                                                        </td>
+                                                        <td>
+                                                            @item.AccionCorrectiva
+                                                        </td>
+                                                        <td>
+                                                            @item.Tiempo
+                                                        </td>
+
+                                                    </tr>
+
+                                                    }
+
+
+                                                    </table>
+                                                </td>
+
+                                            </tr>
+                                            if (ViewBag.Machine5top3name != null)
+                                            {
+                                                <tr>
+                                                    <th> <center>@ViewBag.Machine5top3name</center></th>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <table class="table table-bordered table-striped" width="100%">
+                                                            <tr>
+                                                                <th>
+                                                                    @Html.DisplayName("DiaHora")
+
+                                                                </th>
+                                                                <th>
+                                                                    @Html.DisplayName("Atendio")
+                                                                </th>
+                                                                <th>
+                                                                    @Html.DisplayName("Folio")
+                                                                </th>
+                                                                <th>
+                                                                    @Html.DisplayName("Codigo de Falla")
+                                                                </th>
+                                                                <th>
+                                                                    @Html.DisplayName("Descripcion de Falla")
+                                                                </th>
+                                                                <th>
+                                                                    @Html.DisplayName("Causa Raiz")
+                                                                </th>
+                                                                <th>
+                                                                    @Html.DisplayName("Accion Inmediata / Correccion / Contencion")
+                                                                </th>
+                                                                <th>
+                                                                    @Html.DisplayName("Tiempo Muerto (minutos)")
+                                                                </th>
+
+                                                                @foreach (var item in @ViewBag.Machine5top3)
+                                                                {
+<tr>
+                                                                <td>
+                                                                    @item.DiaHora
+                                                                </td>
+                                                                <td>
+                                                                    @item.Atendio
+                                                                </td>
+                                                                <td>
+                                                                    @item.Folio
+                                                                </td>
+                                                                <td>
+                                                                    @item.Descripcion
+                                                                </td>
+                                                                <td>
+                                                                    @item.Sintoma
+                                                                </td>
+                                                                <td>
+                                                                    @item.Causa
+                                                                </td>
+                                                                <td>
+                                                                    @item.AccionCorrectiva
+                                                                </td>
+                                                                <td>
+                                                                    @item.Tiempo
+                                                                </td>
+
+                                                            </tr>
+
+                                                            }
+
+
+                                                            </table>
+                                                        </td>
+
+                                                    </tr>
+
+
+
+                                                }
+                                            }
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 clearfix">
+                        <div class="x_panel collapse-link ">
+                            <div class="x_title clearfix">
+                                <h2>Ensamble <small>@ViewBag.Machine6top1name</small></h2>
+                                <ul class="nav navbar-right">
+                                    <li>
+                                        <a><i class="fa fa-chevron-down"></i></a>
+                                    </li>
+                                    <li>
+                                        <a class="close-link"><i class="fa fa-times-circle"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <canvas id="charttime6" width="5" height="1"></canvas>
+                            <div class="x_content">
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <th> <center>@ViewBag.Machine6top1name</center></th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <table class="table table-bordered table-striped" width="100%">
+                                                <tr>
+                                                    <th>
+                                                        @Html.DisplayName("DiaHora")
+
+                                                    </th>
+                                                    <th>
+                                                        @Html.DisplayName("Atendio")
+                                                    </th>
+                                                    <th>
+                                                        @Html.DisplayName("Folio")
+                                                    </th>
+                                                    <th>
+                                                        @Html.DisplayName("Codigo de Falla")
+                                                    </th>
+                                                    <th>
+                                                        @Html.DisplayName("Descripcion de Falla")
+                                                    </th>
+                                                    <th>
+                                                        @Html.DisplayName("Causa Raiz")
+                                                    </th>
+                                                    <th>
+                                                        @Html.DisplayName("Accion Inmediata / Correccion / Contencion")
+                                                    </th>
+                                                    <th>
+                                                        @Html.DisplayName("Tiempo Muerto (minutos)")
+                                                    </th>
+                                                    @if (@ViewBag.Machine6top1 != null)
+                                                    {
+                                                        foreach (var item in @ViewBag.Machine6top1)
+                                                        {
+<tr>
+                                                    <td>
+                                                        @item.DiaHora
+                                                    </td>
+                                                    <td>
+                                                        @item.Atendio
+                                                    </td>
+                                                    <td>
+                                                        @item.Folio
+                                                    </td>
+                                                    <td>
+                                                        @item.Descripcion
+                                                    </td>
+                                                    <td>
+                                                        @item.Sintoma
+                                                    </td>
+                                                    <td>
+                                                        @item.Causa
+                                                    </td>
+                                                    <td>
+                                                        @item.AccionCorrectiva
+                                                    </td>
+                                                    <td>
+                                                        @item.Tiempo
+                                                    </td>
+
+                                                </tr>
+
+                                                    }
+                                                }
+
+                                                </table>
+                                            </td>
+
+                                        </tr>
+                                        @if (ViewBag.Machine6top2name != null)
+                                        {
+                                            <tr>
+                                                <th> <center>@ViewBag.Machine6top2name</center></th>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <table class="table table-bordered table-striped" width="100%">
+                                                        <tr>
+                                                            <th>
+                                                                @Html.DisplayName("DiaHora")
+
+                                                            </th>
+                                                            <th>
+                                                                @Html.DisplayName("Atendio")
+                                                            </th>
+                                                            <th>
+                                                                @Html.DisplayName("Folio")
+                                                            </th>
+                                                            <th>
+                                                                @Html.DisplayName("Codigo de Falla")
+                                                            </th>
+                                                            <th>
+                                                                @Html.DisplayName("Descripcion de Falla")
+                                                            </th>
+                                                            <th>
+                                                                @Html.DisplayName("Causa Raiz")
+                                                            </th>
+                                                            <th>
+                                                                @Html.DisplayName("Accion Inmediata / Correccion / Contencion")
+                                                            </th>
+                                                            <th>
+                                                                @Html.DisplayName("Tiempo Muerto (minutos)")
+                                                            </th>
+
+                                                            @foreach (var item in @ViewBag.Machine6top2)
+                                                            {
+<tr>
+                                                            <td>
+                                                                @item.DiaHora
+                                                            </td>
+                                                            <td>
+                                                                @item.Atendio
+                                                            </td>
+                                                            <td>
+                                                                @item.Folio
+                                                            </td>
+                                                            <td>
+                                                                @item.Descripcion
+                                                            </td>
+                                                            <td>
+                                                                @item.Sintoma
+                                                            </td>
+                                                            <td>
+                                                                @item.Causa
+                                                            </td>
+                                                            <td>
+                                                                @item.AccionCorrectiva
+                                                            </td>
+                                                            <td>
+                                                                @item.Tiempo
+                                                            </td>
+
+                                                        </tr>
+
+                                                        }
+
+
+                                                        </table>
+                                                    </td>
+
+                                                </tr>
+                                                if (ViewBag.Machine6top3name != null)
+                                                {
+                                                    <tr>
+                                                        <th> <center>@ViewBag.Machine6top3name</center></th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <table class="table table-bordered table-striped" width="100%">
+                                                                <tr>
+                                                                    <th>
+                                                                        @Html.DisplayName("DiaHora")
+
+                                                                    </th>
+                                                                    <th>
+                                                                        @Html.DisplayName("Atendio")
+                                                                    </th>
+                                                                    <th>
+                                                                        @Html.DisplayName("Folio")
+                                                                    </th>
+                                                                    <th>
+                                                                        @Html.DisplayName("Codigo de Falla")
+                                                                    </th>
+                                                                    <th>
+                                                                        @Html.DisplayName("Descripcion de Falla")
+                                                                    </th>
+                                                                    <th>
+                                                                        @Html.DisplayName("Causa Raiz")
+                                                                    </th>
+                                                                    <th>
+                                                                        @Html.DisplayName("Accion Inmediata / Correccion / Contencion")
+                                                                    </th>
+                                                                    <th>
+                                                                        @Html.DisplayName("Tiempo Muerto (minutos)")
+                                                                    </th>
+
+                                                                    @foreach (var item in @ViewBag.Machine6top3)
+                                                                    {
+<tr>
+                                                                    <td>
+                                                                        @item.DiaHora
+                                                                    </td>
+                                                                    <td>
+                                                                        @item.Atendio
+                                                                    </td>
+                                                                    <td>
+                                                                        @item.Folio
+                                                                    </td>
+                                                                    <td>
+                                                                        @item.Descripcion
+                                                                    </td>
+                                                                    <td>
+                                                                        @item.Sintoma
+                                                                    </td>
+                                                                    <td>
+                                                                        @item.Causa
+                                                                    </td>
+                                                                    <td>
+                                                                        @item.AccionCorrectiva
+                                                                    </td>
+                                                                    <td>
+                                                                        @item.Tiempo
+                                                                    </td>
+
+                                                                </tr>
+
+                                                                }
+
+
+                                                                </table>
+                                                            </td>
+
+                                                        </tr>
+
+
+
+                                                    }
+                                                }
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 clearfix">
+                            <div class="x_panel collapse-link ">
+                                <div class="x_title clearfix">
+                                    <h2>Toda la planta Top 3 <small>@ViewBag.Machine7top1name</small></h2>
+                                    <ul class="nav navbar-right">
+                                        <li>
+                                            <a><i class="fa fa-chevron-down"></i></a>
+                                        </li>
+                                        <li>
+                                            <a class="close-link"><i class="fa fa-times-circle"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <canvas id="charttime7" width="5" height="1"></canvas>
+                                <div class="x_content">
+                                    <table class="table table-bordered">
+                                        <tr>
+                                            <th> <center>@ViewBag.Machine7top1name</center></th>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <table class="table table-bordered table-striped" width="100%">
+                                                    <tr>
+                                                        <th>
+                                                            @Html.DisplayName("DiaHora")
+
+                                                        </th>
+                                                        <th>
+                                                            @Html.DisplayName("Atendio")
+                                                        </th>
+                                                        <th>
+                                                            @Html.DisplayName("Folio")
+                                                        </th>
+                                                        <th>
+                                                            @Html.DisplayName("Codigo de Falla")
+                                                        </th>
+                                                        <th>
+                                                            @Html.DisplayName("Descripcion de Falla")
+                                                        </th>
+                                                        <th>
+                                                            @Html.DisplayName("Causa Raiz")
+                                                        </th>
+                                                        <th>
+                                                            @Html.DisplayName("Accion Inmediata / Correccion / Contencion")
+                                                        </th>
+                                                        <th>
+                                                            @Html.DisplayName("Tiempo Muerto (minutos)")
+                                                        </th>
+                                                        @if (@ViewBag.Machine7top1 != null)
+                                                        {
+                                                            foreach (var item in @ViewBag.Machine7top1)
+                                                            {
+<tr>
+                                                        <td>
+                                                            @item.DiaHora
+                                                        </td>
+                                                        <td>
+                                                            @item.Atendio
+                                                        </td>
+                                                        <td>
+                                                            @item.Folio
+                                                        </td>
+                                                        <td>
+                                                            @item.Descripcion
+                                                        </td>
+                                                        <td>
+                                                            @item.Sintoma
+                                                        </td>
+                                                        <td>
+                                                            @item.Causa
+                                                        </td>
+                                                        <td>
+                                                            @item.AccionCorrectiva
+                                                        </td>
+                                                        <td>
+                                                            @item.Tiempo
+                                                        </td>
+
+                                                    </tr>
+
+                                                        }
+                                                    }
+
+                                                    </table>
+                                                </td>
+
+                                            </tr>
+                                            @if (ViewBag.Machine7top2name != null)
+                                            {
+                                                <tr>
+                                                    <th> <center>@ViewBag.Machine7top2name</center></th>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <table class="table table-bordered table-striped" width="100%">
+                                                            <tr>
+                                                                <th>
+                                                                    @Html.DisplayName("DiaHora")
+
+                                                                </th>
+                                                                <th>
+                                                                    @Html.DisplayName("Atendio")
+                                                                </th>
+                                                                <th>
+                                                                    @Html.DisplayName("Folio")
+                                                                </th>
+                                                                <th>
+                                                                    @Html.DisplayName("Codigo de Falla")
+                                                                </th>
+                                                                <th>
+                                                                    @Html.DisplayName("Descripcion de Falla")
+                                                                </th>
+                                                                <th>
+                                                                    @Html.DisplayName("Causa Raiz")
+                                                                </th>
+                                                                <th>
+                                                                    @Html.DisplayName("Accion Inmediata / Correccion / Contencion")
+                                                                </th>
+                                                                <th>
+                                                                    @Html.DisplayName("Tiempo Muerto (minutos)")
+                                                                </th>
+
+                                                                @foreach (var item in @ViewBag.Machine7top2)
+                                                                {
+<tr>
+                                                                <td>
+                                                                    @item.DiaHora
+                                                                </td>
+                                                                <td>
+                                                                    @item.Atendio
+                                                                </td>
+                                                                <td>
+                                                                    @item.Folio
+                                                                </td>
+                                                                <td>
+                                                                    @item.Descripcion
+                                                                </td>
+                                                                <td>
+                                                                    @item.Sintoma
+                                                                </td>
+                                                                <td>
+                                                                    @item.Causa
+                                                                </td>
+                                                                <td>
+                                                                    @item.AccionCorrectiva
+                                                                </td>
+                                                                <td>
+                                                                    @item.Tiempo
+                                                                </td>
+
+                                                            </tr>
+
+                                                            }
+
+
+                                                            </table>
+                                                        </td>
+
+                                                    </tr>
+                                                    if (ViewBag.Machine7top3name != null)
+                                                    {
+                                                        <tr>
+                                                            <th> <center>@ViewBag.Machine7top3name</center></th>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <table class="table table-bordered table-striped" width="100%">
+                                                                    <tr>
+                                                                        <th>
+                                                                            @Html.DisplayName("DiaHora")
+
+                                                                        </th>
+                                                                        <th>
+                                                                            @Html.DisplayName("Atendio")
+                                                                        </th>
+                                                                        <th>
+                                                                            @Html.DisplayName("Folio")
+                                                                        </th>
+                                                                        <th>
+                                                                            @Html.DisplayName("Codigo de Falla")
+                                                                        </th>
+                                                                        <th>
+                                                                            @Html.DisplayName("Descripcion de Falla")
+                                                                        </th>
+                                                                        <th>
+                                                                            @Html.DisplayName("Causa Raiz")
+                                                                        </th>
+                                                                        <th>
+                                                                            @Html.DisplayName("Accion Inmediata / Correccion / Contencion")
+                                                                        </th>
+                                                                        <th>
+                                                                            @Html.DisplayName("Tiempo Muerto (minutos)")
+                                                                        </th>
+
+                                                                        @foreach (var item in @ViewBag.Machine7top3)
+                                                                        {
+<tr>
+                                                                        <td>
+                                                                            @item.DiaHora
+                                                                        </td>
+                                                                        <td>
+                                                                            @item.Atendio
+                                                                        </td>
+                                                                        <td>
+                                                                            @item.Folio
+                                                                        </td>
+                                                                        <td>
+                                                                            @item.Descripcion
+                                                                        </td>
+                                                                        <td>
+                                                                            @item.Sintoma
+                                                                        </td>
+                                                                        <td>
+                                                                            @item.Causa
+                                                                        </td>
+                                                                        <td>
+                                                                            @item.AccionCorrectiva
+                                                                        </td>
+                                                                        <td>
+                                                                            @item.Tiempo
+                                                                        </td>
+
+                                                                    </tr>
+
+                                                                    }
+
+
+                                                                    </table>
+                                                                </td>
+
+                                                            </tr>
+
+
+
+                                                        }
+                                                    }
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            @section Scripts {
+
+                                <script>
+                                Chart.defaults.global.defaultFontSize= 18;
+                    Chart.helpers.merge(Chart.defaults.global.plugins.datalabels, {
+                           align: 'top',
+                        anchor: 'center',
+                           clam:'true',
+                        offset: 0,
+                           color: '#000000'
+});
+
+          var barChartData1 =
+            {
+                   labels: [@Html.Raw(ViewBag.ObjectName1)], //the names displayed on the x-axis, see images below
+                // labels: ['a','b','c','d','e','f',], //the names displayed on the x-axis, see images below
+              datasets: [
+                                                {
+                    type: 'line',
+                    label: 'Tiempo Máximo (minutos)',
+                    data:[@ViewBag.tData1],
+                    backgroundColor: "#000000",
+                    borderColor: "#ffff09",
+                    borderWidth: 4,
+                    fill: false
+                }
+                ,
+                {
+                    type: 'bar',
+                    label: 'Top 3, Tiempo Perdido Por Maquina',
+                     data: [@ViewBag.Data1],
+                    backgroundColor: "#6B8CB0",
+                    borderWidth: 4
+                }
+                 ]
+                                    };
+
+                                              var barChartData1M =
+            {
+                   labels: [@Html.Raw(ViewBag.ObjectName1M)], //the names displayed on the x-axis, see images below
+                // labels: ['a','b','c','d','e','f',], //the names displayed on the x-axis, see images below
+              datasets: [
+                                                {
+                    type: 'line',
+                    label: 'Tiempo Máximo (minutos)',
+                    data:[@ViewBag.tData1M],
+                    backgroundColor: "#000000",
+                    borderColor: "#ffff09",
+                    borderWidth: 4,
+                    fill: false
+                }
+                ,
+                {
+                    type: 'bar',
+                    label: 'Top 3, Tiempo Perdido Por Maquina',
+                     data: [@ViewBag.Data1M],
+                    backgroundColor: "#6B8CB0",
+                    borderWidth: 4
+                }
+                 ]
+            };
+
+              var barChartData2 =
+            {
+                   labels: [@Html.Raw(ViewBag.ObjectName2)], //the names displayed on the x-axis, see images below
+                // labels: ['a','b','c','d','e','f',], //the names displayed on the x-axis, see images below
+                datasets: [                                                {
+                    type: 'line',
+                    label: 'Tiempo Máximo (minutos)',
+                    data:[@ViewBag.tData2],
+                    backgroundColor: "#000000",
+                    borderColor: "#ffff09",
+                    borderWidth: 4,
+                    fill: false
+                }
+                ,
+                {
+                    type: 'bar',
+                    label: 'Top 3, Tiempo Perdido Por Maquina',
+                     data: [@ViewBag.Data2],
+                    backgroundColor: "#6B8CB0",
+                    borderWidth: 4
+                }]
+            };
+
+              var barChartData3 =
+            {
+                   labels: [@Html.Raw(ViewBag.ObjectName3)], //the names displayed on the x-axis, see images below
+                // labels: ['a','b','c','d','e','f',], //the names displayed on the x-axis, see images below
+                datasets: [                                                {
+                    type: 'line',
+                    label: 'Tiempo Máximo (minutos)',
+                    data:[@ViewBag.tData3],
+                    backgroundColor: "#ffff09",
+                    borderColor: "#ffff09",
+                    borderWidth: 4,
+                    fill: false
+                }
+                ,
+                {
+                    type: 'bar',
+                    label: 'Top 3, Tiempo Perdido Por Maquina',
+                     data: [@ViewBag.Data3],
+                    backgroundColor: "#6B8CB0",
+                    borderWidth: 4
+                }]
+            };
+
+
+
+              var barChartData5 =
+            {
+                   labels: [@Html.Raw(ViewBag.ObjectName5)], //the names displayed on the x-axis, see images below
+                // labels: ['a','b','c','d','e','f',], //the names displayed on the x-axis, see images below
+                datasets: [                                                {
+                    type: 'line',
+                    label: 'Tiempo Máximo (minutos)',
+                    data:[@ViewBag.tData5],
+                    backgroundColor: "#000000",
+                    borderColor: "#ffff09",
+                    borderWidth: 4,
+                    fill: false
+                }
+                ,
+                {
+                    type: 'bar',
+                    label: 'Top 3, Tiempo Perdido Por Maquina',
+                     data: [@ViewBag.Data5],
+                    backgroundColor: "#6B8CB0",
+                    borderWidth: 4
+                }]
+            };
+
+              var barChartData6 =
+            {
+                   labels: [@Html.Raw(ViewBag.ObjectName6)], //the names displayed on the x-axis, see images below
+                // labels: ['a','b','c','d','e','f',], //the names displayed on the x-axis, see images below
+                datasets: [                                                {
+                    type: 'line',
+                    label: 'Tiempo Máximo (minutos)',
+                    data:[@ViewBag.tData6],
+                    backgroundColor: "#000000",
+                    borderColor: "#ffff09",
+                    borderWidth: 4,
+                    fill: false
+                }
+                ,
+                {
+                    type: 'bar',
+                    label: 'Top 3, Tiempo Perdido Por Maquina',
+                     data: [@ViewBag.Data6],
+                    backgroundColor: "#6B8CB0",
+                    borderWidth: 4
+                }]
+            };
+
+              var barChartData7 =
+            {
+                   labels: [@Html.Raw(ViewBag.ObjectName7)], //the names displayed on the x-axis, see images below
+                // labels: ['a','b','c','d','e','f',], //the names displayed on the x-axis, see images below
+                datasets: [                                                {
+                    type: 'line',
+                    label: 'Tiempo Máximo (minutos)',
+                    data:[@ViewBag.tData7],
+                    backgroundColor: "#000000",
+                    borderColor: "#ffff09",
+                    borderWidth: 4,
+                    fill: false
+                }
+                ,
+                {
+                    type: 'bar',
+                    label: 'Top 3, Tiempo Perdido Por Maquina',
+                     data: [@ViewBag.Data7],
+                    backgroundColor: "#6B8CB0",
+                    borderWidth: 4
+                }]
+            };
+                                          if (typeof($.timeago) != "undefined") {
+    jQuery.timeago.settings.strings = {
+        prefixAgo: "hace",
+        prefixFromNow: "dentro de",
+        suffixAgo: "",
+        suffixFromNow: "",
+        seconds: "menos de un minuto",
+        minute: "un minuto",
+        minutes: "unos %d minutos",
+        hour: "una hora",
+        hours: "%d horas",
+        day: "un día",
+        days: "%d días",
+        month: "un mes",
+        months: "%d meses",
+        year: "un año",
+        years: "%d años"
+    };
+}
+
+                                    $(document).ready(function () {
+
+
+           var ctx1 = document.getElementById('charttime1');
+           var myChart = new Chart(ctx1, {
+    type: 'bar',
+    data:barChartData1,
+    options: {
+        responsive: true,
+        maintainAspectRatio: true,
+                scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+           });
+
+            var colorChangeValue = @ViewBag.Targetf; //set this to whatever is the deciding color change value
+           var data =[];
+            var dataset = myChart.data.datasets[1];
+            for (var i = 0; i < dataset.data.length; i++) {
+                if (dataset.data[i] < colorChangeValue) {
+                    data.push("#09ff09");
+                }
+                else {
+                    data.push( "#af0a0a");
+                }
+            }
+            myChart.data.datasets[1].borderColor = data;
+                                        myChart.update();
+
+           var ctx1M = document.getElementById('charttime1M');
+           var myChartM = new Chart(ctx1M, {
+    type: 'bar',
+    data:barChartData1M,
+    options: {
+        responsive: true,
+        maintainAspectRatio: true,
+                scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+           });
+
+           var dataM =[];
+            var datasetM = myChartM.data.datasets[1];
+            for (var i = 0; i < datasetM.data.length; i++) {
+                if (datasetM.data[i] < colorChangeValue) {
+                    dataM.push("#09ff09");
+                }
+                else {
+                    dataM.push( "#af0a0a");
+                }
+            }
+            myChartM.data.datasets[1].borderColor = dataM;
+            myChartM.update();
+
+             var data2 =[];
+             var ctx2 = document.getElementById('charttime2');
+           var myChart2 = new Chart(ctx2, {
+    type: 'bar',
+    data:barChartData2,
+    options: {
+        responsive: true,
+        maintainAspectRatio: true,
+                scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+           });
+            var dataset = myChart2.data.datasets[1];
+            for (var i = 0; i < dataset.data.length; i++) {
+                if (dataset.data[i] < colorChangeValue) {
+                    data2.push("#09ff09");
+                }
+                else {
+                    data2.push( "#af0a0a");
+                }
+            }
+            myChart2.data.datasets[1].borderColor=data2;
+            myChart2.update();
+
+             var data3 =[];
+             var ctx3 = document.getElementById('charttime3');
+           var myChart3 = new Chart(ctx3, {
+    type: 'bar',
+    data:barChartData3,
+    options: {
+        responsive: true,
+        maintainAspectRatio: true,
+                scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+           });
+            var dataset = myChart3.data.datasets[1];
+            for (var i = 0; i < dataset.data.length; i++) {
+                if (dataset.data[i] < colorChangeValue) {
+                    data3.push("#09ff09");
+                }
+                else {
+                    data3.push( "#af0a0a");
+                }
+            }
+            myChart3.data.datasets[1].borderColor=data3;
+            myChart3.update();
+
+             var data5 =[];
+             var ctx5 = document.getElementById('charttime5');
+           var myChart5 = new Chart(ctx5, {
+    type: 'bar',
+    data:barChartData5,
+    options: {
+        responsive: true,
+        maintainAspectRatio: true,
+                scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+           });
+            var dataset = myChart5.data.datasets[1];
+            for (var i = 0; i < dataset.data.length; i++) {
+                if (dataset.data[i] < colorChangeValue) {
+                    data5.push("#09ff09");
+                }
+                else {
+                    data5.push( "#af0a0a");
+                }
+            }
+            myChart5.data.datasets[1].borderColor=data5;
+            myChart5.update();
+
+             var data6 =[];
+             var ctx6 = document.getElementById('charttime6');
+           var myChart6 = new Chart(ctx6, {
+    type: 'bar',
+    data:barChartData6,
+    options: {
+        responsive: true,
+        maintainAspectRatio: true,
+                scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+           });
+            var dataset = myChart6.data.datasets[1];
+            for (var i = 0; i < dataset.data.length; i++) {
+                if (dataset.data[i] < colorChangeValue) {
+                    data6.push("#09ff09");
+                }
+                else {
+                    data6.push( "#af0a0a");
+                }
+            }
+            myChart6.data.datasets[1].borderColor=data6;
+            myChart6.update();
+
+             var data7 =[];
+             var ctx7 = document.getElementById('charttime7');
+           var myChart7 = new Chart(ctx7, {
+    type: 'bar',
+    data:barChartData7,
+    options: {
+        responsive: true,
+        maintainAspectRatio: true,
+                scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+           });
+            var dataset = myChart7.data.datasets[1];
+            for (var i = 0; i < dataset.data.length; i++) {
+                if (dataset.data[i] < colorChangeValue) {
+                    data7.push("#09ff09");
+                }
+                else {
+                    data7.push( "#af0a0a");
+                }
+            }
+            myChart7.data.datasets[1].borderColor=data7;
+            myChart7.update();
+
+        });
+                                </script>
+
+                            }
