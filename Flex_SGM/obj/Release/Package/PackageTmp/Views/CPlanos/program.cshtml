@@ -1,0 +1,315 @@
+﻿@model IEnumerable<Flex_SGM.Models.controlplanos>
+@{
+    Layout = "~/Views/Shared/_LayoutC.cshtml";
+}
+@{
+    ViewBag.Title = "Program";
+}
+<div class="row clearfix">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title clearfix">
+                <h2>New Partner Contracts Consultancy</h2>
+            </div>
+
+            <div class="x_content clearfix">
+
+                <div class="col-md-9 col-sm-9 col-xs-12">
+
+                    <ul class="stats-overview">
+                        <li>
+                            <span class="name"> Fecha de creacion</span>
+                            <span class="value text-success"> xx/xx/xx </span>
+                        </li>
+                        <li>
+                            <span class="name"> Cantidad de Actualizaciones </span>
+                            <span class="value text-success"> 5 </span>
+                        </li>
+                        <li class="hidden-phone">
+                            <span class="name"> Fecha ultima Actualizacion </span>
+                            <span class="value text-success"> xx/xx/xx </span>
+                        </li>
+                    </ul>
+                    <br />
+                    <div>
+
+                        <h4>Actividad Reciente</h4>
+                        <table class="table messages" id="tabledem">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Program)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Level)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.InternalPN)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.CustomerPN)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Description)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Eng_Level)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Revision)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Date)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.MathData_3D)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.DrawingPN_2D)
+                                    </th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Program)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Level)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.InternalPN)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.CustomerPN)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Description)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Eng_Level)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Revision)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Date)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.MathData_3D)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.DrawingPN_2D)
+                                        </td>
+                                        <td>
+                                            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                                            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                                            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                        <!-- end of user messages -->
+
+
+                    </div>
+
+
+                </div>
+
+                <!-- start project-detail sidebar -->
+                <div class="col-md-3 col-sm-3 col-xs-12">
+
+                    <section class="panel">
+
+                        <div class="x_title">
+                            <h2>Descripcion...</h2>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="panel-body">
+                            <h3 class="green"><i class="fa fa-paint-brush"></i>Proyecto</h3>
+                            @foreach (var item in Model)
+                            {
+                                <p>
+                                    @Html.DisplayFor(modelItem => item.Description)
+                                </p>
+                            }
+                            <br />
+
+                            <div class="project_detail">
+
+                                <p class="title">Cliente</p>
+                                <p>XxXxX</p>
+                                <p class="title">Contacto</p>
+                                <p>XxXxX</p>
+                            </div>
+
+                            <br />
+
+                            <div class="text-center mtop20">
+                                <a href="@Url.Action("Edit","controlplanos")" class="btn btn-sm btn-primary">Add files</a>
+                                <a href="#" class="btn btn-sm btn-warning">Report contact</a>
+                            </div>
+                        </div>
+
+                    </section>
+
+                </div>
+                <!-- end project-detail sidebar -->
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>controlplanos</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.FirstOrDefault().ID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FirstOrDefault().Program, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FirstOrDefault().Program, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FirstOrDefault().Program, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FirstOrDefault().Level, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FirstOrDefault().Level, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FirstOrDefault().Level, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FirstOrDefault().InternalPN, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FirstOrDefault().InternalPN, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FirstOrDefault().InternalPN, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FirstOrDefault().CustomerPN, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FirstOrDefault().CustomerPN, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FirstOrDefault().CustomerPN, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FirstOrDefault().Description, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FirstOrDefault().Description, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FirstOrDefault().Description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FirstOrDefault().Eng_Level, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FirstOrDefault().Eng_Level, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FirstOrDefault().Eng_Level, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FirstOrDefault().Revision, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FirstOrDefault().Revision, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FirstOrDefault().Revision, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FirstOrDefault().Date, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FirstOrDefault().Date, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FirstOrDefault().Date, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FirstOrDefault().MathData_3D, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FirstOrDefault().MathData_3D, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FirstOrDefault().MathData_3D, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FirstOrDefault().DrawingPN_2D, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FirstOrDefault().DrawingPN_2D, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FirstOrDefault().DrawingPN_2D, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Regresar", "Index")
+</div>
+
+@section Scripts {
+
+    <script>
+        $(document).ready(function () {
+
+            $('#tabledem').DataTable({
+                "dom": 'lBfrtip',
+                "lengthMenu": [[5, 15, 50, -1], ["5", "15", "50", "Todos"]],
+                "buttons": ['copy', 'csv', 'print', 'pdf', 'excel'],
+                "order": [[0, "desc"]],
+                "scrollX": true,
+                "language": {
+                    "sProcessing": "Procesando...",
+                    "sLengthMenu": "Mostrar _MENU_ registros",
+                    "sZeroRecords": "No se encontraron resultados",
+                    "sEmptyTable": "Ningun dato disponible en esta tabla =(",
+                    "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                    "sInfoPostFix": "",
+                    "sSearch": "Buscar:",
+                    "sUrl": "",
+                    "sInfoThousands": ",",
+                    "sLoadingRecords": "Cargando...",
+                    "oPaginate": {
+                        "sFirst": "Primero",
+                        "sLast": "ultimo",
+                        "sNext": "Siguiente",
+                        "sPrevious": "Anterior"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                    },
+                    "buttons": {
+                        "copy": "Copiar",
+                        "colvis": "Visibilidad"
+                    }
+                }
+            });
+        });
+    </script>
+
+}

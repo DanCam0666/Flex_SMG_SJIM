@@ -1,0 +1,384 @@
+﻿@model IEnumerable<Flex_SGM.Models.CAndon>
+@{
+    Layout = "~/Views/Shared/_LayoutC.cshtml";
+}
+@{
+    ViewBag.Title = "Andons";
+}
+<div class="clearfix">
+    @using (Html.BeginForm())
+    {
+        <div class="col-md-12 ">
+            <center><h2>Andon's</h2></center>
+            <div class="x_panel">
+                <div class="x_title clearfix">
+                    <div class="col-md-12">
+                        <div class="col-md-6">
+                            <div class="input-daterange input-group col-lg-offset-2 col-md-10" id="bs_datepicker_range_container">
+
+                                <label for="FechaInicial">Fecha Inicial...</label>
+                                <input type="text" class="form-control" name="dti" value=@ViewBag.datei autocomplete="off">
+
+                                <span class="input-group-addon">- A -</span>
+
+                                <label for="FechaFinal">Fecha Final...</label>
+                                <input type="text" class="form-control" name="dtf" value=@ViewBag.datef autocomplete="off">
+
+                            </div>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="tipor">Mostrar por:</label>
+                            <div class="col-md-10" data-toggle="tooltip" title=" Filtro para el pareto ">
+                                @Html.DropDownList("btn", null, htmlAttributes: new { @class = "form-control" })
+
+                            </div>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="tipor">Pareto por:</label>
+                            <div class="col-md-10" data-toggle="tooltip" title=" Filtro para el pareto ">
+                                @Html.DropDownList("paret", null, htmlAttributes: new { @class = "form-control" })
+
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+                <div class="x_content">
+                    <center>
+                        <div class="col-lg-offset-3 col-md-9">
+
+                            @Html.ActionLink("Menu Calidad", "Index", "Calidad", null, htmlAttributes: new { @class = "btn btn-default", @onclick = "$('#loadingImg').show();" })
+
+                            <input class="btn btn-primary col-md-2" onclick="$('#loadingImg').show();" type="submit">
+
+
+                        </div>
+                    </center>
+                </div>
+            </div>
+
+        </div>
+    }
+    <div class="col-md-8" style="float:left">
+        <div class="x_panel">
+            <div class="x_title clearfix">
+                <h2> Andons del @ViewBag.dx</h2>
+            </div>
+            <div class="x_content">
+                <canvas id="chartme" width="100" height="35"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4" style="float:left">
+        <div class="x_panel">
+            <div class="x_title clearfix">
+                <h2> Pareto</h2>
+            </div>
+            <div class="x_content">
+                <canvas id="charttimee" width="100" height="74"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12 ">
+        <div class="x_panel">
+            <div class="x_title clearfix">
+                <h2> Lista de Andons del @ViewBag.dx</h2>
+            </div>
+            <div class="x_content ">
+                <table class="tabled table-bordered table-striped clearfix" style="width:100%" id="tableq">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Fecha)
+                            </th>
+                            <th>Menu</th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Turno)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.AreaActivacion)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ZonaActivacion)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.AuditorArea)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.lote)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.cliente)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.proyecto)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.NoDeParte)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.NombreDeParte)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Defecto1)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Cantidadpz1)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Preventivos)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.AreaDefecto)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SubArea)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.AuditorAreaDefecto)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ResponsableAndon)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.FormatoAndon)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.AlertaCalidad)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.MetCertificación)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.EstatusAndon)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Comentarios)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.a1d)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.a5d)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.a10d)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.a20d)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.a30d)
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                            <td>
+                                @item.Fecha.ToString("yyyy/MM/dd")
+                            </td>
+                            <td>
+                                @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn  btn-primary", @target = "_blank" })
+                                @Html.ActionLink("Editar", "Edit", new { id = item.ID }, new { @class = "btn  btn-warning", @target = "_blank" })
+                                @Html.ActionLink("Borrar", "Delete", new { id = item.ID }, new { @class = "btn  btn-danger" })
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Turno)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.AreaActivacion)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ZonaActivacion)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.AuditorArea)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.lote)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.cliente)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.proyecto)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NoDeParte)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NombreDeParte)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Defecto1)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Cantidadpz1)
+                            </td>
+                            <th>
+                                @Html.DisplayFor(modelItem => item.Preventivos)
+                            </th>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.AreaDefecto)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SubArea)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.AuditorAreaDefecto)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ResponsableAndon)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FormatoAndon)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.AlertaCalidad)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MetCertificación)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.EstatusAndon)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Comentarios)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.a1d)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.a5d)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.a10d)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.a20d)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.a30d)
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section Scripts {
+
+    <script>
+
+        alert("Hola, este apartado solo es a manera de respaldo, Favor de usar la nueva version");  
+
+
+        var barChartqe =
+        {
+              labels: [@Html.Raw(ViewBag.labelsgrap)],
+            datasets: [
+                {
+                    type: 'line',
+                    label: 'Tendencia',
+                    data:[@ViewBag.data2sgrap],
+                    backgroundColor: "#8CB06B",
+                    borderColor: "#aa0909",
+                    borderWidth: 2,
+                    fill: false
+                }
+                ,
+                {
+                    type: 'bar',
+                    label: 'Eventos por @ViewBag.dxx',
+                    data: [@ViewBag.datasgrap],
+                    backgroundColor: "#FFA500",
+                    borderWidth: 2
+                }]
+        };
+        var barChartDqe1 =
+        {
+              labels: [@Html.Raw(ViewBag.labelsgrap2)],
+            datasets: [
+                {
+                    type: 'line',
+                    label: 'Porcentaje acumulado',
+                    data:[@ViewBag.data2sgrap2],
+                    backgroundColor: "#8CB06B",
+                    borderColor: "#aa0909",
+                    borderWidth: 2,
+                    fill: false
+                }
+                ,
+                {
+                    type: 'bar',
+                    label: 'Andons',
+                    data: [@ViewBag.datasgrap2],
+                    backgroundColor: "#6B8CB0",
+                    borderWidth: 2
+                }
+
+            ]
+        };
+
+
+            $(document).ready(function () {
+
+
+
+
+            var ctqx = document.getElementById('chartme');
+            var myChartqe1 = new Chart(ctqx, {
+                type: 'bar',
+                data: barChartqe,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+
+                var ctqx1 = document.getElementById('charttimee');
+                var myChartqe1 = new Chart(ctqx1, {
+                    type: 'bar',
+                    data: barChartDqe1,
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: true,
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        },
+                        legend: {
+                            labels: {
+                                // This more specific font property overrides the global property
+                                fontColor: 'black',
+                                defaultFontSize: 25,
+                            }
+                        }
+                    }
+                });
+
+
+        });
+    </script>
+
+}

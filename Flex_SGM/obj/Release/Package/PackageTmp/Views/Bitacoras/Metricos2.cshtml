@@ -1,0 +1,976 @@
+﻿@using Flex_SGM.Models;
+@model IEnumerable<Flex_SGM.Models.Bitacora>
+
+
+@{
+    ViewBag.Title = "Bitacora";
+}
+<br />
+@using (Html.BeginForm())
+{
+    <div class="col-md-12 ">
+        <div class="x_panel">
+            <div class="x_title clearfix">
+
+                <row>
+                    <center>
+                        <div class="input-daterange input-group col-md-6" id="bs_datepicker_range_container">
+
+                            <label for="FechaInicial">Fecha Inicial...</label>
+                            <input type="text" class="form-control" name="dti" value=@ViewBag.datei autocomplete="off">
+
+                            <span class="input-group-addon">- A -</span>
+
+                            <label for="FechaFinal">Fecha Final...</label>
+                            <input type="text" class="form-control" name="dtf" value=@ViewBag.datef autocomplete="off">
+
+                        </div>
+                    </center>
+                </row>
+                <row>
+                    <center>
+                        <div class="form-group col-md-2" data-toggle="tooltip" title=" Año: x 295.494 || Mes: x 24.624  || dia: x 1">
+                            <div class="">
+                                <label for="submaquina">Tiempo disponible por Turno en minutos:</label>
+                            </div>
+                            <label class=" form-control">
+                                @ViewBag.xmgroup
+                            </label>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="submaquina">Agrupar Tiempo disponible por:</label>
+                            <div class="col-md-10" data-toggle="tooltip" title=" Maquina: Tiempo disponible X Cantidad de maquinas || Area: Tiempo disponible   || SubMaquinas: Tiempo disponible X Cantidad de Submaquinas ">
+                                @Html.DropDownList("mgroup", null, htmlAttributes: new { @class = "form-control" })
+
+                            </div>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="amaquina">Filtrar por Area Maquina...</label>
+                            <div class="col-md-10">
+                                @Html.DropDownList("amaquina", null, "--Todas--", htmlAttributes: new { @class = "form-control" })
+
+                            </div>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="maquina">Filtrar Maquina...</label>
+                            <div class="col-md-10">
+                                @Html.DropDownList("maquina", null, "--Todas--", htmlAttributes: new { @class = "form-control" })
+
+                            </div>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="submaquina">Filtrar SubMaquina...(*no funciona)</label>
+                            <div class="col-md-10">
+                                @Html.DropDownList("submaquina", null, "--Todas--", htmlAttributes: new { @class = "form-control" })
+
+                            </div>
+                        </div>
+                    </center>
+                </row>
+
+            </div>
+            <div class="x_content">
+                <center>
+                    <div class="col-md-12">
+                        <input class="btn btn-primary col-md-offset-3 col-md-2" onclick="$('#loadingImg').show();" type="submit" name="btn" value="Metricos por Años" autocomplete="off">
+                        <input class="btn btn-primary col-md-2" onclick="$('#loadingImg').show();" type="submit" name="btn" value="Metricos por Mes" autocomplete="off">
+                        <input class="btn btn-primary col-md-2" onclick="$('#loadingImg').show();" type="submit" name="btn" value="Metricos por Dia" autocomplete="off">
+                    </div>
+                </center>
+            </div>
+        </div>
+
+    </div>
+}
+<div class="x_panel">
+    <div class="x_title clearfix">
+        <h2>Metricos del @ViewBag.dx</h2>
+    </div>
+    <div class="x_content">
+        <table class="table table-bordered table-striped" style="width:100%" id="metricox">
+            <thead>
+                <tr>
+                    <td>Descripcion / Tiempo</td>
+                    <td>Referencia</td>
+                    <td>Objetivo</td>
+                    @foreach (var item in ViewBag.data)
+                    {
+                        <td>@item.TiempoLabel</td>
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">06 - % Tiempo Muerto 1 turno</th>
+                    <th scope="row">Menor</th>
+                    <th scope="row">3%</th>
+                    @foreach (var item in ViewBag.data)
+                    {
+                        <td>@item.TiempoMuerto1</td>
+                    }
+                </tr>
+                <tr>
+                    <th scope="row">07 - % Tiempo Muerto 2 turno</th>
+                    <th scope="row">Menor</th>
+                    <th scope="row">3%</th>
+                    @foreach (var item in ViewBag.data)
+                    {
+                        <td>@item.TiempoMuerto2</td>
+                    }
+                </tr>
+                <tr>
+                    <th scope="row">08 - % Tiempo Muerto 3 turno</th>
+                    <th scope="row">Menor</th>
+                    <th scope="row">3%</th>
+                    @foreach (var item in ViewBag.data)
+                    {
+                        <td>@item.TiempoMuerto3</td>
+                    }
+                </tr>
+                <tr>
+                    <th scope="row">09 - MTTR 1 turno</th>
+                    <th scope="row">Menor</th>
+                    <th scope="row">15 Mins</th>
+                    @foreach (var item in ViewBag.data)
+                    {
+                        <td>@item.MTTR1</td>
+                    }
+                </tr>
+                <tr>
+                    <th scope="row">10 - MTTR 2 turno</th>
+                    <th scope="row">Menor</th>
+                    <th scope="row">15 Mins</th>
+                    @foreach (var item in ViewBag.data)
+                    {
+                        <td>@item.MTTR2</td>
+                    }
+                </tr>
+                <tr>
+                    <th scope="row">11 - MTTR 3 turno</th>
+                    <th scope="row">Menor</th>
+                    <th scope="row">15 Mins</th>
+                    @foreach (var item in ViewBag.data)
+                    {
+                        <td>@item.MTTR3</td>
+                    }
+                </tr>
+                <tr>
+                    <th scope="row">12 - MTBF</th>
+                    <th scope="row">Mayor</th>
+                    <th scope="row">480 Mins</th>
+                    @foreach (var item in ViewBag.data)
+                    {
+                        <td>@item.MTBF</td>
+                    }
+                </tr>
+                <tr>
+                    <th scope="row">13 -  Tajetas TPM</th>
+                    <th scope="row">Mayor</th>
+                    <th scope="row">90%</th>
+                    @foreach (var item in ViewBag.data)
+                    {
+                        <td>@item.TarjetasTPM</td>
+                    }
+                </tr>
+                <tr>
+                    <th scope="row">18 -  Mantebilidad</th>
+                    <th scope="row">Mayor</th>
+                    <th scope="row">98%</th>
+                    @foreach (var item in ViewBag.data)
+                    {
+                        <td>@item.Confiabilidad</td>
+                    }
+                </tr>
+                <tr>
+                    <th scope="row">20 - Disponibilidad 1</th>
+                    <th scope="row">Informativo</th>
+                    <th scope="row">1er Turno</th>
+                    @foreach (var item in ViewBag.data)
+                    {
+                        <td>@item.Disponible1</td>
+                    }
+                </tr>
+                <tr>
+                    <th scope="row">21 - # Fallas 1</th>
+                    <th scope="row">Informativo</th>
+                    <th scope="row">1er Turno</th>
+                    @foreach (var item in ViewBag.data)
+                    {
+                        <td>@item.FallasT1</td>
+                    }
+                </tr>
+                <tr>
+                    <th scope="row">22 - # Tiempo Perdido 1</th>
+                    <th scope="row">Informativo</th>
+                    <th scope="row">1er Turno</th>
+                    @foreach (var item in ViewBag.data)
+                    {
+                        <td>@item.TiempoM1</td>
+                    }
+                </tr>
+                <tr>
+                    <th scope="row">23 - Disponibilidad 2</th>
+                    <th scope="row">Informativo</th>
+                    <th scope="row">2do Turno</th>
+                    @foreach (var item in ViewBag.data)
+                    {
+                        <td>@item.Disponible1</td>
+                    }
+                </tr>
+                <tr>
+                    <th scope="row">24 - # Fallas 2</th>
+                    <th scope="row">Informativo</th>
+                    <th scope="row">2do Turno</th>
+                    @foreach (var item in ViewBag.data)
+                    {
+                        <td>@item.FallasT2</td>
+                    }
+                </tr>
+                <tr>
+                    <th scope="row">25 - # Tiempo Perdido 2</th>
+                    <th scope="row">Informativo</th>
+                    <th scope="row">2do Turno</th>
+                    @foreach (var item in ViewBag.data)
+                    {
+                        <td>@item.TiempoM2</td>
+                    }
+                </tr>
+                <tr>
+                    <th scope="row">26 - Disponibilidad 3</th>
+                    <th scope="row">Informativo</th>
+                    <th scope="row">3er Turno</th>
+                    @foreach (var item in ViewBag.data)
+                    {
+                        <td>@item.Disponible1</td>
+                    }
+                </tr>
+                <tr>
+                    <th scope="row">27 - # Fallas 3</th>
+                    <th scope="row">Informativo</th>
+                    <th scope="row">3er Turno</th>
+                    @foreach (var item in ViewBag.data)
+                    {
+                        <td>@item.FallasT3</td>
+                    }
+                </tr>
+                <tr>
+                    <th scope="row">28 - # Tiempo Perdido 3</th>
+                    <th scope="row">Informativo</th>
+                    <th scope="row">3er Turno</th>
+                    @foreach (var item in ViewBag.data)
+                    {
+                        <td>@item.TiempoM3</td>
+                    }
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+<br />
+<br />
+<div class="col-md-8" style="float:left">
+    <div class="x_panel">
+        <div class="x_title clearfix">
+            <h2>Tiempo Muerto del @ViewBag.dx</h2>
+        </div>
+        <div class="x_content">
+            <canvas id="chartme" width="100" height="39"></canvas>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-4" style="float:left">
+    <div class="x_panel">
+        <div class="x_title clearfix">
+            <h2> Pareto por % de Tiempo Perdido</h2>
+        </div>
+        <div class="x_content">
+            <canvas id="charttimee" width="100" height="83"></canvas>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-12 ">
+    <div class="x_panel">
+        <div class="x_title clearfix">
+            <h2> Lista de Tiempo Muerto del @ViewBag.dx</h2>
+        </div>
+        <div class="x_content ">
+            <table class="tabled table-bordered table-striped clearfix" id="metricox2" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayName("ID")
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.DiaHora)
+                        </th>
+                        <th>
+                            @Html.DisplayName("Usuario")
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Maquinas.SubMaquina)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Descripcion)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Sintoma)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Causa)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.AccionCorrectiva)
+                        </th>
+                        <th style="width:10px;">
+                            @Html.DisplayNameFor(model => model.Tiempo)
+                        </th>
+                        <th style="width:10px;">
+                            @Html.DisplayNameFor(model => model.Folio)
+                        </th>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        if (!item.noterminado && !item.findesemana)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ID)
+                                </td>
+                                <td>
+                                    @item.DiaHora.ToString("yyyy/MM/dd HH:mm")
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Usuario)
+                                </td>
+                                <td style="width:10px;">
+                                    @Html.DisplayFor(modelItem => item.Maquinas.SubMaquina)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Descripcion)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Sintoma)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Causa)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.AccionCorrectiva)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Tiempo)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Folio)
+                                </td>
+                            </tr>
+                        }
+                        else
+                        {
+                            if (item.noterminado)
+                            {
+                                <tr class="danger">
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ID)
+                                    </td>
+                                    <td>
+                                        @if (item.FechaVerificacion == null)
+                                        {
+                                            @Html.Label("Esperando Verificacion")
+                                            if (ViewBag.super)
+                                            {
+                                                <button onclick=" $(this).hide(); return Verify(@item.ID);">Verificar</button>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            @Html.Label("Verificada, " + item.Verifico)
+                                        }
+                                        @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn  btn-info", @target = "_blank" })
+                                        @if (ViewBag.cuser.Contains(item.Usuario))
+                                        {
+                                            @Html.ActionLink("Editar", "Edit", new { id = item.ID }, new { @class = "btn  btn-default", @target = "_blank" })
+                                        }
+                                        @if (ViewBag.super && ViewBag.uarea.Contains(item.Usuario_area))
+                                        {
+                                            @Html.ActionLink("Borrar", "Delete", new { id = item.ID }, new { @class = "btn  btn-danger", @target = "_blank" })
+                                        }
+                                        @if (ViewBag.uarea.Contains(item.Usuario_area) && item.noterminado)
+                                        {
+                                            @Html.ActionLink("Finalizar", "Finish", new { id = item.ID, searchString = ViewBag.searchString2, area = ViewBag.area2, amaquina = ViewBag.amaquina2, puesto = ViewBag.puesto2, maquina = ViewBag.maquina2, fecha_inicial = ViewBag.fecha_inicial, fecha_final = ViewBag.fecha_final, t1 = ViewBag.t1, t2 = ViewBag.t2, t3 = ViewBag.t3 }, new { @class = "btn  btn-success" })
+                                        }
+                                    </td>
+                                    <td>
+                                        @item.DiaHora.ToString("yyyy/MM/dd HH:mm")
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Usuario)
+                                    </td>
+                                    <td style="width:10px;">
+                                        @Html.DisplayFor(modelItem => item.Maquinas.SubMaquina)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Descripcion)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Sintoma)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Causa)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.AccionCorrectiva)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Tiempo)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Folio)
+                                    </td>
+                                </tr>
+                            }
+                            else
+                            {
+                                <tr class="warning">
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ID)
+                                    </td>
+                                    <td>
+                                        @if (item.FechaVerificacion == null)
+                                        {
+                                            @Html.Label("Esperando Verificacion")
+                                            if (ViewBag.super)
+                                            {
+                                                <button onclick=" $(this).hide(); return Verify(@item.ID);">Verificar</button>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            @Html.Label("Verificada, " + item.Verifico)
+                                        }
+                                        @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn  btn-info", @target = "_blank" })
+                                        @if (ViewBag.cuser.Contains(item.Usuario))
+                                        {
+                                            @Html.ActionLink("Editar", "Edit", new { id = item.ID }, new { @class = "btn  btn-default", @target = "_blank" })
+                                        }
+                                        @if (ViewBag.super && ViewBag.uarea.Contains(item.Usuario_area))
+                                        {
+                                            @Html.ActionLink("Borrar", "Delete", new { id = item.ID }, new { @class = "btn  btn-danger", @target = "_blank" })
+                                        }
+                                        @if (ViewBag.uarea.Contains(item.Usuario_area) && item.noterminado)
+                                        {
+                                            @Html.ActionLink("Finalizar", "Finish", new { id = item.ID, searchString = ViewBag.searchString2, area = ViewBag.area2, amaquina = ViewBag.amaquina2, puesto = ViewBag.puesto2, maquina = ViewBag.maquina2, fecha_inicial = ViewBag.fecha_inicial, fecha_final = ViewBag.fecha_final, t1 = ViewBag.t1, t2 = ViewBag.t2, t3 = ViewBag.t3 }, new { @class = "btn  btn-success" })
+                                        }
+                                    </td>
+                                    <td>
+                                        @item.DiaHora.ToString("yyyy/MM/dd HH:mm")
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Usuario)
+                                    </td>
+                                    <td style="width:10px;">
+                                        @Html.DisplayFor(modelItem => item.Maquinas.SubMaquina)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Descripcion)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Sintoma)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Causa)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.AccionCorrectiva)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Tiempo)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Folio)
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<div class="x_panel">
+    <div class="x_title clearfix">
+        <h2>Metricos del @ViewBag.dx</h2>
+    </div>
+    <div class="x_content">
+        <table class="tabled table-bordered table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <td>Descripcion / Tiempo</td>
+                    <td>Referencia</td>
+                    <td>Objetivo</td>
+                    @foreach (var item in ViewBag.data)
+                    {
+                        <td>@item.TiempoLabel</td>
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">28 - # Tiempo Perdido 3</th>
+                    <th scope="row">Informativo</th>
+                    <th scope="row">3er Turno</th>
+                    @foreach (var item in ViewBag.data)
+                    {
+                        <td>@item.TiempoM3</td>
+                    }
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<br />
+<div class="col-md-6 clearfix">
+    <div class="x_panel">
+        <div class="x_title">
+            Worst 5  MTTR
+        </div>
+        <div class="x_content">
+            <canvas id="chartmttr" width="100" height="44" "></canvas>
+        </div>
+    </div>
+    <div class="x_panel">
+        <div class="x_title">
+            Worst 5 MTBF
+        </div>
+        <div class="x_content">
+            <canvas id="chartm" width="100" height="44"></canvas>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-6 clearfix">
+    <div class="x_panel">
+        <div class="x_title">
+            Worst 5  Suma Tiempo Fallas
+        </div>
+        <div class="x_content">
+            <canvas id="charttime" width="100" height="44"></canvas>
+        </div>
+    </div>
+    <div class="x_panel">
+        <div class="x_title">
+            Worst 5  Cantidad Fallas
+        </div>
+        <div class="x_content">
+            <canvas id="chartfails" width="100" height="44"></canvas>
+        </div>
+    </div>
+</div>
+
+<br />
+<br />
+
+@section Scripts {
+
+    <script>
+              var barChartData2 =
+            {
+                   labels: [@Html.Raw(ViewBag.labelsmttr)], //the names displayed on the x-axis, see images below
+                // labels: ['a','b','c','d','e','f',], //the names displayed on the x-axis, see images below
+                datasets: [{
+                    label: 'MTTR Peores 5 maquinas  (Minutos Promedio para Reparar una Falla)',
+                     data: [@ViewBag.Datamttr],
+                    backgroundColor: ["#af0a0a"],
+                    borderWidth: 2
+                }]
+        };
+          var barChartData3 =
+            {
+                   labels: [@Html.Raw(ViewBag.labelstf)], //the names displayed on the x-axis, see images below
+                // labels: ['a','b','c','d','e','f',], //the names displayed on the x-axis, see images below
+                datasets: [{
+                    label: 'Tiempo Perdido Peores 5 maquinas  (Acumulado de Tiempo Perdido)',
+                     data: [@ViewBag.Datatf],
+                    backgroundColor: ["#af0a0a"],
+                    borderWidth: 2
+                }]
+        };
+          var barChartData4 =
+            {
+                   labels: [@Html.Raw(ViewBag.labelsmtbf)], //the names displayed on the x-axis, see images below
+                // labels: ['a','b','c','d','e','f',], //the names displayed on the x-axis, see images below
+                datasets: [{
+                    label: 'MTBF Peores 5 maquinas  (Minutos Promedio Entre Fallas)',
+                     data: [@ViewBag.Datamtbf],
+                    backgroundColor: ["#af0a0a"],
+                    borderWidth: 2
+                }]
+        };
+          var barChartData5 =
+            {
+                   labels: [@Html.Raw(ViewBag.labelsf)], //the names displayed on the x-axis, see images below
+                // labels: ['a','b','c','d','e','f',], //the names displayed on the x-axis, see images below
+                datasets: [{
+                    label: 'Total Fallas Peores 5 maquinas  (Cantidad de fallas)',
+                     data: [@ViewBag.Dataf],
+                    backgroundColor: ["#af0a0a"],
+                    borderWidth: 2
+                }]
+            };
+
+
+        $(document).ready(function () {
+
+
+
+            $('#metricox').DataTable({
+                "dom": 'lBfrtip',
+                "lengthMenu": [[9, -1], ["9", "Todos"]],
+                "buttons": ['copy', 'csv', 'print', 'pdf', 'excel'],
+                "order": [[0, "asc"]],
+                "scrollX": true,
+                "language": {
+                    "sProcessing": "Procesando...",
+                    "sLengthMenu": "Mostrar _MENU_ registros",
+                    "sZeroRecords": "No se encontraron resultados",
+                    "sEmptyTable": "Ningun dato disponible en esta tabla =(",
+                    "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                    "sInfoPostFix": "",
+                    "sSearch": "Buscar:",
+                    "sUrl": "",
+                    "sInfoThousands": ",",
+                    "sLoadingRecords": "Cargando...",
+                    "oPaginate": {
+                        "sFirst": "Primero",
+                        "sLast": "ultimo",
+                        "sNext": "Siguiente",
+                        "sPrevious": "Anterior"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                    },
+                    "buttons": {
+                        "copy": "Copiar",
+                        "colvis": "Visibilidad"
+                    }
+                }
+            });
+            var table = document.getElementById('metricox');
+            var tbody = table.getElementsByTagName('tbody')[0];
+            var cells = tbody.getElementsByTagName('tr');
+
+            for (var i = 0, len = cells[i].cells.length; i < len; i++) {
+                if ((i + 3) < len) {
+                if (parseInt(cells[0].cells[3 + i].innerHTML, 10) >= 3) {
+                    cells[0].cells[3 + i].style.backgroundColor = 'red';
+                    cells[0].cells[3 + i].style.color = 'white';
+                }
+                if (parseInt(cells[0].cells[3 + i].innerHTML, 10) < 3) {
+                    cells[0].cells[3 + i].style.backgroundColor = 'ForestGreen';
+                    cells[0].cells[3 + i].style.color = 'black';
+                }
+                if (parseInt(cells[1].cells[3 + i].innerHTML, 10) >= 3) {
+                    cells[1].cells[3 + i].style.backgroundColor = 'red';
+                    cells[1].cells[3 + i].style.color = 'white';
+                }
+                if (parseInt(cells[1].cells[3 + i].innerHTML, 10) < 3) {
+                    cells[1].cells[3 + i].style.backgroundColor = 'ForestGreen';
+                    cells[1].cells[3 + i].style.color = 'black';
+                }
+                if (parseInt(cells[2].cells[3 + i].innerHTML, 10) >= 3) {
+                    cells[2].cells[3 + i].style.backgroundColor = 'red';
+                    cells[2].cells[3 + i].style.color = 'white';
+                }
+                if (parseInt(cells[2].cells[3 + i].innerHTML, 10) < 3) {
+                    cells[2].cells[3 + i].style.backgroundColor = 'ForestGreen';
+                    cells[2].cells[3 + i].style.color = 'black';
+                }
+                //----------------------------------------------------------------------------------------
+                if (parseInt(cells[3].cells[3 + i].innerHTML, 10) >= 15) {
+                    cells[3].cells[3 + i].style.backgroundColor = 'red';
+                    cells[3].cells[3 + i].style.color = 'white';
+                }
+                if (parseInt(cells[3].cells[3 + i].innerHTML, 10) < 15) {
+                    cells[3].cells[3 + i].style.backgroundColor = 'ForestGreen';
+                    cells[3].cells[3 + i].style.color = 'black';
+                }
+                if (parseInt(cells[4].cells[3 + i].innerHTML, 10) >= 15) {
+                    cells[4].cells[3 + i].style.backgroundColor = 'red';
+                    cells[4].cells[3 + i].style.color = 'white';
+                }
+                if (parseInt(cells[4].cells[3 + i].innerHTML, 10) < 15) {
+                    cells[4].cells[3 + i].style.backgroundColor = 'ForestGreen';
+                    cells[4].cells[3 + i].style.color = 'black';
+                }
+                if (parseInt(cells[5].cells[3 + i].innerHTML, 10) >= 15) {
+                    cells[5].cells[3 + i].style.backgroundColor = 'red';
+                    cells[5].cells[3 + i].style.color = 'white';
+                }
+                if (parseInt(cells[5].cells[3 + i].innerHTML, 10) < 15) {
+                    cells[5].cells[3 + i].style.backgroundColor = 'ForestGreen';
+                    cells[5].cells[3 + i].style.color = 'black';
+                }
+                //----------------------------------------------------------------------------------------
+                if (parseInt(cells[6].cells[3 + i].innerHTML, 10) < 480) {
+                    cells[6].cells[3 + i].style.backgroundColor = 'red';
+                    cells[6].cells[3 + i].style.color = 'white';
+                }
+                if (parseInt(cells[6].cells[3 + i].innerHTML, 10) > 480) {
+                    cells[6].cells[3 + i].style.backgroundColor = 'ForestGreen';
+                    cells[6].cells[3 + i].style.color = 'black';
+                }
+
+                //----------------------------------------------------------------------------------------
+                if (parseInt(cells[7].cells[3 + i].innerHTML, 10) <= 90) {
+                    cells[7].cells[3 + i].style.backgroundColor = 'red';
+                    cells[7].cells[3 + i].style.color = 'white';
+                }
+                if (parseInt(cells[7].cells[3 + i].innerHTML, 10) > 90) {
+                    cells[7].cells[3 + i].style.backgroundColor = 'ForestGreen';
+                    cells[7].cells[3 + i].style.color = 'black';
+                }
+                //----------------------------------------------------------------------------------------
+                if (parseInt(cells[8].cells[3 + i].innerHTML, 10) <= 98) {
+                    cells[8].cells[3 + i].style.backgroundColor = 'red';
+                    cells[8].cells[3 + i].style.color = 'white';
+                }
+                if (parseInt(cells[8].cells[3 + i].innerHTML, 10) >= 98) {
+                    cells[8].cells[3 + i].style.backgroundColor = 'ForestGreen';
+                    cells[8].cells[3 + i].style.color = 'black';
+                }
+
+                }
+            }
+
+            var ctqx = document.getElementById('chartme');
+            var myChartqe1 = new Chart(ctqx, {
+                type: 'bar',
+                data: barChartqe,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+
+            var ctqx2 = document.getElementById('charttimee');
+            var myChartqe2 = new Chart(ctqx2, {
+                type: 'bar',
+                data: barChartDqe2,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    },
+                    legend: {
+                        labels: {
+                            // This more specific font property overrides the global property
+                            fontColor: 'black',
+                            defaultFontSize: 25,
+                        }
+                    }
+                }
+            });
+        });
+
+                Chart.helpers.merge(Chart.defaults.global.plugins.datalabels, {
+            align: 'end',
+            anchor: 'end',
+            offset: 1,
+            color: '#6B8CB0'
+        });
+
+        var barChartqe =
+        {
+              labels: [@Html.Raw(ViewBag.labelsgrap)],
+            datasets: [
+                {
+                    type: 'line',
+                    label: 'Tendencia',
+                    data:[@ViewBag.data2sgrap],
+                    backgroundColor: "#8CB06B",
+                    borderColor: "#aa0909",
+                    borderWidth: 2,
+                    fill: false
+                }
+                ,
+                {
+                    type: 'bar',
+                    label: 'Tiempo por @ViewBag.dxx',
+                    data: [@ViewBag.datasgrap],
+                    backgroundColor: "#FFA500",
+                    borderWidth: 2
+                }]
+        };
+        var barChartDqe2 =
+        {
+              labels: [@Html.Raw(ViewBag.labelsgrap2)],
+            datasets: [
+                {
+                    type: 'line',
+                    label: 'Porcentaje acumulado',
+                    data:[@ViewBag.data2sgrap2],
+                    backgroundColor: "#8CB06B",
+                    borderColor: "#aa0909",
+                    borderWidth: 2,
+                    fill: false
+                }
+                ,
+                {
+                    type: 'bar',
+                    label: '% de tiempo perdido por Maquina',
+                    data: [@ViewBag.datasgrap2],
+                    backgroundColor: "#6B8CB0",
+                    borderWidth: 2
+                }
+
+            ]
+        };
+
+        var ctx2 = document.getElementById('chartmttr');
+        var myChart2 = new Chart(ctx2, {
+            type: 'horizontalBar',
+            data: barChartData2,
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+        var colorChangeValue = 45; //set this to whatever is the deciding color change value
+        var dataset = myChart2.data.datasets[0];
+        for (var i = 0; i < dataset.data.length; i++) {
+            if (dataset.data[i] > colorChangeValue) {
+                dataset.backgroundColor[i] = "#af0a0a";
+            }
+            else {
+                dataset.backgroundColor[i] = "#0aaf0a";
+            }
+        }
+        myChart2.update();
+        //----
+        var ctx4 = document.getElementById('chartm');
+        var myChart4 = new Chart(ctx4, {
+            type: 'horizontalBar',
+            data: barChartData4,
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+        var colorChangeValue = 45; //set this to whatever is the deciding color change value
+        var dataset = myChart4.data.datasets[0];
+        for (var i = 0; i < dataset.data.length; i++) {
+            if (dataset.data[i] > colorChangeValue) {
+                dataset.backgroundColor[i] = "#af0a0a";
+            }
+            else {
+                dataset.backgroundColor[i] = "#0aaf0a";
+            }
+        }
+        myChart4.update();
+
+
+        //----
+        var ctx3 = document.getElementById('charttime');
+        var myChart3 = new Chart(ctx3, {
+            type: 'horizontalBar',
+            data: barChartData3,
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+        var colorChangeValue = 45; //set this to whatever is the deciding color change value
+        var dataset = myChart3.data.datasets[0];
+        for (var i = 0; i < dataset.data.length; i++) {
+            if (dataset.data[i] > colorChangeValue) {
+                dataset.backgroundColor[i] = "#af0a0a";
+            }
+            else {
+                dataset.backgroundColor[i] = "#0aaf0a";
+            }
+        }
+        myChart3.update();
+
+
+        //----
+
+        var ctx5 = document.getElementById('chartfails');
+        var myChart5 = new Chart(ctx5, {
+            type: 'horizontalBar',
+            data: barChartData5,
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+        var colorChangeValue = 45; //set this to whatever is the deciding color change value
+        var dataset = myChart5.data.datasets[0];
+        for (var i = 0; i < dataset.data.length; i++) {
+            if (dataset.data[i] > colorChangeValue) {
+                dataset.backgroundColor[i] = "#af0a0a";
+            }
+            else {
+                dataset.backgroundColor[i] = "#0aaf0a";
+            }
+        }
+        myChart5.update();
+
+        //---
+
+    </script>
+
+}

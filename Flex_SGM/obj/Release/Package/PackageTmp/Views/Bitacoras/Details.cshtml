@@ -1,0 +1,175 @@
+﻿@model Flex_SGM.Models.Bitacora
+
+@{
+    ViewBag.Title = "Detalles";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>Bitacora</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Usuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Maquinas.Area)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Maquinas.Area)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Maquinas.Maquina)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Maquinas.Maquina)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Maquinas.SubMaquina)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Maquinas.SubMaquina)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DiaHora)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaHora)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.turno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.turno)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Sintoma)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sintoma)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Causa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Causa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccionCorrectiva)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccionCorrectiva)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Atendio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Atendio)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Scrap)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Scrap)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Tiempo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tiempo)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Folio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Folio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Verifico)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Verifico)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaVerificacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaVerificacion)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.findesemana)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.findesemana)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Fallaoperacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fallaoperacion)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MttoPreventivo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MttoPreventivo)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MttoCorrectivo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MttoCorrectivo)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MttoMejora)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MttoMejora)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.noterminado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.noterminado)
+        </dd>
+    </dl>
+</div>
+<p>
+    @*Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |*@
+    @Html.ActionLink("Regresar <=", "Index")
+</p>
