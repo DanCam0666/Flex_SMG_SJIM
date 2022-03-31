@@ -13,12 +13,6 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Fallas.Area)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Maquinas.Area)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.DiaHora)
         </th>
         <th>
@@ -81,17 +75,13 @@
         <th>
             @Html.DisplayNameFor(model => model.Descripcion)
         </th>
-        <th></th>
+        <th>
+            <p>Text</p>
+        </th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Fallas.Area)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Maquinas.Area)
-        </td>
         <td>
             @Html.DisplayFor(modelItem => item.DiaHora)
         </td>

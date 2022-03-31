@@ -1,0 +1,145 @@
+﻿@model IEnumerable<Flex_SGM.Models.Metricos>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Continuous Improvement / Manpower</h2>
+
+<h3>
+    @Html.ActionLink("Crear Registro Nuevo", "Create")
+</h3>
+<div class="x_panel">
+    <div class="x_content clearfix">
+        <table class="table table-bordered table-striped clearfix" style="width:100%" id="metricos">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DiaHora)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Usuario)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Usuario_area)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Usuario_puesto)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Usuario_responsable)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Descripcion)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Proyectos)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DiaHora)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Usuario)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Usuario_area)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Usuario_puesto)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Usuario_responsable)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Descripcion)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Proyectos)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Editar", "Edit", new { id = item.ID }) |
+                            @Html.ActionLink("Detalles", "Details", new { id = item.ID }) |
+                            @Html.ActionLink("Borrar", "Delete", new { id = item.ID })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+@section Scripts {
+
+    <script>
+
+        function Verify(idx)
+        {
+            $.post("@Url.Action("Verify","Metricos")",{ id:idx} ,function(data){
+                alert(data);
+            });
+        }
+        $(document).ready(function () {
+
+            if (typeof window.stackBottomLeft === 'undefined') {
+                window.stackBottomLeft = {
+                    'dir1': 'up',
+                    'dir2': 'left',
+                    'firstpos1': 25,
+                    'firstpos2': 25
+                };
+            }
+
+            //  var notice2 = PNotify.info({
+              //  title: 'Nuevas Funciones',
+              //  text: 'Existen nuevas funciones de Control de Usuario... Se continua trabajando en el reporte automatico de fallas!',
+              //  stack: window.stackBottomLeft,
+              //  addClass: 'nonblock'
+            //  });
+            $('[data-toggle="tooltip"]').tooltip();
+            $("#Normaldrop").chosen();
+            $('#metricos').DataTable({
+                "dom": 'lBfrtip',
+                "lengthMenu": [[5, 15, 50, -1], ["5", "15", "50", "Todos"]],
+                "buttons": ['copy', 'csv', 'print', 'pdf', 'excel'],
+                "order": [[0, "desc"]],
+                "scrollX": true,
+                "language": {
+                    "sProcessing": "Procesando...",
+                    "sLengthMenu": "Mostrar _MENU_ registros",
+                    "sZeroRecords": "No se encontraron resultados",
+                    "sEmptyTable": "Ningun dato disponible en esta tabla =(",
+                    "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                    "sInfoPostFix": "",
+                    "sSearch": "Buscar:",
+                    "sUrl": "",
+                    "sInfoThousands": ",",
+                    "sLoadingRecords": "Cargando...",
+                    "oPaginate": {
+                        "sFirst": "Primero",
+                        "sLast": "ultimo",
+                        "sNext": "Siguiente",
+                        "sPrevious": "Anterior"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                    },
+                    "buttons": {
+                        "copy": "Copiar",
+                        "colvis": "Visibilidad"
+                    }
+                }
+            });
+        });
+    </script>
+
+}

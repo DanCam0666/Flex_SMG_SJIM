@@ -24,14 +24,14 @@ namespace Flex_SGM.Models
         public string Usuario_puesto { get; set; }
         [Required]
         public int MaquinasID { get; set; }
-        [Required]
+
         [MaxLength(300)]
         [Display(Name = "Descripcion Falla")]
         public string Sintoma { get; set; }
-        [Required]
+
         [Display(Name = "Causa Raiz")]
         public string Causa { get; set; }
-        [Required]
+
         [Display(Name = "Accion Inmediata / Correccion / Contencion")]
         public string AccionCorrectiva { get; set; }
         [MaxLength(150)]

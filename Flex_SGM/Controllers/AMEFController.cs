@@ -3,16 +3,37 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Flex_SGM.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security;
+using System.IO;
+using ClosedXML.Excel;
+using ClosedXML.Extensions;
+using System.Globalization;
 
 namespace Flex_SGM.Controllers
 {
     public class AMEFController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        private ApplicationUserManager _userManager;
+        public ApplicationUserManager UserManager
+        {
+            get
+            {
+                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            }
+            private set
+            {
+                _userManager = value;
+            }
+        }
+
 
         // GET: AMEF
         public ActionResult Index()
@@ -39,8 +60,16 @@ namespace Flex_SGM.Controllers
         // GET: AMEF/Create
         public ActionResult Create()
         {
+            var id = User.Identity.GetUserId();
+            ApplicationUser currentUser = UserManager.FindById(id);
+
+            ViewBag.UserID = new SelectList(db.Users, "Id", "UserFullName");
             ViewBag.FallasID = new SelectList(db.Fallas, "ID", "Area");
             ViewBag.MaquinasID = new SelectList(db.Maquinas, "ID", "Area");
+            Bitacora bitacora = new Bitacora();
+
+            bitacora.Usuario = currentUser.UserFullName;
+            bitacora.DiaHora = DateTime.Now;
             return View();
         }
 

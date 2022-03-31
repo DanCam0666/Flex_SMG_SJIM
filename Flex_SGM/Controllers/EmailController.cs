@@ -49,11 +49,11 @@ namespace Flex_SGM.emaildata
         public void newoil(string Correo, string usuario, string comment)
         {
             try { 
-            var body = "<p>El usuario {0} Genero un OIL y estas como responsable de la actividad!</p><p> La Actividad es:</p><p>{1}</p><p>Recuerda Actualizar los OILS!</p><p>No Responder a este Correo|Do not Reply this Email </p>";
+            var body = "<p>El usuario {0} generó/modificó un OIL/Metrico y estas como responsable de la actividad!</p><p> La descripción de la actividad es:</p><h3>{1}</h3><p>Recuerda actualizar los OILs/Metricos!</p><p>No responder a este correo|Do not reply this email </p>";
             var message = new MailMessage();
             message.To.Add(new MailAddress(Correo));  // replace with valid value 
             message.From = new MailAddress("SJIMBitacora@flexngate.com");  // replace with valid value
-            message.Subject = "Informacion Bitacora, No Responder a este Correo";
+            message.Subject = "Informacion Bitacora, No Responder a éste Correo";
             message.Body = string.Format(body, usuario, comment);
             message.IsBodyHtml = true;
 

@@ -52,6 +52,8 @@ namespace Flex_SGM.Models
 
         public System.Data.Entity.DbSet<Flex_SGM.Models.Bitacora> Bitacoras { get; set; }
 
+        public System.Data.Entity.DbSet<Flex_SGM.Models.Metricos> Metricos { get; set; }
+
         public System.Data.Entity.DbSet<Flex_SGM.Models.OILs> OILs { get; set; }
 
         public System.Data.Entity.DbSet<Flex_SGM.Models.Fallas> Fallas { get; set; }
@@ -65,6 +67,7 @@ namespace Flex_SGM.Models
         public System.Data.Entity.DbSet<Flex_SGM.Models.CalendarioProye> CalendarioProye { get; set; }
 
         public System.Data.Entity.DbSet<Flex_SGM.Models.controlplanos> controlplanos { get; set; }
+
         public System.Data.Entity.DbSet<Flex_SGM.Models.CReclamos> reo { get; set; }
 
         public System.Data.Entity.DbSet<Flex_SGM.Models.ControldeEquipos> ControldeEquipos { get; set; }
