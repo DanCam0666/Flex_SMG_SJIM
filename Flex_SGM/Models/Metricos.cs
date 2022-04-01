@@ -13,7 +13,7 @@ namespace Flex_SGM.Models
         public int ID { get; set; }
 
         [DataType(DataType.DateTime)]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy H:mm}")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy/MM/dd H:mm}")]
         public DateTime DiaHora { get; set; }
 
         [Required]
@@ -52,6 +52,19 @@ namespace Flex_SGM.Models
     {
         public MyViewFallas MyViewFallas { get; set; }
         public Metricos Metricos { get; set; }
+    }
+    public class ChartInfo
+    {
+        public DateTime DiaHora { get; set; }
+        public string Usuario { get; set; }
+        public string Usuario_area { get; set; }
+        public string Usuario_puesto { get; set; }
+        public string Usuario_responsable { get; set; }
+        public string Descripcion { get; set; }
+        public int Proyectos { get; set; }
+        public double Goal { get; set; }
+        public double Calculation { get; set; }
+
     }
 
 

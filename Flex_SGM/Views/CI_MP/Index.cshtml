@@ -40,7 +40,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in Model)
+               @foreach (var item in Model.Where(w=> w.Usuario_area == "Cont_Imprv_ManP"))
                 {
                     <tr>
                         <td>
@@ -75,6 +75,18 @@
         </table>
     </div>
 </div>
+<div class="col-md-12" style="float:left">
+    <div class="x_panel">
+        <div class="x_title">
+            Coninuous Improvement Indicators
+        </div>
+        <div class="x_content">
+            <canvas id="chart_CI" width="100" height="44" "></canvas>
+        </div>
+    </div>
+</div>
+
+
 @section Scripts {
 
     <script>
@@ -140,6 +152,99 @@
                 }
             });
         });
+
+        var barChartData2 =
+        {
+            labels: [@Html.Raw(ViewBag.UserID)], //the names displayed on the x-axis, see images below
+            // labels: ['a','b','c','d','e','f',], //the names displayed on the x-axis, see images below
+            datasets: [{
+                label: 'MTTR Peores 5 maquinas  (Minutos Promedio para Reparar una Falla)',
+                data: [@ViewBag.Datamttr],
+                backgroundColor: ["#af0a0a"],
+                borderWidth: 2
+            }]
+        };
+
+        Chart.helpers.merge(Chart.defaults.global.plugins.datalabels, {
+            align: 'end',
+            anchor: 'end',
+            offset: 1,
+            color: '#6B8CB0'
+        });
+
+        var ctqx2 = document.getElementById('CI_MP_Chart');
+        var myChartqe2 = new Chart(ctqx2, {
+            type: 'bar',
+            data: barChartCI,
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                },
+                legend: {
+                    labels: {
+                        // This more specific font property overrides the global property
+                        fontColor: 'black',
+                        defaultFontSize: 25,
+                    }
+                }
+            }
+        });
+        var barChartCI =
+        {
+            labels: [@Html.Raw(ViewBag.UserID)],
+            datasets: [
+                {
+                    type: 'line',
+                    label: 'Porcentaje Meta',
+                    data:[@ViewBag.data2sgrap2],
+                    backgroundColor: "#8CB06B",
+                    borderColor: "#aa0909",
+                    borderWidth: 2,
+                    fill: false
+                },
+                {
+                    type: 'bar',
+                    label: '% de tiempo perdido por Maquina',
+                    data: [@ViewBag.datasgrap2],
+                    backgroundColor: "#6B8CB0",
+                    borderWidth: 2
+                }
+            ]
+        };
+        var ctx2 = document.getElementById('chart_CI');
+        var myChart2 = new Chart(ctx2, {
+            type: 'horizontalBar',
+            data: barChartData2,
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+        var colorChangeValue = 45; //set this to whatever is the deciding color change value
+        var dataset = myChart2.data.datasets[0];
+        for (var i = 0; i < dataset.data.length; i++) {
+            if (dataset.data[i] > colorChangeValue) {
+                dataset.backgroundColor[i] = "#af0a0a";
+            }
+            else {
+                dataset.backgroundColor[i] = "#0aaf0a";
+            }
+        }
+        myChart2.update();
+
     </script>
 
 }

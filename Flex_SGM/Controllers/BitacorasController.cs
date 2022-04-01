@@ -5259,7 +5259,6 @@ namespace Flex_SGM.Controllers
                                     TarjetasTPM = 0
                                 };
 
-
                             
 
                                 if (simplemaquinam.CantidadFallas1 != 0)

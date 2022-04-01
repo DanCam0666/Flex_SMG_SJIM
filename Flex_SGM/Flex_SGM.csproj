@@ -261,6 +261,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MaquinasController.cs" />
     <Compile Include="Controllers\MatrizDecisionsController.cs" />
+    <Compile Include="Controllers\Metricos1Controller.cs" />
     <Compile Include="Controllers\MetricosController.cs" />
     <Compile Include="Controllers\OILsController.cs" />
     <Compile Include="Controllers\PackagingController.cs" />
@@ -3082,6 +3083,11 @@
     <Content Include="Views\CI_MP\Details.cshtml" />
     <Content Include="Views\CI_MP\Edit.cshtml" />
     <Content Include="Views\CI_MP\Index.cshtml" />
+    <Content Include="Views\Metricos1\Create.cshtml" />
+    <Content Include="Views\Metricos1\Delete.cshtml" />
+    <Content Include="Views\Metricos1\Details.cshtml" />
+    <Content Include="Views\Metricos1\Edit.cshtml" />
+    <Content Include="Views\Metricos1\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
