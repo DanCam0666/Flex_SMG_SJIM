@@ -184,211 +184,128 @@
     </div>
 </body>
 <div class="x_panel">
-    <div class="x_title clearfix">
-        <h2>Inicadores del @ViewBag.dx</h2>
-        <ul class="nav navbar-right">
-            <li>
-                <a class="collapse-link"><i class="fa fa-chevron-down"></i></a>
-            </li>
-        </ul>
-    </div>
-    <div class="x_content">
-        <table class="table table-bordered table-striped" style="width:100%" id="metricox">
-            <thead>
-                <tr>
-                    <td style="width:20%;"><h3>Descripción</h3></td>
-                    <td style="width:20%;"><h3>Responsable</h3></td>
-                    <td style="width:20%;"><h3>Meta</h3></td>
-                    @foreach (var item in ViewBag.data)
-                    {
-                        <td>@item.TiempoLabel</td>
-                    }
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">Safety (H&S)</th>
-                    <th scope="row">Joel Quintana</th>
-                    <th scope="row">0 Incidents</th>
-                    @foreach (var item in ViewBag.data)
-                    {
-                        <td>@item.TiempoMuerto1</td>
-                    }
-                </tr>
-                <tr>
-                    <th scope="row">Scrap</th>
-                    <th scope="row">Erasmo Arellano</th>
-                    <th scope="row">$ 0 /0.25%%</th>
-                    @foreach (var item in ViewBag.data)
-                    {
-                        <td>@item.TiempoMuerto2</td>
-                    }
-                </tr>
-                <tr>
-                    <th scope="row">LPA / Covid</th>
-                    <th scope="row">Miguel Coronado</th>
-                    <th scope="row">100% Completed</th>
-                    @foreach (var item in ViewBag.data)
-                    {
-                        <td>@item.TiempoMuerto3</td>
-                    }
-                </tr>
-                <tr>
-                    <th scope="row">PLM / Launch Matrix</th>
-                    <th scope="row">Armando Prado</th>
-                    <th scope="row">100% Closed on time</th>
-                    @foreach (var item in ViewBag.data)
-                    {
-                        <td>@item.MTTR1</td>
-                    }
-                </tr>
-                <tr>
-                    <th scope="row">GAPS</th>
-                    <th scope="row">(TBD)</th>
-                    <th scope="row">100% Completed</th>
-                    @foreach (var item in ViewBag.data)
-                    {
-                        <td>@item.MTTR2</td>
-                    }
-                </tr>
-                <tr>
-                    <th scope="row">ECN’s / PCR´s</th>
-                    <th scope="row">Zaideth Vasquez</th>
-                    <th scope="row">100% Completed</th>
-                    @foreach (var item in ViewBag.data)
-                    {
-                        <td>@item.MTTR3</td>
-                    }
-                </tr>
-                <tr>
-                    <th scope="row">Capacities</th>
-                    <th scope="row">Adriana Velazquez</th>
-                    <th scope="row">Monthly Report</th>
-                    @foreach (var item in ViewBag.data)
-                    {
-                        <td>@item.MTBF</td>
-                    }
-                </tr>
-                <tr>
-                    <th scope="row">Customer Complaints  ( Eng )</th>
-                    <th scope="row">Donato Salazar</th>
-                    <th scope="row">0 complaints</th>
-                    @foreach (var item in ViewBag.data)
-                    {
-                        <td>@item.MTTR3</td>
-                    }
-                </tr>
-                <tr>
-                    <th scope="row">Lay Out</th>
-                    <th scope="row">Hipolito Gutierrez</th>
-                    <th scope="row">0 differences</th>
-                    @foreach (var item in ViewBag.data)
-                    {
-                        <td>@item.Confiabilidad</td>
-                    }
-                </tr>
-                <tr>
-                    <th scope="row">Continous Improvement / Manpower</th>
-                    <th scope="row">Gabriela Vasquez</th>
-                    <th scope="row">100% Monthly /1 project month</th>
-                    @foreach (var item in ViewBag.data)
-                    {
-                        <td>@item.Disponible1</td>
-                    }
-                </tr>
-                <tr>
-                    <th scope="row">TOC/H&S Audits</th>
-                    <th scope="row">Juan Arvizu</th>
-                    <th scope="row">100%</th>
-                    @foreach (var item in ViewBag.data)
-                    {
-                        <td>@item.FallasT1</td>
-                    }
-                </tr>
-                <tr>
-                    <th scope="row">Customer Score Cards</th>
-                    <th scope="row">Cynthia Alvarez</th>
-                    <th scope="row">3 Ideas p/ person p/ month</th>
-                    @foreach (var item in ViewBag.data)
-                    {
-                        <td>@item.TiempoM1</td>
-                    }
-                </tr>
-                <tr>
-                    <th scope="row">Parts Delivery on time </th>
-                    <th scope="row">Carlos Olvera</th>
-                    <th scope="row">Delivery according to schedule</th>
-                    @foreach (var item in ViewBag.data)
-                    {
-                        <td>@item.MTTR2</td>
-                    }
-                </tr>
-                <tr>
-                    <th scope="row">LIM Inventory & Control</th>
-                    <th scope="row">Victor Bastida</th>
-                    <th scope="row">0% Difference</th>
-                    @foreach (var item in ViewBag.data)
-                    {
-                        <td>@item.FallasT2</td>
-                    }
-                </tr>
-                <tr>
-                    <th scope="row">Quality and H&S 5 min Talk</th>
-                    <th scope="row">Carlos Rodriguez</th>
-                    <th scope="row">100% Completed</th>
-                    @foreach (var item in ViewBag.data)
-                    {
-                        <td>@item.TiempoM2</td>
-                    }
-                </tr>
-                <tr>
-                    <th scope="row">Blue Book Vs CMS</th>
-                    <th scope="row">(TBD)</th>
-                    <th scope="row">98% Accuracy and 100% audits</th>
-                    @foreach (var item in ViewBag.data)
-                    {
-                        <td>@item.Disponible1</td>
-                    }
-                </tr>
-                <tr>
-                    <th scope="row">Red Rabbits</th>
-                    <th scope="row">Hector Salomon</th>
-                    <th scope="row">100% on time & implemented</th>
-                    @foreach (var item in ViewBag.data)
-                    {
-                        <td>@item.FallasT3</td>
-                    }
-                </tr>
-                <tr>
-                    <th scope="row">AMEF</th>
-                    <th scope="row">Manuel Jimenez</th>
-                    <th scope="row">100% Complete</th>
-                    @foreach (var item in ViewBag.data)
-                    {
-                        <td>@item.TiempoM3</td>
-                    }
-                </tr>
-                <tr>
-                    <th scope="row">Packaging Portals</th>
-                    <th scope="row">Antonio Rojas</th>
-                    <th scope="row">100% Approved</th>
-                    @foreach (var item in ViewBag.data)
-                    {
-                        <td>@item.MTTR2</td>
-                    }
-                </tr>
-                <tr>
-                    <th scope="row">Yellow Sheet & BOM´s audited</th>
-                    <th scope="row">Jessica Franco</th>
-                    <th scope="row">100%</th>
-                    @foreach (var item in ViewBag.data)
-                    {
-                        <td>@item.TiempoM3</td>
-                    }
-                </tr>
+        <div class="x_title clearfix">
+            <h2>Inicadores del @ViewBag.dx</h2>
+            <ul class="nav navbar-right">
+                <li>
+                    <a class="collapse-link"><i class="fa fa-chevron-down"></i></a>
+                </li>
+            </ul>
+        </div>
+        <div class="x_content">
+            <table class="table table-bordered table-striped" style="width:100%" id="metricox">
+                <thead>
+                    <tr>
+                        <td style="width:20%;"><h3>Descripción</h3></td>
+                        <td style="width:20%;"><h3>Responsable</h3></td>
+                        <td style="width:20%;"><h3>Meta</h3></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th><p>@Html.ActionLink("Safety H&S", "Index", "Safety_HS")</p></th>
+                        <th scope="row">Joel Quintana</th>
+                        <th scope="row">0 Incidents</th>
+                        </th>
+                    <tr>
+                        <th><p>@Html.ActionLink("Scrap", "Index", "Scrap")</p></th>
+                        <th scope="row">Erasmo Arellano</th>
+                        <th scope="row">$ 0 /0.25%%</th>
+                    </tr>
+                    <tr>
+                        <th><p>@Html.ActionLink("LPA / Covid", "Index", "LPA_COVID")</p></th>
+                        <th scope="row">Miguel Coronado</th>
+                        <th scope="row">100% Completed</th>
+                    </tr>
+                    <tr>
+                        <th><p>@Html.ActionLink("PLM / Launch Matrix", "Index", "PLM")</p></th>
+                        <th scope="row">Armando Prado</th>
+                        <th scope="row">100% Closed on time</th>
+                    </tr>
+                    <tr>
+                        <th><p>@Html.ActionLink("GAPs", "Index", "GAPs")</p></th>
+                        <th scope="row">(TBD)</th>
+                        <th scope="row">100% Completed</th>
+                    </tr>
+                    <tr>
+                        <th><p>@Html.ActionLink("ECN’s / PCR´s", "Index", "ECNs_PCRs")</p></th>
+                        <th scope="row">Zaideth Vasquez</th>
+                        <th scope="row">100% Completed</th>
+                    </tr>
+                    <tr>
+                        <th><p>@Html.ActionLink("Capacities", "Index", "Capacities")</p></th>
+                        <th scope="row">Adriana Velazquez</th>
+                        <th scope="row">Monthly Report</th>
+                    </tr>
+                    <tr>
+                        <th><p>@Html.ActionLink("Customer Complaints  ( Eng )", "Index", "Customer_Complaints")</p></th>
+                        <th scope="row">Donato Salazar</th>
+                        <th scope="row">0 complaints</th>
+                    </tr>
+                    <tr>
+                        <th><p>@Html.ActionLink("Lay Out", "Index", "Lay_Out")</p></th>
+                        <th scope="row">Hipolito Gutierrez</th>
+                        <th scope="row">0 differences</th>
+                    </tr>
+                    <tr>
+                        <th><p>@Html.ActionLink("Continous Improvement / Manpower", "Index", "CI_MP")</p></th>
+                        <th scope="row">Gabriela Vasquez</th>
+                        <th scope="row">100% Monthly /1 project month</th>
+                    </tr>
+                    <tr>
+                        <th><p>@Html.ActionLink("TOC/H&S Audits", "Index", "TOC_HS_Audits")</p></th>
+                        <th scope="row">Juan Arvizu</th>
+                        <th scope="row">100%</th>
+                    </tr>
+                    <tr>
+                        <th><p>@Html.ActionLink("Customer Score Cards", "Index", "Cust_Score_Cards")</p></th>
+                        <th scope="row">Cynthia Alvarez</th>
+                        <th scope="row">3 Ideas p/ person p/ month</th>
+                    </tr>
+                    <tr>
+                        <th><p>@Html.ActionLink("Parts Delivery on time ", "Index", "Parts_Delivery")</p></th>
+                        <th scope="row">Carlos Olvera</th>
+                        <th scope="row">Delivery according to schedule</th>
+                    </tr>
+                    <tr>
+                        <th><p>@Html.ActionLink("LIM Inventory & Control", "Index", "LIM_Invt_Ctrl")</p></th>
+                        <th scope="row">Victor Bastida</th>
+                        <th scope="row">0% Difference</th>
+                    </tr>
+                    <tr>
+                        <th><p>@Html.ActionLink("Quality and H&S 5 min Talk", "Index", "Quality_HS")</p></th>
+                        <th scope="row">Carlos Rodriguez</th>
+                        <th scope="row">100% Completed</th>
+                    </tr>
+                    <tr>
+                        <th><p>@Html.ActionLink("Blue Book Vs CMS", "Index", "Blue_Book")</p></th>
+                        <th scope="row">(TBD)</th>
+                        <th scope="row">98% Accuracy and 100% audits</th>
+                    </tr>
+                    <tr>
+                        <th><p>@Html.ActionLink("Red Rabbits", "Index", "Red_Rabbits")</p></th>
+                        <th scope="row">Hector Salomon</th>
+                        <th scope="row">100% on time & implemented</th>
+                    </tr>
+                    <tr>
+                        <th><p>@Html.ActionLink("AMEF", "Index", "AMEF")</p></th>
+                        <th scope="row">Manuel Jimenez</th>
+                        <th scope="row">100% Complete</th>
+                    </tr>
+                    <tr>
+                        <th><p>@Html.ActionLink("Packaging Portals", "Index", "Packaging")</p></th>
+                        <th scope="row">Antonio Rojas</th>
+                        <th scope="row">100% Approved</th>
+                    </tr>
+                    <tr>
+                        <th><p>@Html.ActionLink("Yellow Sheet & BOM´s audited", "Index", "Yellow_Sheets")</p></th>
+                        <th scope="row">Jessica Franco</th>
+                        <th scope="row">100%</th>
+                    </tr>
 
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 <div class="x_panel">
