@@ -1,166 +1,250 @@
-﻿@model IEnumerable<Flex_SGM.Models.Bitacora>
+﻿@model IEnumerable<Flex_SGM.Models.Metricos>
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>LIM Inventory & Control</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Fallas.Area)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Maquinas.Area)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DiaHora)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Usuario)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Usuario_area)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Usuario_puesto)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Sintoma)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Causa)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AccionCorrectiva)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Atendio)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Fallaoperacion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Tiempo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Scrap)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Folio)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Verifico)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FechaVerificacion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MttoPreventivo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MttoCorrectivo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MttoMejora)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.noterminado)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.findesemana)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.turno)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Descripcion)
-        </th>
-        <th></th>
-    </tr>
+<h3>
+    @Html.ActionLink("Crear Registro Nuevo", "Create")
+</h3>
+<div class="x_panel">
+    <div class="x_content clearfix">
+        <table class="table table-bordered table-striped clearfix" style="width:100%" id="metricos">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DiaHora)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Usuario)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Usuario_area)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Usuario_puesto)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Usuario_responsable)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Descripcion)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Proyectos)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Where(w => w.Usuario_area == "LIM_Int_Ctrl"))
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DiaHora)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Usuario)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Usuario_area)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Usuario_puesto)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Usuario_responsable)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Descripcion)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Proyectos)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Editar", "Edit", new { id = item.ID }) |
+                            @Html.ActionLink("Detalles", "Details", new { id = item.ID }) |
+                            @Html.ActionLink("Borrar", "Delete", new { id = item.ID })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="col-md-12" style="float:left">
+    <div class="x_panel">
+        <div class="x_title">
+            LIM Inventory & Control Indicators
+        </div>
+        <div class="x_content">
+            <canvas id="chart_Cap" width="100" height="44" "></canvas>
+        </div>
+    </div>
+</div>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Fallas.Area)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Maquinas.Area)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DiaHora)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Usuario)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Usuario_area)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Usuario_puesto)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Sintoma)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Causa)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AccionCorrectiva)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Atendio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Fallaoperacion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Tiempo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Scrap)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Folio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Verifico)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FechaVerificacion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MttoPreventivo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MttoCorrectivo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MttoMejora)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.noterminado)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.findesemana)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.turno)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Descripcion)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
+
+@section Scripts {
+
+    <script>
+
+        function Verify(idx)
+        {
+            $.post("@Url.Action("Verify","Metricos")",{ id:idx} ,function(data){
+                alert(data);
+            });
+        }
+        $(document).ready(function () {
+
+            if (typeof window.stackBottomLeft === 'undefined') {
+                window.stackBottomLeft = {
+                    'dir1': 'up',
+                    'dir2': 'left',
+                    'firstpos1': 25,
+                    'firstpos2': 25
+                };
+            }
+
+            //  var notice2 = PNotify.info({
+              //  title: 'Nuevas Funciones',
+              //  text: 'Existen nuevas funciones de Control de Usuario... Se continua trabajando en el reporte automatico de fallas!',
+              //  stack: window.stackBottomLeft,
+              //  addClass: 'nonblock'
+            //  });
+            $('[data-toggle="tooltip"]').tooltip();
+            $("#Normaldrop").chosen();
+            $('#metricos').DataTable({
+                "dom": 'lBfrtip',
+                "lengthMenu": [[5, 15, 50, -1], ["5", "15", "50", "Todos"]],
+                "buttons": ['copy', 'csv', 'print', 'pdf', 'excel'],
+                "order": [[0, "desc"]],
+                "scrollX": true,
+                "language": {
+                    "sProcessing": "Procesando...",
+                    "sLengthMenu": "Mostrar _MENU_ registros",
+                    "sZeroRecords": "No se encontraron resultados",
+                    "sEmptyTable": "Ningun dato disponible en esta tabla =(",
+                    "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                    "sInfoPostFix": "",
+                    "sSearch": "Buscar:",
+                    "sUrl": "",
+                    "sInfoThousands": ",",
+                    "sLoadingRecords": "Cargando...",
+                    "oPaginate": {
+                        "sFirst": "Primero",
+                        "sLast": "ultimo",
+                        "sNext": "Siguiente",
+                        "sPrevious": "Anterior"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                    },
+                    "buttons": {
+                        "copy": "Copiar",
+                        "colvis": "Visibilidad"
+                    }
+                }
+            });
+        });
+
+        var barChartData2 =
+        {
+            labels: [@Html.Raw(ViewBag.UserID)], //the names displayed on the x-axis, see images below
+            // labels: ['a','b','c','d','e','f',], //the names displayed on the x-axis, see images below
+            datasets: [{
+                label: 'MTTR Peores 5 maquinas  (Minutos Promedio para Reparar una Falla)',
+                data: [@ViewBag.Datamttr],
+                backgroundColor: ["#af0a0a"],
+                borderWidth: 2
+            }]
+        };
+
+        Chart.helpers.merge(Chart.defaults.global.plugins.datalabels, {
+            align: 'end',
+            anchor: 'end',
+            offset: 1,
+            color: '#6B8CB0'
+        });
+
+        var ctqx2 = document.getElementById('Cap_Chart');
+        var myChartqe2 = new Chart(ctqx2, {
+            type: 'bar',
+            data: barChartCI,
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                },
+                legend: {
+                    labels: {
+                        // This more specific font property overrides the global property
+                        fontColor: 'black',
+                        defaultFontSize: 25,
+                    }
+                }
+            }
+        });
+        var barChartCap =
+        {
+            labels: [@Html.Raw(ViewBag.UserID)],
+            datasets: [
+                {
+                    type: 'line',
+                    label: 'Porcentaje Meta',
+                    data:[@ViewBag.data2sgrap2],
+                    backgroundColor: "#8CB06B",
+                    borderColor: "#aa0909",
+                    borderWidth: 2,
+                    fill: false
+                },
+                {
+                    type: 'bar',
+                    label: '% de tiempo perdido por Maquina',
+                    data: [@ViewBag.datasgrap2],
+                    backgroundColor: "#6B8CB0",
+                    borderWidth: 2
+                }
+            ]
+        };
+        var ctx2 = document.getElementById('chart_Cap');
+        var myChart2 = new Chart(ctx2, {
+            type: 'horizontalBar',
+            data: barChartData2,
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+        var colorChangeValue = 45; //set this to whatever is the deciding color change value
+        var dataset = myChart2.data.datasets[0];
+        for (var i = 0; i < dataset.data.length; i++) {
+            if (dataset.data[i] > colorChangeValue) {
+                dataset.backgroundColor[i] = "#af0a0a";
+            }
+            else {
+                dataset.backgroundColor[i] = "#0aaf0a";
+            }
+        }
+        myChart2.update();
+
+    </script>
+
 }
-
-</table>

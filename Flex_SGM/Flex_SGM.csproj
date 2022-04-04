@@ -252,6 +252,7 @@
     <Compile Include="Controllers\eoriginatorsController.cs" />
     <Compile Include="Controllers\ereasonsController.cs" />
     <Compile Include="Controllers\FallasController.cs" />
+    <Compile Include="Controllers\GAPsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IngenieriaController.cs" />
     <Compile Include="Controllers\JuntasController.cs" />
@@ -315,7 +316,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scripts\dayofweek.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="Controllers\GAPsController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Addon\bootstrap-datepicker\css\bootstrap-datepicker.css" />
@@ -2993,11 +2993,6 @@
     <Content Include="Views\Safety_HS\Details.cshtml" />
     <Content Include="Views\Safety_HS\Edit.cshtml" />
     <Content Include="Views\Safety_HS\Index.cshtml" />
-    <Content Include="Views\Scrap\Create.cshtml" />
-    <Content Include="Views\Scrap\Delete.cshtml" />
-    <Content Include="Views\Scrap\Details.cshtml" />
-    <Content Include="Views\Scrap\Edit.cshtml" />
-    <Content Include="Views\Scrap\Index.cshtml" />
     <Content Include="Views\LPA_COVID\Create.cshtml" />
     <Content Include="Views\LPA_COVID\Delete.cshtml" />
     <Content Include="Views\LPA_COVID\Details.cshtml" />
@@ -3088,6 +3083,11 @@
     <Content Include="Views\Metricos1\Details.cshtml" />
     <Content Include="Views\Metricos1\Edit.cshtml" />
     <Content Include="Views\Metricos1\Index.cshtml" />
+    <Content Include="Views\Scrap\Create.cshtml" />
+    <Content Include="Views\Scrap\Delete.cshtml" />
+    <Content Include="Views\Scrap\Details.cshtml" />
+    <Content Include="Views\Scrap\Edit.cshtml" />
+    <Content Include="Views\Scrap\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

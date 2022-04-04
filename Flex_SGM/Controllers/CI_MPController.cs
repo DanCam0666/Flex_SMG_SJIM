@@ -36,7 +36,12 @@ namespace Flex_SGM.Controllers
         // GET: CI_MP
         public async Task<ActionResult> Index()
         {
-            ViewBag.UserID = new SelectList(db.Users, "Id", "UserFullName");
+            var id = User.Identity.GetUserId();
+            ApplicationUser currentUser = UserManager.FindById(id);
+
+            ViewBag.Usuario_responsable = new SelectList(db.Users, "UserFullName", "UserFullName");
+            ViewBag.Usuario_area = new SelectList(Enum.GetValues(typeof(flex_Areasv1)).Cast<flex_Areasv1>().ToList());
+            ViewBag.Usuario_puesto = new SelectList(Enum.GetValues(typeof(flex_Puesto)).Cast<flex_Puesto>().ToList());
 
             return View(await db.Metricos.ToListAsync());
         }

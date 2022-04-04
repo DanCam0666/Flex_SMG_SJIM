@@ -1,4 +1,4 @@
-﻿@model Flex_SGM.Models.Bitacora
+﻿@model Flex_SGM.Models.Metricos
 
 @{
     ViewBag.Title = "Details";
@@ -8,25 +8,9 @@
 <h2>Details</h2>
 
 <div>
-    <h4>Bitacora</h4>
+    <h4>Metricos</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Fallas.Area)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Fallas.Area)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Maquinas.Area)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Maquinas.Area)
-        </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.DiaHora)
         </dt>
@@ -60,131 +44,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Sintoma)
+            @Html.DisplayNameFor(model => model.Usuario_responsable)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Sintoma)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Causa)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Causa)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.AccionCorrectiva)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.AccionCorrectiva)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Atendio)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Atendio)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Fallaoperacion)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Fallaoperacion)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Tiempo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Tiempo)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Scrap)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Scrap)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Folio)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Folio)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Verifico)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Verifico)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FechaVerificacion)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FechaVerificacion)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MttoPreventivo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MttoPreventivo)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MttoCorrectivo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MttoCorrectivo)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MttoMejora)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MttoMejora)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.noterminado)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.noterminado)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.findesemana)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.findesemana)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.turno)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.turno)
+            @Html.DisplayFor(model => model.Usuario_responsable)
         </dd>
 
         <dt>
@@ -193,6 +57,22 @@
 
         <dd>
             @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comentarios)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comentarios)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Proyectos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Proyectos)
         </dd>
 
     </dl>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
@@ -15,32 +16,29 @@ namespace Flex_SGM.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: LIM_Invt_Ctrl
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
-            var bitacoras = db.Bitacoras.Include(b => b.Fallas).Include(b => b.Maquinas);
-            return View(bitacoras.ToList());
+            return View(await db.Metricos.ToListAsync());
         }
 
         // GET: LIM_Invt_Ctrl/Details/5
-        public ActionResult Details(int? id)
+        public async Task<ActionResult> Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Bitacora bitacora = db.Bitacoras.Find(id);
-            if (bitacora == null)
+            Metricos metricos = await db.Metricos.FindAsync(id);
+            if (metricos == null)
             {
                 return HttpNotFound();
             }
-            return View(bitacora);
+            return View(metricos);
         }
 
         // GET: LIM_Invt_Ctrl/Create
         public ActionResult Create()
         {
-            ViewBag.FallasID = new SelectList(db.Fallas, "ID", "Area");
-            ViewBag.MaquinasID = new SelectList(db.Maquinas, "ID", "Area");
             return View();
         }
 
@@ -49,35 +47,31 @@ namespace Flex_SGM.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,DiaHora,Usuario,Usuario_area,Usuario_puesto,MaquinasID,Sintoma,Causa,AccionCorrectiva,Atendio,Fallaoperacion,Tiempo,Scrap,Folio,Verifico,FechaVerificacion,MttoPreventivo,MttoCorrectivo,MttoMejora,noterminado,findesemana,turno,Descripcion,FallasID")] Bitacora bitacora)
+        public async Task<ActionResult> Create([Bind(Include = "ID,DiaHora,Usuario,Usuario_area,Usuario_puesto,Usuario_responsable,Descripcion,Comentarios,Proyectos")] Metricos metricos)
         {
             if (ModelState.IsValid)
             {
-                db.Bitacoras.Add(bitacora);
-                db.SaveChanges();
+                db.Metricos.Add(metricos);
+                await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.FallasID = new SelectList(db.Fallas, "ID", "Area", bitacora.FallasID);
-            ViewBag.MaquinasID = new SelectList(db.Maquinas, "ID", "Area", bitacora.MaquinasID);
-            return View(bitacora);
+            return View(metricos);
         }
 
         // GET: LIM_Invt_Ctrl/Edit/5
-        public ActionResult Edit(int? id)
+        public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Bitacora bitacora = db.Bitacoras.Find(id);
-            if (bitacora == null)
+            Metricos metricos = await db.Metricos.FindAsync(id);
+            if (metricos == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.FallasID = new SelectList(db.Fallas, "ID", "Area", bitacora.FallasID);
-            ViewBag.MaquinasID = new SelectList(db.Maquinas, "ID", "Area", bitacora.MaquinasID);
-            return View(bitacora);
+            return View(metricos);
         }
 
         // POST: LIM_Invt_Ctrl/Edit/5
@@ -85,42 +79,40 @@ namespace Flex_SGM.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,DiaHora,Usuario,Usuario_area,Usuario_puesto,MaquinasID,Sintoma,Causa,AccionCorrectiva,Atendio,Fallaoperacion,Tiempo,Scrap,Folio,Verifico,FechaVerificacion,MttoPreventivo,MttoCorrectivo,MttoMejora,noterminado,findesemana,turno,Descripcion,FallasID")] Bitacora bitacora)
+        public async Task<ActionResult> Edit([Bind(Include = "ID,DiaHora,Usuario,Usuario_area,Usuario_puesto,Usuario_responsable,Descripcion,Comentarios,Proyectos")] Metricos metricos)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(bitacora).State = EntityState.Modified;
-                db.SaveChanges();
+                db.Entry(metricos).State = EntityState.Modified;
+                await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            ViewBag.FallasID = new SelectList(db.Fallas, "ID", "Area", bitacora.FallasID);
-            ViewBag.MaquinasID = new SelectList(db.Maquinas, "ID", "Area", bitacora.MaquinasID);
-            return View(bitacora);
+            return View(metricos);
         }
 
         // GET: LIM_Invt_Ctrl/Delete/5
-        public ActionResult Delete(int? id)
+        public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Bitacora bitacora = db.Bitacoras.Find(id);
-            if (bitacora == null)
+            Metricos metricos = await db.Metricos.FindAsync(id);
+            if (metricos == null)
             {
                 return HttpNotFound();
             }
-            return View(bitacora);
+            return View(metricos);
         }
 
         // POST: LIM_Invt_Ctrl/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            Bitacora bitacora = db.Bitacoras.Find(id);
-            db.Bitacoras.Remove(bitacora);
-            db.SaveChanges();
+            Metricos metricos = await db.Metricos.FindAsync(id);
+            db.Metricos.Remove(metricos);
+            await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }
 
