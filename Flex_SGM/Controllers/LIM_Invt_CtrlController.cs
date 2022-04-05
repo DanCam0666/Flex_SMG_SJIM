@@ -8,12 +8,27 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Flex_SGM.Models;
+using Flex_SGM.emaildata;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
 
 namespace Flex_SGM.Controllers
 {
     public class LIM_Invt_CtrlController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        private ApplicationUserManager _userManager;
+        public ApplicationUserManager UserManager
+        {
+            get
+            {
+                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            }
+            private set
+            {
+                _userManager = value;
+            }
+        }
 
         // GET: LIM_Invt_Ctrl
         public async Task<ActionResult> Index()
@@ -39,7 +54,22 @@ namespace Flex_SGM.Controllers
         // GET: LIM_Invt_Ctrl/Create
         public ActionResult Create()
         {
-            return View();
+            var id = User.Identity.GetUserId();
+            ApplicationUser currentUser = UserManager.FindById(id);
+            Metricos metricos = new Metricos
+            {
+                Usuario = currentUser.UserFullName,
+                DiaHora = DateTime.Now
+            };
+            Console.WriteLine("User: ", currentUser.UserFullName);
+
+            ViewBag.Usuario = currentUser.UserFullName;
+            ViewBag.Usuario_responsable = new SelectList(db.Users, "UserFullName", "UserFullName");
+            ViewBag.Usuario_area = new SelectList(Enum.GetValues(typeof(flex_Areasv1)).Cast<flex_Areasv1>().ToList());
+            ViewBag.Usuario_puesto = new SelectList(Enum.GetValues(typeof(flex_Puesto)).Cast<flex_Puesto>().ToList());
+
+
+            return View(metricos);
         }
 
         // POST: LIM_Invt_Ctrl/Create
@@ -47,14 +77,42 @@ namespace Flex_SGM.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "ID,DiaHora,Usuario,Usuario_area,Usuario_puesto,Usuario_responsable,Descripcion,Comentarios,Proyectos")] Metricos metricos)
+        public async Task<ActionResult> Create([Bind(Include = "ID,DiaHora,Usuario,Usuario_area,Usuario_puesto,Usuario_responsable,Descripcion,Atendio,Proyectos,listarea")] Metricos metricos)
         {
+            var id = User.Identity.GetUserId();
+            ApplicationUser currentUser = UserManager.FindById(id);
+
+            string cuser = "Anonimo";
+            if (currentUser != null)
+                cuser = currentUser.UserFullName;
+
             if (ModelState.IsValid)
             {
+                if (string.IsNullOrEmpty(metricos.Usuario_responsable))
+                    metricos.Usuario_responsable = "-";
+
+                ApplicationUser cUser1 = UserManager.Users.Where(u => u.UserFullName.Contains(metricos.Usuario_responsable)).FirstOrDefault();
+                var scorreo = new EmailController();
+                if (cUser1 != null)
+                {
+                    if (cUser1.Email != null && cUser1.UserFullName != cuser)
+                        if (cUser1.Email.Contains("@flexngate.com"))
+                        {
+                            scorreo.newoil(cUser1.Email, cuser, metricos.Descripcion);
+                        }
+                }
+
                 db.Metricos.Add(metricos);
                 await db.SaveChangesAsync();
+
                 return RedirectToAction("Index");
             }
+
+            ViewBag.UserID = new SelectList(db.Users, "Id", "UserFullName");
+            ViewBag.Usuario = currentUser.UserFullName;
+            ViewBag.Usuario_responsable = new SelectList(db.Users, "UserFullName", "UserFullName");
+            ViewBag.Usuario_area = new SelectList(Enum.GetValues(typeof(flex_Areasv1)).Cast<flex_Areasv1>().ToList());
+            ViewBag.Usuario_puesto = new SelectList(Enum.GetValues(typeof(flex_Puesto)).Cast<flex_Puesto>().ToList());
 
             return View(metricos);
         }

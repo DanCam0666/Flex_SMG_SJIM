@@ -36,8 +36,8 @@ namespace Flex_SGM.Controllers
         // GET: CI_MP
         public async Task<ActionResult> Index()
         {
-            var id = User.Identity.GetUserId();
-            ApplicationUser currentUser = UserManager.FindById(id);
+            //  var id = User.Identity.GetUserId();
+            //  ApplicationUser currentUser = UserManager.FindById(id);
 
             ViewBag.Usuario_responsable = new SelectList(db.Users, "UserFullName", "UserFullName");
             ViewBag.Usuario_area = new SelectList(Enum.GetValues(typeof(flex_Areasv1)).Cast<flex_Areasv1>().ToList());

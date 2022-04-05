@@ -18,6 +18,10 @@ namespace Flex_SGM.Controllers
         // GET: Metricos1
         public async Task<ActionResult> Index()
         {
+            ViewBag.Usuario_responsable = new SelectList(db.Users, "UserFullName", "UserFullName");
+            ViewBag.Usuario_area = new SelectList(Enum.GetValues(typeof(flex_Areasv1)).Cast<flex_Areasv1>().ToList());
+            ViewBag.Usuario_puesto = new SelectList(Enum.GetValues(typeof(flex_Puesto)).Cast<flex_Puesto>().ToList());
+            ViewBag.Metricos = new SelectList(db.Metricos);
             return View(await db.Metricos.ToListAsync());
         }
 
