@@ -5259,7 +5259,6 @@ namespace Flex_SGM.Controllers
                                     TarjetasTPM = 0
                                 };
 
-
                             
 
                                 if (simplemaquinam.CantidadFallas1 != 0)
@@ -6201,7 +6200,7 @@ namespace Flex_SGM.Controllers
         }
 
         public static T Clamp<T>(T value, T min, T max)
-where T : System.IComparable<T>
+        where T : System.IComparable<T>
         {
             T result = value;
             if (value.CompareTo(max) > 0)

@@ -134,11 +134,11 @@ namespace AspnetIdentitySample.Controllers
         // GET: /Users/Create
         public async Task<ActionResult> Create()
         {
-            ViewBag.Departamento = new SelectList(Enum.GetValues(typeof(flex_Departamento)).Cast<flex_Departamento>(), "Departamento");
+            ViewBag.Departamento = new SelectList(Enum.GetValues(typeof(flex_Areas)).Cast<flex_Areas>(), "Departamento");
             //Get the list of Roles
             ViewBag.Puesto = new SelectList(Enum.GetValues(typeof(flex_Puesto)).Cast<flex_Puesto>(), "Puesto");
 
-            ViewBag.Area = new SelectList(Enum.GetValues(typeof(flex_Areas)).Cast<flex_Areas>(), "Areas");
+            ViewBag.Area = new SelectList(Enum.GetValues(typeof(flex_Areasv1)).Cast<flex_Areasv1>(), "Areas");
             ViewBag.RoleId = new SelectList(await RoleManager.Roles.ToListAsync(), "Id", "Name");
             return View();
         }
@@ -208,23 +208,23 @@ namespace AspnetIdentitySample.Controllers
             if(!string.IsNullOrEmpty(user.Puesto)&&!string.IsNullOrEmpty(user.Area)) { 
             var stringp = Enum.Parse(typeof(flex_Puesto), user.Puesto);
 
-            var stringA = Enum.Parse(typeof(flex_Areas), user.Area);
+            var stringA = Enum.Parse(typeof(flex_Areasv1), user.Area);
 
-                var stringd = Enum.Parse(typeof(flex_Departamento), user.Departamento);
+                var stringd = Enum.Parse(typeof(flex_Areas), user.Departamento);
 
                 ViewBag.Puesto = new SelectList(Enum.GetValues(typeof(flex_Puesto)).Cast<flex_Puesto>(), stringp);
 
-            ViewBag.Area = new SelectList(Enum.GetValues(typeof(flex_Areas)).Cast<flex_Areas>(), stringA);
+            ViewBag.Area = new SelectList(Enum.GetValues(typeof(flex_Areasv1)).Cast<flex_Areasv1>(), stringA);
 
-                ViewBag.Departamento = new SelectList(Enum.GetValues(typeof(flex_Departamento)).Cast<flex_Departamento>(), stringd);
+                ViewBag.Departamento = new SelectList(Enum.GetValues(typeof(flex_Areas)).Cast<flex_Areas>(), stringd);
             }
             else
             {
                 ViewBag.Puesto = new SelectList(Enum.GetValues(typeof(flex_Puesto)).Cast<flex_Puesto>());
 
-                ViewBag.Area = new SelectList(Enum.GetValues(typeof(flex_Areas)).Cast<flex_Areas>());
+                ViewBag.Area = new SelectList(Enum.GetValues(typeof(flex_Areasv1)).Cast<flex_Areasv1>());
 
-                ViewBag.Departamento = new SelectList(Enum.GetValues(typeof(flex_Departamento)).Cast<flex_Departamento>());
+                ViewBag.Departamento = new SelectList(Enum.GetValues(typeof(flex_Areas)).Cast<flex_Areas>());
 
             }
 
@@ -261,10 +261,10 @@ namespace AspnetIdentitySample.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ViewBag.Departamento = new SelectList(Enum.GetValues(typeof(flex_Departamento)).Cast<flex_Departamento>(), "Departamento");
+            ViewBag.Departamento = new SelectList(Enum.GetValues(typeof(flex_Areas)).Cast<flex_Areas>(), "Departamento");
             ViewBag.Puesto = new SelectList(Enum.GetValues(typeof(flex_Puesto)).Cast<flex_Puesto>(), "Puesto");
 
-            ViewBag.Area = new SelectList(Enum.GetValues(typeof(flex_Areas)).Cast<flex_Areas>(), "Areas");
+            ViewBag.Area = new SelectList(Enum.GetValues(typeof(flex_Areasv1)).Cast<flex_Areasv1>(), "Areas");
             ViewBag.RoleId = new SelectList(RoleManager.Roles, "Id", "Name");
             var user = await UserManager.FindByIdAsync(id);
             user.UserName = formuser.UserName;

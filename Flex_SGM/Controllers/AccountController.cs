@@ -177,9 +177,9 @@ namespace Flex_SGM.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            ViewBag.Departamento = new SelectList(Enum.GetValues(typeof(flex_Departamento)).Cast<flex_Departamento>(), "Departamento");
+            ViewBag.Departamento = new SelectList(Enum.GetValues(typeof(flex_Areas)).Cast<flex_Areas>(), "Departamento");
             ViewBag.Puesto = new SelectList(Enum.GetValues(typeof(flex_Puesto)).Cast<flex_Puesto>(), "Puesto");
-            ViewBag.Area = new SelectList(Enum.GetValues(typeof(flex_Areas)).Cast<flex_Areas>(), "Areas"); 
+            ViewBag.Area = new SelectList(Enum.GetValues(typeof(flex_Areasv1)).Cast<flex_Areasv1>(), "Areas"); 
             return View();
         }
 
@@ -190,10 +190,10 @@ namespace Flex_SGM.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
-            ViewBag.Departamento = new SelectList(Enum.GetValues(typeof(flex_Departamento)).Cast<flex_Departamento>(), "Departamento");
+            ViewBag.Departamento = new SelectList(Enum.GetValues(typeof(flex_Areas)).Cast<flex_Areas>(), "Departamento");
             ViewBag.Puesto = new SelectList(Enum.GetValues(typeof(flex_Puesto)).Cast<flex_Puesto>(), "Puesto");
 
-            ViewBag.Area = new SelectList(Enum.GetValues(typeof(flex_Areas)).Cast<flex_Areas>(), "Areas");
+            ViewBag.Area = new SelectList(Enum.GetValues(typeof(flex_Areasv1)).Cast<flex_Areasv1>(), "Areas");
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.UserName, Email = model.Email, UserFullName = model.UserFullName, Area = model.Area, Puesto = model.Puesto, Nomina=model.Nomina,Departamento=model.Departamento};
@@ -235,7 +235,7 @@ namespace Flex_SGM.Controllers
         [AllowAnonymous]
         public ActionResult ForgotPassword()
         {
-            ViewBag.Departamento = new SelectList(Enum.GetValues(typeof(flex_Departamento)).Cast<flex_Departamento>(), "Departamento");
+            ViewBag.Departamento = new SelectList(Enum.GetValues(typeof(flex_Areas)).Cast<flex_Areas>(), "Departamento");
             ViewBag.Puesto = new SelectList(Enum.GetValues(typeof(flex_Puesto)).Cast<flex_Puesto>(), "Puesto");
             return View();
         }
