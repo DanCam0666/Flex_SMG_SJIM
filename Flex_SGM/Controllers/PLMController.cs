@@ -33,6 +33,132 @@ namespace Flex_SGM.Controllers
         // GET: PLM
         public async Task<ActionResult> Index()
         {
+            var metricos = db.Metricos.ToList<Metricos>();
+
+            var chartData1 = metricos
+                .OrderByDescending(w => w.DiaHora)
+                .Where(w => w.Usuario_area is "PLM")
+                .Where(m => m.DiaHora.Year == DateTime.Now.Year)
+                .Where(w => w.DiaHora.Month == 1)
+                .GroupBy(w => w.Usuario_responsable)
+                .Select(w => w.Sum(t => t.Proyectos))
+                .ToList();
+            var chartData2 = metricos
+                .OrderByDescending(w => w.DiaHora)
+                .Where(w => w.Usuario_area is "PLM")
+                .Where(m => m.DiaHora.Year == DateTime.Now.Year)
+                .Where(w => w.DiaHora.Month == 2)
+                .GroupBy(w => w.Usuario_responsable)
+                .Select(w => w.Sum(t => t.Proyectos))
+                .ToList();
+            var chartData3 = metricos
+                .OrderByDescending(w => w.DiaHora)
+                .Where(w => w.Usuario_area is "PLM")
+                .Where(m => m.DiaHora.Year == DateTime.Now.Year)
+                .Where(w => w.DiaHora.Month == 3)
+                .GroupBy(w => w.Usuario_responsable)
+                .Select(w => w.Sum(t => t.Proyectos))
+                .ToList();
+            var chartData4 = metricos
+                .OrderByDescending(w => w.DiaHora)
+                .Where(w => w.Usuario_area is "PLM")
+                .Where(m => m.DiaHora.Year == DateTime.Now.Year)
+                .Where(w => w.DiaHora.Month == 4)
+                .GroupBy(w => w.Usuario_responsable)
+                .Select(w => w.Sum(t => t.Proyectos))
+                .ToList();
+            var chartData5 = metricos
+                .OrderByDescending(w => w.DiaHora)
+                .Where(w => w.Usuario_area is "PLM")
+                .Where(m => m.DiaHora.Year == DateTime.Now.Year)
+                .Where(w => w.DiaHora.Month == 5)
+                .GroupBy(w => w.Usuario_responsable)
+                .Select(w => w.Sum(t => t.Proyectos))
+                .ToList();
+            var chartData6 = metricos
+                .OrderByDescending(w => w.DiaHora)
+                .Where(w => w.Usuario_area is "PLM")
+                .Where(m => m.DiaHora.Year == DateTime.Now.Year)
+                .Where(w => w.DiaHora.Month == 6)
+                .GroupBy(w => w.Usuario_responsable)
+                .Select(w => w.Sum(t => t.Proyectos))
+                .ToList();
+            var chartData7 = metricos
+                .OrderByDescending(w => w.DiaHora)
+                .Where(w => w.Usuario_area is "PLM")
+                .Where(m => m.DiaHora.Year == DateTime.Now.Year)
+                .Where(w => w.DiaHora.Month == 7)
+                .GroupBy(w => w.Usuario_responsable)
+                .Select(w => w.Sum(t => t.Proyectos))
+                .ToList();
+            var chartData8 = metricos
+                .OrderByDescending(w => w.DiaHora)
+                .Where(w => w.Usuario_area is "PLM")
+                .Where(m => m.DiaHora.Year == DateTime.Now.Year)
+                .Where(w => w.DiaHora.Month == 8)
+                .GroupBy(w => w.Usuario_responsable)
+                .Select(w => w.Sum(t => t.Proyectos))
+                .ToList();
+            var chartData9 = metricos
+                .OrderByDescending(w => w.DiaHora)
+                .Where(w => w.Usuario_area is "PLM")
+                .Where(m => m.DiaHora.Year == DateTime.Now.Year)
+                .Where(w => w.DiaHora.Month == 9)
+                .GroupBy(w => w.Usuario_responsable)
+                .Select(w => w.Sum(t => t.Proyectos))
+                .ToList();
+            var chartData10 = metricos
+                .OrderByDescending(w => w.DiaHora)
+                .Where(w => w.Usuario_area is "PLM")
+                .Where(m => m.DiaHora.Year == DateTime.Now.Year)
+                .Where(w => w.DiaHora.Month == 10)
+                .GroupBy(w => w.Usuario_responsable)
+                .Select(w => w.Sum(t => t.Proyectos))
+                .ToList();
+            var chartData11 = metricos
+                .OrderByDescending(w => w.DiaHora)
+                .Where(w => w.Usuario_area is "PLM")
+                .Where(m => m.DiaHora.Year == DateTime.Now.Year)
+                .Where(w => w.DiaHora.Month == 11)
+                .GroupBy(w => w.Usuario_responsable)
+                .Select(w => w.Sum(t => t.Proyectos))
+                .ToList();
+            var chartData12 = metricos
+                .OrderByDescending(w => w.DiaHora)
+                .Where(w => w.Usuario_area is "PLM")
+                .Where(m => m.DiaHora.Year == DateTime.Now.Year)
+                .Where(w => w.DiaHora.Month == 12)
+                .GroupBy(w => w.Usuario_responsable)
+                .Select(w => w.Sum(t => t.Proyectos))
+                .ToList();
+            var chartLabel = metricos
+                .OrderByDescending(w => w.DiaHora)
+                .Where(w => w.Usuario_area is "PLM")
+                .Where(m => m.DiaHora.Year == DateTime.Now.Year)
+                .GroupBy(w => w.Usuario_responsable)
+                .Select(w => w.Key)
+                .ToList();
+
+            ViewBag.ChartData1 = chartData1;
+            ViewBag.ChartData2 = chartData2;
+            ViewBag.ChartData3 = chartData3;
+            ViewBag.ChartData4 = chartData4;
+            ViewBag.ChartData5 = chartData5;
+            ViewBag.ChartData6 = chartData6;
+            ViewBag.ChartData7 = chartData7;
+            ViewBag.ChartData8 = chartData8;
+            ViewBag.ChartData9 = chartData9;
+            ViewBag.ChartData10 = chartData10;
+            ViewBag.ChartData11 = chartData11;
+            ViewBag.ChartData12 = chartData12;
+            ViewBag.ChartLabel = chartLabel;
+
+
+            ViewBag.Usuario_responsable = new SelectList(db.Users, "UserFullName", "UserFullName");
+            ViewBag.Usuario_area = new SelectList(Enum.GetValues(typeof(flex_Areasv1)).Cast<flex_Areasv1>().ToList());
+            ViewBag.Usuario_puesto = new SelectList(Enum.GetValues(typeof(flex_Puesto)).Cast<flex_Puesto>().ToList());
+
+
             return View(await db.Metricos.ToListAsync());
         }
 
@@ -51,6 +177,7 @@ namespace Flex_SGM.Controllers
             return View(metricos);
         }
 
+        [Authorize]
         // GET: PLM/Create
         public ActionResult Create()
         {
@@ -117,6 +244,7 @@ namespace Flex_SGM.Controllers
             return View(metricos);
         }
 
+        [Authorize]
         // GET: PLM/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {
@@ -148,6 +276,7 @@ namespace Flex_SGM.Controllers
             return View(metricos);
         }
 
+        [Authorize]
         // GET: PLM/Delete/5
         public async Task<ActionResult> Delete(int? id)
         {

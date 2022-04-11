@@ -43,9 +43,11 @@ namespace Flex_SGM.Models
         public string Comentarios { get; set; }
 
         [Required]
-        [Display(Name = "Cuantas Proyectos")]
+        [Display(Name = "Cantidad")]
         [RegularExpression(@"^\d{1,6}$", ErrorMessage = "Solo numeros enteros positivos y menos de 7 digitos")]
         public int Proyectos { get; set; }
+
+        public virtual Maquinas Maquinas { get; set; }
 
     }
     public class MyViewMetricos

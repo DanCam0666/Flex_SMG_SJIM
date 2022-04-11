@@ -34,13 +34,16 @@
                         @Html.DisplayNameFor(model => model.Descripcion)
                     </th>
                     <th>
+                        @Html.DisplayNameFor(model => model.Comentarios)
+                    </th>
+                    <th>
                         @Html.DisplayNameFor(model => model.Proyectos)
                     </th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-               @foreach (var item in Model.Where(w=> w.Usuario_area == "Cont_Imprv_ManP"))
+                @foreach (var item in Model.Where(w => w.Usuario_area == "Cont_Imprv_ManP"))
                 {
                     <tr>
                         <td>
@@ -60,6 +63,9 @@
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Descripcion)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Comentarios)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Proyectos)
@@ -153,18 +159,108 @@
             });
         });
 
+
         new Chart(document.getElementById("bar-chart-horizontal"), {
             type: 'horizontalBar',
             data: {
-                labels: ["Adriana Velazquez Garcia", "Ana Zaideth Vazquez Robles", "Carlos Manuel Carapia Murillo", "Carlos Horacio Rodriguez Grimaldo",
-                    "Cynthia Veronica Alvarez Figueroa", "Donato Salazar Jimenez", "Vicente Olvera Gonzalez", "Hector Salomon Bucio", "Hipolito Gutierrez Salazar",
-                "Ismael Galindo Muñoz"],
+                labels: @Html.Raw(Json.Encode(ViewBag.ChartLabel)),
 
                 datasets: [
                     {
-                        label: "Proyectos Creados",
-                        backgroundColor: ["#3cba9f", "#3cba9f", "#3cba9f", "#3cba9f", "#3cba9f", "#3cba9f", "#3cba9f", "#3cba9f", "#3cba9f", "#3cba9f"],
-                        data: [7, 10, 0, 5, 6, 8, 4, 7, 5, 6]
+                        label: "Enero",
+                        backgroundColor: 'rgba(255, 26, 104, 0.2)',
+                        borderColor: "rgba(26,179,148,0.7)",
+                        pointBackgroundColor: "rgba(26,179,148,1)",
+                        pointBorderColor: "#fff",
+                        data: @Html.Raw(Json.Encode(ViewBag.ChartData1)),
+                    },
+                    {
+                        label: "Febrero",
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        borderColor: "rgba(26,179,148,0.7)",
+                        pointBackgroundColor: "rgba(26,179,148,1)",
+                        pointBorderColor: "#fff",
+                        data: @Html.Raw(Json.Encode(ViewBag.ChartData2)),
+                    },
+                    {
+                        label: "Marzo",
+                        backgroundColor: 'rgba(255, 206, 86, 0.2)',
+                        borderColor: "rgba(26,179,148,0.7)",
+                        pointBackgroundColor: "rgba(26,179,148,1)",
+                        pointBorderColor: "#fff",
+                        data: @Html.Raw(Json.Encode(ViewBag.ChartData3)),
+                    },
+                    {
+                        label: "Abril",
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: "rgba(26,179,148,0.7)",
+                        pointBackgroundColor: "rgba(26,179,148,1)",
+                        pointBorderColor: "#fff",
+                        data: @Html.Raw(Json.Encode(ViewBag.ChartData4)),
+                    },
+                    {
+                        label: "Mayo",
+                        backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                        borderColor: "rgba(26,179,148,0.7)",
+                        pointBackgroundColor: "rgba(26,179,148,1)",
+                        pointBorderColor: "#fff",
+                        data: @Html.Raw(Json.Encode(ViewBag.ChartData5)),
+                    },
+                    {
+                        label: "Junio",
+                        backgroundColor: 'rgba(255, 159, 64, 0.2)',
+                        borderColor: "rgba(54, 162, 235, 1)",
+                        pointBackgroundColor: "rgba(26,179,148,1)",
+                        pointBorderColor: "#fff",
+                        data: @Html.Raw(Json.Encode(ViewBag.ChartData6)),
+                    },
+                    {
+                        label: "Julio",
+                        backgroundColor: 'rgba(255, 26, 104, 0.2)',
+                        borderColor: "rgba(26,179,148,0.7)",
+                        pointBackgroundColor: "rgba(26,179,148,1)",
+                        pointBorderColor: "#fff",
+                        data: @Html.Raw(Json.Encode(ViewBag.ChartData7)),
+                    },
+                    {
+                        label: "Agosto",
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        borderColor: "rgba(26,179,148,0.7)",
+                        pointBackgroundColor: "rgba(26,179,148,1)",
+                        pointBorderColor: "#fff",
+                        data: @Html.Raw(Json.Encode(ViewBag.ChartData8)),
+                    },
+                    {
+                        label: "Septiembre",
+                        backgroundColor: 'rgba(255, 206, 86, 0.2)',
+                        borderColor: "rgba(26,179,148,0.7)",
+                        pointBackgroundColor: "rgba(26,179,148,1)",
+                        pointBorderColor: "#fff",
+                        data: @Html.Raw(Json.Encode(ViewBag.ChartData9)),
+                    },
+                    {
+                        label: "Octubre",
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: "rgba(26,179,148,0.7)",
+                        pointBackgroundColor: "rgba(26,179,148,1)",
+                        pointBorderColor: "#fff",
+                        data: @Html.Raw(Json.Encode(ViewBag.ChartData10)),
+                    },
+                    {
+                        label: "Noviembre",
+                        backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                        borderColor: "rgba(26,179,148,0.7)",
+                        pointBackgroundColor: "rgba(26,179,148,1)",
+                        pointBorderColor: "#fff",
+                        data: @Html.Raw(Json.Encode(ViewBag.ChartData11)),
+                    },
+                    {
+                        label: "Diciembre",
+                        backgroundColor: 'rgba(255, 159, 64, 0.2)',
+                        borderColor: "rgba(54, 162, 235, 1)",
+                        pointBackgroundColor: "rgba(26,179,148,1)",
+                        pointBorderColor: "#fff",
+                        data: @Html.Raw(Json.Encode(ViewBag.ChartData12)),
                     }
                 ]
             },
@@ -271,5 +367,4 @@
         myChart2.update();
 
     </script>
-
 }

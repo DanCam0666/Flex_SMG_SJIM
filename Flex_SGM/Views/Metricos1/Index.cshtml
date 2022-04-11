@@ -10,6 +10,7 @@
 </center>
 @using (Html.BeginForm())
 {
+    <a></a>
     <div class="col-md-12" style="width: 100%">
         <div class="x_panel">
             <div class="col-md-3">
@@ -119,7 +120,7 @@
 <body>
     <div class="x_panel">
         <div class="x_content clearfix">
-            <table class="table table-bordered table-striped clearfix" style="width:100%" id="metricos">
+            <table class="table table-bordered table-striped clearfix" id="metricos" style="width: 100%; overflow-x:auto;">
                 <thead>
                     <tr>
                         <th>
@@ -271,7 +272,7 @@
                     <th scope="row">100% Completed</th>
                 </tr>
                 <tr>
-                    <th><p>@Html.ActionLink("PLM / Launch Matrix", "Index", "PLM")</p></th>
+                    <th><p style="background-color: #4cff002d">@Html.ActionLink("PLM / Launch Matrix", "Index", "PLM")</p></th>
                     <th scope="row">Armando Prado</th>
                     <th scope="row">100% Closed on time</th>
                 </tr>
@@ -286,7 +287,7 @@
                     <th scope="row">100% Completed</th>
                 </tr>
                 <tr>
-                    <th><p>@Html.ActionLink("Capacities", "Index", "Capacities")</p></th>
+                    <th><p style="background-color: #4cff002d">@Html.ActionLink("Capacities", "Index", "Capacities")</p></th>
                     <th scope="row">Adriana Velazquez</th>
                     <th scope="row">Monthly Report</th>
                 </tr>
@@ -301,7 +302,7 @@
                     <th scope="row">0 differences</th>
                 </tr>
                 <tr>
-                    <th><p>@Html.ActionLink("Continous Improvement / Manpower", "Index", "CI_MP")</p></th>
+                    <th><p style="background-color: #4cff002d">@Html.ActionLink("Continous Improvement / Manpower", "Index", "CI_MP")</p></th>
                     <th scope="row">Gabriela Vasquez</th>
                     <th scope="row">100% Monthly /1 project month</th>
                 </tr>
@@ -442,6 +443,45 @@
                 alert(data);
             });
         }
+
+        $('[data-toggle="tooltip"]').tooltip();
+        $("#Normaldrop").chosen();
+        $('#metricos').DataTable({
+            "dom": 'lBfrtip',
+            "lengthMenu": [[5, 15, 50, -1], ["5", "15", "50", "Todos"]],
+            "buttons": ['copy', 'csv', 'print', 'pdf', 'excel'],
+            "order": [[0, "desc"]],
+            "scrollX": true,
+            "language": {
+                "sProcessing": "Procesando...",
+                "sLengthMenu": "Mostrar _MENU_ registros",
+                "sZeroRecords": "No se encontraron resultados",
+                "sEmptyTable": "Ningun dato disponible en esta tabla =(",
+                "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                "sInfoPostFix": "",
+                "sSearch": "Buscar:",
+                "sUrl": "",
+                "sInfoThousands": ",",
+                "sLoadingRecords": "Cargando...",
+                "oPaginate": {
+                    "sFirst": "Primero",
+                    "sLast": "ultimo",
+                    "sNext": "Siguiente",
+                    "sPrevious": "Anterior"
+                },
+                "oAria": {
+                    "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                    "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                },
+                "buttons": {
+                    "copy": "Copiar",
+                    "colvis": "Visibilidad"
+                }
+            }
+        });
+
         $(document).ready(function () {
 
             if (typeof window.stackBottomLeft === 'undefined') {
@@ -459,43 +499,6 @@
               //  stack: window.stackBottomLeft,
               //  addClass: 'nonblock'
             //  });
-            $('[data-toggle="tooltip"]').tooltip();
-            $("#Normaldrop").chosen();
-            $('#metricos').DataTable({
-                "dom": 'lBfrtip',
-                "lengthMenu": [[5, 15, 50, -1], ["5", "15", "50", "Todos"]],
-                "buttons": ['copy', 'csv', 'print', 'pdf', 'excel'],
-                "order": [[0, "desc"]],
-                "scrollX": true,
-                "language": {
-                    "sProcessing": "Procesando...",
-                    "sLengthMenu": "Mostrar _MENU_ registros",
-                    "sZeroRecords": "No se encontraron resultados",
-                    "sEmptyTable": "Ningun dato disponible en esta tabla =(",
-                    "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-                    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
-                    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
-                    "sInfoPostFix": "",
-                    "sSearch": "Buscar:",
-                    "sUrl": "",
-                    "sInfoThousands": ",",
-                    "sLoadingRecords": "Cargando...",
-                    "oPaginate": {
-                        "sFirst": "Primero",
-                        "sLast": "ultimo",
-                        "sNext": "Siguiente",
-                        "sPrevious": "Anterior"
-                    },
-                    "oAria": {
-                        "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
-                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-                    },
-                    "buttons": {
-                        "copy": "Copiar",
-                        "colvis": "Visibilidad"
-                    }
-                }
-            });
         });
         var barChartData2 =
         {
