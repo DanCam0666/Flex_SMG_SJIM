@@ -1,0 +1,361 @@
+﻿@model Flex_SGM.Models.MatrizDecision
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutE.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>MatrizDecision</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NivelRiesgo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NivelRiesgo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoCambio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoCambio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.commcliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.commcliente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Arplanta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Arplanta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Aringenieria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Aringenieria)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Armanufactura)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Armanufactura)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Arcalidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Arcalidad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Arfinanzas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Arfinanzas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Arcompras)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Arcompras)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Armateriales)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Armateriales)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Armantenimiento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Armantenimiento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Arseguridad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Arseguridad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Arambiental)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Arambiental)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Artooling)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Artooling)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Arestampado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Arestampado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Arsoldadura)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Arsoldadura)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Arcromo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Arcromo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Arpintura)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Arpintura)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Arensamble)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Arensamble)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ppap)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ppap)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Drw)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Drw)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Spec)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Spec)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pfd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pfd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pfmea)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pfmea)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sw)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sw)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pcp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pcp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Is)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Is)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Msa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Msa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ps)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ps)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sccc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sccc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cpo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cpo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Spo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Spo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Imds)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Imds)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Im)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Im)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mss)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mss)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Va)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Va)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sm)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sm)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ptr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ptr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pdr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pdr)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

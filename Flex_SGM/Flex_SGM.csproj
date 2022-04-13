@@ -232,7 +232,7 @@
     <Compile Include="Controllers\AndonSupervisoresController.cs" />
     <Compile Include="Controllers\BilltoesController.cs" />
     <Compile Include="Controllers\BitacorasController.cs" />
-    <Compile Include="Controllers\Blue_BookController.cs" />
+    <Compile Include="Controllers\BuildinBuildoutController.cs" />
     <Compile Include="Controllers\CalidadController.cs" />
     <Compile Include="Controllers\CAndons2Controller.cs" />
     <Compile Include="Controllers\CAndonsController.cs" />
@@ -3052,11 +3052,11 @@
     <Content Include="Views\Quality_HS\Details.cshtml" />
     <Content Include="Views\Quality_HS\Edit.cshtml" />
     <Content Include="Views\Quality_HS\Index.cshtml" />
-    <Content Include="Views\Blue_Book\Create.cshtml" />
-    <Content Include="Views\Blue_Book\Delete.cshtml" />
-    <Content Include="Views\Blue_Book\Details.cshtml" />
-    <Content Include="Views\Blue_Book\Edit.cshtml" />
-    <Content Include="Views\Blue_Book\Index.cshtml" />
+    <Content Include="Views\BuildinBuildout\Create.cshtml" />
+    <Content Include="Views\BuildinBuildout\Delete.cshtml" />
+    <Content Include="Views\BuildinBuildout\Details.cshtml" />
+    <Content Include="Views\BuildinBuildout\Edit.cshtml" />
+    <Content Include="Views\BuildinBuildout\Index.cshtml" />
     <Content Include="Views\Red_Rabbits\Create.cshtml" />
     <Content Include="Views\Red_Rabbits\Delete.cshtml" />
     <Content Include="Views\Red_Rabbits\Details.cshtml" />

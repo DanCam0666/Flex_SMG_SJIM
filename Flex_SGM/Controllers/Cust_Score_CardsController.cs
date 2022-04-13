@@ -51,6 +51,7 @@ namespace Flex_SGM.Controllers
             return View(metricos);
         }
 
+        [Authorize]
         // GET: Cust_Score_Cards/Create
         public ActionResult Create()
         {
@@ -117,6 +118,7 @@ namespace Flex_SGM.Controllers
             return View(metricos);
         }
 
+        [Authorize]
         // GET: Cust_Score_Cards/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {
@@ -148,6 +150,7 @@ namespace Flex_SGM.Controllers
             return View(metricos);
         }
 
+        [Authorize]
         // GET: Cust_Score_Cards/Delete/5
         public async Task<ActionResult> Delete(int? id)
         {

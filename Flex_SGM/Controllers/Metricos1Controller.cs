@@ -13,13 +13,15 @@ using Microsoft.AspNet.Identity.Owin;
 using System.Globalization;
 using System.IO;
 using ClosedXML.Excel;
+using Flex_SGM.Scripts;
+
 
 
 namespace Flex_SGM.Controllers
 {
     public class Metricos1Controller : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private readonly ApplicationDbContext db = new ApplicationDbContext();
         private ApplicationUserManager _userManager;
         public ApplicationUserManager UserManager
         {
@@ -34,7 +36,7 @@ namespace Flex_SGM.Controllers
         }
 
         // GET: Metricos1
-        public async Task<ActionResult> Index(string amaquina, string maquina, string submaquina, string mgroup, string xmgroup, string btn = "Metricos por Dia", string dti = "", string dtf = "")
+        public async Task<ActionResult> Index(string amaquina, string maquina, string submaquina, string mgroup, string xmgroup, string btn = "Metricos por Mes", string dti = "", string dtf = "")
         {
             var metricos = db.Metricos.ToList<Metricos>();
             var fulldatafiltered = new List<Bitacora>();
@@ -45,8 +47,10 @@ namespace Flex_SGM.Controllers
             var oILs = db.OILs.Include(o => o.Maquinas);
             List<newmetricos2> Ldata = new List<newmetricos2>();
             List<newmetricos3> Ldata3 = new List<newmetricos3>();
-            var fecha = DateTime.Now.AddDays(-7);
-            var fechaf = DateTime.Now;
+            var StartDate = "01/01/" + DateTime.Now.Year + " 00:00:00";
+            var EndDate = "31/12/" + DateTime.Now.Year + " 23:59:00";
+            var fecha = Convert.ToDateTime(StartDate);
+            var fechaf = Convert.ToDateTime(EndDate);
             DateTimeFormatInfo formatoFecha1 = CultureInfo.CurrentCulture.DateTimeFormat;
             string nombreMes1 = formatoFecha1.GetMonthName(fecha.Month);
             string nombreMes2 = formatoFecha1.GetMonthName(fechaf.Month);
@@ -64,7 +68,6 @@ namespace Flex_SGM.Controllers
             var mindia = 480.0d;
             if (!String.IsNullOrEmpty(amaquina) && amaquina != "--Todas--")
             {
-
                 if (amaquina.Contains("Soldadura"))
                 {
                     mindia = 440.0d;
@@ -183,12 +186,14 @@ namespace Flex_SGM.Controllers
                                     ViewBag.dx = "Mes " + nombreMes1 + " al Mes " + nombreMes2;
                                     ViewBag.dxx = " Mes";
                                 }
+
                                 if (btn == "Metricos por Años")
                                 {
                                     thistiempo = iaño.ToString();
                                     ViewBag.dx = " Año:" + fecha.AddYears(-5).ToString("yyyy") + " a el Año:" + fecha.ToString("yyyy");
                                     ViewBag.dxx = " Anual";
                                 }
+
                                 newmetricos3 simplemaquinam = new newmetricos3
                                 {
                                     TiempoLabel = thistiempo,
@@ -214,14 +219,17 @@ namespace Flex_SGM.Controllers
                                 {
                                     simplemaquinam.MTTR1 = simplemaquinam.TiempoMuerto1 / simplemaquinam.CantidadFallas1;
                                 }
+
                                 if (simplemaquinam.CantidadFallas2 != 0)
                                 {
                                     simplemaquinam.MTTR2 = simplemaquinam.TiempoMuerto2 / simplemaquinam.CantidadFallas2;
                                 }
+
                                 if (simplemaquinam.CantidadFallas3 != 0)
                                 {
                                     simplemaquinam.MTTR3 = simplemaquinam.TiempoMuerto3 / simplemaquinam.CantidadFallas3;
                                 }
+
                                 var SumDisponobilidad = simplemaquinam.Disponible1 + simplemaquinam.Disponible2 + simplemaquinam.Disponible3;
                                 simplemaquinam.MTBF = SumDisponobilidad;
                                 if (simplemaquinam.CantidadFallas1 != 0 || simplemaquinam.CantidadFallas2 != 0 || simplemaquinam.CantidadFallas3 != 0)
@@ -233,6 +241,7 @@ namespace Flex_SGM.Controllers
                                     //  simplemaquinam.Confiabilidad = simplemaquinam.MTBF / (simplemaquinam.MTBF + MTTR);
                                     simplemaquinam.Confiabilidad = (simplemaquinam.MTBF - MTTR) / simplemaquinam.MTBF;
                                 }
+
                                 allmaq.Add(simplemaquinam);
                             }
                         }

@@ -1,0 +1,387 @@
+﻿@model Flex_SGM.Models.CAndon
+@{
+    Layout = "~/Views/Shared/_LayoutC.cshtml";
+}
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalles</h2>
+
+<div class="clearfix">
+    <h4>Andon</h4>
+    <hr />
+
+    <div class="col-md-4">
+        <dl class="dl-horizontal">
+
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Fecha)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Fecha)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Turno)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Turno)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.AreaActivacion)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.AreaActivacion)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ZonaActivacion)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ZonaActivacion)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.AuditorArea)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.AuditorArea)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.lote)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.lote)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.cliente)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.cliente)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.proyecto)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.proyecto)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.NombreDeParte)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NombreDeParte)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Defecto1)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Defecto1)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Cantidadpz1)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cantidadpz1)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Preventivos)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Preventivos)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.AreaDefecto)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.AreaDefecto)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SubArea)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SubArea)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.AuditorAreaDefecto)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.AuditorAreaDefecto)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ResponsableAndon)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ResponsableAndon)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.FormatoAndon)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FormatoAndon)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.AlertaCalidad)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.AlertaCalidad)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.MetCertificación)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MetCertificación)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.EstatusAndon)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.EstatusAndon)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Comentarios)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Comentarios)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.a1d)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.a1d)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.a5d)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.a5d)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.a10d)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.a10d)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.a20d)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.a20d)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.a30d)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.a30d)
+            </dd>
+
+
+        </dl>
+        <p>
+            @Html.ActionLink("Editar", "Edit", new { id = Model.ID }) |
+            @Html.ActionLink("Regresar", "Index")
+            <div class="btn btn-default">@Html.ActionLink("Menu Calidad", "Index", "Calidad", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();" })</div>
+
+        </p>
+    </div>
+
+    <div class="col-md-8">
+        <!-- Basic Example -->
+        <div class="col-lg-6 col-md-6 col-sm-12 col-md-12">
+            <div class="x_panel cbr">
+                <div class="x_title">
+                    <center><h3>Condición NG</h3></center>
+                </div>
+                <div class="x_content">
+
+
+                    <div id="carousel-example-generic1" class="carousel slide" data-ride="carousel">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+                            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                        </ol>
+
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner" role="listbox">
+                            @{int i = 0;
+                                string path = Path.Combine(Server.MapPath("~/Evidence/Quality/Andon"), "before", @Model.ID.ToString());
+                                string path2 = Path.Combine("../../Evidence/Quality/Andon", "before", @Model.ID.ToString());
+
+                                DirectoryInfo Folder;
+                                FileInfo[] Images;
+
+
+                                if (Directory.Exists(path))
+                                {
+                                    Folder = new DirectoryInfo(path);
+                                    Images = Folder.GetFiles();
+                                    List<String> imagesList = new List<String>();
+
+                                    for (int ii = 0; ii < Images.Length; ii++)
+                                    {
+                                        imagesList.Add(String.Format(@"{0}\{1}", path2, Images[ii].Name));
+                                        // Console.WriteLine(String.Format(@"{0}/{1}", folderName, Images[i].Name));
+                                    }
+                                    foreach (var item in imagesList)
+                                    {
+                                        i++;
+                                        var active = i == 1 ? "active" : "";
+                                        if (item.ToLower().Contains("jpg") || item.ToLower().Contains("jpeg") || item.ToLower().Contains("png") || item.ToLower().Contains("bmp"))
+                                        {
+                                            <div class="item @active">
+                                                <img src="@Url.Content(@item)">
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <div class="item @active">
+                                                <center>
+                                                    @Html.ActionLink(@item, "Download", "CAndons", new { link = item }, null)
+                                                </center>
+                                            </div>
+                                        }
+                                    }
+                                }
+                            }
+                        </div>
+
+                        <!-- Controls -->
+                        <a class="left carousel-control" href="#carousel-example-generic1" role="button" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#carousel-example-generic1" role="button" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- Basic Example -->
+        <div class="col-lg-6 col-md-6 col-sm-12 col-md-12">
+            <div class="x_panel cbv">
+                <div class="x_title">
+                    <center><h3>Condición OK</h3></center>
+                </div>
+                <div class="x_content">
+
+
+
+                    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+                            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                        </ol>
+
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner" role="listbox">
+                            @{ i = 0;
+                                path = Path.Combine(Server.MapPath("~/Evidence/Quality/Andon"), "after", @Model.ID.ToString());
+                                path2 = Path.Combine("../../Evidence/Quality/Andon", "after", @Model.ID.ToString());
+
+                                if (Directory.Exists(path))
+                                {
+                                    Folder = new DirectoryInfo(path);
+                                    Images = Folder.GetFiles();
+                                    List<String> imagesList = new List<String>();
+
+                                    for (int ii = 0; ii < Images.Length; ii++)
+                                    {
+                                        imagesList.Add(String.Format(@"{0}\{1}", path2, Images[ii].Name));
+                                        // Console.WriteLine(String.Format(@"{0}/{1}", folderName, Images[i].Name));
+                                    }
+                                    foreach (var item in imagesList)
+                                    {
+                                        i++;
+                                        var active = i == 1 ? "active" : "";
+                                        if (item.ToLower().Contains("jpg") || item.ToLower().Contains("jpeg") || item.ToLower().Contains("png") || item.ToLower().Contains("bmp"))
+                                        {
+                                            <div class="item @active">
+                                                <img src="@Url.Content(@item)">
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <div class="item @active">
+                                                <center>
+                                                    @Html.ActionLink(@item, "Download", "CAndons", new { link = item }, null)
+                                                </center>
+                                            </div>
+                                        }
+                                    }
+                                }
+                            }
+                        </div>
+
+                        <!-- Controls -->
+                        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+
+

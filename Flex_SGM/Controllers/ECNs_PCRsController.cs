@@ -51,6 +51,7 @@ namespace Flex_SGM.Controllers
             return View(metricos);
         }
 
+        [Authorize]
         // GET: ECNs_PCRs/Create
         public ActionResult Create()
         {
@@ -117,6 +118,7 @@ namespace Flex_SGM.Controllers
             return View(metricos);
         }
 
+        [Authorize]
         // GET: ECNs_PCRs/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {
@@ -148,6 +150,7 @@ namespace Flex_SGM.Controllers
             return View(metricos);
         }
 
+        [Authorize]
         // GET: ECNs_PCRs/Delete/5
         public async Task<ActionResult> Delete(int? id)
         {

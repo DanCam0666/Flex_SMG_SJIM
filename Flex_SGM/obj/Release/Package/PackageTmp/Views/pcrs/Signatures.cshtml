@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Flex_SGM.Models.FeasibilitySigns>
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutE.cshtml";
+}
+
+<h2>FeasibilitySigns</h2>
+
+<table class="tabled table-bordered table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.pcr.PCRID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dep)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reviewedby_date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reviewedby)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.msg)
+            </th>
+           
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.pcr.PCRID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dep)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Reviewedby_date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Reviewedby)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.msg)
+                </td>
+               
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+
+@section Scripts {
+    <script>
+
+        $(document).ready(function () {
+
+
+        }
+
+    </script>
+}
+

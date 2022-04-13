@@ -1,0 +1,528 @@
+﻿@model IEnumerable<Flex_SGM.Models.Proyectos>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Maquinas.Area)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User_gen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DiaHora)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tipo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Que)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Porque)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Paraque)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Paraquien)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Donde)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cuando)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Conquien)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.conque)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Como)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DiaHora_Cierre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DiaHora_Verificado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Usuario_Verifico)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comentarios)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.urgente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Estatus)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Maquinas.Area)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User_gen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiaHora)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tipo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Que)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Porque)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Paraque)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Paraquien)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Donde)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cuando)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Conquien)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.conque)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Como)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiaHora_Cierre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiaHora_Verificado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Usuario_Verifico)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comentarios)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.urgente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estatus)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
+
+</table>
+<div class="col-xs-12 clearfix">
+    <div class="x_panel col-xs-6">
+        <div id='calender'></div>
+    </div>
+</div>
+
+    <div id="myModal" class="modal fade clearfix" role="dialog">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Test1</h2>
+
+            </div>
+            <div class="x_content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title"><span id="eventTitle"></span></h4>
+                </div>
+                <div class="modal-body">
+                    <button id="btnDelete" class="btn btn-default btn-sm pull-right">
+                        <span class="glyphicon glyphicon-remove"></span> Eliminar
+                    </button>
+                    <button id="btnEdit" class="btn btn-default btn-sm pull-right" style="margin-right:5px;">
+                        <span class="glyphicon glyphicon-pencil"></span> Editar
+                    </button>
+                    <p id="pDetails"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="myModalSave" class="modal fade clearfix" role="dialog">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Test2</h2>
+
+            </div>
+            <div class="x_content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Guardar Evento</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="col-md-12 form-horizontal">
+                        <input type="hidden" id="hdEventID" value="0" />
+                        <div class="form-group">
+                            <label>Titulo</label>
+                            <input type="text" id="txtSubject" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label>Dia Inicio</label>
+                            <div class="input-group date" id="dtp1">
+                                <input type="text" id="txtStart" class="form-control" />
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="checkbox">
+                                <label><input type="checkbox" id="chkIsFullDay" checked="checked" />  El Evento es todo el dia?</label>
+                            </div>
+                        </div>
+                        <div class="form-group" id="divEndDate" style="display:none">
+                            <label>Dia Final</label>
+                            <div class="input-group date" id="dtp2">
+                                <input type="text" id="txtEnd" class="form-control" />
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Descripcion</label>
+                            <textarea id="txtDescription" rows="3" class="form-control"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Color del Evento</label>
+                            <select id="ddThemeColor" class="form-control">
+                                <option value="">Por defecto </option>
+                                <option value="red">Rojo</option>
+                                <option value="blue">Azul</option>
+                                <option value="black">Negro</option>
+                                <option value="green">Verde</option>
+                            </select>
+                        </div>
+                        <button type="button" id="btnSave" class="btn btn-success">Guardar</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @section Scripts {
+
+        <script>
+
+            $(document).ready(function () {
+                var calendarEl = document.getElementById('calender');
+                var calendar = new FullCalendar.Calendar(calendarEl, {
+                    plugins: ['interaction', 'dayGrid', 'timeGrid', 'list'],
+                    header: {
+                        left: 'prev,next today',
+                        center: 'title',
+                        right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+                    },
+                    contentHeight: 700,
+                    defaultDate: new Date(),
+                    locale: 'es',
+                    timeFormat: 'h(:mm)a',
+                    navLinks: true, // can click day/week names to navigate views
+                    weekNumbers: true,
+                    weekNumbersWithinDays: true,
+                    weekNumberCalculation: 'ISO',
+                    eventLimit: true,
+                    eventColor: '#378006',
+                    events: events,
+                    eventClick: function (calEvent) {
+
+                        selectedEvent = {
+                            id: calEvent.event.id,
+                            title: calEvent.event.title,
+                            description: calEvent.event.description,
+                            start: moment(calEvent.event.start).format('DD/MM/YYYY HH:mm A'),
+                            end: moment(calEvent.event.end).format('DD/MM/YYYY HH:mm A'),
+                            allDay: calEvent.event.allDay,
+                            color: calEvent.event.color
+                        };
+                        $('#myModal #eventTitle').text(calEvent.event.title);
+                        var $description = $('<div/>');
+                        $description.append($('<p/>').html('<b>Dia de Inicio:</b>' + moment(calEvent.event.start).format('DD/MM/YYYY HH:mm A')));
+                        if (calEvent.end != null) {
+                            $description.append($('<p/>').html('<b>Dia Final:</b>' + moment(calEvent.event.end).format('DD/MM/YYYY HH:mm A')));
+                        }
+                        $description.append($('<p/>').html('<b>Descripcion:</b>' + calEvent.event.description));
+                        $('#myModal #pDetails').empty().html($description);
+
+                        $('#myModal').modal();
+                    },
+                    selectable: true,
+                    selectMirror: true,
+                    select: function (arg) {
+                        selectedEvent = {
+                            eventID: 0,
+                            title: '',
+                            description: '',
+                            start: moment(arg.start).format('DD/MM/YYYY HH:mm A'),
+                            end: moment(arg.end).format('DD/MM/YYYY HH:mm A'),
+                            allDay: false,
+                            color: ''
+                        };
+                        openAddEditForm();
+
+                    },
+                    editable: true,
+                    eventDrop: function (event) {
+                        var data = {
+                            EventID: event.event.eventID,
+                            Subject: event.event.title,
+                            Start: moment(event.event.start).format('DD/MM/YYYY HH:mm A'),
+                            End: event.event.end != null ? moment(event.event.end).format('DD/MM/YYYY HH:mm A') : null,
+                            Description: event.event.description,
+                            ThemeColor: event.event.color,
+                            IsFullDay: event.event.allDay
+                        };
+                        SaveEvent(data);
+                    }
+                })
+                var events = [];
+                var selectedEvent = null;
+                FetchEventAndRenderCalendar();
+                function FetchEventAndRenderCalendar() {
+                    events = [];
+                    $.ajax({
+                        type: "GET",
+                        url: "../Proyectos/GetEvents",
+                        success: function (data) {
+                            $.each(data, function (i, v) {
+                                events.push({
+                                    id: v.EventID,
+                                    title: v.Subject,
+                                    description: v.Description,
+                                    start: moment(v.Start).toISOString(),
+                                    end: v.End != null ? moment(v.End).toISOString() : null,
+                                    color: v.ThemeColor,
+                                    allDay: v.IsFullDay,
+                                    daysOfWeek: v.daysOfWeek,
+                                });
+                            })
+
+                            GenerateCalender(events);
+                        },
+                        error: function (error) {
+                            alert('Ocurrio un Fallo');
+                        }
+                    })
+                }
+
+                function GenerateCalender(events) {
+                    calendar.destroy();
+                    calendar = new FullCalendar.Calendar(calendarEl, {
+                        plugins: ['interaction', 'dayGrid', 'timeGrid', 'list'],
+                        header: {
+                            left: 'prev,next today',
+                            center: 'title',
+                            right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+                        },
+                        contentHeight: 400,
+                        defaultDate: new Date(),
+                        locale: 'es',
+                        timeFormat: 'h(:mm)a',
+                        navLinks: true, // can click day/week names to navigate views
+                        weekNumbers: true,
+                        weekNumbersWithinDays: true,
+                        weekNumberCalculation: 'ISO',
+                        eventLimit: true,
+                        eventColor: '#378006',
+                        events: events,
+                        eventClick: function (calEvent) {
+                            selectedEvent = {
+                                id: calEvent.event.id,
+                                title: calEvent.event.title,
+                                description: calEvent.event.extendedProps.description,
+                                start: moment(calEvent.event.start).format('DD/MM/YYYY HH:mm A'),
+                                end: moment(calEvent.event.end).format('DD/MM/YYYY HH:mm A'),
+                                allDay: calEvent.event.allDay,
+                                color: calEvent.event.color
+                            };
+                            $('#myModal #eventTitle').text(calEvent.event.title);
+                            var $description = $('<div/>');
+                            $description.append($('<p/>').html('<b>Dia de Inicio:</b>' + moment(calEvent.event.start).format('DD/MM/YYYY HH:mm A')));
+                            if (calEvent.end != null) {
+                                $description.append($('<p/>').html('<b>Dia Final:</b>' + moment(calEvent.event.end).format('DD/MM/YYYY HH:mm A')));
+                            }
+                            $description.append($('<p/>').html('<b>Descripcion:</b>' + calEvent.event.extendedProps.description));
+                            $('#myModal #pDetails').empty().html($description);
+
+                            $('#myModal').modal();
+                        },
+                        selectable: true,
+                        selectMirror: true,
+                        select: function (arg) {
+                            selectedEvent = {
+                                id: 0,
+                                title: '',
+                                description: '',
+                                start: moment(arg.start).format('DD/MM/YYYY HH:mm A'),
+                                end: moment(arg.end).format('DD/MM/YYYY HH:mm A'),
+                                allDay: false,
+                                color: ''
+                            };
+                            openAddEditForm();
+
+                        },
+                        editable: true,
+                        eventDrop: function (event) {
+                            var data = {
+                                EventID: event.event.id,
+                                Subject: event.event.title,
+                                Start: moment(event.event.start).format('DD/MM/YYYY HH:mm A'),
+                                End: event.event.end != null ? moment(event.event.end).format('DD/MM/YYYY HH:mm A') : null,
+                                Description: event.event.extendedProps.description,
+                                ThemeColor: event.event.color,
+                                IsFullDay: event.event.allDay
+                            };
+                            SaveEvent(data);
+                        }
+                    })
+                    calendar.render();
+                }
+
+                $('#btnEdit').click(function () {
+                    //Open modal dialog for edit event
+                    openAddEditForm();
+                })
+                $('#btnDelete').click(function () {
+                    if (selectedEvent != null && confirm('Estas Seguro?')) {
+                        $.ajax({
+                            type: "POST",
+                            url: '../Proyectos/DeleteEvent',
+                            data: { 'eventID': selectedEvent.id },
+                            success: function (data) {
+                                if (data.status) {
+                                    //Refresh the calender
+                                    FetchEventAndRenderCalendar();
+                                    $('#myModal').modal('hide');
+                                }
+                            },
+                            error: function () {
+                                alert('Ocurrio un fallo');
+                            }
+                        })
+                    }
+                })
+
+                $('#dtp1,#dtp2').datetimepicker({
+                    format: 'DD/MM/YYYY HH:mm A'
+                });
+
+                $('#chkIsFullDay').change(function () {
+                    if ($(this).is(':checked')) {
+                        $('#divEndDate').hide();
+                    }
+                    else {
+                        $('#divEndDate').show();
+                    }
+                });
+
+                function openAddEditForm() {
+                    if (selectedEvent != null) {
+                        $('#hdEventID').val(selectedEvent.id);
+                        $('#txtSubject').val(selectedEvent.title);
+                        $('#txtStart').val(selectedEvent.start);
+                        $('#chkIsFullDay').prop("checked", selectedEvent.allDay || false);
+                        $('#chkIsFullDay').change();
+                        $('#txtEnd').val(selectedEvent.end != null ? selectedEvent.end : '');
+                        $('#txtDescription').val(selectedEvent.description);
+                        $('#ddThemeColor').val(selectedEvent.color);
+                    }
+                    $('#myModal').modal('hide');
+                    $('#myModalSave').modal();
+                }
+
+                $('#btnSave').click(function () {
+                    //Validation/
+                    if ($('#txtSubject').val().trim() == "") {
+                        alert('Titulo Requerido');
+                        return;
+                    }
+                    if ($('#txtStart').val().trim() == "") {
+                        alert('Dia Inicial Requerido');
+                        return;
+                    }
+                    if ($('#chkIsFullDay').is(':checked') == false && $('#txtEnd').val().trim() == "") {
+                        alert('Dia Final Requerido');
+                        return;
+                    }
+                    else {
+                        var startDate = moment($('#txtStart').val(), "DD/MM/YYYY HH:mm A").toDate();
+                        var endDate = moment($('#txtEnd').val(), "DD/MM/YYYY HH:mm A").toDate();
+                        if (startDate > endDate) {
+                            alert('Dia Invalido');
+                            return;
+                        }
+                    }
+
+                    var data = {
+                        EventID: $('#hdEventID').val(),
+                        Subject: $('#txtSubject').val().trim(),
+                        Start: $('#txtStart').val().trim(),
+                        End: $('#chkIsFullDay').is(':checked') ? null : $('#txtEnd').val().trim(),
+                        Description: $('#txtDescription').val(),
+                        ThemeColor: $('#ddThemeColor').val(),
+                        IsFullDay: $('#chkIsFullDay').is(':checked')
+                    }
+                    SaveEvent(data);
+                    // call function for submit data to the server
+                })
+
+                function SaveEvent(data) {
+                    $.ajax({
+                        type: "POST",
+                        url: '../Proyectos/SaveEvent',
+                        data: data,
+                        success: function (data) {
+                            if (data.status) {
+                                //Refresh the calender
+                                FetchEventAndRenderCalendar();
+                                $('#myModalSave').modal('hide');
+                            }
+                        },
+                        error: function () {
+                            alert('Ocurrio un fallo ');
+                        }
+                    })
+                }
+
+
+            })
+
+
+        </script>
+    }
