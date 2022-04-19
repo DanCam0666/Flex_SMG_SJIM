@@ -68,6 +68,27 @@ namespace Flex_SGM.Models
         public double Calculation { get; set; }
 
     }
-
+    public class MetricsNew
+    {
+        public string TiempoLabel { get; set; }
+        public int Amef { get; set; }
+        public int BiBo { get; set; }
+        public int Caps { get; set; }
+        public int CoIm { get; set; }
+        public int CuCo { get; set; }
+        public int CuSc { get; set; }
+        public int Ecn { get; set; }
+        public int LaOu { get; set; }
+        public int Lpa { get; set; }
+        public int PaPo { get; set; }
+        public int PaDe { get; set; }
+        public int Plm { get; set; }
+        public int QuHs { get; set; }
+        public int ReRa { get; set; }
+        public int Safe { get; set; }
+        public int ScCo { get; set; }
+        public int Toc { get; set; }
+        public int YeSh { get; set; }
+    }
 
 }

@@ -27,7 +27,7 @@ namespace Flex_SGM.Models
     }
     public enum flex_Puesto
     {
-        Gerente, SuperIntendente, Asistente, Supervisor, Ingeniero, Lider, Tecnico, Aprendiz, FlexNGate
+        Aprendiz, Asistente, FlexNGate, Gerente, Ingeniero, Lider, Superintendente, Supervisor, Tecnico
     }
     public enum flex_Oils
     {

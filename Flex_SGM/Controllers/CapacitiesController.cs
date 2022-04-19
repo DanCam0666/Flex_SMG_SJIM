@@ -39,7 +39,7 @@ namespace Flex_SGM.Controllers
 
             var chartData1 = metricos
                 .OrderByDescending(w => w.DiaHora)
-                .Where(m => m.Usuario_area is "Capacities")
+                .Where(m => m.Usuario_area is "Capacities_Review")
                 .Where(m => m.DiaHora.Year == DateTime.Now.Year)
                 .Where(m => m.DiaHora.Month == 1)
                 .GroupBy(w => w.Usuario_responsable)
@@ -47,7 +47,7 @@ namespace Flex_SGM.Controllers
                 .ToList();
             var chartData2 = metricos
                 .OrderByDescending(w => w.DiaHora)
-                .Where(m => m.Usuario_area is "Capacities")
+                .Where(m => m.Usuario_area is "Capacities_Review")
                 .Where(m => m.DiaHora.Year == DateTime.Now.Year)
                 .Where(m => m.DiaHora.Month == 2)
                 .GroupBy(w => w.Usuario_responsable)
@@ -55,7 +55,7 @@ namespace Flex_SGM.Controllers
                 .ToList();
             var chartData3 = metricos
                 .OrderByDescending(w => w.DiaHora)
-                .Where(m => m.Usuario_area is "Capacities")
+                .Where(m => m.Usuario_area is "Capacities_Review")
                 .Where(m => m.DiaHora.Year == DateTime.Now.Year)
                 .Where(m => m.DiaHora.Month == 3)
                 .GroupBy(w => w.Usuario_responsable)
@@ -63,7 +63,7 @@ namespace Flex_SGM.Controllers
                 .ToList();
             var chartData4 = metricos
                 .OrderByDescending(w => w.DiaHora)
-                .Where(m => m.Usuario_area is "Capacities")
+                .Where(m => m.Usuario_area is "Capacities_Review")
                 .Where(m => m.DiaHora.Year == DateTime.Now.Year)
                 .Where(m => m.DiaHora.Month == 4)
                 .GroupBy(w => w.Usuario_responsable)
@@ -71,7 +71,7 @@ namespace Flex_SGM.Controllers
                 .ToList();
             var chartData5 = metricos
                 .OrderByDescending(w => w.DiaHora)
-                .Where(m => m.Usuario_area is "Capacities")
+                .Where(m => m.Usuario_area is "Capacities_Review")
                 .Where(m => m.DiaHora.Year == DateTime.Now.Year)
                 .Where(m => m.DiaHora.Month == 5)
                 .GroupBy(w => w.Usuario_responsable)
@@ -79,7 +79,7 @@ namespace Flex_SGM.Controllers
                 .ToList();
             var chartData6 = metricos
                 .OrderByDescending(w => w.DiaHora)
-                .Where(m => m.Usuario_area is "Capacities")
+                .Where(m => m.Usuario_area is "Capacities_Review")
                 .Where(m => m.DiaHora.Year == DateTime.Now.Year)
                 .Where(m => m.DiaHora.Month == 6)
                 .GroupBy(w => w.Usuario_responsable)
@@ -87,7 +87,7 @@ namespace Flex_SGM.Controllers
                 .ToList();
             var chartData7 = metricos
                 .OrderByDescending(w => w.DiaHora)
-                .Where(m => m.Usuario_area is "Capacities")
+                .Where(m => m.Usuario_area is "Capacities_Review")
                 .Where(m => m.DiaHora.Year == DateTime.Now.Year)
                 .Where(m => m.DiaHora.Month == 7)
                 .GroupBy(w => w.Usuario_responsable)
@@ -95,7 +95,7 @@ namespace Flex_SGM.Controllers
                 .ToList();
             var chartData8 = metricos
                 .OrderByDescending(w => w.DiaHora)
-                .Where(m => m.Usuario_area is "Capacities")
+                .Where(m => m.Usuario_area is "Capacities_Review")
                 .Where(m => m.DiaHora.Year == DateTime.Now.Year)
                 .Where(m => m.DiaHora.Month == 8)
                 .GroupBy(w => w.Usuario_responsable)
@@ -103,7 +103,7 @@ namespace Flex_SGM.Controllers
                 .ToList();
             var chartData9 = metricos
                 .OrderByDescending(w => w.DiaHora)
-                .Where(m => m.Usuario_area is "Capacities")
+                .Where(m => m.Usuario_area is "Capacities_Review")
                 .Where(m => m.DiaHora.Year == DateTime.Now.Year)
                 .Where(m => m.DiaHora.Month == 9)
                 .GroupBy(w => w.Usuario_responsable)
@@ -111,7 +111,7 @@ namespace Flex_SGM.Controllers
                 .ToList();
             var chartData10 = metricos
                 .OrderByDescending(w => w.DiaHora)
-                .Where(m => m.Usuario_area is "Capacities")
+                .Where(m => m.Usuario_area is "Capacities_Review")
                 .Where(m => m.DiaHora.Year == DateTime.Now.Year)
                 .Where(m => m.DiaHora.Month == 10)
                 .GroupBy(w => w.Usuario_responsable)
@@ -119,7 +119,7 @@ namespace Flex_SGM.Controllers
                 .ToList();
             var chartData11 = metricos
                 .OrderByDescending(w => w.DiaHora)
-                .Where(m => m.Usuario_area is "Capacities")
+                .Where(m => m.Usuario_area is "Capacities_Review")
                 .Where(m => m.DiaHora.Year == DateTime.Now.Year)
                 .Where(m => m.DiaHora.Month == 11)
                 .GroupBy(w => w.Usuario_responsable)
@@ -127,7 +127,7 @@ namespace Flex_SGM.Controllers
                 .ToList();
             var chartData12 = metricos
                 .OrderByDescending(w => w.DiaHora)
-                .Where(m => m.Usuario_area is "Capacities")
+                .Where(m => m.Usuario_area is "Capacities_Review")
                 .Where(m => m.DiaHora.Year == DateTime.Now.Year)
                 .Where(m => m.DiaHora.Month == 12)
                 .GroupBy(w => w.Usuario_responsable)
@@ -135,7 +135,7 @@ namespace Flex_SGM.Controllers
                 .ToList();
             var chartLabel = metricos
                 .OrderByDescending(w => w.DiaHora)
-                .Where(m => m.Usuario_area is "Capacities")
+                .Where(m => m.Usuario_area is "Capacities_Review")
                 .Where(m => m.DiaHora.Year == DateTime.Now.Year)
                 .GroupBy(m => m.Usuario_responsable)
                 .Select(m => m.Key)
