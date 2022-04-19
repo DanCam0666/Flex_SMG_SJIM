@@ -18,7 +18,7 @@ namespace Flex_SGM.Controllers
 {
     public class OILsController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private readonly ApplicationDbContext db = new ApplicationDbContext();
         private ApplicationUserManager _userManager;
         public ApplicationUserManager UserManager
         {

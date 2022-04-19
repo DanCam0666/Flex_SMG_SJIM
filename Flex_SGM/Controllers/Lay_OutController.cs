@@ -51,6 +51,7 @@ namespace Flex_SGM.Controllers
             return View(metricos);
         }
 
+        [Authorize]
         // GET: Lay_Out/Create
         public ActionResult Create()
         {
@@ -117,6 +118,7 @@ namespace Flex_SGM.Controllers
             return View(metricos);
         }
 
+        [Authorize]
         // GET: Lay_Out/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {
@@ -148,6 +150,7 @@ namespace Flex_SGM.Controllers
             return View(metricos);
         }
 
+        [Authorize]
         // GET: Lay_Out/Delete/5
         public async Task<ActionResult> Delete(int? id)
         {

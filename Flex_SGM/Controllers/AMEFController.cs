@@ -52,6 +52,7 @@ namespace Flex_SGM.Controllers
             return View(metricos);
         }
 
+        [Authorize]
         // GET: AMEF/Create
         public ActionResult Create()
         {
@@ -118,6 +119,7 @@ namespace Flex_SGM.Controllers
             return View(metricos);
         }
 
+        [Authorize]
         // GET: AMEF/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {
@@ -149,6 +151,7 @@ namespace Flex_SGM.Controllers
             return View(metricos);
         }
 
+        [Authorize]
         // GET: AMEF/Delete/5
         public async Task<ActionResult> Delete(int? id)
         {

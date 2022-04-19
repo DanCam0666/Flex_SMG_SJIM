@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Blue Book Vs CMS</h2>
+<h2>Build In / Build Out</h2>
 
 <h3>
     @Html.ActionLink("Crear Registro Nuevo", "Create")
@@ -40,7 +40,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in Model.Where(w => w.Usuario_area == "Blue_Book"))
+                @foreach (var item in Model.Where(w => w.Usuario_area == "Build_In_Build_Out"))
                 {
                     <tr>
                         <td>
@@ -78,7 +78,7 @@
 <div class="col-md-12" style="float:left">
     <div class="x_panel">
         <div class="x_title">
-            Blue Book Vs CMS Indicators
+            Build In / Build Out Indicators
         </div>
         <div class="x_content">
             <canvas id="chart_BB" width="100" height="44" "></canvas>

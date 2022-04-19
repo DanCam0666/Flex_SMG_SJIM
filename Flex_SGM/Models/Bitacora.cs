@@ -24,14 +24,11 @@ namespace Flex_SGM.Models
         public string Usuario_puesto { get; set; }
         [Required]
         public int MaquinasID { get; set; }
-
         [MaxLength(300)]
         [Display(Name = "Descripcion Falla")]
         public string Sintoma { get; set; }
-
         [Display(Name = "Causa Raiz")]
         public string Causa { get; set; }
-
         [Display(Name = "Accion Inmediata / Correccion / Contencion")]
         public string AccionCorrectiva { get; set; }
         [MaxLength(150)]
@@ -49,7 +46,6 @@ namespace Flex_SGM.Models
         [Display(Name = "Folio del formato")]
         [MaxLength(12)]
         public string Folio { get; set; }
-
         [MaxLength(50)]
         public string Verifico { get; set; }
         [DataType(DataType.DateTime)]
@@ -67,19 +63,15 @@ namespace Flex_SGM.Models
         public bool findesemana { get; set; }
         [MaxLength(3)]
         public string turno { get; set; }
-  
         [Display(Name = "Codigo de Falla")]
         [MaxLength(200)]
         public string Descripcion { get; set; }
         [ForeignKey("Fallas")]
         [Display(Name = "Codigo de Falla")]
         public int? FallasID { get; set; }
-
-
         public virtual Maquinas Maquinas { get; set; }
         public virtual Fallas Fallas { get; set; }
     }
-
     public class roadmap {
         public string Falla { get; set; }
         public int sumfallas { get; set; }
@@ -97,17 +89,13 @@ namespace Flex_SGM.Models
         public Bitacora Matto_Soldadura { get; set; }
         public Bitacora Metal_Finish { get; set; }
         public Bitacora Ensamble { get; set; }
-
         public Bitacora Automatizacion { get; set; }
     }
-
-
     public class MyViewBitcora
     {
         public MyViewFallas MyViewFallas { get; set; }
         public Bitacora Bitacora { get; set; }
     }
-
     public class newmetricos
     {
         public string Maquina { get; set; }
@@ -128,9 +116,7 @@ namespace Flex_SGM.Models
         public double NewMaxmttr2 { get; set; }
         public double NewMinmtbf3 { get; set; }
         public double NewMaxmttr3 { get; set; }
-
     }
-
     public class newmetricos2
     {
         public double Disponible1 { get; set; }
@@ -152,7 +138,6 @@ namespace Flex_SGM.Models
         public double MTBF { get; set; }
         public double TarjetasTPM { get; set; }
         public double Confiabilidad { get; set; }
-
     }
     public class newmetricos3
     {
@@ -173,7 +158,6 @@ namespace Flex_SGM.Models
         public double MTBF { get; set; }
         public double TarjetasTPM { get; set; }
         public double Confiabilidad { get; set; }
-
     }
     public class newmetricosmaquina
     {
@@ -184,7 +168,5 @@ namespace Flex_SGM.Models
         public double mttr { get; set; }
         public double mtbf { get; set; }    
         public double confiabilidad { get; set; }
-
     }
-
 }

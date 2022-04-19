@@ -14,7 +14,7 @@ using Flex_SGM.emaildata;
 
 namespace Flex_SGM.Controllers
 {
-    public class Blue_BookController : Controller
+    public class BuildinBuildoutController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
         private ApplicationUserManager _userManager;
@@ -31,13 +31,13 @@ namespace Flex_SGM.Controllers
         }
 
 
-        // GET: Blue_Book
+        // GET: Build_In_Build_Out
         public async Task<ActionResult> Index()
         {
             return View(await db.Metricos.ToListAsync());
         }
 
-        // GET: Blue_Book/Details/5
+        // GET: Build_In_Build_Out/Details/5
         public async Task<ActionResult> Details(int? id)
         {
             if (id == null)
@@ -52,7 +52,8 @@ namespace Flex_SGM.Controllers
             return View(metricos);
         }
 
-        // GET: Blue_Book/Create
+        [Authorize]
+        // GET: Build_In_Build_Out/Create
         public ActionResult Create()
         {
             var id = User.Identity.GetUserId();
@@ -73,7 +74,7 @@ namespace Flex_SGM.Controllers
             return View(metricos);
         }
 
-        // POST: Blue_Book/Create
+        // POST: Build_In_Build_Out/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -118,7 +119,8 @@ namespace Flex_SGM.Controllers
             return View(metricos);
         }
 
-        // GET: Blue_Book/Edit/5
+        [Authorize]
+        // GET: Build_In_Build_Out/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
@@ -133,7 +135,7 @@ namespace Flex_SGM.Controllers
             return View(metricos);
         }
 
-        // POST: Blue_Book/Edit/5
+        // POST: Build_In_Build_Out/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -149,7 +151,8 @@ namespace Flex_SGM.Controllers
             return View(metricos);
         }
 
-        // GET: Blue_Book/Delete/5
+        [Authorize]
+        // GET: Build_In_Build_Out/Delete/5
         public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
@@ -164,7 +167,7 @@ namespace Flex_SGM.Controllers
             return View(metricos);
         }
 
-        // POST: Blue_Book/Delete/5
+        // POST: Build_In_Build_Out/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
