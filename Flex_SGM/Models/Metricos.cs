@@ -73,7 +73,9 @@ namespace Flex_SGM.Models
         public string TiempoLabel { get; set; }
         public int Amef { get; set; }
         public int BiBo { get; set; }
-        public int Caps { get; set; }
+        public double Caps { get; set; }
+        public int CapNum { get; set; }
+        public double CapPer { get; set; }
         public int CoIm { get; set; }
         public int CuCo { get; set; }
         public int CuSc { get; set; }

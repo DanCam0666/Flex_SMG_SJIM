@@ -74,8 +74,10 @@ namespace AspnetIdentitySample.Controllers
             List<ApplicationUser> mtt = new List<ApplicationUser>();
             List<ApplicationUser> supers = new List<ApplicationUser>();
             List<ApplicationUser> admins = new List<ApplicationUser>();
+            var userId = User.Identity.GetUserId();
+            ApplicationUser currentUser = UserManager.FindById(userId);
 
-           var ulist= UserManager.Users.ToList();
+            var ulist = UserManager.Users.ToList();
             foreach (var uitem in ulist)
             {
              foreach(var urole in uitem.Roles)
@@ -95,6 +97,15 @@ namespace AspnetIdentitySample.Controllers
                 }
 
             }
+            string cpuesto = "xxx";
+            if (currentUser != null)
+            {
+                cpuesto = currentUser.Puesto;
+            }
+            if (cpuesto.Contains("Super") || cpuesto.Contains("Gerente"))
+                ViewBag.super = true;
+            else
+                ViewBag.super = false;
 
             ViewBag.Usermanager = manager;
             ViewBag.Usermtto = mtt;

@@ -99,16 +99,19 @@ namespace Flex_SGM.Controllers
 
             var id = User.Identity.GetUserId();
             ApplicationUser currentUser = UserManager.FindById(id);
-            if (currentUser.Nomina != "21369") { 
-            string sarea = currentUser.Area;
-            var userId = User.Identity.GetUserId();
-            List<ApplicationUser> allUser = UserManager.Users.Where(u=>u.Area==sarea).OrderBy(u=>u.Puesto).ToList();
+            if ((currentUser.Nomina != "21369") || (currentUser.Nomina != "20177")) 
+            { 
+                string sarea = currentUser.Area;
+                var userId = User.Identity.GetUserId();
+                List<ApplicationUser> allUser = UserManager.Users.Where(u=>u.Area==sarea).OrderBy(u=>u.Puesto).ToList();
                 return View(allUser);
             }
-        else{
-          List<ApplicationUser> allUser = UserManager.Users.OrderBy(u => u.Puesto).ToList();
+            else
+            {
+                List<ApplicationUser> allUser = UserManager.Users.OrderBy(u => u.Puesto).ToList();
                 return View(allUser);
             }
+
            /* foreach(var u in currentUser)
             {
                 Nombre = currentUser.UserFullName,
@@ -122,7 +125,6 @@ namespace Flex_SGM.Controllers
                 BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId),
 
             };*/
-           
         }
         public async Task<ActionResult> Profile(ManageMessageId? message,string name="name")
         {

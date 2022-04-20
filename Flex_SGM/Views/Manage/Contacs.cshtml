@@ -51,10 +51,10 @@
                                             <h3 class="brief"><i>@u.Puesto</i></h3>
                                             <div class="left col-xs-7">
                                                 <h2>@u.UserFullName</h2>
-                                                <p><strong>@u.Puesto de @u.Area </strong></p>
+                                                <p><strong>@u.Puesto de @u.Departamento </strong></p>
                                                 <ul class="list-unstyled">
                                                     <li><i class="fa fa-user"></i> Nomina: @u.Nomina </li>
-                                                    <li><i class="fa fa-industry"></i> Area: @u.Area </li>
+                                                    <li><i class="fa fa-industry"></i> Role: @u.Area </li>
                                                     <li><i class="fa fa-mail-bulk"></i> Email: @u.Email </li>
                                                 </ul>
                                             </div>
@@ -80,8 +80,11 @@
                                                 </button>
                                                 <button type="button" class="btn btn-primary btn-xs" onclick="location.href='@Url.Action("profile", "Manage", new { name=u.UserName})';return false;">
                                                     <i class="fa fa-user"> </i> Ver Perfil
-                                                </button>
-                                                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target=".@u.UserName">  <i class="fa fa-asterisk"> </i> Eliminar Usuario</button>
+                                                </button>   
+                                                @if (ViewBag.super == true)
+                                                {
+                                                    <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target=".@u.UserName">  <i class="fa fa-asterisk"> </i> Eliminar Usuario</button>
+                                                }
                                             </div>
                                         </div>
                                     </div>

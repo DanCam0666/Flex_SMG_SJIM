@@ -83,28 +83,29 @@ namespace Flex_SGM.Controllers
                         }
                     }
                     thistiempo = iaño.ToString() + "-" + nombreMes;
-                    
+
                     MetricsNew data_show = new MetricsNew
                     {
                         TiempoLabel = thistiempo,
-                        Amef = metricos.Where(w => w.Usuario_area == "AMEF_Reverse" && w.DiaHora.Month == jmes).Count(),
-                        BiBo = metricos.Where(w => w.Usuario_area == "Build_In_Build_Out" && w.DiaHora.Month == jmes).Count(),
-                        Caps = metricos.Where(w => w.Usuario_area == "Capacities_Review" && w.DiaHora.Month == jmes).Count(),
-                        CoIm = metricos.Where(w => w.Usuario_area == "Cont_Imprv_ManP" && w.DiaHora.Month == jmes).Count(),
-                        CuCo = metricos.Where(w => w.Usuario_area == "Customer_Complaints" && w.DiaHora.Month == jmes).Count(),
-                        CuSc = metricos.Where(w => w.Usuario_area == "Cust_Score_Cards" && w.DiaHora.Month == jmes).Count(),
-                        Ecn = metricos.Where(w => w.Usuario_area == "ECNs_PCRs" && w.DiaHora.Month == jmes).Count(),
-                        LaOu = metricos.Where(w => w.Usuario_area == "Lay_Outs" && w.DiaHora.Month == jmes).Count(),
-                        Lpa = metricos.Where(w => w.Usuario_area == "LPA_COVID" && w.DiaHora.Month == jmes).Count(),
-                        PaPo = metricos.Where(w => w.Usuario_area == "Packaging" && w.DiaHora.Month == jmes).Count(),
-                        PaDe = metricos.Where(w => w.Usuario_area == "Parts_Delivery" && w.DiaHora.Month == jmes).Count(),
-                        Plm = metricos.Where(w => w.Usuario_area == "PLM" && w.DiaHora.Month == jmes).Count(),
-                        QuHs = metricos.Where(w => w.Usuario_area == "Quality_HS" && w.DiaHora.Month == jmes).Count(),
-                        ReRa = metricos.Where(w => w.Usuario_area == "Red_Rabbits" && w.DiaHora.Month == jmes).Count(),
-                        Safe = metricos.Where(w => w.Usuario_area == "Safety_HS" && w.DiaHora.Month == jmes).Count(),
-                        ScCo = metricos.Where(w => w.Usuario_area == "Scrap" && w.DiaHora.Month == jmes).Count(),
-                        Toc = metricos.Where(w => w.Usuario_area == "TOC_HS_Audits" && w.DiaHora.Month == jmes).Count(),
-                        YeSh = metricos.Where(w => w.Usuario_area == "Yellow_Sheets" && w.DiaHora.Month == jmes).Count(),
+                        Amef = metricos.Where(w => w.Usuario_area == "AMEF_Reverse" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum(),
+                        BiBo = metricos.Where(w => w.Usuario_area == "Build_In_Build_Out" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum(),
+                        Caps = metricos.Where(w => w.Usuario_area == "Capacities_Review" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum(),
+                        CapNum = metricos.Where(w => w.Usuario_area == "Capacities_Review" && w.DiaHora.Month == jmes).Count(),
+                        CoIm = metricos.Where(w => w.Usuario_area == "Cont_Imprv_ManP" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum(),
+                        CuCo = metricos.Where(w => w.Usuario_area == "Customer_Complaints" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum(),
+                        CuSc = metricos.Where(w => w.Usuario_area == "Cust_Score_Cards" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum(),
+                        Ecn = metricos.Where(w => w.Usuario_area == "ECNs_PCRs" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum(),
+                        LaOu = metricos.Where(w => w.Usuario_area == "Lay_Outs" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum(),
+                        Lpa = metricos.Where(w => w.Usuario_area == "LPA_COVID" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum(),
+                        PaPo = metricos.Where(w => w.Usuario_area == "Packaging" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum(),
+                        PaDe = metricos.Where(w => w.Usuario_area == "Parts_Delivery" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum(),
+                        Plm = metricos.Where(w => w.Usuario_area == "PLM" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum(),
+                        QuHs = metricos.Where(w => w.Usuario_area == "Quality_HS" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum(),
+                        ReRa = metricos.Where(w => w.Usuario_area == "Red_Rabbits" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum(),
+                        Safe = metricos.Where(w => w.Usuario_area == "Safety_HS" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum(),
+                        ScCo = metricos.Where(w => w.Usuario_area == "Scrap" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum(),
+                        Toc = metricos.Where(w => w.Usuario_area == "TOC_HS_Audits" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum(),
+                        YeSh = metricos.Where(w => w.Usuario_area == "Yellow_Sheets" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum(),
                     };
                     Ldata.Add(data_show);
                 }
@@ -163,7 +164,7 @@ namespace Flex_SGM.Controllers
             }
             ViewBag.uarea = cuare;
             ViewBag.cuser = cuser;
-            if (cpuesto.Contains("Supervisor") || cpuesto.Contains("Asistente") || cpuesto.Contains("SuperIntendente") || cpuesto.Contains("Gerente"))
+            if (cpuesto.Contains("Supervisor") || cpuesto.Contains("Asistente") || cpuesto.Contains("Superintendente") || cpuesto.Contains("Gerente"))
                 ViewBag.super = true;
             else
                 ViewBag.super = false;

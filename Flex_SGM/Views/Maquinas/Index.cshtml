@@ -4,7 +4,7 @@
     ViewBag.Title = "Maquinas";
 }
 
-<h2>Maquinas</h2>
+<h2>Programas</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -42,48 +42,48 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Ubicacion)
                 </th>
-
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model)
+           @foreach (var item in Model)
             {
-            <tr>
-                <td>
-                    @Html.ActionLink("Editar", "Edit", new { id = item.ID }, new { @class = "btn  btn-success", @target = "_blank" })
-                    @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn  btn-primary", @target = "_blank" })
-                    @Html.ActionLink("Borrar", "Delete", new { id = item.ID }, new { @class = "btn  btn-warning" })
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Area)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Cliente)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Grupo)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Codigo)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Critica)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Maquina)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.SubMaquina)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DiaHora)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Ubicacion)
-                </td>
-
-
-            </tr>
+                <tr>
+                    <td>
+                        @if (ViewBag.super == true)
+                        {
+                            @Html.ActionLink("Editar", "Edit", new { id = item.ID }, new { @class = "btn  btn-success" })
+                            @Html.ActionLink("Borrar", "Delete", new { id = item.ID }, new { @class = "btn  btn-warning" })
+                        }
+                        @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn  btn-primary" })
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Area)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cliente)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Grupo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Codigo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Critica)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Maquina)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SubMaquina)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DiaHora)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Ubicacion)
+                    </td>
+                </tr>
             }
         </tbody>
     </table>
