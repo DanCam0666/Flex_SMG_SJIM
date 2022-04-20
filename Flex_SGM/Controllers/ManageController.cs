@@ -59,14 +59,6 @@ namespace Flex_SGM.Controllers
         // GET: /Manage/Index
         public async Task<ActionResult> Index(ManageMessageId? message)
         {
-            ViewBag.StatusMessage =
-                message == ManageMessageId.ChangePasswordSuccess ? "Su contraseña se ha cambiado."
-                : message == ManageMessageId.SetPasswordSuccess ? "Su contraseña se ha establecido."
-                : message == ManageMessageId.SetTwoFactorSuccess ? "Su proveedor de autenticación de dos factores se ha establecido."
-                : message == ManageMessageId.Error ? "Se ha producido un error."
-                : message == ManageMessageId.AddPhoneSuccess ? "Se ha agregado su numero de teléfono."
-                : message == ManageMessageId.RemovePhoneSuccess ? "Se ha quitado su numero de teléfono."
-                : "";
             var userId = User.Identity.GetUserId();
             ApplicationUser currentUser = UserManager.FindById(userId);
             var model = new IndexViewModel
@@ -82,49 +74,54 @@ namespace Flex_SGM.Controllers
                 BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId),
                 
             };
+            string cpuesto = "xxx";
+            if (currentUser != null)
+            {
+                cpuesto = currentUser.Puesto;
+            }
+            if (cpuesto.Contains("Super") || cpuesto.Contains("Gerente"))
+                ViewBag.super = true;
+            else
+                ViewBag.super = false;
+
+
             return View(model);
         }
 
 
-        public async Task<ActionResult> Contacs(ManageMessageId? message)
+        public ActionResult Contacs()
         {
-            ViewBag.StatusMessage =
-                message == ManageMessageId.ChangePasswordSuccess ? "Su contraseña se ha cambiado."
-                : message == ManageMessageId.SetPasswordSuccess ? "Su contraseña se ha establecido."
-                : message == ManageMessageId.SetTwoFactorSuccess ? "Su proveedor de autenticación de dos factores se ha establecido."
-                : message == ManageMessageId.Error ? "Se ha producido un error."
-                : message == ManageMessageId.AddPhoneSuccess ? "Se ha agregado su numero de teléfono."
-                : message == ManageMessageId.RemovePhoneSuccess ? "Se ha quitado su numero de teléfono."
-                : "";
+            /*ViewBag.StatusMessage =
+                 message == ManageMessageId.ChangePasswordSuccess ? "Su contraseña se ha cambiado."
+                 : message == ManageMessageId.SetPasswordSuccess ? "Su contraseña se ha establecido."
+                 : message == ManageMessageId.SetTwoFactorSuccess ? "Su proveedor de autenticación de dos factores se ha establecido."
+                 : message == ManageMessageId.Error ? "Se ha producido un error."
+                 : message == ManageMessageId.AddPhoneSuccess ? "Se ha agregado su numero de teléfono."
+                 : message == ManageMessageId.RemovePhoneSuccess ? "Se ha quitado su numero de teléfono."
+                 : "";*/
 
             var id = User.Identity.GetUserId();
+
             ApplicationUser currentUser = UserManager.FindById(id);
-            if ((currentUser.Nomina != "21369") || (currentUser.Nomina != "20177")) 
-            { 
-                string sarea = currentUser.Area;
-                var userId = User.Identity.GetUserId();
-                List<ApplicationUser> allUser = UserManager.Users.Where(u=>u.Area==sarea).OrderBy(u=>u.Puesto).ToList();
+            string cpuesto = "xxx";
+            if (currentUser != null)
+            {
+                cpuesto = currentUser.Puesto;
+            }
+            if (cpuesto.Contains("Super") || cpuesto.Contains("Gerente"))
+            {
+                ViewBag.super = true;
+                List<ApplicationUser> allUser = UserManager.Users.OrderBy(u => u.Puesto).ToList();
                 return View(allUser);
             }
             else
             {
-                List<ApplicationUser> allUser = UserManager.Users.OrderBy(u => u.Puesto).ToList();
+                ViewBag.super = false;
+                string sarea = currentUser.Area;
+                var userId = User.Identity.GetUserId();
+                List<ApplicationUser> allUser = UserManager.Users.Where(u => u.Area == sarea).OrderBy(u => u.Puesto).ToList();
                 return View(allUser);
             }
-
-           /* foreach(var u in currentUser)
-            {
-                Nombre = currentUser.UserFullName,
-                Area = currentUser.Area,
-                Puesto = currentUser.Puesto,
-                idusuario = currentUser.UserName,
-                HasPassword = HasPassword(),
-                PhoneNumber = await UserManager.GetPhoneNumberAsync(userId),
-                TwoFactor = await UserManager.GetTwoFactorEnabledAsync(userId),
-                Logins = await UserManager.GetLoginsAsync(userId),
-                BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId),
-
-            };*/
         }
         public async Task<ActionResult> Profile(ManageMessageId? message,string name="name")
         {

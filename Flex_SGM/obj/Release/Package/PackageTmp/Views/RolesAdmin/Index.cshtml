@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Microsoft.AspNet.Identity.EntityFramework.IdentityRole>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Roles Index</h2>
+
+<p>
+    @if (ViewBag.super == true)
+    {
+        @Html.ActionLink("Crear Nuevo", "Create")
+    }
+    </p>
+<table class="tabled table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @if (ViewBag.super == true) { 
+                        @Html.ActionLink("Editar", "Edit", new { id = item.Id })
+                    } |
+                    @Html.ActionLink("Detalles", "Details", new { id = item.Id }) |
+                    @if (ViewBag.super == true) { 
+                        @Html.ActionLink("Borrar", "Delete", new { id = item.Id })
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

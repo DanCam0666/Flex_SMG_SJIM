@@ -1,0 +1,456 @@
+﻿@model Flex_SGM.Models.Perfil
+@{
+    ViewBag.Title = "Perfil";
+}
+<p class="text-success">@ViewBag.StatusMessage</p>
+<div class="right_col" role="main">
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>Perfil de Usuario</h3>
+            </div>
+            <div class="title_right">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search for...">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">Buscar!</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>@Model.Apuser.Puesto de @Model.Apuser.Area</h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li>
+                                <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                        <a href="#">Settings TBD</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <div class="col-md-3 col-sm-3 col-xs-12 profile_left">
+                            <div class="profile_img">
+                                <div id="crop-avatar">
+                                    <!-- Current avatar -->
+                                    <img class="img-responsive avatar-view" src="~/img/user.png" alt="Avatar" title="Change the avatar">
+                                </div>
+                            </div>
+                            <h3>@Model.Apuser.UserFullName</h3>
+                            <ul class="list-unstyled user_data">
+                                <li>
+                                    <i class="fa fa-map-marker user-profile-icon"></i> Flex|N|Gate Mexico
+                                </li>
+                                <li>
+                                    <i class="fa fa-building user-profile-icon"></i> @Model.Apuser.Area
+                                </li>
+                                <li>
+                                    <i class="fa fa-briefcase user-profile-icon"></i> @Model.Apuser.Puesto
+                                </li>
+                            </ul>
+                            <a class="btn btn-success"><i class="fa fa-edit m-right-xs" onclick="location.href='@Url.Action("ChangePassword", "Manage", new { id = Model.Apuser.Id})';return false"></i>Editar Perfil</a>
+                        </div>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <div class="profile_title">
+                                <div class="col-md-4">
+                                    <h3>Reporte de Actividades del Usuario</h3>
+                                </div>
+                            </div>
+                            <!-- start of user-activity-graph -->
+                            <div id="graph_bar" style="width:100%; height:280px;"></div>
+                            <!-- end of user-activity-graph -->
+                            <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                                <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                                    <li role="presentation" class="active">
+                                        <a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Actividad Reciente</a>
+                                    </li>
+                                    <li role="presentation" class="">
+                                        <a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Proyectos en los que trabajo</a>
+                                    </li>
+                                    <li role="presentation" class="">
+                                        <a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Perfil</a>
+                                    </li>
+                                </ul>
+                                <div id="myTabContent" class="tab-content">
+                                    <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
+                                        <!-- start recent activity -->
+                                        <table class="table table-bordered table-striped" id="bitacora">
+                                            <thead>
+                                                <tr>
+                                                    <th style="width:5px;">
+                                                        @Html.DisplayName("ID")
+                                                    </th>
+                                                    <th style="width:140px;">
+                                                        @Html.Label("Menu")
+                                                    </th>
+                                                    <th style="width:10px;">
+                                                        @Html.DisplayNameFor(model => model.bita.FirstOrDefault().DiaHora)
+                                                    </th>
+                                                    <th style="width:10px;">
+                                                        @Html.DisplayName("Usuario")
+                                                    </th>
+                                                    <th style="width:10px;">
+                                                        @Html.DisplayNameFor(model => model.bita.FirstOrDefault().Maquinas.Maquina)
+                                                    </th>
+                                                    <th>
+                                                        @Html.DisplayNameFor(model => model.bita.FirstOrDefault().Sintoma)
+                                                    </th>
+                                                    <th>
+                                                        @Html.DisplayNameFor(model => model.bita.FirstOrDefault().Causa)
+                                                    </th>
+                                                    <th>
+                                                        @Html.DisplayNameFor(model => model.bita.FirstOrDefault().AccionCorrectiva)
+                                                    </th>
+                                                    <th style="width:10px;">
+                                                        @Html.DisplayNameFor(model => model.bita.FirstOrDefault().Tiempo)
+                                                    </th>
+                                                    <th style="width:10px;">
+                                                        @Html.DisplayNameFor(model => model.bita.FirstOrDefault().Folio)
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                               @foreach (var item in Model.bita)
+                                                {
+                                                    <tr>
+                                                        <td>
+                                                            @Html.DisplayFor(modelItem => item.ID)
+                                                        </td>
+                                                        <td>
+                                                            @if (item.FechaVerificacion == null)
+                                                            {@Html.Label("Esperando Verificacion")
+                                                            if (ViewBag.super)
+                                                            {@Html.ActionLink("Verificar", "Verify", new { id = item.ID }) }
+                                                    }
+                                                    else
+                                                    {@Html.Label("Verificada, " + item.Verifico)}
+                                                            @Html.ActionLink("Detalles", "Details", new { id = item.ID })
+                                                            @if (ViewBag.cuser.Contains(item.Usuario))
+                                                            {@Html.ActionLink("Editar", "Edit", new { id = item.ID })}
+                                                            @if (ViewBag.super && ViewBag.uarea.Contains(item.Usuario_area))
+                                                            {@Html.ActionLink("Borrar", "Delete", new { id = item.ID })}
+                                                        </td>
+                                                        <td>
+                                                            @Html.DisplayFor(modelItem => item.DiaHora)
+                                                        </td>
+                                                        <td>
+                                                            @Html.DisplayFor(modelItem => item.Usuario)
+                                                        </td>
+                                                        <td style="width:10px;">
+                                                            @Html.DisplayFor(modelItem => item.Maquinas.Maquina)
+                                                        </td>
+                                                        <td>
+                                                            @Html.DisplayFor(modelItem => item.Sintoma)
+                                                        </td>
+                                                        <td>
+                                                            @Html.DisplayFor(modelItem => item.Causa)
+                                                        </td>
+                                                        <td>
+                                                            @Html.DisplayFor(modelItem => item.AccionCorrectiva)
+                                                        </td>
+                                                        <td>
+                                                            @Html.DisplayFor(modelItem => item.Tiempo)
+                                                        </td>
+                                                        <td>
+                                                            @Html.DisplayFor(modelItem => item.Folio)
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                        <!-- end recent activity -->
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
+                                        <!-- start user projects -->
+                                        <table class="table table-bordered" id="proye">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                        @Html.DisplayNameFor(model => model.oils.FirstOrDefault().Estatus)
+                                                    </th>
+                                                    <th>
+                                                        @Html.DisplayNameFor(model => model.oils.FirstOrDefault().Maquinas.Area)
+                                                    </th>
+                                                    <th>
+                                                        @Html.DisplayNameFor(model => model.oils.FirstOrDefault().Maquinas.Maquina)
+                                                    </th>
+                                                    <th>
+                                                        @Html.DisplayNameFor(model => model.oils.FirstOrDefault().Actividad)
+                                                    </th>
+                                                    <th>
+                                                        @Html.DisplayNameFor(model => model.oils.FirstOrDefault().User_gen)
+                                                    </th>
+                                                    <th>
+                                                        @Html.DisplayNameFor(model => model.oils.FirstOrDefault().DiaHora)
+                                                    </th>
+                                                    <th>
+                                                        @Html.DisplayName("Responsable")
+                                                    </th>
+                                                    <th>
+                                                        @Html.DisplayNameFor(model => model.oils.FirstOrDefault().DiaHora_Compromiso)
+                                                    </th>
+                                                    <th>
+                                                        @Html.DisplayNameFor(model => model.oils.FirstOrDefault().Comentarios)
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                               @foreach (var item in Model.oils)
+                                                {
+                                                    if (item.Estatus == 6)
+                                                    {
+                                                        <tr style="background-color:Tomato;">
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.Estatus)
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.Maquinas.Area)
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.Maquinas.Maquina)
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.Actividad)
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.User_gen)
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.DiaHora)
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.User_res)
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.DiaHora_Compromiso)
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.Comentarios)
+                                                            </td>
+                                                            <td>
+                                                                |@if (ViewBag.cuser.Contains(item.User_res))
+                                                                {@Html.ActionLink("Actualizar", "Update", new { id = item.ID })}|
+                                                                |@Html.ActionLink("Detalles", "Details", new { id = item.ID })|
+                                                            </td>
+
+                                                        </tr>
+                                                    }
+                                                    else
+                                                    {
+                                                        if (item.Estatus == 0 || item.Estatus == 2 || item.Estatus > 6)
+                                                        {
+                                                            <tr style="background-color:lightgray;">
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.Estatus)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.Maquinas.Area)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.Maquinas.Maquina)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.Actividad)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.User_gen)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.DiaHora)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.User_res)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.DiaHora_Compromiso)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.Comentarios)
+                                                                </td>
+                                                                <td>
+                                                                    |@if (ViewBag.cuser.Contains(item.User_res))
+                                                                    {@Html.ActionLink("Actualizar", "Update", new { id = item.ID })}|
+                                                                    |@Html.ActionLink("Detalles", "Details", new { id = item.ID })|
+                                                                </td>
+                                                            </tr>
+                                                        }
+                                                        if (item.Estatus == 3)
+                                                        {
+                                                            <tr class="info">
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.Estatus)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.Maquinas.Area)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.Maquinas.Maquina)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.Actividad)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.User_gen)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.DiaHora)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.User_res)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.DiaHora_Compromiso)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.Comentarios)
+                                                                </td>
+                                                                <td>
+                                                                    |@if (ViewBag.cuser.Contains(item.User_res))
+                                                                    {@Html.ActionLink("Actualizar", "Update", new { id = item.ID })}|
+                                                                    |@Html.ActionLink("Detalles", "Details", new { id = item.ID })|
+                                                                </td>
+                                                            </tr>
+                                                        }
+                                                        if (item.Estatus == 4)
+                                                        {
+                                                            <tr class="warning">
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.Estatus)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.Maquinas.Area)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.Maquinas.Maquina)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.Actividad)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.User_gen)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.DiaHora)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.User_res)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.DiaHora_Compromiso)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.Comentarios)
+                                                                </td>
+                                                                <td>
+                                                                    |@if (ViewBag.cuser.Contains(item.User_res))
+                                                                    {@Html.ActionLink("Actualizar", "Update", new { id = item.ID })}|
+                                                                    |@Html.ActionLink("Detalles", "Details", new { id = item.ID })|
+                                                                </td>
+
+                                                            </tr>
+                                                        }
+                                                        if (item.Estatus == 5)
+                                                        {
+                                                            <tr class="danger">
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.Estatus)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.Maquinas.Area)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.Maquinas.Maquina)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.Actividad)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.User_gen)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.DiaHora)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.User_res)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.DiaHora_Compromiso)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.Comentarios)
+                                                                </td>
+                                                                <td>
+                                                                    |@if (ViewBag.cuser.Contains(item.User_res))
+                                                                    {@Html.ActionLink("Actualizar", "Update", new { id = item.ID })}|
+                                                                    |@Html.ActionLink("Detalles", "Details", new { id = item.ID })|
+                                                                </td>
+
+                                                            </tr>
+                                                        }
+                                                        if (item.Estatus == 1)
+                                                        {
+                                                            <tr class="success">
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.Estatus)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.Maquinas.Area)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.Maquinas.Maquina)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.Actividad)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.User_gen)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.DiaHora)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.User_res)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.DiaHora_Compromiso)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.Comentarios)
+                                                                </td>
+                                                                <td>
+                                                                    |@if (ViewBag.cuser.Contains(item.User_res))
+                                                                    {@Html.ActionLink("Actualizar", "Update", new { id = item.ID })}|
+                                                                    |@Html.ActionLink("Detalles", "Details", new { id = item.ID })|
+                                                                </td>
+                                                            </tr>
+                                                        }
+                                                    }
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

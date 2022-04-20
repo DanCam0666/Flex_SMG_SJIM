@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Flex_SGM.Models.troubleshooting>
+
+@{
+    ViewBag.Title = "Menu";
+}
+    <div class="row clearfix">
+        <center> @{Html.RenderPartial("_Result");}</center>
+    </div>
+    <div>
+        <center >
+            <h2>Menu de Seleccion</h2>
+            <br>
+            <div>
+                @Html.ActionLink(
+                            linkText: "Servicios",
+                            actionName: "MenuFiltro",
+                            controllerName: "troubleshootings",
+                            routeValues: new { amaquina = "Servicios" },
+                            htmlAttributes: new { @onclick = "$('#loadingImg').show();", @class = "btn btn-default" })
+            </div>
+            <br>
+            <div>
+                @Html.ActionLink(
+                            linkText: "Estampado",
+                            actionName: "MenuFiltro",
+                            controllerName: "troubleshootings",
+                            routeValues: new { amaquina = "Estampado" },
+                            htmlAttributes: new { @onclick = "$('#loadingImg').show();", @class = "btn btn-default" })
+            </div>
+            <br>
+            <div>
+                @Html.ActionLink(
+                            linkText: "Metal Finish",
+                            actionName: "MenuFiltro",
+                            controllerName: "troubleshootings",
+                            routeValues: new { amaquina = "Metalfinish" },
+                            htmlAttributes: new { @onclick = "$('#loadingImg').show();", @class = "btn btn-default" })
+            </div>
+            <br>
+            <div>
+                @Html.ActionLink(
+                            linkText: "Soldadura",
+                            actionName: "MenuFiltro",
+                            controllerName: "troubleshootings",
+                            routeValues: new { amaquina = "Soldadura" },
+                            htmlAttributes: new { @onclick = "$('#loadingImg').show();", @class = "btn btn-default" })
+            </div>
+            <br>
+            <div>
+                @Html.ActionLink(
+                            linkText: "Ensamble",
+                            actionName: "MenuFiltro",
+                            controllerName: "troubleshootings",
+                            routeValues: new { amaquina = "Ensamble" },
+                            htmlAttributes: new { @onclick = "$('#loadingImg').show();", @class = "btn btn-default" })
+            </div>
+        </center>
+    </div>

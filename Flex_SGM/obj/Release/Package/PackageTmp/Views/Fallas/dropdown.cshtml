@@ -1,0 +1,77 @@
+﻿@using Flex_SGM.Models
+@model MyViewFallas
+
+@using (Html.BeginForm())
+{
+    <div>
+        @Html.LabelFor(x => x.Area)
+        @Html.DropDownListFor(
+            x => x.Area,
+            Model.Areas,
+            "-- Selecciona Area --",
+            new { data_url = Url.Action("drop2") }
+        )
+        @Html.ValidationMessageFor(x => x.Area)
+    </div>
+
+    <div>
+        @Html.LabelFor(x => x.Tipo)
+        @Html.DropDownListFor(
+            x => x.Tipo,
+            Model.Tipos,
+            "-- Selecciona Tipo --",
+               new { data_url = Url.Action("drop3") }
+        )
+        @Html.ValidationMessageFor(x => x.Tipo)
+    </div>
+    <div>
+        @Html.LabelFor(x => x.Des)
+        @Html.DropDownListFor(
+            x => x.Des,
+            Model.Dess,
+            "-- Selecciona Descripcion --"
+        )
+        @Html.ValidationMessageFor(x => x.Des)
+    </div>
+    <p><input type="submit" value="OK" /></p>
+}
+@section Scripts {
+
+    <script>
+
+                $(function () {
+            $('#Area').change(function () {
+                var url = $(this).data('url');
+                var data = { Area: $(this).val() };
+                $.getJSON(url, data, function (xtipos) {
+                    var TiposDdl = $('#Tipo');
+                    TiposDdl.empty();
+                    $.each(xtipos, function (index, tipo) {
+                        TiposDdl.append($('<option/>', {
+                            value: tipo,
+                            text: tipo
+                        }));
+                    });
+                });
+            });
+        });
+                        $(function () {
+            $('#Tipo').change(function () {
+                var url = $(this).data('url');
+                var data = { Tipo: $(this).val() };
+                $.getJSON(url, data, function (xdes) {
+                    var DessDdl = $('#Des');
+                    DessDdl.empty();
+                    $.each(xdes, function (index, des) {
+                        DessDdl.append($('<option/>', {
+                            value: des,
+                            text: des
+                        }));
+                    });
+                });
+            });
+        });
+
+    </script>
+
+}
