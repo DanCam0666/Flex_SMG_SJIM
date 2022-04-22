@@ -4,23 +4,21 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Usuarios</h2>
 
-<p>
+<h3>
     @if (ViewBag.super == true)
     {
         @Html.ActionLink("Crear Nuevo", "Create")
     }
-</p>
+</h3>
 <div class="row clearfix">
     <center> @{Html.RenderPartial("_Result");}</center>
 </div>
 <h3>
     A los usuarios nuevos: Se tiene que Realizar la asignación de los roles de manera manual, asignarlos al Rol/Área a la cual pertenecen para que puedan tener acceso y hacer uso de las funciones....
 </h3>
-<h2>
-    Usuarios sin Rol...
-</h2>
+<h2>Usuarios sin Rol</h2>
 <table class="tabled table-bordered table-striped" id="table_id" style="width:100%">
     <thead>
         <tr>
@@ -58,7 +56,7 @@
     </tbody>
 </table>
 <hr />
-<h2>Usuarios Con Rol...</h2>
+<h2>Usuarios con Rol</h2>
 <table class="tabled table-bordered table-striped" id="table_id4" style="width:100%">
     <thead>
         <tr>

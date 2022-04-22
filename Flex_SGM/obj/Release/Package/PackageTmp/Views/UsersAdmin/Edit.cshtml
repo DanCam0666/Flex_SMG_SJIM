@@ -1,10 +1,10 @@
 ﻿@model Flex_SGM.Models.ApplicationUser
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Editar";
 }
 
 <hgroup class="title">
-    <h1>@ViewBag.Title.</h1>
+    <h1>@ViewBag.Title</h1>
 </hgroup>
 
 @using (Html.BeginForm())
@@ -12,95 +12,106 @@
     @Html.AntiForgeryToken()
     @Html.ValidationSummary()
 
-
-
     @Html.HiddenFor(model => model.Id)
     @Html.HiddenFor(model => model.PasswordHash)
 
-    <fieldset class="form-horizontal" style="max-width: 200px; margin: auto;">
-        <legend>Edit a user.</legend>
-        @Html.ActionLink("CambiarPassword", "ChangePassword", new { id = ViewBag.uId })
-        <div class="form-group">
-            @Html.LabelFor(m => m.UserName, new { @class = "control-label" })
-            <div class="controls">
-                @Html.TextBoxFor(m => m.UserName)
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(m => m.UserFullName, new { @class = "control-label" })
-            <div class="controls">
-                @Html.TextBoxFor(m => m.UserFullName)
-            </div>
-        </div>
+    <div class="col-lg-12">
+        <div class="col-lg-4">
+            <fieldset style="max-width: 300px;">
+                <legend>Editar usuario</legend>
+                @Html.ActionLink("Cambiar Contraseña", "ChangePassword", new { id = ViewBag.uId })
+                <br />
+                <br />
+                <div class="form-group">
+                    @Html.LabelFor(m => m.UserName, new { @class = "control-label" })
+                    <div class="controls">
+                        @Html.TextBoxFor(m => m.UserName)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.UserFullName, new { @class = "control-label" })
+                    <div class="controls">
+                        @Html.TextBoxFor(m => m.UserFullName)
+                    </div>
+                </div>
 
-        <div class="form-group">
-            @Html.LabelFor(m => m.Nomina, new { @class = "control-label" })
-            <div class="controls">
-                @Html.TextBoxFor(m => m.Nomina)
-            </div>
-        </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Nomina, new { @class = "control-label" })
+                    <div class="controls">
+                        @Html.TextBoxFor(m => m.Nomina)
+                    </div>
+                </div>
 
-        <div class="form-group">
-            @Html.LabelFor(m => m.Email, new { @class = "control-label" })
-            <div class="controls">
-                @Html.TextBoxFor(m => m.Email)
-            </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Email, new { @class = "control-label" })
+                    <div class="controls">
+                        @Html.TextBoxFor(m => m.Email)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Departamento, new { @class = "control-label" })
+                    <div class="controls">
+                        @Html.DropDownList("Departamento", null, "--Seleccione--", htmlAttributes: new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Puesto, new { @class = "control-label" })
+                    <div class="controls">
+                        @Html.DropDownList("Puesto", null, "--Seleccione--", htmlAttributes: new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Area, new { @class = "control-label" })
+                    <div class="controls">
+                        @Html.DropDownList("Area", null, "--Seleccione--", htmlAttributes: new { @class = "form-control" })
+                    </div>
+                </div>
+            </fieldset>
         </div>
-        <div class="form-group">
-            @Html.LabelFor(m => m.Departamento, new { @class = "col-md-2 control-label" })
-            <div class="controls">
-                @Html.DropDownList("Departamento", null, "--Seleccione--", htmlAttributes: new { @class = "form-control" })
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(m => m.Puesto, new { @class = "control-label" })
-            <div class="controls">
-                @Html.DropDownList("Puesto", null, "--Seleccione--", htmlAttributes: new { @class = "form-control" })
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(m => m.Area, new { @class = "control-label" })
-            <div class="controls">
-                @Html.DropDownList("Area", null, "--Seleccione--", htmlAttributes: new { @class = "form-control" })
-            </div>
-        </div>
-        <hr />
-        <h4>List Of Roles</h4>
-        <table class="table table-striped">
+        <div class="col-lg-4">
+            <fieldset style="max-width: 300px;">
+                <h4>List Of Roles</h4>
+                <table class="table table-striped">
 
-            @if (ViewBag.AllRoles != null)
-            {
-                foreach (string x in ViewBag.AllRoles)
-                {
-                    if (!String.IsNullOrEmpty(x))
+                    @if (ViewBag.AllRoles != null)
                     {
-                        <tr>
-                            <td>
-                                @Html.Label(x)
-                            </td>
-                        </tr>
+                        foreach (string x in ViewBag.AllRoles)
+                        {
+                            if (!String.IsNullOrEmpty(x))
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.Label(x)
+                                    </td>
+                                </tr>
+                            }
+                        }
                     }
-                }
-            }
-        </table>
-        <h4>Modify Role for User</h4>
-        <hr />
-        <div class="switch">
-            <label><input type="checkbox" name="deleteroles" value=true>Borrar Roles</label>
+                </table>
+                <h4>Modificar Roles para Usuario</h4>
+                <div class="switch">
+                    <label><input type="checkbox" name="deleteroles" value=true>  Borrar Roles</label>
+                </div>
+                @Html.DropDownList("RoleId", null, "No Roles", htmlAttributes: new { @class = "form-control" })
+                <br /><br />
+
+                <div class="profile_img">
+                    <div id="crop-avatar">
+                        <!-- Current avatar -->
+                        <img class="img-responsive avatar-view" src="~/Users/@Model.UserName/user.png" alt="Avatar" title="Change the avatar" width="200px">
+                    </div>
+                </div>
+                <br />
+                <p>
+                    <div class="form-actions no-color">
+                        <input type="submit" value="Aplicar" class="btn btn-danger" />
+                    </div>
+                </p>
+            </fieldset>
         </div>
-        <hr />
-        @Html.DropDownList("RoleId", null, "No Roles", htmlAttributes: new { @class = "form-control" })
-
-        <p>
-            <div class="form-actions no-color">
-                <input type="submit" value="Edit" class="btn btn-danger" />
-            </div>
-        </p>
-
-    </fieldset>
+    </div>
 }
-
-
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+
 }

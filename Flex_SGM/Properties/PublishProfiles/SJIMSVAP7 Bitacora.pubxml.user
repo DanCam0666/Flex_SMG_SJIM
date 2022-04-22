@@ -7,7 +7,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <_PublishTargetUrl>T:\Bitacora</_PublishTargetUrl>
-    <History>True|2022-04-20T16:59:43.2454831Z;True|2022-04-20T10:12:23.4507351-05:00;True|2022-04-19T16:27:21.7143139-05:00;True|2022-04-19T13:56:10.2519622-05:00;True|2022-04-13T12:21:06.5943205-05:00;True|2022-04-12T08:01:25.3211006-05:00;True|2022-04-08T08:39:10.0205296-05:00;True|2022-04-08T07:51:16.8579627-05:00;True|2022-04-06T10:43:54.0496652-05:00;True|2022-03-28T09:05:45.1826714-06:00;True|2022-03-28T08:46:11.0320916-06:00;True|2022-03-22T11:16:37.6803331-06:00;True|2022-03-17T06:57:42.5035140-06:00;True|2022-03-03T09:31:52.9772636-06:00;True|2022-03-03T09:27:10.2600631-06:00;</History>
+    <History>True|2022-04-22T21:01:04.1913414Z;True|2022-04-22T12:57:19.1069743-05:00;True|2022-04-22T09:03:33.6305990-05:00;True|2022-04-21T07:17:40.6096768-05:00;True|2022-04-21T07:02:20.1180697-05:00;True|2022-04-20T11:59:43.2454831-05:00;True|2022-04-20T10:12:23.4507351-05:00;True|2022-04-19T16:27:21.7143139-05:00;True|2022-04-19T13:56:10.2519622-05:00;True|2022-04-13T12:21:06.5943205-05:00;True|2022-04-12T08:01:25.3211006-05:00;True|2022-04-08T08:39:10.0205296-05:00;True|2022-04-08T07:51:16.8579627-05:00;True|2022-04-06T10:43:54.0496652-05:00;True|2022-03-28T09:05:45.1826714-06:00;True|2022-03-28T08:46:11.0320916-06:00;True|2022-03-22T11:16:37.6803331-06:00;True|2022-03-17T06:57:42.5035140-06:00;True|2022-03-03T09:31:52.9772636-06:00;True|2022-03-03T09:27:10.2600631-06:00;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include=".editorconfig">
@@ -7106,7 +7106,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>10/26/2020 14:20:18</publishTime>
     </File>
     <File Include="Addon/Gauge/JavaScript.js">
-      <publishTime>02/04/2021 08:39:36</publishTime>
+      <publishTime>04/02/2021 08:39:36</publishTime>
     </File>
     <File Include="Addon/morris-charts/Gruntfile.js">
       <publishTime>10/26/2020 14:21:08</publishTime>
@@ -7229,7 +7229,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="bin/es/System.Web.Optimization.resources.dll">
-      <publishTime>11/02/2014 09:28:40</publishTime>
+      <publishTime>02/11/2014 09:28:40</publishTime>
     </File>
     <File Include="bin/es/System.Web.Razor.resources.dll">
       <publishTime>11/28/2018 07:00:22</publishTime>
@@ -7256,10 +7256,10 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>03/03/2022 09:19:28</publishTime>
     </File>
     <File Include="bin/Flex_SGM.dll">
-      <publishTime>04/20/2022 16:32:53</publishTime>
+      <publishTime>04/22/2022 15:59:32</publishTime>
     </File>
     <File Include="bin/Flex_SGM.pdb">
-      <publishTime>04/20/2022 16:32:53</publishTime>
+      <publishTime>04/22/2022 15:59:32</publishTime>
     </File>
     <File Include="bin/IBM.Data.DB2.iSeries.dll">
       <publishTime>01/01/0001 00:00:00</publishTime>
@@ -7682,7 +7682,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>10/26/2020 14:24:14</publishTime>
     </File>
     <File Include="loading2.gif">
-      <publishTime>02/03/2022 08:02:50</publishTime>
+      <publishTime>03/02/2022 08:02:50</publishTime>
     </File>
     <File Include="loading3.gif">
       <publishTime>10/26/2020 14:24:14</publishTime>
@@ -7709,7 +7709,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>03/18/2022 07:01:13</publishTime>
     </File>
     <File Include="Scripts/JavaScript.js">
-      <publishTime>02/12/2021 12:31:50</publishTime>
+      <publishTime>12/02/2021 12:31:50</publishTime>
     </File>
     <File Include="Scripts/jquery-3.3.1.js">
       <publishTime>03/25/2022 10:34:39</publishTime>
@@ -7775,7 +7775,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>10/30/2020 14:57:10</publishTime>
     </File>
     <File Include="Templates/TemplateMatrizdeReclamos.xlsx">
-      <publishTime>05/03/2021 08:28:54</publishTime>
+      <publishTime>03/05/2021 08:28:54</publishTime>
     </File>
     <File Include="Templates/TemplatePCR.xlsx">
       <publishTime>01/29/2021 15:13:50</publishTime>
@@ -7805,7 +7805,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>10/26/2020 14:21:22</publishTime>
     </File>
     <File Include="Views/Account/Login2.cshtml">
-      <publishTime>02/03/2022 11:23:54</publishTime>
+      <publishTime>03/02/2022 11:23:54</publishTime>
     </File>
     <File Include="Views/Account/Register.cshtml">
       <publishTime>04/19/2022 13:01:11</publishTime>
@@ -7934,7 +7934,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>03/28/2022 09:09:01</publishTime>
     </File>
     <File Include="Views/Bitacoras/Repo.cshtml">
-      <publishTime>02/03/2022 11:09:17</publishTime>
+      <publishTime>03/02/2022 11:09:17</publishTime>
     </File>
     <File Include="Views/Bitacoras/roadmap - Copia.cshtml">
       <publishTime>01/01/0001 00:00:00</publishTime>
@@ -7943,7 +7943,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>03/28/2022 09:09:01</publishTime>
     </File>
     <File Include="Views/Bitacoras/Show.cshtml">
-      <publishTime>12/01/2020 16:04:14</publishTime>
+      <publishTime>01/12/2020 16:04:14</publishTime>
     </File>
     <File Include="Views/Blue_Book/Create.cshtml">
       <publishTime>04/05/2022 07:31:34</publishTime>
@@ -8015,19 +8015,19 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>01/28/2021 13:08:24</publishTime>
     </File>
     <File Include="Views/CAndons2/Create.cshtml">
-      <publishTime>03/05/2021 08:54:04</publishTime>
+      <publishTime>05/03/2021 08:54:04</publishTime>
     </File>
     <File Include="Views/CAndons2/Delete.cshtml">
-      <publishTime>03/05/2021 08:25:42</publishTime>
+      <publishTime>05/03/2021 08:25:42</publishTime>
     </File>
     <File Include="Views/CAndons2/Details.cshtml">
-      <publishTime>03/05/2021 09:12:04</publishTime>
+      <publishTime>05/03/2021 09:12:04</publishTime>
     </File>
     <File Include="Views/CAndons2/Edit.cshtml">
-      <publishTime>03/05/2021 08:29:08</publishTime>
+      <publishTime>05/03/2021 08:29:08</publishTime>
     </File>
     <File Include="Views/CAndons2/Index.cshtml">
-      <publishTime>03/05/2021 15:45:52</publishTime>
+      <publishTime>05/03/2021 15:45:52</publishTime>
     </File>
     <File Include="Views/Capacities/Create.cshtml">
       <publishTime>04/19/2022 13:01:11</publishTime>
@@ -8099,7 +8099,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>04/06/2020 21:38:10</publishTime>
     </File>
     <File Include="Views/CDockaudits/Index.cshtml">
-      <publishTime>02/09/2021 11:29:48</publishTime>
+      <publishTime>09/02/2021 11:29:48</publishTime>
     </File>
     <File Include="Views/CI_MP/Create.cshtml">
       <publishTime>04/19/2022 13:01:11</publishTime>
@@ -8201,7 +8201,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>01/28/2021 09:16:18</publishTime>
     </File>
     <File Include="Views/CReclamos/Index.cshtml">
-      <publishTime>05/03/2021 08:28:54</publishTime>
+      <publishTime>03/05/2021 08:28:54</publishTime>
     </File>
     <File Include="Views/Customer_Complaints/Create.cshtml">
       <publishTime>04/19/2022 13:01:11</publishTime>
@@ -8333,10 +8333,10 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>10/26/2020 14:21:26</publishTime>
     </File>
     <File Include="Views/Home/Contact.cshtml">
-      <publishTime>03/05/2021 12:19:06</publishTime>
+      <publishTime>05/03/2021 12:19:06</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>03/02/2022 07:30:59</publishTime>
+      <publishTime>02/03/2022 07:30:59</publishTime>
     </File>
     <File Include="Views/Home/Working.cshtml">
       <publishTime>10/26/2020 14:21:26</publishTime>
@@ -8426,19 +8426,19 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>10/26/2020 14:21:26</publishTime>
     </File>
     <File Include="Views/Manage/Contacs.cshtml">
-      <publishTime>04/20/2022 14:31:05</publishTime>
+      <publishTime>04/22/2022 08:55:22</publishTime>
     </File>
     <File Include="Views/Manage/Deleteu.cshtml">
       <publishTime>03/03/2022 12:22:23</publishTime>
     </File>
     <File Include="Views/Manage/Index.cshtml">
-      <publishTime>03/03/2022 12:22:23</publishTime>
+      <publishTime>04/22/2022 09:30:43</publishTime>
     </File>
     <File Include="Views/Manage/ManageLogins.cshtml">
       <publishTime>10/26/2020 14:21:26</publishTime>
     </File>
     <File Include="Views/Manage/Profile.cshtml">
-      <publishTime>04/20/2022 11:44:52</publishTime>
+      <publishTime>04/22/2022 11:08:57</publishTime>
     </File>
     <File Include="Views/Manage/SetPassword.cshtml">
       <publishTime>03/03/2022 12:22:23</publishTime>
@@ -8495,7 +8495,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>04/19/2022 13:01:11</publishTime>
     </File>
     <File Include="Views/Metricos1/Index.cshtml">
-      <publishTime>04/20/2022 12:08:13</publishTime>
+      <publishTime>04/22/2022 14:32:20</publishTime>
     </File>
     <File Include="Views/OILs/Create.cshtml">
       <publishTime>03/25/2022 10:34:39</publishTime>
@@ -8525,7 +8525,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Views/OILs/Update.cshtml">
-      <publishTime>03/18/2022 07:01:13</publishTime>
+      <publishTime>04/21/2022 11:55:29</publishTime>
     </File>
     <File Include="Views/OILs/_Comments.cshtml">
       <publishTime>06/02/2020 22:33:16</publishTime>
@@ -8567,7 +8567,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>02/14/2021 11:38:48</publishTime>
     </File>
     <File Include="Views/pcrs/Details.cshtml">
-      <publishTime>03/11/2021 13:37:30</publishTime>
+      <publishTime>11/03/2021 13:37:30</publishTime>
     </File>
     <File Include="Views/pcrs/Edit.cshtml">
       <publishTime>03/09/2022 15:51:19</publishTime>
@@ -8738,7 +8738,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>10/26/2020 14:21:28</publishTime>
     </File>
     <File Include="Views/Shared/_Comments.cshtml">
-      <publishTime>10/26/2020 14:21:28</publishTime>
+      <publishTime>04/22/2022 08:57:56</publishTime>
     </File>
     <File Include="Views/Shared/_Layout - Bitacora.cshtml">
       <publishTime>03/18/2022 07:01:13</publishTime>
@@ -8759,7 +8759,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>10/26/2020 14:21:28</publishTime>
     </File>
     <File Include="Views/Shared/_LoginPartial.cshtml">
-      <publishTime>04/20/2022 08:29:11</publishTime>
+      <publishTime>04/22/2022 11:51:21</publishTime>
     </File>
     <File Include="Views/Shared/_Result.cshtml">
       <publishTime>10/26/2020 14:21:28</publishTime>
@@ -8828,10 +8828,10 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>02/21/2021 10:23:20</publishTime>
     </File>
     <File Include="Views/UsersAdmin/Edit.cshtml">
-      <publishTime>03/25/2022 10:34:39</publishTime>
+      <publishTime>04/22/2022 10:09:51</publishTime>
     </File>
     <File Include="Views/UsersAdmin/Index.cshtml">
-      <publishTime>04/20/2022 14:19:05</publishTime>
+      <publishTime>04/21/2022 08:11:43</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>10/26/2020 14:21:28</publishTime>
@@ -8855,7 +8855,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>10/26/2020 14:21:28</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>04/20/2022 16:21:09</publishTime>
+      <publishTime>04/22/2022 15:59:33</publishTime>
     </File>
   </ItemGroup>
 </Project>

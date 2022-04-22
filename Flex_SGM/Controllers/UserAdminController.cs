@@ -12,6 +12,7 @@ using System.Data;
 using System.Data.Entity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Net;
+using System.IO;
 
 namespace AspnetIdentitySample.Controllers
 {
@@ -206,40 +207,34 @@ namespace AspnetIdentitySample.Controllers
         // GET: /Users/Edit/1
         public async Task<ActionResult> Edit(string id)
         {
-
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             var user = await UserManager.FindByIdAsync(id);
+
             if (user == null)
             {
                 return HttpNotFound();
             }
-            if(!string.IsNullOrEmpty(user.Puesto)&&!string.IsNullOrEmpty(user.Area)) { 
-            var stringp = Enum.Parse(typeof(flex_Puesto), user.Puesto);
 
-            var stringA = Enum.Parse(typeof(flex_Areasv1), user.Area);
-
+            if (!string.IsNullOrEmpty(user.Puesto)&&!string.IsNullOrEmpty(user.Area)) 
+            { 
+                var stringp = Enum.Parse(typeof(flex_Puesto), user.Puesto);
+                var stringA = Enum.Parse(typeof(flex_Areasv1), user.Area);
                 var stringd = Enum.Parse(typeof(flex_Areas), user.Departamento);
-
                 ViewBag.Puesto = new SelectList(Enum.GetValues(typeof(flex_Puesto)).Cast<flex_Puesto>(), stringp);
-
-            ViewBag.Area = new SelectList(Enum.GetValues(typeof(flex_Areasv1)).Cast<flex_Areasv1>(), stringA);
-
+                ViewBag.Area = new SelectList(Enum.GetValues(typeof(flex_Areasv1)).Cast<flex_Areasv1>(), stringA);
                 ViewBag.Departamento = new SelectList(Enum.GetValues(typeof(flex_Areas)).Cast<flex_Areas>(), stringd);
             }
             else
             {
                 ViewBag.Puesto = new SelectList(Enum.GetValues(typeof(flex_Puesto)).Cast<flex_Puesto>());
-
                 ViewBag.Area = new SelectList(Enum.GetValues(typeof(flex_Areasv1)).Cast<flex_Areasv1>());
-
                 ViewBag.Departamento = new SelectList(Enum.GetValues(typeof(flex_Areas)).Cast<flex_Areas>());
-
             }
 
- 
             List<string> sroles = new List<string>();
             foreach (var x in user.Roles)
             {
@@ -248,10 +243,7 @@ namespace AspnetIdentitySample.Controllers
             }
             ViewBag.AllRoles = sroles;
 
-
             ViewBag.RoleId = new SelectList(RoleManager.Roles, "Id", "Name");
-
-
 
             ViewBag.uId = user.Id;
             return View(user);
@@ -414,5 +406,43 @@ namespace AspnetIdentitySample.Controllers
                 return View();
             }
         }
+
+        public FileResult Download(string link)
+        {
+            string fileName = "";
+            link = link.Replace(@"../../", "");
+            link = Server.MapPath("~/" + link);
+            fileName = Path.GetFileName(link);
+            byte[] fileBytes = System.IO.File.ReadAllBytes(link);
+            return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
+        }
+
+
+        [HttpPost]
+        public ActionResult SaveFile(string id)
+        {
+            if (Request.Files.Count > 0)
+            {
+                var file = Request.Files[0];
+                if (file != null && file.ContentLength > 0)
+                {
+                    var path = "cool";
+                        path = Server.MapPath($"~/Users/{id}");
+
+                    if (!System.IO.Directory.Exists(path))
+                        System.IO.Directory.CreateDirectory(path);
+
+                    path = Path.Combine(path, file.FileName);
+                    file.SaveAs(path);
+                    return Json(true);
+                }
+                else
+                    return Json(false);
+            }
+            else
+                return Json(false);
+
+        }
+
     }
 }

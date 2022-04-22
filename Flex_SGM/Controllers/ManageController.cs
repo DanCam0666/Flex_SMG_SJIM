@@ -61,6 +61,15 @@ namespace Flex_SGM.Controllers
         {
             var userId = User.Identity.GetUserId();
             ApplicationUser currentUser = UserManager.FindById(userId);
+            ViewBag.StatusMessage =
+            message == ManageMessageId.ChangePasswordSuccess ? "Su contraseña se ha cambiado."
+            : message == ManageMessageId.SetPasswordSuccess ? "Su contraseña se ha establecido."
+            : message == ManageMessageId.SetTwoFactorSuccess ? "Su proveedor de autenticación de dos factores se ha establecido."
+            : message == ManageMessageId.Error ? "Se ha producido un error."
+            : message == ManageMessageId.AddPhoneSuccess ? "Se ha agregado su numero de teléfono."
+            : message == ManageMessageId.RemovePhoneSuccess ? "Se ha quitado su numero de teléfono."
+            : "";
+
             var model = new IndexViewModel
             {
                 Nombre = currentUser.UserFullName,
@@ -153,7 +162,7 @@ namespace Flex_SGM.Controllers
             }
             ViewBag.uarea = cuare;
             ViewBag.cuser = cuser;
-            if (cpuesto.Contains("Supervisor") || cpuesto.Contains("Asistente") || cpuesto.Contains("SuperIntendente") || cpuesto.Contains("Gerente"))
+            if (cpuesto.Contains("Super") || cpuesto.Contains("Gerente"))
                 ViewBag.super = true;
             else
                 ViewBag.super = false;

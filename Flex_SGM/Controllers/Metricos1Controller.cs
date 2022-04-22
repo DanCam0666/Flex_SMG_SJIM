@@ -69,6 +69,7 @@ namespace Flex_SGM.Controllers
                     string nombreMes = formatoFecha.GetMonthName(jmes);
                     var dias = DateTime.DaysInMonth(iaño, jmes);
                     string thistiempo = "";
+                    ViewBag.CapPer = 0;
 
                     for (int kdia = 1; kdia <= dias; kdia++)
                     {
@@ -84,6 +85,18 @@ namespace Flex_SGM.Controllers
                     }
                     thistiempo = iaño.ToString() + "-" + nombreMes;
 
+                    var sum_Capacities = (metricos.Where(w => w.Usuario_area == "Capacities_Review" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum());
+                    var cnt_Capacities = (metricos.Where(w => w.Usuario_area == "Capacities_Review" && w.DiaHora.Month == jmes).Count());
+
+                    if (cnt_Capacities != 0)
+                    {
+                        ViewBag.CapPer = sum_Capacities/cnt_Capacities;
+                    }
+                    else
+                    {
+                        ViewBag.CapPer = 0;
+                    }
+
                     MetricsNew data_show = new MetricsNew
                     {
                         TiempoLabel = thistiempo,
@@ -91,6 +104,7 @@ namespace Flex_SGM.Controllers
                         BiBo = metricos.Where(w => w.Usuario_area == "Build_In_Build_Out" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum(),
                         Caps = metricos.Where(w => w.Usuario_area == "Capacities_Review" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum(),
                         CapNum = metricos.Where(w => w.Usuario_area == "Capacities_Review" && w.DiaHora.Month == jmes).Count(),
+                        CapPer = ViewBag.CapPer,
                         CoIm = metricos.Where(w => w.Usuario_area == "Cont_Imprv_ManP" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum(),
                         CuCo = metricos.Where(w => w.Usuario_area == "Customer_Complaints" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum(),
                         CuSc = metricos.Where(w => w.Usuario_area == "Cust_Score_Cards" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum(),
