@@ -6,14 +6,15 @@
 <h2>@ViewBag.Title.</h2>
 
 <p class="text-success">@ViewBag.StatusMessage</p>
-
 <div>
     <h4>Cambiar la contraseña</h4>
     <hr />
     <div class="profile_img">
         <div id="crop-avatar">
             <!-- Current avatar -->
-            <img class="img-responsive avatar-view" src="~/Users/@Model.idusuario/user.png" alt="Avatar" title="Change the avatar">
+            <img class="img-responsive avatar-view" src="~/Users/@Model.idusuario/user.png" alt="Avatar" title="Cambiar el avatar">
+            <i>(Mejor tamaño es 200 x 200 pixeles)</i>
+            <input type="file" class="filepond" name="filepond1" multiple data-max-file-size="30MB" data-max-files="5">
         </div>
     </div>
     <br />
@@ -48,66 +49,26 @@
             }
             ]
         </dd>
-        @*
-            <dt>Inicios de sesión externos:</dt>
-            <dd>
-                @Model.Logins.Count [
-                @Html.ActionLink("Administrar", "ManageLogins") ]
-            </dd>
-
-            Los numeros de teléfono se pueden usar como una segunda fase de comprobación en un sistema de autenticación en dos fases.
-
-             Consulte <a href="https://go.microsoft.com/fwlink/?LinkId=403804">este artículo</a>
-                para obtener detalles sobre cómo configurar esta aplicación ASP.NET para que sea compatible con la autenticación en dos fases mediante SMS.
-
-             Quite la marca de comentario del bloque siguiente después de configurar la autenticación en dos fases
-        *@
-        @*
-            <dt>Numero de teléfono:</dt>
-            <dd>
-                @(Model.PhoneNumber ?? "None")
-                @if (Model.PhoneNumber != null)
-                {
-                    <br />
-                    <text>[&nbsp;&nbsp;@Html.ActionLink("Change", "AddPhoneNumber")&nbsp;&nbsp;]</text>
-                    using (Html.BeginForm("RemovePhoneNumber", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-                    {
-                        @Html.AntiForgeryToken()
-                        <text>[<input type="submit" value="Quitar" class="btn-link" />]</text>
-                    }
-                }
-                else
-                {
-                    <text>[&nbsp;&nbsp;@Html.ActionLink("Add", "AddPhoneNumber")
-                }
-            </dd>
-        *@
-        @* <dt>Autenticación de dos factores:</dt>
-            <dd>
-                <p>
-                    No hay ningun proveedor de autenticación en dos fases configurado. Consulte <a href="https://go.microsoft.com/fwlink/?LinkId=403804">este artículo</a>
-                    para obtener detalles sobre cómo configurar esta aplicación ASP.NET para que sea compatible con la autenticación en dos fases.
-                </p>
-              @if (Model.TwoFactor)
-                    {
-                        using (Html.BeginForm("DisableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-                        {
-                            @Html.AntiForgeryToken()
-                            <text>Habilitado
-                            <input type="submit" value="Deshabilitar" class="btn btn-link" />
-                            </text>
-                        }
-                    }
-                    else
-                    {
-                        using (Html.BeginForm("EnableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-                        {
-                            @Html.AntiForgeryToken()
-                            <text>Deshabilitada
-                            <input type="submit" value="Habilitar" class="btn btn-link" />
-                            </text>
-                        }
-                    }
-            </dd>*@
     </dl>
 </div>
+
+@section Scripts {
+
+    <Script>
+        var loadFile = function (event) {
+            var image = document.getElementById('output');
+            image.src = URL.createObjectURL(event.target.files[0]);
+        };
+        FilePond.setOptions(labels_es_ES);
+
+        var pond1= FilePond.create(document.querySelector('[name ="filepond1"]'));
+        pond1.setOptions({
+            server: '@Url.Action("SaveFile", "Manage", new { id = Model.idusuario })'
+        });
+        pond1.on("complete", function (data) {
+            var res = JSON.parse(data.xhr.responseText);
+            console.log(res.Message);
+        });
+
+    </Script>
+}

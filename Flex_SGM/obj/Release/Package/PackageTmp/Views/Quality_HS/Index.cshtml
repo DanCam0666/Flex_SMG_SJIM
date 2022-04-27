@@ -34,6 +34,9 @@
                         @Html.DisplayNameFor(model => model.Descripcion)
                     </th>
                     <th>
+                        @Html.DisplayNameFor(model => model.Comentarios)
+                    </th>
+                    <th>
                         @Html.DisplayNameFor(model => model.Proyectos)
                     </th>
                     <th></th>
@@ -62,12 +65,15 @@
                             @Html.DisplayFor(modelItem => item.Descripcion)
                         </td>
                         <td>
+                            @Html.DisplayFor(modelItem => item.Comentarios)
+                        </td>
+                        <td>
                             @Html.DisplayFor(modelItem => item.Proyectos)
                         </td>
                         <td>
                             @Html.ActionLink("Editar", "Edit", new { id = item.ID }) |
                             @Html.ActionLink("Detalles", "Details", new { id = item.ID }) |
-                            @Html.ActionLink("Borrar", "Delete", new { id = item.ID })
+                            @Html.ActionLink("Eliminar", "Delete", new { id = item.ID })
                         </td>
                     </tr>
                 }
@@ -90,7 +96,6 @@
 @section Scripts {
 
     <script>
-
         function Verify(idx)
         {
             $.post("@Url.Action("Verify","Metricos")",{ id:idx} ,function(data){
@@ -108,12 +113,6 @@
                 };
             }
 
-            //  var notice2 = PNotify.info({
-              //  title: 'Nuevas Funciones',
-              //  text: 'Existen nuevas funciones de Control de Usuario... Se continua trabajando en el reporte automatico de fallas!',
-              //  stack: window.stackBottomLeft,
-              //  addClass: 'nonblock'
-            //  });
             $('[data-toggle="tooltip"]').tooltip();
             $("#Normaldrop").chosen();
             $('#metricos').DataTable({
@@ -156,121 +155,114 @@
         new Chart(document.getElementById("bar-chart-horizontal"), {
             type: 'horizontalBar',
             data: {
-                labels: ["Adriana Velazquez Garcia", "Ana Zaideth Vazquez Robles", "Carlos Manuel Carapia Murillo", "Carlos Horacio Rodriguez Grimaldo",
-                    "Cynthia Veronica Alvarez Figueroa", "Donato Salazar Jimenez", "Vicente Olvera Gonzalez", "Hector Salomon Bucio", "Hipolito Gutierrez Salazar",
-                "Ismael Galindo Muñoz"],
-
+                labels: @Html.Raw(Json.Encode(ViewBag.ChartLabel)),
 
                 datasets: [
                     {
-                        label: "Proyectos Creados",
-                        backgroundColor: ["#3cba9f", "#3cba9f", "#3cba9f", "#3cba9f", "#3cba9f", "#3cba9f", "#3cba9f", "#3cba9f", "#3cba9f", "#3cba9f"],
-                        data: [70, 40, 90, 50, 60, 80, 40, 70, 50, 60]
+                        label: "Enero",
+                        backgroundColor: 'rgba(255, 26, 104, 0.2)',
+                        borderColor: "rgba(26,179,148,0.7)",
+                        pointBackgroundColor: "rgba(26,179,148,1)",
+                        pointBorderColor: "#fff",
+                        data: @Html.Raw(Json.Encode(ViewBag.ChartData1)),
+                    },
+                    {
+                        label: "Febrero",
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        borderColor: "rgba(26,179,148,0.7)",
+                        pointBackgroundColor: "rgba(26,179,148,1)",
+                        pointBorderColor: "#fff",
+                        data: @Html.Raw(Json.Encode(ViewBag.ChartData2)),
+                    },
+                    {
+                        label: "Marzo",
+                        backgroundColor: 'rgba(255, 206, 86, 0.2)',
+                        borderColor: "rgba(26,179,148,0.7)",
+                        pointBackgroundColor: "rgba(26,179,148,1)",
+                        pointBorderColor: "#fff",
+                        data: @Html.Raw(Json.Encode(ViewBag.ChartData3)),
+                    },
+                    {
+                        label: "Abril",
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: "rgba(26,179,148,0.7)",
+                        pointBackgroundColor: "rgba(26,179,148,1)",
+                        pointBorderColor: "#fff",
+                        data: @Html.Raw(Json.Encode(ViewBag.ChartData4)),
+                    },
+                    {
+                        label: "Mayo",
+                        backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                        borderColor: "rgba(26,179,148,0.7)",
+                        pointBackgroundColor: "rgba(26,179,148,1)",
+                        pointBorderColor: "#fff",
+                        data: @Html.Raw(Json.Encode(ViewBag.ChartData5)),
+                    },
+                    {
+                        label: "Junio",
+                        backgroundColor: 'rgba(255, 159, 64, 0.2)',
+                        borderColor: "rgba(54, 162, 235, 1)",
+                        pointBackgroundColor: "rgba(26,179,148,1)",
+                        pointBorderColor: "#fff",
+                        data: @Html.Raw(Json.Encode(ViewBag.ChartData6)),
+                    },
+                    {
+                        label: "Julio",
+                        backgroundColor: 'rgba(255, 26, 104, 0.2)',
+                        borderColor: "rgba(26,179,148,0.7)",
+                        pointBackgroundColor: "rgba(26,179,148,1)",
+                        pointBorderColor: "#fff",
+                        data: @Html.Raw(Json.Encode(ViewBag.ChartData7)),
+                    },
+                    {
+                        label: "Agosto",
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        borderColor: "rgba(26,179,148,0.7)",
+                        pointBackgroundColor: "rgba(26,179,148,1)",
+                        pointBorderColor: "#fff",
+                        data: @Html.Raw(Json.Encode(ViewBag.ChartData8)),
+                    },
+                    {
+                        label: "Septiembre",
+                        backgroundColor: 'rgba(255, 206, 86, 0.2)',
+                        borderColor: "rgba(26,179,148,0.7)",
+                        pointBackgroundColor: "rgba(26,179,148,1)",
+                        pointBorderColor: "#fff",
+                        data: @Html.Raw(Json.Encode(ViewBag.ChartData9)),
+                    },
+                    {
+                        label: "Octubre",
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: "rgba(26,179,148,0.7)",
+                        pointBackgroundColor: "rgba(26,179,148,1)",
+                        pointBorderColor: "#fff",
+                        data: @Html.Raw(Json.Encode(ViewBag.ChartData10)),
+                    },
+                    {
+                        label: "Noviembre",
+                        backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                        borderColor: "rgba(26,179,148,0.7)",
+                        pointBackgroundColor: "rgba(26,179,148,1)",
+                        pointBorderColor: "#fff",
+                        data: @Html.Raw(Json.Encode(ViewBag.ChartData11)),
+                    },
+                    {
+                        label: "Diciembre",
+                        backgroundColor: 'rgba(255, 159, 64, 0.2)',
+                        borderColor: "rgba(54, 162, 235, 1)",
+                        pointBackgroundColor: "rgba(26,179,148,1)",
+                        pointBorderColor: "#fff",
+                        data: @Html.Raw(Json.Encode(ViewBag.ChartData12)),
                     }
                 ]
             },
             options: {
-                legend: { display: false },
+                legend: { display: true },
                 title: {
                     display: true,
-                    text: 'Continuous Improvement / Manpower'
+                    text: 'Quality and H&S 5 min Talk'
                 }
             }
         });
-
-
-        var barChartData2 =
-        {
-            labels: [@Html.Raw(ViewBag.UserID)], //the names displayed on the x-axis, see images below
-            // labels: ['a','b','c','d','e','f',], //the names displayed on the x-axis, see images below
-            datasets: [{
-                label: 'MTTR Peores 5 maquinas  (Minutos Promedio para Reparar una Falla)',
-                data: [@ViewBag.UserID],
-                backgroundColor: ["#af0a0a"],
-                borderWidth: 2
-            }]
-        };
-
-        Chart.helpers.merge(Chart.defaults.global.plugins.datalabels, {
-            align: 'end',
-            anchor: 'end',
-            offset: 1,
-            color: '#6B8CB0'
-        });
-
-        var ctqx2 = document.getElementById('CI_MP_Chart');
-        var myChartqe2 = new Chart(ctqx2, {
-            type: 'bar',
-            data: barChartCI,
-            options: {
-                responsive: true,
-                maintainAspectRatio: true,
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                },
-                legend: {
-                    labels: {
-                        // This more specific font property overrides the global property
-                        fontColor: 'black',
-                        defaultFontSize: 25,
-                    }
-                }
-            }
-        });
-        var barChartCI =
-        {
-            labels: [@Html.Raw(ViewBag.UserID)],
-            datasets: [
-                {
-                    type: 'line',
-                    label: 'Porcentaje Meta',
-                    data:[@ViewBag.data2sgrap2],
-                    backgroundColor: "#8CB06B",
-                    borderColor: "#aa0909",
-                    borderWidth: 2,
-                    fill: false
-                },
-                {
-                    type: 'bar',
-                    label: '% de tiempo perdido por Maquina',
-                    data: [@ViewBag.datasgrap2],
-                    backgroundColor: "#6B8CB0",
-                    borderWidth: 2
-                }
-            ]
-        };
-        var ctx2 = document.getElementById('chart_CI');
-        var myChart2 = new Chart(ctx2, {
-            type: 'horizontalBar',
-            data: barChartData2,
-            options: {
-                responsive: true,
-                maintainAspectRatio: true,
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
-            }
-        });
-        var colorChangeValue = 45; //set this to whatever is the deciding color change value
-        var dataset = myChart2.data.datasets[0];
-        for (var i = 0; i < dataset.data.length; i++) {
-            if (dataset.data[i] > colorChangeValue) {
-                dataset.backgroundColor[i] = "#af0a0a";
-            }
-            else {
-                dataset.backgroundColor[i] = "#0aaf0a";
-            }
-        }
-        myChart2.update();
-
     </script>
-
 }

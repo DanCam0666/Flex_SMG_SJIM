@@ -10,6 +10,7 @@ using Microsoft.Owin.Security;
 using Flex_SGM.Models;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 
 namespace Flex_SGM.Controllers
 {
@@ -100,15 +101,6 @@ namespace Flex_SGM.Controllers
 
         public ActionResult Contacs()
         {
-            /*ViewBag.StatusMessage =
-                 message == ManageMessageId.ChangePasswordSuccess ? "Su contraseña se ha cambiado."
-                 : message == ManageMessageId.SetPasswordSuccess ? "Su contraseña se ha establecido."
-                 : message == ManageMessageId.SetTwoFactorSuccess ? "Su proveedor de autenticación de dos factores se ha establecido."
-                 : message == ManageMessageId.Error ? "Se ha producido un error."
-                 : message == ManageMessageId.AddPhoneSuccess ? "Se ha agregado su numero de teléfono."
-                 : message == ManageMessageId.RemovePhoneSuccess ? "Se ha quitado su numero de teléfono."
-                 : "";*/
-
             var id = User.Identity.GetUserId();
 
             ApplicationUser currentUser = UserManager.FindById(id);
@@ -175,6 +167,34 @@ namespace Flex_SGM.Controllers
             proff.oils = oils;
             return View(proff);
         }
+
+        [HttpPost]
+        public ActionResult SaveFile(string id)
+        {
+            if (Request.Files.Count > 0)
+            {
+                var file = Request.Files[0];
+                var fileName = "";
+                if (file != null && file.ContentLength > 0)
+                {
+                    var path = "cool";
+                    path = Server.MapPath($"~/Users/{id}");
+                    fileName = "user.png";
+
+                    if (!System.IO.Directory.Exists(path))
+                        System.IO.Directory.CreateDirectory(path);
+
+                    path = Path.Combine(path, fileName);
+                    file.SaveAs(path);
+                    return Json(true);
+                }
+                else
+                    return Json(false);
+            }
+            else
+                return Json(false);
+        }
+
         [Authorize(Roles = "Admin,Supervisor")]
         [Authorize(Roles = "Admin,Mantenimiento")]
         public async Task<ActionResult> Deleteu(string name = "name")
@@ -206,6 +226,17 @@ namespace Flex_SGM.Controllers
 
             return RedirectToAction("Contacs");
         }
+
+        public FileResult Download(string link)
+        {
+            string fileName = "user.png";
+            link = link.Replace(@"../../", "");
+            link = Server.MapPath("~/" + link);
+            fileName = Path.GetFileName(link);
+            byte[] fileBytes = System.IO.File.ReadAllBytes(link);
+            return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
+        }
+
         //
         // POST: /Manage/RemoveLogin
         [HttpPost]
@@ -236,6 +267,14 @@ namespace Flex_SGM.Controllers
         {
             return View();
         }
+
+        //
+        // GET: /Manage/ChangeAvatar
+        public ActionResult ChangeAvatar()
+        {
+            return View();
+        }
+
 
         //
         // POST: /Manage/AddPhoneNumber
@@ -465,7 +504,7 @@ namespace Flex_SGM.Controllers
             base.Dispose(disposing);
         }
 
-#region Aplicaciones auxiliares
+        #region Aplicaciones auxiliares
         // Se usan para protección XSRF al agregar inicios de sesión externos
         private const string XsrfKey = "XsrfId";
 

@@ -76,7 +76,8 @@ namespace Flex_SGM.Models
         public int Caps { get; set; }
         public int CapNum { get; set; }
         public int CapPer { get; set; }
-        public int CoIm { get; set; }
+        public int CoImCnt { get; set; }
+        public int CoImPer { get; set; }
         public int CuCo { get; set; }
         public int CuSc { get; set; }
         public int Ecn { get; set; }

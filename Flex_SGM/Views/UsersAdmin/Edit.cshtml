@@ -99,6 +99,8 @@
                     <div id="crop-avatar">
                         <!-- Current avatar -->
                         <img class="img-responsive avatar-view" src="~/Users/@Model.UserName/user.png" alt="Avatar" title="Change the avatar" width="200px">
+                        <i>(Mejor tamaño es 200 x 200 pixeles)</i>
+                        <input type="file" class="filepond" name="filepond1" multiple data-max-file-size="30MB" data-max-files="5">
                     </div>
                 </div>
                 <br />
@@ -113,5 +115,23 @@
 }
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+
+    <Script>
+        var loadFile = function (event) {
+            var image = document.getElementById('output');
+            image.src = URL.createObjectURL(event.target.files[0]);
+        };
+        FilePond.setOptions(labels_es_ES);
+
+        var pond1= FilePond.create(document.querySelector('[name ="filepond1"]'));
+        pond1.setOptions({
+            server: '@Url.Action("SaveFile", "Manage", new { id = Model.UserName })'
+        });
+        pond1.on("complete", function (data) {
+            var res = JSON.parse(data.xhr.responseText);
+            console.log(res.Message);
+        });
+
+    </Script>
 
 }

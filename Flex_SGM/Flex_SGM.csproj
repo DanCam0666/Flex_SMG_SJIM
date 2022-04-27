@@ -2622,7 +2622,6 @@
     <Content Include="Content\PagedList.css" />
     <Content Include="img\chosen-sprite.png" />
     <Content Include="loading.gif" />
-    <Content Include="loading3.gif" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -3092,6 +3091,7 @@
     <Content Include="Views\Scrap\Details.cshtml" />
     <Content Include="Views\Scrap\Edit.cshtml" />
     <Content Include="Views\Scrap\Index.cshtml" />
+    <Content Include="Views\Manage\ChangeAvatar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

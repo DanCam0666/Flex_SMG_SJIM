@@ -168,7 +168,7 @@
                             @Html.ActionLink("Detalles", "Details", new { id = item.ID }) |
                             @if (ViewBag.super == true)
                             {
-                                @Html.ActionLink("Borrar", "Delete", new { id = item.ID })
+                                @Html.ActionLink("Eliminar", "Delete", new { id = item.ID })
                             }
                         </td>
                     </tr>
@@ -206,7 +206,7 @@
                     <th scope="row">100% Complete</th>
                     @foreach (var item in ViewBag.data)
                     {
-                         <td>@item.Amef</td>
+                         <td>@item.Amef%</td>
                     }
                 </tr>
                 <tr>
@@ -219,21 +219,21 @@
                     }
                 </tr>
                 <tr>
-                    <th><p style="background-color: #4cff002d">@Html.ActionLink("Capacities Review", "Index", "Capacities")</p></th>
+                    <th><p>@Html.ActionLink("Capacities Review", "Index", "Capacities")</p></th>
                     <th scope="row">Adriana Velazquez</th>
                     <th scope="row">Monthly Report</th>
                     @foreach (var item in ViewBag.data)
                     {
-                        <td>@item.CapPer % de @item.CapNum</td>
+                        <td>@item.CapPer%</td>
                     }
                 </tr>
                 <tr>
-                    <th><p style="background-color: #4cff002d">@Html.ActionLink("Continous Improvement", "Index", "CI_MP")</p></th>
+                    <th><p>@Html.ActionLink("Continous Improvement", "Index", "CI_MP")</p></th>
                     <th scope="row">Gabriela Vasquez</th>
                     <th scope="row">100% Monthly /1 project month</th>
                     @foreach (var item in ViewBag.data)
                     {
-                        <td>@item.CoIm</td>
+                        <td>@item.CoImPer%</td>
                     }
                 </tr>
                 <tr>
@@ -251,7 +251,7 @@
                     <th scope="row"></th>
                     @foreach (var item in ViewBag.data)
                     {
-                        <td>@item.CuSc</td>
+                        <td>@item.CuSc%</td>
                     }
                 </tr>
                 <tr>
@@ -260,7 +260,7 @@
                     <th scope="row">100% Completed</th>
                     @foreach (var item in ViewBag.data)
                     {
-                        <td>@item.Ecn</td>
+                        <td>@item.Ecn%</td>
                     }
                 </tr>
                 <tr>
@@ -269,7 +269,7 @@
                     <th scope="row">100% Completed</th>
                     @foreach (var item in ViewBag.data)
                     {
-                        <td>@item.LaOu</td>
+                        <td>@item.LaOu%</td>
                     }
                 </tr>
                 <tr>
@@ -278,7 +278,7 @@
                     <th scope="row">100% Completed</th>
                     @foreach (var item in ViewBag.data)
                     {
-                        <td>@item.Lpa</td>
+                        <td>@item.Lpa%</td>
                     }
                 </tr>
                 <tr>
@@ -296,16 +296,16 @@
                     <th scope="row">Delivery according to schedule</th>
                     @foreach (var item in ViewBag.data)
                     {
-                        <td>@item.PaDe</td>
+                        <td>@item.PaDe%</td>
                     }
                 </tr>
                 <tr>
-                    <th><p style="background-color: #4cff002d">@Html.ActionLink("PLM / Launch Matrix", "Index", "PLM")</p></th>
+                    <th><p>@Html.ActionLink("PLM / Launch Matrix", "Index", "PLM")</p></th>
                     <th scope="row">Armando Prado</th>
                     <th scope="row">100% Closed on time</th>
                     @foreach (var item in ViewBag.data)
                     {
-                        <td>@item.Plm</td>
+                        <td>@item.Plm%</td>
                     }
                 </tr>
                 <tr>
@@ -314,7 +314,7 @@
                     <th scope="row">100% Completed</th>
                     @foreach (var item in ViewBag.data)
                     {
-                        <td>@item.QuHs</td>
+                        <td>@item.QuHs%</td>
                     }
                 </tr>
                 <tr>
@@ -323,7 +323,7 @@
                     <th scope="row">100% on time & implemented</th>
                     @foreach (var item in ViewBag.data)
                     {
-                        <td>@item.ReRa</td>
+                        <td>@item.ReRa%</td>
                     }
                 </tr>
                 <tr>
@@ -350,7 +350,7 @@
                     <th scope="row">100%</th>
                     @foreach (var item in ViewBag.data)
                     {
-                        <td>@item.Toc</td>
+                        <td>@item.Toc%</td>
                     }
                 </tr>
                 <tr>
@@ -359,7 +359,7 @@
                     <th scope="row">98% Accuracy and 100% audits</th>
                     @foreach (var item in ViewBag.data)
                     {
-                        <td>@item.YeSh</td>
+                        <td>@item.YeSh%</td>
                     }
                 </tr>
             </tbody>
@@ -481,11 +481,11 @@
                     cells[4].cells[3 + i].style.backgroundColor = '#71d98c';
                     cells[4].cells[3 + i].style.color = 'black';
                 }
-                if (parseInt(cells[5].cells[3 + i].innerHTML, 10) > 0) {
+                if (parseInt(cells[5].cells[3 + i].innerHTML, 10) < 1) {
                     cells[5].cells[3 + i].style.backgroundColor = '#ff5c5c';
                     cells[5].cells[3 + i].style.color = 'white';
                 }
-                if (parseInt(cells[5].cells[3 + i].innerHTML, 10) <= 0) {
+                if (parseInt(cells[5].cells[3 + i].innerHTML, 10) >= 1) {
                     cells[5].cells[3 + i].style.backgroundColor = '#71d98c';
                     cells[5].cells[3 + i].style.color = 'black';
                 }
@@ -529,11 +529,11 @@
                     cells[10].cells[3 + i].style.backgroundColor = '#71d98c';
                     cells[10].cells[3 + i].style.color = 'black';
                 }
-                if (parseInt(cells[11].cells[3 + i].innerHTML, 10) > 0) {
+                if (parseInt(cells[11].cells[3 + i].innerHTML, 10) < 1) {
                     cells[11].cells[3 + i].style.backgroundColor = '#ff5c5c';
                     cells[11].cells[3 + i].style.color = 'white';
                 }
-                if (parseInt(cells[11].cells[3 + i].innerHTML, 10) <= 0) {
+                if (parseInt(cells[11].cells[3 + i].innerHTML, 10) >= 1) {
                     cells[11].cells[3 + i].style.backgroundColor = '#71d98c';
                     cells[11].cells[3 + i].style.color = 'black';
                 }

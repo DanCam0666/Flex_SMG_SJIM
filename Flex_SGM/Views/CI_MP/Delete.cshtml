@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Borrar</h2>
+<h2>Eliminar</h2>
 
 <h3>¿Estás segur@@ de que quieres eliminar esto?</h3>
 <div>
@@ -84,7 +84,7 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Borrar" class="btn btn-default" /> |
+            <input type="submit" value="Eliminar" class="btn btn-default" /> |
             @Html.ActionLink("Regresar a la Lista", "Index")
         </div>
     }

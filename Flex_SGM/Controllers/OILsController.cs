@@ -1267,19 +1267,32 @@ namespace Flex_SGM.Controllers
             if (Request.Files.Count > 0)
             {
                 var file = Request.Files[0];
+                var fileName = "";
                 if (file != null && file.ContentLength > 0)
                 {
                     var path = "cool";
                     if (t == "a")
+                    {
                         path = Server.MapPath($"~/Evidence/before/{id}");
+                        fileName = file.FileName;
+                    }
 
                     if (t == "d")
+                    {
                         path = Server.MapPath($"~/Evidence/after/{id}");
+                        fileName = file.FileName;
+                    }
+
+                    if (t == "u")
+                    {
+                        path = Server.MapPath($"~/Users/{id}");
+                        fileName = "User.png";
+                    }
 
                     if (!System.IO.Directory.Exists(path))
                         System.IO.Directory.CreateDirectory(path);
 
-                    path = Path.Combine(path, file.FileName);
+                    path = Path.Combine(path, fileName);
                     file.SaveAs(path);
                     return Json(true);
                 }

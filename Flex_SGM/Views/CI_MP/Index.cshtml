@@ -96,7 +96,6 @@
 @section Scripts {
 
     <script>
-
         function Verify(idx)
         {
             $.post("@Url.Action("Verify","Metricos")",{ id:idx} ,function(data){
@@ -114,12 +113,6 @@
                 };
             }
 
-            //  var notice2 = PNotify.info({
-              //  title: 'Nuevas Funciones',
-              //  text: 'Existen nuevas funciones de Control de Usuario... Se continua trabajando en el reporte automatico de fallas!',
-              //  stack: window.stackBottomLeft,
-              //  addClass: 'nonblock'
-            //  });
             $('[data-toggle="tooltip"]').tooltip();
             $("#Normaldrop").chosen();
             $('#metricos').DataTable({
@@ -158,7 +151,6 @@
                 }
             });
         });
-
 
         new Chart(document.getElementById("bar-chart-horizontal"), {
             type: 'horizontalBar',
@@ -272,99 +264,5 @@
                 }
             }
         });
-
-
-        var barChartData2 =
-        {
-            labels: [@Html.Raw(ViewBag.UserID)], //the names displayed on the x-axis, see images below
-            // labels: ['a','b','c','d','e','f',], //the names displayed on the x-axis, see images below
-            datasets: [{
-                label: 'MTTR Peores 5 maquinas  (Minutos Promedio para Reparar una Falla)',
-                data: [@ViewBag.UserID],
-                backgroundColor: ["#af0a0a"],
-                borderWidth: 2
-            }]
-        };
-
-        Chart.helpers.merge(Chart.defaults.global.plugins.datalabels, {
-            align: 'end',
-            anchor: 'end',
-            offset: 1,
-            color: '#6B8CB0'
-        });
-
-        var ctqx2 = document.getElementById('CI_MP_Chart');
-        var myChartqe2 = new Chart(ctqx2, {
-            type: 'bar',
-            data: barChartCI,
-            options: {
-                responsive: true,
-                maintainAspectRatio: true,
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                },
-                legend: {
-                    labels: {
-                        // This more specific font property overrides the global property
-                        fontColor: 'black',
-                        defaultFontSize: 25,
-                    }
-                }
-            }
-        });
-        var barChartCI =
-        {
-            labels: [@Html.Raw(ViewBag.UserID)],
-            datasets: [
-                {
-                    type: 'line',
-                    label: 'Porcentaje Meta',
-                    data:[@ViewBag.data2sgrap2],
-                    backgroundColor: "#8CB06B",
-                    borderColor: "#aa0909",
-                    borderWidth: 2,
-                    fill: false
-                },
-                {
-                    type: 'bar',
-                    label: '% de tiempo perdido por Maquina',
-                    data: [@ViewBag.datasgrap2],
-                    backgroundColor: "#6B8CB0",
-                    borderWidth: 2
-                }
-            ]
-        };
-        var ctx2 = document.getElementById('chart_CI');
-        var myChart2 = new Chart(ctx2, {
-            type: 'horizontalBar',
-            data: barChartData2,
-            options: {
-                responsive: true,
-                maintainAspectRatio: true,
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
-            }
-        });
-        var colorChangeValue = 45; //set this to whatever is the deciding color change value
-        var dataset = myChart2.data.datasets[0];
-        for (var i = 0; i < dataset.data.length; i++) {
-            if (dataset.data[i] > colorChangeValue) {
-                dataset.backgroundColor[i] = "#af0a0a";
-            }
-            else {
-                dataset.backgroundColor[i] = "#0aaf0a";
-            }
-        }
-        myChart2.update();
-
     </script>
 }

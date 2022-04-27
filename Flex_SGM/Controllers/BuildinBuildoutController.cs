@@ -34,6 +34,119 @@ namespace Flex_SGM.Controllers
         // GET: Build_In_Build_Out
         public async Task<ActionResult> Index()
         {
+            //  var id = User.Identity.GetUserId();
+            //  ApplicationUser currentUser = UserManager.FindById(id);
+            var metricos = db.Metricos.ToList<Metricos>();
+
+            var chartData1 = metricos
+                .Where(m => m.Usuario_area is "Build_In_Build_Out")
+                .Where(m => m.DiaHora.Year == DateTime.Now.Year)
+                .Where(m => m.DiaHora.Month == 1)
+                .GroupBy(m => m.Usuario_responsable)
+                .Select(m => m.Sum(t => t.Proyectos))
+                .ToList();
+            var chartData2 = metricos
+                .Where(m => m.Usuario_area is "Build_In_Build_Out")
+                .Where(m => m.DiaHora.Year == DateTime.Now.Year)
+                .Where(m => m.DiaHora.Month == 2)
+                .GroupBy(m => m.Usuario_responsable)
+                .Select(m => m.Sum(t => t.Proyectos))
+                .ToList();
+            var chartData3 = metricos
+                .Where(m => m.Usuario_area is "Build_In_Build_Out")
+                .Where(m => m.DiaHora.Year == DateTime.Now.Year)
+                .Where(m => m.DiaHora.Month == 3)
+                .GroupBy(m => m.Usuario_responsable)
+                .Select(m => m.Sum(t => t.Proyectos))
+                .ToList();
+            var chartData4 = metricos
+                .Where(m => m.Usuario_area is "Build_In_Build_Out")
+                .Where(m => m.DiaHora.Year == DateTime.Now.Year)
+                .Where(m => m.DiaHora.Month == 4)
+                .GroupBy(m => m.Usuario_responsable)
+                .Select(m => m.Sum(t => t.Proyectos))
+                .ToList();
+            var chartData5 = metricos
+                .Where(m => m.Usuario_area is "Build_In_Build_Out")
+                .Where(m => m.DiaHora.Year == DateTime.Now.Year)
+                .Where(m => m.DiaHora.Month == 5)
+                .GroupBy(m => m.Usuario_responsable)
+                .Select(m => m.Sum(t => t.Proyectos))
+                .ToList();
+            var chartData6 = metricos
+                .Where(m => m.Usuario_area is "Build_In_Build_Out")
+                .Where(m => m.DiaHora.Year == DateTime.Now.Year)
+                .Where(m => m.DiaHora.Month == 6)
+                .GroupBy(m => m.Usuario_responsable)
+                .Select(m => m.Sum(t => t.Proyectos))
+                .ToList();
+            var chartData7 = metricos
+                .Where(m => m.Usuario_area is "Build_In_Build_Out")
+                .Where(m => m.DiaHora.Year == DateTime.Now.Year)
+                .Where(m => m.DiaHora.Month == 7)
+                .GroupBy(m => m.Usuario_responsable)
+                .Select(m => m.Sum(t => t.Proyectos))
+                .ToList();
+            var chartData8 = metricos
+                .Where(m => m.Usuario_area is "Build_In_Build_Out")
+                .Where(m => m.DiaHora.Year == DateTime.Now.Year)
+                .Where(m => m.DiaHora.Month == 8)
+                .GroupBy(m => m.Usuario_responsable)
+                .Select(m => m.Sum(t => t.Proyectos))
+                .ToList();
+            var chartData9 = metricos
+                .Where(m => m.Usuario_area is "Build_In_Build_Out")
+                .Where(m => m.DiaHora.Year == DateTime.Now.Year)
+                .Where(m => m.DiaHora.Month == 9)
+                .GroupBy(m => m.Usuario_responsable)
+                .Select(m => m.Sum(t => t.Proyectos))
+                .ToList();
+            var chartData10 = metricos
+                .Where(m => m.Usuario_area is "Build_In_Build_Out")
+                .Where(m => m.DiaHora.Year == DateTime.Now.Year)
+                .Where(m => m.DiaHora.Month == 10)
+                .GroupBy(m => m.Usuario_responsable)
+                .Select(m => m.Sum(t => t.Proyectos))
+                .ToList();
+            var chartData11 = metricos
+                .Where(m => m.Usuario_area is "Build_In_Build_Out")
+                .Where(m => m.DiaHora.Year == DateTime.Now.Year)
+                .Where(m => m.DiaHora.Month == 11)
+                .GroupBy(m => m.Usuario_responsable)
+                .Select(m => m.Sum(t => t.Proyectos))
+                .ToList();
+            var chartData12 = metricos
+                .Where(m => m.Usuario_area is "Build_In_Build_Out")
+                .Where(m => m.DiaHora.Year == DateTime.Now.Year)
+                .Where(m => m.DiaHora.Month == 12)
+                .GroupBy(m => m.Usuario_responsable)
+                .Select(m => m.Sum(t => t.Proyectos))
+                .ToList();
+            var chartLabel = metricos
+                .Where(m => m.Usuario_area is "Build_In_Build_Out")
+                .Where(m => m.DiaHora.Year == DateTime.Now.Year)
+                .GroupBy(m => m.Usuario_responsable)
+                .Select(m => m.Key)
+                .ToList();
+
+            ViewBag.ChartData1 = chartData1;
+            ViewBag.ChartData2 = chartData2;
+            ViewBag.ChartData3 = chartData3;
+            ViewBag.ChartData4 = chartData4;
+            ViewBag.ChartData5 = chartData5;
+            ViewBag.ChartData6 = chartData6;
+            ViewBag.ChartData7 = chartData7;
+            ViewBag.ChartData8 = chartData8;
+            ViewBag.ChartData9 = chartData9;
+            ViewBag.ChartData10 = chartData10;
+            ViewBag.ChartData11 = chartData11;
+            ViewBag.ChartData12 = chartData12;
+            ViewBag.ChartLabel = chartLabel;
+
+            ViewBag.Usuario_responsable = new SelectList(db.Users, "UserFullName", "UserFullName");
+            ViewBag.Usuario_area = new SelectList(Enum.GetValues(typeof(flex_Areasv1)).Cast<flex_Areasv1>().ToList());
+            ViewBag.Usuario_puesto = new SelectList(Enum.GetValues(typeof(flex_Puesto)).Cast<flex_Puesto>().ToList());
+
             return View(await db.Metricos.ToListAsync());
         }
 
@@ -142,12 +255,32 @@ namespace Flex_SGM.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit([Bind(Include = "ID,DiaHora,Usuario,Usuario_area,Usuario_puesto,Usuario_responsable,Descripcion,Comentarios,Proyectos")] Metricos metricos)
         {
+            var id = User.Identity.GetUserId();
+            ApplicationUser currentUser = UserManager.FindById(id);
+
+            string cuser = "Anonimo";
+            if (currentUser != null)
+                cuser = currentUser.UserFullName;
+
             if (ModelState.IsValid)
             {
+                ApplicationUser cUser1 = UserManager.Users.Where(u => u.UserFullName.Contains(metricos.Usuario_responsable)).FirstOrDefault();
+                var scorreo = new EmailController();
+                if (cUser1 != null)
+                {
+                    if (cUser1.Email != null && cUser1.UserFullName != cuser)
+                        if (cUser1.Email.Contains("@flexngate.com"))
+                        {
+                            scorreo.newoil(cUser1.Email, cuser, metricos.Descripcion);
+                        }
+                }
+
                 db.Entry(metricos).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
+            ViewBag.UserID = new SelectList(db.Users, "Id", "UserFullName");
+
             return View(metricos);
         }
 
