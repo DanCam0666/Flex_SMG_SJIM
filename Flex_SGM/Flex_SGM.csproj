@@ -253,6 +253,7 @@
     <Compile Include="Controllers\ereasonsController.cs" />
     <Compile Include="Controllers\FallasController.cs" />
     <Compile Include="Controllers\GAPsController.cs" />
+    <Compile Include="Controllers\HelpController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IngenieriaController.cs" />
     <Compile Include="Controllers\JuntasController.cs" />
@@ -2744,6 +2745,7 @@
     <Content Include="Addon\fullcalendar\timegrid\main.js.map" />
     <Content Include="Addon\fullcalendar\timegrid\package.json" />
     <Content Include="Addon\fullcalendar\timegrid\README.md" />
+    <Content Include="Help\IngBitacoraCapBasica.pdf" />
     <None Include="Properties\PublishProfiles\SJIMSVAP7 Bitacora.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\Chart.js" />
@@ -3092,6 +3094,7 @@
     <Content Include="Views\Scrap\Edit.cshtml" />
     <Content Include="Views\Scrap\Index.cshtml" />
     <Content Include="Views\Manage\ChangeAvatar.cshtml" />
+    <Content Include="Views\Help\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
