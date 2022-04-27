@@ -1,0 +1,35 @@
+﻿@model Flex_SGM.Models.AndonDefecto
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutC.cshtml";
+}
+
+<h2>Details</h2>
+<a href="/bitacora/Evidence/Quality/Estandar/Lista de defectos por area.pdf" target="_blank">Lista de Codigos de Clasificacion</a>
+<div>
+    <h4>AndonDefecto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Areas.Area)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Areas.Area)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Defecto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Defecto)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

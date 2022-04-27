@@ -46,19 +46,28 @@ namespace AspnetIdentitySample.Controllers
 
             var userId = User.Identity.GetUserId();
             ApplicationUser currentUser = UserManager.FindById(userId);
-            if (currentUser.UserFullName.Contains("Super_User")|| currentUser.UserFullName.Contains("holotopo"))
+            if (currentUser.UserFullName.Contains("Super_User")|| currentUser.UserFullName.Contains("DanCam"))
                 for (int mi = 0; mi < name.Count(); mi++)
-            {
-                if (!RoleManager.RoleExists(name[mi]))
                 {
-                    var roleresult = RoleManager.Create(new IdentityRole(name[mi]));
-                }
+                    if (!RoleManager.RoleExists(name[mi]))
+                    {
+                        var roleresult = RoleManager.Create(new IdentityRole(name[mi]));
+                    }
 
-                if (!UserManager.IsInRole(userId, name[mi]))
-                {
-                    UserManager.AddToRole(currentUser.Id, name[0]);
+                    if (!UserManager.IsInRole(userId, name[mi]))
+                    {
+                        UserManager.AddToRole(currentUser.Id, name[0]);
+                    }
                 }
+            string cpuesto = "xxx";
+            if (currentUser != null)
+            {
+                cpuesto = currentUser.Puesto;
             }
+            if (cpuesto.Contains("Supervisor") || cpuesto.Contains("Asistente") || cpuesto.Contains("Superintendente") || cpuesto.Contains("Gerente"))
+                ViewBag.super = true;
+            else
+                ViewBag.super = false;
 
 
             return View(RoleManager.Roles);
@@ -86,15 +95,17 @@ namespace AspnetIdentitySample.Controllers
             return View(role);
         }
 
-        //
         // GET: /Roles/Create
+        [Authorize(Roles = "Admin,Supervisor")]
+        [Authorize(Roles = "Admin,Mantenimiento")]
         public ActionResult Create()
         {
             return View();
         }
 
-        //
         // POST: /Roles/Create
+        [Authorize(Roles = "Admin,Supervisor")]
+        [Authorize(Roles = "Admin,Mantenimiento")]
         [HttpPost]
         public async Task<ActionResult> Create(RoleViewModel roleViewModel)
         {
@@ -115,6 +126,8 @@ namespace AspnetIdentitySample.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin,Supervisor")]
+        [Authorize(Roles = "Admin,Mantenimiento")]
         //
         // GET: /Roles/Edit/Admin
         public async Task<ActionResult> Edit(string id)
@@ -131,6 +144,8 @@ namespace AspnetIdentitySample.Controllers
             return View(role);
         }
 
+        [Authorize(Roles = "Admin,Supervisor")]
+        [Authorize(Roles = "Admin,Mantenimiento")]
         //
         // POST: /Roles/Edit/5
         [HttpPost]
@@ -154,6 +169,8 @@ namespace AspnetIdentitySample.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin,Supervisor")]
+        [Authorize(Roles = "Admin,Mantenimiento")]
         //
         // GET: /Roles/Delete/5
         public async Task<ActionResult> Delete(string id)
@@ -170,6 +187,8 @@ namespace AspnetIdentitySample.Controllers
             return View(role);
         }
 
+        [Authorize(Roles = "Admin,Supervisor")]
+        [Authorize(Roles = "Admin,Mantenimiento")]
         //
         // POST: /Roles/Delete/5
         [HttpPost, ActionName("Delete")]

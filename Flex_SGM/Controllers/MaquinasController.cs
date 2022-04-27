@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Flex_SGM.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
 
 namespace Flex_SGM.Controllers
 {
@@ -14,10 +16,40 @@ namespace Flex_SGM.Controllers
     public class MaquinasController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        private ApplicationUserManager _userManager;
+        public ApplicationUserManager UserManager
+        {
+            get
+            {
+                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            }
+            private set
+            {
+                _userManager = value;
+            }
+        }
 
         // GET: Maquinas
         public ActionResult Index()
         {
+            var id = User.Identity.GetUserId();
+            ApplicationUser currentUser = UserManager.FindById(id);
+            string cuser = "xxx";
+            string cpuesto = "xxx";
+            string cuare = "xxx";
+            if (currentUser != null)
+            {
+                cuser = currentUser.UserFullName;
+                cpuesto = currentUser.Puesto;
+                cuare = currentUser.Area;
+            }
+            ViewBag.uarea = cuare;
+            ViewBag.cuser = cuser;
+            if (cpuesto.Contains("Supervisor") || cpuesto.Contains("Asistente") || cpuesto.Contains("Superintendente") || cpuesto.Contains("Gerente"))
+                ViewBag.super = true;
+            else
+                ViewBag.super = false;
+
             return View(db.Maquinas.ToList());
         }
 
@@ -70,7 +102,7 @@ namespace Flex_SGM.Controllers
             return View(maquinas);
         }
         [Authorize(Roles = "Admin")]
-        [Authorize(Roles = "Supervisor")]
+        [Authorize(Roles = "Admin,Supervisor")]
         [Authorize(Roles = "Admin,Mantenimiento")]
         // GET: Maquinas/Edit/5
         public ActionResult Edit(int? id)
@@ -119,7 +151,7 @@ namespace Flex_SGM.Controllers
         }
 
         [Authorize(Roles = "Admin")]
-        [Authorize(Roles = "Supervisor")]
+        [Authorize(Roles = "Admin,Supervisor")]
         [Authorize(Roles = "Admin,Mantenimiento")]
         // POST: Maquinas/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
@@ -140,7 +172,7 @@ namespace Flex_SGM.Controllers
         }
 
         [Authorize(Roles = "Admin")]
-        [Authorize(Roles = "Supervisor")]
+        [Authorize(Roles = "Admin,Supervisor")]
         [Authorize(Roles = "Admin,Mantenimiento")]
         // GET: Maquinas/Delete/5
         public ActionResult Delete(int? id)
@@ -157,7 +189,7 @@ namespace Flex_SGM.Controllers
             return View(maquinas);
         }
         [Authorize(Roles = "Admin")]
-        [Authorize(Roles = "Supervisor")]
+        [Authorize(Roles = "Admin,Supervisor")]
         [Authorize(Roles = "Admin,Mantenimiento")]
         // POST: Maquinas/Delete/5
         [HttpPost, ActionName("Delete")]
