@@ -112,7 +112,7 @@
                     </th>
 
                     <th>
-                        @Html.DisplayName("Material Comentarios")
+                        @Html.DisplayName("Comentarios")
                     </th>
                 </tr>
             </thead>
@@ -548,7 +548,48 @@
         $('#proye').DataTable({
             "dom": 'lBfrtip',
             "lengthMenu": [[5, 25, 50, -1], ["5", "25", "50", "Todos"]],
-            "buttons": ['copy', 'csv','print','pdf','excel'],
+            "buttons": [
+                {
+                    extend: 'copy',
+                    orientation: 'landscape',
+                    pageSize: 'LEGAL',
+                    exportOptions: {
+                        columns: [0, 1, 2, 3, 4, 5, 7]
+                    },
+                },
+                {
+                    extend: 'csv',
+                    orientation: 'landscape',
+                    pageSize: 'LEGAL',
+                    exportOptions: {
+                        columns: [0, 1, 2, 3, 4, 5, 7]
+                    },
+                },
+                {
+                    extend: 'print',
+                    orientation: 'landscape',
+                    pageSize: 'LEGAL',
+                    exportOptions: {
+                        columns: [0, 1, 2, 3, 4, 5, 7]
+                    },
+                },
+                {
+                    extend: 'pdfHtml5',
+                    orientation: 'landscape',
+                    pageSize: 'LEGAL',
+                    exportOptions: {
+                        columns: [0, 1, 2, 3, 4, 5, 7]
+                    },
+                },
+                {
+                    extend: 'excelHtml5',
+                    orientation: 'landscape',
+                    pageSize: 'LEGAL',
+                    exportOptions: {
+                        columns: [0, 1, 2, 3, 4, 5, 7]
+                    },
+                }
+            ],
             "order": [[0, "desc"]],
             "scrollX": true,
             "language": {

@@ -1080,3 +1080,4 @@ C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\Flex_SGM
 C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\Flex_SGM.pdb
 C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\obj\Release\Flex_SGM.dll
 C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\obj\Release\Flex_SGM.pdb
+C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\Views\Help\Index.cshtml

@@ -1,6 +1,6 @@
 ﻿@model Flex_SGM.Models.RegisterViewModel
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Crear";
 }
 
 <hgroup class="title">
@@ -15,7 +15,7 @@
     @Html.ValidationSummary()
 
 <fieldset class="form-horizontal">
-    <legend>Create a new user.</legend>
+    <legend>Crear usuario nuevo.</legend>
     <div class="control-group">
         @Html.LabelFor(m => m.UserName, new { @class = "control-label" })
         <div class="controls">
@@ -47,11 +47,11 @@
             @Html.TextBoxFor(m => m.Nomina)
         </div>
     </div>
-    <h4>Select Role for User</h4>
     <hr />
+    <h4>Seleccione Role por usuario</h4>
     @Html.DropDownList("RoleId", "No Roles")
     <div class="form-actions no-color">
-        <input type="submit" value="Create" class="btn" />
+        <input type="submit" value="Crear" class="btn" />
     </div>
 </fieldset>
 }

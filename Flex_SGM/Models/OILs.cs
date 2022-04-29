@@ -11,6 +11,10 @@ namespace Flex_SGM.Models
     public class OILs
     {
         public int ID { get; set; }
+
+
+        [Required]
+        [Display(Name = "Programa")]
         public int MaquinasID { get; set; }
 
         [MaxLength(100)]

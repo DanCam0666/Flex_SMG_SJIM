@@ -38,7 +38,7 @@ namespace AspnetIdentitySample.Controllers
         //
         // GET: /Roles/
         [AllowAnonymous]
-        public async Task<ActionResult> Index()
+        public ActionResult Index()
         {
 
             string[] name = { "Admin", "Mantenimiento", "Supervisor", "Calidad", "Ingenieria" };
@@ -46,7 +46,7 @@ namespace AspnetIdentitySample.Controllers
 
             var userId = User.Identity.GetUserId();
             ApplicationUser currentUser = UserManager.FindById(userId);
-            if (currentUser.UserFullName.Contains("Super_User")|| currentUser.UserFullName.Contains("DanCam"))
+            if (currentUser.UserFullName.Contains("Super_User") || currentUser.UserFullName.Contains("Daniel Camacho"))
                 for (int mi = 0; mi < name.Count(); mi++)
                 {
                     if (!RoleManager.RoleExists(name[mi]))
