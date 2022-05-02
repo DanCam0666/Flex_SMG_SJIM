@@ -11,13 +11,14 @@
     {
         @Html.ActionLink("Crear Nuevo", "Create")
     }
-    </p>
-<table class="tabled table-bordered table-striped">
+</p>
+<table class="display table table-bordered table-striped" id="rolesTable" style="width:100%; overflow-x:auto;">
     <thead>
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Name)
             </th>
+            <th>Opciones</th>
         </tr>
     </thead>
     <tbody>
@@ -28,15 +29,59 @@
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
                 <td>
-                    @if (ViewBag.super == true) { 
+                    @if (ViewBag.super == true)
+                    {
                         @Html.ActionLink("Editar", "Edit", new { id = item.Id })
                     } |
                     @Html.ActionLink("Detalles", "Details", new { id = item.Id }) |
-                    @if (ViewBag.super == true) { 
-                        @Html.ActionLink("Borrar", "Delete", new { id = item.Id })
+                    @if (ViewBag.super == true)
+                    {
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
                     }
                 </td>
             </tr>
         }
     </tbody>
 </table>
+@section Scripts {
+
+    <script>
+
+        $('#rolesTable').DataTable({
+            "dom": 'lBfrtip',
+            "lengthMenu": [[5, 15, 50, -1], ["5", "15", "50", "Todos"]],
+            "buttons": ['copy', 'csv', 'print', 'pdfHtml5', 'excelHtml5'],
+            "order": [[0, "desc"]],
+            "scrollX": true,
+            "language": {
+                "sProcessing": "Procesando...",
+                "sLengthMenu": "Mostrar _MENU_ registros",
+                "sZeroRecords": "No se encontraron resultados",
+                "sEmptyTable": "Ningun dato disponible en esta tabla =(",
+                "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                "sInfoPostFix": "",
+                "sSearch": "Buscar:",
+                "sUrl": "",
+                "sInfoThousands": ",",
+                "sLoadingRecords": "Cargando...",
+                "oPaginate": {
+                    "sFirst": "Primero",
+                    "sLast": "ultimo",
+                    "sNext": "Siguiente",
+                    "sPrevious": "Anterior"
+                },
+                "oAria": {
+                    "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                    "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                },
+                "buttons": {
+                    "copy": "Copiar",
+                    "colvis": "Visibilidad"
+                }
+            }
+        });
+
+    </script>
+}

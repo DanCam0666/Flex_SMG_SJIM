@@ -272,7 +272,7 @@
                         }
                     </tr>
                     <tr>
-                        <th><p>@Html.ActionLink("Continous Improvement / Manpower", "Index", "CI_MP")</p></th>
+                        <th><p>@Html.ActionLink("Continous Improvement", "Index", "CI_MP")</p></th>
                         <th scope="row">Gabriela Vasquez</th>
                         <th scope="row">100% Monthly /1 project month</th>
                         @foreach (var item in ViewBag.data)
@@ -718,7 +718,48 @@
         $('#metricox').DataTable({
             "dom": 'lBfrtip',
             "lengthMenu": [[-1, -1], ["Todos", "Todos"]],
-            "buttons": ['copy', 'csv', 'print', 'pdf', 'excel'],
+            "buttons": [
+                {
+                    extend: 'copy',
+                    orientation: 'landscape',
+                    pageSize: 'LEGAL',
+                    exportOptions: {
+                        columns: [0, 1, 4, 5, 7, 8, 9, 10, 11, 12, 13]
+                    },
+                },
+                {
+                    extend: 'csv',
+                    orientation: 'landscape',
+                    pageSize: 'LEGAL',
+                    exportOptions: {
+                        columns: [0, 1, 4, 5, 7, 8, 9, 10, 11, 12, 13]
+                    },
+                },
+                {
+                    extend: 'print',
+                    orientation: 'landscape',
+                    pageSize: 'LEGAL',
+                    exportOptions: {
+                        columns: [0, 1, 4, 5, 7, 8, 9, 10, 11, 12, 13]
+                    },
+                },
+                {
+                    extend: 'pdfHtml5',
+                    orientation: 'landscape',
+                    pageSize: 'LEGAL',
+                    exportOptions: {
+                        columns: [0, 1, 4, 5, 7, 8, 9, 10, 11, 12, 13]
+                    },
+                },
+                {
+                    extend: 'excelHtml5',
+                    orientation: 'landscape',
+                    pageSize: 'LEGAL',
+                    exportOptions: {
+                        columns: [0, 1, 4, 5, 7, 8, 9, 10, 11, 12, 13]
+                    },
+                }
+            ],
             "order": [[0, "asc"]],
             "scrollX": true,
             "language": {

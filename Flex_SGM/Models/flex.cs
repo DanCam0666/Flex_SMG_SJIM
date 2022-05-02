@@ -19,7 +19,7 @@ namespace Flex_SGM.Models
     }
     public enum flex_Areasv1
     {
-        None, AMEF_Reverse, Build_In_Build_Out, Capacities_Review, Cont_Imprv_ManP, Customer_Complaints, Cust_Score_Cards, ECNs_PCRs, Lay_Outs, LPA_COVID, Packaging, Parts_Delivery, PLM, Quality_HS, Red_Rabbits, Safety_HS, Scrap, TOC_HS_Audits, Yellow_Sheets
+        None, AMEF_Reverse, Build_In_Build_Out, Capacities_Review, Continuous_Improvment, Customer_Complaints, Cust_Score_Cards, ECNs_PCRs, Lay_Outs, LPA_COVID, Packaging, Parts_Delivery, PLM, Quality_HS, Red_Rabbits, Safety_HS, Scrap, TOC_HS_Audits, Yellow_Sheets
     }
     public enum flex_Areas
     {

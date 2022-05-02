@@ -383,7 +383,48 @@
         $('#metricoTable').DataTable({
             "dom": 'lBfrtip',
             "lengthMenu": [[5, 15, 50, -1], ["5", "15", "50", "Todos"]],
-            "buttons": ['copy', 'csv', 'print', 'pdf', 'excel'],
+            "buttons": [
+                {
+                    extend: 'copy',
+                    orientation: 'landscape',
+                    pageSize: 'LEGAL',
+                    exportOptions: {
+                        columns: [0, 1, 2, 3, 4, 5, 6]
+                    },
+                },
+                {
+                    extend: 'csv',
+                    orientation: 'landscape',
+                    pageSize: 'LEGAL',
+                    exportOptions: {
+                        columns: [0, 1, 2, 3, 4, 5, 6]
+                    },
+                },
+                {
+                    extend: 'print',
+                    orientation: 'landscape',
+                    pageSize: 'LEGAL',
+                    exportOptions: {
+                        columns: [0, 1, 2, 3, 4, 5, 6]
+                    },
+                },
+                {
+                    extend: 'pdfHtml5',
+                    orientation: 'landscape',
+                    pageSize: 'LETTER',
+                    exportOptions: {
+                        columns: [0, 1, 2, 3, 4, 5, 6]
+                    },
+                },
+                {
+                    extend: 'excelHtml5',
+                    orientation: 'landscape',
+                    pageSize: 'LEGAL',
+                    exportOptions: {
+                        columns: [0, 1, 2, 3, 4, 5, 6]
+                    },
+                }
+            ],
             "order": [[0, "desc"]],
             "scrollX": true,
             "language": {
@@ -465,11 +506,11 @@
                     cells[2].cells[3 + i].style.backgroundColor = '#71d98c';
                     cells[2].cells[3 + i].style.color = 'black';
                 }
-                if (parseInt(cells[3].cells[3 + i].innerHTML, 10) < 1) {
+                if (parseInt(cells[3].cells[3 + i].innerHTML, 10) < 80) {
                     cells[3].cells[3 + i].style.backgroundColor = '#ff5c5c';
                     cells[3].cells[3 + i].style.color = 'white';
                 }
-                if (parseInt(cells[3].cells[3 + i].innerHTML, 10) >= 1) {
+                if (parseInt(cells[3].cells[3 + i].innerHTML, 10) >= 80) {
                     cells[3].cells[3 + i].style.backgroundColor = '#71d98c';
                     cells[3].cells[3 + i].style.color = 'black';
                 }

@@ -61,6 +61,7 @@
         };
         FilePond.setOptions(labels_es_ES);
 
+
         var pond1= FilePond.create(document.querySelector('[name ="filepond1"]'));
         pond1.setOptions({
             server: '@Url.Action("SaveFile", "Manage", new { id = Model.idusuario })'

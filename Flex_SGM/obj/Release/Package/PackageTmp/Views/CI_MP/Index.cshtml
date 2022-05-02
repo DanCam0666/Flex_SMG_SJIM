@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Continuous Improvement / Manpower</h2>
+<h2>Continuous Improvement</h2>
 
 <h3>
     @Html.ActionLink("Crear Registro Nuevo", "Create")
@@ -43,7 +43,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in Model.Where(w => w.Usuario_area == "Cont_Imprv_ManP"))
+                @foreach (var item in Model.Where(w => w.Usuario_area == "Continuous_Improvment"))
                 {
                     <tr>
                         <td>
@@ -118,7 +118,48 @@
             $('#metricos').DataTable({
                 "dom": 'lBfrtip',
                 "lengthMenu": [[5, 15, 50, -1], ["5", "15", "50", "Todos"]],
-                "buttons": ['copy', 'csv', 'print', 'pdf', 'excel'],
+                "buttons": [
+                    {
+                        extend: 'copy',
+                        orientation: 'landscape',
+                        pageSize: 'LETTER',
+                        exportOptions: {
+                            columns: [0, 1, 2, 3, 4, 5, 7]
+                        },
+                    },
+                    {
+                        extend: 'csv',
+                        orientation: 'landscape',
+                        pageSize: 'LETTER',
+                        exportOptions: {
+                            columns: [0, 1, 2, 3, 4, 5, 7]
+                        },
+                    },
+                    {
+                        extend: 'print',
+                        orientation: 'landscape',
+                        pageSize: 'LETTER',
+                        exportOptions: {
+                            columns: [0, 1, 2, 3, 4, 5, 7]
+                        },
+                    },
+                    {
+                        extend: 'pdfHtml5',
+                        orientation: 'landscape',
+                        pageSize: 'LETTER',
+                        exportOptions: {
+                            columns: [0, 1, 2, 3, 4, 5, 7]
+                        },
+                    },
+                    {
+                        extend: 'excelHtml5',
+                        orientation: 'landscape',
+                        pageSize: 'LETTER',
+                        exportOptions: {
+                            columns: [0, 1, 2, 3, 4, 5, 7]
+                        },
+                    }
+                ],
                 "order": [[0, "desc"]],
                 "scrollX": true,
                 "language": {
@@ -260,7 +301,7 @@
                 legend: { display: true },
                 title: {
                     display: true,
-                    text: 'Continuous Improvement / Manpower'
+                    text: 'Continuous Improvement'
                 }
             }
         });

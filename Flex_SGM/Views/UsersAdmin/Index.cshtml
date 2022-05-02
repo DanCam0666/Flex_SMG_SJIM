@@ -40,10 +40,13 @@
                 <td>
                     @if (ViewBag.super == true)
                     {
-                        @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+                        @Html.ActionLink("Editar", "Edit", new { id = item.Id })
                     } |
-                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                    @*@Html.ActionLink("Delete", "Delete", new { id = item.Id })*@
+                    @Html.ActionLink("Detalles", "Details", new { id = item.Id }) |
+                    @if (ViewBag.super == true)
+                    {
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
+                    }
                 </td>
                 <td>
                     @item.UserName
@@ -78,10 +81,13 @@
                 <td>
                     @if (ViewBag.super == true)
                     {
-                        @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+                        @Html.ActionLink("Editar", "Edit", new { id = item.Id })
                     } |
-                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                    @*@Html.ActionLink("Delete", "Delete", new { id = item.Id })*@
+                    @Html.ActionLink("Detalles", "Details", new { id = item.Id }) |
+                    @if (ViewBag.super == true)
+                    {
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
+                    }
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.UserName)

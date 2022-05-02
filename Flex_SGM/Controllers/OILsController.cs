@@ -987,7 +987,7 @@ namespace Flex_SGM.Controllers
 
             string cuser = "Anonimo";
             if (currentUser != null)
-                cuser = currentUser.UserFullName;
+                cuser = currentUser.UserName;
 
             Comments Commente = new Comments
             {

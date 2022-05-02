@@ -38,27 +38,11 @@ namespace AspnetIdentitySample.Controllers
         //
         // GET: /Roles/
         [AllowAnonymous]
-        public async Task<ActionResult> Index()
+        public ActionResult Index()
         {
-
-            string[] name = { "Admin", "Mantenimiento", "Supervisor", "Calidad", "Ingenieria" };
-            var RoleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new ApplicationDbContext()));
-
             var userId = User.Identity.GetUserId();
             ApplicationUser currentUser = UserManager.FindById(userId);
-            if (currentUser.UserFullName.Contains("Super_User")|| currentUser.UserFullName.Contains("DanCam"))
-                for (int mi = 0; mi < name.Count(); mi++)
-                {
-                    if (!RoleManager.RoleExists(name[mi]))
-                    {
-                        var roleresult = RoleManager.Create(new IdentityRole(name[mi]));
-                    }
 
-                    if (!UserManager.IsInRole(userId, name[mi]))
-                    {
-                        UserManager.AddToRole(currentUser.Id, name[0]);
-                    }
-                }
             string cpuesto = "xxx";
             if (currentUser != null)
             {

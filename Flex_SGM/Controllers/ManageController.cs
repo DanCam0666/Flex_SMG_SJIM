@@ -118,9 +118,9 @@ namespace Flex_SGM.Controllers
             else
             {
                 ViewBag.super = false;
-                string sarea = currentUser.Area;
+                string sarea = currentUser.Departamento;
                 var userId = User.Identity.GetUserId();
-                List<ApplicationUser> allUser = UserManager.Users.Where(u => u.Area == sarea).OrderBy(u => u.Puesto).ToList();
+                List<ApplicationUser> allUser = UserManager.Users.Where(u => u.Departamento == sarea).OrderBy(u => u.Puesto).ToList();
                 return View(allUser);
             }
         }
