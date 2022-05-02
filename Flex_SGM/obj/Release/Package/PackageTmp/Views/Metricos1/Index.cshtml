@@ -371,6 +371,15 @@
 
     <script>
 
+        function Verify(idx)
+        {
+            $.post("@Url.Action("Verify","Metricos")",{ id:idx} ,function(data){
+                alert(data);
+            });
+        }
+        $('[data-toggle="tooltip"]').tooltip();
+        $("#Normaldrop").chosen();
+
         $('#metricoTable').DataTable({
             "dom": 'lBfrtip',
             "lengthMenu": [[5, 15, 50, -1], ["5", "15", "50", "Todos"]],
@@ -380,7 +389,7 @@
                     orientation: 'landscape',
                     pageSize: 'LEGAL',
                     exportOptions: {
-                        columns: [0, 1, 4, 5, 7, 8, 9, 10, 11, 12, 13]
+                        columns: [0, 1, 2, 3, 4, 5, 6]
                     },
                 },
                 {
@@ -388,7 +397,7 @@
                     orientation: 'landscape',
                     pageSize: 'LEGAL',
                     exportOptions: {
-                        columns: [0, 1, 4, 5, 7, 8, 9, 10, 11, 12, 13]
+                        columns: [0, 1, 2, 3, 4, 5, 6]
                     },
                 },
                 {
@@ -396,15 +405,15 @@
                     orientation: 'landscape',
                     pageSize: 'LEGAL',
                     exportOptions: {
-                        columns: [0, 1, 4, 5, 7, 8, 9, 10, 11, 12, 13]
+                        columns: [0, 1, 2, 3, 4, 5, 6]
                     },
                 },
                 {
                     extend: 'pdfHtml5',
                     orientation: 'landscape',
-                    pageSize: 'LEGAL',
+                    pageSize: 'LETTER',
                     exportOptions: {
-                        columns: [0, 1, 4, 5, 7, 8, 9, 10, 11, 12, 13]
+                        columns: [0, 1, 2, 3, 4, 5, 6]
                     },
                 },
                 {
@@ -412,7 +421,7 @@
                     orientation: 'landscape',
                     pageSize: 'LEGAL',
                     exportOptions: {
-                        columns: [0, 1, 4, 5, 7, 8, 9, 10, 11, 12, 13]
+                        columns: [0, 1, 2, 3, 4, 5, 6]
                     },
                 }
             ],
@@ -448,6 +457,25 @@
             }
         });
 
+        $(document).ready(function () {
+
+            if (typeof window.stackBottomLeft === 'undefined') {
+                window.stackBottomLeft = {
+                    'dir1': 'up',
+                    'dir2': 'left',
+                    'firstpos1': 25,
+                    'firstpos2': 25
+                };
+            }
+
+            //  var notice2 = PNotify.info({
+              //  title: 'Nuevas Funciones',
+              //  text: 'Existen nuevas funciones de Control de Usuario... Se continua trabajando en el reporte automatico de fallas!',
+              //  stack: window.stackBottomLeft,
+              //  addClass: 'nonblock'
+            //  });
+        });
+
         var table = document.getElementById('metricox');
         var tbody = table.getElementsByTagName('tbody')[0];
         var cells = tbody.getElementsByTagName('tr');
@@ -478,11 +506,11 @@
                     cells[2].cells[3 + i].style.backgroundColor = '#71d98c';
                     cells[2].cells[3 + i].style.color = 'black';
                 }
-                if (parseInt(cells[3].cells[3 + i].innerHTML, 10) < 1) {
+                if (parseInt(cells[3].cells[3 + i].innerHTML, 10) < 80) {
                     cells[3].cells[3 + i].style.backgroundColor = '#ff5c5c';
                     cells[3].cells[3 + i].style.color = 'white';
                 }
-                if (parseInt(cells[3].cells[3 + i].innerHTML, 10) >= 1) {
+                if (parseInt(cells[3].cells[3 + i].innerHTML, 10) >= 80) {
                     cells[3].cells[3 + i].style.backgroundColor = '#71d98c';
                     cells[3].cells[3 + i].style.color = 'black';
                 }

@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Continuous Improvement / Manpower</h2>
+<h2>Continuous Improvement</h2>
 
 <h3>
     @Html.ActionLink("Crear Registro Nuevo", "Create")
@@ -43,7 +43,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in Model.Where(w => w.Usuario_area == "Cont_Imprv_ManP"))
+                @foreach (var item in Model.Where(w => w.Usuario_area == "Continuous_Improvment"))
                 {
                     <tr>
                         <td>
@@ -301,7 +301,7 @@
                 legend: { display: true },
                 title: {
                     display: true,
-                    text: 'Continuous Improvement / Manpower'
+                    text: 'Continuous Improvement'
                 }
             }
         });

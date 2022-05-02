@@ -336,12 +336,6 @@
 
     <script>
 
-        function Verify(idx)
-        {
-            $.post("@Url.Action("Verify","Bitacoras")",{ id:idx} ,function(data){
-                alert(data);
-            });
-        }
         $(document).ready(function () {
 
             if (typeof window.stackBottomLeft === 'undefined') {
