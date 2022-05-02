@@ -23,38 +23,38 @@
     <thead>
         <tr>
             <th>
-                @Html.Label("Menu")
-            </th>
-            <th>
                 Usuario
             </th>
             <th>
                 Nombre Completo
+            </th>
+            <th>
+                @Html.Label("Menu")
             </th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in @ViewBag.Usernorole)
         {
-            <tr>
-                <td>
-                    @if (ViewBag.super == true)
-                    {
-                        @Html.ActionLink("Editar", "Edit", new { id = item.Id })
-                    } |
-                    @Html.ActionLink("Detalles", "Details", new { id = item.Id }) |
-                    @if (ViewBag.super == true)
-                    {
-                        @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
-                    }
-                </td>
-                <td>
-                    @item.UserName
-                </td>
-                <td>
-                    @item.UserFullName
-                </td>
-            </tr>
+        <tr>
+            <td>
+                @item.UserName
+            </td>
+            <td>
+                @item.UserFullName
+            </td>
+            <td>
+                @if (ViewBag.super == true)
+                {
+                    @Html.ActionLink("Editar", "Edit", new { id = item.Id })
+                } |
+                @Html.ActionLink("Detalles", "Details", new { id = item.Id }) |
+                @if (ViewBag.super == true)
+                {
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
+                }
+            </td>
+        </tr>
         }
     </tbody>
 </table>
@@ -64,13 +64,13 @@
     <thead>
         <tr>
             <th>
-                @Html.Label("Menu")
-            </th>
-            <th>
                 Usuario
             </th>
             <th>
                 Nombre Completo
+            </th>
+            <th>
+                @Html.Label("Menu")
             </th>
         </tr>
     </thead>
@@ -78,6 +78,12 @@
         @foreach (var item in Model)
         {
             <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserFullName)
+                </td>
                 <td>
                     @if (ViewBag.super == true)
                     {
@@ -88,12 +94,6 @@
                     {
                         @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
                     }
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.UserName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.UserFullName)
                 </td>
             </tr>
         }

@@ -7,14 +7,16 @@
 
 <p class="text-success">@ViewBag.StatusMessage</p>
 <div>
-    <h4>Cambiar la contraseña</h4>
+    <h3>Perfil</h3>
     <hr />
     <div class="profile_img">
         <div id="crop-avatar">
             <!-- Current avatar -->
             <img class="img-responsive avatar-view" src="~/Users/@Model.idusuario/user.png" alt="Avatar" title="Cambiar el avatar">
             <i>(Mejor tamaño es 200 x 200 pixeles)</i>
-            <input type="file" class="filepond" name="filepond1" multiple data-max-file-size="30MB" data-max-files="5">
+            <br />
+            <input type="file" class="filepond; col-md-3" name="filepond1" multiple data-max-file-size="30MB" data-max-files="5">
+            <br />
         </div>
     </div>
     <br />
