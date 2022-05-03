@@ -25,9 +25,6 @@
                         @Html.DisplayNameFor(model => model.Usuario_area)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Usuario_puesto)
-                    </th>
-                    <th>
                         @Html.DisplayNameFor(model => model.Usuario_responsable)
                     </th>
                     <th>
@@ -36,7 +33,7 @@
                     <th>
                         @Html.DisplayNameFor(model => model.Proyectos)
                     </th>
-                    <th></th>
+                    <th>Opciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -51,9 +48,6 @@
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Usuario_area)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Usuario_puesto)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Usuario_responsable)
@@ -125,7 +119,7 @@
                         orientation: 'landscape',
                         pageSize: 'LEGAL',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 5, 7]
+                            columns: [0, 1, 2, 3, 4, 5, 6]
                         },
                     },
                     {
@@ -133,7 +127,7 @@
                         orientation: 'landscape',
                         pageSize: 'LEGAL',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 5, 7]
+                            columns: [0, 1, 2, 3, 4, 5, 6]
                         },
                     },
                     {
@@ -141,15 +135,15 @@
                         orientation: 'landscape',
                         pageSize: 'LEGAL',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 5, 7]
+                            columns: [0, 1, 2, 3, 4, 5, 6]
                         },
                     },
                     {
                         extend: 'pdfHtml5',
                         orientation: 'landscape',
-                        pageSize: 'LEGAL',
+                        pageSize: 'LETTER',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 5, 7]
+                            columns: [0, 1, 2, 3, 4, 5, 6]
                         },
                     },
                     {
@@ -157,7 +151,7 @@
                         orientation: 'landscape',
                         pageSize: 'LEGAL',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 5, 7]
+                            columns: [0, 1, 2, 3, 4, 5, 6]
                         },
                     }
                 ],
