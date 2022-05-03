@@ -52,7 +52,7 @@
                         @if (ViewBag.super == true)
                         {
                             @Html.ActionLink("Editar", "Edit", new { id = item.ID }, new { @class = "btn  btn-success" })
-                            @Html.ActionLink("Borrar", "Delete", new { id = item.ID }, new { @class = "btn  btn-warning" })
+                            @Html.ActionLink("Eliminar", "Delete", new { id = item.ID }, new { @class = "btn  btn-warning" })
                         }
                         @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn  btn-primary" })
                     </td>

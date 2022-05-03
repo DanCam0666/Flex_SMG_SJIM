@@ -67,7 +67,7 @@
                         <td>
                             @Html.ActionLink("Editar", "Edit", new { id = item.ID }) |
                             @Html.ActionLink("Detalles", "Details", new { id = item.ID }) |
-                            @Html.ActionLink("Borrar", "Delete", new { id = item.ID })
+                            @Html.ActionLink("Eliminar", "Delete", new { id = item.ID })
                         </td>
                     </tr>
                 }
@@ -130,6 +130,7 @@
                     },
                     {
                         extend: 'csv',
+                        title: 'PLM - Launch Matrix Report',
                         orientation: 'landscape',
                         pageSize: 'LEGAL',
                         exportOptions: {
@@ -138,6 +139,7 @@
                     },
                     {
                         extend: 'print',
+                        title: 'PLM - Launch Matrix Report',
                         orientation: 'landscape',
                         pageSize: 'LEGAL',
                         exportOptions: {
@@ -146,6 +148,7 @@
                     },
                     {
                         extend: 'pdfHtml5',
+                        title: 'PLM - Launch Matrix Report',
                         orientation: 'landscape',
                         pageSize: 'LETTER',
                         exportOptions: {
@@ -154,6 +157,7 @@
                     },
                     {
                         extend: 'excelHtml5',
+                        title: 'PLM - Launch Matrix Report',
                         orientation: 'landscape',
                         pageSize: 'LEGAL',
                         exportOptions: {
