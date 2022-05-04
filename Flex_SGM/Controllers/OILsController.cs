@@ -33,7 +33,7 @@ namespace Flex_SGM.Controllers
         }
 
         // GET: OILs
-        public async Task<ActionResult> Index(string searchString, string tipo, string Dep,  string maquina, bool 
+        public async Task<ActionResult> Index(string searchString, string tipo, string Dep,  string maquina, int programa = -1, bool 
             c1=false,bool c2 = false, bool c3 = false, bool c4 = false, bool c5 = false, bool c6 = false,string area= "",string btn="")
         {
             var oILs = db.OILs.Include(o => o.Maquinas);
@@ -691,7 +691,7 @@ namespace Flex_SGM.Controllers
             ViewBag.amaquina = new SelectList(Enum.GetValues(typeof(flex_Areas)).Cast<flex_Areas>().ToList());
             var maquinas = db.Maquinas.Where(m => m.ID > 0);
 
-            ViewBag.maquina = new SelectList(maquinas, "ID", "SubMaquina");
+            ViewBag.maquina = new SelectList(maquinas, "Area", "Maquina");
 
             string cpuesto = "xxx";
             string cuare = "xxx";
@@ -710,8 +710,10 @@ namespace Flex_SGM.Controllers
 
             ViewBag.Dep = new SelectList(Enum.GetValues(typeof(flex_Departamento)).Cast<flex_Departamento>().ToList());
             ViewBag.Tipo = new SelectList(Enum.GetValues(typeof(flex_Oils)).Cast<flex_Oils>().ToList());
+            ViewBag.programa = new SelectList(db.Maquinas, "ID", "SubMaquina");
 
-            if(btn.Contains("Buscar OILs")) { 
+
+            if (btn.Contains("Buscar OILs")) { 
                 if (!String.IsNullOrEmpty(searchString))
                 {
                     oILs = oILs.Where(s => s.Tipo.Contains(searchString)
@@ -743,9 +745,9 @@ namespace Flex_SGM.Controllers
                     oILs = oILs.Where(s => s.User_res == Dep);
                 }
 
-                if (!String.IsNullOrEmpty(maquina) && maquina != "--Todas--")
+                if ( programa >= 0)
                 {
-                    oILs = oILs.Where(s => s.Maquinas.SubMaquina == maquina);
+                    oILs = oILs.Where(s => s.Maquinas.ID == programa);
 
                 }
 
