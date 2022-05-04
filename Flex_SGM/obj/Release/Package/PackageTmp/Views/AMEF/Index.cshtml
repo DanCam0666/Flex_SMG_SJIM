@@ -67,7 +67,7 @@
                         <td>
                             @Html.ActionLink("Editar", "Edit", new { id = item.ID }) |
                             @Html.ActionLink("Detalles", "Details", new { id = item.ID }) |
-                            @Html.ActionLink("Borrar", "Delete", new { id = item.ID })
+                            @Html.ActionLink("Eliminar", "Delete", new { id = item.ID })
                         </td>
                     </tr>
                 }
@@ -122,6 +122,7 @@
                     },
                     {
                         extend: 'csv',
+                        title: 'AMEF / Reverse Report',
                         orientation: 'landscape',
                         pageSize: 'LEGAL',
                         exportOptions: {
@@ -130,6 +131,7 @@
                     },
                     {
                         extend: 'print',
+                        title: 'AMEF / Reverse Report',
                         orientation: 'landscape',
                         pageSize: 'LEGAL',
                         exportOptions: {
@@ -138,6 +140,7 @@
                     },
                     {
                         extend: 'pdfHtml5',
+                        title: 'AMEF / Reverse Report',
                         orientation: 'landscape',
                         pageSize: 'LETTER',
                         exportOptions: {
@@ -146,6 +149,7 @@
                     },
                     {
                         extend: 'excelHtml5',
+                        title: 'AMEF / Reverse Report',
                         orientation: 'landscape',
                         pageSize: 'LEGAL',
                         exportOptions: {
