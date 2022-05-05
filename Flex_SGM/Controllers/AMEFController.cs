@@ -143,6 +143,24 @@ namespace Flex_SGM.Controllers
             ViewBag.ChartData12 = chartData12;
             ViewBag.ChartLabel = chartLabel;
 
+            var id = User.Identity.GetUserId();
+            ApplicationUser currentUser = UserManager.FindById(id);
+            string cuser = "xxx";
+            string cpuesto = "xxx";
+            string cuare = "xxx";
+            if (currentUser != null)
+            {
+                cuser = currentUser.UserFullName;
+                cpuesto = currentUser.Puesto;
+                cuare = currentUser.Area;
+            }
+            ViewBag.uarea = cuare;
+            ViewBag.cuser = cuser;
+            if (cpuesto.Contains("Supervisor") || cpuesto.Contains("Asistente") || cpuesto.Contains("Superintendente") || cpuesto.Contains("Gerente"))
+                ViewBag.super = true;
+            else
+                ViewBag.super = false;
+
             ViewBag.Usuario_responsable = new SelectList(db.Users, "UserFullName", "UserFullName");
             ViewBag.Usuario_area = new SelectList(Enum.GetValues(typeof(flex_Areasv1)).Cast<flex_Areasv1>().ToList());
             ViewBag.Usuario_puesto = new SelectList(Enum.GetValues(typeof(flex_Puesto)).Cast<flex_Puesto>().ToList());
