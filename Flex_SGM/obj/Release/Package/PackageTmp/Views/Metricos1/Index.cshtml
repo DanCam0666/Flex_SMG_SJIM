@@ -332,7 +332,7 @@
                 <tr>
                     <th><p>@Html.ActionLink("Scrap Cost", "Index", "Scrap")</p></th>
                     <th scope="row">Erasmo Arellano</th>
-                    <th scope="row">Mensual</th>
+                    <th scope="row">(USD) Mensual</th>
                     @foreach (var item in ViewBag.data)
                     {
                         <td>@item.ScCo</td>
@@ -496,17 +496,25 @@
                     cells[1].cells[3 + i].style.backgroundColor = '#71d98c';
                     cells[1].cells[3 + i].style.color = 'black';
                 }
-                if (parseInt(cells[2].cells[3 + i].innerHTML, 10) < 100) {
+                if (parseInt(cells[2].cells[3 + i].innerHTML, 10) < 20) {
                     cells[2].cells[3 + i].style.backgroundColor = '#ff5c5c';
                     cells[2].cells[3 + i].style.color = 'white';
                 }
-                if (parseInt(cells[2].cells[3 + i].innerHTML, 10) >= 100) {
+                if (parseInt(cells[2].cells[3 + i].innerHTML, 10) >= 20) {
+                    cells[2].cells[3 + i].style.backgroundColor = 'yellow';
+                    cells[2].cells[3 + i].style.color = 'black';
+                }
+                if (parseInt(cells[2].cells[3 + i].innerHTML, 10) >= 80) {
                     cells[2].cells[3 + i].style.backgroundColor = '#71d98c';
                     cells[2].cells[3 + i].style.color = 'black';
                 }
-                if (parseInt(cells[3].cells[3 + i].innerHTML, 10) < 80) {
+                if (parseInt(cells[3].cells[3 + i].innerHTML, 10) < 20) {
                     cells[3].cells[3 + i].style.backgroundColor = '#ff5c5c';
                     cells[3].cells[3 + i].style.color = 'white';
+                }
+                if (parseInt(cells[3].cells[3 + i].innerHTML, 10) >= 20) {
+                    cells[3].cells[3 + i].style.backgroundColor = 'yellow';
+                    cells[3].cells[3 + i].style.color = 'black';
                 }
                 if (parseInt(cells[3].cells[3 + i].innerHTML, 10) >= 80) {
                     cells[3].cells[3 + i].style.backgroundColor = '#71d98c';

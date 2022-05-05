@@ -42,34 +42,40 @@
             <tbody>
                 @foreach (var item in Model.Where(w => w.Usuario_area == "AMEF_Reverse"))
                 {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.DiaHora)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Usuario)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Usuario_area)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Usuario_responsable)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Descripcion)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Comentarios)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Proyectos)
-                        </td>
-                        <td>
-                            @Html.ActionLink("Editar", "Edit", new { id = item.ID }) |
-                            @Html.ActionLink("Detalles", "Details", new { id = item.ID }) |
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DiaHora)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Usuario)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Usuario_area)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Usuario_responsable)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Descripcion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Comentarios)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Proyectos)
+                    </td>
+                    <td>
+                        @if (ViewBag.super == true || ViewBag.uarea == "AMEF_Reverse")
+                        {
+                            @Html.ActionLink("Editar", "Edit", new { id = item.ID })
+                        } |
+                        @Html.ActionLink("Detalles", "Details", new { id = item.ID }) |
+                        @if (ViewBag.super == true || ViewBag.uarea == "AMEF_Reverse")
+                        {
                             @Html.ActionLink("Eliminar", "Delete", new { id = item.ID })
-                        </td>
-                    </tr>
+                        }
+                    </td>
+                </tr>
                 }
             </tbody>
         </table>
