@@ -65,9 +65,15 @@
                             @Html.DisplayFor(modelItem => item.Proyectos)
                         </td>
                         <td>
-                            @Html.ActionLink("Editar", "Edit", new { id = item.ID }) |
+                            @if (ViewBag.super == true || ViewBag.uarea == "Packaging")
+                            {
+                                @Html.ActionLink("Editar", "Edit", new { id = item.ID })
+                            } |
                             @Html.ActionLink("Detalles", "Details", new { id = item.ID }) |
-                            @Html.ActionLink("Eliminar", "Delete", new { id = item.ID })
+                            @if (ViewBag.super == true || ViewBag.uarea == "Packaging")
+                            {
+                                @Html.ActionLink("Eliminar", "Delete", new { id = item.ID })
+                            }
                         </td>
                     </tr>
                 }
