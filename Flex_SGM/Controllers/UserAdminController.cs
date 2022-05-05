@@ -146,12 +146,12 @@ namespace AspnetIdentitySample.Controllers
         // GET: /Users/Create
         public async Task<ActionResult> Create()
         {
-            ViewBag.Departamento = new SelectList(Enum.GetValues(typeof(flex_Areas)).Cast<flex_Areas>(), "Departamento");
-            //Get the list of Roles
-            ViewBag.Puesto = new SelectList(Enum.GetValues(typeof(flex_Puesto)).Cast<flex_Puesto>(), "Puesto");
-
-            ViewBag.Area = new SelectList(Enum.GetValues(typeof(flex_Areasv1)).Cast<flex_Areasv1>(), "Areas");
             ViewBag.RoleId = new SelectList(await RoleManager.Roles.ToListAsync(), "Id", "Name");
+
+            ViewBag.Puesto = new SelectList(Enum.GetValues(typeof(flex_Puesto)).Cast<flex_Puesto>());
+            ViewBag.Area = new SelectList(Enum.GetValues(typeof(flex_Areasv1)).Cast<flex_Areasv1>());
+            ViewBag.Departamento = new SelectList(Enum.GetValues(typeof(flex_Areas)).Cast<flex_Areas>());
+
             return View();
         }
 
@@ -168,6 +168,7 @@ namespace AspnetIdentitySample.Controllers
                 user.Nomina = userViewModel.Nomina;
                 user.Area = userViewModel.Area;
                 user.Puesto = userViewModel.Puesto;
+                user.Departamento = userViewModel.Departamento;
                 user.Email = userViewModel.Email;
                 var adminresult = await UserManager.CreateAsync(user, userViewModel.Password);
 
