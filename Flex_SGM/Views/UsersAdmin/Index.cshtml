@@ -19,7 +19,7 @@
     A los usuarios nuevos: Se tiene que Realizar la asignación de los roles de manera manual, asignarlos al Rol/Área a la cual pertenecen para que puedan tener acceso y hacer uso de las funciones....
 </h3>
 <h2>Usuarios sin Rol</h2>
-<table class="tabled table-bordered table-striped" id="table_id" style="width:100%">
+<table class="tabled table-bordered table-striped" id="table" style="width:100%">
     <thead>
         <tr>
             <th>
@@ -78,7 +78,7 @@
 </table>
 <hr />
 <h2>Usuarios con Rol</h2>
-<table class="tabled table-bordered table-striped" id="table_id4" style="width:100%">
+<table class="tabled table-bordered table-striped" id="table" style="width:100%">
     <thead>
         <tr>
             <th>
@@ -136,3 +136,105 @@
     </tbody>
 </table>
 
+@section Scripts {
+
+    <script>
+        const { Script } = require("node:vm");
+
+
+        $('[data-toggle="tooltip"]').tooltip();
+        $("#Normaldrop").chosen();
+
+        $('#table').DataTable({
+            "dom": 'lBfrtip',
+            "lengthMenu": [[5, 15, 50, -1], ["5", "15", "50", "Todos"]],
+            "buttons": [
+                {
+                    extend: 'copy',
+                    orientation: 'landscape',
+                    pageSize: 'LEGAL',
+                    exportOptions: {
+                        columns: [0, 1, 2, 3, 4]
+                    },
+                },
+                {
+                    extend: 'csv',
+                    title: 'Metricos Ingeniería Report',
+                    orientation: 'landscape',
+                    pageSize: 'LEGAL',
+                    exportOptions: {
+                        columns: [0, 1, 2, 3, 4]
+                    },
+                },
+                {
+                    extend: 'print',
+                    title: 'Metricos Ingeniería Report',
+                    orientation: 'landscape',
+                    pageSize: 'LEGAL',
+                    exportOptions: {
+                        columns: [0, 1, 2, 3, 4]
+                    },
+                },
+                {
+                    extend: 'pdfHtml5',
+                    title: 'Metricos Ingeniería Report',
+                    orientation: 'landscape',
+                    pageSize: 'LETTER',
+                    exportOptions: {
+                        columns: [0, 1, 2, 3, 4]
+                    },
+                },
+                {
+                    extend: 'excelHtml5',
+                    title: 'Metricos Ingeniería Report',
+                    orientation: 'landscape',
+                    pageSize: 'LEGAL',
+                    exportOptions: {
+                        columns: [0, 1, 2, 3, 4]
+                    },
+                }
+            ],
+            "order": [[0, "desc"]],
+            "scrollX": true,
+            "language": {
+                "sProcessing": "Procesando...",
+                "sLengthMenu": "Mostrar _MENU_ registros",
+                "sZeroRecords": "No se encontraron resultados",
+                "sEmptyTable": "Ningun dato disponible en esta tabla =(",
+                "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                "sInfoPostFix": "",
+                "sSearch": "Buscar:",
+                "sUrl": "",
+                "sInfoThousands": ",",
+                "sLoadingRecords": "Cargando...",
+                "oPaginate": {
+                    "sFirst": "Primero",
+                    "sLast": "ultimo",
+                    "sNext": "Siguiente",
+                    "sPrevious": "Anterior"
+                },
+                "oAria": {
+                    "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                    "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                },
+                "buttons": {
+                    "copy": "Copiar",
+                    "colvis": "Visibilidad"
+                }
+            }
+        });
+
+        $(document).ready(function () {
+
+            if (typeof window.stackBottomLeft === 'undefined') {
+                window.stackBottomLeft = {
+                    'dir1': 'up',
+                    'dir2': 'left',
+                    'firstpos1': 25,
+                    'firstpos2': 25
+                };
+            }
+    </script>
+}
