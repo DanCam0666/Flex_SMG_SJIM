@@ -142,7 +142,7 @@
                             @Html.DisplayFor(modelItem => item.Tipo)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Maquinas.Area)
+                            @Html.DisplayFor(modelItem => item.Dep)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Maquinas.Maquina)
@@ -420,13 +420,11 @@
                 }],
 
                 labels: [
-                    'Estampado',
-                    'Rolado',
+                    'FlexNGate',
+                    'Estampado/Rolado',
                     'Soldadura',
-                    'Cromo',
-                    'Ecoat',
-                    'Topcoat',
-                    'Ensamble'
+                    'Metal Finish',
+                    'Ensamble',
                 ]
             }
         });

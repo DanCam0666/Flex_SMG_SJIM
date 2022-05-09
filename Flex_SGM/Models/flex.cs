@@ -11,7 +11,7 @@ namespace Flex_SGM.Models
     }
     public enum flex_Depasold
     {
-        Materiales, Produccion, Calidad, Mantenimiento, Herramentales, Ingeniería, Manufactura, Automatizacion, FlexNGate
+        Materiales, Produccion, Calidad, Mantenimiento, Herramentales, Ingenieria, Manufactura, Automatizacion, FlexNGate
     }
     public enum flex_Departamento
     {
@@ -31,7 +31,7 @@ namespace Flex_SGM.Models
     }
     public enum flex_Oils
     {
-        Ingeniería, Manufactura
+        Ingenieria, Manufactura
     }
 
 

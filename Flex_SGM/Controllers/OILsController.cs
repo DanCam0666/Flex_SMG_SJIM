@@ -53,50 +53,53 @@ namespace Flex_SGM.Controllers
             int MFrealizado = 0, MFpendiente = 0, MFtotal = 0;
             int ENrealizado = 0, ENpendiente = 0, ENtotal = 0;
 
-            foreach (var item in oILs.Where(s => s.Tipo == "Ingenieria" || s.Tipo == "Manufactura"))
+            foreach (var item in oILs)
             {
                 semanas[dayofweek.GetIso8601WeekOfYear(item.DiaHora)]++;
                 tsemanas[dayofweek.GetIso8601WeekOfYear(item.DiaHora_Cierre)]++;
-                if (item.Maquinas.Area.Contains("Servicios"))
+                if (item.Dep != null)
                 {
-                    Sertotal++;
-                    if (item.Estatus == 1)
-                        Serrealizado++;
-                    else
-                        Serpendiente++;
-                }
-                if (item.Maquinas.Area.Contains("Estampado"))
-                {
-                    Esttotal++;
-                    if (item.Estatus == 1)
-                        Estrealizado++;
-                    else
-                        Estpendiente++;
-                }
+                    if (item.Dep.Contains("FlexNGate"))
+                    {
+                        Sertotal++;
+                        if (item.Estatus == 1)
+                            Serrealizado++;
+                        else
+                            Serpendiente++;
+                    }
+                    if (item.Dep.Contains("Estampado") || item.Dep.Contains("Rolado")) 
+                    {
+                        Esttotal++;
+                        if (item.Estatus == 1)
+                            Estrealizado++;
+                        else
+                            Estpendiente++;
+                    }
 
-                if (item.Maquinas.Area.Contains("Soldadura"))
-                {
-                    Soldtotal++;
-                    if (item.Estatus == 1)
-                        Soldrealizado++;
-                    else
-                        Soldpendiente++;
-                }
-                if (item.Maquinas.Area.Contains("Cromo")|| item.Maquinas.Area.Contains("Cromo1") || item.Maquinas.Area.Contains("Cromo2") || item.Maquinas.Area.Contains("AutoPulido1") || item.Maquinas.Area.Contains("AutoPulido2") || item.Maquinas.Area.Contains("Ecoat") || item.Maquinas.Area.Contains("Topcoat") || item.Maquinas.Area.Contains("MetalFinish"))
-                {
-                    MFtotal++;
-                    if (item.Estatus == 1)
-                        MFrealizado++;
-                    else
-                        MFpendiente++;
-                }
-                if (item.Maquinas.Area.Contains("Ensamble"))
-                {
-                    ENtotal++;
-                    if (item.Estatus == 1)
-                        ENrealizado++;
-                    else
-                        ENpendiente++;
+                    if (item.Dep.Contains("Soldadura"))
+                    {
+                        Soldtotal++;
+                        if (item.Estatus == 1)
+                            Soldrealizado++;
+                        else
+                            Soldpendiente++;
+                    }
+                    if (item.Dep.Contains("Cromo") || item.Dep.Contains("Cromo1") || item.Dep.Contains("Cromo2") || item.Dep.Contains("AutoPulido1") || item.Dep.Contains("AutoPulido2") || item.Dep.Contains("Ecoat") || item.Dep.Contains("Topcoat") || item.Dep.Contains("MetalFinish"))
+                    {
+                        MFtotal++;
+                        if (item.Estatus == 1)
+                            MFrealizado++;
+                        else
+                            MFpendiente++;
+                    }
+                    if (item.Dep.Contains("Ensamble"))
+                    {
+                        ENtotal++;
+                        if (item.Estatus == 1)
+                            ENrealizado++;
+                        else
+                            ENpendiente++;
+                    }
                 }
             }
 
@@ -166,7 +169,7 @@ namespace Flex_SGM.Controllers
                 db.SaveChanges();
             }
 
-            foreach (OILs oil in oILs.Where(s => s.Tipo == "Ingenieria" || s.Tipo == "Manufactura"))
+            foreach (OILs oil in oILs)
             {
                 if (oil.Estatus == 1)
                     realizada++;
@@ -189,7 +192,7 @@ namespace Flex_SGM.Controllers
 
             Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
 
-            foreach (OILs oil in oILs.Where(s => s.Tipo == "Ingenieria" || s.Tipo == "Manufactura").ToList())
+            foreach (OILs oil in oILs.ToList())
             {
                 if (oil.Estatus == 1)
                     realizada++;
@@ -798,7 +801,7 @@ namespace Flex_SGM.Controllers
         }
 
         // GET: OILs
-        public async Task<ActionResult> Ress( string Area, string dep, string tipo, string usuario1, string usuario2, string usuario3)
+        public async Task<ActionResult> Ress( string Area, string Dep, string tipo, string usuario1, string usuario2, string usuario3)
         {
             var oILs = db.OILs.Include(o => o.Maquinas);
 
@@ -918,7 +921,7 @@ namespace Flex_SGM.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "ID, Tipo, Folio, MaquinasID, Actividad, User_Gen,User_res, DiaHora_Compromiso, DiaHora, Comentarios, Comentarios2, Material_necesario, urgente")] OILs oILs)
+        public async Task<ActionResult> Create([Bind(Include = "ID, Tipo, Dep, Folio, MaquinasID, Actividad, User_Gen,User_res, DiaHora_Compromiso, DiaHora, Comentarios, Comentarios2, Material_necesario, urgente")] OILs oILs)
         { 
             var id = User.Identity.GetUserId();
             ApplicationUser currentUser = UserManager.FindById(id);
