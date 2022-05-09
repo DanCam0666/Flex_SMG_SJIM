@@ -11,7 +11,7 @@ namespace Flex_SGM.Models
     }
     public enum flex_Depasold
     {
-        Materiales, Produccion, Calidad, Mantenimiento, Herramentales, Ingenieria, Manufactura, Automatizacion, FlexNGate
+        Materiales, Produccion, Calidad, Mantenimiento, Herramentales, Ingeniería, Manufactura, Automatizacion, FlexNGate
     }
     public enum flex_Departamento
     {
@@ -19,11 +19,11 @@ namespace Flex_SGM.Models
     }
     public enum flex_Areasv1
     {
-        None, AMEF_Reverse, Build_In_Build_Out, Capacities_Review, Continuous_Improvment, Customer_Complaints, Cust_Score_Cards, ECNs_PCRs, Lay_Outs, LPA_COVID, Packaging, Parts_Delivery, PLM, Quality_HS, Red_Rabbits, Safety_HS, Scrap, TOC_HS_Audits, Yellow_Sheets
+        None, AMEF_Reverse, Build_In_Build_Out, Capacities_Review, Continuous_Improvment, Customer_Complaints, Cust_Score_Cards, ECNs_PCRs, Lay_Outs, LPA_COVID, Packaging, Parts_Delivery, PLM, Quality_HS, Red_Rabbits, Safety_HS, Scrap, TOC_HS_Audits, Yellow_Sheets, FlexNGate
     }
     public enum flex_Areas
     {
-        Ingenieria, Manufactura, Servicios, Estampado, MetalFinish, Cromo1, Cromo2, AutoPulido1, AutoPulido2, Ecoat, Topcoat, Soldadura, Ensamble, Automatizacion, FlexNGate
+        Ingeniería, Manufactura, Servicios, Estampado, MetalFinish, Cromo1, Cromo2, AutoPulido1, AutoPulido2, Ecoat, Topcoat, Soldadura, Ensamble, Automatizacion, FlexNGate
     }
     public enum flex_Puesto
     {
@@ -31,7 +31,7 @@ namespace Flex_SGM.Models
     }
     public enum flex_Oils
     {
-        Ingenieria, Manufactura
+        Ingeniería, Manufactura
     }
 
 

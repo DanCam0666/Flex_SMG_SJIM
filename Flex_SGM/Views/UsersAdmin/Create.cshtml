@@ -14,46 +14,70 @@
     @Html.AntiForgeryToken()
     @Html.ValidationSummary()
 
-<fieldset class="form-horizontal">
-    <legend>Crear usuario nuevo.</legend>
-    <div class="control-group">
-        @Html.LabelFor(m => m.UserName, new { @class = "control-label" })
-        <div class="controls">
-            @Html.TextBoxFor(m => m.UserName)
+    <fieldset class="form-horizontal">
+        <legend>Crear usuario nuevo.</legend>
+        <div class="control-group">
+            @Html.LabelFor(m => m.UserName, new { @class = "control-label" })
+            <div class="controls">
+                @Html.TextBoxFor(m => m.UserName)
+            </div>
         </div>
-    </div>
-    <div class="control-group">
-        @Html.LabelFor(m => m.UserFullName, new { @class = "control-label" })
-        <div class="controls">
-            @Html.TextBoxFor(m => m.UserFullName)
+        <div class="control-group">
+            @Html.LabelFor(m => m.UserFullName, new { @class = "control-label" })
+            <div class="controls">
+                @Html.TextBoxFor(m => m.UserFullName)
+            </div>
         </div>
-    </div>
-    <div class="control-group">
-        @Html.LabelFor(m => m.Password, new { @class = "control-label" })
-        <div class="controls">
-            @Html.PasswordFor(m => m.Password)
+        <div class="control-group">
+            @Html.LabelFor(m => m.Password, new { @class = "control-label" })
+            <div class="controls">
+                @Html.PasswordFor(m => m.Password)
+            </div>
         </div>
-    </div>
-    <div class="control-group">
-        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "control-label" })
-        <div class="controls">
-            @Html.PasswordFor(m => m.ConfirmPassword)
+        <div class="control-group">
+            @Html.LabelFor(m => m.ConfirmPassword, new { @class = "control-label" })
+            <div class="controls">
+                @Html.PasswordFor(m => m.ConfirmPassword)
+            </div>
         </div>
-    </div>
-
-    <div class="control-group">
-        @Html.LabelFor(m => m.Nomina, new { @class = "control-label" })
-        <div class="controls">
-            @Html.TextBoxFor(m => m.Nomina)
+        <div class="control-group">
+            @Html.LabelFor(m => m.Nomina, new { @class = "control-label" })
+            <div class="controls">
+                @Html.TextBoxFor(m => m.Nomina)
+            </div>
         </div>
-    </div>
-    <hr />
+        <div class="control-group">
+            @Html.LabelFor(m => m.Email, new { @class = "control-label" })
+            <div class="controls">
+                @Html.TextBoxFor(m => m.Email)
+            </div>
+        </div>
+        <div class="control-group" style="width: 180px">
+            @Html.LabelFor(m => m.Departamento, new { @class = "control-label" })
+            <div class="controls">
+                @Html.DropDownList("Departamento", null, "--Seleccione--", htmlAttributes: new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="control-group" style="width: 180px">
+            @Html.LabelFor(m => m.Puesto, new { @class = "control-label" })
+            <div class="controls">
+                @Html.DropDownList("Puesto", null, "--Seleccione--", htmlAttributes: new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="control-group" style="width: 180px">
+            @Html.LabelFor(m => m.Area, new { @class = "control-label" })
+            <div class="controls">
+                @Html.DropDownList("Area", null, "--Seleccione--", htmlAttributes: new { @class = "form-control" })
+            </div>
+        </div>
+    </fieldset>
     <h4>Seleccione Role por usuario</h4>
     @Html.DropDownList("RoleId", "No Roles")
+    <br />
+    <br />
     <div class="form-actions no-color">
-        <input type="submit" value="Crear" class="btn" />
+        <input type="submit" value="Crear" class="btn-default" />
     </div>
-</fieldset>
 }
 
 @section Scripts {
