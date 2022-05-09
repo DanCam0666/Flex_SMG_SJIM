@@ -1,0 +1,135 @@
+﻿@model Flex_SGM.Models.OILs
+
+@{
+    ViewBag.Title = "Borrar";
+}
+
+<h2>Eliminar</h2>
+
+<h3>¿Estás segur@@ de que quieres eliminar esto?</h3>
+<div>
+    <h4>OILs</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.User_gen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User_gen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Maquinas.Area)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Maquinas.Area)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Actividad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Actividad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User_res)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User_res)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiaHora)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaHora)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiaHora_Compromiso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaHora_Compromiso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiaHora_Cierre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaHora_Cierre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiaHora_Verificado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaHora_Verificado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Usuario_Verifico)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usuario_Verifico)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comentarios)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comentarios)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Comentarios2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comentarios2)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Material_necesario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Material_necesario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.urgente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.urgente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estatus)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-default" /> |
+            @Html.ActionLink("Regresar a la Lista", "Index")
+        </div>
+    }
+</div>
