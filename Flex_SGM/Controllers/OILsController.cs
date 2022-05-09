@@ -153,7 +153,7 @@ namespace Flex_SGM.Controllers
                     oil.Estatus = 2;
                 if (oil.DiaHora_Compromiso != null)
                     oil.Estatus = 3;
-                if (oil.DiaHora_Compromiso < DateTime.Now.AddDays(4))
+                if (oil.DiaHora_Compromiso < DateTime.Now.AddDays(7))
                     oil.Estatus = 4;
                 if (oil.DiaHora_Compromiso < DateTime.Now)
                     oil.Estatus = 5;
@@ -183,7 +183,7 @@ namespace Flex_SGM.Controllers
             }
             ViewBag.tpmrealizada = realizada;
             ViewBag.tpmActivos = ConFecha;
-            ViewBag.tpmpendientes = sinfecha + Urgente + Fechaprox;
+            ViewBag.tpmpendientes = Fechaprox;
             ViewBag.tpmNoReali = NoReali;
             ViewBag.tpmtotal = NoReali+ sinfecha + Urgente + Fechaprox+ ConFecha+realizada;
 
@@ -206,7 +206,7 @@ namespace Flex_SGM.Controllers
             }
             ViewBag.arealizada = realizada;
             ViewBag.aActivos = ConFecha;
-            ViewBag.apendientes = sinfecha + Urgente + Fechaprox;
+            ViewBag.apendientes = Fechaprox;
             ViewBag.aNoReali = NoReali;
             ViewBag.atotal = NoReali + sinfecha + Urgente + Fechaprox + ConFecha + realizada;
 
