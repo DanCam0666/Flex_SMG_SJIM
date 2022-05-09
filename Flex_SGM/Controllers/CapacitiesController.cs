@@ -33,8 +33,6 @@ namespace Flex_SGM.Controllers
         // GET: Capacities
         public async Task<ActionResult> Index()
         {
-            //  var id = User.Identity.GetUserId();
-            //  ApplicationUser currentUser = UserManager.FindById(id);
             var metricos = db.Metricos.ToList<Metricos>();
 
             var chartData1 = metricos

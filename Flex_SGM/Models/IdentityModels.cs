@@ -78,8 +78,6 @@ namespace Flex_SGM.Models
 
         public System.Data.Entity.DbSet<Flex_SGM.Models.Disponibilidad> Disponibilidads { get; set; }
 
-        public System.Data.Entity.DbSet<Flex_SGM.Models.troubleshooting> troubleshootings { get; set; }
-
         public System.Data.Entity.DbSet<Flex_SGM.Models.cClientes> cClientes { get; set; }
 
         public System.Data.Entity.DbSet<Flex_SGM.Models.SubClientes> SubClientes { get; set; }

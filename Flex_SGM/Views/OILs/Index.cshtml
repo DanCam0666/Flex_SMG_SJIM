@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Flex_SGM.Models.OILs>
+﻿
+@model IEnumerable<Flex_SGM.Models.OILs>
 
 @{
     ViewBag.Title = "Estado de OILs";
@@ -112,7 +113,7 @@
                     </th>
 
                     <th>
-                        @Html.DisplayName("Material Comentarios")
+                        @Html.DisplayName("Comentarios")
                     </th>
                 </tr>
             </thead>
@@ -212,9 +213,9 @@
 <div class="x_panel clearfix">
     <div class="x_title clearfix">
         <h2 id="alerts">Estatus Ingieneria<small> Resumen de Actividades </small></h2>
-        <ul class="nav navbar-right">
+        <ul class="nav navbar-right" >
             <li>
-                <a class="collapse-link"><i class="fa fa-chevron-down"></i></a>
+                <a class="collapse-link"><i class="fa fa-chevron-down" ></i></a>
             </li>
         </ul>
     </div>
@@ -230,7 +231,7 @@
             <canvas width="400" height="300" class="chartjs" id="chart-area2" style="width: 600px; height: 200px; display: block;"></canvas>
         </div>
         <div class="col-md-2">
-            <h2>Ingenieria</h2>
+            <h2>Ingeniería</h2>
             <h4 style="background-color: lightcyan">Ana Zaideth Vazquez Robles</h4>
             <div class="h5" style="background-color: whitesmoke">Asignadas:   @ViewBag.zVActivos &emsp; Terminadas:  @ViewBag.zVrealizada </div>
             <h4 style="background-color: lightcyan">Carlos Manuel Carapia Murillo</h4>
@@ -285,20 +286,20 @@
 <div class="x_panel clearfix">
     <div class="x_title clearfix">
         <h2 id="alertsb">Color de estado de OILs</h2> <h2><small> Expande para información y significado de los colores… </small></h2>
-        <ul class="nav navbar-right">
+        <ul class="nav navbar-right" >
             <li>
-                <a class="collapse-link"><i class="fa fa-chevron-down"></i></a>
+                <a class="collapse-link"><i class="fa fa-chevron-down" ></i></a>
             </li>
         </ul>
     </div>
     <div class="x_content">
         <center>
-            <div class="alert col-md-6" style="background-color:#ff4a4a; color: white;">Estatus 5-Actividad No REALIZADA en tiempo / Existen:@ViewBag.NoReali Actividades</div>
-            <div class="alert col-md-6" style="background-color:yellow;">Estatus 4-Actividad con Fecha compromiso muy próxima / Existen:@ViewBag.Fechaprox Actividades</div>
-            <div class="alert col-md-6" style="background-color:#4aedab;">Estatus 1-Actividad Finalizada / Existen:@ViewBag.realizada Actividades</div>
-            <div class="alert col-md-6" style="background-color:#4aabed;">Estatus 3-Actividad en Proceso / Existen:@ViewBag.ConFecha Actividades</div>
-            <div class="alert col-md-6" style="background-color:lightgray;">Estatus 2-Actividad sin fecha compromiso / Existen:@ViewBag.sinfecha Actividades</div>
-            <div class="alert col-md-6" style="background-color:#8b0000;  color: white;">Estatus 6-Actividad URGENTE / Existen:@ViewBag.Urgente Actividades</div>
+            <div class="alert col-md-6" style="background-color:#4aedab;"><h4>Estatus 1-Actividad Finalizada / Existen:@ViewBag.realizada Actividades</h4></div>
+            <div class="alert col-md-6" style="background-color:yellow;"><h4>Estatus 4-Actividad con Fecha compromiso muy próxima / Existen:@ViewBag.Fechaprox Actividades</h4></div>
+            <div class="alert col-md-6" style="background-color:lightgray;"><h4>Estatus 2-Actividad sin fecha compromiso / Existen:@ViewBag.sinfecha Actividades</h4></div>
+            <div class="alert col-md-6" style="background-color:#ff4a4a; color: white;"><h4>Estatus 5-Actividad No REALIZADA en tiempo / Existen:@ViewBag.NoReali Actividades</h4></div>
+            <div class="alert col-md-6" style="background-color:#4aabed;"><h4>Estatus 3-Actividad en Proceso / Existen:@ViewBag.ConFecha Actividades</h4></div>
+            <div class="alert col-md-6" style="background-color:#8b0000;  color: white;"><h4>Estatus 6-Actividad URGENTE / Existen:@ViewBag.Urgente Actividades</h4></div>
         </center>
     </div>
 </div>
@@ -306,9 +307,9 @@
 <div class="x_panel clearfix">
     <div class="x_title clearfix">
         <h2 id="alerts">Estatus de OILs<small> Resumen de OILs </small></h2>
-        <ul class="nav navbar-right">
+        <ul class="nav navbar-right" >
             <li>
-                <a class="collapse-link"><i class="fa fa-chevron-down"></i></a>
+                <a class="collapse-link"><i class="fa fa-chevron-down" ></i></a>
             </li>
         </ul>
     </div>
@@ -333,7 +334,6 @@
         </div>
     </div>
 </div>
-
 
 @section Scripts {
     <script>
@@ -364,7 +364,6 @@
                 error: function (response) {
                     alert('Disculpa: Ocurrio un ERROR');
                 }
-
             });
         }
         else {
@@ -389,7 +388,6 @@
                         'rgba(255, 54, 54, 0.9)'
                     ]
                 }],
-
                 labels: [
                     'Activos',
                     'Terminados',
@@ -448,7 +446,6 @@
                     backgroundColor: 'rgba(54, 235, 162, 0.9)',
                     borderWidth: 2
                 }],
-
                 labels: [@Html.Raw(ViewBag.Objectsem) ]
             }
         });
@@ -466,7 +463,6 @@
                         'rgba(255, 54, 54, 0.9)'
                     ]
                 }],
-
                 labels: [
                     'Activos',
                     'Terminados',
@@ -552,7 +548,7 @@
                     orientation: 'landscape',
                     pageSize: 'LEGAL',
                     exportOptions: {
-                        columns: [0, 1, 4, 5, 7, 8, 9, 10, 11, 12, 13]
+                    columns: [0, 1, 4, 5, 7, 8, 9, 10, 11, 12, 13]
                     },
                 },
                 {
@@ -560,7 +556,7 @@
                     orientation: 'landscape',
                     pageSize: 'LEGAL',
                     exportOptions: {
-                        columns: [0, 1, 4, 5, 7, 8, 9, 10, 11, 12, 13]
+                    columns: [0, 1, 4, 5, 7, 8, 9, 10, 11, 12, 13]
                     },
                 },
                 {
@@ -568,7 +564,7 @@
                     orientation: 'landscape',
                     pageSize: 'LEGAL',
                     exportOptions: {
-                        columns: [0, 1, 4, 5, 7, 8, 9, 10, 11, 12, 13]
+                    columns: [0, 1, 4, 5, 7, 8, 9, 10, 11, 12, 13]
                     },
                 },
                 {
@@ -576,7 +572,7 @@
                     orientation: 'landscape',
                     pageSize: 'LEGAL',
                     exportOptions: {
-                        columns: [0, 1, 4, 5, 7, 8, 9, 10, 11, 12, 13]
+                    columns: [0, 1, 4, 5, 7, 8, 9, 10, 11, 12, 13]
                     },
                 },
                 {
@@ -584,7 +580,7 @@
                     orientation: 'landscape',
                     pageSize: 'LEGAL',
                     exportOptions: {
-                        columns: [0, 1, 4, 5, 7, 8, 9, 10, 11, 12, 13]
+                    columns: [0, 1, 4, 5, 7, 8, 9, 10, 11, 12, 13]
                     },
                 }
             ],
@@ -620,7 +616,6 @@
             }
         });
 
-        // if (ViewBag.Fechaprox!= 0)
         if (typeof window.stackBottomLeft === 'undefined') {
             window.stackBottomLeft = {
                 'dir1': 'right',
@@ -630,13 +625,6 @@
                 'push': 'top'
             };
         }
-        /*
-        var notice2 = PNotify.notice({
-            title: 'Nuevas Funciones!!!',
-            text: 'Si un usuario esta "*Logueado*", en automático se filtra y muestran los OILs que género y en los que aparece como responsable o fue asignado a esa tarea… ',
-            stack: window.stackBottomLeft,
-            addClass: 'nonblock'
-        });*/
 
         var proyectos_vencidos = 0;
         var proyectos_Proximos = 0;
@@ -646,7 +634,6 @@
             proyectos_Proximos = @ViewBag.Fechaprox;
 
         document.getElementById("alertsb").innerHTML ="Existen: '"+proyectos_vencidos+"' OILs vencidos y '"+ proyectos_Proximos +"' OILs proximos a vencer...";
-        //  window.alert("Existen: "+proyectos_vencidos+"-- OILs vencidos y ademas tienes: "+ proyectos_Proximos +"-- OILs proximos a vencer");
     });
     </script>
 }
