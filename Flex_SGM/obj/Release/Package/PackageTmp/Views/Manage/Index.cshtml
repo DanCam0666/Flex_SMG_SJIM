@@ -3,11 +3,11 @@
     ViewBag.Title = "Administrar";
 }
 
-<h2>@ViewBag.Title.</h2>
+<h2>@ViewBag.Title</h2>
 
 <p class="text-success">@ViewBag.StatusMessage</p>
 <div>
-    <h3>Perfil</h3>
+    <h3>Perfil de @Model.idusuario</h3>
     <hr />
     <div class="profile_img">
         <div id="crop-avatar">
@@ -62,7 +62,6 @@
             image.src = URL.createObjectURL(event.target.files[0]);
         };
         FilePond.setOptions(labels_es_ES);
-
 
         var pond1= FilePond.create(document.querySelector('[name ="filepond1"]'));
         pond1.setOptions({

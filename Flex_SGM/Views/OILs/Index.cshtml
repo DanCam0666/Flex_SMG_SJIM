@@ -335,7 +335,6 @@
     </div>
 </div>
 
-
 @section Scripts {
     <script>
 
@@ -365,7 +364,6 @@
                 error: function (response) {
                     alert('Disculpa: Ocurrio un ERROR');
                 }
-
             });
         }
         else {
@@ -390,7 +388,6 @@
                         'rgba(255, 54, 54, 0.9)'
                     ]
                 }],
-
                 labels: [
                     'Activos',
                     'Terminados',
@@ -449,7 +446,6 @@
                     backgroundColor: 'rgba(54, 235, 162, 0.9)',
                     borderWidth: 2
                 }],
-
                 labels: [@Html.Raw(ViewBag.Objectsem) ]
             }
         });
@@ -467,7 +463,6 @@
                         'rgba(255, 54, 54, 0.9)'
                     ]
                 }],
-
                 labels: [
                     'Activos',
                     'Terminados',
@@ -553,7 +548,7 @@
                     orientation: 'landscape',
                     pageSize: 'LEGAL',
                     exportOptions: {
-                        columns: [0, 1, 4, 5, 7, 8, 9, 10, 11, 12, 13]
+                    columns: [0, 1, 4, 5, 7, 8, 9, 10, 11, 12, 13]
                     },
                 },
                 {
@@ -561,7 +556,7 @@
                     orientation: 'landscape',
                     pageSize: 'LEGAL',
                     exportOptions: {
-                        columns: [0, 1, 4, 5, 7, 8, 9, 10, 11, 12, 13]
+                    columns: [0, 1, 4, 5, 7, 8, 9, 10, 11, 12, 13]
                     },
                 },
                 {
@@ -569,7 +564,7 @@
                     orientation: 'landscape',
                     pageSize: 'LEGAL',
                     exportOptions: {
-                        columns: [0, 1, 4, 5, 7, 8, 9, 10, 11, 12, 13]
+                    columns: [0, 1, 4, 5, 7, 8, 9, 10, 11, 12, 13]
                     },
                 },
                 {
@@ -577,7 +572,7 @@
                     orientation: 'landscape',
                     pageSize: 'LEGAL',
                     exportOptions: {
-                        columns: [0, 1, 4, 5, 7, 8, 9, 10, 11, 12, 13]
+                    columns: [0, 1, 4, 5, 7, 8, 9, 10, 11, 12, 13]
                     },
                 },
                 {
@@ -585,7 +580,7 @@
                     orientation: 'landscape',
                     pageSize: 'LEGAL',
                     exportOptions: {
-                        columns: [0, 1, 4, 5, 7, 8, 9, 10, 11, 12, 13]
+                    columns: [0, 1, 4, 5, 7, 8, 9, 10, 11, 12, 13]
                     },
                 }
             ],
@@ -621,7 +616,6 @@
             }
         });
 
-        // if (ViewBag.Fechaprox!= 0)
         if (typeof window.stackBottomLeft === 'undefined') {
             window.stackBottomLeft = {
                 'dir1': 'right',
@@ -631,13 +625,6 @@
                 'push': 'top'
             };
         }
-        /*
-        var notice2 = PNotify.notice({
-            title: 'Nuevas Funciones!!!',
-            text: 'Si un usuario esta "*Logueado*", en automático se filtra y muestran los OILs que género y en los que aparece como responsable o fue asignado a esa tarea… ',
-            stack: window.stackBottomLeft,
-            addClass: 'nonblock'
-        });*/
 
         var proyectos_vencidos = 0;
         var proyectos_Proximos = 0;
@@ -647,7 +634,6 @@
             proyectos_Proximos = @ViewBag.Fechaprox;
 
         document.getElementById("alertsb").innerHTML ="Existen: '"+proyectos_vencidos+"' OILs vencidos y '"+ proyectos_Proximos +"' OILs proximos a vencer...";
-        //  window.alert("Existen: "+proyectos_vencidos+"-- OILs vencidos y ademas tienes: "+ proyectos_Proximos +"-- OILs proximos a vencer");
     });
     </script>
 }
