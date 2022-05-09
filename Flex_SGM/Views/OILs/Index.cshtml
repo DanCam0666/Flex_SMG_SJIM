@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Flex_SGM.Models.OILs>
+﻿
+@model IEnumerable<Flex_SGM.Models.OILs>
 
 @{
     ViewBag.Title = "Estado de OILs";
@@ -112,7 +113,7 @@
                     </th>
 
                     <th>
-                        @Html.DisplayName("Material Comentarios")
+                        @Html.DisplayName("Comentarios")
                     </th>
                 </tr>
             </thead>
@@ -293,12 +294,12 @@
     </div>
     <div class="x_content">
         <center>
-            <div class="alert col-md-6" style="background-color:#ff4a4a; color: white;">Estatus 5-Actividad No REALIZADA en tiempo / Existen:@ViewBag.NoReali Actividades</div>
-            <div class="alert col-md-6" style="background-color:yellow;">Estatus 4-Actividad con Fecha compromiso muy próxima / Existen:@ViewBag.Fechaprox Actividades</div>
-            <div class="alert col-md-6" style="background-color:#4aedab;">Estatus 1-Actividad Finalizada / Existen:@ViewBag.realizada Actividades</div>
-            <div class="alert col-md-6" style="background-color:#4aabed;">Estatus 3-Actividad en Proceso / Existen:@ViewBag.ConFecha Actividades</div>
-            <div class="alert col-md-6" style="background-color:lightgray;">Estatus 2-Actividad sin fecha compromiso / Existen:@ViewBag.sinfecha Actividades</div>
-            <div class="alert col-md-6" style="background-color:#8b0000;  color: white;">Estatus 6-Actividad URGENTE / Existen:@ViewBag.Urgente Actividades</div>
+            <div class="alert col-md-6" style="background-color:#4aedab;"><h4>Estatus 1-Actividad Finalizada / Existen:@ViewBag.realizada Actividades</h4></div>
+            <div class="alert col-md-6" style="background-color:yellow;"><h4>Estatus 4-Actividad con Fecha compromiso muy próxima / Existen:@ViewBag.Fechaprox Actividades</h4></div>
+            <div class="alert col-md-6" style="background-color:lightgray;"><h4>Estatus 2-Actividad sin fecha compromiso / Existen:@ViewBag.sinfecha Actividades</h4></div>
+            <div class="alert col-md-6" style="background-color:#ff4a4a; color: white;"><h4>Estatus 5-Actividad No REALIZADA en tiempo / Existen:@ViewBag.NoReali Actividades</h4></div>
+            <div class="alert col-md-6" style="background-color:#4aabed;"><h4>Estatus 3-Actividad en Proceso / Existen:@ViewBag.ConFecha Actividades</h4></div>
+            <div class="alert col-md-6" style="background-color:#8b0000;  color: white;"><h4>Estatus 6-Actividad URGENTE / Existen:@ViewBag.Urgente Actividades</h4></div>
         </center>
     </div>
 </div>
