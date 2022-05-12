@@ -197,7 +197,7 @@
                 events = [];
                 $.ajax({
                     type: "GET",
-                    url: "../Proyectos/GetEvents",
+                    url: "Proyectos/GetEvents",
                     success: function (data) {
                         $.each(data, function (i, v) {
                             events.push({
@@ -310,7 +310,7 @@
                 if (selectedEvent != null && confirm('Estas Seguro?')) {
                     $.ajax({
                         type: "POST",
-                        url: '../Proyectos/DeleteEvent',
+                        url: 'Proyectos/DeleteEvent',
                         data: { 'eventID': selectedEvent.id },
                         success: function (data) {
                             if (data.status) {
@@ -393,7 +393,7 @@
             function SaveEvent(data) {
                 $.ajax({
                     type: "POST",
-                    url: '../Proyectos/SaveEvent',
+                    url: 'Proyectos/SaveEvent',
                     data: data,
                     success: function (data) {
                         if (data.status) {
