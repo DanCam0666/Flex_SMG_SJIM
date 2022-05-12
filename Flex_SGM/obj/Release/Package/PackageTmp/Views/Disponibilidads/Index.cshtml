@@ -460,7 +460,7 @@
                 }
                 else {
                     var startDate = moment($('#txtStart').val(), "DD/MM/YYYY HH:mm A").toDate();
-                    var endDate = moment($('#txtEnd').val(), "DD/MM/YYYY HH:mm A").toDate();
+                    var endDate = moment($('#txtEnd').val(), "YYYY/DD/MM HH:mm A").toDate();
                     if (startDate > endDate) {
                         alert('Dia Invalido');
                         return;
