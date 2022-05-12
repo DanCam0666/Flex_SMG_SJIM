@@ -13,94 +13,98 @@
 </div>
 
 <div id="myModal" class="modal fade clearfix" role="dialog">
-    <div class="x_panel">
-        <div class="x_title">
-            <h2>Detalles del Evento</h2>
+    <center>
+        <div class="x_panel" style="width: 30%">
+            <div class="x_title">
+                <h2>Detalles del Evento</h2>
+            </div>
+            <div class="x_content" style="text-align: left">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h3 class="modal-title"><span id="eventTitle"></span></h3>
+                </div>
+                <div class="modal-body">
+                    <button id="btnDelete" class="btn btn-default btn-sm pull-right">
+                        <span class="glyphicon glyphicon-remove"></span> Eliminar
+                    </button>
+                    <button id="btnEdit" class="btn btn-default btn-sm pull-right" style="margin-right:5px;">
+                        <span class="glyphicon glyphicon-pencil"></span> Editar
+                    </button>
+                    <p id="pDetails"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
         </div>
-        <div class="x_content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title"><span id="eventTitle"></span></h4>
-            </div>
-            <div class="modal-body">
-                <button id="btnDelete" class="btn btn-default btn-sm pull-right">
-                    <span class="glyphicon glyphicon-remove"></span> Eliminar
-                </button>
-                <button id="btnEdit" class="btn btn-default btn-sm pull-right" style="margin-right:5px;">
-                    <span class="glyphicon glyphicon-pencil"></span> Editar
-                </button>
-                <p id="pDetails"></p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-            </div>
-        </div>
-    </div>
+    </center>
 </div>
 
 <div id="myModalSave" class="modal fade clearfix" role="dialog">
-    <div class="x_panel">
-        <div class="x_title">
-            <h2>Editar el Evento</h2>
-        </div>
-        <div class="x_content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Guardar Evento</h4>
+    <center>
+        <div class="x_panel" style="width: 30%">
+            <div class="x_title">
+                <h2>Editar el Evento</h2>
             </div>
-            <div class="modal-body">
-                <form class="col-md-3 form-horizontal">
-                    <input type="hidden" id="hdEventID" value="0" />
-                    <div class="form-group">
-                        <label>Titulo</label>
-                        <input type="text" id="txtSubject" class="form-control" />
-                    </div>
-                    <div class="form-group">
-                        <label>Dia Inicio</label>
-                        <div class="input-group date" id="dtp1">
-                            <input type="text" id="txtStart" class="form-control" />
-                            <span class="input-group-addon">
-                                <span class="glyphicon glyphicon-calendar"></span>
-                            </span>
+            <div class="x_content" style="text-align: left">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Guardar Evento</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="col-md-12 form-horizontal">
+                        <input type="hidden" id="hdEventID" value="0" />
+                        <div class="form-group">
+                            <label>Titulo</label>
+                            <input type="text" id="txtSubject" class="form-control" />
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="checkbox">
-                            <label><input type="checkbox" id="chkIsFullDay" checked="checked" />  El Evento es todo el dia?</label>
+                        <div class="form-group">
+                            <label>Dia Inicio</label>
+                            <div class="input-group date" id="dtp1">
+                                <input type="text" id="txtStart" class="form-control" />
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group" id="divEndDate" style="display:none">
-                        <label>Dia Final</label>
-                        <div class="input-group date" id="dtp2">
-                            <input type="text" id="txtEnd" class="form-control" />
-                            <span class="input-group-addon">
-                                <span class="glyphicon glyphicon-calendar"></span>
-                            </span>
+                        <div class="form-group">
+                            <div class="checkbox">
+                                <label><input type="checkbox" id="chkIsFullDay" checked="checked" />  El Evento es todo el dia?</label>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label>Minutos de la Junta</label>
-                        <textarea id="txtDescription" rows="3" class="form-control"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label>Color del Evento</label>
-                        <select id="ddThemeColor" class="form-control">
-                            <option value="">Por defecto </option>
-                            <option value="red">Rojo</option>
-                            <option value="blue">Azul</option>
-                            <option value="black">Negro</option>
-                            <option value="green">Verde</option>
-                            <option value="teal">Teal</option>
-                            <option value="purple">Morado</option>
-                            <option value="gray">Gris</option>
-                        </select>
-                    </div>
-                    <button type="button" id="btnSave" class="btn btn-success">Guardar</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                </form>
+                        <div class="form-group" id="divEndDate" style="display:none">
+                            <label>Dia Final</label>
+                            <div class="input-group date" id="dtp2">
+                                <input type="text" id="txtEnd" class="form-control" />
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Minutos de la Junta</label>
+                            <textarea id="txtDescription" rows="3" class="form-control"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Color del Evento</label>
+                            <select id="ddThemeColor" class="form-control">
+                                <option value="">Por defecto </option>
+                                <option value="red">Rojo</option>
+                                <option value="blue">Azul</option>
+                                <option value="black">Negro</option>
+                                <option value="green">Verde</option>
+                                <option value="teal">Teal</option>
+                                <option value="purple">Morado</option>
+                                <option value="gray">Gris</option>
+                            </select>
+                        </div>
+                        <button type="button" id="btnSave" class="btn btn-success">Guardar</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
+    </center>
 </div>
 @section Scripts {
 
@@ -115,6 +119,7 @@
                     center: 'title',
                     right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
                 },
+                firstDay: 0,
                 contentHeight: 900,
                 defaultDate: new Date(),
                 locale: 'es',
@@ -147,6 +152,14 @@
                     $('#myModal #pDetails').empty().html($description);
 
                     $('#myModal').modal();
+                },
+                eventRender: function (info) {
+                    $(info.el).tooltip({
+                        title: info.event.extendedProps.description
+                    });
+                },
+                eventAfterRender: function (info) {
+                    $(info.el).tooltip({ title: info.event.extendedProps.description, container: "body" });
                 },
                 selectable: true,
                 selectMirror: true,
@@ -216,6 +229,7 @@
                         center: 'title',
                         right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
                     },
+                    firstDay: 0,
                     contentHeight: 900,
                     defaultDate: new Date(),
                     locale: 'es',
@@ -247,6 +261,14 @@
                         $('#myModal #pDetails').empty().html($description);
 
                         $('#myModal').modal();
+                    },
+                    eventRender: function (info) {
+                        $(info.el).tooltip({
+                            title: info.event.extendedProps.description
+                        });
+                    },
+                    eventAfterRender: function (info) {
+                        $(info.el).tooltip({ title: info.event.extendedProps.description, container: "body" });
                     },
                     selectable: true,
                     selectMirror: true,

@@ -7,7 +7,7 @@
         calendarWeeks: true,
         todayHighlight: true,
         forceParse:true,
-        format: "dd/mm/yyyy"
+        format: "mm/dd/yyyy"
 
     });
 
