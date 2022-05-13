@@ -33,94 +33,161 @@ namespace Flex_SGM.Controllers
         // GET: Quality_HS
         public async Task<ActionResult> Index()
         {
-            //  var id = User.Identity.GetUserId();
-            //  ApplicationUser currentUser = UserManager.FindById(id);
             var metricos = db.Metricos.ToList<Metricos>();
+            var validMetricosRecords = metricos.Where(m => m.Usuario_area is "Quality_HS").ToList();
+            var users = validMetricosRecords.Where(m => m.Usuario_area is "Quality_HS")
+                .GroupBy(m => m.Usuario_responsable)
+                .ToList();
 
-            var chartData1 = metricos
-                .Where(m => m.Usuario_area is "Quality_HS")
-                .Where(m => m.DiaHora.Year == DateTime.Now.Year)
-                .Where(m => m.DiaHora.Month == 1)
-                .GroupBy(m => m.Usuario_responsable)
-                .Select(m => m.Sum(t => t.Proyectos))
-                .ToList();
-            var chartData2 = metricos
-                .Where(m => m.Usuario_area is "Quality_HS")
-                .Where(m => m.DiaHora.Year == DateTime.Now.Year)
-                .Where(m => m.DiaHora.Month == 2)
-                .GroupBy(m => m.Usuario_responsable)
-                .Select(m => m.Sum(t => t.Proyectos))
-                .ToList();
-            var chartData3 = metricos
-                .Where(m => m.Usuario_area is "Quality_HS")
-                .Where(m => m.DiaHora.Year == DateTime.Now.Year)
-                .Where(m => m.DiaHora.Month == 3)
-                .GroupBy(m => m.Usuario_responsable)
-                .Select(m => m.Sum(t => t.Proyectos))
-                .ToList();
-            var chartData4 = metricos
-                .Where(m => m.Usuario_area is "Quality_HS")
-                .Where(m => m.DiaHora.Year == DateTime.Now.Year)
-                .Where(m => m.DiaHora.Month == 4)
-                .GroupBy(m => m.Usuario_responsable)
-                .Select(m => m.Sum(t => t.Proyectos))
-                .ToList();
-            var chartData5 = metricos
-                .Where(m => m.Usuario_area is "Quality_HS")
-                .Where(m => m.DiaHora.Year == DateTime.Now.Year)
-                .Where(m => m.DiaHora.Month == 5)
-                .GroupBy(m => m.Usuario_responsable)
-                .Select(m => m.Sum(t => t.Proyectos))
-                .ToList();
-            var chartData6 = metricos
-                .Where(m => m.Usuario_area is "Quality_HS")
-                .Where(m => m.DiaHora.Year == DateTime.Now.Year)
-                .Where(m => m.DiaHora.Month == 6)
-                .GroupBy(m => m.Usuario_responsable)
-                .Select(m => m.Sum(t => t.Proyectos))
-                .ToList();
-            var chartData7 = metricos
-                .Where(m => m.Usuario_area is "Quality_HS")
-                .Where(m => m.DiaHora.Year == DateTime.Now.Year)
-                .Where(m => m.DiaHora.Month == 7)
-                .GroupBy(m => m.Usuario_responsable)
-                .Select(m => m.Sum(t => t.Proyectos))
-                .ToList();
-            var chartData8 = metricos
-                .Where(m => m.Usuario_area is "Quality_HS")
-                .Where(m => m.DiaHora.Year == DateTime.Now.Year)
-                .Where(m => m.DiaHora.Month == 8)
-                .GroupBy(m => m.Usuario_responsable)
-                .Select(m => m.Sum(t => t.Proyectos))
-                .ToList();
-            var chartData9 = metricos
-                .Where(m => m.Usuario_area is "Quality_HS")
-                .Where(m => m.DiaHora.Year == DateTime.Now.Year)
-                .Where(m => m.DiaHora.Month == 9)
-                .GroupBy(m => m.Usuario_responsable)
-                .Select(m => m.Sum(t => t.Proyectos))
-                .ToList();
-            var chartData10 = metricos
-                .Where(m => m.Usuario_area is "Quality_HS")
-                .Where(m => m.DiaHora.Year == DateTime.Now.Year)
-                .Where(m => m.DiaHora.Month == 10)
-                .GroupBy(m => m.Usuario_responsable)
-                .Select(m => m.Sum(t => t.Proyectos))
-                .ToList();
-            var chartData11 = metricos
-                .Where(m => m.Usuario_area is "Quality_HS")
-                .Where(m => m.DiaHora.Year == DateTime.Now.Year)
-                .Where(m => m.DiaHora.Month == 11)
-                .GroupBy(m => m.Usuario_responsable)
-                .Select(m => m.Sum(t => t.Proyectos))
-                .ToList();
-            var chartData12 = metricos
-                .Where(m => m.Usuario_area is "Quality_HS")
-                .Where(m => m.DiaHora.Year == DateTime.Now.Year)
-                .Where(m => m.DiaHora.Month == 12)
-                .GroupBy(m => m.Usuario_responsable)
-                .Select(m => m.Sum(t => t.Proyectos))
-                .ToList();
+            List<DisplayUserChart> displayUserChartList = new List<DisplayUserChart>();
+
+            foreach (var item in users)
+            {
+                DisplayUserChart displayUserChartJanuary = new DisplayUserChart();
+                displayUserChartJanuary.Usuario_responsable = item.Key;
+                var chartData1 = validMetricosRecords.Where(m => m.Usuario_responsable == item.Key)
+               .Where(m => m.DiaHora.Year == DateTime.Now.Year)
+               .Where(m => m.DiaHora.Month == 1).Sum(m => m.Proyectos);
+                displayUserChartJanuary.Proyectos = chartData1;
+                displayUserChartJanuary.Month = 1;
+                displayUserChartJanuary.Year = DateTime.Now.Year;
+                displayUserChartList.Add(displayUserChartJanuary);
+
+                //For february
+                DisplayUserChart displayUserChartFebruary = new DisplayUserChart();
+                displayUserChartFebruary.Usuario_responsable = item.Key;
+                var chartData2 = validMetricosRecords.Where(m => m.Usuario_responsable == item.Key)
+               .Where(m => m.DiaHora.Year == DateTime.Now.Year)
+               .Where(m => m.DiaHora.Month == 2).Sum(m => m.Proyectos);
+                displayUserChartFebruary.Proyectos = chartData2;
+                displayUserChartFebruary.Month = 2;
+                displayUserChartFebruary.Year = DateTime.Now.Year;
+                displayUserChartList.Add(displayUserChartFebruary);
+
+                //For march
+                DisplayUserChart displayUserChartMarch = new DisplayUserChart();
+                displayUserChartMarch.Usuario_responsable = item.Key;
+                var chartData3 = validMetricosRecords.Where(m => m.Usuario_responsable == item.Key)
+               .Where(m => m.DiaHora.Year == DateTime.Now.Year)
+               .Where(m => m.DiaHora.Month == 3).Sum(m => m.Proyectos);
+                displayUserChartMarch.Proyectos = chartData3;
+                displayUserChartMarch.Month = 3;
+                displayUserChartMarch.Year = DateTime.Now.Year;
+                displayUserChartList.Add(displayUserChartMarch);
+
+                //For april
+                DisplayUserChart displayUserChartApril = new DisplayUserChart();
+                displayUserChartApril.Usuario_responsable = item.Key;
+                var chartData4 = validMetricosRecords.Where(m => m.Usuario_responsable == item.Key)
+               .Where(m => m.DiaHora.Year == DateTime.Now.Year)
+               .Where(m => m.DiaHora.Month == 4).Sum(m => m.Proyectos);
+                displayUserChartApril.Proyectos = chartData4;
+                displayUserChartApril.Month = 4;
+                displayUserChartApril.Year = DateTime.Now.Year;
+                displayUserChartList.Add(displayUserChartApril);
+
+                //For may
+                DisplayUserChart displayUserChartMay = new DisplayUserChart();
+                displayUserChartMay.Usuario_responsable = item.Key;
+                var chartData5 = validMetricosRecords.Where(m => m.Usuario_responsable == item.Key)
+               .Where(m => m.DiaHora.Year == DateTime.Now.Year)
+               .Where(m => m.DiaHora.Month == 5).Sum(m => m.Proyectos);
+                displayUserChartMay.Proyectos = chartData5;
+                displayUserChartMay.Month = 5;
+                displayUserChartMay.Year = DateTime.Now.Year;
+                displayUserChartList.Add(displayUserChartMay);
+
+                //For june
+                DisplayUserChart displayUserChartJune = new DisplayUserChart();
+                displayUserChartJune.Usuario_responsable = item.Key;
+                var chartData6 = validMetricosRecords.Where(m => m.Usuario_responsable == item.Key)
+               .Where(m => m.DiaHora.Year == DateTime.Now.Year)
+               .Where(m => m.DiaHora.Month == 6).Sum(m => m.Proyectos);
+                displayUserChartJune.Proyectos = chartData6;
+                displayUserChartJune.Month = 6;
+                displayUserChartJune.Year = DateTime.Now.Year;
+                displayUserChartList.Add(displayUserChartJune);
+
+                //For july
+                DisplayUserChart displayUserChartJuly = new DisplayUserChart();
+                displayUserChartJuly.Usuario_responsable = item.Key;
+                var chartData7 = validMetricosRecords.Where(m => m.Usuario_responsable == item.Key)
+               .Where(m => m.DiaHora.Year == DateTime.Now.Year)
+               .Where(m => m.DiaHora.Month == 7).Sum(m => m.Proyectos);
+                displayUserChartJuly.Proyectos = chartData7;
+                displayUserChartJuly.Month = 7;
+                displayUserChartJuly.Year = DateTime.Now.Year;
+                displayUserChartList.Add(displayUserChartJuly);
+
+                //For august
+                DisplayUserChart displayUserChartAugust = new DisplayUserChart();
+                displayUserChartAugust.Usuario_responsable = item.Key;
+                var chartData8 = validMetricosRecords.Where(m => m.Usuario_responsable == item.Key)
+               .Where(m => m.DiaHora.Year == DateTime.Now.Year)
+               .Where(m => m.DiaHora.Month == 8).Sum(m => m.Proyectos);
+                displayUserChartAugust.Proyectos = chartData8;
+                displayUserChartAugust.Month = 8;
+                displayUserChartAugust.Year = DateTime.Now.Year;
+                displayUserChartList.Add(displayUserChartAugust);
+
+                //For september
+                DisplayUserChart displayUserChartSeptember = new DisplayUserChart();
+                displayUserChartSeptember.Usuario_responsable = item.Key;
+                var chartData9 = validMetricosRecords.Where(m => m.Usuario_responsable == item.Key)
+               .Where(m => m.DiaHora.Year == DateTime.Now.Year)
+               .Where(m => m.DiaHora.Month == 9).Sum(m => m.Proyectos);
+                displayUserChartSeptember.Proyectos = chartData9;
+                displayUserChartSeptember.Month = 9;
+                displayUserChartSeptember.Year = DateTime.Now.Year;
+                displayUserChartList.Add(displayUserChartSeptember);
+
+                //For october
+                DisplayUserChart displayUserChartOctober = new DisplayUserChart();
+                displayUserChartOctober.Usuario_responsable = item.Key;
+                var chartData10 = validMetricosRecords.Where(m => m.Usuario_responsable == item.Key)
+               .Where(m => m.DiaHora.Year == DateTime.Now.Year)
+               .Where(m => m.DiaHora.Month == 10).Sum(m => m.Proyectos);
+                displayUserChartOctober.Proyectos = chartData10;
+                displayUserChartOctober.Month = 10;
+                displayUserChartOctober.Year = DateTime.Now.Year;
+                displayUserChartList.Add(displayUserChartOctober);
+
+                //For november
+                DisplayUserChart displayUserChartNovember = new DisplayUserChart();
+                displayUserChartNovember.Usuario_responsable = item.Key;
+                var chartData11 = validMetricosRecords.Where(m => m.Usuario_responsable == item.Key)
+               .Where(m => m.DiaHora.Year == DateTime.Now.Year)
+               .Where(m => m.DiaHora.Month == 11).Sum(m => m.Proyectos);
+                displayUserChartNovember.Proyectos = chartData11;
+                displayUserChartNovember.Month = 11;
+                displayUserChartNovember.Year = DateTime.Now.Year;
+                displayUserChartList.Add(displayUserChartNovember);
+
+                //For december
+                DisplayUserChart displayUserChartDecember = new DisplayUserChart();
+                displayUserChartDecember.Usuario_responsable = item.Key;
+                var chartData12 = validMetricosRecords.Where(m => m.Usuario_responsable == item.Key)
+               .Where(m => m.DiaHora.Year == DateTime.Now.Year)
+               .Where(m => m.DiaHora.Month == 12).Sum(m => m.Proyectos);
+                displayUserChartDecember.Proyectos = chartData12;
+                displayUserChartDecember.Month = 12;
+                displayUserChartDecember.Year = DateTime.Now.Year;
+                displayUserChartList.Add(displayUserChartDecember);
+            };
+
+            var lchartData1 = displayUserChartList.Where(f => f.Month == 1).Select(f => f.Proyectos).ToList();
+            var lchartData2 = displayUserChartList.Where(f => f.Month == 2).Select(f => f.Proyectos).ToList();
+            var lchartData3 = displayUserChartList.Where(f => f.Month == 3).Select(f => f.Proyectos).ToList();
+            var lchartData4 = displayUserChartList.Where(f => f.Month == 4).Select(f => f.Proyectos).ToList();
+            var lchartData5 = displayUserChartList.Where(f => f.Month == 5).Select(f => f.Proyectos).ToList();
+            var lchartData6 = displayUserChartList.Where(f => f.Month == 6).Select(f => f.Proyectos).ToList();
+            var lchartData7 = displayUserChartList.Where(f => f.Month == 7).Select(f => f.Proyectos).ToList();
+            var lchartData8 = displayUserChartList.Where(f => f.Month == 8).Select(f => f.Proyectos).ToList();
+            var lchartData9 = displayUserChartList.Where(f => f.Month == 9).Select(f => f.Proyectos).ToList();
+            var lchartData10 = displayUserChartList.Where(f => f.Month == 10).Select(f => f.Proyectos).ToList();
+            var lchartData11 = displayUserChartList.Where(f => f.Month == 11).Select(f => f.Proyectos).ToList();
+            var lchartData12 = displayUserChartList.Where(f => f.Month == 12).Select(f => f.Proyectos).ToList();
+
             var chartLabel = metricos
                 .Where(m => m.Usuario_area is "Quality_HS")
                 .Where(m => m.DiaHora.Year == DateTime.Now.Year)
@@ -128,18 +195,18 @@ namespace Flex_SGM.Controllers
                 .Select(m => m.Key)
                 .ToList();
 
-            ViewBag.ChartData1 = chartData1;
-            ViewBag.ChartData2 = chartData2;
-            ViewBag.ChartData3 = chartData3;
-            ViewBag.ChartData4 = chartData4;
-            ViewBag.ChartData5 = chartData5;
-            ViewBag.ChartData6 = chartData6;
-            ViewBag.ChartData7 = chartData7;
-            ViewBag.ChartData8 = chartData8;
-            ViewBag.ChartData9 = chartData9;
-            ViewBag.ChartData10 = chartData10;
-            ViewBag.ChartData11 = chartData11;
-            ViewBag.ChartData12 = chartData12;
+            ViewBag.ChartData1 = lchartData1;
+            ViewBag.ChartData2 = lchartData2;
+            ViewBag.ChartData3 = lchartData3;
+            ViewBag.ChartData4 = lchartData4;
+            ViewBag.ChartData5 = lchartData5;
+            ViewBag.ChartData6 = lchartData6;
+            ViewBag.ChartData7 = lchartData7;
+            ViewBag.ChartData8 = lchartData8;
+            ViewBag.ChartData9 = lchartData9;
+            ViewBag.ChartData10 = lchartData10;
+            ViewBag.ChartData11 = lchartData11;
+            ViewBag.ChartData12 = lchartData12;
             ViewBag.ChartLabel = chartLabel;
 
             var id = User.Identity.GetUserId();
