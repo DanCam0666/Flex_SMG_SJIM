@@ -30,7 +30,7 @@
                     <button id="btnEdit" class="btn btn-default btn-sm pull-right" style="margin-right:5px;">
                         <span class="glyphicon glyphicon-pencil"></span> Editar
                     </button>
-                    <p id="pDetails"></p>
+                    <p id=" pDetails"></p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
@@ -106,10 +106,9 @@
         </div>
     </center>
 </div>
+
 @section Scripts {
-
     <script>
-
         $(document).ready(function () {
             var calendarEl = document.getElementById('calender');
             var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -155,7 +154,11 @@
                 },
                 eventRender: function (info) {
                     $(info.el).tooltip({
-                        title: info.event.extendedProps.description
+                        title: info.event.extendedProps.description,
+                        placement: 'top',
+                        trigger: 'hover',
+                        container: 'body',
+                        html: 'true'
                     });
                 },
                 eventAfterRender: function (info) {
@@ -190,9 +193,11 @@
                     SaveEvent(data);
                 }
             })
+
             var events = [];
             var selectedEvent = null;
             FetchEventAndRenderCalendar();
+
             function FetchEventAndRenderCalendar() {
                 events = [];
                 $.ajax({
@@ -264,7 +269,11 @@
                     },
                     eventRender: function (info) {
                         $(info.el).tooltip({
-                            title: info.event.extendedProps.description
+                            title: info.event.extendedProps.description,
+                        placement: 'top',
+                        trigger: 'hover',
+                        container: 'body',
+                        html: 'true'
                         });
                     },
                     eventAfterRender: function (info) {
@@ -306,6 +315,7 @@
                 //Open modal dialog for edit event
                 openAddEditForm();
             })
+
             $('#btnDelete').click(function () {
                 if (selectedEvent != null && confirm('Estas Seguro?')) {
                     $.ajax({
@@ -407,10 +417,6 @@
                     }
                 })
             }
-
-
         })
-
-
     </script>
 }

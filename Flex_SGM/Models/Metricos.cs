@@ -68,6 +68,35 @@ namespace Flex_SGM.Models
         public double Calculation { get; set; }
 
     }
+
+    public class DisplayUserChart
+    {
+
+        public string Usuario_responsable { get; set; }
+        
+        public int Proyectos { get; set; }
+        public  int Month { get; set; }
+        public int Year { get; set; }
+
+
+    }
+    public class UserValues
+    {
+        public string Usuario_responsable { get; set; }
+        public List<ProyectosByMonth> ProyectosByMonth { get; set; }
+
+    }
+    public class ProyectosByMonth
+    {
+
+
+
+        public int Proyectos { get; set; }
+        public int Month { get; set; }
+        //public int Year { get; set; }
+
+
+    }
     public class MetricsNew
     {
         public string TiempoLabel { get; set; }

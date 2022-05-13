@@ -106,10 +106,9 @@
         </div>
     </center>
 </div>
+
 @section Scripts {
-
     <script>
-
         $(document).ready(function () {
             var calendarEl = document.getElementById('calender');
             var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -190,14 +189,16 @@
                     SaveEvent(data);
                 }
             })
+
             var events = [];
             var selectedEvent = null;
             FetchEventAndRenderCalendar();
+
             function FetchEventAndRenderCalendar() {
                 events = [];
                 $.ajax({
                     type: "GET",
-                    url: "../Proyectos/GetEvents",
+                    url: "Proyectos/GetEvents",
                     success: function (data) {
                         $.each(data, function (i, v) {
                             events.push({
@@ -306,11 +307,12 @@
                 //Open modal dialog for edit event
                 openAddEditForm();
             })
+
             $('#btnDelete').click(function () {
                 if (selectedEvent != null && confirm('Estas Seguro?')) {
                     $.ajax({
                         type: "POST",
-                        url: '../Proyectos/DeleteEvent',
+                        url: 'Proyectos/DeleteEvent',
                         data: { 'eventID': selectedEvent.id },
                         success: function (data) {
                             if (data.status) {
@@ -393,7 +395,7 @@
             function SaveEvent(data) {
                 $.ajax({
                     type: "POST",
-                    url: '../Proyectos/SaveEvent',
+                    url: 'Proyectos/SaveEvent',
                     data: data,
                     success: function (data) {
                         if (data.status) {
@@ -407,10 +409,6 @@
                     }
                 })
             }
-
-
         })
-
-
     </script>
 }
