@@ -12,8 +12,7 @@ using Flex_SGM.Scripts;
 
 namespace Flex_SGM.Controllers
 {
-    [Authorize(Roles = "Admin,Supervisor")]
-    [Authorize(Roles = "Admin,Mantenimiento")]
+    [AllowAnonymous]
     public class ProyectosController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

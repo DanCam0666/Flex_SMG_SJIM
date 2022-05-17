@@ -34,27 +34,14 @@
         if (@ViewBag.Urgente != 0)
             Urgente = @ViewBag.Urgente;
 
-        PNotify.defaults.delay = 5000;
+        //PNotify.defaults.delay = 5000;
 
         $(document).ready(function () {
             if (cuser != "") {
-               /* window.notice = PNotify.error({
-                    title: 'OILs Abiertos de '+ cuser,
-                    text: 'Tienes: '+ "\n" + Urgente+' Urgente ,'+ "\n" + NoReali+' No Realizado ,'+ "\n" + sinfecha+' Sin fecha compromiso ,'+ "\n" + Fechaprox+' Con fecha proxima ,' + "\n"+ ConFecha+' En Proceso ,' + "\n"+ realizada+' Finalizados.'+ "\n" +' Esta Ventana Dura 30 Segundos que puedes aprovechar para corroborar el Slide de Seguridad',
-                    //  addClass: 'nonblock',
-                    width: '600px',
-                    mouseReset: false,
-                    modules: {
-                        Buttons: {
-                            closer: false,
-                            sticker: false
-                        }
-                    }
-                });*/
 
                 window.notice2 = PNotify.notice({
                     title: 'Estatus de OILs',
-                    text: 'Recuerda Verificar y actualizar los OILs asignados... '+ "\n" +'Tienes: '+ "\n" + Urgente+' Urgente ,'+ "\n" + NoReali+' No Realizado ,'+ "\n" + sinfecha+' Sin fecha compromiso ,'+ "\n" + Fechaprox+' Con fecha proxima ,' + "\n"+ ConFecha+' En Proceso ,' + "\n"+ realizada+' Finalizados.',
+                    text: 'Recuerda Verificar y actualizar los OILs asignados... ' + "\n" + 'Tienes: ' + "\n" + Urgente + ' Urgente ,' + "\n" + NoReali + ' No Realizado ,' + "\n" + sinfecha + ' Sin fecha compromiso ,' + "\n" + Fechaprox + ' Con fecha proxima ,' + "\n" + ConFecha + ' En Proceso ,' + "\n" + realizada + ' Finalizados.',
                     width: '600px',
                     icon: 'fas fa-info-circle',
                     hide: false,
@@ -68,17 +55,17 @@
                             buttons: [{
                                 text: 'Enterado ',
                                 primary: true,
-                                click: function(notice) {
+                                click: function (notice) {
                                     notice.close();
                                 }
                             }]
                         },
                         Buttons: {
-                          closer: false,
-                          sticker: false
+                            closer: false,
+                            sticker: false
                         },
                         History: {
-                          history: false
+                            history: false
                         }
                     }
                 });
@@ -86,14 +73,14 @@
             else {
                 window.notice = PNotify.error({
                     title: 'OILs Abiertos General',
-                    text: 'Existen: '+ "\n" + Urgente+' Urgente ,'+ "\n"+ + NoReali+' No Realizado ,'+ "\n" + sinfecha+' Sin fecha compromiso ,'+ "\n" + Fechaprox+' Con fecha proxima ,'+ "\n" + ConFecha+' En Proceso ,'+ "\n" + realizada+' Finalizados.'+ "\n" +' Esta Ventana se Cierra con un Click',
+                    text: 'Existen: ' + "\n" + Urgente + ' Urgente ,' + "\n" + + NoReali + ' No Realizado ,' + "\n" + sinfecha + ' Sin fecha compromiso ,' + "\n" + Fechaprox + ' Con fecha proxima ,' + "\n" + ConFecha + ' En Proceso ,' + "\n" + realizada + ' Finalizados.' + "\n" + ' Esta Ventana se Cierra con un Click',
                     //  addClass: 'nonblock',
                     width: '600px',
                     mouseReset: false,
                     hide: false,
                     stack: {
-                    'modal': true,
-                    'overlayClose': true
+                        'modal': true,
+                        'overlayClose': true
                     },
                     modules: {
                         Buttons: {
@@ -106,15 +93,9 @@
                     }
                 });
                 window.notice.on('click', function () {
-                        window.notice.close();
+                    window.notice.close();
                 });
             }
-
-            var myVar = setInterval(myTimer, 3000);
-
-            function myTimer() {
-                window.notice.attention('pulse');
-            } 
         });
     </script>
 

@@ -30,7 +30,7 @@
                     <button id="btnEdit" class="btn btn-default btn-sm pull-right" style="margin-right:5px;">
                         <span class="glyphicon glyphicon-pencil"></span> Editar
                     </button>
-                    <p id="pDetails"></p>
+                    <p id=" pDetails"></p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
@@ -114,9 +114,9 @@
             var calendar = new FullCalendar.Calendar(calendarEl, {
                 plugins: ['interaction', 'dayGrid', 'timeGrid', 'list'],
                 header: {
-                    left: 'prev,next today',
-                    center: 'title',
-                    right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+                    left: 'title',
+                    center: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek',
+                    right: 'prev,next today',
                 },
                 firstDay: 0,
                 contentHeight: 900,
@@ -131,7 +131,6 @@
                 eventColor: '#378006',
                 events: events,
                 eventClick: function (calEvent) {
-
                     selectedEvent = {
                         id: calEvent.event.id,
                         title: calEvent.event.title,
@@ -154,7 +153,11 @@
                 },
                 eventRender: function (info) {
                     $(info.el).tooltip({
-                        title: info.event.extendedProps.description
+                        title: info.event.extendedProps.description,
+                        placement: 'top',
+                        trigger: 'hover',
+                        container: 'body',
+                        html: 'true'
                     });
                 },
                 eventAfterRender: function (info) {
@@ -173,7 +176,6 @@
                         color: ''
                     };
                     openAddEditForm();
-
                 },
                 editable: true,
                 eventDrop: function (event) {
@@ -212,7 +214,6 @@
                                 daysOfWeek: v.daysOfWeek,
                             });
                         })
-
                         GenerateCalender(events);
                     },
                     error: function (error) {
@@ -226,9 +227,9 @@
                 calendar = new FullCalendar.Calendar(calendarEl, {
                     plugins: ['interaction', 'dayGrid', 'timeGrid', 'list'],
                     header: {
-                        left: 'prev,next today',
-                        center: 'title',
-                        right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+                        left: 'title',
+                        center: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek',
+                        right: 'prev,next today',
                     },
                     firstDay: 0,
                     contentHeight: 900,
@@ -260,12 +261,15 @@
                         }
                         $description.append($('<p/>').html('<b>Descripcion:</b>' + calEvent.event.extendedProps.description));
                         $('#myModal #pDetails').empty().html($description);
-
                         $('#myModal').modal();
                     },
                     eventRender: function (info) {
                         $(info.el).tooltip({
-                            title: info.event.extendedProps.description
+                            title: info.event.extendedProps.description,
+                        placement: 'top',
+                        trigger: 'hover',
+                        container: 'body',
+                        html: 'true'
                         });
                     },
                     eventAfterRender: function (info) {
@@ -284,7 +288,6 @@
                             color: ''
                         };
                         openAddEditForm();
-
                     },
                     editable: true,
                     eventDrop: function (event) {

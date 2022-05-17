@@ -22,6 +22,7 @@
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h3 class="modal-title"><span id="eventTitle"></span></h3>
+                    <h4 class="modal-title"><span id="pDetails"></span></h4>
                 </div>
                 <div class="modal-body">
                     <button id="btnDelete" class="btn btn-default btn-sm pull-right">
@@ -82,13 +83,13 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label>Minutos de la Junta</label>
+                            <label>Minutos / Notas</label>
                             <textarea id="txtDescription" rows="3" class="form-control"></textarea>
                         </div>
                         <div class="form-group">
                             <label>Color del Evento</label>
                             <select id="ddThemeColor" class="form-control">
-                                <option value="">Por defecto </option>
+                                <option value="">Por defecto</option>
                                 <option value="red">Rojo</option>
                                 <option value="blue">Azul</option>
                                 <option value="black">Negro</option>
@@ -114,9 +115,9 @@
             var calendar = new FullCalendar.Calendar(calendarEl, {
                 plugins: ['interaction', 'dayGrid', 'timeGrid', 'list'],
                 header: {
-                    left: 'prev,next today',
-                    center: 'title',
-                    right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+                    left: 'title',
+                    center: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek',
+                    right: 'prev,next today',
                 },
                 firstDay: 0,
                 contentHeight: 900,
@@ -131,7 +132,6 @@
                 eventColor: '#378006',
                 events: events,
                 eventClick: function (calEvent) {
-
                     selectedEvent = {
                         id: calEvent.event.id,
                         title: calEvent.event.title,
@@ -177,7 +177,6 @@
                         color: ''
                     };
                     openAddEditForm();
-
                 },
                 editable: true,
                 eventDrop: function (event) {
@@ -216,7 +215,6 @@
                                 daysOfWeek: v.daysOfWeek,
                             });
                         })
-
                         GenerateCalender(events);
                     },
                     error: function (error) {
@@ -230,9 +228,9 @@
                 calendar = new FullCalendar.Calendar(calendarEl, {
                     plugins: ['interaction', 'dayGrid', 'timeGrid', 'list'],
                     header: {
-                        left: 'prev,next today',
-                        center: 'title',
-                        right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+                        left: 'title',
+                        center: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek',
+                        right: 'prev,next today',
                     },
                     firstDay: 0,
                     contentHeight: 900,
@@ -264,7 +262,6 @@
                         }
                         $description.append($('<p/>').html('<b>Descripcion:</b>' + calEvent.event.extendedProps.description));
                         $('#myModal #pDetails').empty().html($description);
-
                         $('#myModal').modal();
                     },
                     eventRender: function (info) {
@@ -292,7 +289,6 @@
                             color: ''
                         };
                         openAddEditForm();
-
                     },
                     editable: true,
                     eventDrop: function (event) {
