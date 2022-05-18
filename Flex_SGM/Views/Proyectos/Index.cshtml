@@ -22,24 +22,28 @@
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h3 class="modal-title"><span id="eventTitle"></span></h3>
-                    <h4 class="modal-title"><span id="pDetails"></span></h4>
                 </div>
                 <div class="modal-body">
-                    <button id="btnDelete" class="btn btn-default btn-sm pull-right">
-                        <span class="glyphicon glyphicon-remove"></span> Eliminar
-                    </button>
-                    <button id="btnEdit" class="btn btn-default btn-sm pull-right" style="margin-right:5px;">
-                        <span class="glyphicon glyphicon-pencil"></span> Editar
-                    </button>
-                    <p id=" pDetails"></p>
+                    <p id="pDetails"></p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    <button id="btnDelete" class="btn btn-default pull-right">
+                        <span class="glyphicon glyphicon-remove"></span> Eliminar
+                    </button>
+                    <button id="btnEdit" class="btn btn-default pull-right" style="margin-right:5px;">
+                        <span class="glyphicon glyphicon-pencil"></span> Editar
+                    </button>
+                    <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Cerrar</button>
                 </div>
             </div>
         </div>
     </center>
 </div>
+
+<script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
+<script src="//cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/src/js/bootstrap-datetimepicker.js"></script>
 
 <div id="myModalSave" class="modal fade clearfix" role="dialog">
     <center>
@@ -48,10 +52,6 @@
                 <h2>Editar el Evento</h2>
             </div>
             <div class="x_content" style="text-align: left">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Guardar Evento</h4>
-                </div>
                 <div class="modal-body">
                     <form class="col-md-12 form-horizontal">
                         <input type="hidden" id="hdEventID" value="0" />
@@ -61,25 +61,30 @@
                         </div>
                         <div class="form-group">
                             <label>Dia Inicio</label>
-                            <div class="input-group date" id="dtp1">
+                            <div class="input-group datetime" id="dtp1">
                                 <input type="text" id="txtStart" class="form-control" />
-                                <span class="input-group-addon">
-                                    <span class="glyphicon glyphicon-calendar"></span>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="checkbox">
-                                <label><input type="checkbox" id="chkIsFullDay" checked="checked" />  El Evento es todo el dia?</label>
+                                <span class="input-group-addon glyphicon glyphicon-calendar"></span>
                             </div>
                         </div>
                         <div class="form-group" id="divEndDate" style="display:none">
                             <label>Dia Final</label>
-                            <div class="input-group date" id="dtp2">
+                            <div class="input-group datetime" id="dtp2">
                                 <input type="text" id="txtEnd" class="form-control" />
-                                <span class="input-group-addon">
-                                    <span class="glyphicon glyphicon-calendar"></span>
-                                </span>
+                                <span class="input-group-addon glyphicon glyphicon-calendar"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <script type="text/javascript">
+                                $(function () {
+                                    $('#dtp1,#dtp2').datetimepicker({
+                                        format: 'DD/MM/YYYY HH:mm A'
+                                    });
+                                });
+                            </script>
+                        </div>
+                        <div class="form-group">
+                            <div class="checkbox">
+                                <label><input type="checkbox" id="chkIsFullDay" checked="checked" />  El Evento es todo el dia?</label>
                             </div>
                         </div>
                         <div class="form-group">
@@ -152,13 +157,13 @@
 
                     $('#myModal').modal();
                 },
-                eventRender: function (info) {
+                eventMouseEnter: function (info) {
                     $(info.el).tooltip({
                         title: info.event.extendedProps.description,
+                        html: true,
                         placement: 'top',
                         trigger: 'hover',
                         container: 'body',
-                        html: 'true'
                     });
                 },
                 eventAfterRender: function (info) {
@@ -264,18 +269,19 @@
                         $('#myModal #pDetails').empty().html($description);
                         $('#myModal').modal();
                     },
-                    eventRender: function (info) {
+                    eventMouseEnter: function (info) {
                         $(info.el).tooltip({
                             title: info.event.extendedProps.description,
-                        placement: 'top',
-                        trigger: 'hover',
-                        container: 'body',
-                        html: 'true'
+                            html: true,
+                            placement: 'top',
+                            trigger: 'hover',
+                            container: 'body',
                         });
                     },
                     eventAfterRender: function (info) {
                         $(info.el).tooltip({ title: info.event.extendedProps.description, container: "body" });
                     },
+                    editable: true,
                     selectable: true,
                     selectMirror: true,
                     select: function (arg) {
@@ -290,7 +296,6 @@
                         };
                         openAddEditForm();
                     },
-                    editable: true,
                     eventDrop: function (event) {
                         var data = {
                             EventID: event.event.id,
@@ -298,7 +303,7 @@
                             Start: moment(event.event.start).format('DD/MM/YYYY HH:mm A'),
                             End: event.event.end != null ? moment(event.event.end).format('DD/MM/YYYY HH:mm A') : null,
                             Description: event.event.extendedProps.description,
-                            ThemeColor: event.event.color,
+                            ThemeColor: $('#ddThemeColor').val(),
                             IsFullDay: event.event.allDay
                         };
                         SaveEvent(data);
@@ -331,7 +336,12 @@
                     })
                 }
             })
-
+            $(function () {
+                $('#dtp1').datetimepicker();
+            });
+            $(function () {
+                $('#dtp2').datetimepicker();
+            });
             $('#dtp1,#dtp2').datetimepicker({
                 format: 'DD/MM/YYYY HH:mm A'
             });

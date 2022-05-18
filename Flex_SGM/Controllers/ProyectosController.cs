@@ -8,7 +8,8 @@ using System.Web;
 using System.Web.Mvc;
 using Flex_SGM.Models;
 using Flex_SGM.Scripts;
-
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
 
 namespace Flex_SGM.Controllers
 {
@@ -16,11 +17,37 @@ namespace Flex_SGM.Controllers
     public class ProyectosController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        private ApplicationUserManager _userManager;
+        public ApplicationUserManager UserManager
+        {
+            get
+            {
+                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            }
+            private set
+            {
+                _userManager = value;
+            }
+        }
 
 
         // GET: Proyectos
         public ActionResult Index()
         {
+            var id = User.Identity.GetUserId();
+            ApplicationUser currentUser = UserManager.FindById(id);
+            string cuser = "xxx";
+            string cpuesto = "xxx";
+            string cuare = "xxx";
+            if (currentUser != null)
+            {
+                cuser = currentUser.UserFullName;
+                cpuesto = currentUser.Puesto;
+                cuare = currentUser.Area;
+            }
+            ViewBag.uarea = cuare;
+            ViewBag.cuser = cuser;
+
             var proyectos = db.Proyectos.Include(p => p.Maquinas);
             return View(proyectos.ToList());
         }
