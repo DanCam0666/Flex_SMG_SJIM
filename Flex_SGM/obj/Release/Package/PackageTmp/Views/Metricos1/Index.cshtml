@@ -205,7 +205,7 @@
                 </tr>
                 <tr>
                     <th><p>@Html.ActionLink("Build in/Build out", "Index", "BuildinBuildout")</p></th>
-                    <th scope="row">Marcelino Prado Mendoza</th>
+                    <th scope="row">Marcelino Prado</th>
                     <th scope="row">Zero obsolete</th>
                     @foreach (var item in ViewBag.data)
                     {
@@ -488,11 +488,11 @@
                     cells[0].cells[3 + i].style.backgroundColor = '#71d98c8c';
                     cells[0].cells[3 + i].style.color = 'black';
                 }
-                if (parseInt(cells[1].cells[3 + i].innerHTML, 10) < 1) {
+                if (parseInt(cells[1].cells[3 + i].innerHTML, 10) > 0) {
                     cells[1].cells[3 + i].style.backgroundColor = '#ff5c5c8c';
                     cells[1].cells[3 + i].style.color = 'black';
                 }
-                if (parseInt(cells[1].cells[3 + i].innerHTML, 10) >= 1) {
+                if (parseInt(cells[1].cells[3 + i].innerHTML, 10) <= 0) {
                     cells[1].cells[3 + i].style.backgroundColor = '#71d98c8c';
                     cells[1].cells[3 + i].style.color = 'black';
                 }

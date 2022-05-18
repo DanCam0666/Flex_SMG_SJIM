@@ -124,6 +124,7 @@ namespace AspnetIdentitySample.Controllers
         }
 
         //
+        [AllowAnonymous]
         // GET: /Users/Details/5
         public async Task<ActionResult> Details(string id)
         {

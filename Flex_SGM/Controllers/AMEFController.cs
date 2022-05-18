@@ -340,12 +340,32 @@ namespace Flex_SGM.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit([Bind(Include = "ID,DiaHora,Usuario,Usuario_area,Usuario_puesto,Usuario_responsable,Descripcion,Comentarios,Proyectos")] Metricos metricos)
         {
+            var id = User.Identity.GetUserId();
+            ApplicationUser currentUser = UserManager.FindById(id);
+
+            string cuser = "Anonimo";
+            if (currentUser != null)
+                cuser = currentUser.UserFullName;
+
             if (ModelState.IsValid)
             {
+                ApplicationUser cUser1 = UserManager.Users.Where(u => u.UserFullName.Contains(metricos.Usuario_responsable)).FirstOrDefault();
+                var scorreo = new EmailController();
+                if (cUser1 != null)
+                {
+                    if (cUser1.Email != null && cUser1.UserFullName != cuser)
+                        if (cUser1.Email.Contains("@flexngate.com"))
+                        {
+                            scorreo.newoil(cUser1.Email, cuser, metricos.Descripcion);
+                        }
+                }
+
                 db.Entry(metricos).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
+            ViewBag.UserID = new SelectList(db.Users, "Id", "UserFullName");
+
             return View(metricos);
         }
 

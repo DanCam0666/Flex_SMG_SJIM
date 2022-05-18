@@ -36,7 +36,7 @@ var PNotifyConfirm = function (PNotify) {
 						}
 						i--;
 					}
-					this.refs.buttons.children[i].focus();
+					//this.refs.buttons.children[i].focus();
 				}
 			}
 		},
