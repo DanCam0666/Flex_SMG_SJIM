@@ -191,7 +191,7 @@
                         Start: moment(event.event.start).format('DD/MM/YYYY HH:mm A'),
                         End: event.event.end != null ? moment(event.event.end).format('DD/MM/YYYY HH:mm A') : null,
                         Description: event.event.description,
-                        ThemeColor: event.event.color,
+                        Color: calEvent.event.color,
                         IsFullDay: event.event.allDay
                     };
                     SaveEvent(data);
@@ -303,7 +303,7 @@
                             Start: moment(event.event.start).format('DD/MM/YYYY HH:mm A'),
                             End: event.event.end != null ? moment(event.event.end).format('DD/MM/YYYY HH:mm A') : null,
                             Description: event.event.extendedProps.description,
-                            ThemeColor: $('#ddThemeColor').val(),
+                            Color: calEvent.event.color,
                             IsFullDay: event.event.allDay
                         };
                         SaveEvent(data);
