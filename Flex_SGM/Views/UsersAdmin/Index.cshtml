@@ -19,7 +19,7 @@
     A los usuarios nuevos: Se tiene que Realizar la asignación de los roles de manera manual, asignarlos al Rol/Área a la cual pertenecen para que puedan tener acceso y hacer uso de las funciones....
 </h3>
 <h2>Usuarios sin Rol</h2>
-<table class="tabled table-bordered table-striped" id="table" style="width:100%">
+<table class="tabled table-bordered table-striped" style="width:100%">
     <thead>
         <tr>
             <th>
@@ -43,7 +43,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in @ViewBag.Usernorole)
+       @foreach (var item in @ViewBag.Usernorole)
         {
             <tr>
                 <td>
@@ -78,7 +78,7 @@
 </table>
 <hr />
 <h2>Usuarios con Rol</h2>
-<table class="tabled table-bordered table-striped" id="table" style="width:100%">
+<table class="tabled table-bordered table-striped" style="width:100%">
     <thead>
         <tr>
             <th>
@@ -102,7 +102,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
+       @foreach (var item in Model)
         {
             <tr>
                 <td>
@@ -145,7 +145,7 @@
         $('[data-toggle="tooltip"]').tooltip();
         $("#Normaldrop").chosen();
 
-        $('#table').DataTable({
+        $('tablest').DataTable({
             "dom": 'lBfrtip',
             "lengthMenu": [[5, 15, 50, -1], ["5", "15", "50", "Todos"]],
             "buttons": [
@@ -178,7 +178,7 @@
                 {
                     extend: 'pdfHtml5',
                     title: 'Metricos Ingeniería Report',
-                    orientation: 'landscape',
+                    orientation: 'portrait',
                     pageSize: 'LETTER',
                     exportOptions: {
                         columns: [0, 1, 2, 3, 4]

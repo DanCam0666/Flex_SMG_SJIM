@@ -71,7 +71,7 @@
                                 <span class="input-group-addon glyphicon glyphicon-calendar"></span>
                             </div>
                         </div>
-                        <div class="form-group" id="divEndDate" style="display:none">
+                        <div class="form-group">
                             <label>Dia Final</label>
                             <div class="input-group datetime" id="dtp2">
                                 <input type="text" id="txtEnd" class="form-control" />
@@ -86,11 +86,6 @@
                                     });
                                 });
                             </script>
-                        </div>
-                        <div class="form-group">
-                            <div class="checkbox">
-                                <label><input type="checkbox" id="chkIsFullDay" checked="checked" />  El Evento es todo el dia?</label>
-                            </div>
                         </div>
                         <div class="form-group">
                             <label>Minutos / Notas</label>
@@ -347,22 +342,11 @@
                 format: 'DD/MM/YYYY HH:mm A'
             });
 
-            $('#chkIsFullDay').change(function () {
-                if ($(this).is(':checked')) {
-                    $('#divEndDate').hide();
-                }
-                else {
-                    $('#divEndDate').show();
-                }
-            });
-
             function openAddEditForm() {
                 if (selectedEvent != null) {
                     $('#hdEventID').val(selectedEvent.id);
                     $('#txtSubject').val(selectedEvent.title);
                     $('#txtStart').val(selectedEvent.start);
-                    $('#chkIsFullDay').prop("checked", selectedEvent.allDay || false);
-                    $('#chkIsFullDay').change();
                     $('#txtEnd').val(selectedEvent.end != null ? selectedEvent.end : '');
                     $('#txtDescription').val(selectedEvent.description);
                     $('#ddThemeColor').val(selectedEvent.color);
@@ -381,17 +365,11 @@
                     alert('Dia Inicial Requerido');
                     return;
                 }
-                if ($('#chkIsFullDay').is(':checked') == false && $('#txtEnd').val().trim() == "") {
-                    alert('Dia Final Requerido');
+                var startDate = moment($('#txtStart').val(), "DD/MM/YYYY HH:mm A").toDate();
+                var endDate = moment($('#txtEnd').val(), "DD/MM/YYYY HH:mm A").toDate();
+                if (startDate > endDate) {
+                    alert('Dia Invalido');
                     return;
-                }
-                else {
-                    var startDate = moment($('#txtStart').val(), "DD/MM/YYYY HH:mm A").toDate();
-                    var endDate = moment($('#txtEnd').val(), "DD/MM/YYYY HH:mm A").toDate();
-                    if (startDate > endDate) {
-                        alert('Dia Invalido');
-                        return;
-                    }
                 }
 
                 var data = {
@@ -401,7 +379,6 @@
                     End: $('#chkIsFullDay').is(':checked') ? null : $('#txtEnd').val().trim(),
                     Description: $('#txtDescription').val(),
                     ThemeColor: $('#ddThemeColor').val(),
-                    IsFullDay: $('#chkIsFullDay').is(':checked')
                 }
                 SaveEvent(data);
                 // call function for submit data to the server
