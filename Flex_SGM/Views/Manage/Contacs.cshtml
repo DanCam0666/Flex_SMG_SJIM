@@ -22,9 +22,9 @@
                            @foreach (var u in Model)
                             {
                                 <div class="col-md-4 col-sm-4 col-xs-12 profile_details">
-                                    <div class="well profile_view">
+                                    <div class="profile_view">
+                                        <div class="well well-sm" style="background: lightgray"><h3 class="brief"><i><b>@u.Puesto</b></i></h3></div>
                                         <div class="col-sm-12">
-                                            <h3 class="brief"><i>@u.Puesto</i></h3>
                                             <div class="left col-xs-7">
                                                 <h2>@u.UserFullName</h2>
                                                 <p><strong>@u.Puesto de @u.Departamento </strong></p>
