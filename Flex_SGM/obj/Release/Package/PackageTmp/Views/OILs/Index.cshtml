@@ -215,14 +215,14 @@
         <h2 id="alerts">Estatus Ingieneria<small> Resumen de Actividades </small></h2>
         <ul class="nav navbar-right" >
             <li>
-                <a class="collapse-link"><i class="fa fa-chevron-down" ></i></a>
+                <a class="collapse-link" data-toggle="collapse" aria-expanded="false"><i class="fa fa-chevron-down" ></i></a>
             </li>
         </ul>
     </div>
     <div class="x_content">
         <div class="col-md-3">
             <div class="h2">Actividades Totales: @ViewBag.atotal</div>
-            <div class="h2">Actividades Realizándose:   @ViewBag.aActivos </div>
+            <div class="h2">Actividades en Proceso:   @ViewBag.aActivos </div>
             <div class="h2">Actividades Terminadas:  @ViewBag.arealizada </div>
             <div class="h2">Actividades Próximas: @ViewBag.apendientes</div>
             <div class="h2">Actividades No Realizadas: @ViewBag.aNoReali</div>
@@ -257,6 +257,8 @@
             <h2>Manufactura</h2>
             <h4 style="background-color: lightcyan">Adriana Velazquez García</h4>
             <div class="h5" style="background-color: whitesmoke">Asignadas:   @ViewBag.aVActivos &emsp; Terminadas:  @ViewBag.aVrealizada </div>
+            <h4 style="background-color: lightcyan">Alfredo Olvera Aguilar</h4>
+            <div class="h5" style="background-color: whitesmoke">Asignadas:   @ViewBag.aOActivos &emsp; Terminadas:  @ViewBag.aOrealizada </div>
             <h4 style="background-color: lightcyan">Carlos Rodriguez Grimaldo</h4>
             <div class="h5" style="background-color: whitesmoke">Asignadas:   @ViewBag.cRActivos &emsp; Terminadas:  @ViewBag.cRrealizada </div>
             <h4 style="background-color: lightcyan">Hector Salomon Bucio</h4>
@@ -288,18 +290,18 @@
         <h2 id="alertsb">Color de estado de OILs</h2> <h2><small> Expande para información y significado de los colores… </small></h2>
         <ul class="nav navbar-right" >
             <li>
-                <a class="collapse-link"><i class="fa fa-chevron-down" ></i></a>
+                <a class="collapse-link" data-toggle="collapse"><i class="fa fa-chevron-down" ></i></a>
             </li>
         </ul>
     </div>
     <div class="x_content">
         <center>
-            <div class="alert col-md-6" style="background-color:#4aedab;"><h4>Estatus 1-Actividad Finalizada / Existen:@ViewBag.realizada Actividades</h4></div>
-            <div class="alert col-md-6" style="background-color:yellow;"><h4>Estatus 4-Actividad con Fecha compromiso muy próxima / Existen:@ViewBag.Fechaprox Actividades</h4></div>
-            <div class="alert col-md-6" style="background-color:lightgray;"><h4>Estatus 2-Actividad sin fecha compromiso / Existen:@ViewBag.sinfecha Actividades</h4></div>
-            <div class="alert col-md-6" style="background-color:#ff4a4a; color: white;"><h4>Estatus 5-Actividad No REALIZADA en tiempo / Existen:@ViewBag.NoReali Actividades</h4></div>
-            <div class="alert col-md-6" style="background-color:#4aabed;"><h4>Estatus 3-Actividad en Proceso / Existen:@ViewBag.ConFecha Actividades</h4></div>
-            <div class="alert col-md-6" style="background-color:#8b0000;  color: white;"><h4>Estatus 6-Actividad URGENTE / Existen:@ViewBag.Urgente Actividades</h4></div>
+            <div class="alert col-md-6" style="background-color:#4aedab;"><h4>Estatus 1-Actividades Terrminadas / Existen:@ViewBag.realizada Actividades</h4></div>
+            <div class="alert col-md-6" style="background-color:yellow;"><h4>Estatus 4-Actividades con fecha compromiso muy próxima / Existen:@ViewBag.Fechaprox Actividades</h4></div>
+            <div class="alert col-md-6" style="background-color:lightgray;"><h4>Estatus 2-Actividades sin fecha compromiso / Existen:@ViewBag.sinfecha Actividades</h4></div>
+            <div class="alert col-md-6" style="background-color:#ff4a4a; color: white;"><h4>Estatus 5-Actividades No REALIZADA en tiempo / Existen:@ViewBag.NoReali Actividades</h4></div>
+            <div class="alert col-md-6" style="background-color:#4aabed;"><h4>Estatus 3-Actividades en Proceso / Existen:@ViewBag.ConFecha Actividades</h4></div>
+            <div class="alert col-md-6" style="background-color:#8b0000;  color: white;"><h4>Estatus 6-Actividades URGENTES  / Existen:@ViewBag.Urgente Actividades</h4></div>
         </center>
     </div>
 </div>
@@ -309,14 +311,14 @@
         <h2 id="alerts">Estatus de OILs<small> Resumen de OILs </small></h2>
         <ul class="nav navbar-right" >
             <li>
-                <a class="collapse-link"><i class="fa fa-chevron-down" ></i></a>
+                <a class="collapse-link" data-toggle="collapse"><i class="fa fa-chevron-down" ></i></a>
             </li>
         </ul>
     </div>
     <div class="x_content">
         <div class="col-md-3">
             <div class="h2">Actividades Totales: @ViewBag.atotal</div>
-            <div class="h2">Actividades Realizándose:   @ViewBag.aActivos </div>
+            <div class="h2">Actividades en Proceso:   @ViewBag.aActivos </div>
             <div class="h2">Actividades Terminadas:  @ViewBag.arealizada </div>
             <div class="h2">Actividades Próximas: @ViewBag.apendientes</div>
             <div class="h2">Actividades No Realizadas: @ViewBag.aNoReali</div>
@@ -326,11 +328,11 @@
         </div>
         <div class="col-md-12">
             <h2> OILs por Area</h2>
-            <canvas width="600" height="200" class="chartjs" id="chart-area-div" style="width: 600px; height: 200px; display: block;"></canvas>
+            <canvas class="chartjs" id="chart-area-div" style="width: 800vw; height: 200vw; display: block;"></canvas>
         </div>
         <div class="col-md-12">
             <h2> OILs por Semana</h2>
-            <canvas width="600" height="200" class="chartjs" id="chart-area-sem" style="width: 600px; height: 200px; display: block;"></canvas>
+            <canvas class="chartjs" id="chart-area-sem" style="width: 800vw; height: 300vw; display: block;"></canvas>
         </div>
     </div>
 </div>
@@ -389,8 +391,8 @@
                     ]
                 }],
                 labels: [
-                    'Activos',
-                    'Terminados',
+                    'En Proceso',
+                    'Terminadas',
                     'Próximas',
                     'No Realizados'
                 ]
@@ -462,8 +464,8 @@
                     ]
                 }],
                 labels: [
-                    'Activos',
-                    'Terminados',
+                    'En Proceso',
+                    'Terminadas',
                     'Próximas',
                     'No Realizados'
                 ]

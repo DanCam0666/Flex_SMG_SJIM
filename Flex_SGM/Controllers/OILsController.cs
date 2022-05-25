@@ -412,7 +412,26 @@ namespace Flex_SGM.Controllers
             }
             ViewBag.mCrealizada = realizada;
             ViewBag.mCActivos = NoReali + sinfecha + Urgente + Fechaprox + ConFecha + realizada;
+            
+            Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
 
+            foreach (OILs oil in oILs.Where(s => (s.Tipo == "Ingenieria" || s.Tipo == "Manufactura") && (s.User_res == "Alfredo Olvera Aguilar" || s.User_asig == "Alfredo Olvera Aguilar")).ToList())
+            {
+                if (oil.Estatus == 1)
+                    realizada++;
+                if (oil.Estatus == 2)
+                    sinfecha++;
+                if (oil.Estatus == 3)
+                    ConFecha++;
+                if (oil.Estatus == 4)
+                    Fechaprox++;
+                if (oil.Estatus == 5)
+                    NoReali++;
+                if (oil.Estatus == 6)
+                    Urgente++;
+            }
+            ViewBag.aOrealizada = realizada;
+            ViewBag.aOActivos = NoReali + sinfecha + Urgente + Fechaprox + ConFecha + realizada;
             Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
 
             foreach (OILs oil in oILs.Where(s => (s.Tipo == "Ingenieria" || s.Tipo == "Manufactura") && (s.User_res == "Adriana Velazquez García" || s.User_asig == "Adriana Velazquez García")).ToList())

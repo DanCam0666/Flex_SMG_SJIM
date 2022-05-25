@@ -181,7 +181,7 @@
         </ul>
     </div>
     <div class="x_content">
-        <table class="table table-bordered table-striped" style="width:100%" id="metricox">
+        <table class="table table-bordered table-striped" style="width:100%; height:100%" id="metricox">
             <thead>
                 <tr>
                     <td style="width:20%;"><h3>Descripción</h3></td>
@@ -296,10 +296,10 @@
                 <tr>
                     <th><p>@Html.ActionLink("PLM / Launch Matrix", "Index", "PLM")</p></th>
                     <th scope="row">Armando Prado</th>
-                    <th scope="row">100% Closed on time</th>
+                    <th scope="row">0 Tarde</th>
                     @foreach (var item in ViewBag.data)
                     {
-                        <td>@item.Plm%</td>
+                        <td>@item.Plm</td>
                     }
                 </tr>
                 <tr>
@@ -335,7 +335,7 @@
                     <th scope="row">(USD) Mensual</th>
                     @foreach (var item in ViewBag.data)
                     {
-                        <td>@item.ScCo</td>
+                        <td>    @item.ScCo</td>
                     }
                 </tr>
                 <tr>
@@ -480,11 +480,15 @@
 
         for (var i = 0, len = cells[i].cells.length; i < len; i++) {
             if ((i + 3) < len) {
-                if (parseInt(cells[0].cells[3 + i].innerHTML, 10) < 100) {
+                if (parseInt(cells[0].cells[3 + i].innerHTML, 10) < 20) {
                     cells[0].cells[3 + i].style.backgroundColor = '#ff5c5c8c';
                     cells[0].cells[3 + i].style.color = 'black';
                 }
-                if (parseInt(cells[0].cells[3 + i].innerHTML, 10) >= 100) {
+                if (parseInt(cells[0].cells[3 + i].innerHTML, 10) >= 20) {
+                    cells[0].cells[3 + i].style.backgroundColor = '#ffff005c';
+                    cells[0].cells[3 + i].style.color = 'black';
+                }
+                if (parseInt(cells[0].cells[3 + i].innerHTML, 10) >= 80) {
                     cells[0].cells[3 + i].style.backgroundColor = '#71d98c8c';
                     cells[0].cells[3 + i].style.color = 'black';
                 }
@@ -544,19 +548,27 @@
                     cells[6].cells[3 + i].style.backgroundColor = '#71d98c8c';
                     cells[6].cells[3 + i].style.color = 'black';
                 }
-                if (parseInt(cells[7].cells[3 + i].innerHTML, 10) < 100) {
+                if (parseInt(cells[7].cells[3 + i].innerHTML, 10) < 20) {
                     cells[7].cells[3 + i].style.backgroundColor = '#ff5c5c8c';
                     cells[7].cells[3 + i].style.color = 'black';
                 }
-                if (parseInt(cells[7].cells[3 + i].innerHTML, 10) >= 100) {
+                if (parseInt(cells[7].cells[3 + i].innerHTML, 10) >= 20) {
+                    cells[7].cells[3 + i].style.backgroundColor = '#ffff005c';
+                    cells[7].cells[3 + i].style.color = 'black';
+                }
+                if (parseInt(cells[7].cells[3 + i].innerHTML, 10) >= 90) {
                     cells[7].cells[3 + i].style.backgroundColor = '#71d98c8c';
                     cells[7].cells[3 + i].style.color = 'black';
                 }
-                if (parseInt(cells[8].cells[3 + i].innerHTML, 10) < 100) {
+                if (parseInt(cells[8].cells[3 + i].innerHTML, 10) < 20) {
                     cells[8].cells[3 + i].style.backgroundColor = '#ff5c5c8c';
                     cells[8].cells[3 + i].style.color = 'black';
                 }
-                if (parseInt(cells[8].cells[3 + i].innerHTML, 10) >= 100) {
+                if (parseInt(cells[8].cells[3 + i].innerHTML, 10) >= 20) {
+                    cells[8].cells[3 + i].style.backgroundColor = '#ffff005c';
+                    cells[8].cells[3 + i].style.color = 'black';
+                }
+                if (parseInt(cells[8].cells[3 + i].innerHTML, 10) >= 90) {
                     cells[8].cells[3 + i].style.backgroundColor = '#71d98c8c';
                     cells[8].cells[3 + i].style.color = 'black';
                 }
@@ -576,11 +588,11 @@
                     cells[10].cells[3 + i].style.backgroundColor = '#71d98c8c';
                     cells[10].cells[3 + i].style.color = 'black';
                 }
-                if (parseInt(cells[11].cells[3 + i].innerHTML, 10) < 100) {
+                if (parseInt(cells[11].cells[3 + i].innerHTML, 10) > 0) {
                     cells[11].cells[3 + i].style.backgroundColor = '#ff5c5c8c';
                     cells[11].cells[3 + i].style.color = 'black';
                 }
-                if (parseInt(cells[11].cells[3 + i].innerHTML, 10) >= 100) {
+                if (parseInt(cells[11].cells[3 + i].innerHTML, 10) <= 0) {
                     cells[11].cells[3 + i].style.backgroundColor = '#71d98c8c';
                     cells[11].cells[3 + i].style.color = 'black';
                 }
