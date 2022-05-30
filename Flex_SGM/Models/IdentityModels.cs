@@ -68,15 +68,7 @@ namespace Flex_SGM.Models
 
         public System.Data.Entity.DbSet<Flex_SGM.Models.controlplanos> controlplanos { get; set; }
 
-        public System.Data.Entity.DbSet<Flex_SGM.Models.CReclamos> reo { get; set; }
-
         public System.Data.Entity.DbSet<Flex_SGM.Models.ControldeEquipos> ControldeEquipos { get; set; }
-
-        public System.Data.Entity.DbSet<Flex_SGM.Models.CAndon> CAndons { get; set; }
-
-        public System.Data.Entity.DbSet<Flex_SGM.Models.CDockaudit> CDockaudits { get; set; }
-
-        public System.Data.Entity.DbSet<Flex_SGM.Models.Disponibilidad> Disponibilidads { get; set; }
 
         public System.Data.Entity.DbSet<Flex_SGM.Models.cClientes> cClientes { get; set; }
 
@@ -86,19 +78,7 @@ namespace Flex_SGM.Models
 
         public System.Data.Entity.DbSet<Flex_SGM.Models.cAreas> cAreas { get; set; }
 
-        public System.Data.Entity.DbSet<Flex_SGM.Models.AndonSupervisores> AndonSupervisores { get; set; }
-
-        public System.Data.Entity.DbSet<Flex_SGM.Models.AndonAuditor> AndonAuditors { get; set; }
-
-        public System.Data.Entity.DbSet<Flex_SGM.Models.CAndon2> CAndon2 { get; set; }
-
         public System.Data.Entity.DbSet<Flex_SGM.Models.cProyectos> cProyectos { get; set; }
-
-        public System.Data.Entity.DbSet<Flex_SGM.Models.QuaCost> QuaCosts { get; set; }
-
-        public System.Data.Entity.DbSet<Flex_SGM.Models.Billto> Billtoes { get; set; }
-
-        public System.Data.Entity.DbSet<Flex_SGM.Models.QuaCodes> QuaCodes { get; set; }
 
         public System.Data.Entity.DbSet<Flex_SGM.Models.eoriginator> eoriginators { get; set; }
 

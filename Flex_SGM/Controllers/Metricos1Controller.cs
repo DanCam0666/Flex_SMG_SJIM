@@ -148,7 +148,6 @@ namespace Flex_SGM.Controllers
                         CoImCnt = metricos.Where(w => w.Usuario_area == "Continuous_Improvment" && w.DiaHora.Month == jmes).Count(),
                         CoImPer = ViewBag.ConPer,
                         CuCo = metricos.Where(w => w.Usuario_area == "Customer_Complaints" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum(),
-                        CuSc = metricos.Where(w => w.Usuario_area == "Cust_Score_Cards" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum(),
                         Ecn = metricos.Where(w => w.Usuario_area == "ECNs_PCRs" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum(),
                         LaOu = metricos.Where(w => w.Usuario_area == "Lay_Outs" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum(),
                         Lpa = ViewBag.LpaPer,
@@ -161,6 +160,41 @@ namespace Flex_SGM.Controllers
                         ScCo = metricos.Where(w => w.Usuario_area == "Scrap" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum(),
                         Toc = ViewBag.TocPer,
                         YeSh = metricos.Where(w => w.Usuario_area == "Yellow_Sheets" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum(),
+
+                        Ford = metricos
+                        .Where(w => w.Usuario_area == "Cust_Score_Cards" && w.DiaHora.Month == jmes)
+                        .Where(w => w.Descripcion.Contains("Ford"))
+                        .Select(w => w.Proyectos).Sum(),
+
+                        GM = metricos
+                        .Where(w => w.Usuario_area == "Cust_Score_Cards" && w.DiaHora.Month == jmes)
+                        .Where(w => w.Descripcion.Contains("GM"))
+                        .Select(w => w.Proyectos).Sum(),
+
+                        Mopar = metricos
+                        .Where(w => w.Usuario_area == "Cust_Score_Cards" && w.DiaHora.Month == jmes)
+                        .Where(w => w.Descripcion.Contains("Mopar"))
+                        .Select(w => w.Proyectos).Sum(),
+
+                        Nissan = metricos
+                        .Where(w => w.Usuario_area == "Cust_Score_Cards" && w.DiaHora.Month == jmes)
+                        .Where(w => w.Descripcion.Contains("Nissan"))
+                        .Select(w => w.Proyectos).Sum(),
+
+                        Stellantis = metricos
+                        .Where(w => w.Usuario_area == "Cust_Score_Cards" && w.DiaHora.Month == jmes)
+                        .Where(w => w.Descripcion.Contains("Stellantis"))
+                        .Select(w => w.Proyectos).Sum(),
+
+                        Toyota = metricos
+                        .Where(w => w.Usuario_area == "Cust_Score_Cards" && w.DiaHora.Month == jmes)
+                        .Where(w => w.Descripcion.Contains("Toyota"))
+                        .Select(w => w.Proyectos).Sum(),
+
+                        VW = metricos
+                        .Where(w => w.Usuario_area == "Cust_Score_Cards" && w.DiaHora.Month == jmes)
+                        .Where(w => w.Descripcion.Contains("VW"))
+                        .Select(w => w.Proyectos).Sum(),
                     };
                     Ldata.Add(data_show);
                 }
