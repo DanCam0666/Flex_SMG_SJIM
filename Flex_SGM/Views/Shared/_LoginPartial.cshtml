@@ -1,4 +1,4 @@
-﻿@using Microsoft.AspNet.Identity
+﻿    @using Microsoft.AspNet.Identity
 @if (Request.IsAuthenticated)
 {
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
@@ -9,7 +9,7 @@
         <li class="">
             <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                 <img src="~/Users/@User.Identity.GetUserName()/user.png" alt="">@Html.Label("Hola " + User.Identity.GetUserName() + "!")
-                <span class=" fa fa-angle-down"></span>
+                <span class="caret"></span>
             </a>
             <ul class="dropdown-menu dropdown-usermenu pull-right dropdown-menu2">
                 <li>@Html.ActionLink("-", "Index", "Home")</li>

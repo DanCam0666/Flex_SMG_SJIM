@@ -71,11 +71,6 @@
                     <div class="col-md-offset-3">
                         <br />
                         <input onclick="$('#loadingImg').show();setTimeout(function () { $('#loadingImg').fadeOut(); }, 5000);" data-toggle="tooltip" title="¡Muestra los valores Filtrados en la tabla de abajo!" type="submit" name="btn" value="Buscar Bitacora" class="btn btn-primary  col-lg-offset-2 col-md-4" />
-                        <!--<input onclick="$('#loadingImg').show();setTimeout(function () { $('#loadingImg').fadeOut(); }, 5000);" data-toggle="tooltip" title="¡Top 5 de los filtros seleccionados!" type="submit" name="btn" value="Top 5" class="btn btn-primary col-md-1" />
-                        <input onclick="$('#loadingImg').show();setTimeout(function () { $('#loadingImg').fadeOut(); }, 5000);" data-toggle="tooltip" title="¡Resumen de los dias seleccionados!" type="submit" name="btn" value="Resumen" class="btn btn-primary col-md-1" />
-                        <input onclick="$('#loadingImg').show();setTimeout(function () { $('#loadingImg').fadeOut(); }, 5000);" data-toggle="tooltip" title="¡RoadMap de los filtros seleccionados!" type="submit" name="btn" value="RoadMap" class="btn btn-primary col-md-1" />
-                        <input onclick="$('#loadingImg').show();setTimeout(function () { $('#loadingImg').fadeOut(); }, 5000);" data-toggle="tooltip" title="¡Exportar a Excel sin formato!" type="submit" name="btn" value="Exportar Excel" class="btn btn-primary col-md-1" />
-                        <input onclick="$('#loadingImg').show();setTimeout(function () { $('#loadingImg').fadeOut(); }, 5000);" data-toggle="tooltip" title="¡Exportar a Excel con formato!" type="submit" name="btn" value="Exportar Formato" class="btn btn-primary col-md-1" />
                         @if (ViewBag.super)
                         {
                             <button data-toggle="tooltip" title="Para actualizar informacion de las juntas diarias!" class="btn btn-primary col-sm-offset-1 col-md-2" onclick="location.href='@Url.Action("index", "juntas")';return false;">Diarios de Juntas</button>
@@ -130,10 +125,8 @@
                     <th style="width:10px;">
                         @Html.DisplayNameFor(model => model.Folio)
                     </th>
-
                 </tr>
             </thead>
-
             <tbody>
                 @foreach (var item in Model)
                 {

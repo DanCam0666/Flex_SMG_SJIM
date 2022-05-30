@@ -73,7 +73,8 @@ namespace Flex_SGM.Models
     {
 
         public string Usuario_responsable { get; set; }
-        
+
+        public string Descripcion { get; set; }
         public int Proyectos { get; set; }
         public  int Month { get; set; }
         public int Year { get; set; }
@@ -121,6 +122,13 @@ namespace Flex_SGM.Models
         public int ScCo { get; set; }
         public int Toc { get; set; }
         public int YeSh { get; set; }
+        public int Ford { get; set; }
+        public int GM { get; set; }
+        public int Mopar { get; set; }
+        public int Nissan { get; set; }
+        public int Stellantis { get; set; }
+        public int Toyota { get; set; }
+        public int VW { get; set; }
     }
 
 }

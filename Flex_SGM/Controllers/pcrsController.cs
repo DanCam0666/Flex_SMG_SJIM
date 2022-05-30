@@ -248,7 +248,7 @@ namespace Flex_SGM.Controllers
 
             ViewBag.Admin = false;
             if (currentUser!=null)
-            if (currentUser.UserName.Contains("luis"))
+            if (currentUser.UserName.Contains("DanCam"))
             ViewBag.Admin = true;
 
             var pcrs = db.pcrs.Include(p => p.Clientes).Include(p => p.MatrizDecision).Include(p => p.Proyectos).Include(p => p.Reason);
