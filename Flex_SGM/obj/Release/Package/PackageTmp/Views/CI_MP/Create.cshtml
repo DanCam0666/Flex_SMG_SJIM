@@ -18,9 +18,10 @@
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <div class="form-group">
-        @Html.LabelFor(model => model.DiaHora, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-3">
-            @Html.EditorFor(model => model.DiaHora, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+        @Html.LabelFor(model => model.DiaHora, "Mes", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="input-group datetime col-md-2" id="dtp1" style="padding-left: 10px">
+            <input type="text" id="fechaActual" class="form-control" />
+            <span class="input-group-addon glyphicon glyphicon-calendar"></span>
             @Html.HiddenFor(model => model.DiaHora)
             @Html.ValidationMessageFor(model => model.DiaHora, "", new { @class = "text-danger" })
         </div>
@@ -38,7 +39,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.Usuario_area, "Área", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-3">
-            @Html.DropDownList("Usuario_area", (SelectList)ViewBag.Usuario_area, "--Seleccione--", htmlAttributes: new { @class = "form-control" })
+            @Html.DropDownList("Usuario_area", (SelectList)ViewBag.Usuario_area, htmlAttributes: new { @class = "form-control", id = "dropDown" })
             @Html.ValidationMessageFor(model => model.Usuario_area, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -93,5 +94,18 @@
         $("#Normaldrop").chosen();
         $("#Normaldrop1").chosen();
     });
+
+        window.onload = function () {
+            var fecha = new Date(); //Fecha actual
+            var mes = fecha.getMonth() + 1; //obteniendo mes
+            var dia = fecha.getDate(); //obteniendo dia
+            var ano = fecha.getFullYear(); //obteniendo año
+            if (dia < 10)
+                dia = '0' + dia; //agrega cero si el menor de 10
+            if (mes < 10)
+                mes = '0' + mes //agrega cero si el menor de 10
+            document.getElementById('fechaActual').value = mes + "/" + ano;
+            document.getElementById('dropDown').value = "Continuous_Improvment";
+        }
     </script>
 }

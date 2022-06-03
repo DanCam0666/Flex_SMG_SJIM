@@ -276,7 +276,7 @@ namespace Flex_SGM.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "ID,DiaHora,Usuario,Usuario_area,Usuario_puesto,Usuario_responsable,Descripcion,Atendio,Proyectos,listarea")] Metricos metricos)
+        public async Task<ActionResult> Create([Bind(Include = "ID,DiaHora,Usuario,Usuario_area,Usuario_puesto,Usuario_responsable,Descripcion,Comentarios,Atendio,Proyectos,listarea")] Metricos metricos)
         {
             var id = User.Identity.GetUserId();
             ApplicationUser currentUser = UserManager.FindById(id);

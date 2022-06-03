@@ -119,10 +119,12 @@ namespace Flex_SGM.Models
         public int QuHs { get; set; }
         public int ReRa { get; set; }
         public int Safe { get; set; }
+        [DataType(DataType.Currency)]
         public int ScCo { get; set; }
         public int Toc { get; set; }
         public int YeSh { get; set; }
         public int Ford { get; set; }
+        public int Ford_APQP { get; set; }
         public int GM { get; set; }
         public int Mopar { get; set; }
         public int Nissan { get; set; }

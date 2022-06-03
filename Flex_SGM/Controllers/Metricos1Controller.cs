@@ -114,7 +114,7 @@ namespace Flex_SGM.Controllers
                     }
                     if (cnt_Cont_Imprv != 0)
                     {
-                        ViewBag.ConPer = (cnt_Cont_Imprv * 100) / 22;
+                        ViewBag.ConPer = (cnt_Cont_Imprv * 100) / 23;
                     }
                     else
                     {
@@ -122,7 +122,7 @@ namespace Flex_SGM.Controllers
                     }
                     if (sum_LPA_Covid != 0)
                     {
-                        ViewBag.LpaPer = (sum_LPA_Covid / cnt_LPA_Covid);
+                        ViewBag.LpaPer = (sum_LPA_Covid / 23);
                     }
                     else
                     {
@@ -130,7 +130,7 @@ namespace Flex_SGM.Controllers
                     }
                     if (sum_TOC_HS_Audits != 0)
                     {
-                        ViewBag.TocPer = (sum_TOC_HS_Audits / cnt_TOC_HS_Audits);
+                        ViewBag.TocPer = (sum_TOC_HS_Audits / 22);
                     }
                     else
                     {
@@ -164,6 +164,11 @@ namespace Flex_SGM.Controllers
                         Ford = metricos
                         .Where(w => w.Usuario_area == "Cust_Score_Cards" && w.DiaHora.Month == jmes)
                         .Where(w => w.Descripcion.Contains("Ford"))
+                        .Select(w => w.Proyectos).Sum(),
+
+                        Ford_APQP = metricos
+                        .Where(w => w.Usuario_area == "Cust_Score_Cards" && w.DiaHora.Month == jmes)
+                        .Where(w => w.Descripcion.Contains("Ford APQP"))
                         .Select(w => w.Proyectos).Sum(),
 
                         GM = metricos
