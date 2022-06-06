@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Scrap</h2>
+<h2>Scrap Cost</h2>
 
 <h3>
     @Html.ActionLink("Crear Registro Nuevo", "Create")
@@ -84,7 +84,7 @@
 <div class="col-md-12" style="float:left">
     <div class="x_panel">
         <div class="x_title">
-            Scrap Indicators
+            Scrap Cost Indicators
         </div>
         <div class="x_content">
             <canvas id="bar-chart-horizontal" width="800" height="800"></canvas>
@@ -305,7 +305,7 @@
                 legend: { display: true },
                 title: {
                     display: true,
-                    text: 'Scrap'
+                    text: 'Scrap Cost'
                 }
             }
         });

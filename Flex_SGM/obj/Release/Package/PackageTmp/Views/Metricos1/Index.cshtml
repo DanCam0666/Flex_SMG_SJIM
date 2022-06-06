@@ -13,92 +13,92 @@
     <a></a>
     <div class="col-md-12" style="width: 100%">
         <div class="x_panel">
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <a href="~/AMEF/Create">
                     <input type="button" value="AMEF/Reverse" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
                 </a>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <a href="~/BuildinBuildout/Create">
                     <input type="button" value="Build In / Build Out" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
                 </a>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <a href="~/Capacities/Create">
                     <input type="button" value="Capacities Review" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
                 </a>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <a href="~/CI_MP/Create">
                     <input type="button" value="Continuous Improvement" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
                 </a>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <a href="~/Customer_Complaints/Create">
                     <input type="button" value="Customer Complaints" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
                 </a>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <a href="~/Cust_Score_Cards/Create">
                     <input type="button" value="Customer Score Cards" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
                 </a>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <a href="~/ECNs_PCRs/Create">
                     <input type="button" value="ECNs & PCRs" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
                 </a>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <a href="~/Lay_Out/Create">
                     <input type="button" value="Lay Out Changes" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
                 </a>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <a href="~/LPA_COVID/Create">
                     <input type="button" value="LPA / COVID Audits" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
                 </a>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <a href="~/Packaging/Create">
                     <input type="button" value="Packaging Portals" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
                 </a>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <a href="~/Parts_Delivery/Create">
                     <input type="button" value="Parts Delivery on Time" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
                 </a>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <a href="~/PLM/Create">
                     <input type="button" value="PLM / Launch Matrix" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
                 </a>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <a href="~/Quality_HS/Create">
                     <input type="button" value="Quality and H&S 5 min Talk" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
                 </a>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <a href="~/Red_Rabbits/Create">
                     <input type="button" value="Red Rabbit Audits" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
                 </a>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <a href="~/Safety_HS/Create">
                     <input type="button" value="Saftey Issues (H & S)" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
                 </a>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <a href="~/Scrap/Create">
                     <input type="button" value="Scrap Costs" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
                 </a>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <a href="~/TOC_HS_Audits/Create">
                     <input type="button" value="TOC/H&S Audits" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
                 </a>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <a href="~/Yellow_Sheets/Create">
                     <input type="button" value="Yellow Sheet & BOM´s Audited" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
                 </a>
@@ -127,6 +127,9 @@
                         @Html.DisplayNameFor(model => model.Descripcion)
                     </th>
                     <th>
+                        @Html.DisplayNameFor(model => model.Comentarios)
+                    </th>
+                    <th>
                         @Html.DisplayNameFor(model => model.Proyectos)
                     </th>
                     <th>Opciones</th>
@@ -148,8 +151,11 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.Usuario_responsable)
                         </td>
-                        <td style="width: 600px">
+                        <td style="width: 400px">
                             @Html.DisplayFor(modelItem => item.Descripcion)
+                        </td>
+                        <td style="width: 200px">
+                            @Html.DisplayFor(modelItem => item.Comentarios)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Proyectos)
@@ -176,11 +182,11 @@
         <h2>Inicadores del @ViewBag.dx</h2>
         <ul class="nav navbar-right">
             <li>
-                <a class="collapse-link collapse"><i class="fa fa-chevron-down"></i></a>
+                <a class="collapse-link"><i class="fa fa-chevron-down"></i></a>
             </li>
         </ul>
     </div>
-    <div class="x_content">
+    <div class="x_content" id="collapseOne">
         <table class="table table-bordered table-striped" style="width:100%; height:100%" id="metricox">
             <thead>
                 <tr>
@@ -313,7 +319,7 @@
                 </tr>
                 <tr>
                     <th><p>@Html.ActionLink("ECN’s / PCR´s", "Index", "ECNs_PCRs")</p></th>
-                    <th scope="row">Zaideth Vasquez</th>
+                    <th scope="row">Zaideth Vazquez</th>
                     <th scope="row">0 Abiertos en Tiempo</th>
                     @foreach (var item in ViewBag.data)
                     {
@@ -582,11 +588,11 @@
                     cells[2].cells[3 + i].style.borderRightColor = '#6b8cb0';
                     cells[2].cells[3 + i].style.borderRightWidth = 'thick';
                 }
-                if (parseInt(cells[3].cells[3 + i].innerHTML, 10) < 20) {
+                if (parseInt(cells[3].cells[3 + i].innerHTML, 10) < 60) {
                     cells[3].cells[3 + i].style.backgroundColor = '#ff5c5c8c';
                     cells[3].cells[3 + i].style.color = 'black';
                 }
-                if (parseInt(cells[3].cells[3 + i].innerHTML, 10) >= 20) {
+                if (parseInt(cells[3].cells[3 + i].innerHTML, 10) >= 60) {
                     cells[3].cells[3 + i].style.backgroundColor = '#ffff005c';
                     cells[3].cells[3 + i].style.color = 'black';
                 }

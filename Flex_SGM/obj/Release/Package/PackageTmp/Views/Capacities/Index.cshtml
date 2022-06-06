@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Capacities</h2>
+<h2>Capacities Review</h2>
 
 <h3>
     @Html.ActionLink("Crear Registro Nuevo", "Create")
@@ -84,7 +84,7 @@
 <div class="col-md-12" style="float:left">
     <div class="x_panel">
         <div class="x_title">
-            Capacities Indicators
+            Capacities Review Indicators
         </div>
         <div class="x_content">
             <canvas id="bar-chart-horizontal" width="800" height="800"></canvas>
@@ -129,7 +129,7 @@
                     },
                     {
                         extend: 'csv',
-                        title: 'Capacities Report',
+                        title: 'Capacities Review Report',
                         orientation: 'landscape',
                         pageSize: 'LEGAL',
                         exportOptions: {
@@ -138,7 +138,7 @@
                     },
                     {
                         extend: 'print',
-                        title: 'Capacities Report',
+                        title: 'Capacities Review Report',
                         orientation: 'landscape',
                         pageSize: 'LEGAL',
                         exportOptions: {
@@ -147,7 +147,7 @@
                     },
                     {
                         extend: 'pdfHtml5',
-                        title: 'Capacities Report',
+                        title: 'Capacities Review Report',
                         orientation: 'landscape',
                         pageSize: 'LETTER',
                         exportOptions: {
@@ -156,7 +156,7 @@
                     },
                     {
                         extend: 'excelHtml5',
-                        title: 'Capacities Report',
+                        title: 'Capacities Review Report',
                         orientation: 'landscape',
                         pageSize: 'LEGAL',
                         exportOptions: {
@@ -305,7 +305,7 @@
                 legend: { display: true },
                 title: {
                     display: true,
-                    text: 'Capacities'
+                    text: 'Capacities Review'
                 }
             }
         });

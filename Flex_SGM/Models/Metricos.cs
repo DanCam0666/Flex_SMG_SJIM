@@ -12,8 +12,9 @@ namespace Flex_SGM.Models
         [Key]
         public int ID { get; set; }
 
+        [Display(Name = "Año/Mes")]
         [DataType(DataType.DateTime)]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy/MM/dd H:mm}")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy/MM}")]
         public DateTime DiaHora { get; set; }
 
         [Required]
