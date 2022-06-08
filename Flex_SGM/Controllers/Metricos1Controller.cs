@@ -34,7 +34,10 @@ namespace Flex_SGM.Controllers
                 _userManager = value;
             }
         }
-
+        public string ToTitleCase(string str)
+        {
+            return CultureInfo.CurrentCulture.TextInfo.ToTitleCase(str.ToLower());
+        }
         // GET: Metricos1
         public async Task<ActionResult> Index(string amaquina, string maquina, string submaquina, string mgroup, string xmgroup, string btn = "Metricos por Mes", string dti = "", string dtf = "")
         {
@@ -83,7 +86,7 @@ namespace Flex_SGM.Controllers
                             ViewBag.dxx = " Mes";
                         }
                     }
-                    thistiempo = iaño.ToString() + "-" + nombreMes;
+                    thistiempo = iaño.ToString() + "-" + ToTitleCase(nombreMes);
 
                     var sum_AMEF = (metricos.Where(w => w.Usuario_area == "AMEF_Reverse" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum());
                     var cnt_AMEF = (metricos.Where(w => w.Usuario_area == "AMEF_Reverse" && w.DiaHora.Month == jmes).Count());
@@ -240,7 +243,7 @@ namespace Flex_SGM.Controllers
                 DateTimeFormatInfo formatoFecha2 = CultureInfo.CurrentCulture.DateTimeFormat;
                 nombreMes1 = formatoFecha2.GetMonthName(fecha.Month);
                 nombreMes2 = formatoFecha2.GetMonthName(fechaf.Month);
-                ViewBag.dx = "Mes " + nombreMes1 + " al Mes " + nombreMes2;
+                ViewBag.dx = fecha.Year;
                 ViewBag.dxx = " Mes";
             }
             //*******************************************************************************************

@@ -2960,6 +2960,7 @@
     <Content Include="Views\Capacities\Details.cshtml" />
     <Content Include="Views\Capacities\Edit.cshtml" />
     <Content Include="Views\Capacities\Index.cshtml" />
+    <Content Include="Views\Ingeniería\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
