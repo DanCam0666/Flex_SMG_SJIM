@@ -62,14 +62,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ClosedXML, Version=0.95.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ClosedXML.0.95.0\lib\net46\ClosedXML.dll</HintPath>
+    <Reference Include="ClosedXML, Version=0.95.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML.0.95.4\lib\net46\ClosedXML.dll</HintPath>
     </Reference>
     <Reference Include="ClosedXML.Extensions.Mvc, Version=0.2.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ClosedXML.Extensions.Mvc.0.2.2\lib\net46\ClosedXML.Extensions.Mvc.dll</HintPath>
     </Reference>
-    <Reference Include="ClosedXML.Report, Version=0.2.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ClosedXML.Report.0.2.1\lib\net46\ClosedXML.Report.dll</HintPath>
+    <Reference Include="ClosedXML.Report, Version=0.2.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML.Report.0.2.4\lib\net46\ClosedXML.Report.dll</HintPath>
     </Reference>
     <Reference Include="DocumentFormat.OpenXml, Version=2.7.2.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
       <HintPath>..\packages\DocumentFormat.OpenXml.2.7.2\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
@@ -235,6 +235,8 @@
     <Compile Include="Controllers\Cust_Score_CardsController.cs" />
     <Compile Include="Controllers\ECNs_PCRsController.cs" />
     <Compile Include="Controllers\EmailController.cs" />
+    <Compile Include="Controllers\eoriginatorsController.cs" />
+    <Compile Include="Controllers\ereasonsController.cs" />
     <Compile Include="Controllers\HelpController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IngenieriaController.cs" />
@@ -2960,7 +2962,17 @@
     <Content Include="Views\Capacities\Details.cshtml" />
     <Content Include="Views\Capacities\Edit.cshtml" />
     <Content Include="Views\Capacities\Index.cshtml" />
-    <Content Include="Views\Ingeniería\Index.cshtml" />
+    <Content Include="Views\ereasons\Create.cshtml" />
+    <Content Include="Views\ereasons\Delete.cshtml" />
+    <Content Include="Views\ereasons\Details.cshtml" />
+    <Content Include="Views\ereasons\Edit.cshtml" />
+    <Content Include="Views\ereasons\Index.cshtml" />
+    <Content Include="Views\eoriginators\Create.cshtml" />
+    <Content Include="Views\eoriginators\Delete.cshtml" />
+    <Content Include="Views\eoriginators\Details.cshtml" />
+    <Content Include="Views\eoriginators\Edit.cshtml" />
+    <Content Include="Views\eoriginators\Index.cshtml" />
+    <Content Include="Views\Ingenieria\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
