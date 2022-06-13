@@ -19,16 +19,12 @@ namespace Flex_SGM.Controllers
     public class pcrsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-
         private EmailController correo = new EmailController();
         // export
         private bool email = false;
         public FileResult ExportFormat(int? id)
         {
-
             pcr pcrd = db.pcrs.Find(id);
-
-
             var user = User.Identity;
 
             //******************************
@@ -38,194 +34,70 @@ namespace Flex_SGM.Controllers
 
             templatepcr tempy = new templatepcr
             {
-                pcrID=pcrd.PCRID,
-                
+                pcrID = pcrd.PCRID,                
                 OriginatorID = pcrd.Originator,
-
-                AreasID = pcrd.Department
-
-      ,
-                Date = pcrd.Date.ToString()
-
-
-      ,
-                ClientesID = pcrd.Clientes.Cliente
-
-
-      ,
-                ProyectosID = pcrd.Proyectos.Proyecto
-
-      ,
-                ReasonID = pcrd.Reason.Reason
-
-      ,
-                PartNumber = pcrd.PartNumber
-
-      ,
-                RevLevel = pcrd.RevLevel
-
-      ,
-                PartName = pcrd.PartName
-
-      ,
-                docreason = pcrd.docreason
-
-      ,
-                docscope = pcrd.docscope
-
-      ,
-                doctypeofchange = pcrd.MatrizDecision.TipoCambio
-
-      ,
-                cipieceprice = pcrd.cipieceprice.ToString()
-
-      ,
-                cicapital = pcrd.cicapital.ToString()
-
-      ,
-                citooling = pcrd.citooling.ToString()
-
-      ,
-                ciengineering = pcrd.ciengineering.ToString()
-
-      ,
-                cipackaging = pcrd.cipackaging.ToString()
-
-      ,
-                ciobsolescence = pcrd.ciobsolescence.ToString()
-
-      ,
-                cimaterial = pcrd.cimaterial.ToString()
-
-      ,
-                cifreight = pcrd.cifreight.ToString()
-
-      ,
-                ciovertime = pcrd.ciovertime.ToString()
-
-      ,
-                ciother = pcrd.ciother.ToString()
-
-      ,
-                citotal = pcrd.ciother.ToString()
-
-
-      ,
-                crannualvolume = pcrd.crannualvolume
-
-      ,
-                crcapacityfng = pcrd.crcapacityfng
-
-      ,
-                crcapacitysupplier = pcrd.crcapacitysupplier
-
-      ,
-                Reviewedby = pcrd.Reviewedby
-
-      ,
-                Reviewedby_date = pcrd.Reviewedby_date.ToString()
-
-      ,
-                support_purchasing = pcrd.support_purchasing
-
-      ,
-                support_materials = pcrd.support_materials
-
-      ,
-                support_maintenance = pcrd.support_maintenance
-
-      ,
-                support_automation = pcrd.support_automation
-
-      ,
-                support_quality = pcrd.support_quality
-
-      ,
-                support_safety = pcrd.support_safety
-
-      ,
-                support_environmental = pcrd.support_environmental
-
-      ,
-                support_tooling = pcrd.support_tooling
-
-      ,
-                support_stamping = pcrd.support_stamping
-
-      ,
-                support_welding = pcrd.support_welding
-
-      ,
-                support_chrome = pcrd.support_chrome
-
-      ,
-                support_ecoat = pcrd.support_ecoat
-
-      ,
-                support_topcoat = pcrd.support_topcoat
-
-      ,
-                support_backcoat = pcrd.support_backcoat
-
-      ,
-                support_assembly = pcrd.support_assembly
-
-      ,
-                support_finance = pcrd.support_finance
-
-      ,
-                Keymilestones_buildmrd1 = pcrd.Keymilestones_buildmrd1
-
-      ,
-                Keymilestones_buildmrd2 = pcrd.Keymilestones_buildmrd2
-
-      ,
-                Keymilestones_buildmrd3 = pcrd.Keymilestones_buildmrd3
-
-      ,
-                Keymilestones_customrrar = pcrd.Keymilestones_customrrar
-
-      ,
-                Keymilestones_ppap = pcrd.Keymilestones_ppap
-
-      ,
-                Keymilestones_internalsop = pcrd.Keymilestones_internalsop
-
-      ,
-                Keymilestones_customersop = pcrd.Keymilestones_customersop
-
-      ,
-                Keymilestones_closure = pcrd.Keymilestones_closure
-
-      ,
-                leadtime_engineering = pcrd.leadtime_engineering.ToString()
-
-      ,
-                leadtime_tooling = pcrd.leadtime_tooling.ToString()
-
-      ,
-                leadtime_facilities = pcrd.leadtime_facilities.ToString()
-
-      ,
-                leadtime_capital = pcrd.leadtime_capital.ToString()
-
-      ,
-                leadtime_material = pcrd.leadtime_material.ToString()
-
-      ,
-                leadtime_inventory = pcrd.leadtime_inventory.ToString()
-
-      ,
-                leadtime_approval = pcrd.leadtime_approval.ToString()
-
-      ,
+                AreasID = pcrd.Department,
+                Date = pcrd.Date.ToString(),
+                ClientesID = pcrd.Clientes.Cliente,
+                ProyectosID = pcrd.Proyectos.Proyecto,
+                ReasonID = pcrd.Reason.Reason,
+                PartNumber = pcrd.PartNumber,
+                RevLevel = pcrd.RevLevel,
+                PartName = pcrd.PartName,
+                docreason = pcrd.docreason,
+                docscope = pcrd.docscope,
+                doctypeofchange = pcrd.MatrizDecision.TipoCambio,
+                cipieceprice = pcrd.cipieceprice.ToString(),
+                cicapital = pcrd.cicapital.ToString(),
+                citooling = pcrd.citooling.ToString(),
+                ciengineering = pcrd.ciengineering.ToString(),
+                cipackaging = pcrd.cipackaging.ToString(),
+                ciobsolescence = pcrd.ciobsolescence.ToString(),
+                cimaterial = pcrd.cimaterial.ToString(),
+                cifreight = pcrd.cifreight.ToString(),
+                ciovertime = pcrd.ciovertime.ToString(),
+                ciother = pcrd.ciother.ToString(),
+                citotal = pcrd.ciother.ToString(),
+                crannualvolume = pcrd.crannualvolume,
+                crcapacityfng = pcrd.crcapacityfng,
+                crcapacitysupplier = pcrd.crcapacitysupplier,
+                Reviewedby = pcrd.Reviewedby,
+                Reviewedby_date = pcrd.Reviewedby_date.ToString(),
+                support_purchasing = pcrd.support_purchasing,
+                support_materials = pcrd.support_materials,
+                support_maintenance = pcrd.support_maintenance,
+                support_automation = pcrd.support_automation,
+                support_quality = pcrd.support_quality,
+                support_safety = pcrd.support_safety,
+                support_environmental = pcrd.support_environmental,
+                support_tooling = pcrd.support_tooling,
+                support_stamping = pcrd.support_stamping,
+                support_welding = pcrd.support_welding,
+                support_chrome = pcrd.support_chrome,
+                support_ecoat = pcrd.support_ecoat,
+                support_topcoat = pcrd.support_topcoat,
+                support_backcoat = pcrd.support_backcoat,
+                support_assembly = pcrd.support_assembly,
+                support_finance = pcrd.support_finance,
+                Keymilestones_buildmrd1 = pcrd.Keymilestones_buildmrd1,
+                Keymilestones_buildmrd2 = pcrd.Keymilestones_buildmrd2,
+                Keymilestones_buildmrd3 = pcrd.Keymilestones_buildmrd3,
+                Keymilestones_customrrar = pcrd.Keymilestones_customrrar,
+                Keymilestones_ppap = pcrd.Keymilestones_ppap,
+                Keymilestones_internalsop = pcrd.Keymilestones_internalsop,
+                Keymilestones_customersop = pcrd.Keymilestones_customersop,
+                Keymilestones_closure = pcrd.Keymilestones_closure,
+                leadtime_engineering = pcrd.leadtime_engineering.ToString(),
+                leadtime_tooling = pcrd.leadtime_tooling.ToString(),
+                leadtime_facilities = pcrd.leadtime_facilities.ToString(),
+                leadtime_capital = pcrd.leadtime_capital.ToString(),
+                leadtime_material = pcrd.leadtime_material.ToString(),
+                leadtime_inventory = pcrd.leadtime_inventory.ToString(),
+                leadtime_approval = pcrd.leadtime_approval.ToString(),
                 leadtime_totallt = pcrd.leadtime_totallt.ToString()
-      //*--------------*//
 
-
-
+                  //*--------------*//
             };
-
 
             template.AddVariable(tempy);
             template.Generate();
@@ -234,8 +106,6 @@ namespace Flex_SGM.Controllers
                 template.SaveAs(stream);
                 return File(stream.ToArray(), "holotopo", "Product_Process_Change_Request_" + pcrd.PCRID + ".xlsx");
             }
-
-
         }
 
         // GET: pcrs  
@@ -305,7 +175,7 @@ namespace Flex_SGM.Controllers
             ViewBag.Originator = currentUser.UserFullName;
             ViewBag.Department = currentUser.Departamento;
 
-            ViewBag.Reviewedby = Gerentes.FirstOrDefault().UserFullName;
+            // ViewBag.Reviewedby = Gerentes.FirstOrDefault().UserFullName;
 
             pcr mpcr = new pcr();
 
@@ -321,7 +191,6 @@ namespace Flex_SGM.Controllers
             mpcr.cipieceprice = 0.0;
             mpcr.citooling = 0.0;
             mpcr.citotal = 0.0;
-
             mpcr.leadtime_approval = 0.0;
             mpcr.leadtime_capital = 0.0;
             mpcr.leadtime_engineering = 0.0;
@@ -330,9 +199,8 @@ namespace Flex_SGM.Controllers
             mpcr.leadtime_material = 0.0;
             mpcr.leadtime_tooling = 0.0;
             mpcr.leadtime_totallt = 0.0;
-
-
             mpcr.FRisk8 = 0;
+
             return View(mpcr);
         }
     
@@ -340,9 +208,6 @@ namespace Flex_SGM.Controllers
         {
             // TODO: based on the selected
             var req = db.MatrizDecisions.Where(f => f.ID == Codigo).FirstOrDefault();
-      
-
-
             return Json(new { r1 = req }, JsonRequestBehavior.AllowGet);
         }
       
@@ -399,132 +264,112 @@ namespace Flex_SGM.Controllers
             var ok = false;
            foreach(var rol in currentUser.Roles)
             {
-                if (rol.RoleId== "7a269541-b9f5-4bfe-8eea-38c0ebe11373")
+                if (rol.RoleId == "7a269541-b9f5-4bfe-8eea-38c0ebe11373" || rol.RoleId == "8dcec765-580a-4b6e-9454-b7af0c4ee717")
                 {
-
                     ok = true;
                 }
             }
             if (ok)//7a269541-b9f5-4bfe-8eea-38c0ebe11373
             {
-            if (datos!=null&& msg!=null)
-            if (!string.IsNullOrEmpty(Response) && id != 0)
+                if (datos!=null&& msg!=null)
+                if (!string.IsNullOrEmpty(Response) && id != 0)
                 {
                     pcr pcr = db.pcrs.Find(id);
-                        FeasibilitySigns sign = new FeasibilitySigns();
+                    FeasibilitySigns sign = new FeasibilitySigns();
 
-                        var signs = db.FeasibilitySigns.Where(w => w.pcrID == id);
+                    var signs = db.FeasibilitySigns.Where(w => w.pcrID == id);
 
-                        foreach (var minisign in signs)
-                        {
-                            if (minisign.Dep == currentUser.Departamento)
-                                goto alreadysin;
-                        }
+                    foreach (var minisign in signs)
+                    {
+                        if (minisign.Dep == currentUser.Departamento)
+                            goto alreadysin;
+                    }
 
-                        switch (Response) 
+                    switch (Response) 
                     {
                         case ("Acept"):
 
-                            if (pcr.Status == "On Review")
-                            {
-                                pcr.Reviewedby_date = DateTime.Now;
-                                pcr.Status = "On Authorizations";
-                                    sign.msg = msg;
-                                    sign.Reviewedby_date = DateTime.Now;
-                                    sign.pcrID = id;
-                                    sign.Status = "Review";
-                                    sign.Reviewedby = uiid;
-                                    sign.Dep = currentUser.Departamento;
-                                // Send the email to autorization personal 
-                            }
-                            else
-                             if (pcr.Status == "On Authorizations")
-                            {
-                                    sign.msg = msg;
-                                    sign.Reviewedby_date = DateTime.Now;
-                                    sign.pcrID = id;
-                                    sign.Status = "Authorization";
-                                    sign.Reviewedby = uiid;
-                                    sign.Dep = currentUser.Departamento;
+                        if (pcr.Status == "On Review")
+                        {
+                            pcr.Reviewedby_date = DateTime.Now;
+                            pcr.Status = "On Authorizations";
+                                sign.msg = msg;
+                                sign.Reviewedby_date = DateTime.Now;
+                                sign.pcrID = id;
+                                sign.Status = "Review";
+                                sign.Reviewedby = uiid;
+                                sign.Dep = currentUser.Departamento;
+                            // Send the email to autorization personal 
+                        }
+                        else
+                        if (pcr.Status == "On Authorizations")
+                        {
+                            sign.msg = msg;
+                            sign.Reviewedby_date = DateTime.Now;
+                            sign.pcrID = id;
+                            sign.Status = "Authorization";
+                            sign.Reviewedby = uiid;
+                            sign.Dep = currentUser.Departamento;
                            
-                                    switch (currentUser.Departamento)
-                                    {
-                                        case ("FlexNGate"):
+                            switch (currentUser.Departamento)
+                            {
+                                case ("FlexNGate"):
 
+                                    break;
+                                case ("Ingenieria"):
 
-                                            break;
-                                        case ("Ingenieria"):
+                                    break;
+                                case ("Manufactura"):
 
+                                    break;
+                                case ("Calidad"):
 
-                                            break;
-                                        case ("Manufactura"):
+                                    break;
+                                case ("Finanzas"):
 
+                                    break;
+                                case ("Compras"):
 
-                                            break;
-                                        case ("Calidad"):
+                                    break;
+                                case ("Materiales"):
 
+                                    break;
+                                case ("Mantenimiento"):
 
-                                            break;
-                                        case ("Finanzas"):
+                                    break;
+                                case ("Seguridad"):
 
+                                    break;
+                                case ("Ambiental"):
 
-                                            break;
-                                        case ("Compras"):
+                                    break;
+                                case ("Tooling"):
 
+                                    break;
+                                case ("Estampado"):
 
-                                            break;
-                                        case ("Materiales"):
+                                    break;
+                                case ("Soldadura"):
 
+                                    break;
+                                case ("Cromo"):
 
-                                            break;
-                                        case ("Mantenimiento"):
+                                    break;
+                                case ("Pintura"):
 
+                                    break;
+                                case ("Ensamble"):
 
-                                            break;
-                                        case ("Seguridad"):
+                                    break;
+                                default:
 
-
-                                            break;
-                                        case ("Ambiental"):
-
-
-                                            break;
-                                        case ("Tooling"):
-
-
-                                            break;
-                                        case ("Estampado"):
-
-
-                                            break;
-                                        case ("Soldadura"):
-
-
-                                            break;
-                                        case ("Cromo"):
-
-
-                                            break;
-                                        case ("Pintura"):
-
-
-                                            break;
-                                        case ("Ensamble"):
-
-
-                                            break;
-                                        default:
-
-
-                                            break;
-
-                                    }
-                            
+                                    break;
                             }
-                            else
-                                pcr.Status = "On Review";
+                        }
+                        else
+                            pcr.Status = "On Review";
 
-                            break;
+                        break;
                         case ("Changes"):
                             if (pcr.Status == "On Review")
                             {
@@ -532,10 +377,10 @@ namespace Flex_SGM.Controllers
                                 pcr.Status = "Need fixes";
                                     // Send the email to autorization personal 
                                 //    foreach (var minisign in signs)
-                               //     {
-                                 //         if (minisign.Dep == currentUser.Departamento)
-                                 //             goto alreadysin;
-                                 //     }
+                                //     {
+                                    //         if (minisign.Dep == currentUser.Departamento)
+                                    //             goto alreadysin;
+                                    //     }
 
                                     sign.msg = msg;
                                     sign.Reviewedby_date = DateTime.Now;
@@ -545,7 +390,7 @@ namespace Flex_SGM.Controllers
                                     sign.Dep = currentUser.Departamento;
                                 }
                             else
-                           if (pcr.Status == "On Authorizations")
+                            if (pcr.Status == "On Authorizations")
                             {
                                 pcr.Status = currentUser.Departamento+ " need fixes";
 
@@ -570,20 +415,20 @@ namespace Flex_SGM.Controllers
                                 break;
                     };
 
-                db.Entry(pcr).State = EntityState.Modified;
-                 if(sign.pcrID!=0)
-                db.FeasibilitySigns.Add(sign);
-                db.SaveChanges();
+                    db.Entry(pcr).State = EntityState.Modified;
+                        if(sign.pcrID!=0)
+                    db.FeasibilitySigns.Add(sign);
+                    db.SaveChanges();
 
-                return Response;
+                    return Response;
+                }
             }
-             }
             return "Not allowed... anything wasn't change...";
             alreadysin: 
             return "your department has already sign for this PCR ... ";
         }
         // GET: pcrs/Edit/5
-        [Authorize(Roles = "Admin,Gerentes")]
+        [Authorize(Roles = "Admin,Supervisor")]
         public ActionResult Review(int? id)
         {
             if (id == null)

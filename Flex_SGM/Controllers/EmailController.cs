@@ -13,28 +13,54 @@ namespace Flex_SGM.emaildata
     {
         // GET: Email
 
-        public void updateoil(string Correo,string usuario, string idoil ,string comment)
+        public void UpdateMetrico(string Correo, string usuario, string idoil, string comment, string User_Area )
         {
             try
             {
-                var body = "<p>El usuario {0} Actualizo el OIL No. {1} </p><p> El comentario fue:</p><p>{2}</p><p>Recuerda Actualizar los OILS!</p><p>No Responder a este Correo|Do not Reply this Email </p>";
+                var body =
+                    "<h4>El usuario " + usuario + " actualizó el Metrico (" + User_Area + ") No. {1} </h4>" +
+                    "<p> La descripción de la actividad es:</p>" +
+                    "<h3>{2}</h3>" +
+                    "<p>Recuerda reviar los Metricos!</p>" +
+                    "<i>No responder a este correo | Do not reply to this email </i>";
                 var message = new MailMessage();
-                message.To.Add(new MailAddress(Correo));  // replace with valid value 
-                message.From = new MailAddress("SJIMBitacora@flexngate.com");  // replace with valid value
-                message.Subject = "Informacion Bitacora, No Responder a este Correo";
+                message.To.Add(new MailAddress(Correo)); 
+                message.From = new MailAddress("SJIMBitacora@flexngate.com"); 
+                message.Subject = "Informacion Bitacora, No Responder a este correo";
                 message.Body = string.Format(body, usuario, idoil, comment);
                 message.IsBodyHtml = true;
 
                 using (var smtp = new SmtpClient())
                 {
-                    /*
-                    var credential = new NetworkCredential
-                    {
-                        UserName = "SJIMBitacora@flexngate.com",  // replace with valid value
-                        Password = "Flex2020#"  // replace with valid value
-                    };
-                    smtp.Credentials = credential;
-                    */
+                    smtp.Host = "smtp.flexngate.local";
+                    smtp.Port = 25;
+                    smtp.EnableSsl = false;
+                    smtp.Send(message);
+                }
+            }
+            catch (Exception Ex)
+            { var x = Ex; }
+        }
+
+        public void updateoil(string Correo,string usuario, string idoil ,string comment)
+        {
+            try
+            {
+                var body = 
+                    "<h4>El usuario {0} actualizó el OIL No. {1} </h4>" +
+                    "<p> La descripción de la actividad es:</p>" +
+                    "<h3>{2}</h3>" +
+                    "<p>Recuerda revisar los OILs!</p>" +
+                    "<i>No responder a este correo | Do not reply to this email </i>";
+                var message = new MailMessage();
+                message.To.Add(new MailAddress(Correo)); 
+                message.From = new MailAddress("SJIMBitacora@flexngate.com"); 
+                message.Subject = "Informacion Bitacora, No Responder a este correo";
+                message.Body = string.Format(body, usuario, idoil, comment);
+                message.IsBodyHtml = true;
+
+                using (var smtp = new SmtpClient())
+                {
                     smtp.Host = "smtp.flexngate.local";
                     smtp.Port = 25;
                     smtp.EnableSsl = false;
@@ -42,31 +68,28 @@ namespace Flex_SGM.emaildata
                 }
             }
              catch(Exception Ex)
-            { var x = Ex; }
-            
+            { var x = Ex; }            
         }
 
-        public void newoil(string Correo, string usuario, string comment)
+        public void NewMetrico(string Correo, string usuario, string comment, string User_Area)
         {
-            try { 
-            var body = "<p>El usuario {0} generó/modificó un OIL/Metrico y estas como responsable de la actividad!</p><p> La descripción de la actividad es:</p><h3>{1}</h3><p>Recuerda actualizar los OILs/Metricos!</p><p>No responder a este correo|Do not reply this email </p>";
-            var message = new MailMessage();
-            message.To.Add(new MailAddress(Correo));  // replace with valid value 
-            message.From = new MailAddress("SJIMBitacora@flexngate.com");  // replace with valid value
-            message.Subject = "Informacion Bitacora, No Responder a éste Correo";
-            message.Body = string.Format(body, usuario, comment);
-            message.IsBodyHtml = true;
+            try
+            {
+                var body =
+                    "<h4>El usuario {0} generó un Metrico (" + User_Area + ") y estas como responsable de la actividad!</h4>" +
+                    "<p> La descripción de la actividad es:</p>" +
+                    "<h3>{1}</h3>" +
+                    "<p>Recuerda revisar los Metricos!</p>" +
+                    "<i>No responder a este correo | Do not reply to this email </i>";
+                var message = new MailMessage();
+                message.To.Add(new MailAddress(Correo));  
+                message.From = new MailAddress("SJIMBitacora@flexngate.com");  
+                message.Subject = "Informacion Bitacora, No Responder a éste Correo";
+                message.Body = string.Format(body, usuario, comment);
+                message.IsBodyHtml = true;
 
                 using (var smtp = new SmtpClient())
                 {
-                    /*
-                    var credential = new NetworkCredential
-                    {
-                        UserName = "SJIMBitacora@flexngate.com",  // replace with valid value
-                        Password = "Flex2020#"  // replace with valid value
-                    };
-                    smtp.Credentials = credential;
-                    */
                     smtp.Host = "smtp.flexngate.local";
                     smtp.Port = 25;
                     smtp.EnableSsl = false;
@@ -74,8 +97,33 @@ namespace Flex_SGM.emaildata
                 }
             }
             catch (Exception Ex) { var x = Ex; }
+        }
 
+        public void newoil(string Correo, string usuario, string comment)
+        {
+            try { 
+                var body = 
+                    "<h4>El usuario {0} generó un OIL y estas como responsable de la actividad!</h4>" +
+                    "<p> La descripción de la actividad es:</p>" +
+                    "<h3>{1}</h3>" +
+                    "<p>Recuerda actualizar los OILs!</p>" +
+                    "<i>No responder a este correo | Do not reply to this email </i>";
+                var message = new MailMessage();
+                message.To.Add(new MailAddress(Correo));   
+                message.From = new MailAddress("SJIMBitacora@flexngate.com"); 
+                message.Subject = "Informacion Bitacora, No Responder a éste Correo";
+                message.Body = string.Format(body, usuario, comment);
+                message.IsBodyHtml = true;
 
+                using (var smtp = new SmtpClient())
+                {
+                    smtp.Host = "smtp.flexngate.local";
+                    smtp.Port = 25;
+                    smtp.EnableSsl = false;
+                    smtp.Send(message);
+                }
+            }
+            catch (Exception Ex) { var x = Ex; }
         }
 
         public void newpcr(string[] Correo, string usuario, string comment, string id)
@@ -84,11 +132,11 @@ namespace Flex_SGM.emaildata
             {
                 var bodyb = new StringBuilder();
                 bodyb.AppendFormat("El usuario {0} Genero un PCR!", usuario);
-                bodyb.AppendLine(@"<p>El numero de PCR es: "+ comment + " </p>");
-                var link = @"http://sjimsvap3/bitacora/pcrs/Details/" + id;
+                bodyb.AppendLine(@"<p>El numero de PCR es: " + comment + " </p>");
+                var link = @"http://sjimsvap7/bitacora/pcrs/Details/" + id;
                 bodyb.AppendLine("<p><a href=\"" + link+ "\" >"+link+ "</a></p>");
                 bodyb.AppendLine(@"<p>Recuerda Verificar los PCRs! </p>");
-                bodyb.AppendLine(@"<p>No Responder a este Correo|Do not Reply this Email</p>");
+                bodyb.AppendLine(@"<i>No responder a este correo | Do not reply to this email </i>");
 
                 var message = new MailMessage();
                 foreach(var corr in Correo)
@@ -96,8 +144,7 @@ namespace Flex_SGM.emaildata
                     message.To.Add(new MailAddress(corr));
 
                 }
-               // replace with valid value 
-                message.From = new MailAddress("SJIMBitacora@flexngate.com");  // replace with valid value
+                message.From = new MailAddress("SJIMBitacora@flexngate.com"); 
                 message.Subject = "Informacion Bitacora, No Responder a este Correo";
                 message.IsBodyHtml = true;
                 message.Body = bodyb.ToString();
@@ -105,14 +152,6 @@ namespace Flex_SGM.emaildata
 
                 using (var smtp = new SmtpClient())
                 {
-                    /*
-                    var credential = new NetworkCredential
-                    {
-                        UserName = "SJIMBitacora@flexngate.com",  // replace with valid value
-                        Password = "Flex2020#"  // replace with valid value
-                    };
-                    smtp.Credentials = credential;
-                    */
                     smtp.Host = "smtp.flexngate.local";
                     smtp.Port = 25;
                     smtp.EnableSsl = false;
@@ -120,9 +159,8 @@ namespace Flex_SGM.emaildata
                 }
             }
             catch (Exception Ex) { var x = Ex; }
-
-
         }
+
         public void newReview(string[] Correo, string usuario, string comment, string id)
         {
             try
@@ -131,21 +169,18 @@ namespace Flex_SGM.emaildata
                 bodyb.AppendFormat("El usuario {0} Genero un PCR!", usuario);
                 bodyb.AppendLine(@"<p>El numero de PCR es: " + comment + " </p>");
                 bodyb.AppendLine(@"<p>En el siguiente link podras autorizar el PCR:</p>");
-                var link = @"http://sjimsvap3/bitacora/pcrs/Review/" + id;
+                var link = @"http://sjimsvap7/bitacora/pcrs/Review/" + id;
                 bodyb.AppendLine("<p><a href=\"" + link + "\" >" + link + "</a></p>");
                 bodyb.AppendLine(@"<p>Al autorizar el PCR se confirmara en el departamento correspondiente</p>");
-
                 bodyb.AppendLine(@"<p>Recuerda Verificar los PCRs! </p>");
-                bodyb.AppendLine(@"<p>No Responder a este Correo|Do not Reply this Email</p>");
+                bodyb.AppendLine(@"<i>No responder a este correo | Do not reply to this email </i>");
 
                 var message = new MailMessage();
                 foreach (var corr in Correo)
                 {
                     message.To.Add(new MailAddress(corr));
-
                 }
-                // replace with valid value 
-                message.From = new MailAddress("SJIMBitacora@flexngate.com");  // replace with valid value
+                message.From = new MailAddress("SJIMBitacora@flexngate.com"); 
                 message.Subject = "Informacion Bitacora, No Responder a este Correo";
                 message.IsBodyHtml = true;
                 message.Body = bodyb.ToString();
@@ -153,14 +188,6 @@ namespace Flex_SGM.emaildata
 
                 using (var smtp = new SmtpClient())
                 {
-                    /*
-                    var credential = new NetworkCredential
-                    {
-                        UserName = "SJIMBitacora@flexngate.com",  // replace with valid value
-                        Password = "Flex2020#"  // replace with valid value
-                    };
-                    smtp.Credentials = credential;
-                    */
                     smtp.Host = "smtp.flexngate.local";
                     smtp.Port = 25;
                     smtp.EnableSsl = false;
@@ -168,46 +195,6 @@ namespace Flex_SGM.emaildata
                 }
             }
             catch (Exception Ex) { var x = Ex; }
-
-
         }
     }
 }
-
-
-
-//  <button onclick="location.href='@Url.Action("Index", "Email")';return false;">email</button>
-
-    /*
-     *         public void Index()
-        {
-            int i = 0;
-            while (i!=1)
-            {
-                var body = "<p>Email From: {0} ({1})</p><p>Message:</p><p>{2}</p>";
-                var message = new MailMessage();
-                message.To.Add(new MailAddress("lolivarez@flexngate.com"));  // replace with valid value 
-                message.From = new MailAddress("flexbitacora@outlook.com");  // replace with valid value
-                message.Subject = "Prueba";
-                message.Body = "Prueba de correo";//string.Format(body, model.FromName, model.FromEmail, model.Message);
-                message.IsBodyHtml = true;
-
-                using (var smtp = new SmtpClient())
-                {
-                    var credential = new NetworkCredential
-                    {
-                        UserName = "flexbitacora@outlook.com",  // replace with valid value
-                        Password = "Flex2020#"  // replace with valid value
-                    };
-                    smtp.Credentials = credential;
-                    smtp.Host = "smtp.office365.com";
-                    smtp.Port = 587;
-                    smtp.EnableSsl = true;
-                    smtp.Send(message);
-                }
-                i++;
-            }
-        }
-    }
-}
-     * */

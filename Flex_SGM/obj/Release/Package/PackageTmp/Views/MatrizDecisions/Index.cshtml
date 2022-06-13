@@ -5,13 +5,16 @@
     Layout = "~/Views/Shared/_LayoutE.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Matriz de Decisiones</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Crear Nuevo", "Create")
 </p>
 <table class="table">
     <tr>
+        <th style="min-width:200px">
+            Menú
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.NivelRiesgo)
         </th>
@@ -25,7 +28,7 @@
             @Html.DisplayNameFor(model => model.Arplanta)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Aringenieria)
+            @Html.DisplayNameFor(model => model.ArIngenieria)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Armanufactura)
@@ -138,143 +141,142 @@
         <th>
             @Html.DisplayNameFor(model => model.Pdr)
         </th>
-        <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.NivelRiesgo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TipoCambio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.commcliente)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Arplanta)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Aringenieria)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Armanufactura)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Arcalidad)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Arfinanzas)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Arcompras)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Armateriales)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Armantenimiento)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Arseguridad)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Arambiental)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Artooling)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Arestampado)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Arsoldadura)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Arcromo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Arpintura)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Arensamble)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Ppap)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Drw)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Spec)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Pfd)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Pfmea)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Sw)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Pcp)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Is)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Msa)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Ps)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Sccc)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Pl)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cpo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Spo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Imds)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Im)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Bom)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Pr)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Mss)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Va)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Sm)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Ptr)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Pdr)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
+   @foreach (var item in Model) {
+        <tr>
+            <td style="min-width:200px">
+                @Html.ActionLink("Editar", "Edit", new { id=item.ID }) |
+                @Html.ActionLink("Detalles", "Details", new { id=item.ID }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id=item.ID })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NivelRiesgo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoCambio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.commcliente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Arplanta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArIngenieria)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Armanufactura)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Arcalidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Arfinanzas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Arcompras)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Armateriales)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Armantenimiento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Arseguridad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Arambiental)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Artooling)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Arestampado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Arsoldadura)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Arcromo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Arpintura)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Arensamble)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ppap)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Drw)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Spec)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pfd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pfmea)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sw)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pcp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Is)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Msa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ps)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sccc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cpo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Spo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Imds)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Im)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mss)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Va)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ptr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pdr)
+            </td>
+        </tr>
+    }
 
 </table>

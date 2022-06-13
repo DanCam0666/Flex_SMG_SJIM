@@ -301,7 +301,7 @@ namespace Flex_SGM.Controllers
                     if (cUser1.Email != null && cUser1.UserFullName != cuser)
                         if (cUser1.Email.Contains("@flexngate.com"))
                         {
-                            scorreo.newoil(cUser1.Email, cuser, metricos.Descripcion);
+                            scorreo.NewMetrico(cUser1.Email, cuser, metricos.Descripcion, metricos.Usuario_area);
                         }
                 }
 
@@ -321,7 +321,7 @@ namespace Flex_SGM.Controllers
         }
 
         [Authorize]
-        // GET: CI_MP/Edit/5
+        // GET: AMEF/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
@@ -336,7 +336,7 @@ namespace Flex_SGM.Controllers
             return View(metricos);
         }
 
-        // POST: CI_MP/Edit/5
+        // POST: AMEF/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -359,7 +359,8 @@ namespace Flex_SGM.Controllers
                     if (cUser1.Email != null && cUser1.UserFullName != cuser)
                         if (cUser1.Email.Contains("@flexngate.com"))
                         {
-                            scorreo.newoil(cUser1.Email, cuser, metricos.Descripcion);
+                            string Id_String = metricos.ID.ToString();
+                            scorreo.UpdateMetrico(cUser1.Email, cuser, Id_String, metricos.Descripcion, metricos.Usuario_area);
                         }
                 }
 
@@ -371,7 +372,7 @@ namespace Flex_SGM.Controllers
 
             return View(metricos);
         }
-        
+
         [Authorize]
         // GET: CI_MP/Delete/5
         public async Task<ActionResult> Delete(int? id)
