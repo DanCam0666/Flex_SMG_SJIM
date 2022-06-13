@@ -298,7 +298,7 @@ namespace Flex_SGM.Controllers
                     if (cUser1.Email != null && cUser1.UserFullName != cuser)
                         if (cUser1.Email.Contains("@flexngate.com"))
                         {
-                            scorreo.newoil(cUser1.Email, cuser, metricos.Descripcion);
+                            scorreo.NewMetrico(cUser1.Email, cuser, metricos.Descripcion, metricos.Usuario_area);
                         }
                 }
 
@@ -318,7 +318,7 @@ namespace Flex_SGM.Controllers
         }
 
         [Authorize]
-        // GET: PLM/Edit/5
+        // GET: AMEF/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
@@ -333,35 +333,40 @@ namespace Flex_SGM.Controllers
             return View(metricos);
         }
 
-        // POST: PLM/Edit/5
+        // POST: AMEF/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit([Bind(Include = "ID,DiaHora,Usuario,Usuario_area,Usuario_puesto,Usuario_responsable,Descripcion,Comentarios,Proyectos")] Metricos metricos)
         {
+            var id = User.Identity.GetUserId();
+            ApplicationUser currentUser = UserManager.FindById(id);
+
+            string cuser = "Anonimo";
+            if (currentUser != null)
+                cuser = currentUser.UserFullName;
+
             if (ModelState.IsValid)
             {
+                ApplicationUser cUser1 = UserManager.Users.Where(u => u.UserFullName.Contains(metricos.Usuario_responsable)).FirstOrDefault();
+                var scorreo = new EmailController();
+                if (cUser1 != null)
+                {
+                    if (cUser1.Email != null && cUser1.UserFullName != cuser)
+                        if (cUser1.Email.Contains("@flexngate.com"))
+                        {
+                            string Id_String = metricos.ID.ToString();
+                            scorreo.UpdateMetrico(cUser1.Email, cuser, Id_String, metricos.Descripcion, metricos.Usuario_area);
+                        }
+                }
+
                 db.Entry(metricos).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            return View(metricos);
-        }
+            ViewBag.UserID = new SelectList(db.Users, "Id", "UserFullName");
 
-        [Authorize]
-        // GET: PLM/Delete/5
-        public async Task<ActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Metricos metricos = await db.Metricos.FindAsync(id);
-            if (metricos == null)
-            {
-                return HttpNotFound();
-            }
             return View(metricos);
         }
 

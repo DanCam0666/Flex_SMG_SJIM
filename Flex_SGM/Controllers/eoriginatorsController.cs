@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
@@ -16,20 +15,20 @@ namespace Flex_SGM.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: eoriginators
-        public async Task<ActionResult> Index()
+        public ActionResult Index()
         {
             var eoriginators = db.eoriginators.Include(e => e.Areas);
-            return View(await eoriginators.ToListAsync());
+            return View(eoriginators.ToList());
         }
 
         // GET: eoriginators/Details/5
-        public async Task<ActionResult> Details(int? id)
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            eoriginator eoriginator = await db.eoriginators.FindAsync(id);
+            eoriginator eoriginator = db.eoriginators.Find(id);
             if (eoriginator == null)
             {
                 return HttpNotFound();
@@ -49,12 +48,12 @@ namespace Flex_SGM.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "ID,AreasID,Supervisor")] eoriginator eoriginator)
+        public ActionResult Create([Bind(Include = "ID,AreasID,Supervisor")] eoriginator eoriginator)
         {
             if (ModelState.IsValid)
             {
                 db.eoriginators.Add(eoriginator);
-                await db.SaveChangesAsync();
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
@@ -63,13 +62,13 @@ namespace Flex_SGM.Controllers
         }
 
         // GET: eoriginators/Edit/5
-        public async Task<ActionResult> Edit(int? id)
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            eoriginator eoriginator = await db.eoriginators.FindAsync(id);
+            eoriginator eoriginator = db.eoriginators.Find(id);
             if (eoriginator == null)
             {
                 return HttpNotFound();
@@ -83,12 +82,12 @@ namespace Flex_SGM.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "ID,AreasID,Supervisor")] eoriginator eoriginator)
+        public ActionResult Edit([Bind(Include = "ID,AreasID,Supervisor")] eoriginator eoriginator)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(eoriginator).State = EntityState.Modified;
-                await db.SaveChangesAsync();
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
             ViewBag.AreasID = new SelectList(db.cAreas, "ID", "Area", eoriginator.AreasID);
@@ -96,13 +95,13 @@ namespace Flex_SGM.Controllers
         }
 
         // GET: eoriginators/Delete/5
-        public async Task<ActionResult> Delete(int? id)
+        public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            eoriginator eoriginator = await db.eoriginators.FindAsync(id);
+            eoriginator eoriginator = db.eoriginators.Find(id);
             if (eoriginator == null)
             {
                 return HttpNotFound();
@@ -113,11 +112,11 @@ namespace Flex_SGM.Controllers
         // POST: eoriginators/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(int id)
         {
-            eoriginator eoriginator = await db.eoriginators.FindAsync(id);
+            eoriginator eoriginator = db.eoriginators.Find(id);
             db.eoriginators.Remove(eoriginator);
-            await db.SaveChangesAsync();
+            db.SaveChanges();
             return RedirectToAction("Index");
         }
 

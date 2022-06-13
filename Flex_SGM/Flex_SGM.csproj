@@ -245,6 +245,7 @@
     <Compile Include="Controllers\LPA_COVIDController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MaquinasController.cs" />
+    <Compile Include="Controllers\MatrizDecisionsController.cs" />
     <Compile Include="Controllers\Metricos1Controller.cs" />
     <Compile Include="Controllers\OILsController.cs" />
     <Compile Include="Controllers\PackagingController.cs" />

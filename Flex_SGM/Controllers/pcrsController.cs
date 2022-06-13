@@ -428,7 +428,7 @@ namespace Flex_SGM.Controllers
             return "your department has already sign for this PCR ... ";
         }
         // GET: pcrs/Edit/5
-        [Authorize(Roles = "Admin,Gerentes")]
+        [Authorize(Roles = "Admin,Supervisor")]
         public ActionResult Review(int? id)
         {
             if (id == null)

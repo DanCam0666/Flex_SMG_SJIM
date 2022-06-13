@@ -298,7 +298,7 @@ namespace Flex_SGM.Controllers
                     if (cUser1.Email != null && cUser1.UserFullName != cuser)
                         if (cUser1.Email.Contains("@flexngate.com"))
                         {
-                            scorreo.newoil(cUser1.Email, cuser, metricos.Descripcion);
+                            scorreo.NewMetrico(cUser1.Email, cuser, metricos.Descripcion, metricos.Usuario_area);
                         }
                 }
 
@@ -356,7 +356,8 @@ namespace Flex_SGM.Controllers
                     if (cUser1.Email != null && cUser1.UserFullName != cuser)
                         if (cUser1.Email.Contains("@flexngate.com"))
                         {
-                            scorreo.newoil(cUser1.Email, cuser, metricos.Descripcion);
+                            string Id_String = metricos.ID.ToString();
+                            scorreo.UpdateMetrico(cUser1.Email, cuser, Id_String, metricos.Descripcion, metricos.Usuario_area);
                         }
                 }
 

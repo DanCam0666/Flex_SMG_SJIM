@@ -2,21 +2,21 @@
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_LayoutE.cshtml";
 }
 
-<h2>Index</h2>
+<h2>PCRs</h2>
 
 <p>
     @if (ViewBag.Admin)
     {
-        @Html.ActionLink("Create New", "Create")
+        @Html.ActionLink("Crear Nuevo", "Create")
     }
 </p>
 <table class="tabled table-bordered table-striped" style="width:100%">
     <thead>
         <tr>
-            <th>
+            <th style="min-width: 80px">
                 @Html.DisplayNameFor(model => model.PCRID)
             </th>
              <th>
@@ -287,12 +287,12 @@
                 @Html.DisplayFor(modelItem => item.Status)
             </td>
             <td>
-                @Html.ActionLink("Details", "Details", new { id = item.ID }, new { @class = "btn  btn-primary", @target = "_blank" })
-                @Html.ActionLink("Signatures", "Signatures", new { id = item.ID }, new { @class = "btn btn-success", @target = "_blank" })
+                @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn  btn-primary", @target = "_blank" })
+                @Html.ActionLink("Firmas", "Signatures", new { id = item.ID }, new { @class = "btn btn-success", @target = "_blank" })
                 @if (ViewBag.Admin)
                 {
-                    @Html.ActionLink("Export", "ExportFormat", new { id = item.ID }, new { @class = "btn btn-default", @target = "_blank" })
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "btn btn-default", @target = "_blank" })
+                    @Html.ActionLink("Exportar", "ExportFormat", new { id = item.ID }, new { @class = "btn btn-default", @target = "_blank" })
+                    @Html.ActionLink("Editar", "Edit", new { id = item.ID }, new { @class = "btn btn-default", @target = "_blank" })
                 }
             </td>
             <td>

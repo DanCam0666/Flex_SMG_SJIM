@@ -372,7 +372,7 @@ namespace Flex_SGM.Models
 
         public int AreasID { get; set; }
         [MaxLength(100)]
-        [Display(Name = "Supervisor Area")]
+        [Display(Name = "Supervisor")]
         public string Supervisor { get; set; }
 
         public virtual cAreas Areas { get; set; }
