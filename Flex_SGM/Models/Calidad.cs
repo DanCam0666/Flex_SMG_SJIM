@@ -199,7 +199,7 @@ namespace Flex_SGM.Models
         [Display(Name = "Defecto")]
         public string Defecto { get; set; }
 
-        public virtual cAreas Areas { get; set; }
+        public virtual eAreas Areas { get; set; }
     }
     public class AndonSupervisores
     {
@@ -212,7 +212,7 @@ namespace Flex_SGM.Models
         [Display(Name = "Supervisor Area")]
         public string Supervisor { get; set; }
 
-        public virtual cAreas Areas { get; set; }
+        public virtual eAreas Areas { get; set; }
     }
     public class AndonAuditor
     {
@@ -225,7 +225,7 @@ namespace Flex_SGM.Models
         [Display(Name = "Auditor Area")]
         public string Auditor { get; set; }
 
-        public virtual cAreas Areas { get; set; }
+        public virtual eAreas Areas { get; set; }
     }
 
     public class CAndon2
@@ -326,12 +326,12 @@ namespace Flex_SGM.Models
         [Display(Name = "Acciones")]
         public string Acciones { get; set; }
 
-        public virtual cAreas Primary { get; set; }
+        public virtual eAreas Primary { get; set; }
 
-        public virtual cAreas Assigned { get; set; }
+        public virtual eAreas Assigned { get; set; }
         public virtual Maquinas Maquinas { get; set; }
-        public virtual cClientes Clientes { get; set; }
-        public virtual cProyectos Proyectos { get; set; }
+        public virtual eClientes Clientes { get; set; }
+        public virtual eProyectos Proyectos { get; set; }
 
         public virtual AndonAuditor AndonAuditor { get; set; }
 
@@ -686,7 +686,7 @@ namespace Flex_SGM.Models
         [Display(Name = "Monto valuado al tipo de cambio del cierre de mes")]
         public double? AVFSR { get; set; } ///Amounts valued at financial  statments rate
 
-        public virtual cAreas Primary { get; set; }
+        public virtual eAreas Primary { get; set; }
 
         public virtual AndonSupervisores AndonSupervisores { get; set; }
 

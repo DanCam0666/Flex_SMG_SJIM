@@ -450,7 +450,7 @@ namespace Flex_SGM.Controllers
             using (MemoryStream stream = new MemoryStream())
             {
                 wb.SaveAs(stream);
-                return File(stream.ToArray(), "holotopo", "Actividades_" + fecha_inicial + ".xlsx");
+                return File(stream.ToArray(), "DanCam", "Actividades_" + fecha_inicial + ".xlsx");
             }
         }
         // GET: Bitacoras

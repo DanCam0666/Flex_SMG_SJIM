@@ -1,12 +1,12 @@
 ﻿@model Flex_SGM.Models.pcr
 @{
     ViewBag.Title = "Details";
-    Layout = "~/Views/Shared/_LayoutE.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Details</h2>
 
-    @Html.AntiForgeryToken()
+@Html.AntiForgeryToken()
 
 <div>
     <div class="form-horizontal clearfix">
@@ -843,7 +843,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 </div>
 
@@ -855,22 +854,16 @@
     <div class="clearfix"></div>
     <div class="x_content ">
         <div class="form-group">
-
             <div>Comentarios</div>
             <textarea class="form-control" id="msg"></textarea>
-
             <div class="pull-right">
                 <div>Seleccion de Revision</div>
                 <button class="btn btn-danger" value="Reject" onclick="seguro(this.value);">Rechazar...</button>
 
                 <button class="btn btn-warning" value="Review" onclick="seguro(this.value);">Se necesitan correcciones...</button>
 
-                <button class="btn btn-success" value="Acept" onclick="seguro(this.value);">Aceptar y continuar proceso...</button>
+                <button class="btn btn-success" value="Accept" onclick="seguro(this.value);">Aceptar y continuar proceso...</button>
             </div>
-
-
-
-
         </div>
     </div>
 </div>
@@ -878,7 +871,6 @@
 <!-- Modal -->
 <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
-
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
@@ -887,29 +879,24 @@
             </div>
             <div class="modal-body">
                 <p>Are you sure of <span id="res"></span> the PCR: @Html.DisplayFor(model => model.PCRID)?</p>
-
             </div>
             <div class="modal-footer">
                 <div class="col-xs-4">
                     <button type="button" class="btn btn-danger btn-block" data-dismiss="modal">No</button>
                 </div>
                 <div class="col-xs-4">
-
                 </div>
                 <div class="col-xs-4">
                     <button type="button" class="btn btn-success btn-block" onclick="seguro2()" data-dismiss="modal">Yes</button>
                 </div>
-
-
             </div>
         </div>
-
     </div>
 </div>
 
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Regresar a la Lista", "Index")
 </p>
 
 @section Scripts {
@@ -933,9 +920,9 @@
             url = url.replace("param-id", @Model.ID).replace("param-Response", y).replace("param-msg", msgi).replace("param-datos", "Holo");
             $.post(url, { __RequestVerificationToken: token }, function (result) {
                 alert(result);
-                if (result == "Acept" || result == "Reject" || result == "Review")
+                if (result == "Accept" || result == "Reject" || result == "Review")
                    window.location.replace( '@Url.Action("Index", "pcrs")');
-                 
+
 
             });
 
@@ -954,7 +941,7 @@
          *
          *        $.post(url,{ __RequestVerificationToken: token }, function (success) {
                     alert(success);
-                   if (success == "Acept") {
+                   if (success == "Accept") {
                           window.location.replace( 'Url.Action("Index", "pcrs")');
                     }
 
@@ -968,7 +955,7 @@
                 },
                 success: function (result) {
                     alert(result);
-                    if (result == "Acept"||result == "Reject"||result == "Review") {
+                    if (result == "Accept"||result == "Reject"||result == "Review") {
                           window.location.replace( 'Url.Action("Index", "pcrs")');
                     }}
             });

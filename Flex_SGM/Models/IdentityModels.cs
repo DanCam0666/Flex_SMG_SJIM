@@ -70,15 +70,15 @@ namespace Flex_SGM.Models
 
         public System.Data.Entity.DbSet<Flex_SGM.Models.ControldeEquipos> ControldeEquipos { get; set; }
 
-        public System.Data.Entity.DbSet<Flex_SGM.Models.cClientes> cClientes { get; set; }
+        public System.Data.Entity.DbSet<Flex_SGM.Models.eClientes> eClientes { get; set; }
 
         public System.Data.Entity.DbSet<Flex_SGM.Models.SubClientes> SubClientes { get; set; }
 
         public System.Data.Entity.DbSet<Flex_SGM.Models.AndonDefecto> AndonDefectoes { get; set; }
 
-        public System.Data.Entity.DbSet<Flex_SGM.Models.cAreas> cAreas { get; set; }
+        public System.Data.Entity.DbSet<Flex_SGM.Models.eAreas> eAreas { get; set; }
 
-        public System.Data.Entity.DbSet<Flex_SGM.Models.cProyectos> cProyectos { get; set; }
+        public System.Data.Entity.DbSet<Flex_SGM.Models.eProyectos> eProyectos { get; set; }
 
         public System.Data.Entity.DbSet<Flex_SGM.Models.eoriginator> eoriginators { get; set; }
 

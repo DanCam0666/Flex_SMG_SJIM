@@ -2,16 +2,13 @@
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_LayoutE.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>PCRs</h2>
 
 <p>
-    @if (ViewBag.Admin)
-    {
-        @Html.ActionLink("Crear Nuevo", "Create")
-    }
+    @Html.ActionLink("Crear Nuevo", "Create")
 </p>
 <table class="tabled table-bordered table-striped" style="width:100%">
     <thead>
@@ -287,12 +284,14 @@
                 @Html.DisplayFor(modelItem => item.Status)
             </td>
             <td>
-                @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn  btn-primary", @target = "_blank" })
-                @Html.ActionLink("Firmas", "Signatures", new { id = item.ID }, new { @class = "btn btn-success", @target = "_blank" })
+                @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn-sm  btn-primary" })
+                @Html.ActionLink("Firmas", "Signatures", new { id = item.ID }, new { @class = "btn-sm btn-success" })
                 @if (ViewBag.Admin)
                 {
-                    @Html.ActionLink("Exportar", "ExportFormat", new { id = item.ID }, new { @class = "btn btn-default", @target = "_blank" })
-                    @Html.ActionLink("Editar", "Edit", new { id = item.ID }, new { @class = "btn btn-default", @target = "_blank" })
+                    @Html.ActionLink("Exportar", "ExportFormat", new { id = item.ID }, new { @class = "btn-sm btn-default" })
+                    @Html.ActionLink("Revisión", "Review", new { id = item.ID }, new { @class = "btn-sm btn-default" })
+                    @Html.ActionLink("Editar", "Edit", new { id = item.ID }, new { @class = "btn-sm btn-warning" })
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.ID }, new { @class = "btn-sm btn-danger" })
                 }
             </td>
             <td>

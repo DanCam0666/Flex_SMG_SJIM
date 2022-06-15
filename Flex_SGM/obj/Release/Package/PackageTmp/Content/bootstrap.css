@@ -2781,7 +2781,7 @@ fieldset[disabled] .checkbox label {
   margin-bottom: 0;
   font-weight: 400;
   vertical-align: middle;
-  cursor: pointer;
+  cursor: default;
 }
 .radio-inline.disabled,
 .checkbox-inline.disabled,

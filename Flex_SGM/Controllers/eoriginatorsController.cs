@@ -39,7 +39,7 @@ namespace Flex_SGM.Controllers
         // GET: eoriginators/Create
         public ActionResult Create()
         {
-            ViewBag.AreasID = new SelectList(db.cAreas, "ID", "Area");
+            ViewBag.AreasID = new SelectList(db.eAreas, "ID", "Area");
             return View();
         }
 
@@ -57,7 +57,7 @@ namespace Flex_SGM.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.AreasID = new SelectList(db.cAreas, "ID", "Area", eoriginator.AreasID);
+            ViewBag.AreasID = new SelectList(db.eAreas, "ID", "Area", eoriginator.AreasID);
             return View(eoriginator);
         }
 
@@ -73,7 +73,7 @@ namespace Flex_SGM.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.AreasID = new SelectList(db.cAreas, "ID", "Area", eoriginator.AreasID);
+            ViewBag.AreasID = new SelectList(db.eAreas, "ID", "Area", eoriginator.AreasID);
             return View(eoriginator);
         }
 
@@ -90,7 +90,7 @@ namespace Flex_SGM.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.AreasID = new SelectList(db.cAreas, "ID", "Area", eoriginator.AreasID);
+            ViewBag.AreasID = new SelectList(db.eAreas, "ID", "Area", eoriginator.AreasID);
             return View(eoriginator);
         }
 

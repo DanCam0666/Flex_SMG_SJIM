@@ -1,20 +1,21 @@
 ﻿@model IEnumerable<Flex_SGM.Models.CDockaudit>
 @{
     ViewBag.Title = "Ingenieria";
-    Layout = "~/Views/Shared/_LayoutE.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 
 <Center class="clearfix">
-    <div class="x_panel" style="background-color: #edf3f9; border-color:darkgray">
+    <div class="x_panel" style="background-color: #edf3f9; border-color:darkgray; width: 30%">
         <h4>VER / CREAR / EDITAR / ELIMINAR LOS PCRs</h4>
         <hr style="background-color: darkgray" />
         <br>
         <div>@Html.ActionLink("PCRs", "Index", "pcrs", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();", @class = "btn btn-primary" })</div>
         <br>
-
     </div>
-    <div class="x_panel" style="background-color: #edf3f9; border-color:darkgray">
+</Center>
+<Center class="clearfix">
+    <div class="x_panel" style="background-color: #edf3f9; border-color: darkgray; width: 30%; align-content:center">
         <h4>CONFIGURACIONES</h4>
         <hr style="background-color: darkgray" />
         <br>
@@ -24,15 +25,11 @@
         <br>
         <div>@Html.ActionLink("PCR Originators", "Index", "eoriginators", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();", @class = "btn btn-primary" })</div>
         <br>
-    </div>
-    <div class="x_panel" style="background-color: #edf3f9; border-color:darkgray">
-        <h4>APARTADOS COMPARTIDOS CON CALIDAD</h4>
-        <hr style="background-color: darkgray" />
-        <div>@Html.ActionLink("Clientes", "Index", "cClientes", null, htmlAttributes: new { @class = "btn btn-primary", @onclick = "$('#loadingImg').show();" })</div>
+        <div>@Html.ActionLink("Clientes", "Index", "eClientes", null, htmlAttributes: new { @class = "btn btn-primary", @onclick = "$('#loadingImg').show();" })</div>
         <br>
-        <div>@Html.ActionLink("Proyectos", "Index", "cProyectos", null, htmlAttributes: new { @class = "btn btn-primary", @onclick = "$('#loadingImg').show();" })</div>
+        <div>@Html.ActionLink("Proyectos", "Index", "eProyectos", null, htmlAttributes: new { @class = "btn btn-primary", @onclick = "$('#loadingImg').show();" })</div>
         <br>
-        <div>@Html.ActionLink("Areas", "Index", "cAreas", null, htmlAttributes: new { @class = "btn btn-primary", @onclick = "$('#loadingImg').show();" })</div>
+        <div>@Html.ActionLink("Areas", "Index", "eAreas", null, htmlAttributes: new { @class = "btn btn-primary", @onclick = "$('#loadingImg').show();" })</div>
         <br>
         <hr />
     </div>

@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "Edit";
-    Layout = "~/Views/Shared/_LayoutE.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Edit</h2>
@@ -24,7 +24,6 @@
                 <h3>Product/Process Change Request <small> PCR</small></h3>
 
             </div>
-
             <div class="x_content">
 
                 <div class="form-group col-md-4">
@@ -101,14 +100,12 @@
                 </div>
             </div>
         </div>
-
         <div class="col-md-8">
             <div class="x_panel clearfix">
                 <div class="x_title  clearfix">
                     <h3>Description of Change <small> PCR</small></h3>
                 </div>
                 <div class="x_content">
-
 
                     <div class="form-group">
                         @Html.LabelFor(model => model.docreason, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -142,16 +139,12 @@
                 </div>
             </div>
         </div>
-
         <div class="col-md-4">
-
-
             <div class="x_panel clearfix">
                 <div class="x_title  clearfix">
                     <h3>Cost Impact <small> PCR</small></h3>
                 </div>
                 <div class="x_content">
-
                     <div class="form-group">
                         @Html.LabelFor(model => model.cipieceprice, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
@@ -284,22 +277,17 @@
                 @Html.ValidationMessageFor(model => model.Reviewedby_date, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="col-md-5">
-
             <div class="x_panel clearfix">
                 <div class="x_title clearfix">
-                    <h3>Support <small> PCR</small></h3>
+                    <h3>Support <small> PCR   (P = aplica, X = no aplica)</small></h3>
                 </div>
                 <div class="x_content">
-
-
                     <div class="col-md-6">
-
                         <div class="form-group">
                             @Html.LabelFor(model => model.support_purchasing, htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-6">
-                                @Html.EditorFor(model => model.support_purchasing, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                @Html.EditorFor(model => model.support_purchasing, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.support_purchasing, "", new { @class = "text-danger" })
                             </div>
                         </div>
@@ -307,7 +295,7 @@
                         <div class="form-group">
                             @Html.LabelFor(model => model.support_materials, htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-6">
-                                @Html.EditorFor(model => model.support_materials, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                @Html.EditorFor(model => model.support_materials, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.support_materials, "", new { @class = "text-danger" })
                             </div>
                         </div>
@@ -315,7 +303,7 @@
                         <div class="form-group">
                             @Html.LabelFor(model => model.support_maintenance, htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-6">
-                                @Html.EditorFor(model => model.support_maintenance, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                @Html.EditorFor(model => model.support_maintenance, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.support_maintenance, "", new { @class = "text-danger" })
                             </div>
                         </div>
@@ -323,7 +311,7 @@
                         <div class="form-group">
                             @Html.LabelFor(model => model.support_automation, htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-6">
-                                @Html.EditorFor(model => model.support_automation, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                @Html.EditorFor(model => model.support_automation, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.support_automation, "", new { @class = "text-danger" })
                             </div>
                         </div>
@@ -331,7 +319,7 @@
                         <div class="form-group">
                             @Html.LabelFor(model => model.support_quality, htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-6">
-                                @Html.EditorFor(model => model.support_quality, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                @Html.EditorFor(model => model.support_quality, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.support_quality, "", new { @class = "text-danger" })
                             </div>
                         </div>
@@ -339,7 +327,7 @@
                         <div class="form-group">
                             @Html.LabelFor(model => model.support_safety, htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-6">
-                                @Html.EditorFor(model => model.support_safety, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                @Html.EditorFor(model => model.support_safety, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.support_safety, "", new { @class = "text-danger" })
                             </div>
                         </div>
@@ -347,7 +335,7 @@
                         <div class="form-group">
                             @Html.LabelFor(model => model.support_environmental, htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-6">
-                                @Html.EditorFor(model => model.support_environmental, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                @Html.EditorFor(model => model.support_environmental, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.support_environmental, "", new { @class = "text-danger" })
                             </div>
                         </div>
@@ -355,7 +343,7 @@
                         <div class="form-group">
                             @Html.LabelFor(model => model.support_tooling, htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-6">
-                                @Html.EditorFor(model => model.support_tooling, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                @Html.EditorFor(model => model.support_tooling, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.support_tooling, "", new { @class = "text-danger" })
                             </div>
                         </div>
@@ -364,7 +352,7 @@
                         <div class="form-group">
                             @Html.LabelFor(model => model.support_stamping, htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-6">
-                                @Html.EditorFor(model => model.support_stamping, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                @Html.EditorFor(model => model.support_stamping, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.support_stamping, "", new { @class = "text-danger" })
                             </div>
                         </div>
@@ -372,7 +360,7 @@
                         <div class="form-group">
                             @Html.LabelFor(model => model.support_welding, htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-6">
-                                @Html.EditorFor(model => model.support_welding, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                @Html.EditorFor(model => model.support_welding, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.support_welding, "", new { @class = "text-danger" })
                             </div>
                         </div>
@@ -380,7 +368,7 @@
                         <div class="form-group">
                             @Html.LabelFor(model => model.support_chrome, htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-6">
-                                @Html.EditorFor(model => model.support_chrome, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                @Html.EditorFor(model => model.support_chrome, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.support_chrome, "", new { @class = "text-danger" })
                             </div>
                         </div>
@@ -388,7 +376,7 @@
                         <div class="form-group">
                             @Html.LabelFor(model => model.support_ecoat, htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-6">
-                                @Html.EditorFor(model => model.support_ecoat, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                @Html.EditorFor(model => model.support_ecoat, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.support_ecoat, "", new { @class = "text-danger" })
                             </div>
                         </div>
@@ -396,7 +384,7 @@
                         <div class="form-group">
                             @Html.LabelFor(model => model.support_topcoat, htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-6">
-                                @Html.EditorFor(model => model.support_topcoat, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                @Html.EditorFor(model => model.support_topcoat, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.support_topcoat, "", new { @class = "text-danger" })
                             </div>
                         </div>
@@ -404,7 +392,7 @@
                         <div class="form-group">
                             @Html.LabelFor(model => model.support_backcoat, htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-6">
-                                @Html.EditorFor(model => model.support_backcoat, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                @Html.EditorFor(model => model.support_backcoat, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.support_backcoat, "", new { @class = "text-danger" })
                             </div>
                         </div>
@@ -412,7 +400,7 @@
                         <div class="form-group">
                             @Html.LabelFor(model => model.support_assembly, htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-6">
-                                @Html.EditorFor(model => model.support_assembly, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                @Html.EditorFor(model => model.support_assembly, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.support_assembly, "", new { @class = "text-danger" })
                             </div>
                         </div>
@@ -420,7 +408,7 @@
                         <div class="form-group">
                             @Html.LabelFor(model => model.support_finance, htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-6">
-                                @Html.EditorFor(model => model.support_finance, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                @Html.EditorFor(model => model.support_finance, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.support_finance, "", new { @class = "text-danger" })
                             </div>
                         </div>

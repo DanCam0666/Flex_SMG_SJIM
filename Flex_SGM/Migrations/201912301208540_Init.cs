@@ -16,11 +16,11 @@ namespace Flex_SGM.Migrations
                         Auditor = c.String(maxLength: 100),
                     })
                 .PrimaryKey(t => t.ID)
-                .ForeignKey("dbo.cAreas", t => t.AreasID, cascadeDelete: true)
+                .ForeignKey("dbo.eAreas", t => t.AreasID, cascadeDelete: true)
                 .Index(t => t.AreasID);
             
             CreateTable(
-                "dbo.cAreas",
+                "dbo.eAreas",
                 c => new
                     {
                         ID = c.Int(nullable: false, identity: true),
@@ -37,7 +37,7 @@ namespace Flex_SGM.Migrations
                         Defecto = c.String(maxLength: 50),
                     })
                 .PrimaryKey(t => t.ID)
-                .ForeignKey("dbo.cAreas", t => t.AreasID, cascadeDelete: true)
+                .ForeignKey("dbo.eAreas", t => t.AreasID, cascadeDelete: true)
                 .Index(t => t.AreasID);
             
             CreateTable(
@@ -49,7 +49,7 @@ namespace Flex_SGM.Migrations
                         Supervisor = c.String(maxLength: 100),
                     })
                 .PrimaryKey(t => t.ID)
-                .ForeignKey("dbo.cAreas", t => t.AreasID, cascadeDelete: true)
+                .ForeignKey("dbo.eAreas", t => t.AreasID, cascadeDelete: true)
                 .Index(t => t.AreasID);
             
             CreateTable(
@@ -199,10 +199,10 @@ namespace Flex_SGM.Migrations
                 .ForeignKey("dbo.AndonAuditors", t => t.AndonAuditorID)
                 .ForeignKey("dbo.AndonDefectoes", t => t.AndonDefectoID)
                 .ForeignKey("dbo.AndonSupervisores", t => t.AndonSupervisoresID)
-                .ForeignKey("dbo.cAreas", t => t.AreaseID)
-                .ForeignKey("dbo.cClientes", t => t.ClientesID, cascadeDelete: true)
-                .ForeignKey("dbo.cAreas", t => t.AreasgID)
-                .ForeignKey("dbo.cProyectos", t => t.ProyectosID, cascadeDelete: true)
+                .ForeignKey("dbo.eAreas", t => t.AreaseID)
+                .ForeignKey("dbo.eClientes", t => t.ClientesID, cascadeDelete: true)
+                .ForeignKey("dbo.eAreas", t => t.AreasgID)
+                .ForeignKey("dbo.eProyectos", t => t.ProyectosID, cascadeDelete: true)
                 .Index(t => t.AreasgID)
                 .Index(t => t.AreaseID)
                 .Index(t => t.ClientesID)
@@ -212,7 +212,7 @@ namespace Flex_SGM.Migrations
                 .Index(t => t.AndonSupervisoresID);
             
             CreateTable(
-                "dbo.cClientes",
+                "dbo.eClientes",
                 c => new
                     {
                         ID = c.Int(nullable: false, identity: true),
@@ -221,7 +221,7 @@ namespace Flex_SGM.Migrations
                 .PrimaryKey(t => t.ID);
             
             CreateTable(
-                "dbo.cProyectos",
+                "dbo.eProyectos",
                 c => new
                     {
                         ID = c.Int(nullable: false, identity: true),
@@ -229,7 +229,7 @@ namespace Flex_SGM.Migrations
                         Proyecto = c.String(maxLength: 25),
                     })
                 .PrimaryKey(t => t.ID)
-                .ForeignKey("dbo.cClientes", t => t.ClientesID)
+                .ForeignKey("dbo.eClientes", t => t.ClientesID)
                 .Index(t => t.ClientesID);
             
             CreateTable(
@@ -523,7 +523,7 @@ namespace Flex_SGM.Migrations
                         SubCliente = c.String(maxLength: 25),
                     })
                 .PrimaryKey(t => t.ID)
-                .ForeignKey("dbo.cClientes", t => t.ClientesID, cascadeDelete: true)
+                .ForeignKey("dbo.eClientes", t => t.ClientesID, cascadeDelete: true)
                 .Index(t => t.ClientesID);
             
             CreateTable(
@@ -600,24 +600,24 @@ namespace Flex_SGM.Migrations
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.troubleshootings", "MaquinasID", "dbo.Maquinas");
-            DropForeignKey("dbo.SubClientes", "ClientesID", "dbo.cClientes");
+            DropForeignKey("dbo.SubClientes", "ClientesID", "dbo.eClientes");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
             DropForeignKey("dbo.Proyectos", "MaquinasID", "dbo.Maquinas");
             DropForeignKey("dbo.ControldeEquipos", "MaquinasID", "dbo.Maquinas");
             DropForeignKey("dbo.Comments", "OILs_ID", "dbo.OILs");
-            DropForeignKey("dbo.CAndon2", "ProyectosID", "dbo.cProyectos");
-            DropForeignKey("dbo.cProyectos", "ClientesID", "dbo.cClientes");
-            DropForeignKey("dbo.CAndon2", "AreasgID", "dbo.cAreas");
-            DropForeignKey("dbo.CAndon2", "ClientesID", "dbo.cClientes");
-            DropForeignKey("dbo.CAndon2", "AreaseID", "dbo.cAreas");
+            DropForeignKey("dbo.CAndon2", "ProyectosID", "dbo.eProyectos");
+            DropForeignKey("dbo.eProyectos", "ClientesID", "dbo.eClientes");
+            DropForeignKey("dbo.CAndon2", "AreasgID", "dbo.eAreas");
+            DropForeignKey("dbo.CAndon2", "ClientesID", "dbo.eClientes");
+            DropForeignKey("dbo.CAndon2", "AreaseID", "dbo.eAreas");
             DropForeignKey("dbo.CAndon2", "AndonSupervisoresID", "dbo.AndonSupervisores");
             DropForeignKey("dbo.CAndon2", "AndonDefectoID", "dbo.AndonDefectoes");
             DropForeignKey("dbo.CAndon2", "AndonAuditorID", "dbo.AndonAuditors");
             DropForeignKey("dbo.OILs", "MaquinasID", "dbo.Maquinas");
             DropForeignKey("dbo.Bitacoras", "MaquinasID", "dbo.Maquinas");
-            DropForeignKey("dbo.AndonSupervisores", "AreasID", "dbo.cAreas");
-            DropForeignKey("dbo.AndonDefectoes", "AreasID", "dbo.cAreas");
-            DropForeignKey("dbo.AndonAuditors", "AreasID", "dbo.cAreas");
+            DropForeignKey("dbo.AndonSupervisores", "AreasID", "dbo.eAreas");
+            DropForeignKey("dbo.AndonDefectoes", "AreasID", "dbo.eAreas");
+            DropForeignKey("dbo.AndonAuditors", "AreasID", "dbo.eAreas");
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
@@ -629,7 +629,7 @@ namespace Flex_SGM.Migrations
             DropIndex("dbo.Proyectos", new[] { "MaquinasID" });
             DropIndex("dbo.ControldeEquipos", new[] { "MaquinasID" });
             DropIndex("dbo.Comments", new[] { "OILs_ID" });
-            DropIndex("dbo.cProyectos", new[] { "ClientesID" });
+            DropIndex("dbo.eProyectos", new[] { "ClientesID" });
             DropIndex("dbo.CAndon2", new[] { "AndonSupervisoresID" });
             DropIndex("dbo.CAndon2", new[] { "AndonAuditorID" });
             DropIndex("dbo.CAndon2", new[] { "AndonDefectoID" });
@@ -659,8 +659,8 @@ namespace Flex_SGM.Migrations
             DropTable("dbo.Comments");
             DropTable("dbo.CDockaudits");
             DropTable("dbo.CAndons");
-            DropTable("dbo.cProyectos");
-            DropTable("dbo.cClientes");
+            DropTable("dbo.eProyectos");
+            DropTable("dbo.eClientes");
             DropTable("dbo.CAndon2");
             DropTable("dbo.CalendarioProyes");
             DropTable("dbo.OILs");
@@ -668,7 +668,7 @@ namespace Flex_SGM.Migrations
             DropTable("dbo.Bitacoras");
             DropTable("dbo.AndonSupervisores");
             DropTable("dbo.AndonDefectoes");
-            DropTable("dbo.cAreas");
+            DropTable("dbo.eAreas");
             DropTable("dbo.AndonAuditors");
         }
     }

@@ -11,7 +11,7 @@ using ClosedXML.Report;
 using System.IO;
 using Microsoft.AspNet.Identity;
 using Flex_SGM.emaildata;
-
+using Microsoft.AspNet.Identity.Owin;
 
 namespace Flex_SGM.Controllers
 {
@@ -19,6 +19,19 @@ namespace Flex_SGM.Controllers
     public class pcrsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        private ApplicationUserManager _userManager;
+        public ApplicationUserManager UserManager
+        {
+            get
+            {
+                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            }
+            private set
+            {
+                _userManager = value;
+            }
+        }
+
         private EmailController correo = new EmailController();
         // export
         private bool email = false;
@@ -104,7 +117,7 @@ namespace Flex_SGM.Controllers
             using (MemoryStream stream = new MemoryStream())
             {
                 template.SaveAs(stream);
-                return File(stream.ToArray(), "holotopo", "Product_Process_Change_Request_" + pcrd.PCRID + ".xlsx");
+                return File(stream.ToArray(), "holotopo", "Process_Change_Request_" + pcrd.PCRID + ".xlsx");
             }
         }
 
@@ -118,7 +131,7 @@ namespace Flex_SGM.Controllers
 
             ViewBag.Admin = false;
             if (currentUser!=null)
-            if (currentUser.UserName.Contains("DanCam"))
+            if (currentUser.Puesto.Contains("Gerente"))
             ViewBag.Admin = true;
 
             var pcrs = db.pcrs.Include(p => p.Clientes).Include(p => p.MatrizDecision).Include(p => p.Proyectos).Include(p => p.Reason);
@@ -156,20 +169,15 @@ namespace Flex_SGM.Controllers
             {
                 foreach (var userroles in user.Roles)
                 {
-                    if (userroles.RoleId == "7a269541-b9f5-4bfe-8eea-38c0ebe11373")
+                    if (userroles.RoleId == "8dcec765-580a-4b6e-9454-b7af0c4ee717")
                         Gerentes.Add(user);
-
-
                 }
-
-
             }
            
-
-            ViewBag.AreasID = new SelectList(db.cAreas, "ID", "Area");
-            ViewBag.ClientesID = new SelectList(db.cClientes, "ID", "Cliente");
+            ViewBag.AreasID = new SelectList(db.eAreas, "ID", "Area");
+            ViewBag.ClientesID = new SelectList(db.eClientes, "ID", "Cliente");
             ViewBag.MatrizDecisionID = new SelectList(db.MatrizDecisions, "ID", "TipoCambio");
-            ViewBag.ProyectosID = new SelectList(db.cProyectos, "ID", "Proyecto");
+            ViewBag.ProyectosID = new SelectList(db.eProyectos, "ID", "Proyecto");
             ViewBag.ReasonID = new SelectList(db.ereasons, "ID", "Reason");
             ViewBag.GerentesID = new SelectList(Gerentes, "ID", "UserFullName");
             ViewBag.Originator = currentUser.UserFullName;
@@ -231,13 +239,13 @@ namespace Flex_SGM.Controllers
 
             if (ModelState.IsValid)
             {
-                pcr.Status = "On Review";
+                pcr.Status = "In Review";
                 pcr.PCRID = PCRID;
                 db.pcrs.Add(pcr);
                 db.SaveChanges();
                var currpcr= db.pcrs.Where(w => w.PCRID == PCRID).FirstOrDefault();
-                string[] emails = { "ZVazquez@flexngate.com", currentUser.Email};
-                string[] emailsa = { "lolivarez@flexngate.com", currentUser.Email };
+                string[] emails = { "dcamacho@flexngate.com", currentUser.Email};
+                string[] emailsa = { "dcamacho@flexngate.com", currentUser.Email };
                 if (email) { 
                 correo.newpcr(emails, currentUser.UserFullName, pcr.PCRID , currpcr.ID.ToString());
 
@@ -247,9 +255,9 @@ namespace Flex_SGM.Controllers
             }
 
     
-            ViewBag.ClientesID = new SelectList(db.cClientes, "ID", "Cliente", pcr.ClientesID);
+            ViewBag.ClientesID = new SelectList(db.eClientes, "ID", "Cliente", pcr.ClientesID);
             ViewBag.MatrizDecisionID = new SelectList(db.MatrizDecisions, "ID", "TipoCambio", pcr.MatrizDecisionID);
-            ViewBag.ProyectosID = new SelectList(db.cProyectos, "ID", "Proyecto", pcr.ProyectosID);
+            ViewBag.ProyectosID = new SelectList(db.eProyectos, "ID", "Proyecto", pcr.ProyectosID);
             ViewBag.ReasonID = new SelectList(db.ereasons, "ID", "Reason", pcr.ReasonID);
             return View(pcr);
         }
@@ -259,17 +267,29 @@ namespace Flex_SGM.Controllers
         [ValidateAntiForgeryToken]
         public string firma(int id, string Response,string msg, string datos)
         {
+            var Id = User.Identity.GetUserId();
+            ApplicationUser CurrentUser = UserManager.FindById(Id);
+            string cuser = "xxx";
+            string cpuesto = "xxx";
+            string cuare = "xxx";
+            if (CurrentUser != null)
+            {
+                cuser = CurrentUser.UserFullName;
+                cpuesto = CurrentUser.Puesto;
+                cuare = CurrentUser.Area;
+            }
+
             var uiid = User.Identity.GetUserId();
             ApplicationUser currentUser = db.Users.Where(w => w.Id == uiid).FirstOrDefault();
             var ok = false;
            foreach(var rol in currentUser.Roles)
             {
-                if (rol.RoleId == "7a269541-b9f5-4bfe-8eea-38c0ebe11373" || rol.RoleId == "8dcec765-580a-4b6e-9454-b7af0c4ee717")
+                if (rol.RoleId == "8dcec765-580a-4b6e-9454-b7af0c4ee717")
                 {
                     ok = true;
                 }
             }
-            if (ok)//7a269541-b9f5-4bfe-8eea-38c0ebe11373
+            if (ok)  //8dcec765-580a-4b6e-9454-b7af0c4ee717
             {
                 if (datos!=null&& msg!=null)
                 if (!string.IsNullOrEmpty(Response) && id != 0)
@@ -287,28 +307,30 @@ namespace Flex_SGM.Controllers
 
                     switch (Response) 
                     {
-                        case ("Acept"):
+                        case ("Accept"):
 
-                        if (pcr.Status == "On Review")
+                        if (pcr.Status == "In Review")
                         {
+                            pcr.Reviewedby = cuser;
                             pcr.Reviewedby_date = DateTime.Now;
-                            pcr.Status = "On Authorizations";
-                                sign.msg = msg;
-                                sign.Reviewedby_date = DateTime.Now;
-                                sign.pcrID = id;
-                                sign.Status = "Review";
-                                sign.Reviewedby = uiid;
-                                sign.Dep = currentUser.Departamento;
-                            // Send the email to autorization personal 
-                        }
-                        else
-                        if (pcr.Status == "On Authorizations")
-                        {
+                            pcr.Status = "Aprobado";
                             sign.msg = msg;
                             sign.Reviewedby_date = DateTime.Now;
                             sign.pcrID = id;
-                            sign.Status = "Authorization";
-                            sign.Reviewedby = uiid;
+                            sign.Status = "Aprobado, esperando firmas";
+                            sign.Reviewedby = cuser;
+                            sign.Dep = currentUser.Departamento;
+                            // Send the email to autorization personal 
+                        }
+                        else
+                        if (pcr.Status == "Aprobado")
+                        {
+                            pcr.Reviewedby = cuser;
+                            sign.msg = msg;
+                            sign.Reviewedby_date = DateTime.Now;
+                            sign.pcrID = id;
+                            sign.Status = "Aprobado";
+                            sign.Reviewedby = cuser;
                             sign.Dep = currentUser.Departamento;
                            
                             switch (currentUser.Departamento)
@@ -367,11 +389,11 @@ namespace Flex_SGM.Controllers
                             }
                         }
                         else
-                            pcr.Status = "On Review";
+                            pcr.Status = "In Review";
 
                         break;
                         case ("Changes"):
-                            if (pcr.Status == "On Review")
+                            if (pcr.Status == "In Review")
                             {
                                 pcr.Reviewedby_date = DateTime.Now;
                                 pcr.Status = "Need fixes";
@@ -386,11 +408,12 @@ namespace Flex_SGM.Controllers
                                     sign.Reviewedby_date = DateTime.Now;
                                     sign.pcrID = id;
                                     sign.Status = "Need fixes";
-                                    sign.Reviewedby = uiid;
+                                    sign.Reviewedby = cuser;
+                                    pcr.Reviewedby = cuser;
                                     sign.Dep = currentUser.Departamento;
                                 }
                             else
-                            if (pcr.Status == "On Authorizations")
+                            if (pcr.Status == "Aprobado")
                             {
                                 pcr.Status = currentUser.Departamento+ " need fixes";
 
@@ -398,11 +421,12 @@ namespace Flex_SGM.Controllers
                                     sign.Reviewedby_date = DateTime.Now;
                                     sign.pcrID = id;
                                     sign.Status = "Need fixes";
-                                    sign.Reviewedby = uiid;
+                                    sign.Reviewedby = cuser;
+                                    pcr.Reviewedby = cuser;
                                     sign.Dep = currentUser.Departamento;
                                 }
                             else
-                                pcr.Status = "On Review";
+                                pcr.Status = "In Review";
                             break;
                         default:
                             pcr.Status = currentUser.Departamento + " Cancel";
@@ -410,7 +434,8 @@ namespace Flex_SGM.Controllers
                                 sign.Reviewedby_date = DateTime.Now;
                                 sign.pcrID = id;
                                 sign.Status = "Canceled";
-                                sign.Reviewedby = uiid;
+                                sign.Reviewedby = cuser;
+                                pcr.Reviewedby = cuser;
                                 sign.Dep = currentUser.Departamento;
                                 break;
                     };
@@ -423,9 +448,9 @@ namespace Flex_SGM.Controllers
                     return Response;
                 }
             }
-            return "Not allowed... anything wasn't change...";
+            return "Not allowed... nothing has changed...";
             alreadysin: 
-            return "your department has already sign for this PCR ... ";
+            return "your department has already signed this PCR ... ";
         }
         // GET: pcrs/Edit/5
         [Authorize(Roles = "Admin,Supervisor")]
@@ -441,9 +466,9 @@ namespace Flex_SGM.Controllers
                 return HttpNotFound();
             }
 
-            ViewBag.ClientesID = new SelectList(db.cClientes, "ID", "Cliente", pcr.ClientesID);
+            ViewBag.ClientesID = new SelectList(db.eClientes, "ID", "Cliente", pcr.ClientesID);
             ViewBag.MatrizDecisionID = new SelectList(db.MatrizDecisions, "ID", "TipoCambio", pcr.MatrizDecisionID);
-            ViewBag.ProyectosID = new SelectList(db.cProyectos, "ID", "Proyecto", pcr.ProyectosID);
+            ViewBag.ProyectosID = new SelectList(db.eProyectos, "ID", "Proyecto", pcr.ProyectosID);
             ViewBag.ReasonID = new SelectList(db.ereasons, "ID", "Reason", pcr.ReasonID);
             ViewBag.Risk = pcr.MatrizDecision.NivelRiesgo;
             return View(pcr);
@@ -481,9 +506,9 @@ namespace Flex_SGM.Controllers
                 return HttpNotFound();
             }
        
-            ViewBag.ClientesID = new SelectList(db.cClientes, "ID", "Cliente", pcr.ClientesID);
+            ViewBag.ClientesID = new SelectList(db.eClientes, "ID", "Cliente", pcr.ClientesID);
             ViewBag.MatrizDecisionID = new SelectList(db.MatrizDecisions, "ID", "TipoCambio", pcr.MatrizDecisionID);
-            ViewBag.ProyectosID = new SelectList(db.cProyectos, "ID", "Proyecto", pcr.ProyectosID);
+            ViewBag.ProyectosID = new SelectList(db.eProyectos, "ID", "Proyecto", pcr.ProyectosID);
             ViewBag.ReasonID = new SelectList(db.ereasons, "ID", "Reason", pcr.ReasonID);
             ViewBag.Risk =pcr.MatrizDecision.NivelRiesgo;
             return View(pcr);
@@ -504,9 +529,9 @@ namespace Flex_SGM.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ClientesID = new SelectList(db.cClientes, "ID", "Cliente", pcr.ClientesID);
+            ViewBag.ClientesID = new SelectList(db.eClientes, "ID", "Cliente", pcr.ClientesID);
             ViewBag.MatrizDecisionID = new SelectList(db.MatrizDecisions, "ID", "TipoCambio", pcr.MatrizDecisionID);
-            ViewBag.ProyectosID = new SelectList(db.cProyectos, "ID", "Proyecto", pcr.ProyectosID);
+            ViewBag.ProyectosID = new SelectList(db.eProyectos, "ID", "Proyecto", pcr.ProyectosID);
             ViewBag.ReasonID = new SelectList(db.ereasons, "ID", "Reason", pcr.ReasonID);
             return View(pcr);
         }

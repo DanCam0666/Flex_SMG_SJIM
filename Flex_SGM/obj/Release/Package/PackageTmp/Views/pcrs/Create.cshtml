@@ -2,9 +2,8 @@
 
 @{
     ViewBag.Title = "Create";
-    Layout = "~/Views/Shared/_LayoutE.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
@@ -19,11 +18,8 @@
         <div class="x_panel clearfix">
             <div class="x_title  clearfix">
                 <h3>Product/Process Change Request <small> PCR</small></h3>
-
             </div>
-
             <div class="x_content">
-
                 <div class="form-group col-md-4">
                     @Html.LabelFor(model => model.Originator, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
@@ -98,15 +94,12 @@
                 </div>
             </div>
         </div>
-
         <div class="col-md-8">
             <div class="x_panel clearfix">
                 <div class="x_title  clearfix">
                     <h3>Description of Change <small> PCR</small></h3>
                 </div>
                 <div class="x_content">
-
-
                     <div class="form-group">
                         @Html.LabelFor(model => model.docreason, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
@@ -139,16 +132,12 @@
                 </div>
             </div>
         </div>
-
         <div class="col-md-4">
-
-
             <div class="x_panel clearfix">
                 <div class="x_title  clearfix">
                     <h3>Cost Impact <small> PCR</small></h3>
                 </div>
                 <div class="x_content">
-
                     <div class="form-group">
                         @Html.LabelFor(model => model.cipieceprice, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
@@ -260,12 +249,9 @@
                             @Html.ValidationMessageFor(model => model.crcapacitysupplier, "", new { @class = "text-danger" })
                         </div>
                     </div>
-
                 </div>
             </div>
-
         </div>
-
         <div class="form-group col-md-7">
             @Html.LabelFor(model => model.Reviewedby, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -281,18 +267,13 @@
                 @Html.ValidationMessageFor(model => model.Reviewedby_date, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="col-md-5">
-
             <div class="x_panel clearfix">
                 <div class="x_title clearfix">
                     <h3>Support <small> PCR</small></h3>
                 </div>
                 <div class="x_content">
-
-
                     <div class="col-md-6">
-
                         <div class="form-group">
                             @Html.LabelFor(model => model.support_purchasing, htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-6">
@@ -422,20 +403,15 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
-
         </div>
-
         <div class="col-md-3">
-
             <div class="x_panel clearfix">
                 <div class="x_title clearfix">
                     <h3>Key Milestones <small> PCR</small></h3>
                 </div>
                 <div class="x_content">
-
                     <div class="form-group">
                         @Html.LabelFor(model => model.Keymilestones_buildmrd1, htmlAttributes: new { @class = "control-label col-md-3" })
                         <div class="col-md-8">
@@ -499,22 +475,15 @@
                             @Html.ValidationMessageFor(model => model.Keymilestones_closure, "", new { @class = "text-danger" })
                         </div>
                     </div>
-
                 </div>
             </div>
-
-
-
         </div>
-
         <div class="col-md-3">
-
             <div class="x_panel clearfix">
                 <div class="x_title clearfix">
                     <h3>Estimated Lead Time <small> PCR</small></h3>
                 </div>
                 <div class="x_content">
-
                     <div class="form-group">
                         @Html.LabelFor(model => model.leadtime_engineering, htmlAttributes: new { @class = "control-label col-md-3" })
                         <div class="col-md-8">
@@ -578,19 +547,15 @@
                             @Html.ValidationMessageFor(model => model.leadtime_totallt, "", new { @class = "text-danger" })
                         </div>
                     </div>
-
-
                 </div>
             </div>
         </div>
-
         <br />
         <hr />
         <div class="col-md-6">
             <div class="x_panel clearfix">
                 <div class="x_title">
                     <h3>Feasbility Considerations <small> Management team to consider the question, not intended to be all inclisive in performing an evaluation.</small></h3>
-
                 </div>
                 <div class="x_content">
                     <div class="form-group">
@@ -848,7 +813,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Regresar a la Lista", "Index")
 </div>
 @section Scripts {
     <script>
@@ -863,9 +828,7 @@
             $('#Department').val(dep);
             $('#Reviewedby').val(rev);
             $('#WatingforReview').val("Wating for Review");
-
             $('#MatrizDecisionID').click(function () {
-
                 var url = $(this).data('url');
                 var data = { Codigo: $(this).val() };
                 $.getJSON(url, data, function (response) {
@@ -953,7 +916,6 @@
                     $('#Risk').val(response.r1.NivelRiesgo);
                 });
             });
-
             $('#cipieceprice').change(function () {      
                 var total = 0.0;
                 total = total+parseFloat($('#cipieceprice').val());
@@ -968,7 +930,6 @@
                 total = total +parseFloat($('#ciother').val());           
                  $('#citotal').val(total);
             });
-
             $('#cicapital').change(function () {
                 var total = 0.0;
                 total = total + parseFloat($('#cipieceprice').val());
@@ -1096,7 +1057,6 @@
                 $('#citotal').val(total);
             });
 
-
             $('#FRisk1').change(function () {
                 var total = parseInt($('#FRisk8').val());
 
@@ -1150,7 +1110,6 @@
                     total = total - 1;
                     $('#FRisk8').val(total);
                 }
-
             });
             $('#FRisk5').change(function () {
                 var total = parseInt($('#FRisk8').val());
@@ -1194,54 +1153,6 @@
 
             });
         });
-
-        /*
-
-                                    response.r1.ID
-                                    response.r1.NivelRiesgo
-                                    response.r1.TipoCambio
-                                    response.r1.commcliente
-                                    response.r1.Arplanta
-                                    response.r1.Aringenieria
-                                    response.r1.Armanufactura
-                                    response.r1.Arcalidad
-                                    response.r1.Arfinanzas
-                                    response.r1.Arcompras
-                                    response.r1.Armateriales
-                                    response.r1.Armantenimiento
-                                    response.r1.Arseguridad
-                                    response.r1.Arambiental
-                                    response.r1.Artooling
-                                    response.r1.Arestampado
-                                    response.r1.Arsoldadura
-                                    response.r1.Arcromo
-                                    response.r1.Arpintura
-                                    response.r1.Arensamble
-                                    response.r1.Ppap
-                                    response.r1.Drw
-                                    response.r1.Spec
-                                    response.r1.Pfd
-                                    response.r1.Pfmea
-                                    response.r1.Sw
-                                    response.r1.Pcp
-                                    response.r1.Is
-                                    response.r1.Msa
-                                    response.r1.Ps
-                                    response.r1.Sccc
-                                    response.r1.Pl
-                                    response.r1.Cpo
-                                    response.r1.Spo
-                                    response.r1.Imds
-                                    response.r1.Im
-                                    response.r1.Bom
-                                    response.r1.Pr
-                                    response.r1.Mss
-                                    response.r1.Va
-                                    response.r1.Sm
-                                    response.r1.Ptr
-                                    response.r1.Pdr
-        */
-
     </script>
 }
 
