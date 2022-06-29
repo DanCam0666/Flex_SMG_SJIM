@@ -1,56 +1,24 @@
-﻿using Flex_SGM.Models;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity;
 using System.Linq;
-using System.Net;
 using System.Threading.Tasks;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Flex_SGM.Models;
 
 namespace Flex_SGM.Controllers
 {
-    public class IngenieriaController : Controller
+    public class SugerenciasController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-        private ApplicationUserManager _userManager;
-        public ApplicationUserManager UserManager
-        {
-            get
-            {
-                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
-            }
-            private set
-            {
-                _userManager = value;
-            }
-        }
-
 
         // GET: Sugerencias
         public async Task<ActionResult> Index()
         {
-            var id = User.Identity.GetUserId();
-            ApplicationUser currentUser = UserManager.FindById(id);
-            string cuser = "xxx";
-            string cpuesto = "xxx";
-            string cuare = "xxx";
-            if (currentUser != null)
-            {
-                cuser = currentUser.UserFullName;
-                cpuesto = currentUser.Puesto;
-                cuare = currentUser.Area;
-            }
-            ViewBag.uarea = cuare;
-            ViewBag.cuser = cuser;
-            if (cpuesto.Contains("Supervisor") || cpuesto.Contains("Asistente") || cpuesto.Contains("Superintendente") || cpuesto.Contains("Gerente"))
-                ViewBag.super = true;
-            else
-                ViewBag.super = false;
-
-            return View();
+            return View(await db.Sugerencias.ToListAsync());
         }
 
         // GET: Sugerencias/Details/5
@@ -69,7 +37,7 @@ namespace Flex_SGM.Controllers
         }
 
         // GET: Sugerencias/Create
-        public ActionResult Sugerencias()
+        public ActionResult Create()
         {
             return View();
         }
@@ -79,7 +47,7 @@ namespace Flex_SGM.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Sugerencias([Bind(Include = "ID,DiaHora,Usuario,Muy_Bien,Bien,Mediocre,Mal,Muy_Mal,Comentarios")] Sugerencias sugerencias)
+        public async Task<ActionResult> Create([Bind(Include = "ID,DiaHora,Usuario,Muy_Bien,Bien,Mediocre,Mal,Muy_Mal,Comentarios")] Sugerencias sugerencias)
         {
             if (ModelState.IsValid)
             {

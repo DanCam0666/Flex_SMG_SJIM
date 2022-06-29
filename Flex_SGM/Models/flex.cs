@@ -23,7 +23,7 @@ namespace Flex_SGM.Models
     }
     public enum flex_Areas
     {
-        Ingenieria, Manufactura, Calidad, Finanzas, Compras, Materiales, Mantenimiento, Seguridad, Ambiental, Tooling, Servicios, Estampado, MetalFinish, Cromo1, Cromo2, AutoPulido1, AutoPulido2, Ecoat, Topcoat, Soldadura, Ensamble, Automatizacion, FlexNGate
+        Ingenieria, Manufactura, Calidad, Finanzas, Compras, Materiales, Mantenimiento, Produccion, Seguridad, Ambiental, Tooling, Servicios, Estampado, MetalFinish, Cromo1, Cromo2, AutoPulido1, AutoPulido2, Ecoat, Topcoat, Soldadura, Ensamble, Automatizacion, FlexNGate
     }
     public enum flex_Puesto
     {

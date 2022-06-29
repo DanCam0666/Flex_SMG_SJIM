@@ -132,8 +132,8 @@ namespace Flex_SGM.emaildata
             {
                 var bodyb = new StringBuilder();
                 bodyb.AppendFormat("El usuario {0} Genero un PCR!", usuario);
-                bodyb.AppendLine(@"<p>El numero de PCR es: " + comment + " </p>");
-                var link = @"http://sjimsvap7/bitacora/pcrs/Details/" + id;
+                bodyb.AppendLine(@"<b>El numero de PCR es: " + comment + " </b>");
+                var link = @"http://sjimsvap7/bitacora/PCRs/Review/" + id;
                 bodyb.AppendLine("<p><a href=\"" + link+ "\" >"+link+ "</a></p>");
                 bodyb.AppendLine(@"<p>Recuerda Verificar los PCRs! </p>");
                 bodyb.AppendLine(@"<i>No responder a este correo | Do not reply to this email </i>");
@@ -145,7 +145,7 @@ namespace Flex_SGM.emaildata
 
                 }
                 message.From = new MailAddress("SJIMBitacora@flexngate.com"); 
-                message.Subject = "Informacion Bitacora, No Responder a este Correo";
+                message.Subject = "Nuevo PCR para su revisión";
                 message.IsBodyHtml = true;
                 message.Body = bodyb.ToString();
                 message.IsBodyHtml = true;
@@ -161,17 +161,17 @@ namespace Flex_SGM.emaildata
             catch (Exception Ex) { var x = Ex; }
         }
 
-        public void newReview(string[] Correo, string usuario, string comment, string id)
+        public void newReview(string[] Correo, string usuario, string comment, string id, string departamento)
         {
             try
             {
                 var bodyb = new StringBuilder();
                 bodyb.AppendFormat("El usuario {0} Genero un PCR!", usuario);
-                bodyb.AppendLine(@"<p>El numero de PCR es: " + comment + " </p>");
+                bodyb.AppendLine(@"<b>El numero de PCR es: " + comment + " </b>");
                 bodyb.AppendLine(@"<p>En el siguiente link podras autorizar el PCR:</p>");
-                var link = @"http://sjimsvap7/bitacora/pcrs/Review/" + id;
+                var link = @"http://sjimsvap7/bitacora/PCRs/Review/" + id;
                 bodyb.AppendLine("<p><a href=\"" + link + "\" >" + link + "</a></p>");
-                bodyb.AppendLine(@"<p>Al autorizar el PCR se confirmara en el departamento correspondiente</p>");
+                bodyb.AppendLine(@"<b>Al autorizar el PCR, será autorizado por el departamento de " + departamento + ".</b>");
                 bodyb.AppendLine(@"<p>Recuerda Verificar los PCRs! </p>");
                 bodyb.AppendLine(@"<i>No responder a este correo | Do not reply to this email </i>");
 
@@ -181,7 +181,7 @@ namespace Flex_SGM.emaildata
                     message.To.Add(new MailAddress(corr));
                 }
                 message.From = new MailAddress("SJIMBitacora@flexngate.com"); 
-                message.Subject = "Informacion Bitacora, No Responder a este Correo";
+                message.Subject = "Nuevo PCR esperando su aprobación";
                 message.IsBodyHtml = true;
                 message.Body = bodyb.ToString();
                 message.IsBodyHtml = true;

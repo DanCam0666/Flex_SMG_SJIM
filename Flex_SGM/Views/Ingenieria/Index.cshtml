@@ -1,37 +1,106 @@
-﻿@model IEnumerable<Flex_SGM.Models.CDockaudit>
+﻿@model Flex_SGM.Models.Sugerencias
 @{
     ViewBag.Title = "Ingenieria";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
+<br />
 <Center class="clearfix">
     <div class="x_panel" style="background-color: #edf3f9; border-color:darkgray; width: 30%">
         <h4>VER / CREAR / EDITAR / ELIMINAR LOS PCRs</h4>
         <hr style="background-color: darkgray" />
         <br>
-        <div>@Html.ActionLink("PCRs", "Index", "pcrs", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();", @class = "btn btn-primary" })</div>
+        <div>@Html.ActionLink("PCRs", "Index", "PCRs", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();", @class = "btn btn-primary" })</div>
         <br>
     </div>
 </Center>
-<Center class="clearfix">
-    <div class="x_panel" style="background-color: #edf3f9; border-color: darkgray; width: 30%; align-content:center">
-        <h4>CONFIGURACIONES</h4>
-        <hr style="background-color: darkgray" />
-        <br>
-        <div>@Html.ActionLink("PCR Reasons", "Index", "ereasons", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();", @class = "btn btn-primary" })</div>
-        <br>
-        <div>@Html.ActionLink("PCR Matriz de Decisión", "Index", "MatrizDecisions", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();", @class = "btn btn-primary" })</div>
-        <br>
-        <div>@Html.ActionLink("PCR Originators", "Index", "eoriginators", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();", @class = "btn btn-primary" })</div>
-        <br>
-        <div>@Html.ActionLink("Clientes", "Index", "eClientes", null, htmlAttributes: new { @class = "btn btn-primary", @onclick = "$('#loadingImg').show();" })</div>
-        <br>
-        <div>@Html.ActionLink("Proyectos", "Index", "eProyectos", null, htmlAttributes: new { @class = "btn btn-primary", @onclick = "$('#loadingImg').show();" })</div>
-        <br>
-        <div>@Html.ActionLink("Areas", "Index", "eAreas", null, htmlAttributes: new { @class = "btn btn-primary", @onclick = "$('#loadingImg').show();" })</div>
-        <br>
-        <hr />
+@if (ViewBag.super)
+{ 
+    <Center class="clearfix">
+        <div class="x_panel" style="background-color: #edf3f9; border-color: darkgray; width: 30%; align-content:center">
+            <h4>CONFIGURACIONES</h4>
+            <hr style="background-color: darkgray" />
+            <br>
+            <div>@Html.ActionLink("PCR Reasons", "Index", "ereasons", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();", @class = "btn btn-primary" })</div>
+            <br>
+            <div>@Html.ActionLink("PCR Matriz de Decisión", "Index", "MatrizDecisions", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();", @class = "btn btn-primary" })</div>
+            <br>
+            <div>@Html.ActionLink("PCR Originators", "Index", "eoriginators", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();", @class = "btn btn-primary" })</div>
+            <br>
+            <div>@Html.ActionLink("Clientes", "Index", "eClientes", null, htmlAttributes: new { @class = "btn btn-primary", @onclick = "$('#loadingImg').show();" })</div>
+            <br>
+            <div>@Html.ActionLink("Proyectos", "Index", "eProyectos", null, htmlAttributes: new { @class = "btn btn-primary", @onclick = "$('#loadingImg').show();" })</div>
+            <br>
+            <div>@Html.ActionLink("Areas", "Index", "eAreas", null, htmlAttributes: new { @class = "btn btn-primary", @onclick = "$('#loadingImg').show();" })</div>
+            <br>
+            <br>
+            <hr />
+        </div>
+    </Center>
+}
+@*Modal: modalPoll*@ 
+    <div class="modal right fade" id="modalPoll" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true" data-backdrop="false">
+        <div class="modal-dialog modal-notify modal-info" role="document">
+            <div class="modal-content" style="background-color: #edf3f9">
+                <div>
+                    <div class="modal-header bg-primary">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true" class="white-text">&#x274C</span>
+                        </button>
+                        <center class="heading lead" style="margin-left: 70px; font-size: x-large">
+                            Solicitud de Comentarios
+                        </center>
+                    </div>
+                </div>
+                <div class="modal-body" style="color: #337ab7; text-align:left; margin-left: 30px">
+                    <div class="text-center">
+                        <i class="fa fa-file-text-o fa-4x mb-3 animated rotateIn"></i>
+                        <h3>
+                            <strong>Su Opinión Importa</strong>
+                        </h3>
+                        <p>
+                            ¿Tiene algunas ideas como mejorar esta aplicación?
+                            <strong>Da su opinión.</strong>
+                        </p>
+                    </div>
+                    <hr>
+                    <Radio>
+                        <fieldset>
+                            <legend style="text-align: center; color: #337ab7;">Su Clalificación</legend>
+                            <div style="margin-left: 160px" class="col-md-12">
+                                <input type="radio" name="type" id="Muy_Bien" value="Muy_Bien" checked /><label for="Muy_Bien">&nbsp; Muy Bien</label><br />
+                                <input type="radio" name="type" id="Bien" value="Bien" /><label for="Bien">&nbsp; Bien</label><br />
+                                <input type="radio" name="type" id="Mediocre" value="Mediocre" /><label for="Mediocre">&nbsp; Mediocre</label><br />
+                                <input type="radio" name="type" id="Mal" value="Mal" /><label for="Mal">&nbsp; Mal</label><br />
+                                <input type="radio" name="type" id="Muy_Mal" value="Muy_Mal" /><label for="Muy_Mal">&nbsp; Muy Mal</label><br />
+                            </div>
+                            <hr />
+                        </fieldset>
+                    </Radio>
+                    <h4 class="text-center">
+                        <strong>¿Qué podríamos mejorar?</strong>
+                    </h4>
+                    <hr />
+                    @*Basic text area*@
+                    @Html.LabelFor(model => model.Comentarios, "Sus Comentarios", htmlAttributes: new { @class = "control-label col-md-12" })
+                    <div class="col-md-11">
+                        @Html.TextAreaFor(model => model.Comentarios, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Comentarios, "", new { @class = "text-danger" })
+                    </div>
+                    <br />
+                    <br />
+                    <hr />
+                    <div class="modal-footer justify-content-center">
+                        <a button id="submit" data-bind="modalPoll" class="btn btn-primary waves-effect waves-light">
+                            Enviar
+                            <i class="fa fa-paper-plane ml-1"></i>
+                        </a>
+                        <a button class="btn btn-default waves-effect" data-dismiss="modal">Cancelar</a>
+                        <br />
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</Center>
-
+ @*Modal: modalPoll*@ 

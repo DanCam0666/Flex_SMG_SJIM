@@ -27,7 +27,7 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.msg)
-            </th>           
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -51,11 +51,14 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.msg)
-                </td>               
+                </td>
             </tr>
         }
     </tbody>
 </table>
+<div>
+    @Html.ActionLink("Regresar a la Lista", "Index")
+</div>
 
 
 @section Scripts {

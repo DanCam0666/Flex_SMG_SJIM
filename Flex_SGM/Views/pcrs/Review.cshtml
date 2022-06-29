@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<h2>Revisión</h2>
 
 @Html.AntiForgeryToken()
 
@@ -12,117 +12,86 @@
     <div class="form-horizontal clearfix">
         <h2>Planning Phase PCR</h2>
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
-
-
         @Html.HiddenFor(model => model.Status)
         <div class="x_panel clearfix">
             <div class="x_title  clearfix">
                 <h3>Product/Process Change Request <small> PCR -    @Html.DisplayFor(model => model.PCRID)</small></h3>
-
             </div>
-
             <div class="x_content">
-
                 <div class="form-group col-md-4">
                     @Html.DisplayNameFor(model => model.Originator)
                     <div class="col-md-10">
-
                         @Html.EditorFor(model => model.Originator, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-
                     </div>
                 </div>
-
                 <div class="form-group col-md-4">
                     @Html.LabelFor(model => model.Department, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
                         @Html.EditorFor(model => model.Department, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-
                     </div>
                 </div>
-
                 <div class="form-group col-md-4">
                     @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
                         @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control", id = "dtc1", @readonly = "readonly" } })
-
                     </div>
                 </div>
-
                 <div class="form-group col-md-4">
                     @Html.LabelFor(model => model.ClientesID, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
                         @Html.EditorFor(model => model.Clientes.Cliente, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-
                     </div>
                 </div>
-
                 <div class="form-group col-md-4">
                     @Html.LabelFor(model => model.ProyectosID, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
                         @Html.EditorFor(model => model.Proyectos.Proyecto, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-
                     </div>
                 </div>
-
                 <div class="form-group col-md-4">
                     @Html.LabelFor(model => model.ReasonID, htmlAttributes: new { @class = "control-label col-md-2", @readonly = "readonly" })
                     <div class="col-md-10">
                         @Html.EditorFor(model => model.Reason.Reason, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-
                     </div>
                 </div>
-
                 <div class="form-group col-md-8">
                     @Html.LabelFor(model => model.PartNumber, htmlAttributes: new { @class = "control-label col-md-2", @readonly = "readonly" })
                     <div class="col-md-8">
                         @Html.EditorFor(model => model.PartNumber, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-
                     </div>
                 </div>
-
                 <div class="form-group col-md-4">
                     @Html.LabelFor(model => model.RevLevel, htmlAttributes: new { @class = "control-label col-md-2", @readonly = "readonly" })
                     <div class="col-md-8">
                         @Html.EditorFor(model => model.RevLevel, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-
                     </div>
                 </div>
-
                 <div class="form-group col-md-12">
                     @Html.LabelFor(model => model.PartName, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-8">
                         @Html.EditorFor(model => model.PartName, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-
                     </div>
                 </div>
             </div>
         </div>
-
         <div class="col-md-8">
             <div class="x_panel clearfix">
                 <div class="x_title  clearfix">
                     <h3>Description of Change <small> PCR</small></h3>
                 </div>
                 <div class="x_content">
-
-
                     <div class="form-group">
                         @Html.LabelFor(model => model.docreason, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
                             @Html.TextAreaFor(model => model.docreason, 12, 20, new { @class = "form-control", @readonly = "readonly" })
-
                         </div>
                     </div>
-
                     <div class="form-group">
                         @Html.LabelFor(model => model.docscope, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
                             @Html.TextAreaFor(model => model.docscope, 22, 20, new { @class = "form-control", @readonly = "readonly" })
-
                         </div>
                     </div>
-
                     <div class="form-group">
                         @Html.LabelFor(model => model.MatrizDecisionID, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
@@ -138,230 +107,171 @@
                 </div>
             </div>
         </div>
-
         <div class="col-md-4">
-
-
             <div class="x_panel clearfix">
                 <div class="x_title  clearfix">
                     <h3>Cost Impact <small> PCR</small></h3>
                 </div>
-                <div class="x_content">
-
+                <div class="x_content" style="min-height: 843px">
                     <div class="form-group">
                         @Html.LabelFor(model => model.cipieceprice, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
                             @Html.EditorFor(model => model.cipieceprice, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-
                         </div>
                     </div>
-
                     <div class="form-group">
                         @Html.LabelFor(model => model.cicapital, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
                             @Html.EditorFor(model => model.cicapital, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-
                         </div>
                     </div>
-
                     <div class="form-group">
                         @Html.LabelFor(model => model.citooling, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
                             @Html.EditorFor(model => model.citooling, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-
                         </div>
                     </div>
-
                     <div class="form-group">
                         @Html.LabelFor(model => model.ciengineering, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
                             @Html.EditorFor(model => model.ciengineering, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-
                         </div>
                     </div>
-
                     <div class="form-group">
                         @Html.LabelFor(model => model.cipackaging, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
                             @Html.EditorFor(model => model.cipackaging, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-
                         </div>
                     </div>
-
                     <div class="form-group">
                         @Html.LabelFor(model => model.ciobsolescence, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
                             @Html.EditorFor(model => model.ciobsolescence, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-
                         </div>
                     </div>
-
                     <div class="form-group">
                         @Html.LabelFor(model => model.cimaterial, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
                             @Html.EditorFor(model => model.cimaterial, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-
                         </div>
                     </div>
-
                     <div class="form-group">
                         @Html.LabelFor(model => model.cifreight, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
                             @Html.EditorFor(model => model.cifreight, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-
                         </div>
                     </div>
-
                     <div class="form-group">
                         @Html.LabelFor(model => model.ciovertime, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
                             @Html.EditorFor(model => model.ciovertime, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-
                         </div>
                     </div>
-
                     <div class="form-group">
                         @Html.LabelFor(model => model.ciother, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
                             @Html.EditorFor(model => model.ciother, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-
                         </div>
                     </div>
-
                     <div class="form-group">
                         @Html.LabelFor(model => model.citotal, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
                             @Html.EditorFor(model => model.citotal, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-
                         </div>
                     </div>
-
                     <div class="form-group">
                         @Html.LabelFor(model => model.crannualvolume, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
                             @Html.EditorFor(model => model.crannualvolume, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-
                         </div>
                     </div>
-
                     <div class="form-group">
                         @Html.LabelFor(model => model.crcapacityfng, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
                             @Html.EditorFor(model => model.crcapacityfng, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-
                         </div>
                     </div>
-
                     <div class="form-group">
                         @Html.LabelFor(model => model.crcapacitysupplier, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
                             @Html.EditorFor(model => model.crcapacitysupplier, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-
                         </div>
                     </div>
-
                 </div>
             </div>
-
         </div>
-
         <div class="form-group col-md-7">
             @Html.LabelFor(model => model.Reviewedby, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Reviewedby, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-
             </div>
         </div>
-
         <div class="form-group col-md-4">
             @Html.LabelFor(model => model.Reviewedby_date, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @if (Model.Reviewedby_date == null)
                 {
                     @Html.Editor("WatingforReview", new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-
                 }
                 else
                 {
                     @Html.EditorFor(model => model.Reviewedby_date, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-
                 }
-
             </div>
         </div>
-
         <div class="col-md-5">
-
             <div class="x_panel clearfix">
                 <div class="x_title clearfix">
                     <h3>Support <small> PCR</small></h3>
                 </div>
-                <div class="x_content">
-
-
+                <div class="x_content" style="min-height: 436px">
                     <div class="col-md-6">
-
                         <div class="form-group">
                             @Html.LabelFor(model => model.support_purchasing, htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-6">
                                 @Html.EditorFor(model => model.support_purchasing, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-
                             </div>
                         </div>
-
                         <div class="form-group">
                             @Html.LabelFor(model => model.support_materials, htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-6">
                                 @Html.EditorFor(model => model.support_materials, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-
                             </div>
                         </div>
-
                         <div class="form-group">
                             @Html.LabelFor(model => model.support_maintenance, htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-6">
                                 @Html.EditorFor(model => model.support_maintenance, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-
                             </div>
                         </div>
-
                         <div class="form-group">
                             @Html.LabelFor(model => model.support_automation, htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-6">
                                 @Html.EditorFor(model => model.support_automation, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-
                             </div>
                         </div>
-
                         <div class="form-group">
                             @Html.LabelFor(model => model.support_quality, htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-6">
                                 @Html.EditorFor(model => model.support_quality, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-
                             </div>
                         </div>
-
                         <div class="form-group">
                             @Html.LabelFor(model => model.support_safety, htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-6">
                                 @Html.EditorFor(model => model.support_safety, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-
                             </div>
                         </div>
-
                         <div class="form-group">
                             @Html.LabelFor(model => model.support_environmental, htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-6">
                                 @Html.EditorFor(model => model.support_environmental, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-
                             </div>
                         </div>
-
                         <div class="form-group">
                             @Html.LabelFor(model => model.support_tooling, htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-6">
                                 @Html.EditorFor(model => model.support_tooling, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-
                             </div>
                         </div>
                     </div>
@@ -370,235 +280,174 @@
                             @Html.LabelFor(model => model.support_stamping, htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-6">
                                 @Html.EditorFor(model => model.support_stamping, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-
                             </div>
                         </div>
-
                         <div class="form-group">
                             @Html.LabelFor(model => model.support_welding, htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-6">
                                 @Html.EditorFor(model => model.support_welding, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-
                             </div>
                         </div>
-
                         <div class="form-group">
                             @Html.LabelFor(model => model.support_chrome, htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-6">
                                 @Html.EditorFor(model => model.support_chrome, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-
                             </div>
                         </div>
-
                         <div class="form-group">
                             @Html.LabelFor(model => model.support_ecoat, htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-6">
                                 @Html.EditorFor(model => model.support_ecoat, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-
                             </div>
                         </div>
-
                         <div class="form-group">
                             @Html.LabelFor(model => model.support_topcoat, htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-6">
                                 @Html.EditorFor(model => model.support_topcoat, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-
                             </div>
                         </div>
-
                         <div class="form-group">
                             @Html.LabelFor(model => model.support_backcoat, htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-6">
                                 @Html.EditorFor(model => model.support_backcoat, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-
                             </div>
                         </div>
-
                         <div class="form-group">
                             @Html.LabelFor(model => model.support_assembly, htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-6">
-                                @Html.EditorFor(model => model.support_assembly, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-                                @Html.ValidationMessageFor(model => model.support_assembly, "", new { @class = "text-danger" })
+                                @Html.EditorFor(model => model.support_assembly, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })                                @Html.ValidationMessageFor(model => model.support_assembly, "", new { @class = "text-danger" })
                             </div>
                         </div>
-
                         <div class="form-group">
                             @Html.LabelFor(model => model.support_finance, htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-6">
                                 @Html.EditorFor(model => model.support_finance, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
-
         </div>
-
         <div class="col-md-3">
-
             <div class="x_panel clearfix">
                 <div class="x_title clearfix">
                     <h3>Key Milestones <small> PCR</small></h3>
                 </div>
                 <div class="x_content">
-
                     <div class="form-group">
                         @Html.LabelFor(model => model.Keymilestones_buildmrd1, htmlAttributes: new { @class = "control-label col-md-3" })
                         <div class="col-md-8">
                             @Html.EditorFor(model => model.Keymilestones_buildmrd1, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-
                         </div>
                     </div>
-
                     <div class="form-group">
                         @Html.LabelFor(model => model.Keymilestones_buildmrd2, htmlAttributes: new { @class = "control-label col-md-3" })
                         <div class="col-md-8">
                             @Html.EditorFor(model => model.Keymilestones_buildmrd2, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-
                         </div>
                     </div>
-
                     <div class="form-group">
                         @Html.LabelFor(model => model.Keymilestones_buildmrd3, htmlAttributes: new { @class = "control-label col-md-3" })
                         <div class="col-md-8">
                             @Html.EditorFor(model => model.Keymilestones_buildmrd3, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-
                         </div>
                     </div>
-
                     <div class="form-group">
                         @Html.LabelFor(model => model.Keymilestones_customrrar, htmlAttributes: new { @class = "control-label col-md-3" })
                         <div class="col-md-8">
                             @Html.EditorFor(model => model.Keymilestones_customrrar, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-
                         </div>
                     </div>
-
                     <div class="form-group">
                         @Html.LabelFor(model => model.Keymilestones_ppap, htmlAttributes: new { @class = "control-label col-md-3" })
                         <div class="col-md-8">
                             @Html.EditorFor(model => model.Keymilestones_ppap, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-
                         </div>
                     </div>
-
                     <div class="form-group">
                         @Html.LabelFor(model => model.Keymilestones_internalsop, htmlAttributes: new { @class = "control-label col-md-3" })
                         <div class="col-md-8">
                             @Html.EditorFor(model => model.Keymilestones_internalsop, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-
                         </div>
                     </div>
-
                     <div class="form-group">
                         @Html.LabelFor(model => model.Keymilestones_customersop, htmlAttributes: new { @class = "control-label col-md-3" })
                         <div class="col-md-8">
                             @Html.EditorFor(model => model.Keymilestones_customersop, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-
                         </div>
                     </div>
-
                     <div class="form-group">
                         @Html.LabelFor(model => model.Keymilestones_closure, htmlAttributes: new { @class = "control-label col-md-3" })
                         <div class="col-md-8">
                             @Html.EditorFor(model => model.Keymilestones_closure, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-
                         </div>
                     </div>
-
                 </div>
             </div>
-
-
-
         </div>
-
         <div class="col-md-3">
-
             <div class="x_panel clearfix">
                 <div class="x_title clearfix">
                     <h3>Estimated Lead Time <small> PCR</small></h3>
                 </div>
-                <div class="x_content">
-
+                <div class="x_content" style="min-height: 436px">
                     <div class="form-group">
                         @Html.LabelFor(model => model.leadtime_engineering, htmlAttributes: new { @class = "control-label col-md-3" })
                         <div class="col-md-8">
                             @Html.EditorFor(model => model.leadtime_engineering, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-
                         </div>
                     </div>
-
                     <div class="form-group">
                         @Html.LabelFor(model => model.leadtime_tooling, htmlAttributes: new { @class = "control-label col-md-3" })
                         <div class="col-md-8">
                             @Html.EditorFor(model => model.leadtime_tooling, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-
                         </div>
                     </div>
-
                     <div class="form-group">
                         @Html.LabelFor(model => model.leadtime_facilities, htmlAttributes: new { @class = "control-label col-md-3" })
                         <div class="col-md-8">
                             @Html.EditorFor(model => model.leadtime_facilities, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-
                         </div>
                     </div>
-
                     <div class="form-group">
                         @Html.LabelFor(model => model.leadtime_capital, htmlAttributes: new { @class = "control-label col-md-3" })
                         <div class="col-md-8">
                             @Html.EditorFor(model => model.leadtime_capital, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-
                         </div>
                     </div>
-
                     <div class="form-group">
                         @Html.LabelFor(model => model.leadtime_material, htmlAttributes: new { @class = "control-label col-md-3" })
                         <div class="col-md-8">
                             @Html.EditorFor(model => model.leadtime_material, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-
                         </div>
                     </div>
-
                     <div class="form-group">
                         @Html.LabelFor(model => model.leadtime_inventory, htmlAttributes: new { @class = "control-label col-md-3" })
                         <div class="col-md-8">
                             @Html.EditorFor(model => model.leadtime_inventory, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-
                         </div>
                     </div>
-
                     <div class="form-group">
                         @Html.LabelFor(model => model.leadtime_approval, htmlAttributes: new { @class = "control-label col-md-3" })
                         <div class="col-md-8">
                             @Html.EditorFor(model => model.leadtime_approval, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-
                         </div>
                     </div>
-
                     <div class="form-group">
                         @Html.LabelFor(model => model.leadtime_totallt, htmlAttributes: new { @class = "control-label col-md-3" })
                         <div class="col-md-8">
                             @Html.EditorFor(model => model.leadtime_totallt, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-
                         </div>
                     </div>
-
-
                 </div>
             </div>
         </div>
-
         <br />
         <hr />
         <div class="col-md-6">
             <div class="x_panel clearfix">
                 <div class="x_title">
                     <h3>Feasbility Considerations <small> Management team to consider the question, not intended to be all inclisive in performing an evaluation.</small></h3>
-
                 </div>
                 <div class="x_content">
                     <div class="form-group">
@@ -606,232 +455,186 @@
                         <div class="col-md-2">
                             <div class="checkbox">
                                 @Html.DisplayFor(model => model.FConsiderations1, new { @class = "form-control", @readonly = "readonly" })
-
                             </div>
                         </div>
                     </div>
-
                     <div class="form-group">
                         @Html.LabelFor(model => model.FConsiderations2, htmlAttributes: new { @class = "control-label col-md-10" })
                         <div class="col-md-2">
                             <div class="checkbox">
                                 @Html.DisplayFor(model => model.FConsiderations2, new { @class = "form-control", @readonly = "readonly" })
-
                             </div>
                         </div>
                     </div>
-
                     <div class="form-group">
                         @Html.LabelFor(model => model.FConsiderations3, htmlAttributes: new { @class = "control-label col-md-10" })
                         <div class="col-md-2">
                             <div class="checkbox">
                                 @Html.DisplayFor(model => model.FConsiderations3, new { @class = "form-control", @readonly = "readonly" })
-
                             </div>
                         </div>
                     </div>
-
                     <div class="form-group">
                         @Html.LabelFor(model => model.FConsiderations4, htmlAttributes: new { @class = "control-label col-md-10" })
                         <div class="col-md-2">
                             <div class="checkbox">
                                 @Html.DisplayFor(model => model.FConsiderations4, new { @class = "form-control", @readonly = "readonly" })
-
                             </div>
                         </div>
                     </div>
-
                     <div class="form-group">
                         @Html.LabelFor(model => model.FConsiderations5, htmlAttributes: new { @class = "control-label col-md-10" })
                         <div class="col-md-2">
                             <div class="checkbox">
                                 @Html.DisplayFor(model => model.FConsiderations5, new { @class = "form-control", @readonly = "readonly" })
-
                             </div>
                         </div>
                     </div>
-
                     <div class="form-group">
                         @Html.LabelFor(model => model.FConsiderations6, htmlAttributes: new { @class = "control-label col-md-10" })
                         <div class="col-md-2">
                             <div class="checkbox">
                                 @Html.DisplayFor(model => model.FConsiderations6, new { @class = "form-control", @readonly = "readonly" })
-
                             </div>
                         </div>
                     </div>
-
                     <div class="form-group">
                         @Html.LabelFor(model => model.FConsiderations7, htmlAttributes: new { @class = "control-label col-md-10" })
                         <div class="col-md-2">
                             <div class="checkbox">
                                 @Html.DisplayFor(model => model.FConsiderations7, new { @class = "form-control", @readonly = "readonly" })
-
                             </div>
                         </div>
                     </div>
-
                     <div class="form-group">
                         @Html.LabelFor(model => model.FConsiderations8, htmlAttributes: new { @class = "control-label col-md-10" })
                         <div class="col-md-2">
                             <div class="checkbox">
                                 @Html.DisplayFor(model => model.FConsiderations8, new { @class = "form-control", @readonly = "readonly" })
-
                             </div>
                         </div>
                     </div>
-
                     <div class="form-group">
                         @Html.LabelFor(model => model.FConsiderations9, htmlAttributes: new { @class = "control-label col-md-10" })
                         <div class="col-md-2">
                             <div class="checkbox">
                                 @Html.DisplayFor(model => model.FConsiderations9, new { @class = "form-control", @readonly = "readonly" })
-
                             </div>
                         </div>
                     </div>
-
                     <div class="form-group">
                         @Html.LabelFor(model => model.FConsiderations10, htmlAttributes: new { @class = "control-label col-md-10" })
                         <div class="col-md-2">
                             <div class="checkbox">
                                 @Html.DisplayFor(model => model.FConsiderations10, new { @class = "form-control", @readonly = "readonly" })
-
                             </div>
                         </div>
                     </div>
-
                     <div class="form-group">
                         @Html.LabelFor(model => model.FConsiderations11, htmlAttributes: new { @class = "control-label col-md-10" })
                         <div class="col-md-2">
                             <div class="checkbox">
                                 @Html.DisplayFor(model => model.FConsiderations11, new { @class = "form-control", @readonly = "readonly" })
-
                             </div>
                         </div>
                     </div>
-
                     <div class="form-group">
                         @Html.LabelFor(model => model.FConsiderations12, htmlAttributes: new { @class = "control-label col-md-10" })
                         <div class="col-md-2">
                             <div class="checkbox">
                                 @Html.DisplayFor(model => model.FConsiderations12, new { @class = "form-control", @readonly = "readonly" })
-
                             </div>
                         </div>
                     </div>
-
                     <div class="form-group">
                         @Html.LabelFor(model => model.FConsiderations13, htmlAttributes: new { @class = "control-label col-md-10" })
                         <div class="col-md-2">
                             <div class="checkbox">
                                 @Html.DisplayFor(model => model.FConsiderations13, new { @class = "form-control", @readonly = "readonly" })
-
                             </div>
                         </div>
                     </div>
-
                     <div class="form-group">
                         @Html.LabelFor(model => model.FConsiderations14, htmlAttributes: new { @class = "control-label col-md-10" })
                         <div class="col-md-2">
                             <div class="checkbox">
                                 @Html.DisplayFor(model => model.FConsiderations14, new { @class = "form-control", @readonly = "readonly" })
-
                             </div>
                         </div>
                     </div>
-
                     <div class="form-group">
                         @Html.LabelFor(model => model.FConsiderations15, htmlAttributes: new { @class = "control-label col-md-10" })
                         <div class="col-md-2">
                             <div class="checkbox">
                                 @Html.DisplayFor(model => model.FConsiderations15, new { @class = "form-control", @readonly = "readonly" })
-
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
         <div class="col-md-6">
             <div class="x_panel clearfix">
                 <div class="x_title">
                     <h3>Risk Analysis Considerations. <small> Management team to consider the question, not intended to be all inclisive in performing an evaluation.</small></h3>
-
                 </div>
-                <div class="x_content">
-
+                <div class="x_content" style="min-height: 676px">
                     <div class="form-group">
                         @Html.LabelFor(model => model.FRisk1, htmlAttributes: new { @class = "control-label col-md-10" })
                         <div class="col-md-2">
                             <div class="checkbox">
                                 @Html.DisplayFor(model => model.FRisk1, new { @class = "form-control", @readonly = "readonly" })
-
                             </div>
                         </div>
                     </div>
-
                     <div class="form-group">
                         @Html.LabelFor(model => model.FRisk2, htmlAttributes: new { @class = "control-label col-md-10" })
                         <div class="col-md-2">
                             <div class="checkbox">
                                 @Html.DisplayFor(model => model.FRisk2, new { @class = "form-control", @readonly = "readonly" })
-
                             </div>
                         </div>
                     </div>
-
                     <div class="form-group">
                         @Html.LabelFor(model => model.FRisk3, htmlAttributes: new { @class = "control-label col-md-10" })
                         <div class="col-md-2">
                             <div class="checkbox">
                                 @Html.DisplayFor(model => model.FRisk3, new { @class = "form-control", @readonly = "readonly" })
-
                             </div>
                         </div>
                     </div>
-
                     <div class="form-group">
                         @Html.LabelFor(model => model.FRisk4, htmlAttributes: new { @class = "control-label col-md-10" })
                         <div class="col-md-2">
                             <div class="checkbox">
                                 @Html.DisplayFor(model => model.FRisk4, new { @class = "form-control", @readonly = "readonly" })
-
                             </div>
                         </div>
                     </div>
-
                     <div class="form-group">
                         @Html.LabelFor(model => model.FRisk5, htmlAttributes: new { @class = "control-label col-md-10" })
                         <div class="col-md-2">
                             <div class="checkbox">
                                 @Html.DisplayFor(model => model.FRisk5, new { @class = "form-control", @readonly = "readonly" })
-
                             </div>
                         </div>
                     </div>
-
                     <div class="form-group">
                         @Html.LabelFor(model => model.FRisk6, htmlAttributes: new { @class = "control-label col-md-10" })
                         <div class="col-md-2">
                             <div class="checkbox">
                                 @Html.DisplayFor(model => model.FRisk6, new { @class = "form-control", @readonly = "readonly" })
-
                             </div>
                         </div>
                     </div>
-
                     <div class="form-group">
                         @Html.LabelFor(model => model.FRisk7, htmlAttributes: new { @class = "control-label col-md-10" })
                         <div class="col-md-2">
                             <div class="checkbox">
                                 @Html.DisplayFor(model => model.FRisk7, new { @class = "form-control", @readonly = "readonly" })
-
                             </div>
                         </div>
                     </div>
-
                     <div class="form-group">
                         @Html.LabelFor(model => model.FRisk8, htmlAttributes: new { @class = "control-label col-md-10" })
                         <div class="col-md-2">
@@ -839,13 +642,11 @@
                             <label id="FRiskstring8"> </label>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 <div class="x_panel">
     <div class="x_title">
         <h2>@Html.DisplayFor(model => model.PCRID)</h2>
@@ -859,10 +660,8 @@
             <div class="pull-right">
                 <div>Seleccion de Revision</div>
                 <button class="btn btn-danger" value="Reject" onclick="seguro(this.value);">Rechazar...</button>
-
-                <button class="btn btn-warning" value="Review" onclick="seguro(this.value);">Se necesitan correcciones...</button>
-
-                <button class="btn btn-success" value="Accept" onclick="seguro(this.value);">Aceptar y continuar proceso...</button>
+                <button class="btn btn-warning" value="Arreglos" onclick="seguro(this.value);">Se necesitan correcciones...</button>
+                <button class="btn btn-success" value="Aceptar" onclick="seguro(this.value);">Aceptar y continuar proceso...</button>
             </div>
         </div>
     </div>
@@ -878,7 +677,7 @@
                 <h4 class="modal-title">PCR -@Html.DisplayFor(model => model.PCRID)</h4>
             </div>
             <div class="modal-body">
-                <p>Are you sure of <span id="res"></span> the PCR: @Html.DisplayFor(model => model.PCRID)?</p>
+                <p>¿Está serguro de que quieres <span id="res"></span> the PCR: @Html.DisplayFor(model => model.PCRID)?</p>
             </div>
             <div class="modal-footer">
                 <div class="col-xs-4">
@@ -887,7 +686,7 @@
                 <div class="col-xs-4">
                 </div>
                 <div class="col-xs-4">
-                    <button type="button" class="btn btn-success btn-block" onclick="seguro2()" data-dismiss="modal">Yes</button>
+                    <button type="button" class="btn btn-success btn-block" onclick="seguro2()" data-dismiss="modal">Si</button>
                 </div>
             </div>
         </div>
@@ -906,30 +705,21 @@
         var formData = new FormData($('form')[0]);
         function seguro(any)
         {
-
             y = any;
             $('#myModal').modal('show');
             $('#res').html(y);
         };
 
-
         function seguro2() {
             var msgi = $('#msg').val();
             var token = $("[name='__RequestVerificationToken']").val();
-            var url = "@Html.Raw(Url.Action("firma", "pcrs", new {id = "param-id", Response = "param-Response", datos = "param-datos", msg = "param-msg" }))";
+            var url = "@Html.Raw(Url.Action("Firma", "PCRs", new {id = "param-id", Response = "param-Response", datos = "param-datos", msg = "param-msg" }))";
             url = url.replace("param-id", @Model.ID).replace("param-Response", y).replace("param-msg", msgi).replace("param-datos", "Holo");
             $.post(url, { __RequestVerificationToken: token }, function (result) {
                 alert(result);
-                if (result == "Accept" || result == "Reject" || result == "Review")
-                   window.location.replace( '@Url.Action("Index", "pcrs")');
-
-
+                if (result == "Aceptar" || result == "Reject" || result == "Arreglos")
+                   window.location.replace( '@Url.Action("Index", "PCRs")');
             });
-
-
-
-
-
         };
 
         $(document).ready(function () {
@@ -942,7 +732,7 @@
          *        $.post(url,{ __RequestVerificationToken: token }, function (success) {
                     alert(success);
                    if (success == "Accept") {
-                          window.location.replace( 'Url.Action("Index", "pcrs")');
+                          window.location.replace( 'Url.Action("Index", "PCRs")');
                     }
 
             });
@@ -956,7 +746,7 @@
                 success: function (result) {
                     alert(result);
                     if (result == "Accept"||result == "Reject"||result == "Review") {
-                          window.location.replace( 'Url.Action("Index", "pcrs")');
+                          window.location.replace( 'Url.Action("Index", "PCRs")');
                     }}
             });
 

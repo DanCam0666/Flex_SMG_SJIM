@@ -1,0 +1,103 @@
+﻿@model Flex_SGM.Models.Sugerencias
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <!-- Modal: modalPoll -->
+    <div class="modal right fade" id="modalPoll" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true" data-backdrop="false">
+        <div class="modal-dialog modal-full-height modal-right modal-notify modal-info" role="document">
+            <div class="modal-content" style="background-color: #edf3f9">
+                <!--Header-->
+                <div class="modal-header" style="color: #337ab7">
+                    <p class="heading lead">
+                        Solicitud de Comentarios
+                    </p>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" class="white-text">×</span>
+                    </button>
+                </div>
+                <!--Body-->
+                <div class="modal-body" style="color: #337ab7; text-align:left; margin-left: 30px">
+                    <div class="text-center">
+                        <i class="fa fa-file-text-o fa-4x mb-3 animated rotateIn"></i>
+                        <p>
+                            <strong>Su Opinión Importa</strong>
+                        </p>
+                        <p>
+                            ¿Tiene algunas ideas como mejorar esta aplicación?
+                            <strong>Da su opinión.</strong>
+                        </p>
+                    </div>
+                    <hr>
+                    <!-- Radio -->
+                    <p class="text-center">
+                        <strong>Su Clasificación</strong>
+                    </p>
+                    <hr />
+                    <div class="form-radio">
+                        @Html.LabelFor(model => model.Muy_Bien, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="radio">
+                            @Html.EditorFor(model => model.Muy_Bien)
+                            @Html.ValidationMessageFor(model => model.Muy_Bien, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-radio">
+                        @Html.LabelFor(model => model.Bien, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="radio">
+                            @Html.EditorFor(model => model.Bien)
+                            @Html.ValidationMessageFor(model => model.Bien, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-radio">
+                        @Html.LabelFor(model => model.Mediocre, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="radio">
+                            @Html.EditorFor(model => model.Mediocre)
+                            @Html.ValidationMessageFor(model => model.Mediocre, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-radio">
+                        @Html.LabelFor(model => model.Mal, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="radio">
+                            @Html.EditorFor(model => model.Mal)
+                            @Html.ValidationMessageFor(model => model.Mal, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-radio">
+                        @Html.LabelFor(model => model.Muy_Mal, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="radio">
+                            @Html.EditorFor(model => model.Muy_Mal)
+                            @Html.ValidationMessageFor(model => model.Muy_Mal, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <!-- Radio -->
+                    <p class="text-center">
+                        <strong>¿Qué podríamos mejorar?</strong>
+                    </p>
+                    <hr />
+                    <!--Basic textarea-->
+                    @Html.LabelFor(model => model.Comentarios, "Sus Comentarios", htmlAttributes: new { @class = "control-label col-md-12" })
+                    <div class="col-md-11">
+                        @Html.TextAreaFor(model => model.Comentarios, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Comentarios, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <br />
+                <hr />
+                <!--Footer-->
+                <div class="modal-footer justify-content-center">
+                    <a button class="btn btn-primary waves-effect waves-light">
+                        Enviar
+                        <i class="fa fa-paper-plane ml-1"></i>
+                    </a>
+                    <a button class="btn btn-outline-primary waves-effect" data-dismiss="modal">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

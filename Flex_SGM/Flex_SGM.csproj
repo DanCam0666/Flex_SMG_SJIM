@@ -253,7 +253,7 @@
     <Compile Include="Controllers\OILsController.cs" />
     <Compile Include="Controllers\PackagingController.cs" />
     <Compile Include="Controllers\Parts_DeliveryController.cs" />
-    <Compile Include="Controllers\pcrsController.cs" />
+    <Compile Include="Controllers\PCRsController.cs" />
     <Compile Include="Controllers\PLMController.cs" />
     <Compile Include="Controllers\ProyectosController.cs" />
     <Compile Include="Controllers\Quality_HSController.cs" />
@@ -262,6 +262,7 @@
     <Compile Include="Controllers\Safety_HSController.cs" />
     <Compile Include="Controllers\ScrapController.cs" />
     <Compile Include="Controllers\SubClientesController.cs" />
+    <Compile Include="Controllers\SugerenciasController.cs" />
     <Compile Include="Controllers\TOC_HS_AuditsController.cs" />
     <Compile Include="Controllers\UserAdminController.cs" />
     <Compile Include="Controllers\Yellow_SheetsController.cs" />
@@ -275,6 +276,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Sugerencias.cs" />
     <Compile Include="Models\Metricos.cs" />
     <Compile Include="Models\Bitacora.cs" />
     <Compile Include="Models\CalendarioProye.cs" />
@@ -2858,13 +2860,13 @@
     <Content Include="Views\MatrizDecisions\Details.cshtml" />
     <Content Include="Views\MatrizDecisions\Edit.cshtml" />
     <Content Include="Views\MatrizDecisions\Index.cshtml" />
-    <Content Include="Views\pcrs\Create.cshtml" />
-    <Content Include="Views\pcrs\Delete.cshtml" />
-    <Content Include="Views\pcrs\Details.cshtml" />
-    <Content Include="Views\pcrs\Edit.cshtml" />
-    <Content Include="Views\pcrs\Index.cshtml" />
-    <Content Include="Views\pcrs\Review.cshtml" />
-    <Content Include="Views\pcrs\Signatures.cshtml" />
+    <Content Include="Views\PCRs\Create.cshtml" />
+    <Content Include="Views\PCRs\Delete.cshtml" />
+    <Content Include="Views\PCRs\Details.cshtml" />
+    <Content Include="Views\PCRs\Edit.cshtml" />
+    <Content Include="Views\PCRs\Index.cshtml" />
+    <Content Include="Views\PCRs\Review.cshtml" />
+    <Content Include="Views\PCRs\Signatures.cshtml" />
     <Content Include="Views\Bitacoras\Metricos4.cshtml" />
     <Content Include="Templates\TemplateMatrizdeReclamos.xlsx" />
     <Content Include="Views\Safety_HS\Create.cshtml" />
@@ -2992,6 +2994,13 @@
     <Content Include="Views\eProyectos\Details.cshtml" />
     <Content Include="Views\eProyectos\Edit.cshtml" />
     <Content Include="Views\eProyectos\Index.cshtml" />
+    <Content Include="Views\Sugerencias\Create.cshtml" />
+    <Content Include="Views\Sugerencias\Delete.cshtml" />
+    <Content Include="Views\Sugerencias\Details.cshtml" />
+    <Content Include="Views\Sugerencias\Edit.cshtml" />
+    <Content Include="Views\Sugerencias\Index.cshtml" />
+    <Content Include="Views\Ingenieria\Sugerencias.cshtml" />
+    <Content Include="Views\Shared\_Survey.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

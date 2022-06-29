@@ -1,11 +1,12 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html>
 <head>
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="x-ua-compatible"  content="IE=11" >
+    <meta http-equiv="x-ua-compatible" content="IE=11">
     <link rel="shortcut icon" href="~/favicon.ico">
     <title>@ViewBag.Title - Ingeniería</title>
     @Styles.Render("~/Content/css")
@@ -94,21 +95,24 @@
                 </div>
             </div>
 
-    </section>
-    <div class="container body-content clearfix">
-        @RenderBody()
-        <hr />
+        </section>
+        <div class="container body-content clearfix">
+            @RenderBody()
+            <hr />
 
-        <div class="Footer FooterLower clearfix">
-            <div class="container text-center">
-                <img src="~/img/Logos_small-07.png" class="Footerpadding-right">
-                Flex-N-Gate México, S. De R.L. De C.V. - &copy; @DateTime.Now.Year - Flex|N|Gate Mexico
-                <img src="~/img/Logos_small-05.png" class="Footerpadding-left"> <!-- <img src="img/Logos_small-06.png" class="Footerpadding-left"/> -->
+            <div class="Footer FooterLower clearfix">
+                <div class="container text-center">
+                    <img src="~/img/Logos_small-07.png" class="Footerpadding-right">
+                    Flex-N-Gate México, S. De R.L. De C.V. - &copy; @DateTime.Now.Year - Flex|N|Gate Mexico
+                    <img src="~/img/Logos_small-05.png" class="Footerpadding-left"> <!-- <img src="img/Logos_small-06.png" class="Footerpadding-left"/> -->
+                </div>
+            </div>
         </div>
     </section>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/fcj")
     @RenderSection("scripts", required: false)
+
 </body>
 </html>

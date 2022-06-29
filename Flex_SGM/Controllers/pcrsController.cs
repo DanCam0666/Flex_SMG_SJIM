@@ -16,7 +16,7 @@ using Microsoft.AspNet.Identity.Owin;
 namespace Flex_SGM.Controllers
 {
     [Authorize]
-    public class pcrsController : Controller
+    public class PCRsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
         private ApplicationUserManager _userManager;
@@ -34,10 +34,9 @@ namespace Flex_SGM.Controllers
 
         private EmailController correo = new EmailController();
         // export
-        private bool email = false;
         public FileResult ExportFormat(int? id)
         {
-            pcr pcrd = db.pcrs.Find(id);
+            pcr pcrd = db.PCRs.Find(id);
             var user = User.Identity;
 
             //******************************
@@ -121,24 +120,28 @@ namespace Flex_SGM.Controllers
             }
         }
 
-        // GET: pcrs  
+        // GET: PCRs  
         [AllowAnonymous]
         public ActionResult Index()
         {
             var uiid = User.Identity.GetUserId();
             ApplicationUser currentUser = db.Users.Where(w => w.Id == uiid).FirstOrDefault();
-      
 
             ViewBag.Admin = false;
             if (currentUser!=null)
             if (currentUser.Puesto.Contains("Gerente"))
             ViewBag.Admin = true;
 
-            var pcrs = db.pcrs.Include(p => p.Clientes).Include(p => p.MatrizDecision).Include(p => p.Proyectos).Include(p => p.Reason);
-            return View(pcrs.ToList());
+            var Id = User.Identity.GetUserId();
+            ApplicationUser CurrentUser = UserManager.FindById(Id);
+            ViewBag.Dep = CurrentUser.Departamento;   
+            ViewBag.Puesto = CurrentUser.Puesto;
+
+            var PCRs = db.PCRs.Include(p => p.Clientes).Include(p => p.MatrizDecision).Include(p => p.Proyectos).Include(p => p.Reason);
+            return View(PCRs.ToList());
         }
 
-        // GET: pcrs/Details/5
+        // GET: PCRs/Details/5
         [AllowAnonymous]
         public ActionResult Details(int? id)
         {
@@ -147,7 +150,7 @@ namespace Flex_SGM.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            pcr pcr = db.pcrs.Find(id);
+            pcr pcr = db.PCRs.Find(id);
             if (pcr == null)
             {
                 return HttpNotFound();
@@ -156,7 +159,7 @@ namespace Flex_SGM.Controllers
             return View(pcr);
         }
 
-        // GET: pcrs/Create
+        // GET: PCRs/Create
         public ActionResult Create()
         {
             var id = User.Identity.GetUserId();
@@ -219,7 +222,7 @@ namespace Flex_SGM.Controllers
             return Json(new { r1 = req }, JsonRequestBehavior.AllowGet);
         }
       
-        // POST: pcrs/Create
+        // POST: PCRs/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -228,32 +231,27 @@ namespace Flex_SGM.Controllers
         {
             var id = User.Identity.GetUserId();
             ApplicationUser currentUser = db.Users.Where(w => w.Id == id).FirstOrDefault();
-
-            var noPCRS = db.pcrs.Count();
+            var lastPCR = db.PCRs.Select(p => p.PCRID).ToList().LastOrDefault();
+            string lastPCRnum = lastPCR.Substring(7, 3);
+            int noPCRs = Int32.Parse(lastPCRnum);
+            //var noPCRs = db.PCRs.Count();
             var dt = DateTime.Now;
             string year= dt.ToString("yy");
             string month= dt.Month.ToString("00");
-
-            noPCRS = noPCRS + 1;
-            string PCRID = "SJI-"+ year + "-"+ noPCRS.ToString("000") + "-M";
+            noPCRs = noPCRs + 1;
+            string PCRID = "SJI-"+ year + "-"+ noPCRs.ToString("000") + "-M";
 
             if (ModelState.IsValid)
             {
-                pcr.Status = "In Review";
+                pcr.Status = "En Aprobación";
                 pcr.PCRID = PCRID;
-                db.pcrs.Add(pcr);
+                db.PCRs.Add(pcr);
                 db.SaveChanges();
-               var currpcr= db.pcrs.Where(w => w.PCRID == PCRID).FirstOrDefault();
+                var currpcr= db.PCRs.Where(w => w.PCRID == PCRID).FirstOrDefault();
                 string[] emails = { "dcamacho@flexngate.com", currentUser.Email};
-                string[] emailsa = { "dcamacho@flexngate.com", currentUser.Email };
-                if (email) { 
                 correo.newpcr(emails, currentUser.UserFullName, pcr.PCRID , currpcr.ID.ToString());
-
-                }
-                correo.newReview(emailsa, currentUser.UserFullName, pcr.PCRID, currpcr.ID.ToString());
                 return RedirectToAction("Index");
             }
-
     
             ViewBag.ClientesID = new SelectList(db.eClientes, "ID", "Cliente", pcr.ClientesID);
             ViewBag.MatrizDecisionID = new SelectList(db.MatrizDecisions, "ID", "TipoCambio", pcr.MatrizDecisionID);
@@ -265,18 +263,20 @@ namespace Flex_SGM.Controllers
         [Authorize(Roles = "Admin,Gerentes")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public string firma(int id, string Response,string msg, string datos)
+        public string Firma(int id, string Response,string msg, string datos)
         {
             var Id = User.Identity.GetUserId();
             ApplicationUser CurrentUser = UserManager.FindById(Id);
             string cuser = "xxx";
             string cpuesto = "xxx";
             string cuare = "xxx";
+            string cudep = "xxx";
             if (CurrentUser != null)
             {
                 cuser = CurrentUser.UserFullName;
                 cpuesto = CurrentUser.Puesto;
                 cuare = CurrentUser.Area;
+                cudep = CurrentUser.Departamento;
             }
 
             var uiid = User.Identity.GetUserId();
@@ -294,7 +294,7 @@ namespace Flex_SGM.Controllers
                 if (datos!=null&& msg!=null)
                 if (!string.IsNullOrEmpty(Response) && id != 0)
                 {
-                    pcr pcr = db.pcrs.Find(id);
+                    pcr pcr = db.PCRs.Find(id);
                     FeasibilitySigns sign = new FeasibilitySigns();
 
                     var signs = db.FeasibilitySigns.Where(w => w.pcrID == id);
@@ -307,133 +307,195 @@ namespace Flex_SGM.Controllers
 
                     switch (Response) 
                     {
-                        case ("Accept"):
+                        case ("Aceptar"):
+                                if (pcr.Status == "En Aprobación" && cudep == "Ingenieria" && cpuesto == "Gerente")
+                                {
+                                    pcr.Reviewedby = cuser;
+                                    pcr.Reviewedby_date = DateTime.Now;
+                                    pcr.Status = "Aprobado";
+                                    sign.msg = msg;
+                                    sign.Reviewedby_date = DateTime.Now;
+                                    sign.pcrID = id;
+                                    sign.Status = "Aprobado, esperando firmas";
+                                    sign.Reviewedby = cuser;
+                                    sign.Dep = currentUser.Departamento;
+                                    Id = id.ToString();
 
-                        if (pcr.Status == "In Review")
-                        {
-                            pcr.Reviewedby = cuser;
-                            pcr.Reviewedby_date = DateTime.Now;
-                            pcr.Status = "Aprobado";
-                            sign.msg = msg;
-                            sign.Reviewedby_date = DateTime.Now;
-                            sign.pcrID = id;
-                            sign.Status = "Aprobado, esperando firmas";
-                            sign.Reviewedby = cuser;
-                            sign.Dep = currentUser.Departamento;
-                            // Send the email to autorization personal 
-                        }
-                        else
-                        if (pcr.Status == "Aprobado")
-                        {
-                            pcr.Reviewedby = cuser;
-                            sign.msg = msg;
-                            sign.Reviewedby_date = DateTime.Now;
-                            sign.pcrID = id;
-                            sign.Status = "Aprobado";
-                            sign.Reviewedby = cuser;
-                            sign.Dep = currentUser.Departamento;
-                           
-                            switch (currentUser.Departamento)
-                            {
-                                case ("FlexNGate"):
 
-                                    break;
-                                case ("Ingenieria"):
-
-                                    break;
-                                case ("Manufactura"):
-
-                                    break;
-                                case ("Calidad"):
-
-                                    break;
-                                case ("Finanzas"):
-
-                                    break;
-                                case ("Compras"):
-
-                                    break;
-                                case ("Materiales"):
-
-                                    break;
-                                case ("Mantenimiento"):
-
-                                    break;
-                                case ("Seguridad"):
-
-                                    break;
-                                case ("Ambiental"):
-
-                                    break;
-                                case ("Tooling"):
-
-                                    break;
-                                case ("Estampado"):
-
-                                    break;
-                                case ("Soldadura"):
-
-                                    break;
-                                case ("Cromo"):
-
-                                    break;
-                                case ("Pintura"):
-
-                                    break;
-                                case ("Ensamble"):
-
-                                    break;
-                                default:
-
-                                    break;
-                            }
-                        }
-                        else
-                            pcr.Status = "In Review";
-
-                        break;
-                        case ("Changes"):
-                            if (pcr.Status == "In Review")
-                            {
-                                pcr.Reviewedby_date = DateTime.Now;
-                                pcr.Status = "Need fixes";
                                     // Send the email to autorization personal 
-                                //    foreach (var minisign in signs)
-                                //     {
-                                    //         if (minisign.Dep == currentUser.Departamento)
-                                    //             goto alreadysin;
-                                    //     }
+                                    var Managers = db.Users.ToList<ApplicationUser>();
+                                    var managersList = Managers.Where(m => m.Puesto == "Gerente").ToList();
 
+                                    foreach (var manager in managersList)
+                                    {
+                                        if (manager.Departamento == "Compras" && pcr.support_purchasing == "P")
+                                        {
+                                            string[] eMail = { manager.Email };
+                                            correo.newReview(eMail, currentUser.UserFullName, pcr.PCRID, Id, manager.Departamento);
+                                        }
+
+                                        if (manager.Departamento == "Materiales" && pcr.support_materials == "P")
+                                        {
+                                            string[] eMail = { manager.Email };
+                                            correo.newReview(eMail, currentUser.UserFullName, pcr.PCRID, Id, manager.Departamento);
+                                        }
+
+                                        if (manager.Departamento == "Mantenimiento" && (pcr.support_maintenance == "P" || pcr.support_automation == "P"))
+                                        {
+                                            string[] eMail = { manager.Email };
+                                            correo.newReview(eMail, currentUser.UserFullName, pcr.PCRID, Id, manager.Departamento);
+                                        }
+
+                                        if (manager.Departamento == "Calidad" && pcr.support_quality == "P")
+                                        {
+                                            string[] eMail = { manager.Email };
+                                            correo.newReview(eMail, currentUser.UserFullName, pcr.PCRID, Id, manager.Departamento);
+                                        }
+                                            
+                                        if (manager.Departamento == "Seguridad" && pcr.support_safety == "P")
+                                        {
+                                            string[] eMail = { manager.Email };
+                                            correo.newReview(eMail, currentUser.UserFullName, pcr.PCRID, Id, manager.Departamento);
+                                        }
+
+                                        if (manager.Departamento == "Ambiental" && pcr.support_environmental == "P")
+                                        {
+                                            string[] eMail = { manager.Email };
+                                            correo.newReview(eMail, currentUser.UserFullName, pcr.PCRID, Id, manager.Departamento);
+                                        }
+
+                                        if (manager.Departamento == "Tooling" && pcr.support_tooling == "P")
+                                        {
+                                            string[] eMail = { manager.Email };
+                                            correo.newReview(eMail, currentUser.UserFullName, pcr.PCRID, Id, manager.Departamento);
+                                        }
+
+                                        if (manager.Departamento == "Produccion" && (pcr.support_stamping == "P" || pcr.support_welding == "P" || pcr.support_chrome == "P" || 
+                                            pcr.support_ecoat == "P" || pcr.support_topcoat == "P" || pcr.support_backcoat == "P" || pcr.support_assembly == "P"))
+                                        {
+                                            string[] eMail = { manager.Email };
+                                            correo.newReview(eMail, currentUser.UserFullName, pcr.PCRID, Id, manager.Departamento);
+                                        }
+
+                                        if (manager.Departamento == "Finanzas" && pcr.support_finance == "P")
+                                        {
+                                            string[] eMail = { manager.Email };
+                                            correo.newReview(eMail, currentUser.UserFullName, pcr.PCRID, Id, manager.Departamento);
+                                        }
+                                    }
+                                }
+                                else
+                                if (pcr.Status == "Aprobado")
+                                {
+                                    pcr.Reviewedby = cuser;
                                     sign.msg = msg;
                                     sign.Reviewedby_date = DateTime.Now;
                                     sign.pcrID = id;
-                                    sign.Status = "Need fixes";
+                                    sign.Status = "Aprobado";
                                     sign.Reviewedby = cuser;
-                                    pcr.Reviewedby = cuser;
                                     sign.Dep = currentUser.Departamento;
-                                }
-                            else
-                            if (pcr.Status == "Aprobado")
-                            {
-                                pcr.Status = currentUser.Departamento+ " need fixes";
+                           
+                                    switch (currentUser.Departamento)
+                                    {
+                                        case ("FlexNGate"):
 
-                                    sign.msg = msg;
-                                    sign.Reviewedby_date = DateTime.Now;
-                                    sign.pcrID = id;
-                                    sign.Status = "Need fixes";
-                                    sign.Reviewedby = cuser;
-                                    pcr.Reviewedby = cuser;
-                                    sign.Dep = currentUser.Departamento;
+                                            break;
+                                        case ("Ingenieria"):
+
+                                            break;
+                                        case ("Manufactura"):
+
+                                            break;
+                                        case ("Calidad"):
+
+                                            break;
+                                        case ("Finanzas"):
+
+                                            break;
+                                        case ("Compras"):
+
+                                            break;
+                                        case ("Materiales"):
+
+                                            break;
+                                        case ("Mantenimiento"):
+
+                                            break;
+                                        case ("Seguridad"):
+
+                                            break;
+                                        case ("Ambiental"):
+
+                                            break;
+                                        case ("Tooling"):
+
+                                            break;
+                                        case ("Estampado"):
+
+                                            break;
+                                        case ("Soldadura"):
+
+                                            break;
+                                        case ("Cromo"):
+
+                                            break;
+                                        case ("Pintura"):
+
+                                            break;
+                                        case ("Ensamble"):
+
+                                            break;
+                                        default:
+
+                                            break;
+                                    }
                                 }
-                            else
-                                pcr.Status = "In Review";
-                            break;
-                        default:
-                            pcr.Status = currentUser.Departamento + " Cancel";
+                                else
+                                    pcr.Status = "En Aprobación";
+
+                                break;
+                        case ("Arreglos"):
+                                if (pcr.Status == "En Aprobación")
+                                {
+                                    pcr.Reviewedby_date = DateTime.Now;
+                                    pcr.Status = "Necesita Arreglos";
+                                        // Send the email to autorization personal 
+                                    //    foreach (var minisign in signs)
+                                    //     {
+                                        //         if (minisign.Dep == currentUser.Departamento)
+                                        //             goto alreadysin;
+                                        //     }
+
+                                        sign.msg = msg;
+                                        sign.Reviewedby_date = DateTime.Now;
+                                        sign.pcrID = id;
+                                        sign.Status = "Necesita Arreglos";
+                                        sign.Reviewedby = cuser;
+                                        pcr.Reviewedby = cuser;
+                                        sign.Dep = currentUser.Departamento;
+                                    }
+                                else
+                                if (pcr.Status == "Aprobado")
+                                {
+                                    pcr.Status = currentUser.UserFullName + " necesita arreglos";
+
+                                        sign.msg = msg;
+                                        sign.Reviewedby_date = DateTime.Now;
+                                        sign.pcrID = id;
+                                        sign.Status = "Necesita Arreglos";
+                                        sign.Reviewedby = cuser;
+                                        pcr.Reviewedby = cuser;
+                                        sign.Dep = currentUser.UserFullName;
+                                    }
+                                else
+                                    pcr.Status = "En Aprobación";
+                                break;
+                                default:
+                                pcr.Status = currentUser.UserFullName + " Canceló";
                                 sign.msg = msg;
                                 sign.Reviewedby_date = DateTime.Now;
                                 sign.pcrID = id;
-                                sign.Status = "Canceled";
+                                sign.Status = "Cancelado";
                                 sign.Reviewedby = cuser;
                                 pcr.Reviewedby = cuser;
                                 sign.Dep = currentUser.Departamento;
@@ -444,23 +506,22 @@ namespace Flex_SGM.Controllers
                         if(sign.pcrID!=0)
                     db.FeasibilitySigns.Add(sign);
                     db.SaveChanges();
-
                     return Response;
                 }
             }
-            return "Not allowed... nothing has changed...";
+            return "No permitido... nada ha cambiado...";
             alreadysin: 
-            return "your department has already signed this PCR ... ";
+            return "Su departamento ya ha firmado éste PCR ... ";
         }
-        // GET: pcrs/Edit/5
-        [Authorize(Roles = "Admin,Supervisor")]
+        // GET: PCRs/Edit/5
+        [Authorize(Roles = "Admin, Gerente")]
         public ActionResult Review(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            pcr pcr = db.pcrs.Find(id);
+            pcr pcr = db.PCRs.Find(id);
             if (pcr == null)
             {
                 return HttpNotFound();
@@ -474,7 +535,7 @@ namespace Flex_SGM.Controllers
             return View(pcr);
         }
 
-        // GET: pcrs/Details/5
+        // GET: PCRs/Details/5
         [AllowAnonymous]
         public ActionResult Signatures(int? id)
         {
@@ -492,7 +553,7 @@ namespace Flex_SGM.Controllers
             return View(signs.ToList());
         }
 
-        // GET: pcrs/Edit/5
+        // GET: PCRs/Edit/5
         [Authorize(Roles = "Admin,Gerentes")]
         public ActionResult Edit(int? id)
         {
@@ -500,7 +561,7 @@ namespace Flex_SGM.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            pcr pcr = db.pcrs.Find(id);
+            pcr pcr = db.PCRs.Find(id);
             if (pcr == null)
             {
                 return HttpNotFound();
@@ -514,7 +575,7 @@ namespace Flex_SGM.Controllers
             return View(pcr);
         }
 
-        // POST: pcrs/Edit/5
+        // POST: PCRs/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -536,14 +597,14 @@ namespace Flex_SGM.Controllers
             return View(pcr);
         }
 
-        // GET: pcrs/Delete/5
+        // GET: PCRs/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            pcr pcr = db.pcrs.Find(id);
+            pcr pcr = db.PCRs.Find(id);
             if (pcr == null)
             {
                 return HttpNotFound();
@@ -551,13 +612,13 @@ namespace Flex_SGM.Controllers
             return View(pcr);
         }
 
-        // POST: pcrs/Delete/5
+        // POST: PCRs/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            pcr pcr = db.pcrs.Find(id);
-            db.pcrs.Remove(pcr);
+            pcr pcr = db.PCRs.Find(id);
+            db.PCRs.Remove(pcr);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

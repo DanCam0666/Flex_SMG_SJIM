@@ -82,6 +82,12 @@ namespace Flex_SGM.Models
 
 
     }
+    public class ManagersEmail
+    {
+        public string Department { get; set; }
+        public string Email { get; set; }
+        public string Puesto { get; set; }
+    }
     public class UserValues
     {
         public string Usuario_responsable { get; set; }
@@ -90,14 +96,9 @@ namespace Flex_SGM.Models
     }
     public class ProyectosByMonth
     {
-
-
-
         public int Proyectos { get; set; }
         public int Month { get; set; }
         //public int Year { get; set; }
-
-
     }
     public class MetricsNew
     {
