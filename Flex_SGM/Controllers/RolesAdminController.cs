@@ -16,7 +16,7 @@ using System.Net;
 
 namespace AspnetIdentitySample.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin,Gerente")]
     public class RolesAdminController : Controller
     {
         public RolesAdminController()
@@ -81,16 +81,14 @@ namespace AspnetIdentitySample.Controllers
         }
 
         // GET: /Roles/Create
-        [Authorize(Roles = "Admin,Supervisor")]
-        [Authorize(Roles = "Admin,Mantenimiento")]
+        [Authorize(Roles = "Admin,Gerente")]
         public ActionResult Create()
         {
             return View();
         }
 
         // POST: /Roles/Create
-        [Authorize(Roles = "Admin,Supervisor")]
-        [Authorize(Roles = "Admin,Mantenimiento")]
+        [Authorize(Roles = "Admin,Gerente")]
         [HttpPost]
         public async Task<ActionResult> Create(RoleViewModel roleViewModel)
         {
@@ -111,8 +109,7 @@ namespace AspnetIdentitySample.Controllers
             }
         }
 
-        [Authorize(Roles = "Admin,Supervisor")]
-        [Authorize(Roles = "Admin,Mantenimiento")]
+        [Authorize(Roles = "Admin,Gerente")]
         //
         // GET: /Roles/Edit/Admin
         public async Task<ActionResult> Edit(string id)
@@ -129,8 +126,7 @@ namespace AspnetIdentitySample.Controllers
             return View(role);
         }
 
-        [Authorize(Roles = "Admin,Supervisor")]
-        [Authorize(Roles = "Admin,Mantenimiento")]
+        [Authorize(Roles = "Admin,Gerente")]
         //
         // POST: /Roles/Edit/5
         [HttpPost]
@@ -154,8 +150,7 @@ namespace AspnetIdentitySample.Controllers
             }
         }
 
-        [Authorize(Roles = "Admin,Supervisor")]
-        [Authorize(Roles = "Admin,Mantenimiento")]
+        [Authorize(Roles = "Admin,Gerente")]
         //
         // GET: /Roles/Delete/5
         public async Task<ActionResult> Delete(string id)
@@ -172,8 +167,7 @@ namespace AspnetIdentitySample.Controllers
             return View(role);
         }
 
-        [Authorize(Roles = "Admin,Supervisor")]
-        [Authorize(Roles = "Admin,Mantenimiento")]
+        [Authorize(Roles = "Admin,Gerente")]
         //
         // POST: /Roles/Delete/5
         [HttpPost, ActionName("Delete")]

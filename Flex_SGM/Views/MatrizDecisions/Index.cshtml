@@ -141,6 +141,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Pdr)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PreStart)
+        </th>
     </tr>
 
    @foreach (var item in Model) {
@@ -275,6 +278,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Pdr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PreStart)
             </td>
         </tr>
     }

@@ -7,16 +7,51 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Flex_SGM.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
 
 namespace Flex_SGM.Controllers
 {
     public class eoriginatorsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        private ApplicationUserManager _userManager;
+        public ApplicationUserManager UserManager
+        {
+            get
+            {
+                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            }
+            private set
+            {
+                _userManager = value;
+            }
+        }
 
         // GET: eoriginators
         public ActionResult Index()
         {
+            var id = User.Identity.GetUserId();
+            ApplicationUser currentUser = UserManager.FindById(id);
+
+            string cuser = "xxx";
+            string cpuesto = "xxx";
+            string cuare = "xxx";
+
+            if (currentUser != null)
+            {
+                cuser = currentUser.UserFullName;
+                cpuesto = currentUser.Puesto;
+                cuare = currentUser.Area;
+            }
+            ViewBag.uarea = cuare;
+            ViewBag.cuser = cuser;
+
+            if (cpuesto.Contains("Superintendente") || cpuesto.Contains("Gerente"))
+                ViewBag.super = true;
+            else
+                ViewBag.super = false;
+
             var eoriginators = db.eoriginators.Include(e => e.Areas);
             return View(eoriginators.ToList());
         }

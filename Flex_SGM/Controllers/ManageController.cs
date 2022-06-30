@@ -195,8 +195,7 @@ namespace Flex_SGM.Controllers
                 return Json(false);
         }
 
-        [Authorize(Roles = "Admin,Supervisor")]
-        [Authorize(Roles = "Admin,Mantenimiento")]
+        [Authorize(Roles = "Admin,Gerente")]
         public async Task<ActionResult> Deleteu(string name = "name")
         {
             var id = User.Identity.GetUserId();

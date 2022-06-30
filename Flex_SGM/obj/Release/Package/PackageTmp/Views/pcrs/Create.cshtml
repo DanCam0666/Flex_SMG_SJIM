@@ -751,82 +751,82 @@
                 var url = $(this).data('url');
                 var data = { Codigo: $(this).val() };
                 $.getJSON(url, data, function (response) {
-                    if (response.r1.Arcompras==true)
+                    if (response.r1.Arcompras)
                         $('#support_purchasing').val("P");
                     else
                         $('#support_purchasing').val("X");
 
-                    if (response.r1.Armateriales == true)
+                    if (response.r1.Armateriales)
                         $('#support_materials').val("P");
                     else
                         $('#support_materials').val("X");
 
-                    if (response.r1.Armantenimiento == true)
+                    if (response.r1.Armantenimiento)
                         $('#support_maintenance').val("P");
                     else
                         $('#support_maintenance').val("X");
 
-                    if (response.r1.Armantenimiento == true)
+                    if (response.r1.Armantenimiento)
                         $('#support_automation').val("P");
                     else
                         $('#support_automation').val("X");
 
-                    if (response.r1.Arcalidad == true)
+                    if (response.r1.Arcalidad)
                         $('#support_quality').val("P");
                     else
                         $('#support_quality').val("X");
 
-                    if (response.r1.Arseguridad == true)
+                    if (response.r1.Arseguridad)
                         $('#support_safety').val("P");
                     else
                         $('#support_safety').val("X");
 
-                    if (response.r1.Arambiental == true)
+                    if (response.r1.Arambiental)
                         $('#support_environmental').val("P");
                     else
                         $('#support_environmental').val("X");
 
-                    if (response.r1.Artooling == true)
+                    if (response.r1.Artooling)
                         $('#support_tooling').val("P");
                     else
                         $('#support_tooling').val("X");
 
-                    if (response.r1.Arestampado == true)
+                    if (response.r1.Arestampado)
                         $('#support_stamping').val("P");
                     else
                         $('#support_stamping').val("X");
 
-                    if (response.r1.Arsoldadura == true)
+                    if (response.r1.Arsoldadura)
                         $('#support_welding').val("P");
                     else
                         $('#support_welding').val("X");
 
-                    if (response.r1.Arcromo == true)
+                    if (response.r1.Arcromo)
                         $('#support_chrome').val("P");
                     else
                         $('#support_chrome').val("X");
          
-                    if (response.r1.Arpintura == true)
+                    if (response.r1.Arpintura)
                         $('#support_ecoat').val("P");
                     else
                         $('#support_ecoat').val("X");
 
-                    if (response.r1.Arpintura == true)
+                    if (response.r1.Arpintura)
                         $('#support_topcoat').val("P");
                     else
                         $('#support_topcoat').val("X");
 
-                    if (response.r1.Arcromo == true)
+                    if (response.r1.Arcromo)
                         $('#support_backcoat').val("P");
                     else
                         $('#support_backcoat').val("X");
 
-                    if (response.r1.Arensamble == true)
+                    if (response.r1.Arensamble)
                         $('#support_assembly').val("P");
                     else
                         $('#support_assembly').val("X");
 
-                    if (response.r1.Arfinanzas == true)
+                    if (response.r1.Arfinanzas)
                         $('#support_finance').val("P");
                     else
                         $('#support_finance').val("X");   

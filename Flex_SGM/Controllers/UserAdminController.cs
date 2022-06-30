@@ -16,9 +16,7 @@ using System.IO;
 
 namespace AspnetIdentitySample.Controllers
 {
-    [Authorize(Roles = "Admin")]
-    [Authorize(Roles = "Admin,Supervisor")]
-    [Authorize(Roles = "Admin,Mantenimiento")]
+    [Authorize(Roles = "Admin,Gerente")]
     public class UsersAdminController : Controller
     {
 

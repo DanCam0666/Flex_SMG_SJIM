@@ -68,8 +68,7 @@ namespace Flex_SGM.Controllers
             return View(maquinas);
         }
 
-        [Authorize(Roles = "Admin,Supervisor")]
-        [Authorize(Roles = "Admin,Mantenimiento")]
+        [Authorize(Roles = "Admin,Gerente")]
         // GET: Maquinas/Create
         public ActionResult Create()
         {
@@ -84,8 +83,7 @@ namespace Flex_SGM.Controllers
         // POST: Maquinas/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
-        [Authorize(Roles = "Admin,Supervisor")]
-        [Authorize(Roles = "Admin,Mantenimiento")]
+        [Authorize(Roles = "Admin,Gerente")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID,Area,Cliente,Grupo,Codigo,Maquina,SubMaquina,DiaHora,Ubicacion,Critica")] Maquinas maquinas)
@@ -101,9 +99,7 @@ namespace Flex_SGM.Controllers
 
             return View(maquinas);
         }
-        [Authorize(Roles = "Admin")]
-        [Authorize(Roles = "Admin,Supervisor")]
-        [Authorize(Roles = "Admin,Mantenimiento")]
+        [Authorize(Roles = "Admin,Gerente")]
         // GET: Maquinas/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -150,9 +146,7 @@ namespace Flex_SGM.Controllers
             return View(maquinas);
         }
 
-        [Authorize(Roles = "Admin")]
-        [Authorize(Roles = "Admin,Supervisor")]
-        [Authorize(Roles = "Admin,Mantenimiento")]
+        [Authorize(Roles = "Admin,Gerente")]
         // POST: Maquinas/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -171,9 +165,7 @@ namespace Flex_SGM.Controllers
             return View(maquinas);
         }
 
-        [Authorize(Roles = "Admin")]
-        [Authorize(Roles = "Admin,Supervisor")]
-        [Authorize(Roles = "Admin,Mantenimiento")]
+        [Authorize(Roles = "Admin,Gerente")]
         // GET: Maquinas/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -188,9 +180,7 @@ namespace Flex_SGM.Controllers
             }
             return View(maquinas);
         }
-        [Authorize(Roles = "Admin")]
-        [Authorize(Roles = "Admin,Supervisor")]
-        [Authorize(Roles = "Admin,Mantenimiento")]
+        [Authorize(Roles = "Admin,Gerente")]
         // POST: Maquinas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

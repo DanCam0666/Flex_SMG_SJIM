@@ -360,6 +360,7 @@ namespace Flex_SGM.Models
         public string leadtime_approval { get; set; }
 
         public string leadtime_totallt { get; set; }
+
         //*--------------*//
 
 
@@ -481,6 +482,8 @@ namespace Flex_SGM.Models
         public bool Ptr { get; set; }
         [Display(Name = "PDR")]
         public bool Pdr { get; set; }
+        [Display(Name = "Pre Start / Safety")]
+        public bool PreStart { get; set; }
     }
     public class FeasibilitySigns
     {

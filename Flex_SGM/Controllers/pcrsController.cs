@@ -172,7 +172,7 @@ namespace Flex_SGM.Controllers
             {
                 foreach (var userroles in user.Roles)
                 {
-                    if (userroles.RoleId == "8dcec765-580a-4b6e-9454-b7af0c4ee717")
+                    if (userroles.RoleId == "8dcec765-580a-4b6e-9454-b7af0c4ee717" || userroles.RoleId == "96179ad6-83ef-4aa2-a9e7-1837f8df338f")
                         Gerentes.Add(user);
                 }
             }
@@ -260,7 +260,7 @@ namespace Flex_SGM.Controllers
             return View(pcr);
         }
        
-        [Authorize(Roles = "Admin,Gerentes")]
+        [Authorize(Roles = "Admin, Gerente")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public string Firma(int id, string Response,string msg, string datos)
@@ -284,12 +284,12 @@ namespace Flex_SGM.Controllers
             var ok = false;
            foreach(var rol in currentUser.Roles)
             {
-                if (rol.RoleId == "8dcec765-580a-4b6e-9454-b7af0c4ee717")
+                if (rol.RoleId == "8dcec765-580a-4b6e-9454-b7af0c4ee717" || rol.RoleId == "96179ad6-83ef-4aa2-a9e7-1837f8df338f")
                 {
                     ok = true;
                 }
             }
-            if (ok)  //8dcec765-580a-4b6e-9454-b7af0c4ee717
+            if (ok)  //8dcec765-580a-4b6e-9454-b7af0c4ee717 (Admin) or 96179ad6-83ef-4aa2-a9e7-1837f8df338f (Gerente)
             {
                 if (datos!=null&& msg!=null)
                 if (!string.IsNullOrEmpty(Response) && id != 0)
@@ -316,7 +316,7 @@ namespace Flex_SGM.Controllers
                                     sign.msg = msg;
                                     sign.Reviewedby_date = DateTime.Now;
                                     sign.pcrID = id;
-                                    sign.Status = "Aprobado, esperando firmas";
+                                    sign.Status = "Aprobado por " + currentUser.Departamento;
                                     sign.Reviewedby = cuser;
                                     sign.Dep = currentUser.Departamento;
                                     Id = id.ToString();
@@ -387,66 +387,48 @@ namespace Flex_SGM.Controllers
                                 else
                                 if (pcr.Status == "Aprobado")
                                 {
-                                    pcr.Reviewedby = cuser;
                                     sign.msg = msg;
                                     sign.Reviewedby_date = DateTime.Now;
                                     sign.pcrID = id;
-                                    sign.Status = "Aprobado";
+                                    sign.Status = "Aprobado por " + currentUser.Departamento;
                                     sign.Reviewedby = cuser;
                                     sign.Dep = currentUser.Departamento;
                            
                                     switch (currentUser.Departamento)
                                     {
-                                        case ("FlexNGate"):
-
-                                            break;
-                                        case ("Ingenieria"):
-
-                                            break;
-                                        case ("Manufactura"):
-
-                                            break;
                                         case ("Calidad"):
-
+                                            if (pcr.support_quality == "P") pcr.support_quality = "R";
                                             break;
                                         case ("Finanzas"):
-
+                                            if (pcr.support_finance == "P") pcr.support_finance = "R";
                                             break;
                                         case ("Compras"):
-
+                                            if (pcr.support_purchasing == "P") pcr.support_purchasing = "R";
                                             break;
                                         case ("Materiales"):
-
+                                            if (pcr.support_materials == "P") pcr.support_materials = "R";
                                             break;
                                         case ("Mantenimiento"):
-
+                                            if (pcr.support_maintenance == "P") pcr.support_maintenance = "R";
+                                            if (pcr.support_automation == "P") pcr.support_automation = "R";
                                             break;
                                         case ("Seguridad"):
-
+                                            if (pcr.support_safety == "P") pcr.support_safety = "R";
                                             break;
                                         case ("Ambiental"):
-
+                                            if (pcr.support_environmental == "P") pcr.support_environmental = "R";
                                             break;
                                         case ("Tooling"):
-
+                                            if (pcr.support_tooling == "P") pcr.support_tooling = "R";
                                             break;
-                                        case ("Estampado"):
-
-                                            break;
-                                        case ("Soldadura"):
-
-                                            break;
-                                        case ("Cromo"):
-
-                                            break;
-                                        case ("Pintura"):
-
-                                            break;
-                                        case ("Ensamble"):
-
-                                            break;
-                                        default:
-
+                                        case ("Produccion"):
+                                            if (pcr.support_stamping == "P") pcr.support_stamping = "R";
+                                            if (pcr.support_welding == "P") pcr.support_welding = "R";
+                                            if (pcr.support_chrome == "P") pcr.support_chrome = "R";
+                                            if (pcr.support_topcoat == "P") pcr.support_topcoat = "R";
+                                            if (pcr.support_assembly == "P") pcr.support_assembly = "R";
+                                            if (pcr.support_ecoat == "P") pcr.support_ecoat = "R";
+                                            if (pcr.support_backcoat == "P") pcr.support_backcoat = "R";
                                             break;
                                     }
                                 }
@@ -457,7 +439,6 @@ namespace Flex_SGM.Controllers
                         case ("Arreglos"):
                                 if (pcr.Status == "En Aprobación")
                                 {
-                                    pcr.Reviewedby_date = DateTime.Now;
                                     pcr.Status = "Necesita Arreglos";
                                         // Send the email to autorization personal 
                                     //    foreach (var minisign in signs)
@@ -471,7 +452,6 @@ namespace Flex_SGM.Controllers
                                         sign.pcrID = id;
                                         sign.Status = "Necesita Arreglos";
                                         sign.Reviewedby = cuser;
-                                        pcr.Reviewedby = cuser;
                                         sign.Dep = currentUser.Departamento;
                                     }
                                 else
@@ -484,7 +464,6 @@ namespace Flex_SGM.Controllers
                                         sign.pcrID = id;
                                         sign.Status = "Necesita Arreglos";
                                         sign.Reviewedby = cuser;
-                                        pcr.Reviewedby = cuser;
                                         sign.Dep = currentUser.UserFullName;
                                     }
                                 else
@@ -554,7 +533,7 @@ namespace Flex_SGM.Controllers
         }
 
         // GET: PCRs/Edit/5
-        [Authorize(Roles = "Admin,Gerentes")]
+        [Authorize(Roles = "Admin, Gerente")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -580,7 +559,7 @@ namespace Flex_SGM.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin,Gerentes")]
+        [Authorize(Roles = "Admin, Gerente")]
         public ActionResult Edit([Bind(Include = "ID,PCRID,Status,Originator,Department,Date,ClientesID,ProyectosID,ReasonID,PartNumber,RevLevel,PartName,docreason,docscope,MatrizDecisionID,cipieceprice,cicapital,citooling,ciengineering,cipackaging,ciobsolescence,cimaterial,cifreight,ciovertime,ciother,citotal,crannualvolume,crcapacityfng,crcapacitysupplier,Reviewedby,Reviewedby_date,support_purchasing,support_materials,support_maintenance,support_automation,support_quality,support_safety,support_environmental,support_tooling,support_stamping,support_welding,support_chrome,support_ecoat,support_topcoat,support_backcoat,support_assembly,support_finance,Keymilestones_buildmrd1,Keymilestones_buildmrd2,Keymilestones_buildmrd3,Keymilestones_customrrar,Keymilestones_ppap,Keymilestones_internalsop,Keymilestones_customersop,Keymilestones_closure,leadtime_engineering,leadtime_tooling,leadtime_facilities,leadtime_capital,leadtime_material,leadtime_inventory,leadtime_approval,leadtime_totallt,FConsiderations1,FConsiderations2,FConsiderations3,FConsiderations4,FConsiderations5,FConsiderations6,FConsiderations7,FConsiderations8,FConsiderations9,FConsiderations10,FConsiderations11,FConsiderations12,FConsiderations13,FConsiderations14,FConsiderations15,FRisk1,FRisk2,FRisk3,FRisk4,FRisk5,FRisk6,FRisk7,FRisk8")] pcr pcr)
         {
             if (ModelState.IsValid)

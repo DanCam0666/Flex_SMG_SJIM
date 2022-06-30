@@ -648,9 +648,10 @@
     </div>
 </div>
 
-<div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.ID }) |
     @Html.ActionLink("Regresar a la Lista", "Index")
-</div>
+</p>
 
 @section Scripts {
     <script>

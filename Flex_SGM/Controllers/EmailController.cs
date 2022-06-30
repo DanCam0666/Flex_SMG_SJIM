@@ -25,7 +25,7 @@ namespace Flex_SGM.emaildata
                     "<i>No responder a este correo | Do not reply to this email </i>";
                 var message = new MailMessage();
                 message.To.Add(new MailAddress(Correo)); 
-                message.From = new MailAddress("SJIMBitacora@flexngate.com"); 
+                message.From = new MailAddress("SJIM_Ingenieria@flexngate.com"); 
                 message.Subject = "Informacion Bitacora, No Responder a este correo";
                 message.Body = string.Format(body, usuario, idoil, comment);
                 message.IsBodyHtml = true;
@@ -54,7 +54,7 @@ namespace Flex_SGM.emaildata
                     "<i>No responder a este correo | Do not reply to this email </i>";
                 var message = new MailMessage();
                 message.To.Add(new MailAddress(Correo)); 
-                message.From = new MailAddress("SJIMBitacora@flexngate.com"); 
+                message.From = new MailAddress("SJIM_Ingenieria@flexngate.com"); 
                 message.Subject = "Informacion Bitacora, No Responder a este correo";
                 message.Body = string.Format(body, usuario, idoil, comment);
                 message.IsBodyHtml = true;
@@ -83,7 +83,7 @@ namespace Flex_SGM.emaildata
                     "<i>No responder a este correo | Do not reply to this email </i>";
                 var message = new MailMessage();
                 message.To.Add(new MailAddress(Correo));  
-                message.From = new MailAddress("SJIMBitacora@flexngate.com");  
+                message.From = new MailAddress("SJIM_Ingenieria@flexngate.com");  
                 message.Subject = "Informacion Bitacora, No Responder a éste Correo";
                 message.Body = string.Format(body, usuario, comment);
                 message.IsBodyHtml = true;
@@ -110,7 +110,7 @@ namespace Flex_SGM.emaildata
                     "<i>No responder a este correo | Do not reply to this email </i>";
                 var message = new MailMessage();
                 message.To.Add(new MailAddress(Correo));   
-                message.From = new MailAddress("SJIMBitacora@flexngate.com"); 
+                message.From = new MailAddress("SJIM_Ingenieria@flexngate.com"); 
                 message.Subject = "Informacion Bitacora, No Responder a éste Correo";
                 message.Body = string.Format(body, usuario, comment);
                 message.IsBodyHtml = true;
@@ -132,7 +132,7 @@ namespace Flex_SGM.emaildata
             {
                 var bodyb = new StringBuilder();
                 bodyb.AppendFormat("El usuario {0} Genero un PCR!", usuario);
-                bodyb.AppendLine(@"<b>El numero de PCR es: " + comment + " </b>");
+                bodyb.AppendLine(@"<p>El numero de PCR es: <b>" + comment + "</b></p>");
                 var link = @"http://sjimsvap7/bitacora/PCRs/Review/" + id;
                 bodyb.AppendLine("<p><a href=\"" + link+ "\" >"+link+ "</a></p>");
                 bodyb.AppendLine(@"<p>Recuerda Verificar los PCRs! </p>");
@@ -144,7 +144,7 @@ namespace Flex_SGM.emaildata
                     message.To.Add(new MailAddress(corr));
 
                 }
-                message.From = new MailAddress("SJIMBitacora@flexngate.com"); 
+                message.From = new MailAddress("SJIM_Ingenieria@flexngate.com"); 
                 message.Subject = "Nuevo PCR para su revisión";
                 message.IsBodyHtml = true;
                 message.Body = bodyb.ToString();
@@ -167,7 +167,7 @@ namespace Flex_SGM.emaildata
             {
                 var bodyb = new StringBuilder();
                 bodyb.AppendFormat("El usuario {0} Genero un PCR!", usuario);
-                bodyb.AppendLine(@"<b>El numero de PCR es: " + comment + " </b>");
+                bodyb.AppendLine(@"<p>El numero de PCR es: <b>" + comment + "</b></p>");
                 bodyb.AppendLine(@"<p>En el siguiente link podras autorizar el PCR:</p>");
                 var link = @"http://sjimsvap7/bitacora/PCRs/Review/" + id;
                 bodyb.AppendLine("<p><a href=\"" + link + "\" >" + link + "</a></p>");
@@ -180,7 +180,7 @@ namespace Flex_SGM.emaildata
                 {
                     message.To.Add(new MailAddress(corr));
                 }
-                message.From = new MailAddress("SJIMBitacora@flexngate.com"); 
+                message.From = new MailAddress("SJIM_Ingenieria@flexngate.com"); 
                 message.Subject = "Nuevo PCR esperando su aprobación";
                 message.IsBodyHtml = true;
                 message.Body = bodyb.ToString();
