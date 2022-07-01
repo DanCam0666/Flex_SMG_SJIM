@@ -89,52 +89,52 @@ namespace Flex_SGM.Models
         public DateTime? Reviewedby_date { get; set; }
         [MaxLength(5)]
         [Display(Name = "Purchasing")]
-        public string support_purchasing { get; set; }
+        public string support_Compras { get; set; }
         [MaxLength(5)]
         [Display(Name = "Meterials")]
-        public string support_materials { get; set; }
+        public string support_Materiales { get; set; }
         [MaxLength(5)]
         [Display(Name = "Maintenance")]
-        public string support_maintenance { get; set; }
+        public string support_Mantenimiento { get; set; }
         [MaxLength(5)]
         [Display(Name = "Automation")]
-        public string support_automation { get; set; }
+        public string support_Automatizacion { get; set; }
         [MaxLength(5)]
         [Display(Name = "Quality")]
-        public string support_quality { get; set; }
+        public string support_Calidad { get; set; }
         [MaxLength(5)]
         [Display(Name = "Safety")]
-        public string support_safety { get; set; }
+        public string support_Seguridad { get; set; }
         [MaxLength(5)]
         [Display(Name = "Environmental")]
-        public string support_environmental { get; set; }
+        public string support_Ambiental { get; set; }
         [MaxLength(5)]
         [Display(Name = "Tooling")]
-        public string support_tooling { get; set; }
+        public string support_Tooling { get; set; }
         [MaxLength(5)]
         [Display(Name = "Stamping")]
-        public string support_stamping { get; set; }
+        public string support_Estampado { get; set; }
         [MaxLength(5)]
         [Display(Name = "Welding")]
-        public string support_welding { get; set; }
+        public string support_Soldadura { get; set; }
         [MaxLength(5)]
         [Display(Name = "Chrome")]
-        public string support_chrome { get; set; }
+        public string support_Chromo { get; set; }
         [MaxLength(5)]
         [Display(Name = "E-Coat")]
-        public string support_ecoat { get; set; }
+        public string support_Ecoat { get; set; }
         [MaxLength(5)]
         [Display(Name = "Top-Coat")]
-        public string support_topcoat { get; set; }
+        public string support_Topcoat { get; set; }
         [MaxLength(5)]
         [Display(Name = "back-Coat")]
-        public string support_backcoat { get; set; }
+        public string support_Backcoat { get; set; }
         [MaxLength(5)]
         [Display(Name = "Assembly")]
-        public string support_assembly { get; set; }
+        public string support_Ensamble { get; set; }
         [MaxLength(5)]
         [Display(Name = "Finance")]
-        public string support_finance { get; set; }
+        public string support_Finanzas { get; set; }
         [MaxLength(10)]
         [Display(Name = "MRD 1")]
         public string Keymilestones_buildmrd1 { get; set; }
@@ -228,8 +228,8 @@ namespace Flex_SGM.Models
 
 
         public virtual ereason Reason { get; set; }
-        public virtual cClientes Clientes { get; set; }
-        public virtual cProyectos Proyectos { get; set; }
+        public virtual eClientes Clientes { get; set; }
+        public virtual eProyectos Proyectos { get; set; }
 
         public virtual MatrizDecision MatrizDecision { get; set; }
     }
@@ -297,37 +297,37 @@ namespace Flex_SGM.Models
    
         public string Reviewedby_date { get; set; }
 
-        public string support_purchasing { get; set; }
+        public string support_Compras { get; set; }
 
-        public string support_materials { get; set; }
+        public string support_Materiales { get; set; }
 
-        public string support_maintenance { get; set; }
+        public string support_Mantenimiento { get; set; }
 
-        public string support_automation { get; set; }
+        public string support_Automatizacion { get; set; }
 
-        public string support_quality { get; set; }
+        public string support_Calidad { get; set; }
 
-        public string support_safety { get; set; }
+        public string support_Seguridad { get; set; }
 
-        public string support_environmental { get; set; }
+        public string support_Ambiental { get; set; }
 
-        public string support_tooling { get; set; }
+        public string support_Tooling { get; set; }
 
-        public string support_stamping { get; set; }
+        public string support_Estampado { get; set; }
 
-        public string support_welding { get; set; }
+        public string support_Soldadura { get; set; }
 
-        public string support_chrome { get; set; }
+        public string support_Chromo { get; set; }
 
-        public string support_ecoat { get; set; }
+        public string support_Ecoat { get; set; }
 
-        public string support_topcoat { get; set; }
+        public string support_Topcoat { get; set; }
 
-        public string support_backcoat { get; set; }
+        public string support_Backcoat { get; set; }
 
-        public string support_assembly { get; set; }
+        public string support_Ensamble { get; set; }
 
-        public string support_finance { get; set; }
+        public string support_Finanzas { get; set; }
 
         public string Keymilestones_buildmrd1 { get; set; }
 
@@ -360,6 +360,7 @@ namespace Flex_SGM.Models
         public string leadtime_approval { get; set; }
 
         public string leadtime_totallt { get; set; }
+
         //*--------------*//
 
 
@@ -375,7 +376,7 @@ namespace Flex_SGM.Models
         [Display(Name = "Supervisor")]
         public string Supervisor { get; set; }
 
-        public virtual cAreas Areas { get; set; }
+        public virtual eAreas Areas { get; set; }
     }
     public class ereason
     {
@@ -481,6 +482,8 @@ namespace Flex_SGM.Models
         public bool Ptr { get; set; }
         [Display(Name = "PDR")]
         public bool Pdr { get; set; }
+        [Display(Name = "Pre Start / Safety")]
+        public bool PreStart { get; set; }
     }
     public class FeasibilitySigns
     {

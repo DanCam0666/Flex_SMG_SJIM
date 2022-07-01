@@ -41,7 +41,7 @@ namespace Flex_SGM.Controllers
                 .GroupBy(m => m.Usuario_responsable)
                 .ToList();
 
-            List<DisplayUserChart> displayUserChartList=new List<DisplayUserChart>();
+            List<DisplayUserChart> displayUserChartList = new List<DisplayUserChart>();
 
             foreach (var item in users)
             {
@@ -226,7 +226,8 @@ namespace Flex_SGM.Controllers
             }
             ViewBag.uarea = cuare;
             ViewBag.cuser = cuser;
-            if (cpuesto.Contains("Supervisor") || cpuesto.Contains("Asistente") || cpuesto.Contains("Superintendente") || cpuesto.Contains("Gerente"))
+
+            if (cpuesto.Contains("Super") || cpuesto.Contains("Gerente"))
                 ViewBag.super = true;
             else
                 ViewBag.super = false;

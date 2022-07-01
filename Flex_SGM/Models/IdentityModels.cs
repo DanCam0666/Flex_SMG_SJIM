@@ -34,6 +34,9 @@ namespace Flex_SGM.Models
 
         [MaxLength(50)]
         public string Departamento { get; set; }
+
+        [MaxLength(256)]
+        public string Email { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
@@ -70,25 +73,26 @@ namespace Flex_SGM.Models
 
         public System.Data.Entity.DbSet<Flex_SGM.Models.ControldeEquipos> ControldeEquipos { get; set; }
 
-        public System.Data.Entity.DbSet<Flex_SGM.Models.cClientes> cClientes { get; set; }
+        public System.Data.Entity.DbSet<Flex_SGM.Models.eClientes> eClientes { get; set; }
 
         public System.Data.Entity.DbSet<Flex_SGM.Models.SubClientes> SubClientes { get; set; }
 
         public System.Data.Entity.DbSet<Flex_SGM.Models.AndonDefecto> AndonDefectoes { get; set; }
 
-        public System.Data.Entity.DbSet<Flex_SGM.Models.cAreas> cAreas { get; set; }
+        public System.Data.Entity.DbSet<Flex_SGM.Models.eAreas> eAreas { get; set; }
 
-        public System.Data.Entity.DbSet<Flex_SGM.Models.cProyectos> cProyectos { get; set; }
+        public System.Data.Entity.DbSet<Flex_SGM.Models.eProyectos> eProyectos { get; set; }
 
         public System.Data.Entity.DbSet<Flex_SGM.Models.eoriginator> eoriginators { get; set; }
 
         public System.Data.Entity.DbSet<Flex_SGM.Models.ereason> ereasons { get; set; }
 
-        public System.Data.Entity.DbSet<Flex_SGM.Models.pcr> pcrs { get; set; }
+        public System.Data.Entity.DbSet<Flex_SGM.Models.pcr> PCRs { get; set; }
 
         public System.Data.Entity.DbSet<Flex_SGM.Models.MatrizDecision> MatrizDecisions { get; set; }
 
         public System.Data.Entity.DbSet<Flex_SGM.Models.FeasibilitySigns> FeasibilitySigns { get; set; }
 
+        public System.Data.Entity.DbSet<Flex_SGM.Models.Sugerencias> Sugerencias { get; set; }
     }
 }

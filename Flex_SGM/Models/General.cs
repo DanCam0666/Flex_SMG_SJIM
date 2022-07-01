@@ -12,7 +12,7 @@ namespace Flex_SGM.Models
 
     }
 
-    public class cClientes
+    public class eClientes
     {
         [Key]
         public int ID { get; set; }
@@ -33,10 +33,10 @@ namespace Flex_SGM.Models
         [Display(Name = "SubCliente")]
         public string SubCliente { get; set; }
 
-        public virtual cClientes Clientes { get; set; }
+        public virtual eClientes Clientes { get; set; }
     }
 
-    public class cProyectos
+    public class eProyectos
     {
         [Key]
         public int ID { get; set; }
@@ -46,10 +46,10 @@ namespace Flex_SGM.Models
         [Display(Name = "Proyecto")]
         public string Proyecto { get; set; }
 
-        public virtual cClientes Clientes { get; set; }
+        public virtual eClientes Clientes { get; set; }
     }
 
-    public class cAreas
+    public class eAreas
     {
         [Key]
         public int ID { get; set; }

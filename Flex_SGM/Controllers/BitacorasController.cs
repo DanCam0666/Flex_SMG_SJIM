@@ -450,7 +450,7 @@ namespace Flex_SGM.Controllers
             using (MemoryStream stream = new MemoryStream())
             {
                 wb.SaveAs(stream);
-                return File(stream.ToArray(), "holotopo", "Actividades_" + fecha_inicial + ".xlsx");
+                return File(stream.ToArray(), "DanCam", "Actividades_" + fecha_inicial + ".xlsx");
             }
         }
         // GET: Bitacoras
@@ -642,7 +642,7 @@ namespace Flex_SGM.Controllers
             }
             ViewBag.uarea = cuare;
             ViewBag.cuser = cuser;
-            if (cpuesto.Contains("Supervisor") || cpuesto.Contains("SuperIntendente") || cpuesto.Contains("Gerente"))
+            if (cpuesto.Contains("Super") || cpuesto.Contains("Gerente"))
                 ViewBag.super = true;
             else
                 ViewBag.super = false;
@@ -2013,7 +2013,7 @@ namespace Flex_SGM.Controllers
             }
             ViewBag.uarea = cuare;
             ViewBag.cuser = cuser;
-            if (cpuesto.Contains("Supervisor") || cpuesto.Contains("Asistente") || cpuesto.Contains("SuperIntendente") || cpuesto.Contains("Gerente"))
+            if (cpuesto.Contains("Super") || cpuesto.Contains("Gerente"))
                 ViewBag.super = true;
             else
                 ViewBag.super = false;
@@ -4021,7 +4021,7 @@ namespace Flex_SGM.Controllers
             }
             ViewBag.uarea = cuare;
             ViewBag.cuser = cuser;
-            if (cpuesto.Contains("Supervisor") || cpuesto.Contains("Asistente") || cpuesto.Contains("SuperIntendente") || cpuesto.Contains("Gerente"))
+            if (cpuesto.Contains("Super") || cpuesto.Contains("Gerente"))
                 ViewBag.super = true;
             else
                 ViewBag.super = false;
@@ -5030,7 +5030,7 @@ namespace Flex_SGM.Controllers
             }
             ViewBag.uarea = cuare;
             ViewBag.cuser = cuser;
-            if (cpuesto.Contains("Supervisor") || cpuesto.Contains("Asistente") || cpuesto.Contains("SuperIntendente") || cpuesto.Contains("Gerente"))
+            if (cpuesto.Contains("Super") || cpuesto.Contains("Gerente"))
                 ViewBag.super = true;
             else
                 ViewBag.super = false;
@@ -6186,7 +6186,7 @@ namespace Flex_SGM.Controllers
             }
             ViewBag.uarea = cuare;
             ViewBag.cuser = cuser;
-            if (cpuesto.Contains("Supervisor") || cpuesto.Contains("Asistente") || cpuesto.Contains("SuperIntendente") || cpuesto.Contains("Gerente"))
+            if (cpuesto.Contains("Super") || cpuesto.Contains("Gerente"))
                 ViewBag.super = true;
             else
                 ViewBag.super = false;

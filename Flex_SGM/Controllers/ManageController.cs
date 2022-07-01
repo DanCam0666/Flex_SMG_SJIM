@@ -195,8 +195,7 @@ namespace Flex_SGM.Controllers
                 return Json(false);
         }
 
-        [Authorize(Roles = "Admin,Supervisor")]
-        [Authorize(Roles = "Admin,Mantenimiento")]
+        [Authorize(Roles = "Admin,Gerente")]
         public async Task<ActionResult> Deleteu(string name = "name")
         {
             var id = User.Identity.GetUserId();
@@ -212,7 +211,7 @@ namespace Flex_SGM.Controllers
             }
             ViewBag.uarea = cuare;
             ViewBag.cuser = cuser;
-            if (cpuesto.Contains("Supervisor") || cpuesto.Contains("Asistente") || cpuesto.Contains("SuperIntendente") || cpuesto.Contains("Gerente"))
+            if (cpuesto.Contains("Super") || cpuesto.Contains("Gerente"))
                 ViewBag.super = true;
             else
                 ViewBag.super = false;

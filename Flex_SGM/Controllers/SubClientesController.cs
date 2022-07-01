@@ -39,7 +39,7 @@ namespace Flex_SGM.Controllers
         // GET: SubClientes/Create
         public ActionResult Create()
         {
-            ViewBag.ClientesID = new SelectList(db.cClientes, "ID", "Cliente");
+            ViewBag.ClientesID = new SelectList(db.eClientes, "ID", "Cliente");
             return View();
         }
 
@@ -57,7 +57,7 @@ namespace Flex_SGM.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ClientesID = new SelectList(db.cClientes, "ID", "Cliente", subClientes.ClientesID);
+            ViewBag.ClientesID = new SelectList(db.eClientes, "ID", "Cliente", subClientes.ClientesID);
             return View(subClientes);
         }
 
@@ -73,7 +73,7 @@ namespace Flex_SGM.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.ClientesID = new SelectList(db.cClientes, "ID", "Cliente", subClientes.ClientesID);
+            ViewBag.ClientesID = new SelectList(db.eClientes, "ID", "Cliente", subClientes.ClientesID);
             return View(subClientes);
         }
 
@@ -90,7 +90,7 @@ namespace Flex_SGM.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ClientesID = new SelectList(db.cClientes, "ID", "Cliente", subClientes.ClientesID);
+            ViewBag.ClientesID = new SelectList(db.eClientes, "ID", "Cliente", subClientes.ClientesID);
             return View(subClientes);
         }
 

@@ -2,10 +2,10 @@
 
 @{
     ViewBag.Title = "Edit";
-    Layout = "~/Views/Shared/_LayoutE.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>FeasibilitySigns</h2>
+<h2>Firmas de Viabilidad</h2>
 
 <table class="tabled table-bordered table-striped" style="width:100%">
     <thead>
@@ -28,7 +28,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.msg)
             </th>
-           
         </tr>
     </thead>
     <tbody>
@@ -53,22 +52,21 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.msg)
                 </td>
-               
             </tr>
         }
     </tbody>
-
 </table>
+<div>
+    @Html.ActionLink("Regresar a la Lista", "Index")
+</div>
 
 
 @section Scripts {
     <script>
-
         $(document).ready(function () {
 
 
-        }
-
+        })
     </script>
 }
 

@@ -52,10 +52,11 @@
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu2">
 
-                                    <li>@Html.ActionLink("-", "Index", "pcrs")</li>
-                                    <li>@Html.ActionLink("PCRs", "Index", "pcrs", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();" })</li>
-                                    <li>@Html.ActionLink("Pcr Reasons", "Index", "ereasons", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();" })</li>
-                                    <li>@Html.ActionLink("Menu Ingeniería", "Index", "Ingenieria", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();" })</li>
+                                    <li>@Html.ActionLink("-", "Index", "PCRs")</li>
+                                    <li>@Html.ActionLink("PCRs", "Index", "PCRs", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();" })</li>
+                                    @*<li>@Html.ActionLink("PCR Reasons", "Index", "ereasons", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();" })</li>*@
+                                    <li>@Html.ActionLink("PCR Menu", "Index", "Ingenieria", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();" })</li>
+                                    <li>@Html.ActionLink("Inicio", "Index", "Home", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();" })</li>
                                 </ul>
                             </li>
 
