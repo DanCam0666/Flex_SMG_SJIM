@@ -12,6 +12,7 @@ using System.IO;
 using Microsoft.AspNet.Identity;
 using Flex_SGM.emaildata;
 using Microsoft.AspNet.Identity.Owin;
+using System.Data.SqlClient;
 
 namespace Flex_SGM.Controllers
 {
@@ -75,22 +76,22 @@ namespace Flex_SGM.Controllers
                 crcapacitysupplier = pcrd.crcapacitysupplier,
                 Reviewedby = pcrd.Reviewedby,
                 Reviewedby_date = pcrd.Reviewedby_date.ToString(),
-                support_purchasing = pcrd.support_purchasing,
-                support_materials = pcrd.support_materials,
-                support_maintenance = pcrd.support_maintenance,
-                support_automation = pcrd.support_automation,
-                support_quality = pcrd.support_quality,
-                support_safety = pcrd.support_safety,
-                support_environmental = pcrd.support_environmental,
-                support_tooling = pcrd.support_tooling,
-                support_stamping = pcrd.support_stamping,
-                support_welding = pcrd.support_welding,
-                support_chrome = pcrd.support_chrome,
-                support_ecoat = pcrd.support_ecoat,
-                support_topcoat = pcrd.support_topcoat,
-                support_backcoat = pcrd.support_backcoat,
-                support_assembly = pcrd.support_assembly,
-                support_finance = pcrd.support_finance,
+                support_Compras = pcrd.support_Compras,
+                support_Materiales = pcrd.support_Materiales,
+                support_Mantenimiento = pcrd.support_Mantenimiento,
+                support_Automatizacion = pcrd.support_Automatizacion,
+                support_Calidad = pcrd.support_Calidad,
+                support_Seguridad = pcrd.support_Seguridad,
+                support_Ambiental = pcrd.support_Ambiental,
+                support_Tooling = pcrd.support_Tooling,
+                support_Estampado = pcrd.support_Estampado,
+                support_Soldadura = pcrd.support_Soldadura,
+                support_Chromo = pcrd.support_Chromo,
+                support_Ecoat = pcrd.support_Ecoat,
+                support_Topcoat = pcrd.support_Topcoat,
+                support_Backcoat = pcrd.support_Backcoat,
+                support_Ensamble = pcrd.support_Ensamble,
+                support_Finanzas = pcrd.support_Finanzas,
                 Keymilestones_buildmrd1 = pcrd.Keymilestones_buildmrd1,
                 Keymilestones_buildmrd2 = pcrd.Keymilestones_buildmrd2,
                 Keymilestones_buildmrd3 = pcrd.Keymilestones_buildmrd3,
@@ -121,7 +122,6 @@ namespace Flex_SGM.Controllers
         }
 
         // GET: PCRs  
-        [AllowAnonymous]
         public ActionResult Index()
         {
             var uiid = User.Identity.GetUserId();
@@ -134,8 +134,9 @@ namespace Flex_SGM.Controllers
 
             var Id = User.Identity.GetUserId();
             ApplicationUser CurrentUser = UserManager.FindById(Id);
-            ViewBag.Dep = CurrentUser.Departamento;   
+            ViewBag.Dep = CurrentUser.Departamento;
             ViewBag.Puesto = CurrentUser.Puesto;
+            ViewBag.cUser = CurrentUser.UserFullName;
 
             var PCRs = db.PCRs.Include(p => p.Clientes).Include(p => p.MatrizDecision).Include(p => p.Proyectos).Include(p => p.Reason);
             return View(PCRs.ToList());
@@ -227,14 +228,15 @@ namespace Flex_SGM.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,PCRID,Status,Originator,Department,Date,ClientesID,ProyectosID,ReasonID,PartNumber,RevLevel,PartName,docreason,docscope,MatrizDecisionID,cipieceprice,cicapital,citooling,ciengineering,cipackaging,ciobsolescence,cimaterial,cifreight,ciovertime,ciother,citotal,crannualvolume,crcapacityfng,crcapacitysupplier,Reviewedby,Reviewedby_date,support_purchasing,support_materials,support_maintenance,support_automation,support_quality,support_safety,support_environmental,support_tooling,support_stamping,support_welding,support_chrome,support_ecoat,support_topcoat,support_backcoat,support_assembly,support_finance,Keymilestones_buildmrd1,Keymilestones_buildmrd2,Keymilestones_buildmrd3,Keymilestones_customrrar,Keymilestones_ppap,Keymilestones_internalsop,Keymilestones_customersop,Keymilestones_closure,leadtime_engineering,leadtime_tooling,leadtime_facilities,leadtime_capital,leadtime_material,leadtime_inventory,leadtime_approval,leadtime_totallt,FConsiderations1,FConsiderations2,FConsiderations3,FConsiderations4,FConsiderations5,FConsiderations6,FConsiderations7,FConsiderations8,FConsiderations9,FConsiderations10,FConsiderations11,FConsiderations12,FConsiderations13,FConsiderations14,FConsiderations15,FRisk1,FRisk2,FRisk3,FRisk4,FRisk5,FRisk6,FRisk7,FRisk8")] pcr pcr)
+        public ActionResult Create([Bind(Include = "ID,PCRID,Status,Originator,Department,Date,ClientesID,ProyectosID,ReasonID,PartNumber,RevLevel,PartName,docreason,docscope,MatrizDecisionID,cipieceprice,cicapital,citooling,ciengineering,cipackaging,ciobsolescence,cimaterial,cifreight,ciovertime,ciother,citotal,crannualvolume,crcapacityfng,crcapacitysupplier,Reviewedby,Reviewedby_date,support_Compras,support_Materiales,support_Mantenimiento,support_Automatizacion,support_Calidad,support_Seguridad,support_Ambiental,support_Tooling,support_Estampado,support_Soldadura,support_Chromo,support_Ecoat,support_Topcoat,support_Backcoat,support_Ensamble,support_Finanzas,Keymilestones_buildmrd1,Keymilestones_buildmrd2,Keymilestones_buildmrd3,Keymilestones_customrrar,Keymilestones_ppap,Keymilestones_internalsop,Keymilestones_customersop,Keymilestones_closure,leadtime_engineering,leadtime_tooling,leadtime_facilities,leadtime_capital,leadtime_material,leadtime_inventory,leadtime_approval,leadtime_totallt,FConsiderations1,FConsiderations2,FConsiderations3,FConsiderations4,FConsiderations5,FConsiderations6,FConsiderations7,FConsiderations8,FConsiderations9,FConsiderations10,FConsiderations11,FConsiderations12,FConsiderations13,FConsiderations14,FConsiderations15,FRisk1,FRisk2,FRisk3,FRisk4,FRisk5,FRisk6,FRisk7,FRisk8")] pcr pcr)
         {
             var id = User.Identity.GetUserId();
             ApplicationUser currentUser = db.Users.Where(w => w.Id == id).FirstOrDefault();
+
             var lastPCR = db.PCRs.Select(p => p.PCRID).ToList().LastOrDefault();
             string lastPCRnum = lastPCR.Substring(7, 3);
             int noPCRs = Int32.Parse(lastPCRnum);
-            //var noPCRs = db.PCRs.Count();
+
             var dt = DateTime.Now;
             string year= dt.ToString("yy");
             string month= dt.Month.ToString("00");
@@ -301,7 +303,7 @@ namespace Flex_SGM.Controllers
 
                     foreach (var minisign in signs)
                     {
-                        if (minisign.Dep == currentUser.Departamento)
+                        if (minisign.Dep == currentUser.Departamento && minisign.Status != "Necesita Arreglos")
                             goto alreadysin;
                     }
 
@@ -328,56 +330,56 @@ namespace Flex_SGM.Controllers
 
                                     foreach (var manager in managersList)
                                     {
-                                        if (manager.Departamento == "Compras" && pcr.support_purchasing == "P")
+                                        if (manager.Departamento == "Compras" && pcr.support_Compras == "P")
                                         {
                                             string[] eMail = { manager.Email };
                                             correo.newReview(eMail, currentUser.UserFullName, pcr.PCRID, Id, manager.Departamento);
                                         }
 
-                                        if (manager.Departamento == "Materiales" && pcr.support_materials == "P")
+                                        if (manager.Departamento == "Materiales" && pcr.support_Materiales == "P")
                                         {
                                             string[] eMail = { manager.Email };
                                             correo.newReview(eMail, currentUser.UserFullName, pcr.PCRID, Id, manager.Departamento);
                                         }
 
-                                        if (manager.Departamento == "Mantenimiento" && (pcr.support_maintenance == "P" || pcr.support_automation == "P"))
+                                        if (manager.Departamento == "Mantenimiento" && (pcr.support_Mantenimiento == "P" || pcr.support_Automatizacion == "P"))
                                         {
                                             string[] eMail = { manager.Email };
                                             correo.newReview(eMail, currentUser.UserFullName, pcr.PCRID, Id, manager.Departamento);
                                         }
 
-                                        if (manager.Departamento == "Calidad" && pcr.support_quality == "P")
+                                        if (manager.Departamento == "Calidad" && pcr.support_Calidad == "P")
                                         {
                                             string[] eMail = { manager.Email };
                                             correo.newReview(eMail, currentUser.UserFullName, pcr.PCRID, Id, manager.Departamento);
                                         }
                                             
-                                        if (manager.Departamento == "Seguridad" && pcr.support_safety == "P")
+                                        if (manager.Departamento == "Seguridad" && pcr.support_Seguridad == "P")
                                         {
                                             string[] eMail = { manager.Email };
                                             correo.newReview(eMail, currentUser.UserFullName, pcr.PCRID, Id, manager.Departamento);
                                         }
 
-                                        if (manager.Departamento == "Ambiental" && pcr.support_environmental == "P")
+                                        if (manager.Departamento == "Ambiental" && pcr.support_Ambiental == "P")
                                         {
                                             string[] eMail = { manager.Email };
                                             correo.newReview(eMail, currentUser.UserFullName, pcr.PCRID, Id, manager.Departamento);
                                         }
 
-                                        if (manager.Departamento == "Tooling" && pcr.support_tooling == "P")
+                                        if (manager.Departamento == "Tooling" && pcr.support_Tooling == "P")
                                         {
                                             string[] eMail = { manager.Email };
                                             correo.newReview(eMail, currentUser.UserFullName, pcr.PCRID, Id, manager.Departamento);
                                         }
 
-                                        if (manager.Departamento == "Produccion" && (pcr.support_stamping == "P" || pcr.support_welding == "P" || pcr.support_chrome == "P" || 
-                                            pcr.support_ecoat == "P" || pcr.support_topcoat == "P" || pcr.support_backcoat == "P" || pcr.support_assembly == "P"))
+                                        if (manager.Departamento == "Produccion" && (pcr.support_Estampado == "P" || pcr.support_Soldadura == "P" || pcr.support_Chromo == "P" || 
+                                            pcr.support_Ecoat == "P" || pcr.support_Topcoat == "P" || pcr.support_Backcoat == "P" || pcr.support_Ensamble == "P"))
                                         {
                                             string[] eMail = { manager.Email };
                                             correo.newReview(eMail, currentUser.UserFullName, pcr.PCRID, Id, manager.Departamento);
                                         }
 
-                                        if (manager.Departamento == "Finanzas" && pcr.support_finance == "P")
+                                        if (manager.Departamento == "Finanzas" && pcr.support_Finanzas == "P")
                                         {
                                             string[] eMail = { manager.Email };
                                             correo.newReview(eMail, currentUser.UserFullName, pcr.PCRID, Id, manager.Departamento);
@@ -397,38 +399,38 @@ namespace Flex_SGM.Controllers
                                     switch (currentUser.Departamento)
                                     {
                                         case ("Calidad"):
-                                            if (pcr.support_quality == "P") pcr.support_quality = "R";
+                                            if (pcr.support_Calidad == "P") pcr.support_Calidad = "R";
                                             break;
                                         case ("Finanzas"):
-                                            if (pcr.support_finance == "P") pcr.support_finance = "R";
+                                            if (pcr.support_Finanzas == "P") pcr.support_Finanzas = "R";
                                             break;
                                         case ("Compras"):
-                                            if (pcr.support_purchasing == "P") pcr.support_purchasing = "R";
+                                            if (pcr.support_Compras == "P") pcr.support_Compras = "R";
                                             break;
                                         case ("Materiales"):
-                                            if (pcr.support_materials == "P") pcr.support_materials = "R";
+                                            if (pcr.support_Materiales == "P") pcr.support_Materiales = "R";
                                             break;
                                         case ("Mantenimiento"):
-                                            if (pcr.support_maintenance == "P") pcr.support_maintenance = "R";
-                                            if (pcr.support_automation == "P") pcr.support_automation = "R";
+                                            if (pcr.support_Mantenimiento == "P") pcr.support_Mantenimiento = "R";
+                                            if (pcr.support_Automatizacion == "P") pcr.support_Automatizacion = "R";
                                             break;
                                         case ("Seguridad"):
-                                            if (pcr.support_safety == "P") pcr.support_safety = "R";
+                                            if (pcr.support_Seguridad == "P") pcr.support_Seguridad = "R";
                                             break;
                                         case ("Ambiental"):
-                                            if (pcr.support_environmental == "P") pcr.support_environmental = "R";
+                                            if (pcr.support_Ambiental == "P") pcr.support_Ambiental = "R";
                                             break;
                                         case ("Tooling"):
-                                            if (pcr.support_tooling == "P") pcr.support_tooling = "R";
+                                            if (pcr.support_Tooling == "P") pcr.support_Tooling = "R";
                                             break;
                                         case ("Produccion"):
-                                            if (pcr.support_stamping == "P") pcr.support_stamping = "R";
-                                            if (pcr.support_welding == "P") pcr.support_welding = "R";
-                                            if (pcr.support_chrome == "P") pcr.support_chrome = "R";
-                                            if (pcr.support_topcoat == "P") pcr.support_topcoat = "R";
-                                            if (pcr.support_assembly == "P") pcr.support_assembly = "R";
-                                            if (pcr.support_ecoat == "P") pcr.support_ecoat = "R";
-                                            if (pcr.support_backcoat == "P") pcr.support_backcoat = "R";
+                                            if (pcr.support_Estampado == "P") pcr.support_Estampado = "R";
+                                            if (pcr.support_Soldadura == "P") pcr.support_Soldadura = "R";
+                                            if (pcr.support_Chromo == "P") pcr.support_Chromo = "R";
+                                            if (pcr.support_Topcoat == "P") pcr.support_Topcoat = "R";
+                                            if (pcr.support_Ensamble == "P") pcr.support_Ensamble = "R";
+                                            if (pcr.support_Ecoat == "P") pcr.support_Ecoat = "R";
+                                            if (pcr.support_Backcoat == "P") pcr.support_Backcoat = "R";
                                             break;
                                     }
                                 }
@@ -447,13 +449,21 @@ namespace Flex_SGM.Controllers
                                         //             goto alreadysin;
                                         //     }
 
-                                        sign.msg = msg;
-                                        sign.Reviewedby_date = DateTime.Now;
-                                        sign.pcrID = id;
-                                        sign.Status = "Necesita Arreglos";
-                                        sign.Reviewedby = cuser;
-                                        sign.Dep = currentUser.Departamento;
-                                    }
+                                    sign.msg = msg;
+                                    sign.Reviewedby_date = DateTime.Now;
+                                    sign.pcrID = id;
+                                    sign.Status = "Necesita Arreglos";
+                                    sign.Reviewedby = cuser;
+                                    sign.Dep = currentUser.Departamento;
+
+                                    var UserList = db.Users.Where(w => w.UserFullName == pcr.Originator).FirstOrDefault();
+                                    string email = UserList.Email.ToString();
+                                    string[] eMail = { email };
+                                    string emailId = sign.pcrID.ToString();
+
+                                    correo.Arreglos(eMail, currentUser.UserFullName, pcr.PCRID, emailId);
+
+                                }
                                 else
                                 if (pcr.Status == "Aprobado")
                                 {
@@ -545,7 +555,6 @@ namespace Flex_SGM.Controllers
             {
                 return HttpNotFound();
             }
-       
             ViewBag.ClientesID = new SelectList(db.eClientes, "ID", "Cliente", pcr.ClientesID);
             ViewBag.MatrizDecisionID = new SelectList(db.MatrizDecisions, "ID", "TipoCambio", pcr.MatrizDecisionID);
             ViewBag.ProyectosID = new SelectList(db.eProyectos, "ID", "Proyecto", pcr.ProyectosID);
@@ -560,14 +569,42 @@ namespace Flex_SGM.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin, Gerente")]
-        public ActionResult Edit([Bind(Include = "ID,PCRID,Status,Originator,Department,Date,ClientesID,ProyectosID,ReasonID,PartNumber,RevLevel,PartName,docreason,docscope,MatrizDecisionID,cipieceprice,cicapital,citooling,ciengineering,cipackaging,ciobsolescence,cimaterial,cifreight,ciovertime,ciother,citotal,crannualvolume,crcapacityfng,crcapacitysupplier,Reviewedby,Reviewedby_date,support_purchasing,support_materials,support_maintenance,support_automation,support_quality,support_safety,support_environmental,support_tooling,support_stamping,support_welding,support_chrome,support_ecoat,support_topcoat,support_backcoat,support_assembly,support_finance,Keymilestones_buildmrd1,Keymilestones_buildmrd2,Keymilestones_buildmrd3,Keymilestones_customrrar,Keymilestones_ppap,Keymilestones_internalsop,Keymilestones_customersop,Keymilestones_closure,leadtime_engineering,leadtime_tooling,leadtime_facilities,leadtime_capital,leadtime_material,leadtime_inventory,leadtime_approval,leadtime_totallt,FConsiderations1,FConsiderations2,FConsiderations3,FConsiderations4,FConsiderations5,FConsiderations6,FConsiderations7,FConsiderations8,FConsiderations9,FConsiderations10,FConsiderations11,FConsiderations12,FConsiderations13,FConsiderations14,FConsiderations15,FRisk1,FRisk2,FRisk3,FRisk4,FRisk5,FRisk6,FRisk7,FRisk8")] pcr pcr)
+        public ActionResult Edit([Bind(Include = "ID,PCRID,Status,Originator,Department,Date,ClientesID,ProyectosID,ReasonID,PartNumber,RevLevel,PartName,docreason,docscope,MatrizDecisionID,cipieceprice,cicapital,citooling,ciengineering,cipackaging,ciobsolescence,cimaterial,cifreight,ciovertime,ciother,citotal,crannualvolume,crcapacityfng,crcapacitysupplier,Reviewedby,Reviewedby_date,support_Compras,support_Materiales,support_Mantenimiento,support_Automatizacion,support_Calidad,support_Seguridad,support_Ambiental,support_Tooling,support_Estampado,support_Soldadura,support_Chromo,support_Ecoat,support_Topcoat,support_Backcoat,support_Ensamble,support_Finanzas,Keymilestones_buildmrd1,Keymilestones_buildmrd2,Keymilestones_buildmrd3,Keymilestones_customrrar,Keymilestones_ppap,Keymilestones_internalsop,Keymilestones_customersop,Keymilestones_closure,leadtime_engineering,leadtime_tooling,leadtime_facilities,leadtime_capital,leadtime_material,leadtime_inventory,leadtime_approval,leadtime_totallt,FConsiderations1,FConsiderations2,FConsiderations3,FConsiderations4,FConsiderations5,FConsiderations6,FConsiderations7,FConsiderations8,FConsiderations9,FConsiderations10,FConsiderations11,FConsiderations12,FConsiderations13,FConsiderations14,FConsiderations15,FRisk1,FRisk2,FRisk3,FRisk4,FRisk5,FRisk6,FRisk7,FRisk8")] pcr pcr)
         {
+            var Id = User.Identity.GetUserId();
+            ApplicationUser CurrentUser = UserManager.FindById(Id);
+            string cuser = "xxx";
+            string cpuesto = "xxx";
+            string cuare = "xxx";
+            string cudep = "xxx";
+            if (CurrentUser != null)
+            {
+                cuser = CurrentUser.UserFullName;
+                cpuesto = CurrentUser.Puesto;
+                cuare = CurrentUser.Area;
+                cudep = CurrentUser.Departamento;
+            }
+
             if (ModelState.IsValid)
             {
+                pcr.Status = "En Aprobación";
+
+                string[] eMail = { "dcamacho@flexngate.com" };
+                string emailId = pcr.ID.ToString();
+
+                correo.Arreglado(eMail, CurrentUser.UserFullName, pcr.PCRID, emailId);
+
+                using (SqlConnection connection = new SqlConnection("Data Source=SJIMSVAP7\\SQLEXPRESS;Initial Catalog=SGM;Integrated Security=False;User ID=monitor;Password=M0n1t0r@F13x;Connect Timeout=20;Encrypt=False;TrustServerCertificate=False"))
+                {
+                    connection.Open();
+                    SqlCommand commandDelete = new SqlCommand("DELETE FROM FeasibilitySigns WHERE pcrID = " + pcr.ID, connection);
+                    commandDelete.ExecuteNonQuery();
+                }
                 db.Entry(pcr).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
 
             ViewBag.ClientesID = new SelectList(db.eClientes, "ID", "Cliente", pcr.ClientesID);
             ViewBag.MatrizDecisionID = new SelectList(db.MatrizDecisions, "ID", "TipoCambio", pcr.MatrizDecisionID);

@@ -1078,7 +1078,7 @@ namespace Flex_SGM.Controllers
                 cuare = currentUser.Area;
             }
 
-            if (cpuesto.Contains("Supervisor") || cpuesto.Contains("SuperIntendente") || cpuesto.Contains("Gerente"))
+            if (cpuesto.Contains("Super") || cpuesto.Contains("Gerente"))
                 ViewBag.super = true;
             else
                 ViewBag.super = false;

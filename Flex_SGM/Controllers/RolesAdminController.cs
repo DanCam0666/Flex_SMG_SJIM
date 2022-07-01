@@ -48,7 +48,7 @@ namespace AspnetIdentitySample.Controllers
             {
                 cpuesto = currentUser.Puesto;
             }
-            if (cpuesto.Contains("Supervisor") || cpuesto.Contains("Asistente") || cpuesto.Contains("Superintendente") || cpuesto.Contains("Gerente"))
+            if (cpuesto.Contains("Super") || cpuesto.Contains("Gerente"))
                 ViewBag.super = true;
             else
                 ViewBag.super = false;

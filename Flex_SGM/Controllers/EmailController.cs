@@ -166,7 +166,7 @@ namespace Flex_SGM.emaildata
             try
             {
                 var bodyb = new StringBuilder();
-                bodyb.AppendFormat("El usuario {0} Genero un PCR!", usuario);
+                bodyb.AppendFormat("El usuario {0} aprobó un PCR por su revisión!", usuario);
                 bodyb.AppendLine(@"<p>El numero de PCR es: <b>" + comment + "</b></p>");
                 bodyb.AppendLine(@"<p>En el siguiente link podras autorizar el PCR:</p>");
                 var link = @"http://sjimsvap7/bitacora/PCRs/Review/" + id;
@@ -196,5 +196,74 @@ namespace Flex_SGM.emaildata
             }
             catch (Exception Ex) { var x = Ex; }
         }
+        public void Arreglos(string[] Correo, string usuario, string comment, string id)
+        {
+            try
+            {
+                var bodyb = new StringBuilder();
+                bodyb.AppendFormat("El usuario {0} dice su PCR ocupa arreglos!", usuario);
+                bodyb.AppendLine(@"<p>El numero de PCR es: <b>" + comment + "</b></p>");
+                bodyb.AppendLine(@"<p>En el siguiente link podras arreglar el PCR:</p>");
+                var link = @"http://sjimsvap7/bitacora/PCRs/Review/" + id;
+                bodyb.AppendLine("<p><a href=\"" + link + "\" >" + link + "</a></p>");
+                bodyb.AppendLine(@"<p>Recuerda Verificar los PCRs! </p>");
+                bodyb.AppendLine(@"<i>No responder a este correo | Do not reply to this email </i>");
+
+                var message = new MailMessage();
+                foreach (var corr in Correo)
+                {
+                    message.To.Add(new MailAddress(corr));
+                }
+                message.From = new MailAddress("SJIM_Ingenieria@flexngate.com");
+                message.Subject = "Su Nuevo PCR está esperando arreglos";
+                message.IsBodyHtml = true;
+                message.Body = bodyb.ToString();
+                message.IsBodyHtml = true;
+
+                using (var smtp = new SmtpClient())
+                {
+                    smtp.Host = "smtp.flexngate.local";
+                    smtp.Port = 25;
+                    smtp.EnableSsl = false;
+                    smtp.Send(message);
+                }
+            }
+            catch (Exception Ex) { var x = Ex; }
+        }
+        public void Arreglado(string[] Correo, string usuario, string comment, string id)
+        {
+            try
+            {
+                var bodyb = new StringBuilder();
+                bodyb.AppendFormat("El usuario {0} modificó su PCR para que revisa de nuevo!", usuario);
+                bodyb.AppendLine(@"<p>El numero de PCR es: <b>" + comment + "</b></p>");
+                bodyb.AppendLine(@"<p>En el siguiente link podras aprobar el PCR:</p>");
+                var link = @"http://sjimsvap7/bitacora/PCRs/Review/" + id;
+                bodyb.AppendLine("<p><a href=\"" + link + "\" >" + link + "</a></p>");
+                bodyb.AppendLine(@"<p>Recuerda Verificar los PCRs! </p>");
+                bodyb.AppendLine(@"<i>No responder a este correo | Do not reply to this email </i>");
+
+                var message = new MailMessage();
+                foreach (var corr in Correo)
+                {
+                    message.To.Add(new MailAddress(corr));
+                }
+                message.From = new MailAddress("SJIM_Ingenieria@flexngate.com");
+                message.Subject = "PCR fue modificado, revisarlo de nuevo";
+                message.IsBodyHtml = true;
+                message.Body = bodyb.ToString();
+                message.IsBodyHtml = true;
+
+                using (var smtp = new SmtpClient())
+                {
+                    smtp.Host = "smtp.flexngate.local";
+                    smtp.Port = 25;
+                    smtp.EnableSsl = false;
+                    smtp.Send(message);
+                }
+            }
+            catch (Exception Ex) { var x = Ex; }
+        }
+
     }
 }
