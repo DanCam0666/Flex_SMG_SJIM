@@ -221,7 +221,7 @@
         <div class="col-md-5">
             <div class="x_panel clearfix">
                 <div class="x_title clearfix">
-                    <h3>Support <small> PCR</small></h3>
+                    <h3>Support <small> PCR   (P = aplica, X = no aplica, R = firmado)</small></h3>
                 </div>
                 <div class="x_content" style="min-height: 436px">
                     <div class="col-md-6">
@@ -388,7 +388,7 @@
         <div class="col-md-3">
             <div class="x_panel clearfix">
                 <div class="x_title clearfix">
-                    <h3>Estimated Lead Time <small> PCR</small></h3>
+                    <h3>Estimated Lead Time <small> PCR (Semanas)</small></h3>
                 </div>
                 <div class="x_content" style="min-height: 436px">
                     <div class="form-group">
@@ -648,8 +648,13 @@
     </div>
 </div>
 
+@if (Model.Originator == ViewBag.cUser)
+{
+    <p>
+        @Html.ActionLink("Editar", "Edit", new { id = Model.ID }) |
+    </p>
+}
 <p>
-    @Html.ActionLink("Editar", "Edit", new { id = Model.ID }) |
     @Html.ActionLink("Regresar a la Lista", "Index")
 </p>
 

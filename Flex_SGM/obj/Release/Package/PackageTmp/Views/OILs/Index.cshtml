@@ -342,300 +342,300 @@
 @section Scripts {
     <script>
 
-    $('.addComment').on('click', function () {
+        $('.addComment').on('click', function () {
 
-        var cid = $(this).attr('data-id');
-        var commentMsg = $('#comment_' + cid).val();
-        //     var dateTimeNow = new Date();
-        //   alert('Hello');
-        if (commentMsg != null && commentMsg != "") {
-            $('#loadingImg').show();
-            setTimeout(function () { $('#loadingImg').fadeOut(); }, 3000);
-            $.ajax({
-                type: 'POST',
-                url: '@Url.Action("AddComment","OILs")',
-                data: { commentMsg, cid },//data: { commentMsg, cid },
-                success: function (response) {
+            var cid = $(this).attr('data-id');
+            var commentMsg = $('#comment_' + cid).val();
+            //     var dateTimeNow = new Date();
+            //   alert('Hello');
+            if (commentMsg != null && commentMsg != "") {
+                $('#loadingImg').show();
+                setTimeout(function () { $('#loadingImg').fadeOut(); }, 3000);
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("AddComment","OILs")',
+                    data: { commentMsg, cid },//data: { commentMsg, cid },
+                    success: function (response) {
 
-                    $('div[class=allComments_' + cid + ']').remove();
-                    var allCommentsArea = $('<div>').addClass('allComments_' + cid);
-                    allCommentsArea.html(response);
-                    allCommentsArea.prependTo('#commentsBlock_' + cid);
-                    $('#comment_' + cid).val("");
-                    // $("input:text").focus(function(){$(this).val("")});
-                    // alert('done');
-                },
-                error: function (response) {
-                    alert('Disculpa: Ocurrio un ERROR');
-                }
-            });
-        }
-        else {
-            alert('Escribe un comentario primero!!!');
-        }
-    });
-
-    $(document).ready(function () {
-
-            $('[data-toggle="tooltip"]').tooltip();
-        //tpms
-        var ctx = document.getElementById('chart-area');
-        var myPieChart = new Chart(ctx, {
-            type: 'pie',
-            data: {
-                datasets: [{
-                    data: [ @ViewBag.tpmActivos, @ViewBag.tpmrealizada,  @ViewBag.tpmpendientes, @ViewBag.tpmNoReali],
-                    backgroundColor: [
-                        'rgba(54, 162, 235, 0.9)',
-                        'rgba(54, 235, 162, 0.9)',
-                        'rgba(255, 255, 0, 255)',
-                        'rgba(255, 54, 54, 0.9)'
-                    ]
-                }],
-                labels: [
-                    'En Proceso',
-                    'Terminadas',
-                    'Próximas',
-                    'No Realizados'
-                ]
-            }
-        });
-        //tpms atreas
-        var ctx = document.getElementById('chart-area-div');
-        var myPieChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                datasets: [{
-
-                    label: 'Total OILs Areas',
-                    data: [@ViewBag.st, @ViewBag.et, @ViewBag.sot,@ViewBag.mft,@ViewBag.ent],
-                    backgroundColor: 'rgba(54, 162, 235, 0.9)',
-                    borderWidth: 2
-                },{
-                    label: 'Realizadas',
-                    data: [@ViewBag.sr, @ViewBag.er, @ViewBag.sor,@ViewBag.mfr,@ViewBag.enr],
-                    backgroundColor: 'rgba(54, 235, 162, 0.9)',
-                    borderWidth: 2
-                },{
-                    label: 'Pendientes',
-                    data: [@ViewBag.sp,@ViewBag.ep,@ViewBag.sop,@ViewBag.mfp,@ViewBag.enp],
-                    backgroundColor: 'rgba(255, 255, 0, 255)',
-                    borderWidth: 2
-                }],
-
-                labels: [
-                    'FlexNGate',
-                    'Estampado/Rolado',
-                    'Soldadura',
-                    'Metal Finish',
-                    'Ensamble',
-                ]
-            }
-        });
-        //tpms atreas
-        var ctx = document.getElementById('chart-area-sem');
-        var myPieChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                datasets: [{
-                    label: 'Generadas',
-                    data: [@ViewBag.Datas1],
-                    backgroundColor: 'rgba(54, 162, 235, 0.9)',
-                    borderWidth: 2
-                },{
-                    label: 'Realizadas',
-                    data: [@ViewBag.Datas2],
-                    backgroundColor: 'rgba(54, 235, 162, 0.9)',
-                    borderWidth: 2
-                }],
-                labels: [@Html.Raw(ViewBag.Objectsem) ]
-            }
-        });
-        //Automatizacion
-        var ctx2 = document.getElementById('chart-area2');
-        var myPieChart2 = new Chart(ctx2, {
-            type: 'pie',
-            data: {
-                datasets: [{
-                    data: [ @ViewBag.aActivos, @ViewBag.arealizada,  @ViewBag.apendientes, @ViewBag.aNoReali],
-                    backgroundColor: [
-                        'rgba(54, 162, 235, 0.9)',
-                        'rgba(54, 235, 162, 0.9)',
-                        'rgba(255, 255, 0, 255)',
-                        'rgba(255, 54, 54, 0.9)'
-                    ]
-                }],
-                labels: [
-                    'En Proceso',
-                    'Terminadas',
-                    'Próximas',
-                    'No Realizados'
-                ]
-            }
-        });
-
-        $("#Normaldrop").chosen();
-
-        var table = document.getElementById('proye');
-        var tbody = table.getElementsByTagName('tbody')[0];
-        var cells = tbody.getElementsByTagName('tr');
-
-        for (var i = 0, len = cells.length; i < len; i++){
-            if (parseInt(cells[i].cells[1].innerHTML, 10) == 6) {
-                cells[i].cells[0].style.backgroundColor = '#8b0000';
-                cells[i].cells[0].style.color = 'white';
-                cells[i].cells[1].style.backgroundColor = '#8b0000';
-                cells[i].cells[1].style.color = 'white';
-                cells[i].cells[2].style.backgroundColor = '#8b0000';
-                cells[i].cells[2].style.color = 'white';
-                cells[i].cells[3].style.backgroundColor = '#8b0000';
-                cells[i].cells[3].style.color = 'white';
-                cells[i].cells[4].style.backgroundColor = '#8b0000';
-                cells[i].cells[4].style.color = 'white';
+                        $('div[class=allComments_' + cid + ']').remove();
+                        var allCommentsArea = $('<div>').addClass('allComments_' + cid);
+                        allCommentsArea.html(response);
+                        allCommentsArea.prependTo('#commentsBlock_' + cid);
+                        $('#comment_' + cid).val("");
+                        // $("input:text").focus(function(){$(this).val("")});
+                        // alert('done');
+                    },
+                    error: function (response) {
+                        alert('Disculpa: Ocurrio un ERROR');
+                    }
+                });
             }
             else {
-                if (parseInt(cells[i].cells[1].innerHTML, 10) == 0||parseInt(cells[i].cells[1].innerHTML, 10) == 2||parseInt(cells[i].cells[1].innerHTML, 10) > 6) {
-                    cells[i].cells[0].style.backgroundColor = 'lightgray';
-                    cells[i].cells[1].style.backgroundColor = 'lightgray';
-                    cells[i].cells[2].style.backgroundColor = 'lightgray';
-                    cells[i].cells[3].style.backgroundColor = 'lightgray';
-                    cells[i].cells[4].style.backgroundColor = 'lightgray';
-                }
-                else
-                if (parseInt(cells[i].cells[1].innerHTML, 10) == 3) {
-                    cells[i].cells[0].style.backgroundColor = '#36A2EB';
-                    cells[i].cells[1].style.backgroundColor = '#36A2EB';
-                    cells[i].cells[2].style.backgroundColor = '#36A2EB';
-                    cells[i].cells[3].style.backgroundColor = '#36A2EB';
-                    cells[i].cells[4].style.backgroundColor = '#36A2EB';
-                }
-                else
-                if (parseInt(cells[i].cells[1].innerHTML, 10) == 4) {
-                    cells[i].cells[0].style.backgroundColor = 'yellow';
-                    cells[i].cells[1].style.backgroundColor = 'yellow';
-                    cells[i].cells[2].style.backgroundColor = 'yellow';
-                    cells[i].cells[3].style.backgroundColor = 'yellow';
-                    cells[i].cells[4].style.backgroundColor = 'yellow';
-                }
-                else
-                if (parseInt(cells[i].cells[1].innerHTML, 10) == 5) {
-                    cells[i].cells[0].style.backgroundColor = '#ff4a4a ';
-                    cells[i].cells[0].style.color = 'white';
-                    cells[i].cells[1].style.backgroundColor = '#ff4a4a ';
-                    cells[i].cells[1].style.color = 'white';
-                    cells[i].cells[2].style.backgroundColor = '#ff4a4a ';
-                    cells[i].cells[2].style.color = 'white';
-                    cells[i].cells[3].style.backgroundColor = '#ff4a4a ';
-                    cells[i].cells[3].style.color = 'white';
-                    cells[i].cells[4].style.backgroundColor = '#ff4a4a ';
-                    cells[i].cells[4].style.color = 'white';
-                }
-                else
-                if (parseInt(cells[i].cells[1].innerHTML, 10) == 1) {
-                    cells[i].cells[0].style.backgroundColor = '#4aedab';
-                    cells[i].cells[1].style.backgroundColor = '#4aedab';
-                    cells[i].cells[2].style.backgroundColor = '#4aedab';
-                    cells[i].cells[3].style.backgroundColor = '#4aedab';
-                    cells[i].cells[4].style.backgroundColor = '#4aedab';
-                }
-            }
-        }
-
-        $('#proye').DataTable({
-            "dom": 'lBfrtip',
-            "lengthMenu": [[5, 25, 50, -1], ["5", "25", "50", "Todos"]],
-            "buttons": [
-                {
-                    extend: 'copy',
-                    orientation: 'landscape',
-                    pageSize: 'LEGAL',
-                    exportOptions: {
-                    columns: [0, 1, 4, 5, 7, 8, 9, 10, 11, 12, 13]
-                    },
-                },
-                {
-                    extend: 'csv',
-                    orientation: 'landscape',
-                    pageSize: 'LEGAL',
-                    exportOptions: {
-                    columns: [0, 1, 4, 5, 7, 8, 9, 10, 11, 12, 13]
-                    },
-                },
-                {
-                    extend: 'print',
-                    orientation: 'landscape',
-                    pageSize: 'LEGAL',
-                    exportOptions: {
-                    columns: [0, 1, 4, 5, 7, 8, 9, 10, 11, 12, 13]
-                    },
-                },
-                {
-                    extend: 'pdfHtml5',
-                    orientation: 'landscape',
-                    pageSize: 'LEGAL',
-                    exportOptions: {
-                    columns: [0, 1, 4, 5, 7, 8, 9, 10, 11, 12, 13]
-                    },
-                },
-                {
-                    extend: 'excelHtml5',
-                    orientation: 'landscape',
-                    pageSize: 'LEGAL',
-                    exportOptions: {
-                    columns: [0, 1, 4, 5, 7, 8, 9, 10, 11, 12, 13]
-                    },
-                }
-            ],
-            "order": [[0, "desc"]],
-            "scrollX": true,
-            "language": {
-                "sProcessing": "Procesando...",
-                "sLengthMenu": "Mostrar _MENU_ registros",
-                "sZeroRecords": "No se encontraron resultados",
-                "sEmptyTable": "Ningún dato disponible en esta tabla =(",
-                "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-                "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
-                "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
-                "sInfoPostFix": "",
-                "sSearch": "Buscar:",
-                "sUrl": "",
-                "sInfoThousands": ",",
-                "sLoadingRecords": "Cargando...",
-                "oPaginate": {
-                    "sFirst": "Primero",
-                    "sLast": "Último",
-                    "sNext": "Siguiente",
-                    "sPrevious": "Anterior"
-                },
-                "oAria": {
-                    "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
-                    "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-                },
-                "buttons": {
-                    "copy": "Copiar",
-                    "colvis": "Visibilidad"
-                }
+                alert('Escribe un comentario primero!!!');
             }
         });
 
-        if (typeof window.stackBottomLeft === 'undefined') {
-            window.stackBottomLeft = {
-                'dir1': 'right',
-                'dir2': 'down',
-                'firstpos1': 25,
-                'firstpos2': 25,
-                'push': 'top'
-            };
-        }
+        $(document).ready(function () {
 
-        var proyectos_vencidos = 0;
-        var proyectos_Proximos = 0;
-        if(@ViewBag.NoReali!=0)
-            proyectos_vencidos =  @ViewBag.NoReali;
-        if(@ViewBag.Fechaprox!=0)
-            proyectos_Proximos = @ViewBag.Fechaprox;
+                $('[data-toggle="tooltip"]').tooltip();
+            //tpms
+            var ctx = document.getElementById('chart-area');
+            var myPieChart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    datasets: [{
+                        data: [ @ViewBag.tpmActivos, @ViewBag.tpmrealizada,  @ViewBag.tpmpendientes, @ViewBag.tpmNoReali],
+                        backgroundColor: [
+                            'rgba(54, 162, 235, 0.9)',
+                            'rgba(54, 235, 162, 0.9)',
+                            'rgba(255, 255, 0, 255)',
+                            'rgba(255, 54, 54, 0.9)'
+                        ]
+                    }],
+                    labels: [
+                        'En Proceso',
+                        'Terminadas',
+                        'Próximas',
+                        'No Realizados'
+                    ]
+                }
+            });
+            //tpms atreas
+            var ctx = document.getElementById('chart-area-div');
+            var myPieChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    datasets: [{
 
-        document.getElementById("alertsb").innerHTML ="Existen: '"+proyectos_vencidos+"' OILs vencidos y '"+ proyectos_Proximos +"' OILs proximos a vencer...";
-    });
+                        label: 'Total OILs Areas',
+                        data: [@ViewBag.st, @ViewBag.et, @ViewBag.sot,@ViewBag.mft,@ViewBag.ent],
+                        backgroundColor: 'rgba(54, 162, 235, 0.9)',
+                        borderWidth: 2
+                    },{
+                        label: 'Realizadas',
+                        data: [@ViewBag.sr, @ViewBag.er, @ViewBag.sor,@ViewBag.mfr,@ViewBag.enr],
+                        backgroundColor: 'rgba(54, 235, 162, 0.9)',
+                        borderWidth: 2
+                    },{
+                        label: 'Pendientes',
+                        data: [@ViewBag.sp,@ViewBag.ep,@ViewBag.sop,@ViewBag.mfp,@ViewBag.enp],
+                        backgroundColor: 'rgba(255, 255, 0, 255)',
+                        borderWidth: 2
+                    }],
+
+                    labels: [
+                        'FlexNGate',
+                        'Estampado/Rolado',
+                        'Soldadura',
+                        'Metal Finish',
+                        'Ensamble',
+                    ]
+                }
+            });
+            //tpms atreas
+            var ctx = document.getElementById('chart-area-sem');
+            var myPieChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    datasets: [{
+                        label: 'Generadas',
+                        data: [@ViewBag.Datas1],
+                        backgroundColor: 'rgba(54, 162, 235, 0.9)',
+                        borderWidth: 2
+                    },{
+                        label: 'Realizadas',
+                        data: [@ViewBag.Datas2],
+                        backgroundColor: 'rgba(54, 235, 162, 0.9)',
+                        borderWidth: 2
+                    }],
+                    labels: [@Html.Raw(ViewBag.Objectsem) ]
+                }
+            });
+            //Automatizacion
+            var ctx2 = document.getElementById('chart-area2');
+            var myPieChart2 = new Chart(ctx2, {
+                type: 'pie',
+                data: {
+                    datasets: [{
+                        data: [ @ViewBag.aActivos, @ViewBag.arealizada,  @ViewBag.apendientes, @ViewBag.aNoReali],
+                        backgroundColor: [
+                            'rgba(54, 162, 235, 0.9)',
+                            'rgba(54, 235, 162, 0.9)',
+                            'rgba(255, 255, 0, 255)',
+                            'rgba(255, 54, 54, 0.9)'
+                        ]
+                    }],
+                    labels: [
+                        'En Proceso',
+                        'Terminadas',
+                        'Próximas',
+                        'No Realizados'
+                    ]
+                }
+            });
+
+            $("#Normaldrop").chosen();
+
+            var table = document.getElementById('proye');
+            var tbody = table.getElementsByTagName('tbody')[0];
+            var cells = tbody.getElementsByTagName('tr');
+
+            for (var i = 0, len = cells.length; i < len; i++){
+                if (parseInt(cells[i].cells[1].innerHTML, 10) == 6) {
+                    cells[i].cells[0].style.backgroundColor = '#8b0000';
+                    cells[i].cells[0].style.color = 'white';
+                    cells[i].cells[1].style.backgroundColor = '#8b0000';
+                    cells[i].cells[1].style.color = 'white';
+                    cells[i].cells[2].style.backgroundColor = '#8b0000';
+                    cells[i].cells[2].style.color = 'white';
+                    cells[i].cells[3].style.backgroundColor = '#8b0000';
+                    cells[i].cells[3].style.color = 'white';
+                    cells[i].cells[4].style.backgroundColor = '#8b0000';
+                    cells[i].cells[4].style.color = 'white';
+                }
+                else {
+                    if (parseInt(cells[i].cells[1].innerHTML, 10) == 0||parseInt(cells[i].cells[1].innerHTML, 10) == 2||parseInt(cells[i].cells[1].innerHTML, 10) > 6) {
+                        cells[i].cells[0].style.backgroundColor = 'lightgray';
+                        cells[i].cells[1].style.backgroundColor = 'lightgray';
+                        cells[i].cells[2].style.backgroundColor = 'lightgray';
+                        cells[i].cells[3].style.backgroundColor = 'lightgray';
+                        cells[i].cells[4].style.backgroundColor = 'lightgray';
+                    }
+                    else
+                    if (parseInt(cells[i].cells[1].innerHTML, 10) == 3) {
+                        cells[i].cells[0].style.backgroundColor = '#36A2EB';
+                        cells[i].cells[1].style.backgroundColor = '#36A2EB';
+                        cells[i].cells[2].style.backgroundColor = '#36A2EB';
+                        cells[i].cells[3].style.backgroundColor = '#36A2EB';
+                        cells[i].cells[4].style.backgroundColor = '#36A2EB';
+                    }
+                    else
+                    if (parseInt(cells[i].cells[1].innerHTML, 10) == 4) {
+                        cells[i].cells[0].style.backgroundColor = 'yellow';
+                        cells[i].cells[1].style.backgroundColor = 'yellow';
+                        cells[i].cells[2].style.backgroundColor = 'yellow';
+                        cells[i].cells[3].style.backgroundColor = 'yellow';
+                        cells[i].cells[4].style.backgroundColor = 'yellow';
+                    }
+                    else
+                    if (parseInt(cells[i].cells[1].innerHTML, 10) == 5) {
+                        cells[i].cells[0].style.backgroundColor = '#ff4a4a ';
+                        cells[i].cells[0].style.color = 'white';
+                        cells[i].cells[1].style.backgroundColor = '#ff4a4a ';
+                        cells[i].cells[1].style.color = 'white';
+                        cells[i].cells[2].style.backgroundColor = '#ff4a4a ';
+                        cells[i].cells[2].style.color = 'white';
+                        cells[i].cells[3].style.backgroundColor = '#ff4a4a ';
+                        cells[i].cells[3].style.color = 'white';
+                        cells[i].cells[4].style.backgroundColor = '#ff4a4a ';
+                        cells[i].cells[4].style.color = 'white';
+                    }
+                    else
+                    if (parseInt(cells[i].cells[1].innerHTML, 10) == 1) {
+                        cells[i].cells[0].style.backgroundColor = '#4aedab';
+                        cells[i].cells[1].style.backgroundColor = '#4aedab';
+                        cells[i].cells[2].style.backgroundColor = '#4aedab';
+                        cells[i].cells[3].style.backgroundColor = '#4aedab';
+                        cells[i].cells[4].style.backgroundColor = '#4aedab';
+                    }
+                }
+            }
+
+            $('#proye').DataTable({
+                "dom": 'lBfrtip',
+                "lengthMenu": [[5, 25, 50, -1], ["5", "25", "50", "Todos"]],
+                "buttons": [
+                    {
+                        extend: 'copy',
+                        orientation: 'landscape',
+                        pageSize: 'LEGAL',
+                        exportOptions: {
+                        columns: [0, 1, 4, 5, 7, 8, 9, 10, 11, 12, 13]
+                        },
+                    },
+                    {
+                        extend: 'csv',
+                        orientation: 'landscape',
+                        pageSize: 'LEGAL',
+                        exportOptions: {
+                        columns: [0, 1, 4, 5, 7, 8, 9, 10, 11, 12, 13]
+                        },
+                    },
+                    {
+                        extend: 'print',
+                        orientation: 'landscape',
+                        pageSize: 'LEGAL',
+                        exportOptions: {
+                        columns: [0, 1, 4, 5, 7, 8, 9, 10, 11, 12, 13]
+                        },
+                    },
+                    {
+                        extend: 'pdfHtml5',
+                        orientation: 'landscape',
+                        pageSize: 'LEGAL',
+                        exportOptions: {
+                        columns: [0, 1, 4, 5, 7, 8, 9, 10, 11, 12, 13]
+                        },
+                    },
+                    {
+                        extend: 'excelHtml5',
+                        orientation: 'landscape',
+                        pageSize: 'LEGAL',
+                        exportOptions: {
+                        columns: [0, 1, 4, 5, 7, 8, 9, 10, 11, 12, 13]
+                        },
+                    }
+                ],
+                "order": [[0, "desc"]],
+                "scrollX": true,
+                "language": {
+                    "sProcessing": "Procesando...",
+                    "sLengthMenu": "Mostrar _MENU_ registros",
+                    "sZeroRecords": "No se encontraron resultados",
+                    "sEmptyTable": "Ningún dato disponible en esta tabla =(",
+                    "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                    "sInfoPostFix": "",
+                    "sSearch": "Buscar:",
+                    "sUrl": "",
+                    "sInfoThousands": ",",
+                    "sLoadingRecords": "Cargando...",
+                    "oPaginate": {
+                        "sFirst": "Primero",
+                        "sLast": "Último",
+                        "sNext": "Siguiente",
+                        "sPrevious": "Anterior"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                    },
+                    "buttons": {
+                        "copy": "Copiar",
+                        "colvis": "Visibilidad"
+                    }
+                }
+            });
+
+            if (typeof window.stackBottomLeft === 'undefined') {
+                window.stackBottomLeft = {
+                    'dir1': 'right',
+                    'dir2': 'down',
+                    'firstpos1': 25,
+                    'firstpos2': 25,
+                    'push': 'top'
+                };
+            }
+
+            var proyectos_vencidos = 0;
+            var proyectos_Proximos = 0;
+            if(@ViewBag.NoReali!=0)
+                proyectos_vencidos =  @ViewBag.NoReali;
+            if(@ViewBag.Fechaprox!=0)
+                proyectos_Proximos = @ViewBag.Fechaprox;
+
+            document.getElementById("alertsb").innerHTML ="Existen: '"+proyectos_vencidos+"' OILs vencidos y '"+ proyectos_Proximos +"' OILs proximos a vencer...";
+        });
     </script>
 }
