@@ -138,7 +138,44 @@ namespace Flex_SGM.Controllers
             ViewBag.Puesto = CurrentUser.Puesto;
             ViewBag.cUser = CurrentUser.UserFullName;
 
+            ViewBag.ReqAmbiental = db.PCRs.Where(r => r.support_Ambiental != "X").Where(r => r.Status == "Aprobado").Count();
+            ViewBag.ReqAutomatizacion = db.PCRs.Where(r => r.support_Automatizacion != "X").Where(r => r.Status == "Aprobado").Count();
+            ViewBag.ReqBackcoat = db.PCRs.Where(r => r.support_Backcoat != "X").Where(r => r.Status == "Aprobado").Count();
+            ViewBag.ReqCalidad = db.PCRs.Where(r => r.support_Calidad != "X").Where(r => r.Status == "Aprobado").Count();
+            ViewBag.ReqChromo = db.PCRs.Where(r => r.support_Chromo != "X").Where(r => r.Status == "Aprobado").Count();
+            ViewBag.ReqCompras = db.PCRs.Where(r => r.support_Compras != "X").Where(r => r.Status == "Aprobado").Count();
+            ViewBag.ReqEcoat = db.PCRs.Where(r => r.support_Ecoat != "X").Where(r => r.Status == "Aprobado").Count();
+            ViewBag.ReqEnsamble = db.PCRs.Where(r => r.support_Ensamble != "X").Where(r => r.Status == "Aprobado").Count();
+            ViewBag.ReqEstampado = db.PCRs.Where(r => r.support_Estampado != "X").Where(r => r.Status == "Aprobado").Count();
+            ViewBag.ReqFinanzas = db.PCRs.Where(r => r.support_Finanzas != "X").Where(r => r.Status == "Aprobado").Count();
+            ViewBag.ReqMantenimiento = db.PCRs.Where(r => r.support_Mantenimiento != "X").Where(r => r.Status == "Aprobado").Count();
+            ViewBag.ReqMateriales = db.PCRs.Where(r => r.support_Materiales != "X").Where(r => r.Status == "Aprobado").Count();
+            ViewBag.ReqSeguridad = db.PCRs.Where(r => r.support_Seguridad != "X").Where(r => r.Status == "Aprobado").Count();
+            ViewBag.ReqSoldadura = db.PCRs.Where(r => r.support_Soldadura != "X").Where(r => r.Status == "Aprobado").Count();
+            ViewBag.ReqTooling = db.PCRs.Where(r => r.support_Tooling != "X").Where(r => r.Status == "Aprobado").Count();
+            ViewBag.ReqTopcoat = db.PCRs.Where(r => r.support_Topcoat != "X").Where(r => r.Status == "Aprobado").Count();
+            ViewBag.ReqProduccion = ViewBag.ReqBackcoat + ViewBag.ReqChromo + ViewBag.ReqEcoat + ViewBag.ReqEnsamble + ViewBag.ReqEstampado + ViewBag.ReqSoldadura + ViewBag.ReqTopcoat;
+
+            ViewBag.Ambiental = db.PCRs.Where(f => f.support_Ambiental == "P").Where(f => f.Status == "Aprobado").Count();
+            ViewBag.Automatizacion = db.PCRs.Where(f => f.support_Automatizacion == "P").Where(f => f.Status == "Aprobado").Count();
+            ViewBag.Backcoat = db.PCRs.Where(f => f.support_Backcoat == "P").Where(f => f.Status == "Aprobado").Count();
+            ViewBag.Calidad = db.PCRs.Where(f => f.support_Calidad == "P").Where(f => f.Status == "Aprobado").Count();
+            ViewBag.Chromo = db.PCRs.Where(f => f.support_Chromo == "P").Where(f => f.Status == "Aprobado").Count();
+            ViewBag.Compras = db.PCRs.Where(f => f.support_Compras == "P").Where(f => f.Status == "Aprobado").Count();
+            ViewBag.Ecoat = db.PCRs.Where(f => f.support_Ecoat == "P").Where(f => f.Status == "Aprobado").Count();
+            ViewBag.Ensamble = db.PCRs.Where(f => f.support_Ensamble == "P").Where(f => f.Status == "Aprobado").Count();
+            ViewBag.Estampado = db.PCRs.Where(f => f.support_Estampado == "P").Where(f => f.Status == "Aprobado").Count();
+            ViewBag.Finanzas = db.PCRs.Where(f => f.support_Finanzas == "P").Where(f => f.Status == "Aprobado").Count();
+            ViewBag.Mantenimiento = db.PCRs.Where(f => f.support_Mantenimiento == "P").Where(f => f.Status == "Aprobado").Count();
+            ViewBag.Materiales = db.PCRs.Where(f => f.support_Materiales == "P").Where(f => f.Status == "Aprobado").Count();
+            ViewBag.Seguridad = db.PCRs.Where(f => f.support_Seguridad == "P").Where(f => f.Status == "Aprobado").Count();
+            ViewBag.Soldadura = db.PCRs.Where(f => f.support_Soldadura == "P").Where(f => f.Status == "Aprobado").Count();
+            ViewBag.Tooling = db.PCRs.Where(f => f.support_Tooling == "P").Where(f => f.Status == "Aprobado").Count();
+            ViewBag.Topcoat = db.PCRs.Where(f => f.support_Topcoat == "P").Where(f => f.Status == "Aprobado").Count();
+            ViewBag.Produccion = ViewBag.Backcoat + ViewBag.Chromo + ViewBag.Ecoat + ViewBag.Ensamble + ViewBag.Estampado + ViewBag.Soldadura + ViewBag.Topcoat;
+
             var PCRs = db.PCRs.Include(p => p.Clientes).Include(p => p.MatrizDecision).Include(p => p.Proyectos).Include(p => p.Reason);
+
             return View(PCRs.ToList());
         }
 
@@ -146,7 +183,20 @@ namespace Flex_SGM.Controllers
         [AllowAnonymous]
         public ActionResult Details(int? id)
         {
-            
+            var uiid = User.Identity.GetUserId();
+            ApplicationUser currentUser = db.Users.Where(w => w.Id == uiid).FirstOrDefault();
+
+            ViewBag.Admin = false;
+            if (currentUser != null)
+                if (currentUser.Puesto.Contains("Gerente"))
+                    ViewBag.Admin = true;
+
+            var Id = User.Identity.GetUserId();
+            ApplicationUser CurrentUser = UserManager.FindById(Id);
+            ViewBag.Dep = CurrentUser.Departamento;
+            ViewBag.Puesto = CurrentUser.Puesto;
+            ViewBag.cUser = CurrentUser.UserFullName;
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -479,7 +529,28 @@ namespace Flex_SGM.Controllers
                                 else
                                     pcr.Status = "En Aprobación";
                                 break;
-                                default:
+                        case ("Rechazar"):
+                                if (pcr.Status == "En Aprobación")
+                                {
+                                    pcr.Status = "Rechazado";
+                                    sign.msg = msg;
+                                    sign.Reviewedby_date = DateTime.Now;
+                                    sign.pcrID = id;
+                                    sign.Status = "Rechazado";
+                                    sign.Reviewedby = cuser;
+                                    sign.Dep = currentUser.Departamento;
+
+                                    var UserList = db.Users.Where(w => w.UserFullName == pcr.Originator).FirstOrDefault();
+                                    string email = UserList.Email.ToString();
+                                    string[] eMail = { email };
+                                    string emailId = sign.pcrID.ToString();
+
+                                    correo.Rechazado(eMail, currentUser.UserFullName, pcr.PCRID, emailId);
+                                }
+                                else
+                                    pcr.Status = "En Aprobación";
+                                break;
+                        default:
                                 pcr.Status = currentUser.UserFullName + " Canceló";
                                 sign.msg = msg;
                                 sign.Reviewedby_date = DateTime.Now;
@@ -492,13 +563,13 @@ namespace Flex_SGM.Controllers
                     };
 
                     db.Entry(pcr).State = EntityState.Modified;
-                        if(sign.pcrID!=0)
-                    db.FeasibilitySigns.Add(sign);
+                    if(sign.pcrID!=0)
+                        db.FeasibilitySigns.Add(sign);
                     db.SaveChanges();
                     return Response;
                 }
             }
-            return "No permitido... nada ha cambiado...";
+            return "No está permitido... nada ha cambiado...";
             alreadysin: 
             return "Su departamento ya ha firmado éste PCR ... ";
         }
@@ -506,6 +577,20 @@ namespace Flex_SGM.Controllers
         [Authorize(Roles = "Admin, Gerente")]
         public ActionResult Review(int? id)
         {
+            var uiid = User.Identity.GetUserId();
+            ApplicationUser currentUser = db.Users.Where(w => w.Id == uiid).FirstOrDefault();
+
+            ViewBag.Admin = false;
+            if (currentUser != null)
+                if (currentUser.Puesto.Contains("Gerente"))
+                    ViewBag.Admin = true;
+
+            var Id = User.Identity.GetUserId();
+            ApplicationUser CurrentUser = UserManager.FindById(Id);
+            ViewBag.Dep = CurrentUser.Departamento;
+            ViewBag.Puesto = CurrentUser.Puesto;
+            ViewBag.cUser = CurrentUser.UserFullName;
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

@@ -131,11 +131,12 @@ namespace Flex_SGM.emaildata
             try
             {
                 var bodyb = new StringBuilder();
-                bodyb.AppendFormat("El usuario {0} Genero un PCR!", usuario);
-                bodyb.AppendLine(@"<p>El numero de PCR es: <b>" + comment + "</b></p>");
+                bodyb.AppendFormat("<p><font size = '3' face = 'arial' color = 'blue'>El usuario {0} genero un PCR!</font></p>", usuario);
+                bodyb.AppendLine(@"<p><font size = '3' face = 'arial'>El numero de PCR es: <b>" + comment + "</b></font></p>");
+                bodyb.AppendLine(@"<p><font size = '3' face = 'arial'>En el siguiente link podras autorizar el PCR:</font></p>");
                 var link = @"http://sjimsvap7/bitacora/PCRs/Review/" + id;
-                bodyb.AppendLine("<p><a href=\"" + link+ "\" >"+link+ "</a></p>");
-                bodyb.AppendLine(@"<p>Recuerda Verificar los PCRs! </p>");
+                bodyb.AppendLine("<p><font size = '3' face = 'arial'><a href=\"" + link+ "\" >"+link+ "</a></font></p>");
+                bodyb.AppendLine(@"<font size = '2' face = 'arial' color = 'red'><p>Recuerda Revisar sus PCRs! </font></p>");
                 bodyb.AppendLine(@"<i>No responder a este correo | Do not reply to this email </i>");
 
                 var message = new MailMessage();
@@ -144,8 +145,8 @@ namespace Flex_SGM.emaildata
                     message.To.Add(new MailAddress(corr));
 
                 }
-                message.From = new MailAddress("SJIM_Ingenieria@flexngate.com"); 
-                message.Subject = "Nuevo PCR para su revisión";
+                message.From = new MailAddress("SJIM_Ingenieria@flexngate.com");
+                message.Subject = "Nuevo PCR " + comment + " esperando su aprobación";
                 message.IsBodyHtml = true;
                 message.Body = bodyb.ToString();
                 message.IsBodyHtml = true;
@@ -166,13 +167,13 @@ namespace Flex_SGM.emaildata
             try
             {
                 var bodyb = new StringBuilder();
-                bodyb.AppendFormat("El usuario {0} aprobó un PCR por su revisión!", usuario);
-                bodyb.AppendLine(@"<p>El numero de PCR es: <b>" + comment + "</b></p>");
-                bodyb.AppendLine(@"<p>En el siguiente link podras autorizar el PCR:</p>");
+                bodyb.AppendFormat("<p><font size = '3' face = 'arial' color = 'blue'>El usuario {0} aprobó un PCR por su revisión!</font></p>", usuario);
+                bodyb.AppendLine(@"<p><font size = '3' face = 'arial'>El numero de PCR es: <b>" + comment + "</b></font></p>");
+                bodyb.AppendLine(@"<p><font size = '3' face = 'arial'>En el siguiente link podras autorizar el PCR:</font></p>");
                 var link = @"http://sjimsvap7/bitacora/PCRs/Review/" + id;
-                bodyb.AppendLine("<p><a href=\"" + link + "\" >" + link + "</a></p>");
-                bodyb.AppendLine(@"<b>Al autorizar el PCR, será autorizado por el departamento de " + departamento + ".</b>");
-                bodyb.AppendLine(@"<p>Recuerda Verificar los PCRs! </p>");
+                bodyb.AppendLine("<p><font size = '3' face = 'arial'><a href=\"" + link + "\" >" + link + "</a></font></p>");
+                bodyb.AppendLine(@"<b><font size = '2' face = 'arial'>Al autorizar el PCR, será autorizado por el departamento de " + departamento + ".</font></b>");
+                bodyb.AppendLine(@"<font size = '2' face = 'arial' color = 'red'><p>Recuerda Revisar sus PCRs! </font></p>");
                 bodyb.AppendLine(@"<i>No responder a este correo | Do not reply to this email </i>");
 
                 var message = new MailMessage();
@@ -181,7 +182,7 @@ namespace Flex_SGM.emaildata
                     message.To.Add(new MailAddress(corr));
                 }
                 message.From = new MailAddress("SJIM_Ingenieria@flexngate.com"); 
-                message.Subject = "Nuevo PCR esperando su aprobación";
+                message.Subject = "Nuevo PCR " + comment + " esperando su aprobación";
                 message.IsBodyHtml = true;
                 message.Body = bodyb.ToString();
                 message.IsBodyHtml = true;
@@ -201,12 +202,12 @@ namespace Flex_SGM.emaildata
             try
             {
                 var bodyb = new StringBuilder();
-                bodyb.AppendFormat("El usuario {0} dice su PCR ocupa arreglos!", usuario);
-                bodyb.AppendLine(@"<p>El numero de PCR es: <b>" + comment + "</b></p>");
-                bodyb.AppendLine(@"<p>En el siguiente link podras arreglar el PCR:</p>");
+                bodyb.AppendFormat("<p><font size = '3' face = 'arial' color = 'blue'>El usuario {0} dice su PCR ocupa arreglos!</font></p>", usuario);
+                bodyb.AppendLine(@"<p><font size = '3' face = 'arial'>El numero de PCR es: <b>" + comment + "</b></font></p>");
+                bodyb.AppendLine(@"<p><font size = '3' face = 'arial'>En el siguiente link podras arreglar el PCR:</font></p>");
                 var link = @"http://sjimsvap7/bitacora/PCRs/Review/" + id;
-                bodyb.AppendLine("<p><a href=\"" + link + "\" >" + link + "</a></p>");
-                bodyb.AppendLine(@"<p>Recuerda Verificar los PCRs! </p>");
+                bodyb.AppendLine("<p><font size = '3' face = 'arial'><a href=\"" + link + "\" >" + link + "</a></font></p>");
+                bodyb.AppendLine(@"<font size = '2' face = 'arial' color = 'red'><p>Recuerda Revisar sus PCRs! </font></p>");
                 bodyb.AppendLine(@"<i>No responder a este correo | Do not reply to this email </i>");
 
                 var message = new MailMessage();
@@ -215,7 +216,7 @@ namespace Flex_SGM.emaildata
                     message.To.Add(new MailAddress(corr));
                 }
                 message.From = new MailAddress("SJIM_Ingenieria@flexngate.com");
-                message.Subject = "Su Nuevo PCR está esperando arreglos";
+                message.Subject = "Su Nuevo PCR " + comment + " está esperando arreglos";
                 message.IsBodyHtml = true;
                 message.Body = bodyb.ToString();
                 message.IsBodyHtml = true;
@@ -235,12 +236,12 @@ namespace Flex_SGM.emaildata
             try
             {
                 var bodyb = new StringBuilder();
-                bodyb.AppendFormat("El usuario {0} modificó su PCR para que revisa de nuevo!", usuario);
-                bodyb.AppendLine(@"<p>El numero de PCR es: <b>" + comment + "</b></p>");
-                bodyb.AppendLine(@"<p>En el siguiente link podras aprobar el PCR:</p>");
+                bodyb.AppendFormat("<p><font size = '3' face = 'arial' color = 'blue'>El usuario {0} modificó su PCR para que revisa de nuevo!</font></p>", usuario);
+                bodyb.AppendLine(@"<p><font size = '3' face = 'arial'>El numero de PCR es: <b>" + comment + "</b></font></p>");
+                bodyb.AppendLine(@"<p><font size = '3' face = 'arial'>En el siguiente link podras aprobar el PCR:</font></p>");
                 var link = @"http://sjimsvap7/bitacora/PCRs/Review/" + id;
-                bodyb.AppendLine("<p><a href=\"" + link + "\" >" + link + "</a></p>");
-                bodyb.AppendLine(@"<p>Recuerda Verificar los PCRs! </p>");
+                bodyb.AppendLine("<p><font size = '3' face = 'arial'><a href=\"" + link + "\" >" + link + "</a></font></p>");
+                bodyb.AppendLine(@"<font size = '2' face = 'arial' color = 'red'><p>Recuerda Revisar sus PCRs! </font></p>");
                 bodyb.AppendLine(@"<i>No responder a este correo | Do not reply to this email </i>");
 
                 var message = new MailMessage();
@@ -249,7 +250,41 @@ namespace Flex_SGM.emaildata
                     message.To.Add(new MailAddress(corr));
                 }
                 message.From = new MailAddress("SJIM_Ingenieria@flexngate.com");
-                message.Subject = "PCR fue modificado, revisarlo de nuevo";
+                message.Subject = "PCR " + comment + " fue modificado, revisarlo de nuevo";
+                message.IsBodyHtml = true;
+                message.Body = bodyb.ToString();
+                message.IsBodyHtml = true;
+
+                using (var smtp = new SmtpClient())
+                {
+                    smtp.Host = "smtp.flexngate.local";
+                    smtp.Port = 25;
+                    smtp.EnableSsl = false;
+                    smtp.Send(message);
+                }
+            }
+            catch (Exception Ex) { var x = Ex; }
+        }
+        public void Rechazado(string[] Correo, string usuario, string comment, string id)
+        {
+            try
+            {
+                var bodyb = new StringBuilder();
+                bodyb.AppendFormat("<p><font size = '3' face = 'arial' color = 'blue'>El usuario {0} rechazó su PCR!</font></p>", usuario);
+                bodyb.AppendLine(@"<p><font size = '3' face = 'arial'>El numero de PCR es: <b>" + comment + "</b></font></p>");
+                bodyb.AppendLine(@"<p><font size = '3' face = 'arial'>En el siguiente link podras modificar el PCR:</font></p>");
+                var link = @"http://sjimsvap7/bitacora/PCRs/Edit/" + id;
+                bodyb.AppendLine("<p><font size = '3' face = 'arial'><a href=\"" + link + "\" >" + link + "</a></font></p>");
+                bodyb.AppendLine(@"<font size = '2' face = 'arial' color = 'red'><p>Recuerda Revisar sus PCRs! </font></p>");
+                bodyb.AppendLine(@"<i>No responder a este correo | Do not reply to this email </i>");
+
+                var message = new MailMessage();
+                foreach (var corr in Correo)
+                {
+                    message.To.Add(new MailAddress(corr));
+                }
+                message.From = new MailAddress("SJIM_Ingenieria@flexngate.com");
+                message.Subject = "PCR " + comment + " fue rechazado";
                 message.IsBodyHtml = true;
                 message.Body = bodyb.ToString();
                 message.IsBodyHtml = true;

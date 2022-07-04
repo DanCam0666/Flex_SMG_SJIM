@@ -16,7 +16,7 @@
             <th style="min-width: 80px">
                 @Html.DisplayNameFor(model => model.PCRID)
             </th>
-             <th>
+            <th>
                 @Html.DisplayNameFor(model => model.Status)
             </th>
             <th style="min-width: 110px">Menu</th>
@@ -96,8 +96,8 @@
                                 (item.support_Materiales == "P" && ViewBag.Dep == "Materiales") ||
                                 (item.support_Seguridad == "P" && ViewBag.Dep == "Seguridad") ||
                                 (item.support_Soldadura == "P" && ViewBag.Dep == "Produccion") ||
-                                (item.support_Tooling == "P" && ViewBag.Dep == "Produccion") ||
-                                (item.support_Topcoat == "P" && ViewBag.Dep == "Tooling"))
+                                (item.support_Tooling == "P" && ViewBag.Dep == "Tooling") ||
+                                (item.support_Topcoat == "P" && ViewBag.Dep == "Produccion"))
                             {
                                 support = true;
                             }
@@ -165,3 +165,51 @@
     </tbody>
 
 </table>
+<div class="x_panel clearfix">
+    <div class="x_title clearfix">
+        <h2 id="alerts">Firmas <small> PCRs </small></h2>
+        <ul class="nav navbar-right">
+            <li>
+                <a class="collapse-link collapse" data-toggle="collapse"><i class="fa fa-chevron-down"></i></a>
+            </li>
+        </ul>
+    </div>
+    <div class="x_content" id="collapseOne" data-toggle="false" style="display: none">
+        <div class="col-md-12">
+            <h2> Firmas </h2>
+            <canvas class="chartjs" id="chart-firmas" style="width: 800vw; height: 300vw; display: block"></canvas>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        var ctx = document.getElementById('chart-firmas');
+        var myBarChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                datasets: [{
+                    label: 'Firmas Requeridas',
+                    data: [@ViewBag.ReqAmbiental, @ViewBag.ReqAutomatizacion, @ViewBag.ReqCalidad,
+                        @ViewBag.ReqCompras,  @ViewBag.ReqFinanzas, @ViewBag.ReqMantenimiento,
+                        @ViewBag.ReqMateriales, @ViewBag.ReqProduccion, @ViewBag.ReqSeguridad, @ViewBag.ReqTooling
+                    ],
+                    backgroundColor: '#4aabed',
+                    borderWidth: 2
+                }, {
+                    label: 'Firmas Faltantes',
+                    data: [@ViewBag.Ambiental, @ViewBag.Automatizacion, @ViewBag.Calidad,
+                        @ViewBag.Compras, @ViewBag.Finanzas, @ViewBag.Mantenimiento,
+                        @ViewBag.Materiales, @ViewBag.Produccion, @ViewBag.Seguridad, @ViewBag.Tooling,
+                    ],
+                    backgroundColor: '#ffff00',
+                    borderWidth: 2
+                }],
+                labels: [
+                    'Ambiental', 'Automatizacion', 'Calidad', 'Compras',
+                    'Finanzas', 'Mantenimiento', 'Materiales', 'Produccion', 'Seguridad', 'Tooling'
+                ],
+            }
+        });
+    </script>
+}
