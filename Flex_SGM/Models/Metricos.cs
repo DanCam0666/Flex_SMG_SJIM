@@ -119,6 +119,8 @@ namespace Flex_SGM.Models
         public int PaDe { get; set; }
         public int Plm { get; set; }
         public int QuHs { get; set; }
+        public int RrCnt { get; set; }
+        public int RrSum { get; set; }
         public int ReRa { get; set; }
         public int Safe { get; set; }
         [DataType(DataType.Currency)]
