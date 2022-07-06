@@ -98,6 +98,9 @@ namespace Flex_SGM.Controllers
                     var cnt_LPA_Covid = (metricos.Where(w => w.Usuario_area == "LPA_COVID" && w.DiaHora.Month == jmes).Count());
                     var sum_TOC_HS_Audits = (metricos.Where(w => w.Usuario_area == "TOC_HS_Audits" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum());
                     var cnt_TOC_HS_Audits = (metricos.Where(w => w.Usuario_area == "TOC_HS_Audits" && w.DiaHora.Month == jmes).Count());
+                    var sum_Red_Rabbits = (metricos.Where(w => w.Usuario_area == "Red_Rabbits" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum());
+                    var cnt_Red_Rabbits = (metricos.Where(w => w.Usuario_area == "Red_Rabbits" && w.DiaHora.Month == jmes).Count());
+
 
                     if (cnt_AMEF != 0)
                     {
@@ -139,6 +142,14 @@ namespace Flex_SGM.Controllers
                     {
                         ViewBag.TocPer = 0;
                     }
+                    if (cnt_Red_Rabbits != 0)
+                    {
+                        ViewBag.ReRaPer = (sum_Red_Rabbits / cnt_Red_Rabbits);
+                    }
+                    else
+                    {
+                        ViewBag.ReRaPer = 0;
+                    }
 
                     MetricsNew data_show = new MetricsNew
                     {
@@ -158,7 +169,7 @@ namespace Flex_SGM.Controllers
                         PaDe = metricos.Where(w => w.Usuario_area == "Parts_Delivery" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum(),
                         Plm = metricos.Where(w => w.Usuario_area == "PLM" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum(),
                         QuHs = metricos.Where(w => w.Usuario_area == "Quality_HS" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum(),
-                        ReRa = metricos.Where(w => w.Usuario_area == "Red_Rabbits" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum(),
+                        ReRa = ViewBag.ReRaPer,
                         Safe = metricos.Where(w => w.Usuario_area == "Safety_HS" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum(),
                         ScCo = metricos.Where(w => w.Usuario_area == "Scrap" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum(),
                         Toc = ViewBag.TocPer,

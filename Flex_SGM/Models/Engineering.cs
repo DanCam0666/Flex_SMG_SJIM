@@ -19,43 +19,47 @@ namespace Flex_SGM.Models
         [Display(Name = "En Proceso de")]/// CAMBIAR POR USUARIO aCTUAL 
         public string Status { get; set; }
 
-        [Display(Name = "Originator")]/// CAMBIAR POR USUARIO aCTUAL 
+        [Display(Name = "Creador")]/// CAMBIAR POR USUARIO aCTUAL 
         [MaxLength(140)]
         public string Originator { get; set; }
 
-        [Display(Name = "Department")]
+        [Display(Name = "Departamento")]
         [MaxLength(70)]
         public string Department { get; set; }
 
+        [Display(Name = "Fecha Última Modificación")]
         public DateTime Date { get; set; }
 
-        [Display(Name = "Customer")]
+        [Display(Name = "Cliente")]
         public int ClientesID { get; set; }
 
-        [Display(Name = "Program")]
+        [Display(Name = "Programa")]
         public int ProyectosID { get; set; }
-        [Display(Name = "Reason")]
+        [Display(Name = "Razón")]
         public int? ReasonID { get; set; }
+        [Display(Name = "Numero de Parte")]
         [MaxLength(100)]
         public string PartNumber { get; set; }
+        [Display(Name = "Nivel de Revisión")]
         [MaxLength(50)]
         public string RevLevel { get; set; }
+        [Display(Name = "Nombre de Parte")]
         [MaxLength(200)]
         public string PartName { get; set; }
-        [Display(Name = "Description Reason")]
+        [Display(Name = "Descriptción de Razón")]
         public string docreason { get; set; }
-        [Display(Name = "Scope")]
+        [Display(Name = "Alcance")]
         public string docscope { get; set; }
-        [Display(Name = "type of change")]
+        [Display(Name = "Tipo de Cambio")]
         public int MatrizDecisionID { get; set; }// SELECCION DESDE TABLA 
 
-        [Display(Name = "Piece Price")]
+        [Display(Name = "Precio por Pieza")]
         public double cipieceprice { get; set; }
         [Display(Name = "Capital")]
         public double cicapital { get; set; }
         [Display(Name = "Tooling")]
         public double citooling { get; set; }
-        [Display(Name = "Engineering")]
+        [Display(Name = "Ingenieria")]
         public double ciengineering { get; set; }
         [Display(Name = "Packaging")]
         public double cipackaging { get; set; }
@@ -88,37 +92,37 @@ namespace Flex_SGM.Models
         [Display(Name = "Reviewed Date")]
         public DateTime? Reviewedby_date { get; set; }
         [MaxLength(5)]
-        [Display(Name = "Purchasing")]
+        [Display(Name = "Compras")]
         public string support_Compras { get; set; }
         [MaxLength(5)]
-        [Display(Name = "Meterials")]
+        [Display(Name = "Meteriales")]
         public string support_Materiales { get; set; }
         [MaxLength(5)]
-        [Display(Name = "Maintenance")]
+        [Display(Name = "Mantenimiento")]
         public string support_Mantenimiento { get; set; }
         [MaxLength(5)]
-        [Display(Name = "Automation")]
+        [Display(Name = "Automatización")]
         public string support_Automatizacion { get; set; }
         [MaxLength(5)]
-        [Display(Name = "Quality")]
+        [Display(Name = "Calidad")]
         public string support_Calidad { get; set; }
         [MaxLength(5)]
-        [Display(Name = "Safety")]
+        [Display(Name = "Seguridad")]
         public string support_Seguridad { get; set; }
         [MaxLength(5)]
-        [Display(Name = "Environmental")]
+        [Display(Name = "Ambiental")]
         public string support_Ambiental { get; set; }
         [MaxLength(5)]
         [Display(Name = "Tooling")]
         public string support_Tooling { get; set; }
         [MaxLength(5)]
-        [Display(Name = "Stamping")]
+        [Display(Name = "Estampado")]
         public string support_Estampado { get; set; }
         [MaxLength(5)]
-        [Display(Name = "Welding")]
+        [Display(Name = "Soldadura")]
         public string support_Soldadura { get; set; }
         [MaxLength(5)]
-        [Display(Name = "Chrome")]
+        [Display(Name = "Chromo")]
         public string support_Chromo { get; set; }
         [MaxLength(5)]
         [Display(Name = "E-Coat")]
@@ -130,10 +134,10 @@ namespace Flex_SGM.Models
         [Display(Name = "back-Coat")]
         public string support_Backcoat { get; set; }
         [MaxLength(5)]
-        [Display(Name = "Assembly")]
+        [Display(Name = "Ensamble")]
         public string support_Ensamble { get; set; }
         [MaxLength(5)]
-        [Display(Name = "Finance")]
+        [Display(Name = "Finanzas")]
         public string support_Finanzas { get; set; }
         [MaxLength(10)]
         [Display(Name = "MRD 1")]

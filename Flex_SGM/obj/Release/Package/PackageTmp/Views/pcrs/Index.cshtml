@@ -7,9 +7,9 @@
 
 <h2>PCRs</h2>
 
-<p>
+<h4>
     @Html.ActionLink("Crear Nuevo", "Create")
-</p>
+</h4>
 <table class="tabled table-bordered table-striped" style="width:100%">
     <thead>
         <tr>
@@ -26,7 +26,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Clientes.Cliente)
             </th>
-            <th>
+            <th style="min-width: 200px">
                 @Html.DisplayNameFor(model => model.MatrizDecision.TipoCambio)
             </th>
             <th>
@@ -35,33 +35,18 @@
             <th>
                 @Html.DisplayNameFor(model => model.Reason.Reason)
             </th>
-
             <th>
                 @Html.DisplayNameFor(model => model.Originator)
             </th>
-            <th>
+            <th style="min-width: 75px">
                 @Html.DisplayNameFor(model => model.Date)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PartNumber)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RevLevel)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PartName)
-            </th>
-            <th>
+            <th style="min-width: 150px">
                 @Html.DisplayNameFor(model => model.docreason)
             </th>
-            <th>
+            <th style="min-width: 150px">
                 @Html.DisplayNameFor(model => model.docscope)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.cipieceprice)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.cicapital)
         </tr>
     </thead>
     <tbody>
@@ -140,48 +125,31 @@
                     @Html.DisplayFor(modelItem => item.Date)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.PartNumber)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.RevLevel)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PartName)
-                </td>
-                <td>
                     @Html.DisplayFor(modelItem => item.docreason)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.docscope)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.cipieceprice)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.cicapital)
-                </td>
             </tr>
         }
     </tbody>
-
 </table>
 <div class="x_panel clearfix">
     <div class="x_title clearfix">
-        <h2 id="alerts">Firmas <small> PCRs </small></h2>
+        <h2 id="alerts">Gráfica de Firmas <small style="color: #6b8cb0"> PCRs </small></h2>
         <ul class="nav navbar-right">
             <li>
-                <a class="collapse-link collapse" data-toggle="collapse"><i class="fa fa-chevron-down"></i></a>
+                <a class="collapse-link" data-toggle="collapse"><i class="fa fa-chevron-down"></i></a>
             </li>
         </ul>
     </div>
     <div class="x_content" id="collapseOne" data-toggle="false" style="display: none">
         <div class="col-md-12">
             <h2> Firmas </h2>
-            <canvas class="chartjs" id="chart-firmas" style="width: 800vw; height: 300vw; display: block"></canvas>
+            <canvas class="chartjs" id="chart-firmas" style="width: 800vw; height: 225vw; display: block"></canvas>
         </div>
     </div>
 </div>
-
 @section Scripts {
     <script>
         var ctx = document.getElementById('chart-firmas');
@@ -190,7 +158,7 @@
             data: {
                 datasets: [{
                     label: 'Firmas Requeridas',
-                    data: [@ViewBag.ReqAmbiental, @ViewBag.ReqAutomatizacion, @ViewBag.ReqCalidad,
+                    data: [@ViewBag.ReqAmbiental, @ViewBag.ReqCalidad,
                         @ViewBag.ReqCompras,  @ViewBag.ReqFinanzas, @ViewBag.ReqMantenimiento,
                         @ViewBag.ReqMateriales, @ViewBag.ReqProduccion, @ViewBag.ReqSeguridad, @ViewBag.ReqTooling
                     ],
@@ -198,17 +166,32 @@
                     borderWidth: 2
                 }, {
                     label: 'Firmas Faltantes',
-                    data: [@ViewBag.Ambiental, @ViewBag.Automatizacion, @ViewBag.Calidad,
+                    data: [@ViewBag.Ambiental, @ViewBag.Calidad,
                         @ViewBag.Compras, @ViewBag.Finanzas, @ViewBag.Mantenimiento,
                         @ViewBag.Materiales, @ViewBag.Produccion, @ViewBag.Seguridad, @ViewBag.Tooling,
                     ],
                     backgroundColor: '#ffff00',
                     borderWidth: 2
+                }, {
+                    label: 'Sin Firma más de una Semana',
+                    data: [@ViewBag.TarAmbiental, @ViewBag.TarCalidad,
+                        @ViewBag.TarCompras, @ViewBag.TarFinanzas, @ViewBag.TarMantenimiento,
+                        @ViewBag.TarMateriales, @ViewBag.TarProduccion, @ViewBag.TarSeguridad, @ViewBag.TarTooling,
+                    ],
+                    backgroundColor: '#ff4a4a',
+                    borderWidth: 2
                 }],
                 labels: [
-                    'Ambiental', 'Automatizacion', 'Calidad', 'Compras',
+                    'Ambiental', 'Calidad', 'Compras',
                     'Finanzas', 'Mantenimiento', 'Materiales', 'Produccion', 'Seguridad', 'Tooling'
                 ],
+            },
+            options: {
+                legend: {
+                    labels: {
+                        fontSize: 16
+                    }
+                }
             }
         });
     </script>

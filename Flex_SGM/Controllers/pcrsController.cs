@@ -139,40 +139,46 @@ namespace Flex_SGM.Controllers
             ViewBag.cUser = CurrentUser.UserFullName;
 
             ViewBag.ReqAmbiental = db.PCRs.Where(r => r.support_Ambiental != "X").Where(r => r.Status == "Aprobado").Count();
-            ViewBag.ReqAutomatizacion = db.PCRs.Where(r => r.support_Automatizacion != "X").Where(r => r.Status == "Aprobado").Count();
-            ViewBag.ReqBackcoat = db.PCRs.Where(r => r.support_Backcoat != "X").Where(r => r.Status == "Aprobado").Count();
             ViewBag.ReqCalidad = db.PCRs.Where(r => r.support_Calidad != "X").Where(r => r.Status == "Aprobado").Count();
-            ViewBag.ReqChromo = db.PCRs.Where(r => r.support_Chromo != "X").Where(r => r.Status == "Aprobado").Count();
             ViewBag.ReqCompras = db.PCRs.Where(r => r.support_Compras != "X").Where(r => r.Status == "Aprobado").Count();
-            ViewBag.ReqEcoat = db.PCRs.Where(r => r.support_Ecoat != "X").Where(r => r.Status == "Aprobado").Count();
-            ViewBag.ReqEnsamble = db.PCRs.Where(r => r.support_Ensamble != "X").Where(r => r.Status == "Aprobado").Count();
-            ViewBag.ReqEstampado = db.PCRs.Where(r => r.support_Estampado != "X").Where(r => r.Status == "Aprobado").Count();
             ViewBag.ReqFinanzas = db.PCRs.Where(r => r.support_Finanzas != "X").Where(r => r.Status == "Aprobado").Count();
-            ViewBag.ReqMantenimiento = db.PCRs.Where(r => r.support_Mantenimiento != "X").Where(r => r.Status == "Aprobado").Count();
+            ViewBag.ReqMantenimiento = db.PCRs.Where(r => r.support_Mantenimiento != "X")
+                .Where(r => r.support_Automatizacion != "X").Where(r => r.Status == "Aprobado").Count();
             ViewBag.ReqMateriales = db.PCRs.Where(r => r.support_Materiales != "X").Where(r => r.Status == "Aprobado").Count();
             ViewBag.ReqSeguridad = db.PCRs.Where(r => r.support_Seguridad != "X").Where(r => r.Status == "Aprobado").Count();
-            ViewBag.ReqSoldadura = db.PCRs.Where(r => r.support_Soldadura != "X").Where(r => r.Status == "Aprobado").Count();
             ViewBag.ReqTooling = db.PCRs.Where(r => r.support_Tooling != "X").Where(r => r.Status == "Aprobado").Count();
-            ViewBag.ReqTopcoat = db.PCRs.Where(r => r.support_Topcoat != "X").Where(r => r.Status == "Aprobado").Count();
-            ViewBag.ReqProduccion = ViewBag.ReqBackcoat + ViewBag.ReqChromo + ViewBag.ReqEcoat + ViewBag.ReqEnsamble + ViewBag.ReqEstampado + ViewBag.ReqSoldadura + ViewBag.ReqTopcoat;
+            ViewBag.ReqProduccion = db.PCRs.Where(r => r.support_Backcoat != "X").Where(r => r.support_Chromo != "X")
+                .Where(r => r.support_Ecoat != "X").Where(r => r.support_Ensamble != "X").Where(r => r.support_Estampado != "X")
+                .Where(r => r.support_Soldadura != "X").Where(r => r.support_Topcoat != "X").Where(r => r.Status == "Aprobado").Count();
 
             ViewBag.Ambiental = db.PCRs.Where(f => f.support_Ambiental == "P").Where(f => f.Status == "Aprobado").Count();
-            ViewBag.Automatizacion = db.PCRs.Where(f => f.support_Automatizacion == "P").Where(f => f.Status == "Aprobado").Count();
-            ViewBag.Backcoat = db.PCRs.Where(f => f.support_Backcoat == "P").Where(f => f.Status == "Aprobado").Count();
             ViewBag.Calidad = db.PCRs.Where(f => f.support_Calidad == "P").Where(f => f.Status == "Aprobado").Count();
-            ViewBag.Chromo = db.PCRs.Where(f => f.support_Chromo == "P").Where(f => f.Status == "Aprobado").Count();
             ViewBag.Compras = db.PCRs.Where(f => f.support_Compras == "P").Where(f => f.Status == "Aprobado").Count();
-            ViewBag.Ecoat = db.PCRs.Where(f => f.support_Ecoat == "P").Where(f => f.Status == "Aprobado").Count();
-            ViewBag.Ensamble = db.PCRs.Where(f => f.support_Ensamble == "P").Where(f => f.Status == "Aprobado").Count();
-            ViewBag.Estampado = db.PCRs.Where(f => f.support_Estampado == "P").Where(f => f.Status == "Aprobado").Count();
             ViewBag.Finanzas = db.PCRs.Where(f => f.support_Finanzas == "P").Where(f => f.Status == "Aprobado").Count();
-            ViewBag.Mantenimiento = db.PCRs.Where(f => f.support_Mantenimiento == "P").Where(f => f.Status == "Aprobado").Count();
+            ViewBag.Mantenimiento = db.PCRs.Where(f => f.support_Mantenimiento == "P")
+                .Where(f => f.support_Automatizacion == "P").Where(f => f.Status == "Aprobado").Count();
             ViewBag.Materiales = db.PCRs.Where(f => f.support_Materiales == "P").Where(f => f.Status == "Aprobado").Count();
             ViewBag.Seguridad = db.PCRs.Where(f => f.support_Seguridad == "P").Where(f => f.Status == "Aprobado").Count();
-            ViewBag.Soldadura = db.PCRs.Where(f => f.support_Soldadura == "P").Where(f => f.Status == "Aprobado").Count();
             ViewBag.Tooling = db.PCRs.Where(f => f.support_Tooling == "P").Where(f => f.Status == "Aprobado").Count();
-            ViewBag.Topcoat = db.PCRs.Where(f => f.support_Topcoat == "P").Where(f => f.Status == "Aprobado").Count();
-            ViewBag.Produccion = ViewBag.Backcoat + ViewBag.Chromo + ViewBag.Ecoat + ViewBag.Ensamble + ViewBag.Estampado + ViewBag.Soldadura + ViewBag.Topcoat;
+            ViewBag.Produccion = db.PCRs.Where(f => f.support_Backcoat == "P").Where(f => f.support_Chromo == "P")
+                .Where(f => f.support_Ecoat == "P").Where(f => f.support_Ensamble == "P").Where(f => f.support_Estampado == "P")
+                .Where(f => f.support_Soldadura == "P").Where(f => f.support_Topcoat == "P").Where(f => f.Status == "Aprobado").Count();
+
+            var DateLess = DateTime.Today.AddDays(-7);
+
+            ViewBag.TarAmbiental = db.PCRs.Where(t => t.support_Ambiental == "P").Where(t => t.Status == "Aprobado").Where(t => t.Date <= DateLess).Count();
+            ViewBag.TarCalidad = db.PCRs.Where(t => t.support_Calidad == "P").Where(t => t.Status == "Aprobado").Where(t => t.Date <= DateLess).Count();
+            ViewBag.TarCompras = db.PCRs.Where(t => t.support_Compras == "P").Where(t => t.Status == "Aprobado").Where(t => t.Date <= DateLess).Count();
+            ViewBag.TarFinanzas = db.PCRs.Where(t => t.support_Finanzas == "P").Where(t => t.Status == "Aprobado").Where(t => t.Date <= DateLess).Count();
+            ViewBag.TarMantenimiento = db.PCRs.Where(t => t.support_Mantenimiento == "P")
+                .Where(t => t.support_Automatizacion == "P").Where(t => t.Status == "Aprobado").Where(t => t.Date <= DateLess).Count();
+            ViewBag.TarMateriales = db.PCRs.Where(t => t.support_Materiales == "P").Where(t => t.Status == "Aprobado").Where(t => t.Date <= DateLess).Count();
+            ViewBag.TarSeguridad = db.PCRs.Where(t => t.support_Seguridad == "P").Where(t => t.Status == "Aprobado").Where(t => t.Date <= DateLess).Count();
+            ViewBag.TarTooling = db.PCRs.Where(t => t.support_Tooling == "P").Where(t => t.Status == "Aprobado").Where(t => t.Date <= DateLess).Count();
+            ViewBag.TarProduccion = db.PCRs.Where(t => t.support_Backcoat == "P").Where(t => t.support_Chromo == "P")
+                .Where(t => t.support_Ecoat == "P").Where(t => t.support_Ensamble == "P").Where(t => t.support_Estampado == "P")
+                .Where(t => t.support_Soldadura == "P").Where(t => t.support_Topcoat == "P").Where(t => t.Status == "Aprobado").Where(t => t.Date <= DateLess).Count();
+
 
             var PCRs = db.PCRs.Include(p => p.Clientes).Include(p => p.MatrizDecision).Include(p => p.Proyectos).Include(p => p.Reason);
 
@@ -563,8 +569,10 @@ namespace Flex_SGM.Controllers
                     };
 
                     db.Entry(pcr).State = EntityState.Modified;
-                    if(sign.pcrID!=0)
-                        db.FeasibilitySigns.Add(sign);
+                        if (sign.pcrID != 0)
+                        {
+                            db.FeasibilitySigns.Add(sign);
+                        }
                     db.SaveChanges();
                     return Response;
                 }
@@ -673,8 +681,10 @@ namespace Flex_SGM.Controllers
             if (ModelState.IsValid)
             {
                 pcr.Status = "En Aprobación";
+                pcr.Date = DateTime.Now;
 
                 string[] eMail = { "dcamacho@flexngate.com" };
+
                 string emailId = pcr.ID.ToString();
 
                 correo.Arreglado(eMail, CurrentUser.UserFullName, pcr.PCRID, emailId);

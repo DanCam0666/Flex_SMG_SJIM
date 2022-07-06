@@ -130,15 +130,15 @@
                             @Html.DisplayFor(modelItem => item.Estatus)
                         </td>
                         <td>
-                            @if (item.User_res != null && item.User_asig != null)
+                            @if (item.User_gen == ViewBag.cuser || item.User_res == ViewBag.cuser || item.User_asig == ViewBag.cuser || ViewBag.super)
                             {
-                                @Html.ActionLink("Actualizar", "Update", new { id = item.ID }, new { @class = "btn  btn-success" })
+                                @Html.ActionLink("Actualizar", "Update", new { id = item.ID }, new { @class = "btn  btn-success", style = "min-width: 88px" })
                             }
-                            @if (ViewBag.super == true)
+                            @if (ViewBag.super)
                             {
-                                @Html.ActionLink("Eliminar", "Delete", new { id = item.ID }, new { @class = "btn  btn-danger" })
+                                @Html.ActionLink("Eliminar", "Delete", new { id = item.ID }, new { @class = "btn  btn-danger", style = "min-width: 88px" })
                             }
-                            @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn  btn-warning" })
+                            @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn  btn-warning", style = "min-width: 88px" })
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Tipo)
@@ -298,12 +298,12 @@
     </div>
     <div class="x_content" id="collapseOne" data-toggle="false" style="display: none";>
         <center>
-            <div class="alert col-md-6" style="background-color:#4aedab;"><h4>Estatus 1-Actividades Terrminadas / Existen:@ViewBag.realizada Actividades</h4></div>
-            <div class="alert col-md-6" style="background-color:yellow;"><h4>Estatus 4-Actividades con fecha compromiso muy próxima / Existen:@ViewBag.Fechaprox Actividades</h4></div>
-            <div class="alert col-md-6" style="background-color:lightgray;"><h4>Estatus 2-Actividades sin fecha compromiso / Existen:@ViewBag.sinfecha Actividades</h4></div>
-            <div class="alert col-md-6" style="background-color:#ff4a4a; color: white;"><h4>Estatus 5-Actividades No REALIZADA en tiempo / Existen:@ViewBag.NoReali Actividades</h4></div>
-            <div class="alert col-md-6" style="background-color:#4aabed;"><h4>Estatus 3-Actividades en Proceso / Existen:@ViewBag.ConFecha Actividades</h4></div>
-            <div class="alert col-md-6" style="background-color:#8b0000;  color: white;"><h4>Estatus 6-Actividades URGENTES  / Existen:@ViewBag.Urgente Actividades</h4></div>
+            <div class="alert col-md-6" style="background-color:#4aedab;"><h4>Estatus 1 - Actividades Terrminadas / Existen: @ViewBag.realizada Actividades</h4></div>
+            <div class="alert col-md-6" style="background-color:yellow;"><h4>Estatus 4 - Actividades con fecha compromiso muy próxima / Existen: @ViewBag.Fechaprox Actividades</h4></div>
+            <div class="alert col-md-6" style="background-color:lightgray;"><h4>Estatus 2 - Actividades sin fecha compromiso / Existen: @ViewBag.sinfecha Actividades</h4></div>
+            <div class="alert col-md-6" style="background-color:#ff4a4a; color: white;"><h4>Estatus 5 - Actividades No REALIZADA en tiempo / Existen: @ViewBag.NoReali Actividades</h4></div>
+            <div class="alert col-md-6" style="background-color:#4aabed;"><h4>Estatus 3 - Actividades en Proceso / Existen: @ViewBag.ConFecha Actividades</h4></div>
+            <div class="alert col-md-6" style="background-color:#8b0000;  color: white;"><h4>Estatus 6 - Actividades URGENTES  / Existen: @ViewBag.Urgente Actividades</h4></div>
         </center>
     </div>
 </div>
