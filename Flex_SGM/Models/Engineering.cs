@@ -15,8 +15,7 @@ namespace Flex_SGM.Models
         public string PCRID { get; set; }
 
         [MaxLength(20)]
-
-        [Display(Name = "En Proceso de")]/// CAMBIAR POR USUARIO aCTUAL 
+        [Display(Name = "Estatus")]/// CAMBIAR POR USUARIO aCTUAL 
         public string Status { get; set; }
 
         [Display(Name = "Creador")]/// CAMBIAR POR USUARIO aCTUAL 
@@ -27,7 +26,7 @@ namespace Flex_SGM.Models
         [MaxLength(70)]
         public string Department { get; set; }
 
-        [Display(Name = "Fecha Última Modificación")]
+        [Display(Name = "Fecha Modificado")]
         public DateTime Date { get; set; }
 
         [Display(Name = "Cliente")]
@@ -35,55 +34,76 @@ namespace Flex_SGM.Models
 
         [Display(Name = "Programa")]
         public int ProyectosID { get; set; }
+
         [Display(Name = "Razón")]
         public int? ReasonID { get; set; }
+
         [Display(Name = "Numero de Parte")]
         [MaxLength(100)]
         public string PartNumber { get; set; }
+
         [Display(Name = "Nivel de Revisión")]
         [MaxLength(50)]
         public string RevLevel { get; set; }
+
         [Display(Name = "Nombre de Parte")]
         [MaxLength(200)]
         public string PartName { get; set; }
+
         [Display(Name = "Descriptción de Razón")]
         public string docreason { get; set; }
+
         [Display(Name = "Alcance")]
         public string docscope { get; set; }
+
         [Display(Name = "Tipo de Cambio")]
         public int MatrizDecisionID { get; set; }// SELECCION DESDE TABLA 
 
         [Display(Name = "Precio por Pieza")]
         public double cipieceprice { get; set; }
+
         [Display(Name = "Capital")]
         public double cicapital { get; set; }
+
         [Display(Name = "Tooling")]
         public double citooling { get; set; }
+
         [Display(Name = "Ingenieria")]
         public double ciengineering { get; set; }
+
         [Display(Name = "Packaging")]
         public double cipackaging { get; set; }
+
         [Display(Name = "Obsolescence")]
         public double ciobsolescence { get; set; }
+
         [Display(Name = "Material")]
         public double cimaterial { get; set; }
+
         [Display(Name = "Freight")]
         public double cifreight { get; set; }
+
         [Display(Name = "Overtime")]
         public double ciovertime { get; set; }
+
         [Display(Name = "Other")]
         public double ciother { get; set; }
+
         [Display(Name = "Total")]
         public double citotal { get; set; }
+
         [MaxLength(15)]
         [Display(Name = "Annual Volume")]
         public string crannualvolume { get; set; }
+
         [MaxLength(15)]
         [Display(Name = "Capacity FNG")]
         public string crcapacityfng { get; set; }
+
         [MaxLength(15)]
         [Display(Name = "Capacity Supplier")]
         public string crcapacitysupplier { get; set; }
+
 
         [Display(Name = "Reviewed by")]/// Reviewed byReviewed by
         [MaxLength(140)]
@@ -91,94 +111,127 @@ namespace Flex_SGM.Models
 
         [Display(Name = "Reviewed Date")]
         public DateTime? Reviewedby_date { get; set; }
+
         [MaxLength(5)]
         [Display(Name = "Compras")]
         public string support_Compras { get; set; }
+
         [MaxLength(5)]
         [Display(Name = "Meteriales")]
         public string support_Materiales { get; set; }
+
         [MaxLength(5)]
         [Display(Name = "Mantenimiento")]
         public string support_Mantenimiento { get; set; }
+
         [MaxLength(5)]
         [Display(Name = "Automatización")]
         public string support_Automatizacion { get; set; }
+
         [MaxLength(5)]
         [Display(Name = "Calidad")]
         public string support_Calidad { get; set; }
+
         [MaxLength(5)]
         [Display(Name = "Seguridad")]
         public string support_Seguridad { get; set; }
+
         [MaxLength(5)]
         [Display(Name = "Ambiental")]
         public string support_Ambiental { get; set; }
+
         [MaxLength(5)]
         [Display(Name = "Tooling")]
         public string support_Tooling { get; set; }
+
         [MaxLength(5)]
         [Display(Name = "Estampado")]
         public string support_Estampado { get; set; }
+
         [MaxLength(5)]
         [Display(Name = "Soldadura")]
         public string support_Soldadura { get; set; }
+
         [MaxLength(5)]
         [Display(Name = "Chromo")]
         public string support_Chromo { get; set; }
+
         [MaxLength(5)]
         [Display(Name = "E-Coat")]
         public string support_Ecoat { get; set; }
+
         [MaxLength(5)]
         [Display(Name = "Top-Coat")]
         public string support_Topcoat { get; set; }
+
         [MaxLength(5)]
         [Display(Name = "back-Coat")]
         public string support_Backcoat { get; set; }
+
         [MaxLength(5)]
         [Display(Name = "Ensamble")]
         public string support_Ensamble { get; set; }
+
         [MaxLength(5)]
         [Display(Name = "Finanzas")]
         public string support_Finanzas { get; set; }
+
         [MaxLength(10)]
         [Display(Name = "MRD 1")]
         public string Keymilestones_buildmrd1 { get; set; }
+
         [MaxLength(10)]
         [Display(Name = "MRD 2")]
         public string Keymilestones_buildmrd2 { get; set; }
+
         [MaxLength(10)]
         [Display(Name = "MRD 3")]
         public string Keymilestones_buildmrd3 { get; set; }
+
         [MaxLength(10)]
         [Display(Name = "Customer R@R")]
         public string Keymilestones_customrrar { get; set; }
+
         [MaxLength(10)]
         [Display(Name = "PPAP")]
         public string Keymilestones_ppap { get; set; }
+
         [MaxLength(10)]
         [Display(Name = "Internal SOP")]
         public string Keymilestones_internalsop { get; set; }
+
         [MaxLength(10)]
         [Display(Name = "Customer SOP")]
         public string Keymilestones_customersop { get; set; }
+
         [MaxLength(10)]
         [Display(Name = "Closure")]
         public string Keymilestones_closure { get; set; }
+
         [Display(Name = "Engineering")]
         public double leadtime_engineering { get; set; }
+
         [Display(Name = "Tooling")]
         public double leadtime_tooling { get; set; }
+
         [Display(Name = "Facilities")]
         public double leadtime_facilities { get; set; }
+
         [Display(Name = "Capital")]
         public double leadtime_capital { get; set; }
+
         [Display(Name = "Material")]
         public double leadtime_material { get; set; }
+
         [Display(Name = "Inventory")]
         public double leadtime_inventory { get; set; }
+
         [Display(Name = "Approval")]
         public double leadtime_approval { get; set; }
+
         [Display(Name = "Total LT")]
         public double leadtime_totallt { get; set; }
+
         //*------Feasibility--------*//
         [Display(Name = "Is product adequately defined (application requirements, etc. to enable feasibility evaluation?")]
         public bool FConsiderations1 { get; set; }
@@ -387,6 +440,7 @@ namespace Flex_SGM.Models
         [Key]
         public int ID { get; set; }
 
+        [Display(Name = "Razón")]
         [MaxLength(250)]
         public string Reason { get; set; }
 

@@ -19,7 +19,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Status)
             </th>
-            <th style="min-width: 110px">Menu</th>
+            <th style="min-width: 110px">Menú</th>
             <th>
                 @Html.DisplayNameFor(model => model.Department)
             </th>
@@ -173,7 +173,7 @@
                     backgroundColor: '#ffff00',
                     borderWidth: 2
                 }, {
-                    label: 'Sin Firma más de una Semana',
+                    label: 'Una Semana o más, Sin Firma',
                     data: [@ViewBag.TarAmbiental, @ViewBag.TarCalidad,
                         @ViewBag.TarCompras, @ViewBag.TarFinanzas, @ViewBag.TarMantenimiento,
                         @ViewBag.TarMateriales, @ViewBag.TarProduccion, @ViewBag.TarSeguridad, @ViewBag.TarTooling,
@@ -191,6 +191,13 @@
                     labels: {
                         fontSize: 16
                     }
+                },                
+                scales: {
+                    xAxes: [{
+                        ticks: {
+                            fontSize: 16
+                        }
+                    }]
                 }
             }
         });

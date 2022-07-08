@@ -16,6 +16,7 @@ using Flex_SGM.Scripts;
 
 namespace Flex_SGM.Controllers
 {
+    [Authorize]
     public class OILsController : Controller
     {
         private readonly ApplicationDbContext db = new ApplicationDbContext();

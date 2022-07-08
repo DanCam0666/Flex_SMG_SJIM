@@ -19,6 +19,7 @@ using Flex_SGM.Scripts;
 
 namespace Flex_SGM.Controllers
 {
+    [Authorize]
     public class Metricos1Controller : Controller
     {
         private readonly ApplicationDbContext db = new ApplicationDbContext();

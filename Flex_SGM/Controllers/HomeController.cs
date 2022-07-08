@@ -30,7 +30,8 @@ namespace Flex_SGM.Controllers
         }
         public ActionResult Index()
         {
-            
+            var user = this;
+            var Suggestions = db.Sugerencias.Include(s => s.ID);
             var oILs = db.OILs.Include(o => o.Maquinas);
 
             int Urgente = 0, NoReali = 0, Fechaprox = 0, ConFecha = 0, sinfecha = 0, realizada = 0;
