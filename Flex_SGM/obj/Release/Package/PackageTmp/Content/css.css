@@ -811,4 +811,81 @@ ul.stats-overview {
             padding-left: 0
         }
 /*---------------------Build----------------------------------*/
+.wrap {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
+.button {
+    width: 50px;
+    height: 50px;
+    font-family: 'sans-serif', Roboto;
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 0px;
+    font-weight: 500;
+    color: #000;
+    background-color: #fff;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s ease 0s;
+    cursor: pointer;
+    outline: none;
+}
+
+    .button:hover {
+        background-color: #6dbcff;
+        box-shadow: 0px 15px 20px rgb(0,0,0);
+        color: #fff;
+        transform: translateY(-3px);
+    }
+
+.feedback {
+    background-color: #31B0D5;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 50%;
+    border-color: #46b8da;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    text-shadow: 5px 5px 10px black;
+}
+
+.resizable-input {
+    /* make resizable */
+    border: 1px solid;
+    padding: 1px;
+    width: 300px;
+    resize: both;
+    overflow: auto;
+}
+    /* let <input> assume the size of the wrapper */
+    .resizable-input > input {
+        width: 100%;
+        box-sizing: border-box;
+        margin: 0;
+    }
+    /* add a visible handle */
+    .resizable-input > after {
+        display: inline-block;
+        vertical-align: bottom;
+        margin-left: -16px;
+        width: 16px;
+        height: 16px;
+        background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAQAAAC1+jfqAAAAJUlEQVR4AcXJRwEAIBAAIPuXxgiOW3xZYzi1Q3Nqh+bUDk1yD9sQaUG/4ehuEAAAAABJRU5ErkJggg==");
+        cursor: ew-resize;
+    }
+
+#modalPoll {
+    position: fixed;
+    bottom: 4px;
+    right: 10px;
+}
+
+.icon_creditcard_code {
+    font-size: 1.7em;
+}

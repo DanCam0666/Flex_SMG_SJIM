@@ -1,79 +1,8 @@
-﻿@model IEnumerable<Flex_SGM.Models.Sugerencias>
+﻿@model Flex_SGM.Models.Sugerencias
 
 @{
     ViewBag.Title = "Inicio";
 }
-<style>
-    .wrap {
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    .button {
-        width: 50px;
-        height: 50px;
-        font-family: 'Roboto', sans-serif;
-        font-size: 22px;
-        text-transform: uppercase;
-        letter-spacing: 0px;
-        font-weight: 500;
-        color: #000;
-        background-color: #fff;
-        border: none;
-        border-radius: 45px;
-        box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-        transition: all 0.5s ease 0s;
-        cursor: pointer;
-        outline: none;
-    }
-        .button:hover {
-            background-color: #6dbcff;
-            box-shadow: 0px 15px 20px rgb(0,0,0);
-            color: #fff;
-            transform: translateY(-3px);
-        }
-    .feedback {
-        background-color: #31B0D5;
-        color: white;
-        padding: 10px 15px;
-        border-radius: 50%;
-        border-color: #46b8da;
-        position: fixed;
-        bottom: 20px;
-        right: 30px;
-        text-shadow: 5px 5px 10px black;
-    }
-    .resizable-input {
-        /* make resizable */
-        border: 1px solid;
-        padding: 1px;
-        width: 300px;
-        resize: both;
-        overflow: auto;
-    }
-    /* let <input> assume the size of the wrapper */
-    .resizable-input > input {
-        width: 100%;
-        box-sizing: border-box;
-        margin: 0;
-    }
-    /* add a visible handle */
-    .resizable-input > after {
-        display: inline-block;
-        vertical-align: bottom;
-        margin-left: -16px;
-        width: 16px;
-        height: 16px;
-        background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAQAAAC1+jfqAAAAJUlEQVR4AcXJRwEAIBAAIPuXxgiOW3xZYzi1Q3Nqh+bUDk1yD9sQaUG/4ehuEAAAAABJRU5ErkJggg==");
-        cursor: ew-resize;
-    }    
-    #modalPoll {
-    position: fixed;
-    bottom: 4px;
-    right: 10px;
-    }
-</style>
 
 @*Modal: modalPoll*@
 <div class="modal right fade" id="modalPoll" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -102,36 +31,42 @@
                     </p>
                 </div>
                 <hr>
-                <Radio>
-                    <fieldset>
-                        <legend style="text-align: center; color: #337ab7;">Su Clalificación</legend>
-                        <div style="margin-left: 160px" class="col-md-12">
-                            <input type="radio" name="type" id="Muy_Bien" value="Muy_Bien" checked /><label for="Muy_Bien">&nbsp; Muy Bien</label><br />
-                            <input type="radio" name="type" id="Bien" value="Bien" /><label for="Bien">&nbsp; Bien</label><br />
-                            <input type="radio" name="type" id="Mediocre" value="Mediocre" /><label for="Mediocre">&nbsp; Mediocre</label><br />
-                            <input type="radio" name="type" id="Mal" value="Mal" /><label for="Mal">&nbsp; Mal</label><br />
-                            <input type="radio" name="type" id="Muy_Mal" value="Muy_Mal" /><label for="Muy_Mal">&nbsp; Muy Mal</label><br />
-                        </div>
-                        <hr />
-                    </fieldset>
-                </Radio>
-                <h4 class="text-center">
-                    <strong>¿Qué podríamos mejorar?</strong>
-                </h4>
-                <hr />
-                @*Basic text area*@
-            <div class="col-md-11">
-                <label for="Comentarios"> Comentarios: &nbsp;</label>
-                <span class="resizable-input"><input type="text" data-bind="modalPoll" name="Comentarios" id="Comentarios" value="" /></span><br />
-            </div>
+                <div class="text-left">
+                    <Radio>
+                        <fieldset>
+                            <legend style="color: #337ab7;">Su Clalificación</legend>
+                            <div class="col-md-12">
+                                <input type="radio" name="type" id="Muy_Bien" value="Muy_Bien" checked /><label for="Muy_Bien">&nbsp; Muy Bien</label><br />
+                                <input type="radio" name="type" id="Bien" value="Bien" /><label for="Bien">&nbsp; Bien</label><br />
+                                <input type="radio" name="type" id="Mediocre" value="Mediocre" /><label for="Mediocre">&nbsp; Mediocre</label><br />
+                                <input type="radio" name="type" id="Mal" value="Mal" /><label for="Mal">&nbsp; Mal</label><br />
+                                <input type="radio" name="type" id="Muy_Mal" value="Muy_Mal" /><label for="Muy_Mal">&nbsp; Muy Mal</label><br />
+                            </div>
+                            <hr />
+                        </fieldset>
+                    </Radio>
+                    <h4>
+                        <strong>¿Qué podríamos mejorar?</strong>
+                    </h4>
+                    <hr />
+                    @*Basic text area*@
+                    @*<label for="Comentarios">&nbsp; Comentarios: &nbsp;</label>*@
+                </div>
+                <center class="col-md-11" id="Comentarios">
+                    @Html.LabelFor(model => model.Comentarios, "Comentario: ", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Comentarios, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Comentarios, "", new { @class = "text-danger" })
+                    </div>
+                </center>
                 <br />
                 <br />
                 <hr />
                 <div class="modal-footer justify-content-center">
-                    <a button id="submit" data-bind="modalPoll" class="btn btn-primary waves-effect waves-light" data-dismiss="modal">
+                    <div button id="submit" data-bind="modalPoll" class="btn btn-primary waves-effect waves-light addComment" data-dismiss="modal" data-target="modalPoll">
                         Enviar
                         <i class="fa fa-paper-plane ml-1"></i>
-                    </a>
+                    </div>
                     <a button class="btn btn-default waves-effect" data-dismiss="modal">Cancelar</a>
                     <br />
                 </div>
@@ -148,17 +83,74 @@
     </video>
     <!--     <div class="Overlay"></div>  --->
 </section>
-    <div class="wrap">
-        <a button id="feedback" data-bind="modalPoll" class="button feedback">
-        <i class="fa fa-comments ml-0"></i></a>
-    </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<div class="wrap">
+    <a button id="feedback" data-bind="modalPoll" title="Evaluación" data-trigger="hover" class="button feedback" data-toggle="popover" data-placement="auto" data-content="Puede Evaluar la Aplicación Aquí">
+        <i class="fa fa-comments ml-0"></i>
+    </a>
+</div>
 @section Scripts {
 
     <script>
 
+        $(document).ready(function () {
+            $('[data-toggle="popover"]').popover();
+        });
+
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+
+        $('.addComment').on('click', function () {
+          
+            var Usuario = $.trim($('#<%=ViewBag.cuser %>').val());  
+            var Comentarios = $.trim($('#<%=Comentarios %>').val());    
+            var Messege = "";  
+         
+            if (Name == '') {  
+                Messege = "Can not Blank Name";  
+            }  
+          
+            if (LName == '') {  
+                Messege += "Can not Blank Last Name";  
+            }  
+  
+            if (Messege.length == 0) {        
+                $.ajax({  
+                    type: "POST",  
+                    dataType: "json",  
+                    contentType: "application/json; charset=utf-8",  
+                    url: "DataInsertUseJQuery.aspx/InsertPersonRecord",  
+                    data: "{'Usuario':'" + Usuario + "', 'Comentarios':'" + Comentarios + "'}",
+                    success: function (Record) {                         
+                            $('#ViewBag.cuser').val();  
+                            $('#Comentarios').val();    
+  
+                        if (Record.d == true) {  
+                  
+                            $('#Result').text("Your Record insert");  
+                        }  
+                        else {  
+                            $('#Result').text("Your Record Not Insert");  
+                        }  
+  
+                    },  
+                    Error: function (textMsg) {                        
+                        $('#Result').text("Error: " + Error);  
+                    }  
+                });  
+            }  
+            else {             
+                $('#Result').html('');  
+                $('#Result').html(Messege);  
+            }  
+            $('#Result').fadeIn();
+        });
+
         $('#modalPoll').on('show.bs.modal', function (event) {
-            var button = $(event.relatedTarget) 
-            var recipient = button.data('whatever') 
+            var button = $(event.relatedTarget)
+            var recipient = button.data('whatever')
             var modal = $(this)
             modal.find('.modal-title').text('New message to ' + recipient)
             modal.find('.modal-body input').val(recipient)

@@ -11,6 +11,7 @@ using Flex_SGM.Models;
 
 namespace Flex_SGM.Controllers
 {
+    [Authorize]
     public class SugerenciasController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -41,6 +42,26 @@ namespace Flex_SGM.Controllers
         {
             return View();
         }
+
+        public ActionResult _Survey()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> _Survey([Bind(Include = "ID,DiaHora,Usuario,Muy_Bien,Bien,Mediocre,Mal,Muy_Mal,Comentarios")] Sugerencias sugerencias)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Sugerencias.Add(sugerencias);
+                await db.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+
+            return View(sugerencias);
+        }
+
 
         // POST: Sugerencias/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
