@@ -40,7 +40,7 @@ namespace Flex_SGM.Controllers
             return CultureInfo.CurrentCulture.TextInfo.ToTitleCase(str.ToLower());
         }
         // GET: Metricos1
-        public async Task<ActionResult> Index(string amaquina, string maquina, string submaquina, string mgroup, string xmgroup, string btn = "Metricos por Mes", string dti = "", string dtf = "")
+        public async Task<ActionResult> Index(string btn = "Metricos por Mes", string dti = "", string dtf = "")
         {
             var metricos = db.Metricos.ToList<Metricos>();
             var fulldatafiltered = new List<Bitacora>();
@@ -127,17 +127,9 @@ namespace Flex_SGM.Controllers
                     {
                         ViewBag.ConPer = 0;
                     }
-                    if (sum_LPA_Covid != 0)
-                    {
-                        ViewBag.LpaPer = (sum_LPA_Covid / 23);
-                    }
-                    else
-                    {
-                        ViewBag.LpaPer = 0;
-                    }
                     if (sum_TOC_HS_Audits != 0)
                     {
-                        ViewBag.TocPer = (sum_TOC_HS_Audits / 22);
+                        ViewBag.TocPer = (sum_TOC_HS_Audits / 23);
                     }
                     else
                     {
@@ -165,7 +157,7 @@ namespace Flex_SGM.Controllers
                         CuCo = metricos.Where(w => w.Usuario_area == "Customer_Complaints" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum(),
                         Ecn = metricos.Where(w => w.Usuario_area == "ECNs_PCRs" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum(),
                         LaOu = metricos.Where(w => w.Usuario_area == "Lay_Outs" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum(),
-                        Lpa = ViewBag.LpaPer,
+                        Lpa = metricos.Where(w => w.Usuario_area == "LPA_COVID" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum(),
                         PaPo = metricos.Where(w => w.Usuario_area == "Packaging" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum(),
                         PaDe = metricos.Where(w => w.Usuario_area == "Parts_Delivery" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum(),
                         Plm = metricos.Where(w => w.Usuario_area == "PLM" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum(),

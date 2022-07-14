@@ -299,6 +299,55 @@ namespace Flex_SGM.emaildata
             }
             catch (Exception Ex) { var x = Ex; }
         }
+        public void comments(string[] Correo, string usuario, string comment, bool muy_bien, bool bien, bool mediocre, bool mal, bool muy_mal)
+        {
+            try
+            {
+                var bodyb = new StringBuilder();
+                bodyb.AppendFormat("<p><font size = '3' face = 'arial' color = 'blue'>El usuario {0} hizo un comentario!</font></p>", usuario);
+                if (muy_bien)
+                {
+                    bodyb.AppendLine(@"<p><font size = '3' face = 'arial'> Opinión de la aplicación es <b> Excelente </b></font></p>");
+                }
+                else if (bien)
+                {
+                    bodyb.AppendLine(@"<p><font size = '3' face = 'arial'> Opinión de la aplicación es <b> Buena </b></font></p>");
+                }
+                else if (mediocre)
+                {
+                    bodyb.AppendLine(@"<p><font size = '3' face = 'arial'> Opinión de la aplicación es <b> Regular </b></font></p>");
+                }
+                else if (mal)
+                {
+                    bodyb.AppendLine(@"<p><font size = '3' face = 'arial'> Opinión de la aplicación es <b> Mala </b></font></p>");
+                }
+                else if (muy_mal)
+                {
+                    bodyb.AppendLine(@"<p><font size = '3' face = 'arial'> Opinión de la aplicación es <b> Pésima </b></font></p>");
+                }
+                bodyb.AppendLine(@"<p><font size = '3' face = 'arial'>El comentario fue:  <b>" + comment + "</b></font></p>");
+
+                var message = new MailMessage();
+                foreach (var corr in Correo)
+                {
+                    message.To.Add(new MailAddress(corr));
+                }
+                message.From = new MailAddress("SJIM_Ingenieria@flexngate.com");
+                message.Subject = "Comentario de: " + usuario;
+                message.IsBodyHtml = true;
+                message.Body = bodyb.ToString();
+                message.IsBodyHtml = true;
+
+                using (var smtp = new SmtpClient())
+                {
+                    smtp.Host = "smtp.flexngate.local";
+                    smtp.Port = 25;
+                    smtp.EnableSsl = false;
+                    smtp.Send(message);
+                }
+            }
+            catch (Exception Ex) { var x = Ex; }
+        }
 
     }
 }

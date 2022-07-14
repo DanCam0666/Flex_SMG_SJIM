@@ -1,4 +1,5 @@
 ﻿@using Flex_SGM.Models;
+
 @model IEnumerable<Flex_SGM.Models.Metricos>
 
 
@@ -338,10 +339,10 @@
                 <tr>
                     <th><p>@Html.ActionLink("LPA / Covid Audits", "Index", "LPA_COVID")</p></th>
                     <th scope="row">Miguel Coronado</th>
-                    <th scope="row">100% Completed</th>
+                    <th scope="row">0 LPAs Incumplidos</th>
                     @foreach (var item in ViewBag.data)
                     {
-                        <td>@item.Lpa%</td>
+                        <td>@item.Lpa</td>
                     }
                 </tr>
                 <tr>
@@ -776,15 +777,15 @@
                     cells[14].cells[3 + i].style.borderRightColor = '#6b8cb0';
                     cells[14].cells[3 + i].style.borderRightWidth = 'thick';
                 }
-                if (parseInt(cells[15].cells[3 + i].innerHTML, 10) < 20) {
+                if (parseInt(cells[15].cells[3 + i].innerHTML, 10) >= 2) {
                     cells[15].cells[3 + i].style.backgroundColor = '#ff5c5c8c';
                     cells[15].cells[3 + i].style.color = 'black';
                 }
-                if (parseInt(cells[15].cells[3 + i].innerHTML, 10) >= 20) {
+                if (parseInt(cells[15].cells[3 + i].innerHTML, 10) >= 1) {
                     cells[15].cells[3 + i].style.backgroundColor = '#ffff005c';
                     cells[15].cells[3 + i].style.color = 'black';
                 }
-                if (parseInt(cells[15].cells[3 + i].innerHTML, 10) >= 90) {
+                if (parseInt(cells[15].cells[3 + i].innerHTML, 10) <= 0) {
                     cells[15].cells[3 + i].style.backgroundColor = '#71d98c8c';
                     cells[15].cells[3 + i].style.color = 'black';
                 }

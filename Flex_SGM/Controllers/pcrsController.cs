@@ -179,7 +179,12 @@ namespace Flex_SGM.Controllers
                 .Where(t => t.support_Ecoat == "P").Where(t => t.support_Ensamble == "P").Where(t => t.support_Estampado == "P")
                 .Where(t => t.support_Soldadura == "P").Where(t => t.support_Topcoat == "P").Where(t => t.Status == "Aprobado").Where(t => t.Date <= DateLess).Count();
 
-
+            ViewBag.PcrComplete = 0;
+            if (ViewBag.Ambiental == 0 && ViewBag.Calidad == 0 && ViewBag.Compras == 0 && ViewBag.Finanzas == 0 && ViewBag.Mantenimiento == 0 && 
+                ViewBag.Materiales == 0 && ViewBag.Produccion == 0 && ViewBag.Seguridad == 0 && ViewBag.Tooling == 0)
+            {
+                ViewBag.PcrComplete = 1;
+            }
             var PCRs = db.PCRs.Include(p => p.Clientes).Include(p => p.MatrizDecision).Include(p => p.Proyectos).Include(p => p.Reason);
 
             return View(PCRs.ToList());
@@ -310,7 +315,7 @@ namespace Flex_SGM.Controllers
                 correo.newpcr(emails, currentUser.UserFullName, pcr.PCRID , currpcr.ID.ToString());
                 return RedirectToAction("Index");
             }
-    
+
             ViewBag.ClientesID = new SelectList(db.eClientes, "ID", "Cliente", pcr.ClientesID);
             ViewBag.MatrizDecisionID = new SelectList(db.MatrizDecisions, "ID", "TipoCambio", pcr.MatrizDecisionID);
             ViewBag.ProyectosID = new SelectList(db.eProyectos, "ID", "Proyecto", pcr.ProyectosID);

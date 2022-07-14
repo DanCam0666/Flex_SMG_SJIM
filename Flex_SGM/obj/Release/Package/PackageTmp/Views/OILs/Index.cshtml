@@ -12,7 +12,7 @@
 <div class="x_panel">
     <div class="x_title clearfix">
         <h2 id="alerts">OILs <small>Listado de OILs segun filtro aplicado</small></h2>
-       @using (Html.BeginForm())
+        @using (Html.BeginForm())
         {
             <center>
                 <div class="col-md-12">
@@ -120,7 +120,7 @@
                 </tr>
             </thead>
             <tbody>
-               @foreach (var item in Model)
+                @foreach (var item in Model)
                 {
                     <tr>
                         <td>
@@ -215,13 +215,13 @@
 <div class="x_panel clearfix">
     <div class="x_title clearfix">
         <h2 id="alerts">Estatus Ingieneria<small> Resumen de Actividades </small></h2>
-        <ul class="nav navbar-right" >
+        <ul class="nav navbar-right">
             <li>
-                <a class="collapse-link collapse" data-toggle="collapse"><i class="fa fa-chevron-down" ></i></a>
+                <a class="collapse-link collapse" data-toggle="collapse"><i class="fa fa-chevron-down"></i></a>
             </li>
         </ul>
     </div>
-    <div class="x_content" id="collapseOne" data-toggle="false" style="display: none";>
+    <div class="x_content" id="collapseOne" data-toggle="false" style="display: none" ;>
         <div class="col-md-3">
             <div class="h2">Actividades Totales: @ViewBag.atotal</div>
             <div class="h2">Actividades en Proceso:   @ViewBag.aActivos </div>
@@ -290,13 +290,13 @@
 <div class="x_panel clearfix">
     <div class="x_title clearfix">
         <h2 id="alertsb">Color de estado de OILs</h2> <h2><small> Expande para información y significado de los colores… </small></h2>
-        <ul class="nav navbar-right" >
+        <ul class="nav navbar-right">
             <li>
-                <a class="collapse-link collapse" data-toggle="collapse"><i class="fa fa-chevron-down" ></i></a>
+                <a class="collapse-link collapse" data-toggle="collapse"><i class="fa fa-chevron-down"></i></a>
             </li>
         </ul>
     </div>
-    <div class="x_content" id="collapseOne" data-toggle="false" style="display: none";>
+    <div class="x_content" id="collapseOne" data-toggle="false" style="display: none" ;>
         <center>
             <div class="alert col-md-6" style="background-color:#4aedab;"><h4>Estatus 1 - Actividades Terrminadas / Existen: @ViewBag.realizada Actividades</h4></div>
             <div class="alert col-md-6" style="background-color:yellow;"><h4>Estatus 4 - Actividades con fecha compromiso muy próxima / Existen: @ViewBag.Fechaprox Actividades</h4></div>
@@ -311,13 +311,13 @@
 <div class="x_panel clearfix">
     <div class="x_title clearfix">
         <h2 id="alerts">Estatus de OILs<small> Resumen de OILs </small></h2>
-        <ul class="nav navbar-right" >
+        <ul class="nav navbar-right">
             <li>
-                <a class="collapse-link collapse" data-toggle="collapse"><i class="fa fa-chevron-down" ></i></a>
+                <a class="collapse-link collapse" data-toggle="collapse"><i class="fa fa-chevron-down"></i></a>
             </li>
         </ul>
     </div>
-    <div class="x_content" id="collapseOne" data-toggle="false" style="display: none";>
+    <div class="x_content" id="collapseOne" data-toggle="false" style="display: none" ;>
         <div class="col-md-3">
             <div class="h2">Actividades Totales: @ViewBag.atotal</div>
             <div class="h2">Actividades en Proceso:   @ViewBag.aActivos </div>
