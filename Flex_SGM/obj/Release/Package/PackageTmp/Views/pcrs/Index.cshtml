@@ -87,7 +87,7 @@
                                 support = true;
                             }
                         }
-                        if (ViewBag.cUser == "Ana Zaideth Vazquez Robles" || ViewBag.cUser == "Daniel Camacho Larriva")
+                        if (ViewBag.cUser.Contains("Zaideth") || ViewBag.cUser.Contains("Larriva"))
                         {
                             @Html.ActionLink("Exportar", "ExportFormat", new { id = item.ID }, new { @class = "btn-sm btn-default" })
                         }

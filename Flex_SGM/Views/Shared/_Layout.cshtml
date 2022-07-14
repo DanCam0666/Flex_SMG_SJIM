@@ -1,18 +1,18 @@
 ﻿
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="x-ua-compatible" content="IE=11">
-        <link rel="shortcut icon" href="~/favicon.ico">
-        <title>@ViewBag.Title - Ingeniería</title>
-        @Styles.Render("~/Content/css")
-        @Styles.Render("~/Content/fcc")
-        <!-- View specific styles -->
-        @RenderSection("styles", required: false)
-    </head>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="x-ua-compatible" content="IE=11">
+    <link rel="shortcut icon" href="~/favicon.ico">
+    <title>@ViewBag.Title - Ingeniería</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/fcc")
+    <!-- View specific styles -->
+    @RenderSection("styles", required: false)
+</head>
     <body>
         <!-- Page Pre Loader -->
         <div class="page-loader-wrapper" id="loadingImg">
@@ -46,14 +46,17 @@
                                             <b>Ingeniería</b>
                                             <span class="caret"></span>
                                         </a>
-                                    <ul class="dropdown-menu dropdown-menu2">
-                                        <li>@Html.ActionLink("-", "Index", "Home")</li>
-                                        <li>@Html.ActionLink("Calendario", "Index", "Proyectos", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();" })</li>
-                                        <li>@Html.ActionLink("Metricos", "Index", "Metricos1", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();" })</li>
-                                        <li>@Html.ActionLink("OILs", "Index", "OILs", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();" })</li>
-                                        <li>@Html.ActionLink("PCR Menu", "Index", "Ingenieria", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();" })</li>
-                                        <li>@Html.ActionLink("Inicio", "Index", "Home", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();" })</li>
-                                    </ul>
+                                        <ul class="dropdown-menu dropdown-menu2">
+                                            <li>@Html.ActionLink("-", "Index", "Home")</li>
+                                            <li>@Html.ActionLink("Calendario", "Index", "Proyectos", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();" })</li>
+                                            <li>@Html.ActionLink("Metricos", "Index", "Metricos1", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();" })</li>
+                                            <li>@Html.ActionLink("OILs", "Index", "OILs", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();" })</li>
+                                            @if (User.Identity.Name.Contains("Dan") || User.Identity.Name.Contains("Zai"))
+                                            {
+                                                <li>@Html.ActionLink("PCR Menu", "Index", "Ingenieria", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();" })</li>
+                                            }
+                                            <li>@Html.ActionLink("Inicio", "Index", "Home", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();" })</li>
+                                        </ul>
                                 </li>
                                 <li> @Html.Partial("_LoginPartial")</li>
                             </ul>

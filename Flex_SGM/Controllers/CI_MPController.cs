@@ -11,6 +11,7 @@ using Flex_SGM.Models;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.AspNet.Identity;
 using Flex_SGM.emaildata;
+using System.Globalization;
 
 namespace Flex_SGM.Controllers
 {
@@ -30,8 +31,13 @@ namespace Flex_SGM.Controllers
             }
         }
 
+        public string ToTitleCase(string str)
+        {
+            return CultureInfo.CurrentCulture.TextInfo.ToTitleCase(str.ToLower());
+        }
+
         // GET: CI_MP
-        public async Task<ActionResult> Index()
+        public async Task<ActionResult> Index(string amaquina, string maquina, string submaquina, string mgroup, string xmgroup, string btn = "Metricos por Mes", string dti = "", string dtf = "")
         {
             //  var id = User.Identity.GetUserId();
             //  ApplicationUser currentUser = UserManager.FindById(id);
@@ -176,6 +182,77 @@ namespace Flex_SGM.Controllers
                 displayUserChartDecember.Year = DateTime.Now.Year;
                 displayUserChartList.Add(displayUserChartDecember);
             };
+
+            var fulldatafiltered = new List<Bitacora>();
+            var datafiltered = new List<Bitacora>();
+            var oILs = db.OILs.Include(o => o.Maquinas);
+            List<MetricsNew> Ldata = new List<MetricsNew>();
+            var StartDate = "01/01/" + DateTime.Now.Year + " 00:00:00";
+            var EndDate = "31/12/" + DateTime.Now.Year + " 23:59:59";
+            var fecha = Convert.ToDateTime(StartDate);
+            var fechaf = Convert.ToDateTime(EndDate);
+            DateTimeFormatInfo formatoFecha1 = CultureInfo.CurrentCulture.DateTimeFormat;
+            string nombreMes1 = formatoFecha1.GetMonthName(fecha.Month);
+            string nombreMes2 = formatoFecha1.GetMonthName(fechaf.Month);
+
+            if (!string.IsNullOrEmpty(dti))
+            {
+                fecha = Convert.ToDateTime(dti);
+            }
+            if (!string.IsNullOrEmpty(dtf))
+            {
+                fechaf = Convert.ToDateTime(dtf);
+            }
+            //---data---
+
+            for (int iaño = fecha.Year; iaño <= fechaf.Year; iaño++)
+            {
+                for (int jmes = 1; jmes <= 12; jmes++)
+                {
+                    DateTimeFormatInfo formatoFecha = CultureInfo.CurrentCulture.DateTimeFormat;
+                    string nombreMes = formatoFecha.GetMonthName(jmes);
+                    var dias = DateTime.DaysInMonth(iaño, jmes);
+                    string thistiempo = "";
+                    ViewBag.CapPer = 0;
+
+                    for (int kdia = 1; kdia <= dias; kdia++)
+                    {
+                        DateTime idi = Convert.ToDateTime(kdia.ToString() + "/" + jmes.ToString() + "/" + iaño.ToString());
+                        DateTime idi3er = idi.AddDays(+1);
+
+                        if (btn == "Metricos por Mes")
+                        {
+                            thistiempo = iaño.ToString() + "-" + nombreMes;
+                            ViewBag.dx = "Mes " + nombreMes1 + " al Mes " + nombreMes2;
+                            ViewBag.dxx = " Mes";
+                        }
+                    }
+                    thistiempo = iaño.ToString() + "-" + ToTitleCase(nombreMes);
+
+                    var sum_Cont_Imprv = (metricos.Where(w => w.Usuario_area == "Continuous_Improvment" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum());
+                    var cnt_Cont_Imprv = (metricos.Where(w => w.Usuario_area == "Continuous_Improvment" && w.DiaHora.Month == jmes).Count());
+
+
+                    if (cnt_Cont_Imprv != 0)
+                    {
+                        ViewBag.ConPer = (cnt_Cont_Imprv * 100) / 23;
+                    }
+                    else
+                    {
+                        ViewBag.ConPer = 0;
+                    }
+
+                    MetricsNew data_show = new MetricsNew
+                    {
+                        TiempoLabel = thistiempo,
+                        CoImCnt = metricos.Where(w => w.Usuario_area == "Continuous_Improvment" && w.DiaHora.Month == jmes).Count(),
+                        CoImPer = ViewBag.ConPer,
+                    };
+                    Ldata.Add(data_show);
+                }
+            }
+            ViewBag.metricospermachine = Ldata.ToList();
+            ViewBag.monthData = Ldata.Select(l => l.CoImPer).ToList();
 
             var lchartData1 = displayUserChartList.Where(f => f.Month == 1).Select(f => f.Proyectos).ToList();
             var lchartData2 = displayUserChartList.Where(f => f.Month == 2).Select(f => f.Proyectos).ToList();

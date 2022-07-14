@@ -83,10 +83,28 @@
 </div>
 <div class="col-md-12" style="float:left">
     <div class="x_panel">
-        <div class="x_title">
-            Coninuous Improvement Indicators
+        <div class="x_title clearfix">
+            <h2>Coninuous Improvement Gráfico por Mes</h2>
+            <ul class="nav navbar-right">
+                <li>
+                    <a class="collapse-link collapse" data-toggle="collapse"><i class="fa fa-chevron-down"></i></a>
+                </li>
+            </ul>
         </div>
-        <div class="x_content">
+        <div class="x_content" id="collapseTwo" data-toggle="false" style="display: none">
+            <canvas id="line-chart-horizontal" width="800" height="200"></canvas>
+        </div>
+    </div>
+    <div class="x_panel">
+        <div class="x_title clearfix">
+            <h2>Coninuous Improvement Indicators por Persona</h2>
+            <ul class="nav navbar-right">
+                <li>
+                    <a class="collapse-link collapse" data-toggle="collapse"><i class="fa fa-chevron-down"></i></a>
+                </li>
+            </ul>
+        </div>
+        <div class="x_content" id="collapseOne" data-toggle="false" style="display: none">
             <canvas id="bar-chart-horizontal" width="800" height="800"></canvas>
         </div>
     </div>
@@ -309,5 +327,78 @@
                 }
             }
         });
+
+        var lineChart =
+        {
+            labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+            datasets: [
+                {
+                    type: 'line',
+                    label: 'Continuous Improvement',
+                    data: @Html.Raw(Json.Encode(@ViewBag.monthData)),
+                    backgroundColor: "#8CB06B",
+                    borderColor: "#337ab7",
+                    borderWidth: 2,
+                    fill: false
+                }
+            ]
+        };
+
+        var ctqx2 = document.getElementById('line-chart-horizontal');
+        var myChartqe2 = new Chart(ctqx2, {
+            type: 'line',
+            data: lineChart,
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            callback: function (tick) {
+                                return tick.toString() + '%';
+                                beginAtZero: true
+                            }
+                        }
+                    }]
+                },
+                legend: {
+                    labels: {
+                        // This more specific font property overrides the global property
+                        fontColor: 'black',
+                        defaultFontSize: 25,
+                    }
+                }
+            },
+            plugins: [{
+                datalabels: {
+                    display: false,
+                },
+                afterDatasetsDraw: function (chart) {
+                    var ctx = chart.ctx;
+                    chart.data.datasets.forEach(function (dataset, index) {
+                        var datasetMeta = chart.getDatasetMeta(index);
+                        if (datasetMeta.hidden) return;
+                        datasetMeta.data.forEach(function (point, index) {
+                            var value = dataset.data[index],
+                                x = point.getCenterPoint().x,
+                                y = point.getCenterPoint().y,
+                                radius = point._model.radius,
+                                fontSize = 14,
+                                fontFamily = 'Verdana',
+                                fontColor = 'black',
+                                fontStyle = 'normal';
+                            ctx.save();
+                            ctx.textBaseline = 'middle';
+                            ctx.textAlign = 'center';
+                            ctx.font = fontStyle + ' ' + fontSize + 'px' + ' ' + fontFamily;
+                            ctx.fillStyle = fontColor;
+                            ctx.fillText(value, x, y - radius - fontSize);
+                            ctx.restore();
+                        });
+                    });
+                }
+            }]
+        });
+
     </script>
 }

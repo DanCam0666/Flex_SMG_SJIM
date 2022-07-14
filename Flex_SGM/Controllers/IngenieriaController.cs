@@ -79,7 +79,7 @@ namespace Flex_SGM.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Sugerencias([Bind(Include = "ID,DiaHora,Usuario,Muy_Bien,Bien,Mediocre,Mal,Muy_Mal,Comentarios")] Sugerencias sugerencias)
+        public async Task<ActionResult> Sugerencias([Bind(Include = "ID,DiaHora,Usuario,Excelente,Bien,Regular,Mal,Pesima,Comentarios")] Sugerencias sugerencias)
         {
             if (ModelState.IsValid)
             {
@@ -111,7 +111,7 @@ namespace Flex_SGM.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "ID,DiaHora,Usuario,Muy_Bien,Bien,Mediocre,Mal,Muy_Mal,Comentarios")] Sugerencias sugerencias)
+        public async Task<ActionResult> Edit([Bind(Include = "ID,DiaHora,Usuario,Excelente,Bien,Regular,Mal,Pesima,Comentarios")] Sugerencias sugerencias)
         {
             if (ModelState.IsValid)
             {

@@ -5,7 +5,7 @@
 }
 
 @*Modal: modalPoll*@
-<div class="modal right fade" id="modalPoll" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<!--<div class="modal right fade" id="modalPoll" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true" data-backdrop="false">
     <div class="modal-dialog modal-notify modal-info" role="document">
         <div class="modal-content" style="background-color: #edf3f9">
@@ -25,6 +25,12 @@
                     <h3>
                         <strong>Su Opinión Importa</strong>
                     </h3>
+                    <h4 id="cuser">
+                        @ViewBag.cuser
+                    </h4>
+                    <h5 id="fecha">
+                        Hoy @DateTime.Now
+                    </h5>
                     <p>
                         ¿Tiene algunas ideas como mejorar esta aplicación?
                         <strong>Da su opinión.</strong>
@@ -48,10 +54,10 @@
                     <h4>
                         <strong>¿Qué podríamos mejorar?</strong>
                     </h4>
-                    <hr />
+                    <hr />-->
                     @*Basic text area*@
                     @*<label for="Comentarios">&nbsp; Comentarios: &nbsp;</label>*@
-                </div>
+                <!--</div>
                 <center class="col-md-11" id="Comentarios">
                     @Html.LabelFor(model => model.Comentarios, "Comentario: ", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
@@ -63,17 +69,17 @@
                 <br />
                 <hr />
                 <div class="modal-footer justify-content-center">
-                    <div button id="addComment" data-bind="modalPoll" class="btn btn-primary addComment waves-effect waves-light" data-dismiss="modal" data-target="modalPoll">
+                    <button id="addComment" data-bind="modalPoll" class="btn btn-primary addComment waves-effect waves-light" data-dismiss="modal" data-target="modalPoll">
                         Enviar
                         <i class="fa fa-paper-plane ml-1"></i>
-                    </div>
-                    <a button class="btn btn-default waves-effect" data-dismiss="modal">Cancelar</a>
+                    </button>
+                    <button class="btn btn-default waves-effect" data-dismiss="modal">Cancelar</button>
                     <br />
                 </div>
             </div>
         </div>
     </div>
-</div>
+</div>-->
 @*Modal: modalPoll*@
 
 <section id="BigVideo">
@@ -83,78 +89,97 @@
     </video>
     <!--     <div class="Overlay"></div>  --->
 </section>
-<div class="wrap">
-    <a button id="feedback" data-bind="modalPoll" title="Evaluación" data-trigger="hover" class="button feedback" data-toggle="popover" data-placement="auto" data-content="¡ Puede evaluar la aplicación aquí !">
-        <i class="fa fa-comments ml-0"></i>
-    </a>
-</div>
+@if (ViewBag.cuser != "")
+{
+    <div class="wrap">
+        <button id="feedback" data-bind="modalPoll" title="Evaluación/Comentarios" data-trigger="hover" class="button feedback" data-toggle="popover" data-placement="auto" data-content="¡ Puede evaluar la aplicación aquí !">
+            <i class="fa fa-comments ml-0"></i>
+        </button>
+    </div>
+}
 @section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
 
-    <script>
+<script type="text/javascript">
 
-        $(document).ready(function () {
-            $('[data-toggle="popover"]').popover();
-        });
 
-        $(function () {
-            $('[data-toggle="tooltip"]').tooltip()
-        })
+    $(document).ready(function () {
+        $('[data-toggle="popover"]').popover();
+        $('[data-toggle="tooltip"]').tooltip("show")
+    });
 
-        $('#modalPoll').on('click', function () {
-            var Usuario = $.trim($('#<%=ViewBag.cuser %>').val());  
-            var Comentarios = $.trim($('#<%=Comentarios %>').val());    
-            var Messege = "";  
-         
-            if (Name == '') {  
-                Messege = "Can not Blank Name";  
-            }  
-          
-            if (LName == '') {  
-                Messege += "Can not Blank Last Name";  
-            }  
-  
-            if (Messege.length == 0) {        
-                $.ajax({  
-                    type: "POST",  
-                    dataType: "json",  
-                    contentType: "application/json; charset=utf-8",  
-                    url: "DataInsertUseJQuery.aspx/InsertPersonRecord",  
-                    data: "{'Usuario':'" + Usuario + "', 'Comentarios':'" + Comentarios + "'}",
-                    success: function (Record) {                         
-                            $('#ViewBag.cuser').val();  
-                            $('#Comentarios').val();    
-  
-                        if (Record.d == true) {  
-                  
-                            $('#Result').text("Your Record insert");  
-                        }  
-                        else {  
-                            $('#Result').text("Your Record Not Insert");  
-                        }  
-  
-                    },  
-                    Error: function (textMsg) {                        
-                        $('#Result').text("Error: " + Error);  
-                    }  
-                });  
-            }  
-            else {             
-                $('#Result').html('');  
-                $('#Result').html(Messege);  
-            }  
-            $('#Result').fadeIn();
-        });
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
 
-        $('#modalPoll').on('show.bs.modal', function (event) {
-            var button = $(event.relatedTarget)
-            var recipient = button.data('whatever')
-            var modal = $(this)
-            modal.find('.modal-title').text('New message to ' + recipient)
-            modal.find('.modal-body input').val(recipient)
-        })
+    @*$('#addComment').on('click', function () {
+
+        var m = new Date();
+        var dateString =
+            m.getUTCFullYear() + "/" +
+            ("0" + (m.getUTCMonth()+1)).slice(-2) + "/" +
+            ("0" + m.getUTCDate()).slice(-2) + " " +
+            ("0" + m.getUTCHours()).slice(-2) + ":" +
+            ("0" + m.getUTCMinutes()).slice(-2) + ":" +
+            ("0" + m.getUTCSeconds()).slice(-2);
+
+        var sugerencias = [
+            "{'DiaHora' : '" + dateString + "', 'Usuario' : '" + cuser + "', 'Muy_Bien': '" +
+            Muy_Bien + "', 'Bien': '" + Bien + "', 'Mediocre': '" + Mediocre + "', 'Mal': '" +
+            Mal + "', 'Muy_Mal': '" + Muy_Mal + "', 'Comentarios': '" + Comentarios + "'}"
+        ];
+        console.log("Log " + sugerencias);
+        console.table("Table " + sugerencias);
+
+        var Messege = "";
+        if (cuser == '') {
+            Messege = "Can not Leave User Blank";
+        }
+
+        if (Comentarios == '') {
+            Messege += "Can not Leave Comments Blank";
+        }
+
+        if (Messege.length == 0) {
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("Survey","Sugerencias")',
+                data: { sugerencias },
+                success: function (Record) {
+                        //$('#cuser').val();
+                        //$('#Comentarios').val();
+
+                    if (Record.d == true) {
+
+                        $('#Result').text("Your Record insert");
+                    }
+                    else {
+                        $('#Result').text("Your Record Not Insert");
+                    }
+
+                },
+                Error: function (textMsg) {
+                    $('#Result').text("Error: " + Error);
+                }
+            });
+        }
+        else {
+            $('#Result').html('');
+            $('#Result').html(Messege);
+        }
+        $('#Result').fadeIn();
+        });*@
+
+        //$('#modalPoll').on('show.bs.modal', function (event) {
+        //    var button = $(event.relatedTarget)
+        //    var recipient = button.data('whatever')
+        //    var modal = $(this)
+        //    modal.find('.modal-title').text('New message to ' + recipient)
+        //    modal.find('.modal-body input').val(recipient)
+        //})
 
         $('#feedback').click(function () {
-            $('#modalPoll').modal('show');
+            location.href = "Sugerencias/Create";
         });
 
         var realizada = 0;
@@ -242,6 +267,6 @@
             }
         });
 
-    </script>
+</script>
 
 }

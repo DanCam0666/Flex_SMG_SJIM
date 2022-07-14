@@ -15,7 +15,7 @@ namespace Flex_SGM.Models
     }
     public enum flex_Departamento
     {
-       Estampado, Rolado, Soldadura, Cromo, Ecoat, Topcoat, Ensamble
+        Cromo, Ecoat, Empaque, Ensamble, Estampado, Rolado, Soldadura, Topcoat
     }
     public enum flex_Areasv1
     {
