@@ -5,9 +5,14 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
 -->
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
+<<<<<<< HEAD:Flex_SGM/Properties/PublishProfiles/SJIMSVAP7 Bitacora.pubxml.user
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <_PublishTargetUrl>T:\Bitacora</_PublishTargetUrl>
     <History>True|2022-07-15T15:10:17.7652709Z;True|2022-07-15T10:04:46.6769378-05:00;True|2022-07-15T09:50:10.9907056-05:00;True|2022-07-15T08:07:50.8547793-05:00;True|2022-07-15T06:59:42.8705735-05:00;True|2022-07-13T10:05:53.4164942-05:00;True|2022-07-13T07:51:39.8788860-05:00;True|2022-07-11T08:17:11.4853586-05:00;True|2022-07-07T07:15:51.3178514-05:00;True|2022-07-07T07:13:15.9871490-05:00;True|2022-07-06T07:05:59.8130761-05:00;True|2022-07-05T06:57:50.9803841-05:00;True|2022-07-01T06:38:54.3559685-05:00;True|2022-06-29T06:47:51.3131659-05:00;True|2022-06-27T09:45:51.8160317-05:00;True|2022-06-27T08:35:42.4955040-05:00;True|2022-06-24T09:40:49.8369604-05:00;True|2022-06-21T07:57:05.3029139-05:00;True|2022-06-17T14:27:04.6983895-05:00;True|2022-06-17T07:57:22.6195831-05:00;True|2022-06-16T15:53:36.8580698-05:00;True|2022-06-16T15:33:43.5753812-05:00;True|2022-06-15T15:16:45.0075848-05:00;True|2022-06-15T15:15:22.4014570-05:00;True|2022-06-15T15:12:52.0124113-05:00;True|2022-06-14T07:49:19.3211998-05:00;True|2022-06-13T07:56:07.7181992-05:00;True|2022-06-10T16:30:41.2131424-05:00;True|2022-06-10T16:14:28.0622946-05:00;True|2022-06-10T16:10:32.4352557-05:00;False|2022-06-10T16:05:06.6042318-05:00;True|2022-06-10T15:53:13.9629753-05:00;True|2022-06-10T11:55:03.1243161-05:00;True|2022-06-10T11:42:32.1821748-05:00;True|2022-06-10T07:31:04.8522357-05:00;True|2022-06-10T07:24:23.5052201-05:00;True|2022-06-10T07:06:20.8800658-05:00;True|2022-06-10T06:49:47.6066474-05:00;True|2022-06-06T07:07:23.6872821-05:00;True|2022-06-03T12:09:59.8414345-05:00;True|2022-06-03T12:00:33.6159626-05:00;True|2022-06-03T11:44:52.1840903-05:00;True|2022-06-03T11:34:43.1589290-05:00;True|2022-06-03T07:36:59.0471840-05:00;True|2022-06-03T06:54:06.0338911-05:00;False|2022-06-01T07:11:02.7251300-05:00;True|2022-05-31T07:17:21.9132674-05:00;True|2022-05-31T07:16:06.4233700-05:00;True|2022-05-30T16:11:22.9805322-05:00;True|2022-05-30T15:06:14.9000710-05:00;True|2022-05-30T13:42:28.9633475-05:00;True|2022-05-30T13:37:17.1680880-05:00;True|2022-05-30T12:53:16.5245394-05:00;True|2022-05-30T10:58:22.1684715-05:00;True|2022-05-25T07:51:42.4475736-05:00;True|2022-05-25T07:03:51.5955343-05:00;True|2022-05-24T10:25:14.0038522-05:00;True|2022-05-24T08:14:26.1503627-05:00;True|2022-05-24T08:13:45.1298709-05:00;True|2022-05-23T16:30:31.2889290-05:00;True|2022-05-23T07:06:58.3643585-05:00;True|2022-05-20T09:04:56.9623422-05:00;True|2022-05-19T13:45:11.4482130-05:00;True|2022-05-19T12:06:24.1109540-05:00;True|2022-05-19T12:01:52.8639106-05:00;True|2022-05-19T07:12:46.4575334-05:00;True|2022-05-18T12:10:05.3344127-05:00;True|2022-05-18T09:40:08.2188133-05:00;True|2022-05-17T15:14:34.7065703-05:00;True|2022-05-17T12:55:34.3604001-05:00;True|2022-05-17T06:59:38.5310779-05:00;True|2022-05-16T10:35:15.8176825-05:00;True|2022-05-16T08:01:42.4214742-05:00;True|2022-05-12T14:37:33.8643602-05:00;True|2022-05-12T14:35:32.0789574-05:00;True|2022-05-12T10:23:46.9483177-05:00;True|2022-05-11T06:48:56.3323027-05:00;True|2022-05-09T12:46:49.2631580-05:00;True|2022-05-09T10:15:14.0930168-05:00;True|2022-05-09T10:10:25.0746527-05:00;True|2022-05-09T09:41:59.7213053-05:00;True|2022-05-09T08:11:01.0911590-05:00;True|2022-05-05T15:54:22.8186518-05:00;True|2022-05-04T11:36:57.8528722-05:00;True|2022-05-02T10:33:03.6949025-05:00;True|2022-05-02T08:35:43.4630794-05:00;True|2022-04-29T16:26:27.0072097-05:00;True|2022-04-29T16:09:36.0204580-05:00;True|2022-04-29T13:55:55.1624581-05:00;True|2022-04-29T11:21:16.2548066-05:00;True|2022-04-29T08:03:26.0901289-05:00;True|2022-04-28T14:03:42.1106508-05:00;True|2022-04-28T10:39:25.4534906-05:00;False|2022-04-27T16:05:09.9355868-05:00;True|2022-04-27T11:59:37.7574914-05:00;True|2022-04-27T09:24:20.0180905-05:00;False|2022-04-27T09:22:37.8570275-05:00;True|2022-04-26T09:46:22.4591647-05:00;True|2022-04-26T09:36:44.5555016-05:00;True|2022-04-26T09:32:22.6963292-05:00;True|2022-04-26T09:27:45.1789263-05:00;True|2022-04-26T08:59:39.3633062-05:00;True|2022-04-26T07:39:00.3199679-05:00;True|2022-04-25T15:53:27.5821348-05:00;True|2022-04-25T15:44:08.8244876-05:00;True|2022-04-25T14:48:23.3449963-05:00;True|2022-04-22T16:23:38.0549060-05:00;True|2022-04-22T16:01:04.1913414-05:00;True|2022-04-22T12:57:19.1069743-05:00;True|2022-04-22T09:03:33.6305990-05:00;True|2022-04-21T07:17:40.6096768-05:00;True|2022-04-21T07:02:20.1180697-05:00;True|2022-04-20T11:59:43.2454831-05:00;True|2022-04-20T10:12:23.4507351-05:00;True|2022-04-19T16:27:21.7143139-05:00;True|2022-04-19T13:56:10.2519622-05:00;True|2022-04-13T12:21:06.5943205-05:00;True|2022-04-12T08:01:25.3211006-05:00;True|2022-04-08T08:39:10.0205296-05:00;True|2022-04-08T07:51:16.8579627-05:00;True|2022-04-06T10:43:54.0496652-05:00;True|2022-03-28T09:05:45.1826714-06:00;True|2022-03-28T08:46:11.0320916-06:00;True|2022-03-22T11:16:37.6803331-06:00;True|2022-03-17T06:57:42.5035140-06:00;True|2022-03-03T09:31:52.9772636-06:00;True|2022-03-03T09:27:10.2600631-06:00;</History>
+=======
+    <_PublishTargetUrl>W:\Bitacora</_PublishTargetUrl>
+    <History>True|2022-07-27T14:38:05.4104659Z;True|2022-07-27T09:30:10.0324842-05:00;True|2022-07-26T09:03:05.8080899-05:00;True|2022-07-19T13:07:17.8140127-05:00;</History>
+>>>>>>> parent of 9d2e0d3 (Second update to Puebla application):Flex_SGM/Properties/PublishProfiles/PUEBSVAP7 Bitacora.pubxml.user
   </PropertyGroup>
   <ItemGroup>
     <File Include=".editorconfig">
@@ -7281,6 +7286,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
     </File>
     <File Include="bin/FastMember.dll">
       <publishTime>05/03/2018 23:29:48</publishTime>
+<<<<<<< HEAD:Flex_SGM/Properties/PublishProfiles/SJIMSVAP7 Bitacora.pubxml.user
     </File>
     <File Include="bin/Flex_Bitacora.dll">
       <publishTime>03/03/2022 09:19:28</publishTime>
@@ -7293,6 +7299,14 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
     </File>
     <File Include="bin/Flex_SGM.pdb">
       <publishTime>07/29/2022 10:53:40</publishTime>
+=======
+    </File>
+    <File Include="bin/Flex_SGM.dll">
+      <publishTime>07/27/2022 15:33:10</publishTime>
+    </File>
+    <File Include="bin/Flex_SGM.pdb">
+      <publishTime>07/27/2022 15:33:10</publishTime>
+>>>>>>> parent of 9d2e0d3 (Second update to Puebla application):Flex_SGM/Properties/PublishProfiles/PUEBSVAP7 Bitacora.pubxml.user
     </File>
     <File Include="bin/IBM.Data.DB2.iSeries.dll">
       <publishTime>01/01/0001 00:00:00</publishTime>
@@ -7505,10 +7519,10 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>11/06/2016 18:13:48</publishTime>
     </File>
     <File Include="bin/System.Linq.Dynamic.Core.dll">
-      <publishTime>03/07/2022 13:33:58</publishTime>
+      <publishTime>07/03/2022 13:33:58</publishTime>
     </File>
     <File Include="bin/System.Linq.Dynamic.Core.pdb">
-      <publishTime>03/07/2022 13:33:58</publishTime>
+      <publishTime>07/03/2022 13:33:58</publishTime>
     </File>
     <File Include="bin/System.ValueTuple.dll">
       <publishTime>07/19/2017 05:01:32</publishTime>
@@ -7737,6 +7751,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
     </File>
     <File Include="loading2.gif">
       <publishTime>02/03/2022 08:02:50</publishTime>
+<<<<<<< HEAD:Flex_SGM/Properties/PublishProfiles/SJIMSVAP7 Bitacora.pubxml.user
     </File>
     <File Include="loading3.gif">
       <publishTime>01/01/0001 00:00:00</publishTime>
@@ -7800,6 +7815,8 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
     </File>
     <File Include="Models/RolesView.cs">
       <publishTime>01/01/0001 00:00:00</publishTime>
+=======
+>>>>>>> parent of 9d2e0d3 (Second update to Puebla application):Flex_SGM/Properties/PublishProfiles/PUEBSVAP7 Bitacora.pubxml.user
     </File>
     <File Include="Scripts/bootstrap.js">
       <publishTime>05/10/2022 16:12:56</publishTime>
@@ -7934,7 +7951,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>10/26/2020 14:21:22</publishTime>
     </File>
     <File Include="Views/AMEF/Create.cshtml">
-      <publishTime>06/03/2022 11:46:38</publishTime>
+      <publishTime>03/06/2022 11:46:38</publishTime>
     </File>
     <File Include="Views/AMEF/Delete.cshtml">
       <publishTime>02/05/2022 10:31:56</publishTime>
@@ -8043,15 +8060,19 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
     </File>
     <File Include="Views/Bitacoras/Repo.cshtml">
       <publishTime>03/06/2022 16:18:52</publishTime>
+<<<<<<< HEAD:Flex_SGM/Properties/PublishProfiles/SJIMSVAP7 Bitacora.pubxml.user
     </File>
     <File Include="Views/Bitacoras/roadmap - Copia.cshtml">
       <publishTime>01/01/0001 00:00:00</publishTime>
+=======
+>>>>>>> parent of 9d2e0d3 (Second update to Puebla application):Flex_SGM/Properties/PublishProfiles/PUEBSVAP7 Bitacora.pubxml.user
     </File>
     <File Include="Views/Bitacoras/roadmap.cshtml">
       <publishTime>03/28/2022 09:09:01</publishTime>
     </File>
     <File Include="Views/Bitacoras/Show.cshtml">
       <publishTime>01/12/2020 16:04:14</publishTime>
+<<<<<<< HEAD:Flex_SGM/Properties/PublishProfiles/SJIMSVAP7 Bitacora.pubxml.user
     </File>
     <File Include="Views/Blue_Book/Create.cshtml">
       <publishTime>05/04/2022 07:31:34</publishTime>
@@ -8067,6 +8088,8 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
     </File>
     <File Include="Views/Blue_Book/Index.cshtml">
       <publishTime>04/01/2022 16:12:41</publishTime>
+=======
+>>>>>>> parent of 9d2e0d3 (Second update to Puebla application):Flex_SGM/Properties/PublishProfiles/PUEBSVAP7 Bitacora.pubxml.user
     </File>
     <File Include="Views/BuildinBuildout/Create.cshtml">
       <publishTime>06/03/2022 11:40:38</publishTime>
@@ -8138,19 +8161,19 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>03/05/2021 15:45:52</publishTime>
     </File>
     <File Include="Views/Capacities/Create.cshtml">
-      <publishTime>06/03/2022 11:40:50</publishTime>
+      <publishTime>03/06/2022 11:40:50</publishTime>
     </File>
     <File Include="Views/Capacities/Delete.cshtml">
-      <publishTime>06/03/2022 11:50:31</publishTime>
+      <publishTime>03/06/2022 11:50:31</publishTime>
     </File>
     <File Include="Views/Capacities/Details.cshtml">
-      <publishTime>06/03/2022 11:50:31</publishTime>
+      <publishTime>03/06/2022 11:50:31</publishTime>
     </File>
     <File Include="Views/Capacities/Edit.cshtml">
       <publishTime>03/06/2022 14:11:17</publishTime>
     </File>
     <File Include="Views/Capacities/Index.cshtml">
-      <publishTime>06/03/2022 12:17:06</publishTime>
+      <publishTime>03/06/2022 12:17:06</publishTime>
     </File>
     <File Include="Views/cAreas/Create.cshtml">
       <publishTime>01/01/0001 00:00:00</publishTime>
@@ -8312,7 +8335,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>05/03/2021 08:28:54</publishTime>
     </File>
     <File Include="Views/Customer_Complaints/Create.cshtml">
-      <publishTime>06/03/2022 11:41:57</publishTime>
+      <publishTime>03/06/2022 11:41:57</publishTime>
     </File>
     <File Include="Views/Customer_Complaints/Delete.cshtml">
       <publishTime>03/06/2022 12:03:35</publishTime>
@@ -8327,7 +8350,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>03/06/2022 12:18:50</publishTime>
     </File>
     <File Include="Views/Cust_Score_Cards/Create.cshtml">
-      <publishTime>06/03/2022 07:17:54</publishTime>
+      <publishTime>03/06/2022 07:17:54</publishTime>
     </File>
     <File Include="Views/Cust_Score_Cards/Delete.cshtml">
       <publishTime>02/05/2022 10:31:56</publishTime>
@@ -8402,19 +8425,19 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>06/24/2022 08:48:31</publishTime>
     </File>
     <File Include="Views/eoriginators/Create.cshtml">
-      <publishTime>07/06/2022 14:05:35</publishTime>
+      <publishTime>06/07/2022 14:05:35</publishTime>
     </File>
     <File Include="Views/eoriginators/Delete.cshtml">
-      <publishTime>07/06/2022 14:05:35</publishTime>
+      <publishTime>06/07/2022 14:05:35</publishTime>
     </File>
     <File Include="Views/eoriginators/Details.cshtml">
-      <publishTime>07/06/2022 14:05:35</publishTime>
+      <publishTime>06/07/2022 14:05:35</publishTime>
     </File>
     <File Include="Views/eoriginators/Edit.cshtml">
-      <publishTime>07/06/2022 14:05:35</publishTime>
+      <publishTime>06/07/2022 14:05:35</publishTime>
     </File>
     <File Include="Views/eoriginators/Index.cshtml">
-      <publishTime>07/06/2022 14:05:35</publishTime>
+      <publishTime>06/07/2022 14:05:35</publishTime>
     </File>
     <File Include="Views/eProyectos/Create.cshtml">
       <publishTime>06/07/2022 14:05:35</publishTime>
@@ -8426,25 +8449,25 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>06/07/2022 14:05:35</publishTime>
     </File>
     <File Include="Views/eProyectos/Edit.cshtml">
-      <publishTime>07/06/2022 14:05:35</publishTime>
+      <publishTime>06/07/2022 14:05:35</publishTime>
     </File>
     <File Include="Views/eProyectos/Index.cshtml">
-      <publishTime>07/06/2022 14:05:35</publishTime>
+      <publishTime>06/07/2022 14:05:35</publishTime>
     </File>
     <File Include="Views/ereasons/Create.cshtml">
-      <publishTime>07/06/2022 14:05:35</publishTime>
+      <publishTime>06/07/2022 14:05:35</publishTime>
     </File>
     <File Include="Views/ereasons/Delete.cshtml">
-      <publishTime>07/06/2022 14:05:35</publishTime>
+      <publishTime>06/07/2022 14:05:35</publishTime>
     </File>
     <File Include="Views/ereasons/Details.cshtml">
-      <publishTime>07/06/2022 14:05:35</publishTime>
+      <publishTime>06/07/2022 14:05:35</publishTime>
     </File>
     <File Include="Views/ereasons/Edit.cshtml">
-      <publishTime>07/06/2022 14:05:35</publishTime>
+      <publishTime>06/07/2022 14:05:35</publishTime>
     </File>
     <File Include="Views/ereasons/Index.cshtml">
-      <publishTime>07/06/2022 14:05:35</publishTime>
+      <publishTime>06/07/2022 14:05:35</publishTime>
     </File>
     <File Include="Views/Fallas/Create.cshtml">
       <publishTime>01/01/0001 00:00:00</publishTime>
@@ -8496,9 +8519,12 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
     </File>
     <File Include="Views/Home/Working.cshtml">
       <publishTime>06/13/2022 06:57:31</publishTime>
+<<<<<<< HEAD:Flex_SGM/Properties/PublishProfiles/SJIMSVAP7 Bitacora.pubxml.user
     </File>
     <File Include="Views/Ingenieria.cshtml">
       <publishTime>06/08/2022 15:43:59</publishTime>
+=======
+>>>>>>> parent of 9d2e0d3 (Second update to Puebla application):Flex_SGM/Properties/PublishProfiles/PUEBSVAP7 Bitacora.pubxml.user
     </File>
     <File Include="Views/Ingenieria/Index.cshtml">
       <publishTime>07/14/2022 16:20:33</publishTime>
@@ -8649,12 +8675,15 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
     </File>
     <File Include="Views/MatrizDecisions/Index.cshtml">
       <publishTime>06/07/2022 14:05:35</publishTime>
+<<<<<<< HEAD:Flex_SGM/Properties/PublishProfiles/SJIMSVAP7 Bitacora.pubxml.user
     </File>
     <File Include="Views/Metricos/Cont_Imprv_ManP.cshtml">
       <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Views/Metricos/MetricosMS.cshtml">
       <publishTime>01/01/0001 00:00:00</publishTime>
+=======
+>>>>>>> parent of 9d2e0d3 (Second update to Puebla application):Flex_SGM/Properties/PublishProfiles/PUEBSVAP7 Bitacora.pubxml.user
     </File>
     <File Include="Views/Metricos1/Create.cshtml">
       <publishTime>02/06/2022 09:38:15</publishTime>
@@ -8666,10 +8695,14 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>02/05/2022 10:31:56</publishTime>
     </File>
     <File Include="Views/Metricos1/Edit.cshtml">
-      <publishTime>06/03/2022 14:27:58</publishTime>
+      <publishTime>03/06/2022 14:27:58</publishTime>
     </File>
     <File Include="Views/Metricos1/Index.cshtml">
+<<<<<<< HEAD:Flex_SGM/Properties/PublishProfiles/SJIMSVAP7 Bitacora.pubxml.user
       <publishTime>07/14/2022 16:20:33</publishTime>
+=======
+      <publishTime>07/27/2022 15:32:56</publishTime>
+>>>>>>> parent of 9d2e0d3 (Second update to Puebla application):Flex_SGM/Properties/PublishProfiles/PUEBSVAP7 Bitacora.pubxml.user
     </File>
     <File Include="Views/OILs/Create.cshtml">
       <publishTime>05/12/2022 10:19:25</publishTime>
@@ -8714,7 +8747,11 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>03/06/2022 12:05:25</publishTime>
     </File>
     <File Include="Views/Packaging/Edit.cshtml">
+<<<<<<< HEAD:Flex_SGM/Properties/PublishProfiles/SJIMSVAP7 Bitacora.pubxml.user
       <publishTime>02/05/2022 10:31:56</publishTime>
+=======
+      <publishTime>03/06/2022 14:14:56</publishTime>
+>>>>>>> parent of 9d2e0d3 (Second update to Puebla application):Flex_SGM/Properties/PublishProfiles/PUEBSVAP7 Bitacora.pubxml.user
     </File>
     <File Include="Views/Packaging/Index.cshtml">
       <publishTime>05/13/2022 16:30:15</publishTime>
@@ -8734,6 +8771,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
     <File Include="Views/Parts_Delivery/Index.cshtml">
       <publishTime>05/13/2022 16:30:15</publishTime>
     </File>
+<<<<<<< HEAD:Flex_SGM/Properties/PublishProfiles/SJIMSVAP7 Bitacora.pubxml.user
     <File Include="Views/pcrs/Create.cshtml">
       <publishTime>07/06/2022 14:05:35</publishTime>
     </File>
@@ -8745,15 +8783,36 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
     </File>
     <File Include="Views/pcrs/Edit.cshtml">
       <publishTime>07/06/2022 14:05:35</publishTime>
+=======
+    <File Include="Views/PCRs/Create.cshtml">
+      <publishTime>06/07/2022 14:05:35</publishTime>
+    </File>
+    <File Include="Views/PCRs/Delete.cshtml">
+      <publishTime>06/07/2022 14:05:35</publishTime>
+    </File>
+    <File Include="Views/PCRs/Details.cshtml">
+      <publishTime>06/07/2022 14:05:35</publishTime>
+    </File>
+    <File Include="Views/PCRs/Edit.cshtml">
+      <publishTime>06/07/2022 14:05:35</publishTime>
+>>>>>>> parent of 9d2e0d3 (Second update to Puebla application):Flex_SGM/Properties/PublishProfiles/PUEBSVAP7 Bitacora.pubxml.user
     </File>
     <File Include="Views/pcrs/Index.cshtml">
       <publishTime>07/14/2022 16:20:33</publishTime>
     </File>
+<<<<<<< HEAD:Flex_SGM/Properties/PublishProfiles/SJIMSVAP7 Bitacora.pubxml.user
     <File Include="Views/pcrs/Review.cshtml">
       <publishTime>07/06/2022 14:05:35</publishTime>
     </File>
     <File Include="Views/pcrs/Signatures.cshtml">
       <publishTime>07/06/2022 16:05:30</publishTime>
+=======
+    <File Include="Views/PCRs/Review.cshtml">
+      <publishTime>06/07/2022 14:05:35</publishTime>
+    </File>
+    <File Include="Views/PCRs/Signatures.cshtml">
+      <publishTime>06/07/2022 16:05:30</publishTime>
+>>>>>>> parent of 9d2e0d3 (Second update to Puebla application):Flex_SGM/Properties/PublishProfiles/PUEBSVAP7 Bitacora.pubxml.user
     </File>
     <File Include="Views/PLM/Create.cshtml">
       <publishTime>06/03/2022 07:27:33</publishTime>
@@ -8768,7 +8827,41 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>02/05/2022 10:31:56</publishTime>
     </File>
     <File Include="Views/PLM/Index.cshtml">
+<<<<<<< HEAD:Flex_SGM/Properties/PublishProfiles/SJIMSVAP7 Bitacora.pubxml.user
       <publishTime>05/13/2022 16:30:15</publishTime>
+=======
+      <publishTime>07/27/2022 12:57:14</publishTime>
+    </File>
+    <File Include="Views/Poka_Yoke/Create.cshtml">
+      <publishTime>07/27/2022 13:02:56</publishTime>
+    </File>
+    <File Include="Views/Poka_Yoke/Delete.cshtml">
+      <publishTime>07/27/2022 14:20:13</publishTime>
+    </File>
+    <File Include="Views/Poka_Yoke/Details.cshtml">
+      <publishTime>07/27/2022 14:20:13</publishTime>
+    </File>
+    <File Include="Views/Poka_Yoke/Edit.cshtml">
+      <publishTime>07/27/2022 14:20:13</publishTime>
+    </File>
+    <File Include="Views/Poka_Yoke/Index.cshtml">
+      <publishTime>07/27/2022 14:36:41</publishTime>
+    </File>
+    <File Include="Views/Project_Meetings/Create.cshtml">
+      <publishTime>07/27/2022 15:19:28</publishTime>
+    </File>
+    <File Include="Views/Project_Meetings/Delete.cshtml">
+      <publishTime>07/27/2022 15:30:31</publishTime>
+    </File>
+    <File Include="Views/Project_Meetings/Details.cshtml">
+      <publishTime>07/27/2022 15:18:29</publishTime>
+    </File>
+    <File Include="Views/Project_Meetings/Edit.cshtml">
+      <publishTime>07/27/2022 15:30:30</publishTime>
+    </File>
+    <File Include="Views/Project_Meetings/Index.cshtml">
+      <publishTime>07/27/2022 15:30:31</publishTime>
+>>>>>>> parent of 9d2e0d3 (Second update to Puebla application):Flex_SGM/Properties/PublishProfiles/PUEBSVAP7 Bitacora.pubxml.user
     </File>
     <File Include="Views/Proyectos/Create.cshtml">
       <publishTime>05/10/2022 15:52:36</publishTime>
@@ -8831,7 +8924,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>05/13/2022 16:30:15</publishTime>
     </File>
     <File Include="Views/Red_Rabbits/Create.cshtml">
-      <publishTime>06/03/2022 07:30:48</publishTime>
+      <publishTime>03/06/2022 07:30:48</publishTime>
     </File>
     <File Include="Views/Red_Rabbits/Delete.cshtml">
       <publishTime>02/05/2022 10:31:56</publishTime>
@@ -8840,7 +8933,11 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>03/06/2022 12:07:47</publishTime>
     </File>
     <File Include="Views/Red_Rabbits/Edit.cshtml">
+<<<<<<< HEAD:Flex_SGM/Properties/PublishProfiles/SJIMSVAP7 Bitacora.pubxml.user
       <publishTime>02/05/2022 10:31:56</publishTime>
+=======
+      <publishTime>03/06/2022 14:14:56</publishTime>
+>>>>>>> parent of 9d2e0d3 (Second update to Puebla application):Flex_SGM/Properties/PublishProfiles/PUEBSVAP7 Bitacora.pubxml.user
     </File>
     <File Include="Views/Red_Rabbits/Index.cshtml">
       <publishTime>05/13/2022 16:30:15</publishTime>
@@ -9047,7 +9144,11 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>10/26/2020 14:21:28</publishTime>
     </File>
     <File Include="Web.config">
+<<<<<<< HEAD:Flex_SGM/Properties/PublishProfiles/SJIMSVAP7 Bitacora.pubxml.user
       <publishTime>07/29/2022 10:53:49</publishTime>
+=======
+      <publishTime>07/18/2022 14:50:45</publishTime>
+>>>>>>> parent of 9d2e0d3 (Second update to Puebla application):Flex_SGM/Properties/PublishProfiles/PUEBSVAP7 Bitacora.pubxml.user
     </File>
   </ItemGroup>
 </Project>

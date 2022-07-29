@@ -124,9 +124,15 @@ namespace Flex_SGM.Models
         public int ReRa { get; set; }
         public int Safe { get; set; }
         [DataType(DataType.Currency)]
+<<<<<<< HEAD
         public int ScCo { get; set; }
         public int Toc { get; set; }
         public int YeSh { get; set; }
+=======
+        public int PaYe { get; set; }
+        public int TpmT { get; set; }
+        public int PrMt { get; set; }
+>>>>>>> parent of 9d2e0d3 (Second update to Puebla application)
         public int Ford { get; set; }
         public int Ford_APQP { get; set; }
         public int GM { get; set; }

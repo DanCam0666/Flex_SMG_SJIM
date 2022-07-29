@@ -75,8 +75,18 @@
                 </a>
             </div>
             <div class="col-md-2">
+<<<<<<< HEAD
                 <a href="~/Quality_HS/Create">
                     <input type="button" value="Quality and H&S 5 min Talk" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
+=======
+                <a href="~/Project_Meetings/Create">
+                    <input type="button" value="Project Meetings" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
+                </a>
+            </div>
+            <div class="col-md-2">
+                <a href="~/Project_Meetings/Create">
+                    <input type="button" value="Project Meetings: MRD's" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
+>>>>>>> parent of 9d2e0d3 (Second update to Puebla application)
                 </a>
             </div>
             <div class="col-md-2">
@@ -180,6 +190,69 @@
 </div>
 <div class="x_panel">
     <div class="x_title clearfix">
+<<<<<<< HEAD
+=======
+        <h2>Business Excellence del Mes Enero al Mes Diciembre de @ViewBag.dx</h2>
+        <ul class="nav navbar-right">
+            <li>
+                <a class="collapse-link collapse" data-toggle="collapse"><i class="fa fa-chevron-down"></i></a>
+            </li>
+        </ul>
+    </div>
+    <div class="x_content" id="collapseOne" data-toggle="false">
+        <table class="table table-bordered table-striped" style="width:100%; height:100%" id="metric">
+            <thead>
+                <tr>
+                    <td style="width:20%;"><h3>Descripción</h3></td>
+                    @foreach (var item in ViewBag.data)
+                    {
+                        <td>@item.TiempoLabel</td>
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th><p>Work Standarization</p></th>
+                    @foreach (var item in ViewBag.data)
+                    {
+                        <td>@item.Amef%</td>
+                    }
+                </tr>
+                <tr>
+                    <th><p>Accountability</p></th>
+                    @foreach (var item in ViewBag.data)
+                    {
+                        <td>@item.CapPer%</td>
+                    }
+                </tr>
+                <tr>
+                    <th><p>Continuos Improvement</p></th>
+                    @foreach (var item in ViewBag.data)
+                    {
+                        <td>@item.CoImPer%</td>
+                    }
+                </tr>
+                <tr>
+                    <th><p>Customer Focus</p></th>
+                    @foreach (var item in ViewBag.data)
+                    {
+                        <td>@item.Ford%</td>
+                    }
+                </tr>
+                <tr>
+                    <th><p>Sustainability</p></th>
+                    @foreach (var item in ViewBag.data)
+                    {
+                        <td>@item.Ecn%</td>
+                    }
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="x_panel">
+    <div class="x_title clearfix">
+>>>>>>> parent of 9d2e0d3 (Second update to Puebla application)
         <h2>Inicadores del Mes Enero al Mes Diciembre de @ViewBag.dx</h2>
         <ul class="nav navbar-right">
             <li>
@@ -382,9 +455,24 @@
                     }
                 </tr>
                 <tr>
+<<<<<<< HEAD
                     <th><p>@Html.ActionLink("Red Rabbits Audit", "Index", "Red_Rabbits")</p></th>
                     <th scope="row">Hector Salomon</th>
                     <th scope="row">100% on time & implemented</th>
+=======
+                    <th><p>@Html.ActionLink("Project Meetings: MRD's", "Index", "PLM")</p></th>
+                    <th scope="row">Veronica Hernandez</th>
+                    <th scope="row">1 Semanal</th>
+                    @foreach (var item in ViewBag.data)
+                    {
+                        <td>@item.Plm%</td>
+                    }
+                </tr>
+                <tr>
+                    <th><p>@Html.ActionLink("Red Rabbits Audits", "Index", "Red_Rabbits")</p></th>
+                    <th scope="row">Aldo Ortega</th>
+                    <th scope="row">2 Semanales</th>
+>>>>>>> parent of 9d2e0d3 (Second update to Puebla application)
                     @foreach (var item in ViewBag.data)
                     {
                         <td>@item.ReRa%</td>
@@ -396,7 +484,11 @@
                     <th scope="row">0 Incidents</th>
                     @foreach (var item in ViewBag.data)
                     {
+<<<<<<< HEAD
                         <td>@item.Safe</td>
+=======
+                        <td>@item.ReRa%</td>
+>>>>>>> parent of 9d2e0d3 (Second update to Puebla application)
                     }
                 </tr>
                 <tr>
