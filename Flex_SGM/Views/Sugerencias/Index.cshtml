@@ -37,6 +37,9 @@
                     <th>
                         @Html.DisplayNameFor(model => model.Comentarios)
                     </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Estatus)
+                    </th>
                     <th style="width:190px">Opciones</th>
                 </tr>
             </thead>
@@ -67,6 +70,9 @@
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Comentarios)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Estatus)
                         </td>
                         <td>
                             @if (ViewBag.super)
@@ -101,53 +107,58 @@
                     orientation: 'landscape',
                     pageSize: 'LETTER',
                     exportOptions: {
-                        columns: [0, 1, 2, 3, 4, 5, 6, 7]
+                        columns: [0, 1, 2, 3, 4, 5, 6, 7, 8]
                     },
                 },
                 {
                     extend: 'csv',
-                    title: 'Continuous Improvment Report',
+                    title: 'Sugerencias/Comentarios Report',
                     orientation: 'landscape',
                     pageSize: 'LETTER',
                     exportOptions: {
-                        columns: [0, 1, 2, 3, 4, 5, 6, 7]
+                        columns: [0, 1, 2, 3, 4, 5, 6, 7, 8]
                     },
                 },
                 {
                     extend: 'print',
-                    title: 'Continuous Improvment Report',
+                    title: 'Sugerencias/Comentarios Report',
                     orientation: 'landscape',
                     pageSize: 'LETTER',
                     exportOptions: {
-                        columns: [0, 1, 2, 3, 4, 5, 6, 7]
+                        columns: [0, 1, 2, 3, 4, 5, 6, 7, 8]
                     },
                 },
                 {
                     extend: 'pdfHtml5',
-                    title: 'Continuous Improvment Report',
+                    title: 'Sugerencias/Comentarios Report',
                     orientation: 'landscape',
                     pageSize: 'LETTER',
                     exportOptions: {
-                        columns: [0, 1, 2, 3, 4, 5, 6, 7]
+                        columns: [0, 1, 2, 3, 4, 5, 6, 7, 8]
                     },
                 },
                 {
                     extend: 'excelHtml5',
-                    title: 'Continuous Improvment Report',
+                    title: 'Sugerencias/Comentarios Report',
                     orientation: 'landscape',
                     pageSize: 'LETTER',
                     exportOptions: {
-                        columns: [0, 1, 2, 3, 4, 5, 6, 7]
+                        columns: [0, 1, 2, 3, 4, 5, 6, 7, 8]
                     },
                 }
             ],
-            columnDefs: [
+            "columnDefs": [
                 {
                     "render": function (data, type, row) {
                         var i = $(data).prop("checked") === true ? "Yes" : "No";
                         return i;
                     },
-                    "targets": [2, 3, 4, 5, 6]
+                    "targets": [2, 3, 4, 5, 6],
+                    "createdCell": function (td, cellData, data, row, col) {
+                        if ($(cellData).prop("checked") === true) {
+                            $(td).css('background-color', '#e3eef8');
+                        }
+                    },  
                 }
             ],
             "order": [[0, "desc"]],

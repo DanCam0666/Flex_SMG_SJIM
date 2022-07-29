@@ -39,5 +39,8 @@ namespace Flex_SGM.Models
         [MaxLength(256)]
         public string Comentarios { get; set; }
 
+        [Display(Name = "Estatus")]
+        [MaxLength(100)]
+        public string Estatus { get; set; }
     }
 }

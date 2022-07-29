@@ -28,11 +28,11 @@
 
 
         <div class="form-group col-md-4">
-            @Html.LabelFor(model => model.Maquinas.Area, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Dep, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Maquinas.Area, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
-                @Html.HiddenFor(model => model.Maquinas.Area)
-                @Html.ValidationMessageFor(model => model.Maquinas.Area, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Dep, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                @Html.HiddenFor(model => model.Dep)
+                @Html.ValidationMessageFor(model => model.Dep, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -53,14 +53,14 @@
                 @Html.ValidationMessageFor(model => model.Maquinas.Maquina, "", new { @class = "text-danger" })
             </div>
         </div>
-        <div class="form-group col-md-12">
+        @*<div class="form-group col-md-12">
             @Html.LabelFor(model => model.folio, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.folio, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
                 @Html.HiddenFor(model => model.folio)
                 @Html.ValidationMessageFor(model => model.folio, "", new { @class = "text-danger" })
             </div>
-        </div>
+        </div>*@
         <div class="form-group col-md-12">
             @Html.LabelFor(model => model.Actividad, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">

@@ -114,7 +114,7 @@ namespace Flex_SGM.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Survey([Bind(Include = "ID,DiaHora,Usuario,Excelente,Bien,Regular,Mal,Pesima,Comentarios")] Sugerencias sugerencias)
+        public async Task<ActionResult> Survey([Bind(Include = "ID,DiaHora,Usuario,Excelente,Bien,Regular,Mal,Pesima,Comentarios,Estatus")] Sugerencias sugerencias)
         {
             if (ModelState.IsValid)
             {
@@ -132,7 +132,7 @@ namespace Flex_SGM.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "ID,DiaHora,Usuario,Excelente,Bien,Regular,Mal,Pesima,Comentarios")] Sugerencias sugerencias)
+        public async Task<ActionResult> Create([Bind(Include = "ID,DiaHora,Usuario,Excelente,Bien,Regular,Mal,Pesima,Comentarios,Estatus")] Sugerencias sugerencias)
         {
             var id = User.Identity.GetUserId();
             ApplicationUser currentUser = UserManager.FindById(id);
@@ -170,7 +170,7 @@ namespace Flex_SGM.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "ID,DiaHora,Usuario,Excelente,Bien,Regular,Mal,Pesima,Comentarios")] Sugerencias sugerencias)
+        public async Task<ActionResult> Edit([Bind(Include = "ID,DiaHora,Usuario,Excelente,Bien,Regular,Mal,Pesima,Comentarios,Estatus")] Sugerencias sugerencias)
         {
             if (ModelState.IsValid)
             {

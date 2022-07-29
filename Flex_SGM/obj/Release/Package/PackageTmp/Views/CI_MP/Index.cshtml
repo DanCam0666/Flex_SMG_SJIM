@@ -336,10 +336,28 @@
                     type: 'line',
                     label: 'Continuous Improvement',
                     data: @Html.Raw(Json.Encode(@ViewBag.monthData)),
-                    backgroundColor: "#8CB06B",
+                    backgroundColor: "#337ab7",
                     borderColor: "#337ab7",
-                    borderWidth: 2,
-                    fill: false
+                    borderWidth: 4,
+                    fill: false,
+                    datalabels: {
+                        display: false,
+                        enabled: false,
+                    },
+                },
+                {
+                    type: 'line',
+                    label: 'Meta',
+                    data: [80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80],
+                    backgroundColor: "#2ebc2e",
+                    borderColor: "#2ebc2e",
+                    borderWidth: 6,
+                    fill: false,
+                    datalabels: {
+                        display: false,
+                        enabled: false,
+                    },
+                    borderDash: [5, 7],
                 }
             ]
         };
@@ -357,7 +375,9 @@
                             callback: function (tick) {
                                 return tick.toString() + '%';
                                 beginAtZero: true
-                            }
+                            },
+                            min: 0,
+                            max: 100,
                         }
                     }]
                 },
@@ -367,12 +387,9 @@
                         fontColor: 'black',
                         defaultFontSize: 25,
                     }
-                }
+                },                
             },
             plugins: [{
-                datalabels: {
-                    display: false,
-                },
                 afterDatasetsDraw: function (chart) {
                     var ctx = chart.ctx;
                     chart.data.datasets.forEach(function (dataset, index) {
@@ -383,7 +400,7 @@
                                 x = point.getCenterPoint().x,
                                 y = point.getCenterPoint().y,
                                 radius = point._model.radius,
-                                fontSize = 14,
+                                fontSize = 15,
                                 fontFamily = 'Verdana',
                                 fontColor = 'black',
                                 fontStyle = 'normal';
