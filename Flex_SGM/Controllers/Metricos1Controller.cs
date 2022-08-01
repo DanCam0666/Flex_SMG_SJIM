@@ -95,17 +95,10 @@ namespace Flex_SGM.Controllers
                     var cnt_Capacities = (metricos.Where(w => w.Usuario_area == "Capacities_Review" && w.DiaHora.Month == jmes).Count());
                     var sum_Cont_Imprv = (metricos.Where(w => w.Usuario_area == "Continuous_Improvment" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum());
                     var cnt_Cont_Imprv = (metricos.Where(w => w.Usuario_area == "Continuous_Improvment" && w.DiaHora.Month == jmes).Count());
-<<<<<<< HEAD
                     var sum_LPA_Covid = (metricos.Where(w => w.Usuario_area == "LPA_COVID" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum());
                     var cnt_LPA_Covid = (metricos.Where(w => w.Usuario_area == "LPA_COVID" && w.DiaHora.Month == jmes).Count());
                     var sum_TOC_HS_Audits = (metricos.Where(w => w.Usuario_area == "TOC_HS_Audits" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum());
                     var cnt_TOC_HS_Audits = (metricos.Where(w => w.Usuario_area == "TOC_HS_Audits" && w.DiaHora.Month == jmes).Count());
-=======
-                    var sum_LPA_Processes = (metricos.Where(w => w.Usuario_area == "LPA_Processes" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum());
-                    var cnt_LPA_Processes = (metricos.Where(w => w.Usuario_area == "LPA_Processes" && w.DiaHora.Month == jmes).Count());
-                    var sum_TPM_Training = (metricos.Where(w => w.Usuario_area == "TPM_Training" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum());
-                    var cnt_TPM_Training = (metricos.Where(w => w.Usuario_area == "TPM_Training" && w.DiaHora.Month == jmes).Count());
->>>>>>> parent of 9d2e0d3 (Second update to Puebla application)
                     var sum_Red_Rabbits = (metricos.Where(w => w.Usuario_area == "Red_Rabbits" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum());
                     var cnt_Red_Rabbits = (metricos.Where(w => w.Usuario_area == "Red_Rabbits" && w.DiaHora.Month == jmes).Count());
 
@@ -134,7 +127,6 @@ namespace Flex_SGM.Controllers
                     {
                         ViewBag.ConPer = 0;
                     }
-<<<<<<< HEAD
                     if (sum_TOC_HS_Audits != 0)
                     {
                         ViewBag.TocPer = (sum_TOC_HS_Audits / 23);
@@ -143,8 +135,6 @@ namespace Flex_SGM.Controllers
                     {
                         ViewBag.TocPer = 0;
                     }
-=======
->>>>>>> parent of 9d2e0d3 (Second update to Puebla application)
                     if (cnt_Red_Rabbits != 0)
                     {
                         ViewBag.ReRaPer = (sum_Red_Rabbits / cnt_Red_Rabbits);
@@ -158,11 +148,7 @@ namespace Flex_SGM.Controllers
                     {
                         TiempoLabel = thistiempo,
                         Amef = ViewBag.AMEFPer,
-<<<<<<< HEAD
                         BiBo = metricos.Where(w => w.Usuario_area == "Build_In_Build_Out" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum(),
-=======
-                        GAP = metricos.Where(w => w.Usuario_area == "GAP" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum(),
->>>>>>> parent of 9d2e0d3 (Second update to Puebla application)
                         Caps = metricos.Where(w => w.Usuario_area == "Capacities_Review" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum(),
                         CapNum = metricos.Where(w => w.Usuario_area == "Capacities_Review" && w.DiaHora.Month == jmes).Count(),
                         CapPer = ViewBag.CapPer,
@@ -175,22 +161,12 @@ namespace Flex_SGM.Controllers
                         PaPo = metricos.Where(w => w.Usuario_area == "Packaging" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum(),
                         PaDe = metricos.Where(w => w.Usuario_area == "Parts_Delivery" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum(),
                         Plm = metricos.Where(w => w.Usuario_area == "PLM" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum(),
-<<<<<<< HEAD
                         QuHs = metricos.Where(w => w.Usuario_area == "Quality_HS" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum(),
                         ReRa = ViewBag.ReRaPer,
                         Safe = metricos.Where(w => w.Usuario_area == "Safety_HS" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum(),
                         ScCo = metricos.Where(w => w.Usuario_area == "Scrap" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum(),
                         Toc = ViewBag.TocPer,
                         YeSh = metricos.Where(w => w.Usuario_area == "Yellow_Sheets" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum(),
-=======
-                        InVy = metricos.Where(w => w.Usuario_area == "Inventories" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum(),
-                        ReRa = ViewBag.ReRaPer,
-                        OpIn = metricos.Where(w => w.Usuario_area == "Operator_Instructions" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum(),
-                        OpTr = metricos.Where(w => w.Usuario_area == "Operator_Training" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum(),
-                        PaYe = metricos.Where(w => w.Usuario_area == "Poka_Yoke" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum(),
-                        TpmT = metricos.Where(w => w.Usuario_area == "TPM_Training" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum(),
-                        PrMt = metricos.Where(w => w.Usuario_area == "Project_Meetings" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum(),
->>>>>>> parent of 9d2e0d3 (Second update to Puebla application)
 
                         Ford = metricos
                         .Where(w => w.Usuario_area == "Cust_Score_Cards" && w.DiaHora.Month == jmes)

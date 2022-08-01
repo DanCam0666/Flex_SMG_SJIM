@@ -5,20 +5,34 @@ using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using Flex_SGM.Models;
+using Microsoft.AspNet.Identity;
+using System.Web;
+using Microsoft.AspNet.Identity.Owin;
 
 namespace Flex_SGM.Controllers
 {
     public class LPA_COVIDController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        private ApplicationUserManager _userManager;
+        public ApplicationUserManager UserManager
+        {
+            get
+            {
+                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            }
+            private set
+            {
+                _userManager = value;
+            }
+        }
+
 
         // GET: LPA_COVID
         public async Task<ActionResult> Index()
         {
-<<<<<<< HEAD:Flex_SGM/Controllers/LPA_COVIDController.cs
             var metricos = db.Metricos.ToList<Metricos>();
             var validMetricosRecords = metricos.Where(m => m.Usuario_area is "LPA_COVID").ToList();
             var users = validMetricosRecords.Where(m => m.Usuario_area is "LPA_COVID")
@@ -197,9 +211,11 @@ namespace Flex_SGM.Controllers
 
             var id = User.Identity.GetUserId();
             ApplicationUser currentUser = UserManager.FindById(id);
+
             string cuser = "xxx";
             string cpuesto = "xxx";
             string cuare = "xxx";
+
             if (currentUser != null)
             {
                 cuser = currentUser.UserFullName;
@@ -208,6 +224,7 @@ namespace Flex_SGM.Controllers
             }
             ViewBag.uarea = cuare;
             ViewBag.cuser = cuser;
+
             if (cpuesto.Contains("Super") || cpuesto.Contains("Gerente"))
                 ViewBag.super = true;
             else
@@ -217,8 +234,6 @@ namespace Flex_SGM.Controllers
             ViewBag.Usuario_area = new SelectList(Enum.GetValues(typeof(flex_Areasv1)).Cast<flex_Areasv1>().ToList());
             ViewBag.Usuario_puesto = new SelectList(Enum.GetValues(typeof(flex_Puesto)).Cast<flex_Puesto>().ToList());
 
-=======
->>>>>>> parent of 9d2e0d3 (Second update to Puebla application):Flex_SGM/Controllers/Project_MRDsController.cs
             return View(await db.Metricos.ToListAsync());
         }
 
@@ -237,12 +252,8 @@ namespace Flex_SGM.Controllers
             return View(metricos);
         }
 
-<<<<<<< HEAD:Flex_SGM/Controllers/LPA_COVIDController.cs
         [Authorize]
         // GET: LPA_COVID/Create
-=======
-        // GET: Project_MRDs/Create
->>>>>>> parent of 9d2e0d3 (Second update to Puebla application):Flex_SGM/Controllers/Project_MRDsController.cs
         public ActionResult Create()
         {
             return View();
@@ -265,12 +276,8 @@ namespace Flex_SGM.Controllers
             return View(metricos);
         }
 
-<<<<<<< HEAD:Flex_SGM/Controllers/LPA_COVIDController.cs
         [Authorize]
         // GET: AMEF/Edit/5
-=======
-        // GET: Project_MRDs/Edit/5
->>>>>>> parent of 9d2e0d3 (Second update to Puebla application):Flex_SGM/Controllers/Project_MRDsController.cs
         public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
@@ -301,12 +308,8 @@ namespace Flex_SGM.Controllers
             return View(metricos);
         }
 
-<<<<<<< HEAD:Flex_SGM/Controllers/LPA_COVIDController.cs
         [Authorize]
         // GET: LPA_COVID/Delete/5
-=======
-        // GET: Project_MRDs/Delete/5
->>>>>>> parent of 9d2e0d3 (Second update to Puebla application):Flex_SGM/Controllers/Project_MRDsController.cs
         public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)

@@ -259,13 +259,8 @@
     <Compile Include="Controllers\Quality_HSController.cs" />
     <Compile Include="Controllers\Red_RabbitsController.cs" />
     <Compile Include="Controllers\RolesAdminController.cs" />
-<<<<<<< HEAD
     <Compile Include="Controllers\Safety_HSController.cs" />
     <Compile Include="Controllers\ScrapController.cs" />
-=======
-    <Compile Include="Controllers\Operator_TrainingController.cs" />
-    <Compile Include="Controllers\Poka_YokeController.cs" />
->>>>>>> parent of 9d2e0d3 (Second update to Puebla application)
     <Compile Include="Controllers\SubClientesController.cs" />
     <Compile Include="Controllers\SugerenciasController.cs" />
     <Compile Include="Controllers\TOC_HS_AuditsController.cs" />
@@ -3006,24 +3001,6 @@
     <Content Include="Views\Sugerencias\Index.cshtml" />
     <Content Include="Views\Ingenieria\Sugerencias.cshtml" />
     <Content Include="Views\Shared\_Survey.cshtml" />
-<<<<<<< HEAD
-=======
-    <Content Include="Views\Manpower_Gypsa\Create.cshtml" />
-    <Content Include="Views\Manpower_Gypsa\Delete.cshtml" />
-    <Content Include="Views\Manpower_Gypsa\Details.cshtml" />
-    <Content Include="Views\Manpower_Gypsa\Edit.cshtml" />
-    <Content Include="Views\Manpower_Gypsa\Index.cshtml" />
-    <Content Include="Views\Manpower_LunkoMex\Create.cshtml" />
-    <Content Include="Views\Manpower_LunkoMex\Delete.cshtml" />
-    <Content Include="Views\Manpower_LunkoMex\Details.cshtml" />
-    <Content Include="Views\Manpower_LunkoMex\Edit.cshtml" />
-    <Content Include="Views\Manpower_LunkoMex\Index.cshtml" />
-    <Content Include="Views\Project_MRDs\Create.cshtml" />
-    <Content Include="Views\Project_MRDs\Delete.cshtml" />
-    <Content Include="Views\Project_MRDs\Details.cshtml" />
-    <Content Include="Views\Project_MRDs\Edit.cshtml" />
-    <Content Include="Views\Project_MRDs\Index.cshtml" />
->>>>>>> parent of 9d2e0d3 (Second update to Puebla application)
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
