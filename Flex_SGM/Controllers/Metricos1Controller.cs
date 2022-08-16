@@ -93,16 +93,50 @@ namespace Flex_SGM.Controllers
                     var cnt_AMEF = (metricos.Where(w => w.Usuario_area == "AMEF_Reverse" && w.DiaHora.Month == jmes).Count());
                     var sum_Capacities = (metricos.Where(w => w.Usuario_area == "Capacities_Review" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum());
                     var cnt_Capacities = (metricos.Where(w => w.Usuario_area == "Capacities_Review" && w.DiaHora.Month == jmes).Count());
+                    var sum_Cust_Comp = (metricos.Where(w => w.Usuario_area == "Customer_Complaints" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum());
                     var sum_Cont_Imprv = (metricos.Where(w => w.Usuario_area == "Continuous_Improvment" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum());
                     var cnt_Cont_Imprv = (metricos.Where(w => w.Usuario_area == "Continuous_Improvment" && w.DiaHora.Month == jmes).Count());
+                    var sum_Cust_Score = (metricos.Where(w => w.Usuario_area.Contains("Cust_Score_Cards") && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum());
+                    var cnt_Cust_Score = (metricos.Where(w => w.Usuario_area.Contains("Cust_Score_Cards") && w.DiaHora.Month == jmes).Count());
+                    var sum_ECN_PCR = (metricos.Where(w => w.Usuario_area == "ECNs_PCRs" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum());
+                    var sum_Layout = (metricos.Where(w => w.Usuario_area == "Lay_Outs" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum());
                     var sum_LPA_Covid = (metricos.Where(w => w.Usuario_area == "LPA_COVID" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum());
                     var cnt_LPA_Covid = (metricos.Where(w => w.Usuario_area == "LPA_COVID" && w.DiaHora.Month == jmes).Count());
+                    var sum_Packaging = (metricos.Where(w => w.Usuario_area == "Packaging" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum());
+                    var sum_PLM = (metricos.Where(w => w.Usuario_area == "PLM" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum());
+                    var sum_Quality_HS = (metricos.Where(w => w.Usuario_area == "Quality_HS" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum());
                     var sum_TOC_HS_Audits = (metricos.Where(w => w.Usuario_area == "TOC_HS_Audits" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum());
                     var cnt_TOC_HS_Audits = (metricos.Where(w => w.Usuario_area == "TOC_HS_Audits" && w.DiaHora.Month == jmes).Count());
                     var sum_Red_Rabbits = (metricos.Where(w => w.Usuario_area == "Red_Rabbits" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum());
                     var cnt_Red_Rabbits = (metricos.Where(w => w.Usuario_area == "Red_Rabbits" && w.DiaHora.Month == jmes).Count());
-
-
+                    var LpaPer = (10 - sum_LPA_Covid) * 10;
+                    var EcnPcr = (10 - sum_ECN_PCR) * 10;
+                    var Packaging = (10 - sum_Packaging) * 10;
+                    var PLM = (10 - sum_PLM) * 10;
+                    var Cust_Comp = (10 - sum_Cust_Comp) * 10;
+                    var Cust_Score = 0;
+                    if (cnt_Cust_Score != 0)
+                        Cust_Score = sum_Cust_Score / cnt_Cust_Score;
+                    if (Cust_Comp <= 0)
+                    {
+                        Cust_Comp = 0;
+                    }
+                    if (Packaging <= 0)
+                    {
+                        Packaging = 0;
+                    }
+                    if (PLM <= 0)
+                    {
+                        PLM = 0;
+                    }
+                    if (EcnPcr <= 0)
+                    {
+                        EcnPcr = 0;
+                    }
+                    if (LpaPer <= 0)
+                    {
+                        LpaPer = 0;
+                    }
                     if (cnt_AMEF != 0)
                     {
                         ViewBag.AMEFPer = sum_AMEF / cnt_AMEF;
@@ -144,6 +178,12 @@ namespace Flex_SGM.Controllers
                         ViewBag.ReRaPer = 0;
                     }
 
+                    ViewBag.WrkStd = (ViewBag.TocPer + sum_Quality_HS) / 2; //(sum_Operator_Instructions + sum_Operator_Training + sum_Poka_Yoke + sum_SMED_Training) / 4;
+                    ViewBag.Accnt = (LpaPer + EcnPcr + ViewBag.CapPer + ViewBag.ReRaPer) / 4;
+                    ViewBag.ConImp = (ViewBag.ConPer + ViewBag.AMEFPer) / 2;
+                    ViewBag.CstFcs = (PLM + Packaging + Cust_Score + Cust_Comp) / 4;
+                    ViewBag.Sustan = sum_Layout; //(sum_GAP + sum_Lay_Outs + sum_Manpower_Gypsa + sum_Manpower_LunkoMex) / 4;
+
                     MetricsNew data_show = new MetricsNew
                     {
                         TiempoLabel = thistiempo,
@@ -167,6 +207,12 @@ namespace Flex_SGM.Controllers
                         ScCo = metricos.Where(w => w.Usuario_area == "Scrap" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum(),
                         Toc = ViewBag.TocPer,
                         YeSh = metricos.Where(w => w.Usuario_area == "Yellow_Sheets" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum(),
+
+                        WrkStd = ViewBag.WrkStd,
+                        Accnt = ViewBag.Accnt,
+                        ConImp = ViewBag.ConImp,
+                        CstFcs = ViewBag.CstFcs,
+                        Sustan = ViewBag.Sustan,
 
                         Ford = metricos
                         .Where(w => w.Usuario_area == "Cust_Score_Cards" && w.DiaHora.Month == jmes)

@@ -37,10 +37,8 @@ namespace Flex_SGM.Controllers
         }
 
         // GET: CI_MP
-        public async Task<ActionResult> Index(string amaquina, string maquina, string submaquina, string mgroup, string xmgroup, string btn = "Metricos por Mes", string dti = "", string dtf = "")
+                public async Task<ActionResult> Index(string amaquina, string maquina, string submaquina, string mgroup, string xmgroup, string btn = "Metricos por Mes", string dti = "", string dtf = "")
         {
-            //  var id = User.Identity.GetUserId();
-            //  ApplicationUser currentUser = UserManager.FindById(id);
             var metricos = db.Metricos.ToList<Metricos>();
             var validMetricosRecords = metricos.Where(m => m.Usuario_area is "Continuous_Improvment").ToList();
             var users = validMetricosRecords.Where(m => m.Usuario_area is "Continuous_Improvment")
@@ -50,7 +48,7 @@ namespace Flex_SGM.Controllers
             List<DisplayUserChart> displayUserChartList = new List<DisplayUserChart>();
 
             foreach (var item in users)
-            {
+            {   
                 DisplayUserChart displayUserChartJanuary = new DisplayUserChart();
                 displayUserChartJanuary.Usuario_responsable = item.Key;
                 var chartData1 = validMetricosRecords.Where(m => m.Usuario_responsable == item.Key)
@@ -283,7 +281,7 @@ namespace Flex_SGM.Controllers
             ViewBag.ChartData7 = lchartData7;
             ViewBag.ChartData8 = lchartData8;
             ViewBag.ChartData9 = lchartData9;
-            ViewBag.ChartData10 =lchartData10;
+            ViewBag.ChartData10 =   lchartData10;
             ViewBag.ChartData11 = lchartData11;
             ViewBag.ChartData12 = lchartData12;
             ViewBag.ChartLabel = chartLabel;

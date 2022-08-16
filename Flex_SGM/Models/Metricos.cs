@@ -127,6 +127,11 @@ namespace Flex_SGM.Models
         public int ScCo { get; set; }
         public int Toc { get; set; }
         public int YeSh { get; set; }
+        public int WrkStd { get; set; }
+        public int Accnt { get; set; }
+        public int ConImp { get; set; }
+        public int CstFcs { get; set; }
+        public int Sustan { get; set; }
         public int Ford { get; set; }
         public int Ford_APQP { get; set; }
         public int GM { get; set; }

@@ -5,11 +5,13 @@ using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Net;
+using System.Web;
 using System.Web.Mvc;
 using Flex_SGM.Models;
-using Microsoft.AspNet.Identity;
-using System.Web;
 using Microsoft.AspNet.Identity.Owin;
+using Microsoft.AspNet.Identity;
+using Flex_SGM.emaildata;
+using System.Globalization;
 
 namespace Flex_SGM.Controllers
 {
@@ -29,9 +31,13 @@ namespace Flex_SGM.Controllers
             }
         }
 
+        public string ToTitleCase(string str)
+        {
+            return CultureInfo.CurrentCulture.TextInfo.ToTitleCase(str.ToLower());
+        }
 
         // GET: LPA_COVID
-        public async Task<ActionResult> Index()
+        public async Task<ActionResult> Index(string amaquina, string maquina, string submaquina, string mgroup, string xmgroup, string btn = "Metricos por Mes", string dti = "", string dtf = "")
         {
             var metricos = db.Metricos.ToList<Metricos>();
             var validMetricosRecords = metricos.Where(m => m.Usuario_area is "LPA_COVID").ToList();
@@ -254,9 +260,26 @@ namespace Flex_SGM.Controllers
 
         [Authorize]
         // GET: LPA_COVID/Create
+        [Authorize]
+        // GET: CI_MP/Create
         public ActionResult Create()
         {
-            return View();
+            var id = User.Identity.GetUserId();
+            ApplicationUser currentUser = UserManager.FindById(id);
+            Metricos metricos = new Metricos
+            {
+                Usuario = currentUser.UserFullName,
+                DiaHora = DateTime.Now
+            };
+            Console.WriteLine("User: ", currentUser.UserFullName);
+
+            ViewBag.Usuario = currentUser.UserFullName;
+            ViewBag.Usuario_responsable = new SelectList(db.Users, "UserFullName", "UserFullName");
+            ViewBag.Usuario_area = new SelectList(Enum.GetValues(typeof(flex_Areasv1)).Cast<flex_Areasv1>().ToList());
+            ViewBag.Usuario_puesto = new SelectList(Enum.GetValues(typeof(flex_Puesto)).Cast<flex_Puesto>().ToList());
+
+
+            return View(metricos);
         }
 
         // POST: LPA_COVID/Create
@@ -264,14 +287,42 @@ namespace Flex_SGM.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "ID,DiaHora,Usuario,Usuario_area,Usuario_puesto,Usuario_responsable,Descripcion,Comentarios,Proyectos")] Metricos metricos)
+        public async Task<ActionResult> Create([Bind(Include = "ID,DiaHora,Usuario,Usuario_area,Usuario_puesto,Usuario_responsable,Descripcion,Comentarios,Atendio,Proyectos,listarea")] Metricos metricos)
         {
+            var id = User.Identity.GetUserId();
+            ApplicationUser currentUser = UserManager.FindById(id);
+
+            string cuser = "Anonimo";
+            if (currentUser != null)
+                cuser = currentUser.UserFullName;
+
             if (ModelState.IsValid)
             {
+                if (string.IsNullOrEmpty(metricos.Usuario_responsable))
+                    metricos.Usuario_responsable = "-";
+
+                ApplicationUser cUser1 = UserManager.Users.Where(u => u.UserFullName.Contains(metricos.Usuario_responsable)).FirstOrDefault();
+                var scorreo = new EmailController();
+                if (cUser1 != null)
+                {
+                    if (cUser1.Email != null && cUser1.UserFullName != cuser)
+                        if (cUser1.Email.Contains("@flexngate.com"))
+                        {
+                            scorreo.NewMetrico(cUser1.Email, cuser, metricos.Descripcion, metricos.Usuario_area);
+                        }
+                }
+
                 db.Metricos.Add(metricos);
                 await db.SaveChangesAsync();
+
                 return RedirectToAction("Index");
             }
+
+            ViewBag.UserID = new SelectList(db.Users, "Id", "UserFullName");
+            ViewBag.Usuario = currentUser.UserFullName;
+            ViewBag.Usuario_responsable = new SelectList(db.Users, "UserFullName", "UserFullName");
+            ViewBag.Usuario_area = new SelectList(Enum.GetValues(typeof(flex_Areasv1)).Cast<flex_Areasv1>().ToList());
+            ViewBag.Usuario_puesto = new SelectList(Enum.GetValues(typeof(flex_Puesto)).Cast<flex_Puesto>().ToList());
 
             return View(metricos);
         }

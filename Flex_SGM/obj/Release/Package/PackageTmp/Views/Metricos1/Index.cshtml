@@ -4,7 +4,7 @@
 
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Métricos";
 }
 @using (Html.BeginForm())
 {
@@ -75,18 +75,8 @@
                 </a>
             </div>
             <div class="col-md-2">
-<<<<<<< HEAD
                 <a href="~/Quality_HS/Create">
                     <input type="button" value="Quality and H&S 5 min Talk" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
-=======
-                <a href="~/Project_Meetings/Create">
-                    <input type="button" value="Project Meetings" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
-                </a>
-            </div>
-            <div class="col-md-2">
-                <a href="~/Project_Meetings/Create">
-                    <input type="button" value="Project Meetings: MRD's" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
->>>>>>> parent of 9d2e0d3 (Second update to Puebla application)
                 </a>
             </div>
             <div class="col-md-2">
@@ -190,16 +180,14 @@
 </div>
 <div class="x_panel">
     <div class="x_title clearfix">
-<<<<<<< HEAD
-=======
-        <h2>Business Excellence del Mes Enero al Mes Diciembre de @ViewBag.dx</h2>
+        <h2>Business Excellence de Enero a Diciembre de @ViewBag.dx</h2>
         <ul class="nav navbar-right">
             <li>
                 <a class="collapse-link collapse" data-toggle="collapse"><i class="fa fa-chevron-down"></i></a>
             </li>
         </ul>
     </div>
-    <div class="x_content" id="collapseOne" data-toggle="false">
+    <div class="x_content" id="collapseOne" data-toggle="false" style="display: none">
         <table class="table table-bordered table-striped" style="width:100%; height:100%" id="metric">
             <thead>
                 <tr>
@@ -212,55 +200,55 @@
             </thead>
             <tbody>
                 <tr>
-                    <th><p>Work Standarization</p></th>
+                    <th><h4>Work Standarization</h4></th>
                     @foreach (var item in ViewBag.data)
                     {
-                        <td>@item.Amef%</td>
+                        <td>@item.WrkStd%</td>
                     }
                 </tr>
                 <tr>
-                    <th><p>Accountability</p></th>
+                    <th><h4>Accountability</h4></th>
                     @foreach (var item in ViewBag.data)
                     {
-                        <td>@item.CapPer%</td>
+                        <td>@item.Accnt%</td>
                     }
                 </tr>
                 <tr>
-                    <th><p>Continuos Improvement</p></th>
+                    <th><h4>Continuos Improvement</h4></th>
                     @foreach (var item in ViewBag.data)
                     {
-                        <td>@item.CoImPer%</td>
+                        <td>@item.ConImp%</td>
                     }
                 </tr>
                 <tr>
-                    <th><p>Customer Focus</p></th>
+                    <th><h4>Customer Focus</h4></th>
                     @foreach (var item in ViewBag.data)
                     {
-                        <td>@item.Ford%</td>
+                        <td>@item.CstFcs%</td>
                     }
                 </tr>
                 <tr>
-                    <th><p>Sustainability</p></th>
+                    <th><h4>Sustainability</h4></th>
                     @foreach (var item in ViewBag.data)
                     {
-                        <td>@item.Ecn%</td>
+                        <td>@item.Sustan%</td>
                     }
                 </tr>
             </tbody>
         </table>
     </div>
 </div>
+
 <div class="x_panel">
     <div class="x_title clearfix">
->>>>>>> parent of 9d2e0d3 (Second update to Puebla application)
-        <h2>Inicadores del Mes Enero al Mes Diciembre de @ViewBag.dx</h2>
+        <h2>Indicadores de Enero a Diciembre de @ViewBag.dx</h2>
         <ul class="nav navbar-right">
             <li>
                 <a class="collapse-link collapse" data-toggle="collapse"><i class="fa fa-chevron-down"></i></a>
             </li>
         </ul>
     </div>
-    <div class="x_content" id="collapseOne" data-toggle="false">
+    <div class="x_content" id="collapseOne" data-toggle="false" style="display: none">
         <table class="table table-bordered table-striped" style="width:100%; height:100%" id="metricox">
             <thead>
                 <tr>
@@ -455,27 +443,12 @@
                     }
                 </tr>
                 <tr>
-<<<<<<< HEAD
                     <th><p>@Html.ActionLink("Red Rabbits Audit", "Index", "Red_Rabbits")</p></th>
                     <th scope="row">Hector Salomon</th>
                     <th scope="row">100% on time & implemented</th>
-=======
-                    <th><p>@Html.ActionLink("Project Meetings: MRD's", "Index", "PLM")</p></th>
-                    <th scope="row">Veronica Hernandez</th>
-                    <th scope="row">1 Semanal</th>
                     @foreach (var item in ViewBag.data)
                     {
                         <td>@item.Plm%</td>
-                    }
-                </tr>
-                <tr>
-                    <th><p>@Html.ActionLink("Red Rabbits Audits", "Index", "Red_Rabbits")</p></th>
-                    <th scope="row">Aldo Ortega</th>
-                    <th scope="row">2 Semanales</th>
->>>>>>> parent of 9d2e0d3 (Second update to Puebla application)
-                    @foreach (var item in ViewBag.data)
-                    {
-                        <td>@item.ReRa%</td>
                     }
                 </tr>
                 <tr>
@@ -484,11 +457,7 @@
                     <th scope="row">0 Incidents</th>
                     @foreach (var item in ViewBag.data)
                     {
-<<<<<<< HEAD
                         <td>@item.Safe</td>
-=======
-                        <td>@item.ReRa%</td>
->>>>>>> parent of 9d2e0d3 (Second update to Puebla application)
                     }
                 </tr>
                 <tr>
@@ -628,6 +597,96 @@
                 };
             }
         });
+        var table1 = document.getElementById('metric');
+        var tbody1 = table1.getElementsByTagName('tbody')[0];
+        var cells1 = tbody1.getElementsByTagName('tr');
+        const dt = new Date();
+        let month1 = dt.getMonth();
+
+        for (var i = 0, len = cells1[i].cells.length; i < len; i++) {
+            if ((i + 1) < len) {
+                if (parseInt(cells1[0].cells[1 + i].innerHTML, 10) < 20) {
+                    cells1[0].cells[1 + i].style.backgroundColor = '#ff5c5c8c';
+                    cells1[0].cells[1 + i].style.color = 'black';
+                }
+                if (parseInt(cells1[0].cells[1 + i].innerHTML, 10) >= 20) {
+                    cells1[0].cells[1 + i].style.backgroundColor = '#ffff005c';
+                    cells1[0].cells[1 + i].style.color = 'black';
+                }
+                if (parseInt(cells1[0].cells[1 + i].innerHTML, 10) >= 80) {
+                    cells1[0].cells[1 + i].style.backgroundColor = '#71d98c8c';
+                    cells1[0].cells[1 + i].style.color = 'black';
+                }
+                if ((i + 1) == month1) {
+                    cells1[0].cells[1 + i].style.borderRightColor = '#6b8cb0';
+                    cells1[0].cells[1 + i].style.borderRightWidth = 'thick';
+                }
+                if (parseInt(cells1[1].cells[1 + i].innerHTML, 10) < 20) {
+                    cells1[1].cells[1 + i].style.backgroundColor = '#ff5c5c8c';
+                    cells1[1].cells[1 + i].style.color = 'black';
+                }
+                if (parseInt(cells1[1].cells[1 + i].innerHTML, 10) >= 20) {
+                    cells1[1].cells[1 + i].style.backgroundColor = '#ffff005c';
+                    cells1[1].cells[1 + i].style.color = 'black';
+                }
+                if (parseInt(cells1[1].cells[1 + i].innerHTML, 10) >= 80) {
+                    cells1[1].cells[1 + i].style.backgroundColor = '#71d98c8c';
+                    cells1[1].cells[1 + i].style.color = 'black';
+                }
+                if ((i + 1) == month1) {
+                    cells1[1].cells[1 + i].style.borderRightColor = '#6b8cb0';
+                    cells1[1].cells[1 + i].style.borderRightWidth = 'thick';
+                }
+                if (parseInt(cells1[2].cells[1 + i].innerHTML, 10) < 20) {
+                    cells1[2].cells[1 + i].style.backgroundColor = '#ff5c5c8c';
+                    cells1[2].cells[1 + i].style.color = 'black';
+                }
+                if (parseInt(cells1[2].cells[1 + i].innerHTML, 10) >= 20) {
+                    cells1[2].cells[1 + i].style.backgroundColor = '#ffff005c';
+                    cells1[2].cells[1 + i].style.color = 'black';
+                }
+                if (parseInt(cells1[2].cells[1 + i].innerHTML, 10) >= 80) {
+                    cells1[2].cells[1 + i].style.backgroundColor = '#71d98c8c';
+                    cells1[2].cells[1 + i].style.color = 'black';
+                }
+                if ((i + 1) == month1) {
+                    cells1[2].cells[1 + i].style.borderRightColor = '#6b8cb0';
+                    cells1[2].cells[1 + i].style.borderRightWidth = 'thick';
+                }
+                if (parseInt(cells1[3].cells[1 + i].innerHTML, 10) < 20) {
+                    cells1[3].cells[1 + i].style.backgroundColor = '#ff5c5c8c';
+                    cells1[3].cells[1 + i].style.color = 'black';
+                }
+                if (parseInt(cells1[3].cells[1 + i].innerHTML, 10) >= 20) {
+                    cells1[3].cells[1 + i].style.backgroundColor = '#ffff005c';
+                    cells1[3].cells[1 + i].style.color = 'black';
+                }
+                if (parseInt(cells1[3].cells[1 + i].innerHTML, 10) >= 80) {
+                    cells1[3].cells[1 + i].style.backgroundColor = '#71d98c8c';
+                    cells1[3].cells[1 + i].style.color = 'black';
+                }
+                if ((i + 1) == month1) {
+                    cells1[3].cells[1 + i].style.borderRightColor = '#6b8cb0';
+                    cells1[3].cells[1 + i].style.borderRightWidth = 'thick';
+                }
+                if (parseInt(cells1[4].cells[1 + i].innerHTML, 10) < 20) {
+                    cells1[4].cells[1 + i].style.backgroundColor = '#ff5c5c8c';
+                    cells1[4].cells[1 + i].style.color = 'black';
+                }
+                if (parseInt(cells1[4].cells[1 + i].innerHTML, 10) >= 20) {
+                    cells1[4].cells[1 + i].style.backgroundColor = '#ffff005c';
+                    cells1[4].cells[1 + i].style.color = 'black';
+                }
+                if (parseInt(cells1[4].cells[1 + i].innerHTML, 10) >= 80) {
+                    cells1[4].cells[1 + i].style.backgroundColor = '#71d98c8c';
+                    cells1[4].cells[1 + i].style.color = 'black';
+                }
+                if ((i + 1) == month1) {
+                    cells1[4].cells[1 + i].style.borderRightColor = '#6b8cb0';
+                    cells1[4].cells[1 + i].style.borderRightWidth = 'thick';
+                }
+            }
+        }
 
         var table = document.getElementById('metricox');
         var tbody = table.getElementsByTagName('tbody')[0];

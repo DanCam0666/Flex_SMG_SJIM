@@ -92,6 +92,39 @@
     </div>
 </div>
 
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiaHora)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Usuario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Usuario_area)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Usuario_puesto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Usuario_responsable)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comentarios)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Proyectos)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
 
 @section Scripts {
 
