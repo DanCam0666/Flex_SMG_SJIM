@@ -37,10 +37,10 @@ namespace Flex_SGM.Controllers
         }
 
         // GET: CI_MP
-                public async Task<ActionResult> Index(string amaquina, string maquina, string submaquina, string mgroup, string xmgroup, string btn = "Metricos por Mes", string dti = "", string dtf = "")
+        public async Task<ActionResult> Index(string amaquina, string maquina, string submaquina, string mgroup, string xmgroup, string btn = "Metricos por Mes", string dti = "", string dtf = "")
         {
             var metricos = db.Metricos.ToList<Metricos>();
-            var validMetricosRecords = metricos.Where(m => m.Usuario_area is "Continuous_Improvment").ToList();
+            var validMetricosRecords = metricos.Where(m => m.Usuario_area is "Continuous_Improvment" && m.DiaHora.Year == DateTime.Now.Year).ToList();
             var users = validMetricosRecords.Where(m => m.Usuario_area is "Continuous_Improvment")
                 .GroupBy(m => m.Usuario_responsable)
                 .ToList();
@@ -56,7 +56,7 @@ namespace Flex_SGM.Controllers
                .Where(m => m.DiaHora.Month == 1).Sum(m => m.Proyectos);
                 displayUserChartJanuary.Proyectos = chartData1;
                 displayUserChartJanuary.Month = 1;
-                displayUserChartJanuary.Year=DateTime.Now.Year;
+                displayUserChartJanuary.Year = DateTime.Now.Year;
                 displayUserChartList.Add(displayUserChartJanuary);
 
                 //For february
@@ -226,9 +226,10 @@ namespace Flex_SGM.Controllers
                         }
                     }
                     thistiempo = iaño.ToString() + "-" + ToTitleCase(nombreMes);
+                    int year = DateTime.Now.Year;
 
-                    var sum_Cont_Imprv = (metricos.Where(w => w.Usuario_area == "Continuous_Improvment" && w.DiaHora.Month == jmes).Select(w => w.Proyectos).Sum());
-                    var cnt_Cont_Imprv = (metricos.Where(w => w.Usuario_area == "Continuous_Improvment" && w.DiaHora.Month == jmes).Count());
+                    var sum_Cont_Imprv = (metricos.Where(w => w.Usuario_area == "Continuous_Improvment" && w.DiaHora.Month == jmes && w.DiaHora.Year == year).Select(w => w.Proyectos).Sum());
+                    var cnt_Cont_Imprv = (metricos.Where(w => w.Usuario_area == "Continuous_Improvment" && w.DiaHora.Month == jmes && w.DiaHora.Year == year).Count());
 
 
                     if (cnt_Cont_Imprv != 0)
@@ -243,7 +244,7 @@ namespace Flex_SGM.Controllers
                     MetricsNew data_show = new MetricsNew
                     {
                         TiempoLabel = thistiempo,
-                        CoImCnt = metricos.Where(w => w.Usuario_area == "Continuous_Improvment" && w.DiaHora.Month == jmes).Count(),
+                        CoImCnt = metricos.Where(w => w.Usuario_area == "Continuous_Improvment" && w.DiaHora.Month == jmes && w.DiaHora.Year == year).Count(),
                         CoImPer = ViewBag.ConPer,
                     };
                     Ldata.Add(data_show);

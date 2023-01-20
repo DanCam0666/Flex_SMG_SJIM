@@ -5,12 +5,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Safety Issues (H&S)</h2>
+<h2>Safety Issues (H & S)</h2>
 
 <h3>
     @Html.ActionLink("Crear Registro Nuevo", "Create")
 </h3>
-<div class="x_panel">
+<div class="x_panel cbg">
     <div class="x_content clearfix">
         <table class="table table-bordered table-striped clearfix" style="width:100%" id="metricos">
             <thead>
@@ -82,49 +82,15 @@
     </div>
 </div>
 <div class="col-md-12" style="float:left">
-    <div class="x_panel">
+    <div class="x_panel cbg">
         <div class="x_title">
-            Safety Issues (H&S) Indicators
+            Safety Issues (H & S) Indicators
         </div>
         <div class="x_content">
             <canvas id="bar-chart-horizontal" width="800" height="800"></canvas>
         </div>
     </div>
 </div>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.DiaHora)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Usuario)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Usuario_area)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Usuario_puesto)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Usuario_responsable)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Descripcion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Comentarios)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Proyectos)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
 
 @section Scripts {
 
@@ -155,32 +121,32 @@
                     {
                         extend: 'copy',
                         orientation: 'landscape',
-                        pageSize: 'LEGAL',
+                        pageSize: 'LETTER',
                         exportOptions: {
                             columns: [0, 1, 2, 3, 4, 5, 6]
                         },
                     },
                     {
                         extend: 'csv',
-                        title: 'Safety Issues (H&S) Report',
+                        title: 'Safety Issues (H & S) Report',
                         orientation: 'landscape',
-                        pageSize: 'LEGAL',
+                        pageSize: 'LETTER',
                         exportOptions: {
                             columns: [0, 1, 2, 3, 4, 5, 6]
                         },
                     },
                     {
                         extend: 'print',
-                        title: 'Safety Issues (H&S) Report',
+                        title: 'Safety Issues (H & S) Report',
                         orientation: 'landscape',
-                        pageSize: 'LEGAL',
+                        pageSize: 'LETTER',
                         exportOptions: {
                             columns: [0, 1, 2, 3, 4, 5, 6]
                         },
                     },
                     {
                         extend: 'pdfHtml5',
-                        title: 'Safety Issues (H&S) Report',
+                        title: 'Safety Issues (H & S) Report',
                         orientation: 'landscape',
                         pageSize: 'LETTER',
                         exportOptions: {
@@ -189,9 +155,9 @@
                     },
                     {
                         extend: 'excelHtml5',
-                        title: 'Safety Issues (H&S) Report',
+                        title: 'Safety Issues (H & S) Report',
                         orientation: 'landscape',
-                        pageSize: 'LEGAL',
+                        pageSize: 'LETTER',
                         exportOptions: {
                             columns: [0, 1, 2, 3, 4, 5, 6]
                         },
@@ -253,7 +219,7 @@
                         data: @Html.Raw(Json.Encode(ViewBag.ChartData2)),
                     },
                     {
-                        label: "Marzo",
+                        label: "Marzo", 
                         backgroundColor: 'rgba(255, 206, 86, 0.2)',
                         borderColor: "rgba(26,179,148,0.7)",
                         pointBackgroundColor: "rgba(26,179,148,1)",
@@ -338,7 +304,7 @@
                 legend: { display: true },
                 title: {
                     display: true,
-                    text: 'Safety Issues (H&S)'
+                    text: 'Safety Issues (H & S)'
                 }
             }
         });

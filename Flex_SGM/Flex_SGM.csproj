@@ -2728,8 +2728,7 @@
     <Content Include="Addon\fullcalendar\timegrid\package.json" />
     <Content Include="Addon\fullcalendar\timegrid\README.md" />
     <Content Include="Help\IngBitacoraCapBasica.pdf" />
-    <None Include="Properties\PublishProfiles\PublishProfile.pubxml" />
-    <None Include="Properties\PublishProfiles\SJIMSVAP7 Bitacora.pubxml" />
+    <None Include="Properties\PublishProfiles\SJIMSVAP7.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\Chart.js" />
     <Content Include="Scripts\Chart.min.js" />

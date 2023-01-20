@@ -34,7 +34,7 @@ namespace Flex_SGM.Controllers
         public async Task<ActionResult> Index()
         {
             var metricos = db.Metricos.ToList<Metricos>();
-            var validMetricosRecords = metricos.Where(m => m.Usuario_area is "Safety_HS").ToList();
+            var validMetricosRecords = metricos.Where(m => m.Usuario_area is "Safety_HS" && m.DiaHora.Year == DateTime.Now.Year).ToList();
             var users = validMetricosRecords.Where(m => m.Usuario_area is "Safety_HS")
                 .GroupBy(m => m.Usuario_responsable)
                 .ToList();
@@ -332,7 +332,7 @@ namespace Flex_SGM.Controllers
             return View(metricos);
         }
 
-        // POST: AMEF/Edit/5
+        // POST: Safety_HS/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]

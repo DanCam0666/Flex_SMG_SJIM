@@ -8,9 +8,9 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Flex_SGM.Models;
+using Flex_SGM.emaildata;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.AspNet.Identity;
-using Flex_SGM.emaildata;
 
 namespace Flex_SGM.Controllers
 {
@@ -30,12 +30,11 @@ namespace Flex_SGM.Controllers
             }
         }
 
-
         // GET: AMEF
         public async Task<ActionResult> Index()
         {
             var metricos = db.Metricos.ToList<Metricos>();
-            var validMetricosRecords = metricos.Where(m => m.Usuario_area is "AMEF_Reverse").ToList();
+            var validMetricosRecords = metricos.Where(m => m.Usuario_area is "AMEF_Reverse" && m.DiaHora.Year == DateTime.Now.Year).ToList();
             var users = validMetricosRecords.Where(m => m.Usuario_area is "AMEF_Reverse")
                 .GroupBy(m => m.Usuario_responsable)
                 .ToList();

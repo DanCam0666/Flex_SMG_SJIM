@@ -34,7 +34,7 @@ namespace Flex_SGM.Controllers
         public async Task<ActionResult> Index()
         {
             var metricos = db.Metricos.ToList<Metricos>();
-            var validMetricosRecords = metricos.Where(m => m.Usuario_area is "Customer_Complaints").ToList();
+            var validMetricosRecords = metricos.Where(m => m.Usuario_area is "Customer_Complaints" && m.DiaHora.Year == DateTime.Now.Year).ToList();
             var users = validMetricosRecords.Where(m => m.Usuario_area is "Customer_Complaints")
                 .GroupBy(m => m.Usuario_responsable)
                 .ToList();

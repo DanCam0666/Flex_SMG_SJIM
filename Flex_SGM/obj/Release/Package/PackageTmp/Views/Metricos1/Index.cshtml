@@ -2,112 +2,113 @@
 
 @model IEnumerable<Flex_SGM.Models.Metricos>
 
-
 @{
     ViewBag.Title = "Métricos";
 }
 @using (Html.BeginForm())
-{
+ {
     <a></a>
     <div class="col-md-12" style="width: 100%">
-        <div class="x_panel">
-            <center>
-                <h1>Crear un Registro Nuevo</h1>
-            </center>
-            <div class="col-md-2">
-                <a href="~/AMEF/Create">
-                    <input type="button" value="AMEF/Reverse" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
-                </a>
-            </div>
-            <div class="col-md-2">
-                <a href="~/BuildinBuildout/Create">
-                    <input type="button" value="Build In / Build Out" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
-                </a>
-            </div>
-            <div class="col-md-2">
-                <a href="~/Capacities/Create">
-                    <input type="button" value="Capacities Review" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
-                </a>
-            </div>
-            <div class="col-md-2">
-                <a href="~/CI_MP/Create">
-                    <input type="button" value="Continuous Improvement" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
-                </a>
-            </div>
-            <div class="col-md-2">
-                <a href="~/Customer_Complaints/Create">
-                    <input type="button" value="Customer Complaints" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
-                </a>
-            </div>
-            <div class="col-md-2">
-                <a href="~/Cust_Score_Cards/Create">
-                    <input type="button" value="Customer Score Cards" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
-                </a>
-            </div>
-            <div class="col-md-2">
-                <a href="~/ECNs_PCRs/Create">
-                    <input type="button" value="ECNs & PCRs" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
-                </a>
-            </div>
-            <div class="col-md-2">
-                <a href="~/Lay_Out/Create">
-                    <input type="button" value="Lay Out Changes" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
-                </a>
-            </div>
-            <div class="col-md-2">
-                <a href="~/LPA_COVID/Create">
-                    <input type="button" value="LPA / COVID Audits" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
-                </a>
-            </div>
-            <div class="col-md-2">
-                <a href="~/Packaging/Create">
-                    <input type="button" value="Packaging Portals" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
-                </a>
-            </div>
-            <div class="col-md-2">
-                <a href="~/Parts_Delivery/Create">
-                    <input type="button" value="Parts Delivery on Time" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
-                </a>
-            </div>
-            <div class="col-md-2">
-                <a href="~/PLM/Create">
-                    <input type="button" value="PLM / Launch Matrix" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
-                </a>
-            </div>
-            <div class="col-md-2">
-                <a href="~/Quality_HS/Create">
-                    <input type="button" value="Quality and H&S 5 min Talk" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
-                </a>
-            </div>
-            <div class="col-md-2">
-                <a href="~/Red_Rabbits/Create">
-                    <input type="button" value="Red Rabbit Audits" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
-                </a>
-            </div>
-            <div class="col-md-2">
-                <a href="~/Safety_HS/Create">
-                    <input type="button" value="Saftey Issues (H & S)" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
-                </a>
-            </div>
-            <div class="col-md-2">
-                <a href="~/Scrap/Create">
-                    <input type="button" value="Scrap Costs" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
-                </a>
-            </div>
-            <div class="col-md-2">
-                <a href="~/TOC_HS_Audits/Create">
-                    <input type="button" value="TOC/H&S Audits" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
-                </a>
-            </div>
-            <div class="col-md-2">
-                <a href="~/Yellow_Sheets/Create">
-                    <input type="button" value="Yellow Sheet & BOM´s Audited" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
-                </a>
+        <div class="x_panel cbg">
+            <div class="x_content clearfix">
+                <center>
+                    <h1>Crear un Registro Nuevo</h1>
+                </center>
+                <div class="col-md-2">
+                    <a href="~/AMEF/Create">
+                        <input type="button" value="AMEF/Reverse" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a href="~/BuildinBuildout/Create">
+                        <input type="button" value="Build In / Build Out" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a href="~/Capacities/Create">
+                        <input type="button" value="Capacities Review" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a href="~/CI_MP/Create">
+                        <input type="button" value="Continuous Improvement" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a href="~/Customer_Complaints/Create">
+                        <input type="button" value="Customer Complaints" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a href="~/Cust_Score_Cards/Create">
+                        <input type="button" value="Customer Score Cards" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a href="~/ECNs_PCRs/Create">
+                        <input type="button" value="ECNs & PCRs" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a href="~/Lay_Out/Create">
+                        <input type="button" value="Lay Out Changes" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a href="~/LPA_COVID/Create">
+                        <input type="button" value="LPA / COVID Audits" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a href="~/Packaging/Create">
+                        <input type="button" value="Packaging Portals" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a href="~/Parts_Delivery/Create">
+                        <input type="button" value="Parts Delivery on Time" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a href="~/PLM/Create">
+                        <input type="button" value="PLM / Launch Matrix" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a href="~/Quality_HS/Create">
+                        <input type="button" value="Quality and H&S 5 min Talk" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a href="~/Red_Rabbits/Create">
+                        <input type="button" value="Red Rabbit Audits" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a href="~/Safety_HS/Create">
+                        <input type="button" value="Saftey Issues (H & S)" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a href="~/Scrap/Create">
+                        <input type="button" value="Scrap Costs" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a href="~/TOC_HS_Audits/Create">
+                        <input type="button" value="TOC/H&S Audits" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a href="~/Yellow_Sheets/Create">
+                        <input type="button" value="Yellow Sheet & BOM´s Audited" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
+                    </a>
+                </div>
             </div>
         </div>
     </div>
-}
-<div class="x_panel">
+ }
+<div class="x_panel cbg">
     <div class="x_content clearfix">
         <table class="display table table-bordered table-striped" id="metricoTable" style="width:100%; overflow-x:auto;">
             <thead>
@@ -138,7 +139,7 @@
             </thead>
             <tbody>
                 @foreach (var item in Model)
-                {
+                 {
                     <tr>
                         <td>
                             @Html.DisplayFor(modelItem => item.DiaHora)
@@ -173,14 +174,27 @@
                             }
                         </td>
                     </tr>
-                }
+                 }
             </tbody>
         </table>
     </div>
 </div>
-<div class="x_panel">
+<div class="x_panel cbg">
     <div class="x_title clearfix">
-        <h2>Business Excellence de Enero a Diciembre de @ViewBag.dx</h2>
+        <h2>
+            Business Excellence de Enero a Diciembre de
+            <select name="years" id="years" style="background-color: #f2f6f8">
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
+                <option value="2025">2025</option>
+                <option value="2026">2026</option>
+                <option value="2027">2027</option>
+                <option value="2028">2028</option>
+                <option value="2029">2029</option>
+                <option value="2030">2030</option>
+            </select>
+        </h2>
         <ul class="nav navbar-right">
             <li>
                 <a class="collapse-link collapse" data-toggle="collapse"><i class="fa fa-chevron-down"></i></a>
@@ -191,7 +205,7 @@
         <table class="table table-bordered table-striped" style="width:100%; height:100%" id="metric">
             <thead>
                 <tr>
-                    <td style="width:20%;"><h3>Descripción</h3></td>
+                    <td style="width:15%;"><h3>Descripción</h3></td>
                     @foreach (var item in ViewBag.data)
                     {
                         <td>@item.TiempoLabel</td>
@@ -200,35 +214,35 @@
             </thead>
             <tbody>
                 <tr>
-                    <th><h4>Work Standarization</h4></th>
+                    <th><h3>Work Standarization</h3></th>
                     @foreach (var item in ViewBag.data)
                     {
                         <td>@item.WrkStd%</td>
                     }
                 </tr>
                 <tr>
-                    <th><h4>Accountability</h4></th>
+                    <th><h3>Accountability</h3></th>
                     @foreach (var item in ViewBag.data)
                     {
                         <td>@item.Accnt%</td>
                     }
                 </tr>
                 <tr>
-                    <th><h4>Continuos Improvement</h4></th>
+                    <th><h3>Continuos Improvement</h3></th>
                     @foreach (var item in ViewBag.data)
                     {
                         <td>@item.ConImp%</td>
                     }
                 </tr>
                 <tr>
-                    <th><h4>Customer Focus</h4></th>
+                    <th><h3>Customer Focus</h3></th>
                     @foreach (var item in ViewBag.data)
                     {
                         <td>@item.CstFcs%</td>
                     }
                 </tr>
                 <tr>
-                    <th><h4>Sustainability</h4></th>
+                    <th><h3>Sustainability</h3></th>
                     @foreach (var item in ViewBag.data)
                     {
                         <td>@item.Sustan%</td>
@@ -239,7 +253,7 @@
     </div>
 </div>
 
-<div class="x_panel">
+<div class="x_panel cbg">
     <div class="x_title clearfix">
         <h2>Indicadores de Enero a Diciembre de @ViewBag.dx</h2>
         <ul class="nav navbar-right">
@@ -252,9 +266,9 @@
         <table class="table table-bordered table-striped" style="width:100%; height:100%" id="metricox">
             <thead>
                 <tr>
-                    <td style="width:20%;"><h3>Descripción</h3></td>
-                    <td style="width:20%;"><h3>Responsable</h3></td>
-                    <td style="width:20%;"><h3>Meta</h3></td>
+                    <td style="width:16%;"><h3>Descripción</h3></td>
+                    <td style="width:10%;"><h3>Responsable</h3></td>
+                    <td style="width:15%;"><h3>Meta</h3></td>
                     @foreach (var item in ViewBag.data)
                     {
                         <td>@item.TiempoLabel</td>
@@ -448,7 +462,7 @@
                     <th scope="row">100% on time & implemented</th>
                     @foreach (var item in ViewBag.data)
                     {
-                        <td>@item.Plm%</td>
+                        <td>@item.ReRa%</td>
                     }
                 </tr>
                 <tr>
@@ -514,7 +528,7 @@
                     orientation: 'landscape',
                     pageSize: 'LEGAL',
                     exportOptions: {
-                        columns: [0, 1, 2, 3, 4, 5]
+                        columns: [0, 1, 2, 3, 4, 5, 6]
                     },
                 },
                 {
@@ -523,7 +537,7 @@
                     orientation: 'landscape',
                     pageSize: 'LEGAL',
                     exportOptions: {
-                        columns: [0, 1, 2, 3, 4, 5]
+                        columns: [0, 1, 2, 3, 4, 5, 6]
                     },
                 },
                 {
@@ -532,7 +546,7 @@
                     orientation: 'landscape',
                     pageSize: 'LEGAL',
                     exportOptions: {
-                        columns: [0, 1, 2, 3, 4, 5]
+                        columns: [0, 1, 2, 3, 4, 5, 6]
                     },
                 },
                 {
@@ -541,7 +555,7 @@
                     orientation: 'landscape',
                     pageSize: 'LETTER',
                     exportOptions: {
-                        columns: [0, 1, 2, 3, 4, 5]
+                        columns: [0, 1, 2, 3, 4, 5, 6]
                     },
                 },
                 {
@@ -550,7 +564,7 @@
                     orientation: 'landscape',
                     pageSize: 'LEGAL',
                     exportOptions: {
-                        columns: [0, 1, 2, 3, 4, 5]
+                        columns: [0, 1, 2, 3, 4, 5, 6]
                     },
                 }
             ],
@@ -586,8 +600,8 @@
             }
         });
 
+        // Listen for when the form submits.
         $(document).ready(function () {
-
             if (typeof window.stackBottomLeft === 'undefined') {
                 window.stackBottomLeft = {
                     'dir1': 'up',
@@ -596,7 +610,37 @@
                     'firstpos2': 25
                 };
             }
+            document.getElementById('years').value = @ViewBag.indYear;
         });
+
+        $("#years").change(function () {
+            setCookie("indYear", document.getElementById('years').value, 30);
+            history.go();
+        });
+
+        function setCookie(cname, cvalue, exdays) {
+            const d = new Date();
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+            let expires = "expires=" + d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+            console.log("Cookie was set to: " + cvalue)
+        };
+        function getCookie(cname) {
+            let name = cname + "=";
+            let ca = document.cookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+            console.log("Cookie was retreived");
+        };
+
         var table1 = document.getElementById('metric');
         var tbody1 = table1.getElementsByTagName('tbody')[0];
         var cells1 = tbody1.getElementsByTagName('tr');
@@ -696,15 +740,15 @@
 
         for (var i = 0, len = cells[i].cells.length; i < len; i++) {
             if ((i + 3) < len) {
-                if (parseInt(cells[0].cells[3 + i].innerHTML, 10) < 20) {
+                if (parseInt(cells[0].cells[3 + i].innerHTML, 10) < 70) {
                     cells[0].cells[3 + i].style.backgroundColor = '#ff5c5c8c';
                     cells[0].cells[3 + i].style.color = 'black';
                 }
-                if (parseInt(cells[0].cells[3 + i].innerHTML, 10) >= 20) {
+                if (parseInt(cells[0].cells[3 + i].innerHTML, 10) >= 70) {
                     cells[0].cells[3 + i].style.backgroundColor = '#ffff005c';
                     cells[0].cells[3 + i].style.color = 'black';
                 }
-                if (parseInt(cells[0].cells[3 + i].innerHTML, 10) >= 80) {
+                if (parseInt(cells[0].cells[3 + i].innerHTML, 10) >= 90) {
                     cells[0].cells[3 + i].style.backgroundColor = '#71d98c8c';
                     cells[0].cells[3 + i].style.color = 'black';
                 }

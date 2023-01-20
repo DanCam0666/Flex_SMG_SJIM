@@ -1,11 +1,8 @@
 ﻿@model Flex_SGM.Models.OILs
 
-
 @{
     ViewBag.Title = "Edit";
 }
-
-
 
 <div class="row clearfix">
     <center> @{Html.RenderPartial("_Result");}</center>
@@ -15,27 +12,24 @@
 {
     @Html.AntiForgeryToken()
 
-    <div class="x_panel col-md-12">
-        <div class="x_title">
-            <h2>Actualizar estado de Proyecto o Actividad</h2>
+    <div class="x_panel cbg col-md-12">
+        <div>
+            <h2 style="margin-left: 20px">Actualizar estado de Proyecto o Actividad</h2>
         </div>
         <h4>@ViewBag.Message</h4>
-        <hr />
+        <br />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.ID)
         @Html.HiddenFor(model => model.MaquinasID)
         @Html.HiddenFor(model => model.Tipo)
-
-
         <div class="form-group col-md-4">
             @Html.LabelFor(model => model.Dep, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-md-8" style="margin-left: 40px">
                 @Html.EditorFor(model => model.Dep, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
                 @Html.HiddenFor(model => model.Dep)
                 @Html.ValidationMessageFor(model => model.Dep, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group col-md-4">
             @Html.LabelFor(model => model.Maquinas.Cliente, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -44,7 +38,6 @@
                 @Html.ValidationMessageFor(model => model.Maquinas.Cliente, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group col-md-4">
             @Html.LabelFor(model => model.Maquinas.Maquina, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -53,15 +46,7 @@
                 @Html.ValidationMessageFor(model => model.Maquinas.Maquina, "", new { @class = "text-danger" })
             </div>
         </div>
-        @*<div class="form-group col-md-12">
-            @Html.LabelFor(model => model.folio, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.folio, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
-                @Html.HiddenFor(model => model.folio)
-                @Html.ValidationMessageFor(model => model.folio, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
-        <div class="form-group col-md-12">
+        <div class="form-group col-md-6">
             @Html.LabelFor(model => model.Actividad, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DisplayFor(model => model.Actividad, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
@@ -69,7 +54,7 @@
                 @Html.ValidationMessageFor(model => model.Actividad, "", new { @class = "text-danger" })
             </div>
         </div>
-        <div class="form-group col-md-4">
+        <div class="form-group col-md-6">
             @Html.LabelFor(model => model.folio, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.folio, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
@@ -85,7 +70,6 @@
                 @Html.ValidationMessageFor(model => model.User_gen, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group col-md-6">
             @Html.LabelFor(model => model.User_res, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -102,7 +86,6 @@
                 @Html.ValidationMessageFor(model => model.DiaHora, "", new { @class = "text-danger" })
             </div>
         </div>
-
         @if (Model.DiaHora_Compromiso == null || ViewBag.super == true)
         {
             <div class="form-group col-md-6">
@@ -140,16 +123,17 @@
                 </div>
             </div>
         </div>
-
         @Html.HiddenFor(model => model.DiaHora_Cierre)
         @Html.HiddenFor(model => model.DiaHora_Verificado)
         @Html.HiddenFor(model => model.Usuario_Verifico)
-        <div class="form-group col-md-12">
+        <div class="form-group col-md-6">
             @Html.LabelFor(model => model.Comentarios, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div>
-                @Html.DisplayFor(model => model.Comentarios, new { htmlAttributes = new { @class = "form-control col-md-10", disabled = "disabled" } })
-                @Html.HiddenFor(model => model.Comentarios)
-                @Html.ValidationMessageFor(model => model.Comentarios, "", new { @class = "text-danger" })
+            <div class="col-md-10">
+                <div>
+                    @Html.DisplayFor(model => model.Comentarios, new { htmlAttributes = new { @class = "form-control col-md-10", disabled = "disabled" } })
+                    @Html.HiddenFor(model => model.Comentarios)
+                    @Html.ValidationMessageFor(model => model.Comentarios, "", new { @class = "text-danger" })
+                </div>
             </div>
         </div>
         <div class="form-group col-md-12">
@@ -172,37 +156,36 @@
             @Html.Label("Actividad Finalizada", htmlAttributes: new { @class = "control-label col-md-2" })
             @Html.CheckBox("Actividad_Finalizada", false, htmlAttributes: new { @class = "checkbox2" })
         </div>
-
         <div class="form-group">
             <div class="col-md-6">
                 <input type="submit" value="Guardar Cambios" class="btn btn-success" />
             </div>
         </div>
     </div>
- }
+}
 
 <div class="row">
     <center> @{Html.RenderPartial("_Result");}</center>
 </div>
 <!-- Basic Example -->
 <div class="col-lg-6 col-md-6 col-sm-12 col-md-12">
-    <div class="x_panel">
+    <div class="x_panel cbg">
         <div class="x_title">
             <h3>Evidencia de Antes</h3>
         </div>
         <div class="x_content">
-            <input type="file" class="filepond" name="filepond1" multiple data-max-file-size="30MB" data-max-files="5">
+            <input type="file" class="filepond" name="filepond1" multiple
+                   data-max-file-size="30MB" data-max-files="5">
             <div id="carousel-example-generic1" class="carousel slide" data-ride="carousel">
                 <!-- Indicators -->
-                <ol class="carousel-indicators">
+                <ol class="carousel-indicators" style="font-size: 1.75rem">
                     <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
                     <li data-target="#carousel-example-generic" data-slide-to="1"></li>
                     <li data-target="#carousel-example-generic" data-slide-to="2"></li>
                 </ol>
-
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner" role="listbox">
-                   @{int i = 0;
+                    @{int i = 0;
                         string path = Path.Combine(Server.MapPath("~/Evidence"), "before", @Model.ID.ToString());
                         string path2 = Path.Combine("../../Evidence", "before", @Model.ID.ToString());
 
@@ -242,7 +225,6 @@
                         }
                     }
                 </div>
-
                 <!-- Controls -->
                 <a class="left carousel-control" href="#carousel-example-generic1" role="button" data-slide="prev">
                     <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -253,22 +235,18 @@
                     <span class="sr-only">Next</span>
                 </a>
             </div>
-
         </div>
     </div>
 </div>
 <!-- Basic Example -->
 <div class="col-lg-6 col-md-6 col-sm-12 col-md-12">
-    <div class="x_panel">
+    <div class="x_panel cbg">
         <div class="x_title">
             <h3>Evidencia Después</h3>
         </div>
         <div class="x_content">
-
-
             <input type="file" class="filepond" name="filepond2" multiple
-                    data-max-file-size="30MB" data-max-files="5">
-
+                   data-max-file-size="30MB" data-max-files="5">
             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                 <!-- Indicators -->
                 <ol class="carousel-indicators">
@@ -276,7 +254,6 @@
                     <li data-target="#carousel-example-generic" data-slide-to="1"></li>
                     <li data-target="#carousel-example-generic" data-slide-to="2"></li>
                 </ol>
-
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner" role="listbox">
                     @{ i = 0;
@@ -316,7 +293,6 @@
                         }
                     }
                 </div>
-
                 <!-- Controls -->
                 <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
                     <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -335,9 +311,6 @@
 <div class="row" style="height: 150px">
     <center> @{Html.RenderPartial("_Result");}</center>
 </div>
-
-
-
 <div>
     @Html.ActionLink("Regresar a proyectos", "Index")
 </div>
@@ -348,7 +321,7 @@
 
         FilePond.setOptions(labels_es_ES);
 
-       var pond1= FilePond.create(document.querySelector('[name ="filepond1"]'));
+        var pond1 = FilePond.create(document.querySelector('[name ="filepond1"]'));
         pond1.setOptions({
             server: '@Url.Action("SaveFile", "oils", new { id = Model.ID ,t="a" })'
         });
@@ -357,7 +330,7 @@
             console.log(res.Message);
         });
 
-        var pond2 =   FilePond.create(document.querySelector('[name ="filepond2"]'));
+        var pond2 = FilePond.create(document.querySelector('[name ="filepond2"]'));
 
         pond2.setOptions({
             server: '@Url.Action("SaveFile", "oils", new { id= Model.ID, t = "d" })'
@@ -369,22 +342,8 @@
         });
 
         $(function () {
-
             $("#Normaldrop").chosen();
             $("#Normaldrop1").chosen();
-
         });
-
-        /*
-        <div class="x_panel">
-            <div class="x_title">
-                <h2>Dropzone Subir Archivos</h2>
-                <div class="clearfix"></div>
-            </div>
-            <div class="x_content">
-                <p>Arrastra multiples archvios a la caja o da un click para seleccionar el archivo.</p>
-                Html.FileUploadForm("~/OILs/SaveUploadedFile")
-            </div>
-        </div> */
     </script>
 }

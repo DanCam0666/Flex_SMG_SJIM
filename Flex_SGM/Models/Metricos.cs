@@ -77,7 +77,7 @@ namespace Flex_SGM.Models
 
         public string Descripcion { get; set; }
         public int Proyectos { get; set; }
-        public  int Month { get; set; }
+        public int Month { get; set; }
         public int Year { get; set; }
 
 
@@ -141,5 +141,4 @@ namespace Flex_SGM.Models
         public int Toyota { get; set; }
         public int VW { get; set; }
     }
-
 }

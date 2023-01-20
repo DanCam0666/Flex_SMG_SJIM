@@ -5,12 +5,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>AMEF/Reverse</h2>
+<h2>AMEF / Reverse</h2>
 
 <h3>
     @Html.ActionLink("Crear Registro Nuevo", "Create")
 </h3>
-<div class="x_panel">
+<div class="x_panel cbg">
     <div class="x_content clearfix">
         <table class="table table-bordered table-striped clearfix" style="width:100%" id="metricos">
             <thead>
@@ -42,49 +42,49 @@
             <tbody>
                 @foreach (var item in Model.Where(w => w.Usuario_area == "AMEF_Reverse"))
                 {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DiaHora)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Usuario)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Usuario_area)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Usuario_responsable)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Descripcion)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Comentarios)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Proyectos)
-                    </td>
-                    <td>
-                        @if (ViewBag.super == true || ViewBag.uarea == "AMEF_Reverse")
-                        {
-                            @Html.ActionLink("Editar", "Edit", new { id = item.ID })
-                        } |
-                        @Html.ActionLink("Detalles", "Details", new { id = item.ID }) |
-                        @if (ViewBag.super == true || ViewBag.uarea == "AMEF_Reverse")
-                        {
-                            @Html.ActionLink("Eliminar", "Delete", new { id = item.ID })
-                        }
-                    </td>
-                </tr>
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DiaHora)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Usuario)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Usuario_area)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Usuario_responsable)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Descripcion)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Comentarios)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Proyectos)
+                        </td>
+                        <td>
+                            @if (ViewBag.super == true || ViewBag.uarea == "AMEF_Reverse")
+                            {
+                                @Html.ActionLink("Editar", "Edit", new { id = item.ID })
+                            } |
+                            @Html.ActionLink("Detalles", "Details", new { id = item.ID }) |
+                            @if (ViewBag.super == true || ViewBag.uarea == "AMEF_Reverse")
+                            {
+                                @Html.ActionLink("Eliminar", "Delete", new { id = item.ID })
+                            }
+                        </td>
+                    </tr>
                 }
             </tbody>
         </table>
     </div>
 </div>
 <div class="col-md-12" style="float:left">
-    <div class="x_panel">
+    <div class="x_panel cbg">
         <div class="x_title">
-            AMEF/Reverse Indicators
+            AMEF / Reverse Indicators
         </div>
         <div class="x_content">
             <canvas id="bar-chart-horizontal" width="800" height="800"></canvas>
@@ -121,7 +121,7 @@
                     {
                         extend: 'copy',
                         orientation: 'landscape',
-                        pageSize: 'LEGAL',
+                        pageSize: 'LETTER',
                         exportOptions: {
                             columns: [0, 1, 2, 3, 4, 5, 6]
                         },
@@ -130,7 +130,7 @@
                         extend: 'csv',
                         title: 'AMEF / Reverse Report',
                         orientation: 'landscape',
-                        pageSize: 'LEGAL',
+                        pageSize: 'LETTER',
                         exportOptions: {
                             columns: [0, 1, 2, 3, 4, 5, 6]
                         },
@@ -139,7 +139,7 @@
                         extend: 'print',
                         title: 'AMEF / Reverse Report',
                         orientation: 'landscape',
-                        pageSize: 'LEGAL',
+                        pageSize: 'LETTER',
                         exportOptions: {
                             columns: [0, 1, 2, 3, 4, 5, 6]
                         },
@@ -157,7 +157,7 @@
                         extend: 'excelHtml5',
                         title: 'AMEF / Reverse Report',
                         orientation: 'landscape',
-                        pageSize: 'LEGAL',
+                        pageSize: 'LETTER',
                         exportOptions: {
                             columns: [0, 1, 2, 3, 4, 5, 6]
                         },
@@ -304,7 +304,7 @@
                 legend: { display: true },
                 title: {
                     display: true,
-                    text: 'AMEF/Reverse'
+                    text: 'AMEF / Reverse'
                 }
             }
         });

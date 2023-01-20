@@ -8,9 +8,9 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Flex_SGM.Models;
+using Flex_SGM.emaildata;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.AspNet.Identity;
-using Flex_SGM.emaildata;
 
 namespace Flex_SGM.Controllers
 {
@@ -34,7 +34,7 @@ namespace Flex_SGM.Controllers
         public async Task<ActionResult> Index()
         {
             var metricos = db.Metricos.ToList<Metricos>();
-            var validMetricosRecords = metricos.Where(m => m.Usuario_area is "Packaging").ToList();
+            var validMetricosRecords = metricos.Where(m => m.Usuario_area is "Packaging" && m.DiaHora.Year == DateTime.Now.Year).ToList();
             var users = validMetricosRecords.Where(m => m.Usuario_area is "Packaging")
                 .GroupBy(m => m.Usuario_responsable)
                 .ToList();
@@ -317,7 +317,7 @@ namespace Flex_SGM.Controllers
         }
 
         [Authorize]
-        // GET: AMEF/Edit/5
+        // GET: Packaging/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
@@ -332,7 +332,7 @@ namespace Flex_SGM.Controllers
             return View(metricos);
         }
 
-        // POST: AMEF/Edit/5
+        // POST: Packaging/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]

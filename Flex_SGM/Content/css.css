@@ -25,6 +25,14 @@ Bigf {
     padding-left: 15px;
     padding-right: 15px;
 }
+
+.cbg {
+    border: 10px solid medium !important;
+    border-color: dimgrey !important;
+    font-size: 16px !important;
+    background-color: #f2f6f8 !important;
+}
+
 .cbv {
     border: 10px solid green !important;
     border-color: green !important;

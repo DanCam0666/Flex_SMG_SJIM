@@ -40,7 +40,7 @@ namespace Flex_SGM.Controllers
         public async Task<ActionResult> Index(string amaquina, string maquina, string submaquina, string mgroup, string xmgroup, string btn = "Metricos por Mes", string dti = "", string dtf = "")
         {
             var metricos = db.Metricos.ToList<Metricos>();
-            var validMetricosRecords = metricos.Where(m => m.Usuario_area is "LPA_COVID").ToList();
+            var validMetricosRecords = metricos.Where(m => m.Usuario_area is "LPA_COVID" && m.DiaHora.Year == DateTime.Now.Year).ToList();
             var users = validMetricosRecords.Where(m => m.Usuario_area is "LPA_COVID")
                 .GroupBy(m => m.Usuario_responsable)
                 .ToList();
