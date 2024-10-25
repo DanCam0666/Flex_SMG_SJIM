@@ -471,6 +471,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include=".gitignore" />
     <Content Include="Addon\bootstrap-datepicker\css\bootstrap-datepicker.css" />
     <Content Include="Addon\bootstrap-datepicker\css\bootstrap-datepicker.min.css" />
     <Content Include="Addon\bootstrap-datepicker\css\bootstrap-datepicker.standalone.css" />
