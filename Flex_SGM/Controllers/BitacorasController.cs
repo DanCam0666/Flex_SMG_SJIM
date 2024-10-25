@@ -193,14 +193,14 @@ namespace Flex_SGM.Controllers
                     ws.Cell("A1").Value = "Bitacora de AutoMantto";
 
                     ws.Cell("A3").Value = "Fecha Inicial:";
-                    ws.Cell("B3").SetDataType(XLDataType.DateTime);
-                    //  ws.Cell("B3").Value = bitacora.FirstOrDefault().DiaHora;
+					ws.Cell("B3").Value = DateTime.Now;
+					//  ws.Cell("B3").Value = bitacora.FirstOrDefault().DiaHora;
 
-                    ws.Cell("A4").Value = "Fecha Final:";
-                    ws.Cell("B4").SetDataType(XLDataType.DateTime);
-                    //  ws.Cell("B4").Value = bitacora.LastOrDefault().DiaHora;
+					ws.Cell("A4").Value = "Fecha Final:";
+                    ws.Cell("B4").Value = DateTime.Now;
+					//  ws.Cell("B4").Value = bitacora.LastOrDefault().DiaHora;
 
-                    ws.Cell(8, 1).Value = "Usuario";
+					ws.Cell(8, 1).Value = "Usuario";
                     ws.Cell(8, 2).Value = "Dia y Hora";
                     ws.Cell(8, 3).Value = "Cliente";
                     ws.Cell(8, 4).Value = "Area";

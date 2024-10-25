@@ -35,8 +35,8 @@ namespace Flex_SGM.Models
         [MaxLength(50)]
         public string Departamento { get; set; }
 
-        [MaxLength(256)]
-        public string Email { get; set; }
+        //[MaxLength(256)]
+        //public string Email { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>

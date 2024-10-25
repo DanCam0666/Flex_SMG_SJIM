@@ -192,7 +192,6 @@ namespace Flex_SGM.Controllers
             ViewBag.tpmtotal = NoReali+ sinfecha + Urgente + Fechaprox+ ConFecha+realizada;
 
             Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
-
             foreach (OILs oil in oILs.ToList())
             {
                 if (oil.Estatus == 1)
@@ -215,8 +214,7 @@ namespace Flex_SGM.Controllers
             ViewBag.atotal = NoReali + sinfecha + Urgente + Fechaprox + ConFecha + realizada;
 
             Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
-
-            foreach (OILs oil in oILs.Where(s => (s.User_res == "Ana Zaideth Vazquez Robles" || s.User_asig == "Ana Zaideth Vazquez Robles")).ToList())
+            foreach (OILs oil in oILs.Where(s => (s.User_res == "Yolanda Vianney Hurtado Ayala" || s.User_asig == "Yolanda Vianney Hurtado Ayala")).ToList())
             {
                 if (oil.Estatus == 1)
                     realizada++;
@@ -231,31 +229,10 @@ namespace Flex_SGM.Controllers
                 if (oil.Estatus == 6)
                     Urgente++;
             }
-            ViewBag.zVrealizada = realizada;
-            ViewBag.zVActivos =  NoReali + sinfecha + Urgente + Fechaprox + ConFecha ;
+            ViewBag.vHrealizada = realizada;
+            ViewBag.vHActivos =  NoReali + sinfecha + Urgente + Fechaprox + ConFecha ;
 
             Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
-
-            foreach (OILs oil in oILs.Where(s => (s.User_res == "Carlos Manuel Carapia Murillo" || s.User_asig == "Carlos Manuel Carapia Murillo")).ToList())
-            {
-                if (oil.Estatus == 1)
-                    realizada++;
-                if (oil.Estatus == 2)
-                    sinfecha++;
-                if (oil.Estatus == 3)
-                    ConFecha++;
-                if (oil.Estatus == 4)
-                    Fechaprox++;
-                if (oil.Estatus == 5)
-                    NoReali++;
-                if (oil.Estatus == 6)
-                    Urgente++;
-            }
-            ViewBag.cCrealizada = realizada;
-            ViewBag.cCActivos = NoReali + sinfecha + Urgente + Fechaprox + ConFecha+ realizada;
-
-            Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
-
             foreach (OILs oil in oILs.Where(s => (s.User_res == "Cynthia Veronica Alvarez Figueroa" || s.User_asig == "Cynthia Veronica Alvarez Figueroa")).ToList())
             {
                 if (oil.Estatus == 1)
@@ -275,7 +252,6 @@ namespace Flex_SGM.Controllers
             ViewBag.cAActivos = NoReali + sinfecha + Urgente + Fechaprox + ConFecha + realizada;
 
             Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
-
             foreach (OILs oil in oILs.Where(s => (s.User_res == "Donato Salazar Jiménez" || s.User_asig == "Donato Salazar Jiménez")).ToList())
             {
                 if (oil.Estatus == 1)
@@ -295,7 +271,6 @@ namespace Flex_SGM.Controllers
             ViewBag.dSActivos = NoReali + sinfecha + Urgente + Fechaprox + ConFecha + realizada;
 
             Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
-
             foreach (OILs oil in oILs.Where(s => (s.User_res == "Gabriela Vazquez Castillo" || s.User_asig == "Gabriela Vazquez Castillo")).ToList())
             {
                 if (oil.Estatus == 1)
@@ -315,7 +290,6 @@ namespace Flex_SGM.Controllers
             ViewBag.gVActivos = NoReali + sinfecha + Urgente + Fechaprox + ConFecha + realizada;
 
             Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
-
             foreach (OILs oil in oILs.Where(s => (s.User_res == "José Armando Prado Ruvalcaba" || s.User_asig == "José Armando Prado Ruvalcaba")).ToList())
             {
                 if (oil.Estatus == 1)
@@ -335,7 +309,6 @@ namespace Flex_SGM.Controllers
             ViewBag.aPActivos = NoReali + sinfecha + Urgente + Fechaprox + ConFecha + realizada;
 
             Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
-
             foreach (OILs oil in oILs.Where(s => (s.User_res == "Jessica Franco Moreno" || s.User_asig == "Jessica Franco Moreno")).ToList())
             {
                 if (oil.Estatus == 1)
@@ -355,7 +328,6 @@ namespace Flex_SGM.Controllers
             ViewBag.jFActivos = NoReali + sinfecha + Urgente + Fechaprox + ConFecha + realizada;
 
             Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
-
             foreach (OILs oil in oILs.Where(s => (s.User_res == "José Carlos Olvera Dominguez" || s.User_asig == "José Carlos Olvera Dominguez")).ToList())
             {
                 if (oil.Estatus == 1)
@@ -375,7 +347,6 @@ namespace Flex_SGM.Controllers
             ViewBag.cOActivos = NoReali + sinfecha + Urgente + Fechaprox + ConFecha + realizada;
 
             Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
-
             foreach (OILs oil in oILs.Where(s => (s.User_res == "Marcelino Prado Mendoza" || s.User_asig == "Marcelino Prado Mendoza")).ToList())
             {
                 if (oil.Estatus == 1)
@@ -395,7 +366,6 @@ namespace Flex_SGM.Controllers
             ViewBag.mPActivos = NoReali + sinfecha + Urgente + Fechaprox + ConFecha + realizada;
 
             Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
-
             foreach (OILs oil in oILs.Where(s => (s.User_res == "Miguel Angel Coronado Villatoro" || s.User_asig == "Miguel Angel Coronado Villatoro")).ToList())
             {
                 if (oil.Estatus == 1)
@@ -415,7 +385,6 @@ namespace Flex_SGM.Controllers
             ViewBag.mCActivos = NoReali + sinfecha + Urgente + Fechaprox + ConFecha + realizada;
             
             Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
-
             foreach (OILs oil in oILs.Where(s => (s.User_res == "Alfredo Olvera Aguilar" || s.User_asig == "Alfredo Olvera Aguilar")).ToList())
             {
                 if (oil.Estatus == 1)
@@ -433,8 +402,8 @@ namespace Flex_SGM.Controllers
             }
             ViewBag.aOrealizada = realizada;
             ViewBag.aOActivos = NoReali + sinfecha + Urgente + Fechaprox + ConFecha + realizada;
-            Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
 
+            Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
             foreach (OILs oil in oILs.Where(s => (s.User_res == "Adriana Velazquez García" || s.User_asig == "Adriana Velazquez García")).ToList())
             {
                 if (oil.Estatus == 1)
@@ -454,8 +423,7 @@ namespace Flex_SGM.Controllers
             ViewBag.aVActivos = NoReali + sinfecha + Urgente + Fechaprox + ConFecha + realizada;
 
             Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
-
-            foreach (OILs oil in oILs.Where(s => (s.User_res == "Carlos Rodriguez Grimaldo" || s.User_asig == "Carlos Rodriguez Grimaldo")).ToList())
+            foreach (OILs oil in oILs.Where(s => (s.User_res == "Ismael Galindo Muñoz" || s.User_asig == "Ismael Galindo Muñoz")).ToList())
             {
                 if (oil.Estatus == 1)
                     realizada++;
@@ -474,7 +442,6 @@ namespace Flex_SGM.Controllers
             ViewBag.cRActivos = NoReali + sinfecha + Urgente + Fechaprox + ConFecha + realizada;
 
             Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
-
             foreach (OILs oil in oILs.Where(s => (s.User_res == "Hector Salomon Bucio" || s.User_asig == "Hector Salomon Bucio")).ToList())
             {
                 if (oil.Estatus == 1)
@@ -492,8 +459,8 @@ namespace Flex_SGM.Controllers
             }
             ViewBag.hSrealizada = realizada;
             ViewBag.hSActivos = NoReali + sinfecha + Urgente + Fechaprox + ConFecha + realizada;
-            Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
 
+            Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
             foreach (OILs oil in oILs.Where(s => (s.User_res == "Hipolito Gutierrez Salazar" || s.User_asig == "Hipolito Gutierrez Salazar")).ToList())
             {
                 if (oil.Estatus == 1)
@@ -511,8 +478,8 @@ namespace Flex_SGM.Controllers
             }
             ViewBag.hGrealizada = realizada;
             ViewBag.hGActivos = NoReali + sinfecha + Urgente + Fechaprox + ConFecha + realizada;
-            Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
 
+            Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
             foreach (OILs oil in oILs.Where(s => (s.User_res == "Ismael Galindo Muñoz" || s.User_asig == "Ismael Galindo Muñoz")).ToList())
             {
                 if (oil.Estatus == 1)
@@ -530,27 +497,8 @@ namespace Flex_SGM.Controllers
             }
             ViewBag.iGrealizada = realizada;
             ViewBag.iGActivos = NoReali + sinfecha + Urgente + Fechaprox + ConFecha + realizada;
-            Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
 
-            foreach (OILs oil in oILs.Where(s => (s.User_res == "Joel Quintana Vasque" || s.User_asig == "Joel Quintana Vasque")).ToList())
-            {
-                if (oil.Estatus == 1)
-                    realizada++;
-                if (oil.Estatus == 2)
-                    sinfecha++;
-                if (oil.Estatus == 3)
-                    ConFecha++;
-                if (oil.Estatus == 4)
-                    Fechaprox++;
-                if (oil.Estatus == 5)
-                    NoReali++;
-                if (oil.Estatus == 6)
-                    Urgente++;
-            }
-            ViewBag.jQrealizada = realizada;
-            ViewBag.jQActivos = NoReali + sinfecha + Urgente + Fechaprox + ConFecha + realizada;
             Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
-
             foreach (OILs oil in oILs.Where(s => (s.User_res == "Jose Erasmo Arellano Grimaldo" || s.User_asig == "Jose Erasmo Arellano Grimaldo")).ToList())
             {
                 if (oil.Estatus == 1)
@@ -568,8 +516,8 @@ namespace Flex_SGM.Controllers
             }
             ViewBag.eArealizada = realizada;
             ViewBag.eAActivos = NoReali + sinfecha + Urgente + Fechaprox + ConFecha + realizada;
-            Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
 
+            Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
             foreach (OILs oil in oILs.Where(s => (s.User_res == "Jose Juan Arvizu Arvizu" || s.User_asig == "Jose Juan Arvizu Arvizu")).ToList())
             {
                 if (oil.Estatus == 1)
@@ -587,8 +535,8 @@ namespace Flex_SGM.Controllers
             }
             ViewBag.jArealizada = realizada;
             ViewBag.jAActivos = NoReali + sinfecha + Urgente + Fechaprox + ConFecha + realizada;
-            Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
 
+            Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
             foreach (OILs oil in oILs.Where(s => (s.User_res == "Juan Antonio Rojas Garcia" || s.User_asig == "Juan Antonio Rojas Garcia")).ToList())
             {
                 if (oil.Estatus == 1)
@@ -606,46 +554,8 @@ namespace Flex_SGM.Controllers
             }
             ViewBag.aRrealizada = realizada;
             ViewBag.aRActivos = NoReali + sinfecha + Urgente + Fechaprox + ConFecha + realizada;
-            Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
 
-            foreach (OILs oil in oILs.Where(s => (s.User_res == "Manuel Jiménez Garcia" || s.User_asig == "Manuel Jiménez Garcia")).ToList())
-            {
-                if (oil.Estatus == 1)
-                    realizada++;
-                if (oil.Estatus == 2)
-                    sinfecha++;
-                if (oil.Estatus == 3)
-                    ConFecha++;
-                if (oil.Estatus == 4)
-                    Fechaprox++;
-                if (oil.Estatus == 5)
-                    NoReali++;
-                if (oil.Estatus == 6)
-                    Urgente++;
-            }
-            ViewBag.mJrealizada = realizada;
-            ViewBag.mJActivos = NoReali + sinfecha + Urgente + Fechaprox + ConFecha + realizada;
             Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
-
-            foreach (OILs oil in oILs.Where(s => (s.User_res == "Vicente Olvera Gonzalez" || s.User_asig == "Vicente Olvera Gonzalez")).ToList())
-            {
-                if (oil.Estatus == 1)
-                    realizada++;
-                if (oil.Estatus == 2)
-                    sinfecha++;
-                if (oil.Estatus == 3)
-                    ConFecha++;
-                if (oil.Estatus == 4)
-                    Fechaprox++;
-                if (oil.Estatus == 5)
-                    NoReali++;
-                if (oil.Estatus == 6)
-                    Urgente++;
-            }
-            ViewBag.vOrealizada = realizada;
-            ViewBag.vOActivos = NoReali + sinfecha + Urgente + Fechaprox + ConFecha + realizada;
-            Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
-
             foreach (OILs oil in oILs.Where(s => (s.User_res == "Víctor Manuel Bastida Santana" || s.User_asig == "Víctor Manuel Bastida Santana")).ToList())
             {
                 if (oil.Estatus == 1)
@@ -663,8 +573,8 @@ namespace Flex_SGM.Controllers
             }
             ViewBag.vBrealizada = realizada;
             ViewBag.vBActivos = NoReali + sinfecha + Urgente + Fechaprox + ConFecha + realizada;
-            Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
 
+            Urgente = 0; NoReali = 0; Fechaprox = 0; ConFecha = 0; sinfecha = 0; realizada = 0;
             if (string.IsNullOrEmpty(""))
             {
                 foreach (OILs oil in oILs.ToList())

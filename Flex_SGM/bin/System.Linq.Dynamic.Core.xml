@@ -12,6 +12,29 @@
             <param name="access">The access rights of the assembly.</param>
             <returns>An object that represents the new assembly.</returns>
         </member>
+        <member name="T:System.Linq.Dynamic.Core.Config.StringLiteralParsingType">
+            <summary>
+            Defines the types of string literal parsing that can be performed.
+            </summary>
+        </member>
+        <member name="F:System.Linq.Dynamic.Core.Config.StringLiteralParsingType.Default">
+            <summary>
+            Represents the default string literal parsing type. Double quotes should be escaped using the default escape character (a \).
+            To check if a Value equals a double quote, use this c# code:
+            <code>
+            var expression = "Value == \"\\\"\"";
+            </code>
+            </summary>
+        </member>
+        <member name="F:System.Linq.Dynamic.Core.Config.StringLiteralParsingType.EscapeDoubleQuoteByTwoDoubleQuotes">
+            <summary>
+            Represents a string literal parsing type where a double quote should be escaped by an extra double quote (").
+            To check if a Value equals a double quote, use this c# code:
+            <code>
+            var expression = "Value == \"\"\"\"";
+            </code>
+            </summary>
+        </member>
         <member name="T:System.Linq.Dynamic.Core.CustomTypeProviders.AbstractDynamicLinqCustomTypeProvider">
             <summary>
             The abstract DynamicLinqCustomTypeProvider which is used by the DefaultDynamicLinqCustomTypeProvider and can be used by a custom TypeProvider like in .NET Core.
@@ -45,23 +68,31 @@
             Gets the assembly types annotated with <see cref="T:System.Linq.Dynamic.Core.CustomTypeProviders.DynamicLinqTypeAttribute"/> in an Exception friendly way.
             </summary>
             <param name="assemblies">The assemblies to process.</param>
-            <returns><see cref="T:System.Collections.Generic.IEnumerable`1" /></returns>
+            <returns>Array of <see cref="T:System.Type" /></returns>
         </member>
         <member name="T:System.Linq.Dynamic.Core.CustomTypeProviders.DefaultDynamicLinqCustomTypeProvider">
              <summary>
-             The default implementation for <see cref="T:System.Linq.Dynamic.Core.CustomTypeProviders.IDynamicLinkCustomTypeProvider"/>.
+             The default implementation for <see cref="T:System.Linq.Dynamic.Core.CustomTypeProviders.DefaultDynamicLinqCustomTypeProvider"/>.
              
              Scans the current AppDomain for all types marked with <see cref="T:System.Linq.Dynamic.Core.CustomTypeProviders.DynamicLinqTypeAttribute"/>, and adds them as custom Dynamic Link types.
             
              Also provides functionality to resolve a Type in the current Application Domain.
             
-             This class is used as default for full .NET Framework, so not for .NET Core
+             This class is used as default for full .NET Framework and .NET Core App 2.x and higher.
              </summary>
         </member>
         <member name="M:System.Linq.Dynamic.Core.CustomTypeProviders.DefaultDynamicLinqCustomTypeProvider.#ctor(System.Boolean)">
             <summary>
             Initializes a new instance of the <see cref="T:System.Linq.Dynamic.Core.CustomTypeProviders.DefaultDynamicLinqCustomTypeProvider"/> class.
+            Backwards compatibility for issue https://github.com/zzzprojects/System.Linq.Dynamic.Core/issues/830.
             </summary>
+            <param name="cacheCustomTypes">Defines whether to cache the CustomTypes (including extension methods) which are found in the Application Domain. Default set to 'true'.</param>
+        </member>
+        <member name="M:System.Linq.Dynamic.Core.CustomTypeProviders.DefaultDynamicLinqCustomTypeProvider.#ctor(System.Linq.Dynamic.Core.ParsingConfig,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Linq.Dynamic.Core.CustomTypeProviders.DefaultDynamicLinqCustomTypeProvider"/> class.
+            </summary>
+            <param name="config">The parsing configuration.</param>
             <param name="cacheCustomTypes">Defines whether to cache the CustomTypes (including extension methods) which are found in the Application Domain. Default set to 'true'.</param>
         </member>
         <member name="M:System.Linq.Dynamic.Core.CustomTypeProviders.DefaultDynamicLinqCustomTypeProvider.GetCustomTypes">
@@ -216,6 +247,14 @@
             Initializes the <see cref="T:System.Linq.Dynamic.Core.DynamicClassFactory"/> class.
             </summary>
         </member>
+        <member name="M:System.Linq.Dynamic.Core.DynamicClassFactory.CreateGenericComparerType(System.Type,System.Type)">
+            <summary>
+            Create a GenericComparerType based on the GenericType and an instance of a <see cref="T:System.Collections.IComparer"/>.
+            </summary>
+            <param name="comparerGenericType">The GenericType</param>
+            <param name="comparerType">The <see cref="T:System.Collections.IComparer"/> instance</param>
+            <returns>Type</returns>
+        </member>
         <member name="M:System.Linq.Dynamic.Core.DynamicClassFactory.CreateType(System.Collections.Generic.IList{System.Linq.Dynamic.Core.DynamicProperty},System.Boolean)">
             <summary>
             The CreateType method creates a new data class with a given set of public properties and returns the System.Type object for the newly created class. If a data class with an identical sequence of properties has already been created, the System.Type object for this class is returned.        
@@ -231,10 +270,9 @@
             <![CDATA[
             DynamicProperty[] props = new DynamicProperty[] { new DynamicProperty("Name", typeof(string)), new DynamicProperty("Birthday", typeof(DateTime)) };
             Type type = DynamicClassFactory.CreateType(props);
-            DynamicClass dynamicClass = Activator.CreateInstance(type) as DynamicClass;
-            dynamicClass.SetDynamicProperty("Name", "Albert");
-            dynamicClass.SetDynamicProperty("Birthday", new DateTime(1879, 3, 14));
-            Console.WriteLine(dynamicClass);
+            DynamicClass dynamicClass = (DynamicClass) Activator.CreateInstance(type)!;
+            dynamicClass.SetDynamicPropertyValue("Name", "Albert");
+            dynamicClass.SetDynamicPropertyValue("Birthday", new DateTime(1879, 3, 14));
             ]]>
             </code>
             </example>
@@ -242,61 +280,73 @@
         <member name="M:System.Linq.Dynamic.Core.DynamicClassFactory.GenerateKey(System.Collections.Generic.IEnumerable{System.Linq.Dynamic.Core.DynamicProperty},System.Boolean)">
             <summary>
             Generates the key.
-            Anonymous classes are generics based. The generic classes are distinguished by number of parameters and name of parameters. The specific types of the parameters are the generic arguments.
+            Anonymous classes are generics based. The generic classes are distinguished by number of parameters and name of parameters.
+            The specific types of the parameters are the generic arguments.
             </summary>
-            <param name="dynamicProperties">The dynamic propertys.</param>
+            <param name="dynamicProperties">The dynamic properties.</param>
             <param name="createParameterCtor">if set to <c>true</c> [create parameter ctor].</param>
             <returns></returns>
+        </member>
+        <member name="M:System.Linq.Dynamic.Core.DynamicClassFactory.ClearGeneratedTypes">
+            <summary>
+            Used for unit-testing
+            </summary>
         </member>
         <member name="T:System.Linq.Dynamic.Core.DynamicEnumerableAsyncExtensions">
             <summary>
             Define async extensions on <see cref="T:System.Collections.IEnumerable"/>.
             </summary>
         </member>
-        <member name="M:System.Linq.Dynamic.Core.DynamicEnumerableAsyncExtensions.ToDynamicArrayAsync(System.Collections.IEnumerable,System.Type)">
+        <member name="M:System.Linq.Dynamic.Core.DynamicEnumerableAsyncExtensions.ToDynamicArrayAsync(System.Collections.IEnumerable,System.Type,System.Threading.CancellationToken)">
             <summary>
             Async creates an array of dynamic objects from a <see cref="T:System.Collections.IEnumerable"/>.
             </summary>
             <param name="source">A <see cref="T:System.Collections.IEnumerable"/> to create an array from.</param>
             <param name="type">A <see cref="T:System.Type"/> cast to.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> (optional).</param>
             <returns>An Array that contains the elements from the input sequence.</returns>
         </member>
-        <member name="M:System.Linq.Dynamic.Core.DynamicEnumerableAsyncExtensions.ToDynamicArrayAsync(System.Collections.IEnumerable)">
+        <member name="M:System.Linq.Dynamic.Core.DynamicEnumerableAsyncExtensions.ToDynamicArrayAsync(System.Collections.IEnumerable,System.Threading.CancellationToken)">
             <summary>
             Async creates an array of dynamic objects from a <see cref="T:System.Collections.IEnumerable"/>.
             </summary>
             <param name="source">A <see cref="T:System.Collections.IEnumerable"/> to create an array from.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> (optional).</param>
             <returns>An array that contains the elements from the input sequence.</returns>
         </member>
-        <member name="M:System.Linq.Dynamic.Core.DynamicEnumerableAsyncExtensions.ToDynamicArrayAsync``1(System.Collections.IEnumerable)">
+        <member name="M:System.Linq.Dynamic.Core.DynamicEnumerableAsyncExtensions.ToDynamicArrayAsync``1(System.Collections.IEnumerable,System.Threading.CancellationToken)">
             <summary>
             Async creates an array of dynamic objects from a <see cref="T:System.Collections.IEnumerable"/>.
             </summary>
             <typeparam name="T">The generic type.</typeparam>
             <param name="source">A <see cref="T:System.Collections.IEnumerable"/> to create an array from.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> (optional).</param>
             <returns>An Array{T} that contains the elements from the input sequence.</returns>
         </member>
-        <member name="M:System.Linq.Dynamic.Core.DynamicEnumerableAsyncExtensions.ToDynamicListAsync(System.Collections.IEnumerable,System.Type)">
+        <member name="M:System.Linq.Dynamic.Core.DynamicEnumerableAsyncExtensions.ToDynamicListAsync(System.Collections.IEnumerable,System.Type,System.Threading.CancellationToken)">
             <summary>
             Async creates a list of dynamic objects from a <see cref="T:System.Collections.IEnumerable"/>.
             </summary>
             <param name="source">A <see cref="T:System.Collections.IEnumerable"/> to create an array from.</param>
             <param name="type">A <see cref="T:System.Type"/> cast to.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> (optional).</param>
             <returns>An List that contains the elements from the input sequence.</returns>
         </member>
-        <member name="M:System.Linq.Dynamic.Core.DynamicEnumerableAsyncExtensions.ToDynamicListAsync(System.Collections.IEnumerable)">
+        <member name="M:System.Linq.Dynamic.Core.DynamicEnumerableAsyncExtensions.ToDynamicListAsync(System.Collections.IEnumerable,System.Threading.CancellationToken)">
             <summary>
             Async creates a list of dynamic objects from a <see cref="T:System.Collections.IEnumerable"/>.
             </summary>
-            <param name="source">A <see cref="T:System.Collections.IEnumerable"/> to create an array from.</param>
+            <param name="source">A <see cref="T:System.Collections.IEnumerable"/> to create a list from.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> (optional).</param>
             <returns>A List that contains the elements from the input sequence.</returns>
         </member>
-        <member name="M:System.Linq.Dynamic.Core.DynamicEnumerableAsyncExtensions.ToDynamicListAsync``1(System.Collections.IEnumerable)">
+        <member name="M:System.Linq.Dynamic.Core.DynamicEnumerableAsyncExtensions.ToDynamicListAsync``1(System.Collections.IEnumerable,System.Threading.CancellationToken)">
             <summary>
             Async creates a list of dynamic objects from an <see cref="T:System.Collections.IEnumerable"/>.
             </summary>
             <typeparam name="T">Generic Type</typeparam>
-            <param name="source">A <see cref="T:System.Collections.IEnumerable"/> to create an array from.</param>
+            <param name="source">A <see cref="T:System.Collections.IEnumerable"/> to create a list from.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> (optional).</param>
             <returns>A List{T} that contains the elements from the input sequence.</returns>
         </member>
         <member name="T:System.Linq.Dynamic.Core.DynamicEnumerableExtensions">
@@ -681,39 +731,19 @@
             <returns>The value of the aggregate function run over the specified property.</returns>
         </member>
         <member name="M:System.Linq.Dynamic.Core.DynamicQueryableExtensions.All(System.Linq.IQueryable,System.String,System.Object[])">
-            <summary>
-                Determines whether all the elements of a sequence satisfy a condition.
-            </summary>
-            <remarks>
-                Multiple active operations on the same context instance are not supported.  Use 'await' to ensure
-                that All asynchronous operations have completed before calling another method on this context.
-            </remarks>
-            <param name="source">
-                An <see cref="T:System.Linq.IQueryable" /> to calculate the All of.
-            </param>
-            <param name="predicate">A projection function to apply to each element.</param>
+            <summary>Determines whether all the elements of a sequence satisfy a condition.</summary>
+            <param name="source">A sequence whose elements to test for a condition.</param>
+            <param name="predicate">A function to test each element for a condition.</param>
             <param name="args">An object array that contains zero or more objects to insert into the predicate as parameters. Similar to the way String.Format formats strings.</param>
-            <returns>
-                true if every element of the source sequence passes the test in the specified predicate, or if the sequence is empty; otherwise, false.
-            </returns>
+            <returns>true if every element of the source sequence passes the test in the specified predicate, or if the sequence is empty; otherwise, false.</returns>
         </member>
         <member name="M:System.Linq.Dynamic.Core.DynamicQueryableExtensions.All(System.Linq.IQueryable,System.Linq.Dynamic.Core.ParsingConfig,System.String,System.Object[])">
-            <summary>
-                Determines whether all the elements of a sequence satisfy a condition.
-            </summary>
-            <remarks>
-                Multiple active operations on the same context instance are not supported.  Use 'await' to ensure
-                that All asynchronous operations have completed before calling another method on this context.
-            </remarks>
-            <param name="source">
-                An <see cref="T:System.Linq.IQueryable" /> to calculate the All of.
-            </param>
+            <summary>Determines whether all the elements of a sequence satisfy a condition.</summary>
+            <param name="source">A sequence whose elements to test for a condition.</param>
             <param name="config">The <see cref="T:System.Linq.Dynamic.Core.ParsingConfig"/>.</param>
-            <param name="predicate">A projection function to apply to each element.</param>
+            <param name="predicate">A function to test each element for a condition.</param>
             <param name="args">An object array that contains zero or more objects to insert into the predicate as parameters. Similar to the way String.Format formats strings.</param>
-            <returns>
-                true if every element of the source sequence passes the test in the specified predicate, or if the sequence is empty; otherwise, false.
-            </returns>
+            <returns>true if every element of the source sequence passes the test in the specified predicate, or if the sequence is empty; otherwise, false.</returns>
         </member>
         <member name="M:System.Linq.Dynamic.Core.DynamicQueryableExtensions.Any(System.Linq.IQueryable)">
             <summary>
@@ -798,7 +828,7 @@
             <param name="lambda">A Lambda Expression.</param>
             <returns>The average of the values in the sequence.</returns>
         </member>
-        <member name="M:System.Linq.Dynamic.Core.DynamicQueryableExtensions.AsEnumerable(System.Linq.IQueryable)">
+        <member name="M:System.Linq.Dynamic.Core.DynamicQueryableExtensions.AsDynamicEnumerable(System.Linq.IQueryable)">
             <summary>
             Returns the input typed as <see cref="T:System.Collections.Generic.IEnumerable`1"/> of dynamic.
             </summary>
@@ -1969,17 +1999,18 @@
             Represents errors that occur while parsing dynamic linq string expressions.
             </summary>
         </member>
-        <member name="M:System.Linq.Dynamic.Core.Exceptions.ParseException.#ctor(System.String,System.Int32)">
+        <member name="P:System.Linq.Dynamic.Core.Exceptions.ParseException.Position">
+            <summary>
+            The location in the parsed string that produced the <see cref="T:System.Linq.Dynamic.Core.Exceptions.ParseException"/>.
+            </summary>
+        </member>
+        <member name="M:System.Linq.Dynamic.Core.Exceptions.ParseException.#ctor(System.String,System.Int32,System.Exception)">
             <summary>
             Initializes a new instance of the <see cref="T:System.Linq.Dynamic.Core.Exceptions.ParseException"/> class with a specified error message and position.
             </summary>
             <param name="message">The message that describes the error.</param>
             <param name="position">The location in the parsed string that produced the <see cref="T:System.Linq.Dynamic.Core.Exceptions.ParseException"/></param>
-        </member>
-        <member name="P:System.Linq.Dynamic.Core.Exceptions.ParseException.Position">
-            <summary>
-            The location in the parsed string that produced the <see cref="T:System.Linq.Dynamic.Core.Exceptions.ParseException"/>.
-            </summary>
+            <param name="innerException">The exception that is the cause of the current exception, or a null reference if no inner exception is specified.</param>
         </member>
         <member name="M:System.Linq.Dynamic.Core.Exceptions.ParseException.ToString">
             <summary>
@@ -2129,22 +2160,6 @@
             The queryable.
             </value>
         </member>
-        <member name="M:System.Linq.Dynamic.Core.ParameterExpressionHelper.IsNullOrWhiteSpace(System.String)">
-            <summary>
-            Indicates whether a specified string is null, empty, or consists only of white-space
-            characters.
-            
-            Recreates the same functionality as System.String.IsNullOrWhiteSpace but included here
-            for compatibility with net35.
-            </summary>
-            <param name="value">
-            The string to test.
-            </param>
-            <returns>
-            true if the value parameter is null or System.String.Empty, or if value consists
-            exclusively of white-space characters.
-            </returns>
-        </member>
         <member name="M:System.Linq.Dynamic.Core.ParameterExpressionHelper.GenerateRandomWord">
             <summary>
             Generates a random 16 character word derived from a Guid value.
@@ -2160,6 +2175,11 @@
             All Enum types from mscorlib/netstandard.
             </summary>
         </member>
+        <member name="M:System.Linq.Dynamic.Core.Parser.ExpressionHelper.TryConvertTypes(System.Linq.Expressions.Expression@,System.Linq.Expressions.Expression@)">
+            <summary>
+            If the types are different (and not null), try to convert the object type to other type.
+            </summary>
+        </member>
         <member name="T:System.Linq.Dynamic.Core.Parser.ExpressionParser">
             <summary>
             ExpressionParser
@@ -2172,10 +2192,9 @@
         </member>
         <member name="P:System.Linq.Dynamic.Core.Parser.ExpressionParser.LastLambdaItName">
             <summary>
-            There was a problem when an expression contained multiple lambdas where
-            the ItName was not cleared and freed for the next lambda. This variable
-            stores the ItName of the last parsed lambda.
-            Not used internally by ExpressionParser, but used to preserve compatiblity of parsingConfig.RenameParameterExpression
+            There was a problem when an expression contained multiple lambdas where the ItName was not cleared and freed for the next lambda.
+            This variable stores the ItName of the last parsed lambda.
+            Not used internally by ExpressionParser, but used to preserve compatibility of parsingConfig.RenameParameterExpression
             which was designed to only work with mono-lambda expressions.
             </summary>
         </member>
@@ -2208,7 +2227,7 @@
             <param name="config">The ParsingConfig.</param>
         </member>
         <member name="M:System.Linq.Dynamic.Core.Parser.ExpressionPromoter.Promote(System.Linq.Expressions.Expression,System.Type,System.Boolean,System.Boolean)">
-            <inheritdoc cref="M:System.Linq.Dynamic.Core.Parser.IExpressionPromoter.Promote(System.Linq.Expressions.Expression,System.Type,System.Boolean,System.Boolean)"/>
+            <inheritdoc />
         </member>
         <member name="T:System.Linq.Dynamic.Core.Parser.IExpressionPromoter">
             <summary>
@@ -2222,10 +2241,10 @@
             Promote an expression
             </summary>
             <param name="expr">Source expression</param>
-            <param name="type">Destionation data type to promote</param>
+            <param name="type">Destination data type to promote</param>
             <param name="exact">If the match must be exact</param>
             <param name="convertExpr">Convert expression</param>
-            <returns>The promoted <see cref="T:System.Linq.Expressions.Expression"/></returns>
+            <returns>The promoted <see cref="T:System.Linq.Expressions.Expression"/> or null.</returns>
         </member>
         <member name="T:System.Linq.Dynamic.Core.Parser.NumberParser">
             <summary>
@@ -2271,11 +2290,10 @@
             Some parts of the code is based on https://github.com/zzzprojects/Eval-Expression.NET
             </summary>
         </member>
-        <member name="M:System.Linq.Dynamic.Core.Parser.SupportedMethods.MethodFinder.#ctor(System.Linq.Dynamic.Core.ParsingConfig)">
+        <member name="T:System.Linq.Dynamic.Core.Parser.SupportedMethods.MethodFinder.IAggregateSignatures">
             <summary>
-            Get an instance
+            #794
             </summary>
-            <param name="parsingConfig"></param>
         </member>
         <member name="T:System.Linq.Dynamic.Core.ParsingConfig">
             <summary>
@@ -2292,18 +2310,30 @@
             Default ParsingConfig for EntityFramework Core 2.1 and higher
             </summary>
         </member>
-        <member name="P:System.Linq.Dynamic.Core.ParsingConfig.IsCaseSensitive">
-            <summary>Gets or sets if parameter, method, and properties resolution should be case sensitive or not (false by default).</summary>
-        </member>
         <member name="P:System.Linq.Dynamic.Core.ParsingConfig.DefaultCosmosDb">
             <summary>
             Default ParsingConfig for CosmosDb
             </summary>
         </member>
+        <member name="P:System.Linq.Dynamic.Core.ParsingConfig.IsCaseSensitive">
+             <summary>
+             Gets or sets if parameter, method, and properties resolution should be case-sensitive or not.
+            
+             Default value is <c>false</c>.
+             </summary>
+        </member>
         <member name="P:System.Linq.Dynamic.Core.ParsingConfig.CustomTypeProvider">
             <summary>
             Gets or sets the <see cref="T:System.Linq.Dynamic.Core.CustomTypeProviders.IDynamicLinkCustomTypeProvider"/>.
             </summary>
+        </member>
+        <member name="P:System.Linq.Dynamic.Core.ParsingConfig.LoadAdditionalAssembliesFromCurrentDomainBaseDirectory">
+             <summary>
+             Load additional assemblies from the current domain base directory.
+             Note: only used when full .NET Framework and .NET Core App 2.x and higher.
+            
+             Default value is <c>false</c>.
+             </summary>
         </member>
         <member name="P:System.Linq.Dynamic.Core.ParsingConfig.ExpressionPromoter">
             <summary>
@@ -2320,17 +2350,16 @@
             Determines if the context keywords (it, parent, and root) are valid and usable inside a Dynamic Linq string expression.  
             Does not affect the usability of the equivalent context symbols ($, ^ and ~).
             
-            Default value is true.
+            Default value is <c>false</c>.
             </summary>
         </member>
         <member name="P:System.Linq.Dynamic.Core.ParsingConfig.EvaluateGroupByAtDatabase">
              <summary>
              Gets or sets a value indicating whether the EntityFramework version supports evaluating GroupBy at database level.
              See https://docs.microsoft.com/en-us/ef/core/what-is-new/ef-core-2.1#linq-groupby-translation
-             
-             Remark: when this setting is set to 'true', make sure to supply this ParsingConfig as first parameter on the extension methods.
+             Remark: when this setting is set to <c>true</c>, make sure to supply this ParsingConfig as first parameter on the extension methods.
             
-             Default value is false.
+             Default value is <c>false</c>.
              </summary>
         </member>
         <member name="P:System.Linq.Dynamic.Core.ParsingConfig.UseParameterizedNamesInDynamicQuery">
@@ -2338,61 +2367,60 @@
              Use Parameterized Names in generated dynamic SQL query.
              See https://github.com/graeme-hill/gblog/blob/master/source_content/articles/2014.139_entity-framework-dynamic-queries-and-parameterization.mkd
             
-             Default value is false.
+             Default value is <c>false</c>.
              </summary>
         </member>
         <member name="P:System.Linq.Dynamic.Core.ParsingConfig.AllowNewToEvaluateAnyType">
              <summary>
              Allows the New() keyword to evaluate any available Type.
             
-             Default value is false.
+             Default value is <c>false</c>.
              </summary>
         </member>
         <member name="P:System.Linq.Dynamic.Core.ParsingConfig.RenameParameterExpression">
              <summary>
-             Renames the (Typed)ParameterExpression empty Name to a the correct supplied name from `it`.
+             Renames the (Typed)ParameterExpression empty Name to the correct supplied name from `it`.
             
-             Default value is false.
+             Default value is <c>false</c>.
              </summary>
         </member>
         <member name="P:System.Linq.Dynamic.Core.ParsingConfig.RenameEmptyParameterExpressionNames">
             <summary>
             Prevents any System.Linq.Expressions.ParameterExpression.Name value from being empty by substituting a random 16 character word.
             
-            Default value is false.
+            Default value is <c>false</c>.
             </summary>
         </member>
         <member name="P:System.Linq.Dynamic.Core.ParsingConfig.DisableMemberAccessToIndexAccessorFallback">
              <summary>
-             By default when a member is not found in a type and the type has a string based index accessor it will be parsed as an index accessor. Use
-             this flag to disable this behaviour and have parsing fail when parsing an expression
-             where a member access on a non existing member happens.
+             By default, when a member is not found in a type and the type has a string based index accessor it will be parsed as an index accessor.
+             Use this flag to disable this behaviour and have parsing fail when parsing an expression where a member access on a non-existing member happens.
             
-             Default value is false.
+             Default value is <c>false</c>.
              </summary>
         </member>
         <member name="P:System.Linq.Dynamic.Core.ParsingConfig.ResolveTypesBySimpleName">
             <summary>
-            By default finding types by a simple name is not supported.
+            By default, finding types by a simple name is not supported.
             Use this flag to use the CustomTypeProvider to resolve types by a simple name like "Employee" instead of "MyDatabase.Entities.Employee".
             Note that a first matching type is returned and this functionality needs to scan all types from all assemblies, so use with caution.
             
-            Default value is false.
+            Default value is <c>false</c>.
             </summary>
         </member>
         <member name="P:System.Linq.Dynamic.Core.ParsingConfig.SupportEnumerationsFromSystemNamespace">
             <summary>
             Support enumeration-types from the System namespace in mscorlib. An example could be "StringComparison".
             
-            Default value is true.
+            Default value is <c>true</c>.
             </summary>
         </member>
         <member name="P:System.Linq.Dynamic.Core.ParsingConfig.DateTimeIsParsedAsUTC">
              <summary>
-             By default DateTime (like 'Fri, 10 May 2019 11:03:17 GMT') is parsed as local time.
+             By default, a DateTime (like 'Fri, 10 May 2019 11:03:17 GMT') is parsed as local time.
              Use this flag to parse all DateTime strings as UTC.
             
-             Default value is false.
+             Default value is <c>false</c>.
              </summary>
         </member>
         <member name="P:System.Linq.Dynamic.Core.ParsingConfig.NumberParseCulture">
@@ -2411,7 +2439,83 @@
             <summary>
             When using the NullPropagating function np(...), use a "default value" for non-nullable value types instead of "null value".
             
-            Default value is false.
+            Default value is <c>false</c>.
+            </summary>
+        </member>
+        <member name="P:System.Linq.Dynamic.Core.ParsingConfig.SupportCastingToFullyQualifiedTypeAsString">
+            <summary>
+            Support casting to a full qualified type using a string (double-quoted value).
+            <code>
+            var result = queryable.Select($"\"System.DateTime\"(LastUpdate)");
+            </code>
+            
+            Default value is <c>true</c>.
+            </summary>
+        </member>
+        <member name="P:System.Linq.Dynamic.Core.ParsingConfig.PrioritizePropertyOrFieldOverTheType">
+             <summary>
+             When the type and property have the same name the parser takes the property instead of type when this setting is set to <c>true</c>.
+             This setting is also used for calling ExtensionMethods.
+            
+             Default value is <c>true</c>.
+             </summary>
+        </member>
+        <member name="P:System.Linq.Dynamic.Core.ParsingConfig.SupportDotInPropertyNames">
+            <summary>
+            Support a "." in a property-name. Used in the 'new (a.b as a.b)' syntax.
+            
+            Default value is <c>false</c>.
+            </summary>
+        </member>
+        <member name="P:System.Linq.Dynamic.Core.ParsingConfig.DisallowNewKeyword">
+             <summary>
+             Disallows the New() keyword to be used to construct a class.
+            
+             Default value is <c>false</c>.
+             </summary>
+        </member>
+        <member name="P:System.Linq.Dynamic.Core.ParsingConfig.ConstantExpressionCacheConfig">
+            <summary>
+            Caches constant expressions to enhance performance. Periodic cleanup is performed to manage cache size, governed by this configuration.
+            </summary>
+        </member>
+        <member name="P:System.Linq.Dynamic.Core.ParsingConfig.ConvertObjectToSupportComparison">
+             <summary>
+             Converts typeof(object) to the correct type to allow comparison (Equal, NotEqual, GreaterThan, GreaterThanEqual, LessThan and LessThanEqual).
+            
+             Default value is <c>false</c>.
+            
+             When set to <c>true</c>, the following code will work correct:
+             <example>
+             <code>
+             <![CDATA[
+             class Person
+             {
+                 public string Name { get; set; }
+                 public object Age { get; set; }
+             }
+            
+             var persons = new[]
+             {
+                 new Person { Name = "Foo", Age = 99 },
+                 new Person { Name = "Bar", Age = 33 }
+             }.AsQueryable();
+            
+             var config = new ParsingConfig
+             {
+                 ConvertObjectToSupportComparison = true
+             };
+             
+             var results = persons.Where(config, "Age > 50").ToList();
+             ]]>
+             </code>
+             </example>
+             </summary>
+        </member>
+        <member name="P:System.Linq.Dynamic.Core.ParsingConfig.StringLiteralParsing">
+            <summary>
+            Defines the type of string literal parsing that will be performed.
+            Default value is <c>StringLiteralParsingType.Default</c>.
             </summary>
         </member>
         <member name="T:System.Linq.Dynamic.Core.Tokenizer.TextParser">
@@ -2430,6 +2534,12 @@
             </summary>
             <param name="config"></param>
             <param name="text"></param>
+        </member>
+        <member name="M:System.Linq.Dynamic.Core.Tokenizer.TextParser.Clone">
+            <summary>
+            This method is used to clone the current <see cref="T:System.Linq.Dynamic.Core.Tokenizer.TextParser"/>.
+            </summary>
+            <returns>Cloned <see cref="T:System.Linq.Dynamic.Core.Tokenizer.TextParser"/></returns>
         </member>
         <member name="M:System.Linq.Dynamic.Core.Tokenizer.TextParser.PeekNextChar">
             <summary>
@@ -2499,6 +2609,92 @@
         <member name="M:System.Linq.Dynamic.Core.TypeConverters.TypeConverterFactory.GetConverter(System.Type)">
             <see cref="M:System.Linq.Dynamic.Core.TypeConverters.ITypeConverterFactory.GetConverter(System.Type)"/>
         </member>
+        <member name="T:System.Linq.Dynamic.Core.Util.Cache.CacheConfig">
+            <summary>
+            Cache Configuration Options
+            </summary>
+        </member>
+        <member name="P:System.Linq.Dynamic.Core.Util.Cache.CacheConfig.TimeToLive">
+            <summary>
+            Sets a Time-To-Live (TTL) for items in the constant expression cache to prevent uncontrolled growth. 
+            Items not accessed within this TTL will be expired, allowing garbage collection to reclaim the memory.
+            Default is 10 minutes.
+            </summary>
+        </member>
+        <member name="P:System.Linq.Dynamic.Core.Util.Cache.CacheConfig.MinItemsTrigger">
+            <summary>
+            Configures the minimum number of items required in the constant expression cache before triggering cleanup. 
+            This prevents frequent cleanups, especially in caches with few items. 
+            A default value of null implies that cleanup is always allowed to run, helping in timely removal of unused cache items.
+            </summary>
+        </member>
+        <member name="P:System.Linq.Dynamic.Core.Util.Cache.CacheConfig.CleanupFrequency">
+            <summary>
+            Sets the frequency for running the cleanup process in the Constant Expression cache. 
+            By default, cleanup occurs every 10 minutes.
+            </summary>
+        </member>
+        <member name="P:System.Linq.Dynamic.Core.Util.Cache.CacheConfig.ReturnExpiredItems">
+            <summary>
+            Enables returning expired cache items in scenarios where cleanup, running on a separate thread, 
+            has not yet removed them. This allows for the retrieval of an expired object without needing to 
+            clear and recreate it if a request is made concurrently with cleanup. Particularly useful 
+            when cached items are deterministic, ensuring consistent results even from expired entries.
+            Default true;
+            </summary>
+        </member>
+        <member name="M:System.Linq.Dynamic.Core.Util.Cache.SlidingCache`2.#ctor(System.TimeSpan,System.Nullable{System.TimeSpan},System.Nullable{System.Int64},System.Linq.Dynamic.Core.Util.IDateTimeUtils,System.Boolean)">
+            <summary>
+                Sliding Thread Safe Cache
+            </summary>
+            <param name="timeToLive">The length of time any object would survive before being removed</param>
+            <param name="cleanupFrequency">Only look for expired objects over specific periods</param>
+            <param name="minCacheItemsBeforeCleanup">
+                If defined, only allow the cleanup process after x number of cached items have
+                been stored
+            </param>
+            <param name="dateTimeProvider">
+                Provides the Time for the Caching object. Default will be created if not supplied. Used
+                for Testing classes
+            </param>
+            <param name="returnExpiredItems">If a request for an item happens to be expired, but is still
+            in known, don't expire it and return it instead.</param>
+        </member>
+        <member name="M:System.Linq.Dynamic.Core.Util.Cache.SlidingCache`2.#ctor(System.Linq.Dynamic.Core.Util.Cache.CacheConfig,System.Linq.Dynamic.Core.Util.IDateTimeUtils)">
+            <summary>
+            Sliding Thread Safe Cache
+            </summary>
+            <param name="cacheConfig">The <see cref="T:System.Linq.Dynamic.Core.Util.Cache.CacheConfig"/> to use.</param>
+            <param name="dateTimeProvider">
+                Provides the Time for the Caching object. Default will be created if not supplied. Used
+                for Testing classes
+            </param>
+        </member>
+        <member name="P:System.Linq.Dynamic.Core.Util.Cache.SlidingCache`2.TimeToLive">
+            <summary>
+            Cache TTL value
+            </summary>
+        </member>
+        <member name="P:System.Linq.Dynamic.Core.Util.Cache.SlidingCache`2.Count">
+            <summary>
+                Provide the number of items in the cache
+            </summary>
+        </member>
+        <member name="M:System.Linq.Dynamic.Core.Util.Cache.SlidingCache`2.AddOrUpdate(`0,`1)">
+            <summary>
+            Add or update the item in the cache, at the same time update the expiration time
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:System.Linq.Dynamic.Core.Util.Cache.SlidingCache`2.TryGetValue(`0,`1@)">
+            <summary>
+            Attempt to get the value from the cache. This will extend the cache expiration time if the item is found
+            </summary>
+            <param name="key">Key</param>
+            <param name="value">Value</param>
+            <returns></returns>
+        </member>
         <member name="T:System.Linq.Dynamic.Core.Util.ParameterExpressionRenamer">
             <summary>
             Renames a single (Typed)ParameterExpression in an Expression.
@@ -2529,35 +2725,50 @@
         <member name="M:System.Linq.Dynamic.Core.Util.ParameterExpressionRenamer.VisitParameter(System.Linq.Expressions.ParameterExpression)">
             <inheritdoc cref="M:System.Linq.Expressions.ExpressionVisitor.VisitParameter(System.Linq.Expressions.ParameterExpression)"/>
         </member>
-        <member name="M:System.Linq.Dynamic.Core.Validation.CoreStrings.ArgumentPropertyNull(System.String,System.String)">
-            <summary>
-            The property '{property}' of the argument '{argument}' cannot be null.
-            </summary>
-        </member>
-        <member name="M:System.Linq.Dynamic.Core.Validation.CoreStrings.ArgumentIsEmpty(System.String)">
-            <summary>
-            The string argument '{argumentName}' cannot be empty.
-            </summary>
-        </member>
-        <member name="M:System.Linq.Dynamic.Core.Validation.CoreStrings.InvalidEntityType(System.Type,System.String)">
-            <summary>
-            The entity type '{type}' provided for the argument '{argumentName}' must be a reference type.
-            </summary>
-        </member>
-        <member name="M:System.Linq.Dynamic.Core.Validation.CoreStrings.CollectionArgumentIsEmpty(System.String)">
-            <summary>
-            The collection argument '{argumentName}' must contain at least one element.
-            </summary>
-        </member>
         <member name="T:System.Linq.Dynamic.Core.Validation.ValidatedNotNullAttribute">
             <summary>
             To fix 'xxx' is null on at least one execution path. See also https://rules.sonarsource.com/csharp/RSPEC-3900.
             </summary>
         </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.NotNullWhenAttribute">
+            <summary>
+            Specifies that when a method returns <see cref="P:System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.ReturnValue"/>,
+            the parameter will not be <see langword="null"/> even if the corresponding type allows it.
+            </summary>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.ReturnValue">
+            <summary>
+            Gets the return value condition.
+            If the method returns this value, the associated parameter will not be <see langword="null"/>.
+            </summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.#ctor(System.Boolean)">
+            <summary>
+            Initializes the attribute with the specified return value condition.
+            </summary>
+            <param name="returnValue">
+            The return value condition.
+            If the method returns this value, the associated parameter will not be <see langword="null"/>.
+            </param>
+        </member>
         <member name="T:System.Reflection.CustomIntrospectionExtensions">
             <summary>
             https://github.com/castleproject/Core/blob/netcore/src/Castle.Core/Compatibility/IntrospectionExtensions.cs
             </summary>
+        </member>
+        <member name="M:System.StringExtensions.IsNullOrWhiteSpace(System.String)">
+            <summary>
+            Indicates whether a specified string is null, empty, or consists only of white-space
+            characters.
+            
+            Recreates the same functionality as System.String.IsNullOrWhiteSpace but included here
+            for compatibility with net35.
+            </summary>
+            <param name="value">The string to test.</param>
+            <returns>
+            true if the value parameter is null or System.String.Empty, or if value consists
+            exclusively of white-space characters.
+            </returns>
         </member>
     </members>
 </doc>

@@ -10,6 +10,7 @@ using Flex_SGM.Models;
 using Flex_SGM.Scripts;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
+using Newtonsoft.Json;
 
 namespace Flex_SGM.Controllers
 {
@@ -52,57 +53,80 @@ namespace Flex_SGM.Controllers
             return View(proyectos.ToList());
         }
 
+		[HttpGet]
+		public JsonResult GetEvents()
+		{
+			try
+			{
+				using (ApplicationDbContext dc = new ApplicationDbContext())
+				{
+					var events = dc.CalendarioProye
+						.ToList()
+						.Select(e => new
+						{
+							EventID = e.EventID,
+							Subject = e.Subject,
+							Description = e.Description,
+							Start = e.Start,
+							End = e.End,
+							ThemeColor = e.ThemeColor,
+							IsFullDay = e.IsFullDay
+						})
+						.ToList();
 
-        /// <summary>
-        /// Metodo que devuelve un Array de eventos en formato Json
-        /// summary>
-        /// <param name="start">Star Dateparam>
-        /// <param name="end">End Dateparam>
-        /// <returns>returns>
-          [AllowAnonymous]
-        public JsonResult GetEvents()
-        {
-            using (ApplicationDbContext dc = new ApplicationDbContext())
-            {
-                var events = dc.CalendarioProye.ToList();
-                return new JsonResult { Data = events, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
-            }
-        }
-        [AllowAnonymous]
-        [HttpPost]
-        public JsonResult SaveEvent(CalendarioProye e)
-        {
-            var status = false;
-            using (ApplicationDbContext dc = new ApplicationDbContext())
-            {
-                e.Start = e.Start;
-                e.End = e.End;
-                if (e.EventID > 0)
-                {
-                    //Update the event
-                    var v = dc.CalendarioProye.Where(a => a.EventID == e.EventID).FirstOrDefault();
-                    if (v != null)
-                    {
-                        v.Subject = e.Subject;
-                        v.Start = e.Start;
-                        v.End = e.End;
-                        v.Description = e.Description;
-                        v.IsFullDay = e.IsFullDay;
-                        v.ThemeColor = e.ThemeColor;
-                    }
-                }
-                else
-                {
-                    dc.CalendarioProye.Add(e);
-                }
+					var settings = new JsonSerializerSettings
+					{
+						DateFormatHandling = DateFormatHandling.IsoDateFormat
+					};
 
-                dc.SaveChanges();
-                status = true;
+					return Json(events, JsonRequestBehavior.AllowGet);
+				}
+			}
+			catch (Exception ex)
+			{
+				return Json(new { error = ex.Message }, JsonRequestBehavior.AllowGet);
+			}
+		}
+		[AllowAnonymous]
+		[HttpPost]
+		public JsonResult SaveEvent(CalendarioProye e)
+		{
+			var status = false;
+			try
+			{
+				using (ApplicationDbContext dc = new ApplicationDbContext())
+				{
+					if (e.EventID > 0)
+					{
+						//Update the event
+						var v = dc.CalendarioProye.Where(a => a.EventID == e.EventID).FirstOrDefault();
+						if (v != null)
+						{
+							v.Subject = e.Subject;
+							v.Start = e.Start;
+							v.End = e.End;
+							v.Description = e.Description;
+							v.IsFullDay = e.IsFullDay;
+							v.ThemeColor = e.ThemeColor;
+						}
+					}
+					else
+					{
+						dc.CalendarioProye.Add(e);
+					}
+					dc.SaveChanges();
+					status = true;
+				}
+			}
+			catch (Exception ex)
+			{
+				System.Diagnostics.Debug.WriteLine($"Error saving event: {ex.Message}");
+				return Json(new { status = false, message = ex.Message });
+			}
+			return Json(new { status = status });
+		}
 
-            }
-            return new JsonResult { Data = new { status = status } };
-        }
-        [AllowAnonymous]
+		[AllowAnonymous]
         [HttpPost]
         public JsonResult DeleteEvent(string eventID)
         {

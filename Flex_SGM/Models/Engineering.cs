@@ -38,11 +38,21 @@ namespace Flex_SGM.Models
         [Display(Name = "Razón")]
         public int? ReasonID { get; set; }
 
-        [Display(Name = "Numero de Parte")]
+        [Display(Name = "Número de Parte")]
         [MaxLength(100)]
         public string PartNumber { get; set; }
 
-        [Display(Name = "Nivel de Revisión")]
+		[Display(Name = "Equipo")]
+		public int? MaquinaID { get; set; }
+
+		[Display(Name = "BuildOut Current")]
+		[MaxLength(25)]
+		public string BuildOut { get; set; }
+
+		[Display(Name = "Customer Approval Required?")]
+		public bool CustomerApprovalRequired { get; set; }
+
+		[Display(Name = "Nivel de Revisión")]
         [MaxLength(50)]
         public string RevLevel { get; set; }
 
@@ -50,7 +60,15 @@ namespace Flex_SGM.Models
         [MaxLength(200)]
         public string PartName { get; set; }
 
-        [Display(Name = "Descriptción de Razón")]
+		[MaxLength(300)]
+		[Display(Name = "Condición Actual")]
+		public string CurrentCondition { get; set; }
+
+		[MaxLength(300)]
+		[Display(Name = "Condición Nueva")]
+		public string NewCondition { get; set; }
+
+		[Display(Name = "Descriptción de Razón")]
         public string docreason { get; set; }
 
         [Display(Name = "Alcance")]
@@ -294,16 +312,14 @@ namespace Flex_SGM.Models
     {
 
         public string pcrID { get; set; }
-        public string OriginatorID { get; set; }
 
+        public string OriginatorID { get; set; }
 
         public string AreasID { get; set; }
 
         public string Date { get; set; }
 
-
         public string ClientesID { get; set; }
-
 
         public string ProyectosID { get; set; }
 
@@ -313,9 +329,21 @@ namespace Flex_SGM.Models
 
         public string RevLevel { get; set; }
 
-        public string PartName { get; set; }
+        public string CustAprovReqYes { get; set; }
 
-        public string docreason { get; set; }
+		public string CustAprovReqNo { get; set; }
+
+		public string PartName { get; set; }
+
+		public string Equipment { get; set; }
+
+		public string CurCondition { get; set; }
+
+		public string NewCondition { get; set; }
+
+        public string BuildOutCurrent { get; set; }
+
+		public string docreason { get; set; }
 
         public string docscope { get; set; }
 
@@ -342,7 +370,6 @@ namespace Flex_SGM.Models
         public string ciother { get; set; }
   
         public string citotal { get; set; }
-
    
         public string crannualvolume { get; set; }
 

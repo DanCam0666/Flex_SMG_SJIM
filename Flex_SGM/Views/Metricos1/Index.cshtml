@@ -15,8 +15,13 @@
                     <h1>Crear un Registro Nuevo</h1>
                 </center>
                 <div class="col-md-2">
-                    <a href="~/AMEF/Create">
-                        <input type="button" value="AMEF/Reverse" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
+                    <a href="~/AMEF_N1_N4/Create">
+                        <input type="button" value="AMEF N1 & N4" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a href="~/AMEF_N2_N3/Create">
+                        <input type="button" value="AMEF N2 & N3" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
                     </a>
                 </div>
                 <div class="col-md-2">
@@ -40,8 +45,13 @@
                     </a>
                 </div>
                 <div class="col-md-2">
-                    <a href="~/Cust_Score_Cards/Create">
-                        <input type="button" value="Customer Score Cards" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
+                    <a href="~/MDRs/Create">
+                        <input type="button" value="Cumplimiento de MDR´s" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a href="~/PPAPs/Create">
+                        <input type="button" value="Cumplimiento de PPAP´s" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
                     </a>
                 </div>
                 <div class="col-md-2">
@@ -55,8 +65,8 @@
                     </a>
                 </div>
                 <div class="col-md-2">
-                    <a href="~/LPA_COVID/Create">
-                        <input type="button" value="LPA / COVID Audits" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
+                    <a href="~/LPA_Bluebook/Create">
+                        <input type="button" value="LPA / Blue Book Audits" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
                     </a>
                 </div>
                 <div class="col-md-2">
@@ -65,18 +75,13 @@
                     </a>
                 </div>
                 <div class="col-md-2">
-                    <a href="~/Parts_Delivery/Create">
-                        <input type="button" value="Parts Delivery on Time" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
-                    </a>
-                </div>
-                <div class="col-md-2">
                     <a href="~/PLM/Create">
                         <input type="button" value="PLM / Launch Matrix" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
                     </a>
                 </div>
                 <div class="col-md-2">
-                    <a href="~/Quality_HS/Create">
-                        <input type="button" value="Quality and H&S 5 min Talk" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
+                    <a href="~/Capacity_Tickets/Create">
+                        <input type="button" value="Capacity Tickets (Customer Portals)" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
                     </a>
                 </div>
                 <div class="col-md-2">
@@ -85,23 +90,23 @@
                     </a>
                 </div>
                 <div class="col-md-2">
-                    <a href="~/Safety_HS/Create">
-                        <input type="button" value="Saftey Issues (H & S)" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
-                    </a>
-                </div>
-                <div class="col-md-2">
                     <a href="~/Scrap/Create">
                         <input type="button" value="Scrap Costs" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
                     </a>
                 </div>
                 <div class="col-md-2">
-                    <a href="~/TOC_HS_Audits/Create">
-                        <input type="button" value="TOC/H&S Audits" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
+                    <a href="~/Yellow_Sheets/Create">
+                        <input type="button" value="Yellow Sheet & BOM´s Audited" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
                     </a>
                 </div>
                 <div class="col-md-2">
-                    <a href="~/Yellow_Sheets/Create">
-                        <input type="button" value="Yellow Sheet & BOM´s Audited" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
+                    <a href="~/Highlights/Create">
+                        <input type="button" value="Highlights & Financial Review" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a href="~/Vacaciones/Create">
+                        <input type="button" value="Vacaciones" class="btn btn-primary col-md-12" style="min-width: 200px; margin-bottom: 10px" />
                     </a>
                 </div>
             </div>
@@ -277,17 +282,26 @@
             </thead>
             <tbody>
                 <tr>
-                    <th><p>@Html.ActionLink("AMEF/Reverse", "Index", "AMEF")</p></th>
-                    <th scope="row">Manuel Jimenez</th>
+                    <th><p>@Html.ActionLink("AMEF N1 & N4", "Index", "AMEF_N1_N4")</p></th>
+                    <th scope="row">Victor Bastida</th>
                     <th scope="row">100% Complete</th>
                     @foreach (var item in ViewBag.data)
                     {
-                        <td>@item.Amef%</td>
+                        <td>@item.Amef_N1_N4%</td>
+                    }
+                </tr>
+                <tr>
+                    <th><p>@Html.ActionLink("AMEF N2 & N3", "Index", "AMEF_N2_N3")</p></th>
+                    <th scope="row">Hipolito Gutierrez</th>
+                    <th scope="row">100% Complete</th>
+                    @foreach (var item in ViewBag.data)
+                    {
+                        <td>@item.Amef_N2_N3%</td>
                     }
                 </tr>
                 <tr>
                     <th><p>@Html.ActionLink("Build in/Build out", "Index", "BuildinBuildout")</p></th>
-                    <th scope="row">Marcelino Prado</th>
+                    <th scope="row">Cynthia Alvarez</th>
                     <th scope="row">Zero obsolete</th>
                     @foreach (var item in ViewBag.data)
                     {
@@ -296,7 +310,7 @@
                 </tr>
                 <tr>
                     <th><p>@Html.ActionLink("Capacities Review", "Index", "Capacities")</p></th>
-                    <th scope="row">Adriana Velazquez</th>
+                    <th scope="row">Jessica Franco</th>
                     <th scope="row">Monthly Report</th>
                     @foreach (var item in ViewBag.data)
                     {
@@ -305,7 +319,7 @@
                 </tr>
                 <tr>
                     <th><p>@Html.ActionLink("Continous Improvement", "Index", "CI_MP")</p></th>
-                    <th scope="row">Gabriela Vasquez</th>
+                    <th scope="row">Gabriela Vasquez/Jessica Franco</th>
                     <th scope="row">100% Monthly /1 project month</th>
                     @foreach (var item in ViewBag.data)
                     {
@@ -322,81 +336,27 @@
                     }
                 </tr>
                 <tr>
-                    <th><p>@Html.ActionLink("Customer Score Cards Ford", "Index", "Cust_Score_Cards")</p></th>
-                    <th scope="row">Cynthia Alvarez</th>
+                    <th><p>@Html.ActionLink("Cumplimiento de MDR´s", "Index", "MDRs")</p></th>
+                    <th scope="row">Miguel Coronado</th>
                     <th scope="row">100% Complete</th>
                     @foreach (var item in ViewBag.data)
                     {
-                        <td>@item.Ford%</td>
+                        <td>@item.MdrPer%</td>
                     }
                 </tr>
                 <tr>
-                    <th><p>@Html.ActionLink("Customer Score Cards Ford APQP", "Index", "Cust_Score_Cards")</p></th>
-                    <th scope="row">Cynthia Alvarez</th>
-                    <th scope="row">5</th>
-                    @foreach (var item in ViewBag.data)
-                    {
-                        <td>@item.Ford_APQP</td>
-                    }
-                </tr>
-                <tr>
-                    <th><p>@Html.ActionLink("Customer Score Cards GM", "Index", "Cust_Score_Cards")</p></th>
-                    <th scope="row">Cynthia Alvarez</th>
+                    <th><p>@Html.ActionLink("Cumplimiento de PPAP´s", "Index", "PPAPs")</p></th>
+                    <th scope="row">Alfredo Olvera</th>
                     <th scope="row">100% Complete</th>
                     @foreach (var item in ViewBag.data)
                     {
-                        <td>@item.GM%</td>
-                    }
-                </tr>
-                <tr>
-                    <th><p>@Html.ActionLink("Customer Score Cards Mopar", "Index", "Cust_Score_Cards")</p></th>
-                    <th scope="row">Cynthia Alvarez</th>
-                    <th scope="row">100% Complete</th>
-                    @foreach (var item in ViewBag.data)
-                    {
-                        <td>@item.Mopar%</td>
-                    }
-                </tr>
-                <tr>
-                    <th><p>@Html.ActionLink("Customer Score Cards Nissan", "Index", "Cust_Score_Cards")</p></th>
-                    <th scope="row">Cynthia Alvarez</th>
-                    <th scope="row">100% Complete</th>
-                    @foreach (var item in ViewBag.data)
-                    {
-                        <td>@item.Nissan%</td>
-                    }
-                </tr>
-                <tr>
-                    <th><p>@Html.ActionLink("Customer Score Cards Stellantis", "Index", "Cust_Score_Cards")</p></th>
-                    <th scope="row">Cynthia Alvarez</th>
-                    <th scope="row">100% Complete</th>
-                    @foreach (var item in ViewBag.data)
-                    {
-                        <td>@item.Stellantis%</td>
-                    }
-                </tr>
-                <tr>
-                    <th><p>@Html.ActionLink("Customer Score Cards Toyota", "Index", "Cust_Score_Cards")</p></th>
-                    <th scope="row">Cynthia Alvarez</th>
-                    <th scope="row">100% Complete</th>
-                    @foreach (var item in ViewBag.data)
-                    {
-                        <td>@item.Toyota%</td>
-                    }
-                </tr>
-                <tr>
-                    <th><p>@Html.ActionLink("Customer Score Cards VW", "Index", "Cust_Score_Cards")</p></th>
-                    <th scope="row">Cynthia Alvarez</th>
-                    <th scope="row">100% Complete</th>
-                    @foreach (var item in ViewBag.data)
-                    {
-                        <td>@item.VW%</td>
+                        <td>@item.PPAPsPer%</td>
                     }
                 </tr>
                 <tr>
                     <th><p>@Html.ActionLink("ECN’s / PCR´s", "Index", "ECNs_PCRs")</p></th>
-                    <th scope="row">Zaideth Vazquez</th>
-                    <th scope="row">0 Abiertos en Tiempo</th>
+                    <th scope="row">Vianney Hurtado</th>
+                    <th scope="row">0 cerrados fuera de tiempo</th>
                     @foreach (var item in ViewBag.data)
                     {
                         <td>@item.Ecn</td>
@@ -404,7 +364,7 @@
                 </tr>
                 <tr>
                     <th><p>@Html.ActionLink("Lay Out Changes", "Index", "Lay_Out")</p></th>
-                    <th scope="row">Hipolito Gutierrez</th>
+                    <th scope="row">Armando Lozano</th>
                     <th scope="row">100% Completed</th>
                     @foreach (var item in ViewBag.data)
                     {
@@ -412,9 +372,9 @@
                     }
                 </tr>
                 <tr>
-                    <th><p>@Html.ActionLink("LPA / Covid Audits", "Index", "LPA_COVID")</p></th>
-                    <th scope="row">Miguel Coronado</th>
-                    <th scope="row">0 LPAs Incumplidos</th>
+                    <th><p>@Html.ActionLink("LPA / Blue Book Audits / Entrenamientos de Ergonomía.", "Index", "LPA_Bluebook")</p></th>
+                    <th scope="row">Juan Arvizu</th>
+                    <th scope="row">0 Incumplidos</th>
                     @foreach (var item in ViewBag.data)
                     {
                         <td>@item.Lpa</td>
@@ -423,33 +383,24 @@
                 <tr>
                     <th><p>@Html.ActionLink("Packaging Portals", "Index", "Packaging")</p></th>
                     <th scope="row">Antonio Rojas</th>
-                    <th scope="row">0 Abiertos en Tiempo</th>
+                    <th scope="row">0 Abiertos</th>
                     @foreach (var item in ViewBag.data)
                     {
                         <td>@item.PaPo</td>
                     }
                 </tr>
                 <tr>
-                    <th><p>@Html.ActionLink("Parts Delivery on time ", "Index", "Parts_Delivery")</p></th>
-                    <th scope="row">Carlos Olvera</th>
-                    <th scope="row">Delivery according to schedule</th>
-                    @foreach (var item in ViewBag.data)
-                    {
-                        <td>@item.PaDe%</td>
-                    }
-                </tr>
-                <tr>
                     <th><p>@Html.ActionLink("PLM / Launch Matrix", "Index", "PLM")</p></th>
                     <th scope="row">Armando Prado</th>
-                    <th scope="row">0 Abiertos en Tiempo</th>
+                    <th scope="row">0 Abiertos</th>
                     @foreach (var item in ViewBag.data)
                     {
                         <td>@item.Plm</td>
                     }
                 </tr>
                 <tr>
-                    <th><p>@Html.ActionLink("Quality and H&S 5 min Talk", "Index", "Quality_HS")</p></th>
-                    <th scope="row">Carlos Rodriguez</th>
+                    <th><p>@Html.ActionLink("Capacity Tickets (Customer Portals)", "Index", "Capacity_Tickets")</p></th>
+                    <th scope="row">Ismael Galindo</th>
                     <th scope="row">100% Completed</th>
                     @foreach (var item in ViewBag.data)
                     {
@@ -466,30 +417,12 @@
                     }
                 </tr>
                 <tr>
-                    <th><p>@Html.ActionLink("Safety Issues (H&S)", "Index", "Safety_HS")</p></th>
-                    <th scope="row">Joel Quintana</th>
-                    <th scope="row">0 Incidents</th>
-                    @foreach (var item in ViewBag.data)
-                    {
-                        <td>@item.Safe</td>
-                    }
-                </tr>
-                <tr>
                     <th><p>@Html.ActionLink("Scrap Cost", "Index", "Scrap")</p></th>
                     <th scope="row">Erasmo Arellano</th>
                     <th scope="row">(USD) Mensual</th>
                     @foreach (var item in ViewBag.data)
                     {
                         <td>@string.Format("{0:0,0,0}", @item.ScCo)</td>
-                    }
-                </tr>
-                <tr>
-                    <th><p>@Html.ActionLink("TOC/H&S Audits", "Index", "TOC_HS_Audits")</p></th>
-                    <th scope="row">Juan Arvizu</th>
-                    <th scope="row">100%</th>
-                    @foreach (var item in ViewBag.data)
-                    {
-                        <td>@item.Toc%</td>
                     }
                 </tr>
                 <tr>
@@ -501,6 +434,24 @@
                         <td>@item.YeSh%</td>
                     }
                 </tr>
+                <tr>
+                    <th><p>@Html.ActionLink(" Highlights & Financial Review", "Index", "Highlights")</p></th>
+                    <th scope="row">Vianney Hurtado</th>
+                    <th scope="row">100% Enviados en tiempo</th>
+                    @foreach (var item in ViewBag.data)
+                    {
+                        <td>@item.HiFi%</td>
+                    }
+                </tr>
+                <tr>
+                    <th><p>@Html.ActionLink("Vacaciones", "Index", "MDRs")</p></th>
+                    <th scope="row">Hipolito Gutierrez</th>
+                    <th scope="row">100% Apego a lineamientos con 10% de avance mensual</th>
+                    @foreach (var item in ViewBag.data)
+                    {
+                        <td>@item.Vacas%</td>
+                    }
+                </tr>
             </tbody>
         </table>
     </div>
@@ -509,6 +460,77 @@
 @section Scripts {
 
     <script>
+
+        function getRandomQuote() {
+            fetch('https://api.allorigins.win/get?url=' + encodeURIComponent('https://zenquotes.io/api/random'))
+                .then(response => response.json())
+                .then(data => {
+                    // Parse the JSON content from the fetched response
+                    let parsedData = JSON.parse(data.contents);
+                    let quote = parsedData[0].q; // Correctly access the quote text
+                    let author = parsedData[0].a; // Correctly access the quote author
+
+                    // Retrieve the quote history from local storage
+                    let quoteHistory = JSON.parse(localStorage.getItem('quoteHistory')) || [];
+                    const maxHistorySize = 5; // Number of recent quotes to remember
+
+                    if (quoteHistory.includes(quote)) {
+                        // If the quote is already in the history, remove it from the array
+                        quoteHistory = quoteHistory.filter(item => item !== quote);
+                    }
+
+                    quoteHistory.push(quote);
+                    if (quoteHistory.length > maxHistorySize) {
+                        quoteHistory.shift();
+                    }
+
+                    // Store the updated quote history in local storage
+                    localStorage.setItem('quoteHistory', JSON.stringify(quoteHistory));
+
+                    var translateURL = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=es&dt=t&q=${encodeURIComponent(quote)}`;
+
+                    fetch(translateURL)
+                        .then(response => response.json())
+                        .then(data => {
+                            var translatedQuote = data[0][0][0];
+                            var notice = PNotify.info({
+                                title: 'Frase del día',
+                                text: translatedQuote + ' - ' + author,
+                                stack: {
+                                    dir1: 'up',
+                                    dir2: 'left',
+                                    firstpos1: 25,
+                                    firstpos2: 25
+                                },
+                                addClass: 'nonblock',
+                                delay: 10000, // 10 seconds
+                            });
+
+                            var noticeElem = notice.refs.elem;
+                            noticeElem.style.borderRadius = '10px !important';
+                            noticeElem.style.backgroundColor = '#F0E68C';
+                            noticeElem.style.boxShadow = '5px 5px 5px #888888';
+                        });
+                })
+                .catch(error => {
+                    console.error('Error fetching quote:', error);
+                    PNotify.error({
+                        title: 'Error',
+                        text: 'Failed to fetch quote: ' + error.message,
+                        stack: {
+                            dir1: 'up',
+                            dir2: 'left',
+                            firstpos1: 25,
+                            firstpos2: 25
+                        },
+                        addClass: 'nonblock',
+                        delay: 10000, // 10 seconds
+                    });
+                });
+        }
+
+        // Call getRandomQuote() when the page loads
+        window.onload = getRandomQuote;
 
         function Verify(idx)
         {
@@ -611,6 +633,25 @@
                 };
             }
             document.getElementById('years').value = @ViewBag.indYear;
+
+            //// Get today's date
+            //var today = new Date();
+
+            //// Get the next upcoming holiday in Mexico from the Nager.Date API
+            //fetch('https://date.nager.at/api/v3/NextPublicHolidays/MX?&locales=es')
+            //    .then(response => response.json())
+            //    .then(data => {
+            //        var upcomingHoliday = data[0];
+            //        var longDate = new Date(upcomingHoliday.date).toLocaleDateString('es-ES', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+            //        var holidayName = upcomingHoliday.localName;
+            //        var notice = PNotify.info({
+            //            title: 'Próximo Día Festivo',
+            //            text: holidayName + ' - ' + longDate,
+            //            stack: window.stackBottomLeft,
+            //            addClass: 'nonblock'
+            //        });
+            //    });
+
         });
 
         $("#years").change(function () {
@@ -756,11 +797,15 @@
                     cells[0].cells[3 + i].style.borderRightColor = '#6b8cb0';
                     cells[0].cells[3 + i].style.borderRightWidth = 'thick';
                 }
-                if (parseInt(cells[1].cells[3 + i].innerHTML, 10) > 0) {
+                if (parseInt(cells[1].cells[3 + i].innerHTML, 10) < 70) {
                     cells[1].cells[3 + i].style.backgroundColor = '#ff5c5c8c';
                     cells[1].cells[3 + i].style.color = 'black';
                 }
-                if (parseInt(cells[1].cells[3 + i].innerHTML, 10) <= 0) {
+                if (parseInt(cells[1].cells[3 + i].innerHTML, 10) >= 70) {
+                    cells[1].cells[3 + i].style.backgroundColor = '#ffff005c';
+                    cells[1].cells[3 + i].style.color = 'black';
+                }
+                if (parseInt(cells[1].cells[3 + i].innerHTML, 10) >= 90) {
                     cells[1].cells[3 + i].style.backgroundColor = '#71d98c8c';
                     cells[1].cells[3 + i].style.color = 'black';
                 }
@@ -768,15 +813,11 @@
                     cells[1].cells[3 + i].style.borderRightColor = '#6b8cb0';
                     cells[1].cells[3 + i].style.borderRightWidth = 'thick';
                 }
-                if (parseInt(cells[2].cells[3 + i].innerHTML, 10) < 20) {
+                if (parseInt(cells[2].cells[3 + i].innerHTML, 10) > 0) {
                     cells[2].cells[3 + i].style.backgroundColor = '#ff5c5c8c';
                     cells[2].cells[3 + i].style.color = 'black';
                 }
-                if (parseInt(cells[2].cells[3 + i].innerHTML, 10) >= 20) {
-                    cells[2].cells[3 + i].style.backgroundColor = '#ffff005c';
-                    cells[2].cells[3 + i].style.color = 'black';
-                }
-                if (parseInt(cells[2].cells[3 + i].innerHTML, 10) >= 80) {
+                if (parseInt(cells[2].cells[3 + i].innerHTML, 10) <= 0) {
                     cells[2].cells[3 + i].style.backgroundColor = '#71d98c8c';
                     cells[2].cells[3 + i].style.color = 'black';
                 }
@@ -800,15 +841,15 @@
                     cells[3].cells[3 + i].style.borderRightColor = '#6b8cb0';
                     cells[3].cells[3 + i].style.borderRightWidth = 'thick';
                 }
-                if (parseInt(cells[4].cells[3 + i].innerHTML, 10) >= 5) {
+                if (parseInt(cells[4].cells[3 + i].innerHTML, 10) < 70) {
                     cells[4].cells[3 + i].style.backgroundColor = '#ff5c5c8c';
                     cells[4].cells[3 + i].style.color = 'black';
                 }
-                if (parseInt(cells[4].cells[3 + i].innerHTML, 10) < 5  ) {
+                if (parseInt(cells[4].cells[3 + i].innerHTML, 10) >= 70) {
                     cells[4].cells[3 + i].style.backgroundColor = '#ffff005c';
                     cells[4].cells[3 + i].style.color = 'black';
                 }
-                if (parseInt(cells[4].cells[3 + i].innerHTML, 10) < 1) {
+                if (parseInt(cells[4].cells[3 + i].innerHTML, 10) >= 90) {
                     cells[4].cells[3 + i].style.backgroundColor = '#71d98c8c';
                     cells[4].cells[3 + i].style.color = 'black';
                 }
@@ -816,15 +857,11 @@
                     cells[4].cells[3 + i].style.borderRightColor = '#6b8cb0';
                     cells[4].cells[3 + i].style.borderRightWidth = 'thick';
                 }
-                if (parseInt(cells[5].cells[3 + i].innerHTML, 10) < 60) {
+                if (parseInt(cells[5].cells[3 + i].innerHTML, 10) > 0) {
                     cells[5].cells[3 + i].style.backgroundColor = '#ff5c5c8c';
                     cells[5].cells[3 + i].style.color = 'black';
                 }
-                if (parseInt(cells[5].cells[3 + i].innerHTML, 10) >= 60) {
-                    cells[5].cells[3 + i].style.backgroundColor = '#ffff005c';
-                    cells[5].cells[3 + i].style.color = 'black';
-                }
-                if (parseInt(cells[5].cells[3 + i].innerHTML, 10) >= 80) {
+                if (parseInt(cells[5].cells[3 + i].innerHTML, 10) <= 0) {
                     cells[5].cells[3 + i].style.backgroundColor = '#71d98c8c';
                     cells[5].cells[3 + i].style.color = 'black';
                 }
@@ -848,15 +885,15 @@
                     cells[6].cells[3 + i].style.borderRightColor = '#6b8cb0';
                     cells[6].cells[3 + i].style.borderRightWidth = 'thick';
                 }
-                if (parseInt(cells[7].cells[3 + i].innerHTML, 10) < 60) {
+                if (parseInt(cells[7].cells[3 + i].innerHTML, 10) < 3) {
                     cells[7].cells[3 + i].style.backgroundColor = '#ff5c5c8c';
                     cells[7].cells[3 + i].style.color = 'black';
                 }
-                if (parseInt(cells[7].cells[3 + i].innerHTML, 10) >= 60) {
+                if (parseInt(cells[7].cells[3 + i].innerHTML, 10) >= 3) {
                     cells[7].cells[3 + i].style.backgroundColor = '#ffff005c';
                     cells[7].cells[3 + i].style.color = 'black';
                 }
-                if (parseInt(cells[7].cells[3 + i].innerHTML, 10) >= 80) {
+                if (parseInt(cells[7].cells[3 + i].innerHTML, 10) >= 5) {
                     cells[7].cells[3 + i].style.backgroundColor = '#71d98c8c';
                     cells[7].cells[3 + i].style.color = 'black';
                 }
@@ -864,15 +901,11 @@
                     cells[7].cells[3 + i].style.borderRightColor = '#6b8cb0';
                     cells[7].cells[3 + i].style.borderRightWidth = 'thick';
                 }
-                if (parseInt(cells[8].cells[3 + i].innerHTML, 10) < 60) {
+                if (parseInt(cells[8].cells[3 + i].innerHTML, 10) > 0) {
                     cells[8].cells[3 + i].style.backgroundColor = '#ff5c5c8c';
                     cells[8].cells[3 + i].style.color = 'black';
                 }
-                if (parseInt(cells[8].cells[3 + i].innerHTML, 10) >= 60) {
-                    cells[8].cells[3 + i].style.backgroundColor = '#ffff005c';
-                    cells[8].cells[3 + i].style.color = 'black';
-                }
-                if (parseInt(cells[8].cells[3 + i].innerHTML, 10) >= 80) {
+                if (parseInt(cells[8].cells[3 + i].innerHTML, 10) <= 0) {
                     cells[8].cells[3 + i].style.backgroundColor = '#71d98c8c';
                     cells[8].cells[3 + i].style.color = 'black';
                 }
@@ -896,15 +929,11 @@
                     cells[9].cells[3 + i].style.borderRightColor = '#6b8cb0';
                     cells[9].cells[3 + i].style.borderRightWidth = 'thick';
                 }
-                if (parseInt(cells[10].cells[3 + i].innerHTML, 10) < 60) {
+                if (parseInt(cells[10].cells[3 + i].innerHTML, 10) > 0) {
                     cells[10].cells[3 + i].style.backgroundColor = '#ff5c5c8c';
                     cells[10].cells[3 + i].style.color = 'black';
                 }
-                if (parseInt(cells[10].cells[3 + i].innerHTML, 10) >= 60) {
-                    cells[10].cells[3 + i].style.backgroundColor = '#ffff005c';
-                    cells[10].cells[3 + i].style.color = 'black';
-                }
-                if (parseInt(cells[10].cells[3 + i].innerHTML, 10) >= 80) {
+                if (parseInt(cells[10].cells[3 + i].innerHTML, 10) <= 0) {
                     cells[10].cells[3 + i].style.backgroundColor = '#71d98c8c';
                     cells[10].cells[3 + i].style.color = 'black';
                 }
@@ -912,15 +941,11 @@
                     cells[10].cells[3 + i].style.borderRightColor = '#6b8cb0';
                     cells[10].cells[3 + i].style.borderRightWidth = 'thick';
                 }
-                if (parseInt(cells[11].cells[3 + i].innerHTML, 10) < 60) {
+                if (parseInt(cells[11].cells[3 + i].innerHTML, 10) > 0) {
                     cells[11].cells[3 + i].style.backgroundColor = '#ff5c5c8c';
                     cells[11].cells[3 + i].style.color = 'black';
                 }
-                if (parseInt(cells[11].cells[3 + i].innerHTML, 10) >= 60) {
-                    cells[11].cells[3 + i].style.backgroundColor = '#ffff005c';
-                    cells[11].cells[3 + i].style.color = 'black';
-                }
-                if (parseInt(cells[11].cells[3 + i].innerHTML, 10) >= 80) {
+                if (parseInt(cells[11].cells[3 + i].innerHTML, 10) <= 0) {
                     cells[11].cells[3 + i].style.backgroundColor = '#71d98c8c';
                     cells[11].cells[3 + i].style.color = 'black';
                 }
@@ -928,15 +953,11 @@
                     cells[11].cells[3 + i].style.borderRightColor = '#6b8cb0';
                     cells[11].cells[3 + i].style.borderRightWidth = 'thick';
                 }
-                if (parseInt(cells[12].cells[3 + i].innerHTML, 10) < 60) {
+                if (parseInt(cells[12].cells[3 + i].innerHTML, 10) > 0) {
                     cells[12].cells[3 + i].style.backgroundColor = '#ff5c5c8c';
                     cells[12].cells[3 + i].style.color = 'black';
                 }
-                if (parseInt(cells[12].cells[3 + i].innerHTML, 10) >= 60) {
-                    cells[12].cells[3 + i].style.backgroundColor = '#ffff005c';
-                    cells[12].cells[3 + i].style.color = 'black';
-                }
-                if (parseInt(cells[12].cells[3 + i].innerHTML, 10) >= 80) {
+                if (parseInt(cells[12].cells[3 + i].innerHTML, 10) <= 0) {
                     cells[12].cells[3 + i].style.backgroundColor = '#71d98c8c';
                     cells[12].cells[3 + i].style.color = 'black';
                 }
@@ -944,11 +965,15 @@
                     cells[12].cells[3 + i].style.borderRightColor = '#6b8cb0';
                     cells[12].cells[3 + i].style.borderRightWidth = 'thick';
                 }
-                if (parseInt(cells[13].cells[3 + i].innerHTML, 10) > 0) {
+                if (parseInt(cells[13].cells[3 + i].innerHTML, 10) < 70) {
                     cells[13].cells[3 + i].style.backgroundColor = '#ff5c5c8c';
                     cells[13].cells[3 + i].style.color = 'black';
                 }
-                if (parseInt(cells[13].cells[3 + i].innerHTML, 10) <= 0) {
+                if (parseInt(cells[13].cells[3 + i].innerHTML, 10) >= 70) {
+                    cells[13].cells[3 + i].style.backgroundColor = '#ffff005c';
+                    cells[13].cells[3 + i].style.color = 'black';
+                }
+                if (parseInt(cells[13].cells[3 + i].innerHTML, 10) >= 90) {
                     cells[13].cells[3 + i].style.backgroundColor = '#71d98c8c';
                     cells[13].cells[3 + i].style.color = 'black';
                 }
@@ -972,15 +997,15 @@
                     cells[14].cells[3 + i].style.borderRightColor = '#6b8cb0';
                     cells[14].cells[3 + i].style.borderRightWidth = 'thick';
                 }
-                if (parseInt(cells[15].cells[3 + i].innerHTML, 10) >= 2) {
+                if (parseInt(cells[15].cells[3 + i].innerHTML, 10) * 1000 > 21000) {
                     cells[15].cells[3 + i].style.backgroundColor = '#ff5c5c8c';
                     cells[15].cells[3 + i].style.color = 'black';
                 }
-                if (parseInt(cells[15].cells[3 + i].innerHTML, 10) >= 1) {
+                if (parseInt(cells[15].cells[3 + i].innerHTML, 10) * 1000 <= 21000) {
                     cells[15].cells[3 + i].style.backgroundColor = '#ffff005c';
                     cells[15].cells[3 + i].style.color = 'black';
                 }
-                if (parseInt(cells[15].cells[3 + i].innerHTML, 10) <= 0) {
+                if (parseInt(cells[15].cells[3 + i].innerHTML, 10) * 1000 <= 16769) {
                     cells[15].cells[3 + i].style.backgroundColor = '#71d98c8c';
                     cells[15].cells[3 + i].style.color = 'black';
                 }
@@ -988,11 +1013,11 @@
                     cells[15].cells[3 + i].style.borderRightColor = '#6b8cb0';
                     cells[15].cells[3 + i].style.borderRightWidth = 'thick';
                 }
-                if (parseInt(cells[16].cells[3 + i].innerHTML, 10) > 0) {
+                if (parseInt(cells[16].cells[3 + i].innerHTML, 10) < 100) {
                     cells[16].cells[3 + i].style.backgroundColor = '#ff5c5c8c';
                     cells[16].cells[3 + i].style.color = 'black';
                 }
-                if (parseInt(cells[16].cells[3 + i].innerHTML, 10) <= 0) {
+                if (parseInt(cells[16].cells[3 + i].innerHTML, 10) >= 100) {
                     cells[16].cells[3 + i].style.backgroundColor = '#71d98c8c';
                     cells[16].cells[3 + i].style.color = 'black';
                 }
@@ -1012,97 +1037,17 @@
                     cells[17].cells[3 + i].style.borderRightColor = '#6b8cb0';
                     cells[17].cells[3 + i].style.borderRightWidth = 'thick';
                 }
-                if (parseInt(cells[18].cells[3 + i].innerHTML, 10) > 0) {
+                if (parseInt(cells[18].cells[3 + i].innerHTML, 10) < 100) {
                     cells[18].cells[3 + i].style.backgroundColor = '#ff5c5c8c';
                     cells[18].cells[3 + i].style.color = 'black';
                 }
-                if (parseInt(cells[18].cells[3 + i].innerHTML, 10) <= 0) {
+                if (parseInt(cells[18].cells[3 + i].innerHTML, 10) >= 100) {
                     cells[18].cells[3 + i].style.backgroundColor = '#71d98c8c';
                     cells[18].cells[3 + i].style.color = 'black';
                 }
                 if ((i + 1) == month) {
                     cells[18].cells[3 + i].style.borderRightColor = '#6b8cb0';
                     cells[18].cells[3 + i].style.borderRightWidth = 'thick';
-                }
-                if (parseInt(cells[19].cells[3 + i].innerHTML, 10) < 100) {
-                    cells[19].cells[3 + i].style.backgroundColor = '#ff5c5c8c';
-                    cells[19].cells[3 + i].style.color = 'black';
-                }
-                if (parseInt(cells[19].cells[3 + i].innerHTML, 10) >= 100) {
-                    cells[19].cells[3 + i].style.backgroundColor = '#71d98c8c';
-                    cells[19].cells[3 + i].style.color = 'black';
-                }
-                if ((i + 1) == month) {
-                    cells[19].cells[3 + i].style.borderRightColor = '#6b8cb0';
-                    cells[19].cells[3 + i].style.borderRightWidth = 'thick';
-                }
-                if (parseInt(cells[20].cells[3 + i].innerHTML, 10) < 100) {
-                    cells[20].cells[3 + i].style.backgroundColor = '#ff5c5c8c';
-                    cells[20].cells[3 + i].style.color = 'black';
-                }
-                if (parseInt(cells[20].cells[3 + i].innerHTML, 10) >= 100) {
-                    cells[20].cells[3 + i].style.backgroundColor = '#71d98c8c';
-                    cells[20].cells[3 + i].style.color = 'black';
-                }
-                if ((i + 1) == month) {
-                    cells[20].cells[3 + i].style.borderRightColor = '#6b8cb0';
-                    cells[20].cells[3 + i].style.borderRightWidth = 'thick';
-                }
-                if (parseInt(cells[21].cells[3 + i].innerHTML, 10) > 0) {
-                    cells[21].cells[3 + i].style.backgroundColor = '#ff5c5c8c';
-                    cells[21].cells[3 + i].style.color = 'black';
-                }
-                if (parseInt(cells[21].cells[3 + i].innerHTML, 10) <= 0) {
-                    cells[21].cells[3 + i].style.backgroundColor = '#71d98c8c';
-                    cells[21].cells[3 + i].style.color = 'black';
-                }
-                if ((i + 1) == month) {
-                    cells[21].cells[3 + i].style.borderRightColor = '#6b8cb0';
-                    cells[21].cells[3 + i].style.borderRightWidth = 'thick';
-                }
-                if (parseInt(cells[22].cells[3 + i].innerHTML, 10) * 1000 > 21000) {
-                    cells[22].cells[3 + i].style.backgroundColor = '#ff5c5c8c';
-                    cells[22].cells[3 + i].style.color = 'black';
-                }
-                if (parseInt(cells[22].cells[3 + i].innerHTML, 10) * 1000 <= 21000) {
-                    cells[22].cells[3 + i].style.backgroundColor = '#ffff005c';
-                    cells[22].cells[3 + i].style.color = 'black';
-                }
-                if (parseInt(cells[22].cells[3 + i].innerHTML, 10) * 1000 <= 16769) {
-                    cells[22].cells[3 + i].style.backgroundColor = '#71d98c8c';
-                    cells[22].cells[3 + i].style.color = 'black';
-                }
-                if ((i + 1) == month) {
-                    cells[22].cells[3 + i].style.borderRightColor = '#6b8cb0';
-                    cells[22].cells[3 + i].style.borderRightWidth = 'thick';
-                }
-                if (parseInt(cells[23].cells[3 + i].innerHTML, 10) < 20) {
-                    cells[23].cells[3 + i].style.backgroundColor = '#ff5c5c8c';
-                    cells[23].cells[3 + i].style.color = 'black';
-                }
-                if (parseInt(cells[23].cells[3 + i].innerHTML, 10) >= 20) {
-                    cells[23].cells[3 + i].style.backgroundColor = '#ffff005c';
-                    cells[23].cells[3 + i].style.color = 'black';
-                }
-                if (parseInt(cells[23].cells[3 + i].innerHTML, 10) >= 96) {
-                    cells[23].cells[3 + i].style.backgroundColor = '#71d98c8c';
-                    cells[23].cells[3 + i].style.color = 'black';
-                }
-                if ((i + 1) == month) {
-                    cells[23].cells[3 + i].style.borderRightColor = '#6b8cb0';
-                    cells[23].cells[3 + i].style.borderRightWidth = 'thick';
-                }
-                if (parseInt(cells[24].cells[3 + i].innerHTML, 10) < 98) {
-                    cells[24].cells[3 + i].style.backgroundColor = '#ff5c5c8c';
-                    cells[24].cells[3 + i].style.color = 'black';
-                }
-                if (parseInt(cells[24].cells[3 + i].innerHTML, 10) >= 100) {
-                    cells[24].cells[3 + i].style.backgroundColor = '#71d98c8c';
-                    cells[24].cells[3 + i].style.color = 'black';
-                }
-                if ((i + 1) == month) {
-                    cells[24].cells[3 + i].style.borderRightColor = '#6b8cb0';
-                    cells[24].cells[3 + i].style.borderRightWidth = 'thick';
                 }
             }
         }

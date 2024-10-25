@@ -18,7 +18,7 @@
             </div>
             <div class="x_content">
                 <div class="form-group col-md-4">
-                    @Html.DisplayNameFor(model => model.Originator)
+                    @Html.LabelFor(model => model.Originator, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
                         @Html.EditorFor(model => model.Originator, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
                     </div>
@@ -53,56 +53,87 @@
                         @Html.EditorFor(model => model.Reason.Reason, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
                     </div>
                 </div>
-                <div class="form-group col-md-8">
+                <div class="form-group col-md-4">
                     @Html.LabelFor(model => model.PartNumber, htmlAttributes: new { @class = "control-label col-md-2", @readonly = "readonly" })
-                    <div class="col-md-8">
+                    <div class="col-md-10">
                         @Html.EditorFor(model => model.PartNumber, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
                     </div>
                 </div>
                 <div class="form-group col-md-4">
-                    @Html.LabelFor(model => model.RevLevel, htmlAttributes: new { @class = "control-label col-md-2", @readonly = "readonly" })
-                    <div class="col-md-8">
-                        @Html.EditorFor(model => model.RevLevel, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                    @Html.LabelFor(model => model.PartName, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.PartName, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
                     </div>
                 </div>
-                <div class="form-group col-md-12">
-                    @Html.LabelFor(model => model.PartName, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-8">
-                        @Html.EditorFor(model => model.PartName, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                <div class="form-group col-md-4">
+                    @Html.Label("Equipo", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <input type="text" class="form-control" value="@ViewBag.Equipo" readonly="readonly" />
+                    </div>
+                </div>
+                <div class="form-group col-md-4">
+                    @Html.LabelFor(model => model.RevLevel, htmlAttributes: new { @class = "control-label col-md-2", @readonly = "readonly" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.RevLevel, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-md-8">
             <div class="x_panel clearfix">
-                <div class="x_title  clearfix">
-                    <h3>Description of Change <small> PCR</small></h3>
+                <div class="x_title clearfix">
+                    <h3>Description of Change <small>PCR</small></h3>
                 </div>
                 <div class="x_content">
+
+                    <!-- CurrentCondition Field -->
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.CurrentCondition, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextAreaFor(model => model.CurrentCondition, 8, 20, new { @class = "form-control", @readonly = "readonly" })
+                        </div>
+                    </div>
+
+                    <!-- NewCondition Field -->
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.NewCondition, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextAreaFor(model => model.NewCondition, 8, 20, new { @class = "form-control", @readonly = "readonly" })
+                        </div>
+                    </div>
+
+                    <!-- docreason Field -->
                     <div class="form-group">
                         @Html.LabelFor(model => model.docreason, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.TextAreaFor(model => model.docreason, 12, 20, new { @class = "form-control", @readonly = "readonly" })
+                            @Html.TextAreaFor(model => model.docreason, 8, 20, new { @class = "form-control", @readonly = "readonly" })
                         </div>
                     </div>
+
+                    <!-- docscope Field -->
                     <div class="form-group">
                         @Html.LabelFor(model => model.docscope, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.TextAreaFor(model => model.docscope, 22, 20, new { @class = "form-control", @readonly = "readonly" })
+                            @Html.TextAreaFor(model => model.docscope, 8, 20, new { @class = "form-control", @readonly = "readonly" })
                         </div>
                     </div>
+
+                    <!-- MatrizDecisionID Field -->
                     <div class="form-group">
                         @Html.LabelFor(model => model.MatrizDecisionID, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
                             @Html.EditorFor(model => model.MatrizDecision.TipoCambio, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
                         </div>
                     </div>
+
+                    <!-- Risk Field -->
                     <div class="form-group">
                         @Html.Label("Risk (1-Low, 2-Med, >3-High)", htmlAttributes: new { @class = "control-label col-md-4" })
                         <div class="col-md-4">
                             @Html.TextBox("0", null, htmlAttributes: new { @class = "form-control", @id = "Risk", @readonly = "readonly" })
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -194,6 +225,20 @@
                         @Html.LabelFor(model => model.crcapacitysupplier, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
                             @Html.EditorFor(model => model.crcapacitysupplier, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.BuildOut, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.BuildOut, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <label>
+                                Customer Approval Required?
+                                @Html.DisplayFor(model => model.CustomerApprovalRequired)
+                            </label>
                         </div>
                     </div>
                 </div>
@@ -390,7 +435,7 @@
                 <div class="x_title clearfix">
                     <h3>Estimated Lead Time <small> PCR (Semanas)</small></h3>
                 </div>
-                <div class="x_content" style="min-height: 436px">
+                <div class="x_content" style="min-height: 410px">
                     <div class="form-group">
                         @Html.LabelFor(model => model.leadtime_engineering, htmlAttributes: new { @class = "control-label col-md-3" })
                         <div class="col-md-8">
@@ -637,7 +682,7 @@
                     </div>
                     <div class="form-group">
                         @Html.LabelFor(model => model.FRisk8, htmlAttributes: new { @class = "control-label col-md-10" })
-                        <div class="col-md-2">
+                        <div class="col-md-1">
                             @Html.EditorFor(model => model.FRisk8, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
                             <label id="FRiskstring8"> </label>
                         </div>

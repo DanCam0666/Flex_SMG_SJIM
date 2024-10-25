@@ -16,6 +16,8 @@ namespace Flex_SGM
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-        }
+			// Disable optimizations for debugging purposes
+			BundleTable.EnableOptimizations = false;
+		}
     }
 }

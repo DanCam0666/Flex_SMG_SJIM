@@ -24,26 +24,30 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Clientes.Cliente)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Proyecto)
-        </td>
-        <td>
-            @if (ViewBag.super == true)
-            {
-                @Html.ActionLink("Editar", "Edit", new { id = item.ID })
-            } |
-            @Html.ActionLink("Detalles", "Details", new { id = item.ID }) |
-            @if (ViewBag.super == true)
-            {
-                @Html.ActionLink("Eliminar", "Delete", new { id = item.ID })
-            }
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Clientes.Cliente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Proyecto)
+            </td>
+            <td>
+                @if (ViewBag.super == true)
+                {
+                    @Html.ActionLink("Editar", "Edit", new { id = item.ID })
+                } |
+                @Html.ActionLink("Detalles", "Details", new { id = item.ID }) |
+                @if (ViewBag.super == true)
+                {
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.ID })
+                }
+            </td>
+        </tr>
+    }
 
 </table>
+<h4>
+    @Html.ActionLink("Menú PCR", "../Ingenieria/Index")
+</h4>

@@ -31,12 +31,12 @@
         format: "dd/mm/yyyy"
     });
 
-   // https://jqueryvalidation.org/jQuery.validator.addMethod/
-   /* $.validator.addMethod('date',
-        function (value, element, params) {
-            return true;
-        }
-    );*/
+    //https://jqueryvalidation.org/jQuery.validator.addMethod/
+    //$.validator.addMethod('date',
+    //    function (value, element, params) {
+    //        return true;
+    //    }
+    //);
 
 });
 

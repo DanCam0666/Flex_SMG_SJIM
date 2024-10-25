@@ -124,7 +124,7 @@ namespace Flex_SGM.Controllers
                 return View(allUser);
             }
         }
-        public async Task<ActionResult> Profile(ManageMessageId? message,string name="name")
+        public new async Task<ActionResult> Profile(ManageMessageId? message,string name="name")
         {
 
             ApplicationUser exteUser = await UserManager.FindByNameAsync(name);

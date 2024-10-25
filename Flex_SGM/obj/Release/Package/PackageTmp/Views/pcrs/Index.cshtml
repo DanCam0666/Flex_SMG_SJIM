@@ -10,7 +10,7 @@
 <h4>
     @Html.ActionLink("Crear Nuevo", "Create")
 </h4>
-<table class="tabled table-bordered table-striped" style="width:100%">
+<table class="tabled table-bordered table-striped" style="width:99%">
     <thead>
         <tr>
             <th style="min-width: 80px">
@@ -62,7 +62,7 @@
                 <td>
                     @Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn-sm  btn-primary" })
                     @Html.ActionLink("Firmas", "Signatures", new { id = item.ID }, new { @class = "btn-sm btn-primary" })<br /><br />
-                    @if (ViewBag.Admin)
+                    @if (ViewBag.Admin || item.Originator == ViewBag.cUser || item.Status != "Rechazado")
                     {
                         bool support = false;
                         if (ViewBag.Puesto == "Gerente")
@@ -87,7 +87,7 @@
                                 support = true;
                             }
                         }
-                        if (ViewBag.cUser.Contains("Zaideth") || ViewBag.cUser.Contains("Larriva"))
+                        if (ViewBag.cUser.Contains("Vianney") || ViewBag.cUser.Contains("Larriva") && item.Status != "Rechazado")
                         {
                             @Html.ActionLink("Exportar", "ExportFormat", new { id = item.ID }, new { @class = "btn-sm btn-default" })
                         }
@@ -96,7 +96,7 @@
                         {
                             @Html.ActionLink("Revisión", "Review", new { id = item.ID }, new { @class = "btn-sm btn-success" })<br /><br />
                         }
-                        if (item.Originator == ViewBag.cUser)
+                        if (item.Originator == ViewBag.cUser && item.Status != "Rechazado")
                         {
                             @Html.ActionLink("Editar", "Edit", new { id = item.ID }, new { @class = "btn-sm btn-warning" })
                         }
@@ -183,10 +183,19 @@
                 }],
                 labels: [
                     'Ambiental', 'Calidad', 'Compras',
-                    'Finanzas', 'Mantenimiento', 'Materiales', 'Produccion', 'Seguridad', 'Tooling'
+                    'Finanzas', 'Mantenimiento', 'Materiales',
+                    'Produccion', 'Seguridad', 'Tooling'
                 ],
             },
             options: {
+                datalabels: {
+                    anchor: 'center', 
+                    align: 'center',  
+                    color: '#000',    
+                    font: {
+                        weight: 'bold'
+                    }
+                },
                 legend: {
                     labels: {
                         fontSize: 16
@@ -196,6 +205,11 @@
                     xAxes: [{
                         ticks: {
                             fontSize: 16
+                        }
+                    }],
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true // Ensure the scale starts at zero
                         }
                     }]
                 }

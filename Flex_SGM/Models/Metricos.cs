@@ -103,8 +103,9 @@ namespace Flex_SGM.Models
     public class MetricsNew
     {
         public string TiempoLabel { get; set; }
-        public int Amef { get; set; }
-        public int BiBo { get; set; }
+		public int Amef_N1_N4 { get; set; }
+		public int Amef_N2_N3 { get; set; }
+		public int BiBo { get; set; }
         public int Caps { get; set; }
         public int CapNum { get; set; }
         public int CapPer { get; set; }
@@ -114,31 +115,27 @@ namespace Flex_SGM.Models
         public int CuSc { get; set; }
         public int Ecn { get; set; }
         public int LaOu { get; set; }
-        public int Lpa { get; set; }
-        public int PaPo { get; set; }
+		public int Lpa { get; set; }
+		public int MdrPer { get; set; }
+		public int MdrCnt { get; set; }
+		public int PaPo { get; set; }
         public int PaDe { get; set; }
         public int Plm { get; set; }
         public int QuHs { get; set; }
         public int RrCnt { get; set; }
         public int RrSum { get; set; }
         public int ReRa { get; set; }
-        public int Safe { get; set; }
+        public int HiFi { get; set; }
         [DataType(DataType.Currency)]
         public int ScCo { get; set; }
-        public int Toc { get; set; }
+        public int Vacas { get; set; }
         public int YeSh { get; set; }
         public int WrkStd { get; set; }
         public int Accnt { get; set; }
         public int ConImp { get; set; }
         public int CstFcs { get; set; }
         public int Sustan { get; set; }
-        public int Ford { get; set; }
-        public int Ford_APQP { get; set; }
-        public int GM { get; set; }
-        public int Mopar { get; set; }
-        public int Nissan { get; set; }
-        public int Stellantis { get; set; }
-        public int Toyota { get; set; }
-        public int VW { get; set; }
+        public int PPAPsPer { get; set; }
+        public int PPAPsCnt { get; set; }
     }
 }

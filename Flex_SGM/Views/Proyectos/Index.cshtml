@@ -6,90 +6,180 @@
 
 <h2>Calendario</h2>
 
-<script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+<!-- Required Scripts -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+
+<!-- DateTime Picker -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+
+<!-- Calendar Styles -->
+<link href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.4.0/core/main.min.css' rel='stylesheet' />
+<link href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.4.0/daygrid/main.min.css' rel='stylesheet' />
+<link href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.4.0/timegrid/main.min.css' rel='stylesheet' />
+
+<!-- Calendar Scripts -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.4.0/core/main.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.4.0/daygrid/main.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.4.0/interaction/main.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.4.0/timegrid/main.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.4.0/list/main.min.js'></script>
 
 <style>
+    .fc .fc-event {
+        position: relative !important;
+        overflow: visible !important;
+    }
+
+        .fc .fc-event .custom-tooltip {
+            position: absolute !important;
+            background: rgba(33, 37, 41, 0.95) !important;
+            color: #ffffff !important;
+            padding: 6px 12px !important;
+            border-radius: 6px !important;
+            font-size: 13px !important;
+            z-index: 99999 !important;
+            bottom: 100% !important; /* Changed to bottom: 100% */
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2) !important;
+            border: none !important;
+            font-weight: normal !important;
+            width: 200px !important;
+            white-space: normal !important;
+            word-wrap: break-word !important;
+            min-height: auto !important;
+            max-width: 200px !important;
+            text-align: center !important;
+            margin-bottom: 5px !important; /* Space between tooltip and event */
+            pointer-events: none !important; /* Ensures tooltip doesn't interfere with clicks */
+        }
+
+            /* Optional: Add a small arrow at the bottom of tooltip */
+            .fc .fc-event .custom-tooltip::after {
+                content: '' !important;
+                position: absolute !important;
+                bottom: -5px !important;
+                left: 50% !important;
+                transform: translateX(-50%) !important;
+                width: 0 !important;
+                height: 0 !important;
+                border-left: 5px solid transparent !important;
+                border-right: 5px solid transparent !important;
+                border-top: 5px solid rgba(33, 37, 41, 0.95) !important;
+            }
+
     .fc-toolbar {
         text-transform: capitalize;
     }
- </style>
+
+    #myModal, #myModalSave {
+        z-index: 1051 !important; /* Increased by 1 */
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
+    .modal-backdrop {
+        z-index: 1050 !important;
+    }
+    .modal-dialog {
+        margin-top: 200px;
+    }
+</style>
 
 <div class="col-xs-12 clearfix">
     <div class="x_panel cbg col-xs-6">
-        <div id='calender'></div>
+        <div id='calendar'></div>
     </div>
 </div>
-<div id="myModal" class="modal fade clearfix" role="dialog">
-    <center>
-        <div class="x_panel cbg" style="width: 30%">
+
+<!-- Event Details Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="x_panel cbg">
             <div class="x_title">
                 <h2>Detalles del Evento</h2>
             </div>
-            <div class="x_content" style="text-align: left">
+            <div class="x_content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h3 class="modal-title"><span id="eventTitle"></span></h3>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
-                    <p id="pDetails"></p>
+                    <div class="form-group">
+                        <label><strong>Título:</strong></label>
+                        <p id="modalTitle"></p>
+                    </div>
+                    <div class="form-group">
+                        <label><strong>Fecha Inicio:</strong></label>
+                        <p id="modalStart"></p>
+                    </div>
+                    <div class="form-group">
+                        <label><strong>Fecha Fin:</strong></label>
+                        <p id="modalEnd"></p>
+                    </div>
+                    <div class="form-group">
+                        <label><strong>Descripción:</strong></label>
+                        <p id="pDetails"></p>
+                    </div>
+                    <div class="form-group">
+                        <label><strong>Color:</strong></label>
+                        <p id="modalColor"></p>
+                    </div>
                 </div>
                 <div class="modal-footer">
-                    <button id="btnDelete" class="btn btn-default pull-right">
+                    <button id="btnDelete" class="btn btn-default">
                         <span class="glyphicon glyphicon-remove"></span> Eliminar
                     </button>
-                    <button id="btnEdit" class="btn btn-default pull-right" style="margin-right:5px;">
+                    <button id="btnEdit" class="btn btn-default">
                         <span class="glyphicon glyphicon-pencil"></span> Editar
                     </button>
-                    <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-default btnClose" data-dismiss="modal">Cerrar</button>
                 </div>
             </div>
         </div>
-    </center>
+    </div>
 </div>
-<div id="myModalSave" class="modal fade clearfix" role="dialog">
-    <center>
-        <div class="x_panel cbg" style="width: 30%">
-            <div class="x_title">
-                <h2>Editar el Evento</h2>
+
+<!-- Save Modal -->
+<div id="myModalSave" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Agregar/Editar Evento</h2>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
-            <div class="x_content" style="text-align: left">
-                <div class="modal-body">
-                    <form class="col-md-12 form-horizontal">
-                        <input type="hidden" id="hdEventID" value="0" />
-                        <div class="form-group">
-                            <label>Titulo</label>
-                            <input type="text" id="txtSubject" class="form-control" />
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <input type="hidden" id="hdEventID" value="0" />
+                    <div class="form-row mb-3">
+                        <div class="col-md-12">
+                            <label for="txtSubject"><b>Titulo del Evento</b></label>
+                            <input type="text" id="txtSubject" class="form-control" placeholder="Ingresa el titulo del evento" />
                         </div>
-                        <div class="form-group">
-                            <label>Dia Inicio</label>
-                            <div class="input-group datetime" id="dtp1">
-                                <input type="text" id="txtStart" class="form-control" />
-                                <span class="input-group-addon glyphicon glyphicon-calendar"></span>
-                            </div>
+                    </div>
+                    <div class="form-row mb-3">
+                        <div class="col-md-6">
+                            <label for="txtStart"><b>Dia Inicio</b></label>
+                            <input type="text" id="txtStart" class="form-control" placeholder="Fecha de inicio" />
                         </div>
-                        <div class="form-group">
-                            <label>Dia Final</label>
-                            <div class="input-group datetime" id="dtp2">
-                                <input type="text" id="txtEnd" class="form-control" />
-                                <span class="input-group-addon glyphicon glyphicon-calendar"></span>
-                            </div>
+                        <div class="col-md-6">
+                            <label for="txtEnd"><b>Dia Final</b></label>
+                            <input type="text" id="txtEnd" class="form-control" placeholder="Fecha de fin" />
                         </div>
-                        <div class="row">
-                            <script type="text/javascript">
-                                $(function () {
-                                    $('#dtp1,#dtp2').datetimepicker({
-                                        format: 'DD/MM/YYYY HH:mm A',
-                                        locale: "es"
-                                    });
-                                });
-                            </script>
+                    </div>
+                    <div class="form-row mb-3">
+                        <div class="col-md-12">
+                            <label for="txtDescription"><b>Descripcion</b></label>
+                            <textarea id="txtDescription" rows="3" class="form-control" placeholder="Describe el evento"></textarea>
                         </div>
-                        <div class="form-group">
-                            <label>Minutos / Notas</label>
-                            <textarea id="txtDescription" rows="3" class="form-control"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label>Color del Evento</label>
+                    </div>
+                    <div class="form-row mb-3">
+                        <div class="col-md-6">
+                            <label for="ddThemeColor"><b>Color del Evento</b></label>
                             <select id="ddThemeColor" class="form-control">
                                 <option value="">Por defecto</option>
                                 <option value="blue">Azul</option>
@@ -101,303 +191,289 @@
                                 <option value="green">Verde</option>
                             </select>
                         </div>
-                        <button type="button" id="btnSave" class="btn btn-success">Guardar</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                    </form>
-                </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btnSave" class="btn btn-success">Guardar</button>
+                <button type="button" class="btn btn-default btnClose" data-dismiss="modal">Cerrar</button>
             </div>
         </div>
-    </center>
+    </div>
 </div>
 
 @section Scripts {
     <script>
         $(document).ready(function () {
-            var calendarEl = document.getElementById('calender');
+            var events = [];
+            var selectedEvent = null;
+            var calendarEl = document.getElementById('calendar');
+
+            function resetModalFields(date) {
+                $('#hdEventID').val('0');
+                $('#txtSubject').val('');
+                $('#txtDescription').val('');
+                $('#ddThemeColor').val('');
+
+                if (date) {
+                    var startDate = moment(date).format('DD/MM/YYYY HH:mm');
+                    var endDate = moment(date).add(1, 'hours').format('DD/MM/YYYY HH:mm');
+                    $('#txtStart').val(startDate);
+                    $('#txtEnd').val(endDate);
+                }
+            }
+
+            function initializeDateTimePickers(date) {
+                if ($('#txtStart').data('datetimepicker')) {
+                    $('#txtStart').datetimepicker('destroy');
+                }
+                if ($('#txtEnd').data('datetimepicker')) {
+                    $('#txtEnd').datetimepicker('destroy');
+                }
+
+                $('#txtStart').datetimepicker({
+                    format: 'DD/MM/YYYY HH:mm',
+                    defaultDate: date,
+                    stepping: 15,
+                    sideBySide: true,
+                });
+
+                $('#txtEnd').datetimepicker({
+                    format: 'DD/MM/YYYY HH:mm',
+                    defaultDate: moment(date).add(1, 'hours').toDate(),
+                    stepping: 15,
+                    sideBySide: true,
+                });
+
+                $("#txtStart").on("dp.change", function (e) {
+                    $('#txtEnd').data("DateTimePicker").minDate(e.date);
+                });
+                $("#txtEnd").on("dp.change", function (e) {
+                    $('#txtStart').data("DateTimePicker").maxDate(e.date);
+                });
+            }
+
+            function validateForm() {
+                if ($('#txtSubject').val().trim() === "") {
+                    alert('Titulo Requerido');
+                    return false;
+                }
+                if ($('#txtStart').val().trim() === "") {
+                    alert('Dia Inicial Requerido');
+                    return false;
+                }
+
+                var startDate = moment($('#txtStart').val(), 'DD/MM/YYYY HH:mm').toDate();
+                var endDate = moment($('#txtEnd').val(), 'DD/MM/YYYY HH:mm').toDate();
+
+                if (startDate > endDate) {
+                    alert('Dia Invalido');
+                    return false;
+                }
+                return true;
+            }
+
+            function collectEventData() {
+                return {
+                    EventID: parseInt($('#hdEventID').val()) || 0,
+                    Subject: $('#txtSubject').val().trim(),
+                    Start: moment($('#txtStart').val(), 'DD/MM/YYYY HH:mm').format('YYYY-MM-DD HH:mm:ss'),
+                    End: moment($('#txtEnd').val(), 'DD/MM/YYYY HH:mm').format('YYYY-MM-DD HH:mm:ss'),
+                    Description: $('#txtDescription').val(),
+                    IsFullDay: false,
+                    ThemeColor: $('#ddThemeColor').val() || 'blue'
+                };
+            }
+
+            function SaveEvent(data) {
+                $.ajax({
+                    type: "POST",
+                    url: '/Ingenieria/Proyectos/SaveEvent',
+                    data: data,
+                    success: function (response) {
+                        if (response.status) {
+                            $('#myModalSave').modal('hide');
+                            setTimeout(function () {
+                                calendar.refetchEvents();
+                            }, 500);
+                        } else {
+                            alert('Error al guardar: ' + (response.message || 'Error desconocido'));
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.error('Save error:', error);
+                        alert('Error al guardar el evento');
+                    }
+                });
+            }
+
             var calendar = new FullCalendar.Calendar(calendarEl, {
                 plugins: ['interaction', 'dayGrid', 'timeGrid', 'list'],
                 header: {
                     left: 'prev,next today',
                     center: 'title',
-                    right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek',
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
                 },
-                firstDay: 0,
-                contentHeight: 900,
-                defaultDate: new Date(),
-                locale: 'es',
-                timeFormat: 'h(:mm)a',
-                navLinks: true, // can click day/week names to navigate views
+                initialView: 'dayGridMonth',
+                editable: true,
                 weekNumbers: true,
-                weekNumbersWithinDays: true,
-                weekNumberCalculation: 'ISO',
-                eventLimit: true,
-                eventColor: '#378006',
-                events: events,
-                eventClick: function (calEvent) {
-                    selectedEvent = {
-                        id: calEvent.event.id,
-                        title: calEvent.event.title,
-                        description: calEvent.event.description,
-                        start: moment(calEvent.event.start).format('DD/MM/YYYY HH:mm A'),
-                        end: moment(calEvent.event.end).format('DD/MM/YYYY HH:mm A'),
-                        allDay: calEvent.event.allDay,
-                        color: calEvent.event.color
-                    };
-                    $('#myModal #eventTitle').text(calEvent.event.title);
-                    var $description = $('<div/>');
-                    $description.append($('<p/>').html('<b>Inicio:</b>' + ' ' + moment(calEvent.event.start).format('DD/MM/YYYY HH:mm A')));
-                    $description.append($('<p/>').html('<b>Final:</b>' + ' ' + moment(calEvent.event.end).format('DD/MM/YYYY HH:mm A')));
-                    $description.append($('<p/>').html('<b>Descripcion:</b>' + ' ' + calEvent.event.description));
-                    $('#myModal #pDetails').empty().html($description);
-
-                    $('#myModal').modal();
-                },
-                eventMouseEnter: function (info) {
-                    $(info.el).tooltip({
-                        title: info.event.extendedProps.description,
-                        html: true,
-                        placement: 'top',
-                        trigger: 'hover',
-                        container: 'body',
-                    });
-                },
-                eventAfterRender: function (info) {
-                    $(info.el).tooltip({ title: info.event.extendedProps.description, container: "body" });
-                },
                 selectable: true,
                 selectMirror: true,
-                select: function (arg) {
+                dayMaxEvents: true,
+                height: 900,
+                locale: 'es',
+                navLinks: true,
+                events: function (fetchInfo, successCallback, failureCallback) {
+                    $.ajax({
+                        url: '/Ingenieria/Proyectos/GetEvents',
+                        type: 'GET',
+                        success: function (response) {
+                            var mappedEvents = response.map(function (evt) {
+                                return {
+                                    id: evt.EventID,
+                                    title: evt.Subject,
+                                    extendedProps: {
+                                        description: evt.Description || evt.Subject
+                                    },
+                                    start: moment(evt.Start).toDate(),
+                                    end: moment(evt.End).toDate(),
+                                    color: evt.ThemeColor,
+                                    allDay: evt.IsFullDay,
+                                };
+                            });
+                            successCallback(mappedEvents);
+                        },
+                        error: function (xhr, status, error) {
+                            console.error('Error fetching events:', error);
+                            failureCallback(error);
+                        }
+                    });
+                },
+                dateClick: function (info) {
                     selectedEvent = {
-                        eventID: 0,
+                        id: 0,
                         title: '',
                         description: '',
-                        start: moment(arg.start).format('DD/MM/YYYY HH:mm A'),
-                        end: moment(arg.end).format('DD/MM/YYYY HH:mm A'),
+                        start: info.date,
+                        end: moment(info.date).add(1, 'hours').toDate(),
                         allDay: false,
                         color: ''
                     };
-                    openAddEditForm();
+                    resetModalFields(info.date);
+                    initializeDateTimePickers(info.date);
+                    $('#myModalSave').modal('show');
                 },
-                editable: true,
-                eventDrop: function (event) {
-                    var data = {
-                        EventID: event.event.eventID,
-                        Subject: event.event.title,
-                        Start: moment(event.event.start).format('DD/MM/YYYY HH:mm A'),
-                        End: event.event.end != null ? moment(event.event.end).format('DD/MM/YYYY HH:mm A') : null,
-                        Description: event.event.description,
-                        Color: calEvent.event.color,
-                        IsFullDay: event.event.allDay
+                eventClick: function (info) {
+                    selectedEvent = {
+                        id: info.event.id,
+                        title: info.event.title,
+                        description: info.event.extendedProps.description,
+                        start: info.event.start,
+                        end: info.event.end || moment(info.event.start).add(1, 'hours').toDate(),
+                        color: info.event.backgroundColor
                     };
-                    SaveEvent(data);
+
+                    $('#eventTitle').text(selectedEvent.title);
+                    $('#modalTitle').text(selectedEvent.title);
+                    $('#modalStart').text(moment(selectedEvent.start).format('DD/MM/YYYY HH:mm'));
+                    $('#modalEnd').text(moment(selectedEvent.end).format('DD/MM/YYYY HH:mm'));
+                    $('#pDetails').text(selectedEvent.description || 'No hay descripción');
+                    $('#modalColor').text(selectedEvent.color || 'Default');
+
+                    $('#myModal').modal('show');
+                },
+                eventDidMount: function (info) {
+                    var tooltip = info.event.extendedProps.description || info.event.title;
+
+                    // Remove any existing tooltip
+                    var existingTooltip = info.el.querySelector('.custom-tooltip');
+                    if (existingTooltip) {
+                        existingTooltip.remove();
+                    }
+
+                    // Create tooltip element
+                    var tooltipEl = document.createElement('div');
+                    tooltipEl.classList.add('custom-tooltip');
+                    tooltipEl.style.display = 'none';
+                    tooltipEl.innerHTML = tooltip;
+                    info.el.appendChild(tooltipEl);
+                },
+
+                eventMouseEnter: function (info) {
+                    var tooltipEl = info.el.querySelector('.custom-tooltip');
+                    if (!tooltipEl) {
+                        // Create tooltip if it doesn't exist
+                        var tooltip = info.event.extendedProps.description || info.event.title;
+                        tooltipEl = document.createElement('div');
+                        tooltipEl.classList.add('custom-tooltip');
+                        tooltipEl.innerHTML = tooltip;
+                        info.el.appendChild(tooltipEl);
+                    }
+                    tooltipEl.style.display = 'block';
+                },
+
+                eventMouseLeave: function (info) {
+                    // Hide tooltip
+                    var tooltipEl = info.el.querySelector('.custom-tooltip');
+                    if (tooltipEl) {
+                        tooltipEl.style.display = 'none';
+                    }
                 }
-            })
+            });
 
-            var events = [];
-            var selectedEvent = null;
-            FetchEventAndRenderCalendar();
+            calendar.render();
 
-            function FetchEventAndRenderCalendar() {
-                events = [];
-                $.ajax({
-                    type: "GET",
-                    url: "Proyectos/GetEvents",
-                    success: function (data) {
-                        $.each(data, function (i, v) {
-                            events.push({
-                                id: v.EventID,
-                                title: v.Subject,
-                                description: v.Description,
-                                start: moment(v.Start).toISOString(),
-                                end: v.End != null ? moment(v.End).toISOString() : null,
-                                color: v.ThemeColor,
-                                allDay: v.IsFullDay,
-                                daysOfWeek: v.daysOfWeek,
-                            });
-                        })
-                        GenerateCalender(events);
-                    },
-                    error: function (error) {
-                        alert('Ocurrio un Fallo');
-                    }
-                })
-            }
+            $(document).on('click', '#btnSave', function (e) {
+                e.preventDefault();
+                if (!validateForm()) return;
+                var eventData = collectEventData();
+                SaveEvent(eventData);
+            });
 
-            function GenerateCalender(events) {
-                calendar.destroy();
-                calendar = new FullCalendar.Calendar(calendarEl, {
-                    plugins: ['interaction', 'dayGrid', 'timeGrid', 'list'],
-                    header: {
-                        left: 'prev,next today',
-                        center: 'title',
-                        right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek',
-                    },
-                    firstDay: 0,
-                    contentHeight: 900,
-                    defaultDate: new Date(),
-                    locale: 'es',
-                    timeFormat: 'h(:mm)a',
-                    navLinks: true, // can click day/week names to navigate views
-                    weekNumbers: true,
-                    weekNumbersWithinDays: true,
-                    weekNumberCalculation: 'ISO',
-                    eventLimit: true,
-                    eventColor: '#378006',
-                    events: events,
-                    eventClick: function (calEvent) {
-                        selectedEvent = {
-                            id: calEvent.event.id,
-                            title: calEvent.event.title,
-                            description: calEvent.event.extendedProps.description,
-                            start: moment(calEvent.event.start).format('DD/MM/YYYY HH:mm A'),
-                            end: moment(calEvent.event.end).format('DD/MM/YYYY HH:mm A'),
-                            allDay: calEvent.event.allDay,
-                            color: calEvent.event.color
-                        };
-                        $('#myModal #eventTitle').text(calEvent.event.title);
-                        var $description = $('<div/>');
-                        $description.append($('<p/>').html('<b>Inicio:</b>' + ' ' + moment(calEvent.event.start).format('DD/MM/YYYY HH:mm A')));
-                        $description.append($('<p/>').html('<b>Final:</b>' + ' ' + moment(calEvent.event.end).format('DD/MM/YYYY HH:mm A')));
-                        $description.append($('<p/>').html('<b>Descripcion:</b>' + ' ' + calEvent.event.extendedProps.description));
-                        $('#myModal #pDetails').empty().html($description);
-                        $('#myModal').modal();
-                    },
-                    eventMouseEnter: function (info) {
-                        $(info.el).tooltip({
-                            title: info.event.extendedProps.description,
-                            html: true,
-                            placement: 'top',
-                            trigger: 'hover',
-                            container: 'body',
-                        });
-                    },
-                    eventAfterRender: function (info) {
-                        $(info.el).tooltip({ title: info.event.extendedProps.description, container: "body" });
-                    },
-                    editable: true,
-                    selectable: true,
-                    selectMirror: true,
-                    select: function (arg) {
-                        selectedEvent = {
-                            id: 0,
-                            title: '',
-                            description: '',
-                            start: moment(arg.start).format('DD/MM/YYYY HH:mm A'),
-                            end: moment(arg.end).format('DD/MM/YYYY HH:mm A'),
-                            allDay: false,
-                            color: ''
-                        };
-                        openAddEditForm();
-                    },
-                    eventDrop: function (event) {
-                        var data = {
-                            EventID: event.event.id,
-                            Subject: event.event.title,
-                            Start: moment(event.event.start).format('DD/MM/YYYY HH:mm A'),
-                            End: event.event.end != null ? moment(event.event.end).format('DD/MM/YYYY HH:mm A') : null,
-                            Description: event.event.extendedProps.description,
-                            Color: calEvent.event.color,
-                            IsFullDay: event.event.allDay
-                        };
-                        SaveEvent(data);
-                    }
-                })
-                calendar.render();
-            }
-
-            $('#btnEdit').click(function () {
-                //Open modal dialog for edit event
-                openAddEditForm();
-            })
-
-            $('#btnDelete').click(function () {
-                if (selectedEvent != null && confirm('Estas Seguro?')) {
+            $(document).on('click', '#btnDelete', function () {
+                if (selectedEvent && confirm('¿Estás seguro de eliminar este evento?')) {
                     $.ajax({
                         type: "POST",
-                        url: 'Proyectos/DeleteEvent',
+                        url: '/Ingenieria/Proyectos/DeleteEvent',
                         data: { 'eventID': selectedEvent.id },
-                        success: function (data) {
-                            if (data.status) {
-                                //Refresh the calender
-                                FetchEventAndRenderCalendar();
+                        success: function (response) {
+                            if (response.status) {
                                 $('#myModal').modal('hide');
+                                calendar.refetchEvents();
                             }
                         },
                         error: function () {
-                            alert('Ocurrio un fallo');
+                            alert('Error al eliminar el evento');
                         }
-                    })
+                    });
                 }
-            })
-            $(function () {
-                $('#dtp1').datetimepicker();
-            });
-            $(function () {
-                $('#dtp2').datetimepicker();
-            });
-            $('#dtp1,#dtp2').datetimepicker({
-                format: 'DD/MM/YYYY HH:mm A'
             });
 
-            function openAddEditForm() {
-                if (selectedEvent != null) {
-                    $('#hdEventID').val(selectedEvent.id);
-                    $('#txtSubject').val(selectedEvent.title);
-                    $('#txtStart').val(selectedEvent.start);
-                    $('#txtEnd').val(selectedEvent.end != null ? selectedEvent.end : '');
-                    $('#txtDescription').val(selectedEvent.description);
-                    $('#ddThemeColor').val(selectedEvent.color);
-                }
+            $(document).on('click', '#btnEdit', function () {
+                $('#hdEventID').val(selectedEvent.id);
+                $('#txtSubject').val(selectedEvent.title);
+                $('#txtDescription').val(selectedEvent.description);
+                $('#ddThemeColor').val(selectedEvent.color);
+                initializeDateTimePickers(selectedEvent.start);
                 $('#myModal').modal('hide');
-                $('#myModalSave').modal();
-            }
+                setTimeout(function () {
+                    $('#myModalSave').modal('show');
+                }, 100);
+            });
 
-            $('#btnSave').click(function () {
-                //Validation/
-                if ($('#txtSubject').val().trim() == "") {
-                    alert('Titulo Requerido');
-                    return;
-                }
-                if ($('#txtStart').val().trim() == "") {
-                    alert('Dia Inicial Requerido');
-                    return;
-                }
-                var startDate = moment($('#txtStart').val(), "DD/MM/YYYY HH:mm A").toDate();
-                var endDate = moment($('#txtEnd').val(), "DD/MM/YYYY HH:mm A").toDate();
-                if (startDate > endDate) {
-                    alert('Dia Invalido');
-                    return;
-                }
+            $('#myModalSave').on('shown.bs.modal', function () {
+                $('#txtSubject').focus();
+            });
 
-                var data = {
-                    EventID: $('#hdEventID').val(),
-                    Subject: $('#txtSubject').val().trim(),
-                    Start: $('#txtStart').val().trim(),
-                    End: $('#chkIsFullDay').is(':checked') ? null : $('#txtEnd').val().trim(),
-                    Description: $('#txtDescription').val(),
-                    ThemeColor: $('#ddThemeColor').val(),
-                }
-                SaveEvent(data);
-                // call function for submit data to the server
-            })
+            $('#myModalSave').on('hidden.bs.modal', function () {
+                resetModalFields();
+            });
 
-            function SaveEvent(data) {
-                $.ajax({
-                    type: "POST",
-                    url: 'Proyectos/SaveEvent',
-                    data: data,
-                    success: function (data) {
-                        if (data.status) {
-                            //Refresh the calender
-                            FetchEventAndRenderCalendar();
-                            $('#myModalSave').modal('hide');
-                        }
-                    },
-                    error: function () {
-                        alert('Ocurrio un fallo ');
-                    }
-                })
-            }
-        })
+            $(document).on('click', '.btnClose', function () {
+                $(this).closest('.modal').modal('hide');
+            });
+
+            calendar.refetchEvents();
+        });
     </script>
 }

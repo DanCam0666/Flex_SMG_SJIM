@@ -234,10 +234,8 @@
         </div>
         <div class="col-md-2">
             <h2>Ingeniería</h2>
-            <h4 style="background-color: lightcyan">Ana Zaideth Vazquez Robles</h4>
-            <div class="h5" style="background-color: whitesmoke">Asignadas:   @ViewBag.zVActivos &emsp; Terminadas:  @ViewBag.zVrealizada </div>
-            <h4 style="background-color: lightcyan">Carlos Manuel Carapia Murillo</h4>
-            <div class="h5" style="background-color: whitesmoke">Asignadas:   @ViewBag.cCActivos &emsp; Terminadas:  @ViewBag.cCrealizada </div>
+            <h4 style="background-color: lightcyan">Yolanda Vianney Hurtado Ayala</h4>
+            <div class="h5" style="background-color: whitesmoke">Asignadas:   @ViewBag.vHActivos &emsp; Terminadas:  @ViewBag.vHrealizada </div>
             <h4 style="background-color: lightcyan">Cynthia Veronica Alvarez Figueroa</h4>
             <div class="h5" style="background-color: whitesmoke">Asignadas:   @ViewBag.cAActivos &emsp; Terminadas:  @ViewBag.cArealizada </div>
             <h4 style="background-color: lightcyan">Donato Salazar Jiménez</h4>
@@ -261,26 +259,18 @@
             <div class="h5" style="background-color: whitesmoke">Asignadas:   @ViewBag.aVActivos &emsp; Terminadas:  @ViewBag.aVrealizada </div>
             <h4 style="background-color: lightcyan">Alfredo Olvera Aguilar</h4>
             <div class="h5" style="background-color: whitesmoke">Asignadas:   @ViewBag.aOActivos &emsp; Terminadas:  @ViewBag.aOrealizada </div>
-            <h4 style="background-color: lightcyan">Carlos Rodriguez Grimaldo</h4>
-            <div class="h5" style="background-color: whitesmoke">Asignadas:   @ViewBag.cRActivos &emsp; Terminadas:  @ViewBag.cRrealizada </div>
             <h4 style="background-color: lightcyan">Hector Salomon Bucio</h4>
             <div class="h5" style="background-color: whitesmoke">Asignadas:   @ViewBag.hSActivos &emsp; Terminadas:  @ViewBag.hSrealizada </div>
             <h4 style="background-color: lightcyan">Hipolito Gutierrez Salazar</h4>
             <div class="h5" style="background-color: whitesmoke">Asignadas:   @ViewBag.hGActivos &emsp; Terminadas:  @ViewBag.hGrealizada </div>
             <h4 style="background-color: lightcyan">Ismael Galindo Muñoz</h4>
             <div class="h5" style="background-color: whitesmoke">Asignadas:   @ViewBag.iGActivos &emsp; Terminadas:  @ViewBag.iGrealizada </div>
-            <h4 style="background-color: lightcyan">Joel Quintana Vasquez</h4>
-            <div class="h5" style="background-color: whitesmoke">Asignadas:   @ViewBag.jQActivos &emsp; Terminadas:  @ViewBag.jQrealizada </div>
             <h4 style="background-color: lightcyan">Jose Erasmo Arellano Grimaldo</h4>
             <div class="h5" style="background-color: whitesmoke">Asignadas:   @ViewBag.eAActivos &emsp; Terminadas:  @ViewBag.eArealizada </div>
             <h4 style="background-color: lightcyan">Jose Juan Arvizu Arvizu</h4>
             <div class="h5" style="background-color: whitesmoke">Asignadas:   @ViewBag.jAActivos &emsp; Terminadas:  @ViewBag.jArealizada </div>
             <h4 style="background-color: lightcyan">Juan Antonio Rojas Garcia</h4>
             <div class="h5" style="background-color: whitesmoke">Asignadas:   @ViewBag.aRActivos &emsp; Terminadas:  @ViewBag.aRrealizada </div>
-            <h4 style="background-color: lightcyan">Manuel Jiménez Garcia</h4>
-            <div class="h5" style="background-color: whitesmoke">Asignadas:   @ViewBag.mJActivos &emsp; Terminadas:  @ViewBag.mJrealizada </div>
-            <h4 style="background-color: lightcyan">Vicente Olvera Gonzalez</h4>
-            <div class="h5" style="background-color: whitesmoke">Asignadas:   @ViewBag.vOActivos &emsp; Terminadas:  @ViewBag.vOrealizada </div>
             <h4 style="background-color: lightcyan">Víctor Manuel Bastida Santana</h4>
             <div class="h5" style="background-color: whitesmoke">Asignadas:   @ViewBag.vBActivos &emsp; Terminadas:  @ViewBag.vBrealizada </div>
         </div>
@@ -375,6 +365,77 @@
             }
         });
 
+        function getRandomQuote() {
+            fetch('https://api.allorigins.win/get?url=' + encodeURIComponent('https://zenquotes.io/api/random'))
+                .then(response => response.json())
+                .then(data => {
+                    // Parse the JSON content from the fetched response
+                    let parsedData = JSON.parse(data.contents);
+                    let quote = parsedData[0].q; // Correctly access the quote text
+                    let author = parsedData[0].a; // Correctly access the quote author
+
+                    // Retrieve the quote history from local storage
+                    let quoteHistory = JSON.parse(localStorage.getItem('quoteHistory')) || [];
+                    const maxHistorySize = 5; // Number of recent quotes to remember
+
+                    if (quoteHistory.includes(quote)) {
+                        // If the quote is already in the history, remove it from the array
+                        quoteHistory = quoteHistory.filter(item => item !== quote);
+                    }
+
+                    quoteHistory.push(quote);
+                    if (quoteHistory.length > maxHistorySize) {
+                        quoteHistory.shift();
+                    }
+
+                    // Store the updated quote history in local storage
+                    localStorage.setItem('quoteHistory', JSON.stringify(quoteHistory));
+
+                    var translateURL = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=es&dt=t&q=${encodeURIComponent(quote)}`;
+
+                    fetch(translateURL)
+                        .then(response => response.json())
+                        .then(data => {
+                            var translatedQuote = data[0][0][0];
+                            var notice = PNotify.info({
+                                title: 'Frase del día',
+                                text: translatedQuote + ' - ' + author,
+                                stack: {
+                                    dir1: 'up',
+                                    dir2: 'left',
+                                    firstpos1: 25,
+                                    firstpos2: 25
+                                },
+                                addClass: 'nonblock',
+                                delay: 10000, // 10 seconds
+                            });
+
+                            var noticeElem = notice.refs.elem;
+                            noticeElem.style.borderRadius = '10px !important';
+                            noticeElem.style.backgroundColor = '#F0E68C';
+                            noticeElem.style.boxShadow = '5px 5px 5px #888888';
+                        });
+                })
+                .catch(error => {
+                    console.error('Error fetching quote:', error);
+                    PNotify.error({
+                        title: 'Error',
+                        text: 'Failed to fetch quote: ' + error.message,
+                        stack: {
+                            dir1: 'up',
+                            dir2: 'left',
+                            firstpos1: 25,
+                            firstpos2: 25
+                        },
+                        addClass: 'nonblock',
+                        delay: 10000, // 10 seconds
+                    });
+                });
+        }
+
+        // Call getRandomQuote() when the page loads
+        window.onload = getRandomQuote;
+
         $(document).ready(function () {
 
                 $('[data-toggle="tooltip"]').tooltip();
@@ -400,6 +461,7 @@
                     ]
                 }
             });
+
             //tpms atreas
             var ctx = document.getElementById('chart-area-div');
             var myPieChart = new Chart(ctx, {
@@ -550,7 +612,7 @@
                         orientation: 'landscape',
                         pageSize: 'LEGAL',
                         exportOptions: {
-                        columns: [0, 1, 4, 5, 7, 8, 9, 10, 11, 12, 13]
+                        columns: [0, 1, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
                         },
                     },
                     {
@@ -558,7 +620,7 @@
                         orientation: 'landscape',
                         pageSize: 'LEGAL',
                         exportOptions: {
-                        columns: [0, 1, 4, 5, 7, 8, 9, 10, 11, 12, 13]
+                        columns: [0, 1, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
                         },
                     },
                     {
@@ -566,7 +628,7 @@
                         orientation: 'landscape',
                         pageSize: 'LEGAL',
                         exportOptions: {
-                        columns: [0, 1, 4, 5, 7, 8, 9, 10, 11, 12, 13]
+                        columns: [0, 1, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
                         },
                     },
                     {
@@ -574,7 +636,7 @@
                         orientation: 'landscape',
                         pageSize: 'LEGAL',
                         exportOptions: {
-                        columns: [0, 1, 4, 5, 7, 8, 9, 10, 11, 12, 13]
+                        columns: [0, 1, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
                         },
                     },
                     {
@@ -582,7 +644,7 @@
                         orientation: 'landscape',
                         pageSize: 'LEGAL',
                         exportOptions: {
-                        columns: [0, 1, 4, 5, 7, 8, 9, 10, 11, 12, 13]
+                        columns: [0, 1, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
                         },
                     }
                 ],

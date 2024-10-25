@@ -134,7 +134,7 @@ namespace Flex_SGM.emaildata
                 bodyb.AppendFormat("<p><font size = '3' face = 'arial' color = 'blue'>El usuario {0} genero un PCR!</font></p>", usuario);
                 bodyb.AppendLine(@"<p><font size = '3' face = 'arial'>El numero de PCR es: <b>" + comment + "</b></font></p>");
                 bodyb.AppendLine(@"<p><font size = '3' face = 'arial'>En el siguiente link podras autorizar el PCR:</font></p>");
-                var link = @"http://sjimsvap7/bitacora/PCRs/Review/" + id;
+                var link = @"http://mexico-metales.midas/Ingenieria/PCRs/Review/" + id;
                 bodyb.AppendLine("<p><font size = '3' face = 'arial'><a href=\"" + link+ "\" >"+link+ "</a></font></p>");
                 bodyb.AppendLine(@"<font size = '2' face = 'arial' color = 'red'><p>Recuerda Revisar sus PCRs! </font></p>");
                 bodyb.AppendLine(@"<i>No responder a este correo | Do not reply to this email </i>");
@@ -170,7 +170,7 @@ namespace Flex_SGM.emaildata
                 bodyb.AppendFormat("<p><font size = '3' face = 'arial' color = 'blue'>El usuario {0} aprobó un PCR por su revisión!</font></p>", usuario);
                 bodyb.AppendLine(@"<p><font size = '3' face = 'arial'>El numero de PCR es: <b>" + comment + "</b></font></p>");
                 bodyb.AppendLine(@"<p><font size = '3' face = 'arial'>En el siguiente link podras autorizar el PCR:</font></p>");
-                var link = @"http://sjimsvap7/bitacora/PCRs/Review/" + id;
+                var link = @"http://mexico-metales.midas/Ingenieria/PCRs/Review/" + id;
                 bodyb.AppendLine("<p><font size = '3' face = 'arial'><a href=\"" + link + "\" >" + link + "</a></font></p>");
                 bodyb.AppendLine(@"<b><font size = '2' face = 'arial'>Al autorizar el PCR, será autorizado por el departamento de " + departamento + ".</font></b>");
                 bodyb.AppendLine(@"<font size = '2' face = 'arial' color = 'red'><p>Recuerda Revisar sus PCRs! </font></p>");
@@ -205,7 +205,7 @@ namespace Flex_SGM.emaildata
                 bodyb.AppendFormat("<p><font size = '3' face = 'arial' color = 'blue'>El usuario {0} dice su PCR ocupa arreglos!</font></p>", usuario);
                 bodyb.AppendLine(@"<p><font size = '3' face = 'arial'>El numero de PCR es: <b>" + comment + "</b></font></p>");
                 bodyb.AppendLine(@"<p><font size = '3' face = 'arial'>En el siguiente link podras arreglar el PCR:</font></p>");
-                var link = @"http://sjimsvap7/bitacora/PCRs/Review/" + id;
+                var link = @"http://mexico-metales.midas/Ingenieria/PCRs/Review/" + id;
                 bodyb.AppendLine("<p><font size = '3' face = 'arial'><a href=\"" + link + "\" >" + link + "</a></font></p>");
                 bodyb.AppendLine(@"<font size = '2' face = 'arial' color = 'red'><p>Recuerda Revisar sus PCRs! </font></p>");
                 bodyb.AppendLine(@"<i>No responder a este correo | Do not reply to this email </i>");
@@ -239,7 +239,7 @@ namespace Flex_SGM.emaildata
                 bodyb.AppendFormat("<p><font size = '3' face = 'arial' color = 'blue'>El usuario {0} modificó su PCR para que revisa de nuevo!</font></p>", usuario);
                 bodyb.AppendLine(@"<p><font size = '3' face = 'arial'>El numero de PCR es: <b>" + comment + "</b></font></p>");
                 bodyb.AppendLine(@"<p><font size = '3' face = 'arial'>En el siguiente link podras aprobar el PCR:</font></p>");
-                var link = @"http://sjimsvap7/bitacora/PCRs/Review/" + id;
+                var link = @"http://mexico-metales.midas/Ingenieria/PCRs/Review/" + id;
                 bodyb.AppendLine("<p><font size = '3' face = 'arial'><a href=\"" + link + "\" >" + link + "</a></font></p>");
                 bodyb.AppendLine(@"<font size = '2' face = 'arial' color = 'red'><p>Recuerda Revisar sus PCRs! </font></p>");
                 bodyb.AppendLine(@"<i>No responder a este correo | Do not reply to this email </i>");
@@ -273,7 +273,7 @@ namespace Flex_SGM.emaildata
                 bodyb.AppendFormat("<p><font size = '3' face = 'arial' color = 'blue'>El usuario {0} rechazó su PCR!</font></p>", usuario);
                 bodyb.AppendLine(@"<p><font size = '3' face = 'arial'>El numero de PCR es: <b>" + comment + "</b></font></p>");
                 bodyb.AppendLine(@"<p><font size = '3' face = 'arial'>En el siguiente link podras modificar el PCR:</font></p>");
-                var link = @"http://sjimsvap7/bitacora/PCRs/Edit/" + id;
+                var link = @"http://mexico-metales.midas/Ingenieria/PCRs/Edit/" + id;
                 bodyb.AppendLine("<p><font size = '3' face = 'arial'><a href=\"" + link + "\" >" + link + "</a></font></p>");
                 bodyb.AppendLine(@"<font size = '2' face = 'arial' color = 'red'><p>Recuerda Revisar sus PCRs! </font></p>");
                 bodyb.AppendLine(@"<i>No responder a este correo | Do not reply to this email </i>");

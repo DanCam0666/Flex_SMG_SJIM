@@ -19,7 +19,7 @@
                 </a>
             </div>
             <div class="col-md-2">
-                <a href="../Safety_HS/Create">
+                <a href="../Highlights/Create">
                     <input type="button" value="Saftey H&S" class="btn btn-primary col-md-2" style="min-width: 200px; margin-bottom: 4px" />
                 </a>
             </div>
@@ -29,8 +29,8 @@
                 </a>
             </div>
             <div class="col-md-2">
-                <a href="../LPA_COVID/Create">
-                    <input type="button" value="LPA / COVID" class="btn btn-primary col-md-2" style="min-width: 200px; margin-bottom: 4px" />
+                <a href="../LPA_Bluebook/Create">
+                    <input type="button" value="LPA / Blue Book" class="btn btn-primary col-md-2" style="min-width: 200px; margin-bottom: 4px" />
                 </a>
             </div>
             <div class="col-md-2">
@@ -64,17 +64,17 @@
                 </a>
             </div>
             <div class="col-md-2">
-                <a href="../TOC_HS_Audits/Create">
-                    <input type="button" value="TOC/H&S Audits" class="btn btn-primary col-md-2" style="min-width: 200px; margin-bottom: 4px" />
+                <a href="../MDRs/Create">
+                    <input type="button" value="Cumplimiento de MDR´s" class="btn btn-primary col-md-2" style="min-width: 200px; margin-bottom: 4px" />
                 </a>
             </div>
             <div class="col-md-2">
-                <a href="../Cust_Score_Cards/Create">
-                    <input type="button" value="Customer Score Cards" class="btn btn-primary col-md-2" style="min-width: 200px; margin-bottom: 4px" />
+                <a href="../PPAPs/Create">
+                    <input type="button" value="Cumplimiento de PPAP´s" class="btn btn-primary col-md-2" style="min-width: 200px; margin-bottom: 4px" />
                 </a>
             </div>
             <div class="col-md-2">
-                <a href="../Parts_Delivery/Create">
+                <a href="../Vacaciones/Create">
                     <input type="button" value="Parts Delivery" class="btn btn-primary col-md-2" style="min-width: 200px; margin-bottom: 4px" />
                 </a>
             </div>
@@ -84,8 +84,8 @@
                 </a>
             </div>
             <div class="col-md-2">
-                <a href="../Quality_HS/Create">
-                    <input type="button" value="Quality and H&S 5 min Talk" class="btn btn-primary col-md-2" style="min-width: 200px; margin-bottom: 4px" />
+                <a href="../Capacity_Tickets/Create">
+                    <input type="button" value="Capacity Tickets (Customer Portals)" class="btn btn-primary col-md-2" style="min-width: 200px; margin-bottom: 4px" />
                 </a>
             </div>
             <div class="col-md-2">
@@ -191,7 +191,7 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <th><p>@Html.ActionLink("Safety H&S", "Index", "Safety_HS")</p></th>
+                        <th><p>@Html.ActionLink("Safety H&S", "Index", "Highlights")</p></th>
                         <th scope="row">Joel Quintana</th>
                         <th scope="row">0 Incidents</th>
                         @foreach (var item in ViewBag.data)
@@ -209,7 +209,7 @@
                         }
                     </tr>
                     <tr>
-                        <th><p>@Html.ActionLink("LPA / Covid", "Index", "LPA_COVID")</p></th>
+                        <th><p>@Html.ActionLink("LPA / Blue Book", "Index", "LPA_Bluebook")</p></th>
                         <th scope="row">Miguel Coronado</th>
                         <th scope="row">100% Completed</th>
                         @foreach (var item in ViewBag.data)
@@ -281,7 +281,7 @@
                         }
                     </tr>
                     <tr>
-                        <th><p>@Html.ActionLink("TOC/H&S Audits", "Index", "TOC_HS_Audits")</p></th>
+                        <th><p>@Html.ActionLink("Cumplimiento de MDR´s", "Index", "MDRs")</p></th>
                         <th scope="row">Juan Arvizu</th>
                         <th scope="row">100%</th>
                         @foreach (var item in ViewBag.data)
@@ -290,7 +290,7 @@
                         }
                     </tr>
                     <tr>
-                        <th><p>@Html.ActionLink("Customer Score Cards", "Index", "Cust_Score_Cards")</p></th>
+                        <th><p>@Html.ActionLink("Cumplimiento de PPAP´s", "Index", "PPAPs")</p></th>
                         <th scope="row">Cynthia Alvarez</th>
                         <th scope="row">3 Ideas p/ person p/ month</th>
                         @foreach (var item in ViewBag.data)
@@ -299,7 +299,7 @@
                         }
                     </tr>
                     <tr>
-                        <th><p>@Html.ActionLink("Parts Delivery on time ", "Index", "Parts_Delivery")</p></th>
+                        <th><p>@Html.ActionLink("Vacaciones ", "Index", "Vacaciones")</p></th>
                         <th scope="row">Carlos Olvera</th>
                         <th scope="row">Delivery according to schedule</th>
                         @foreach (var item in ViewBag.data)
@@ -317,8 +317,8 @@
                         }
                     </tr>
                     <tr>
-                        <th><p>@Html.ActionLink("Quality and H&S 5 min Talk", "Index", "Quality_HS")</p></th>
-                        <th scope="row">Carlos Rodriguez</th>
+                        <th><p>@Html.ActionLink("Capacity Tickets (Customer Portals)", "Index", "Capacity_Tickets")</p></th>
+                        <th scope="row">Ismael Galindo</th>
                         <th scope="row">100% Completed</th>
                         @foreach (var item in ViewBag.data)
                         {

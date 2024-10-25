@@ -8,6 +8,21 @@
 
 @Html.AntiForgeryToken()
 
+<style>
+    #myModal {
+        z-index: 1051 !important; 
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
+    .modal-backdrop {
+        z-index: 1050 !important;
+    }
+    .modal-dialog {
+        margin-top: 100px; 
+    }
+</style>
+
 <div>
     <div class="form-horizontal clearfix">
         <h2>Planning Phase PCR</h2>
@@ -54,22 +69,28 @@
                         @Html.EditorFor(model => model.Reason.Reason, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
                     </div>
                 </div>
-                <div class="form-group col-md-8">
+                <div class="form-group col-md-4">
                     @Html.LabelFor(model => model.PartNumber, htmlAttributes: new { @class = "control-label col-md-2", @readonly = "readonly" })
                     <div class="col-md-8">
                         @Html.EditorFor(model => model.PartNumber, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
                     </div>
                 </div>
                 <div class="form-group col-md-4">
-                    @Html.LabelFor(model => model.RevLevel, htmlAttributes: new { @class = "control-label col-md-2", @readonly = "readonly" })
-                    <div class="col-md-8">
-                        @Html.EditorFor(model => model.RevLevel, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-                    </div>
-                </div>
-                <div class="form-group col-md-12">
                     @Html.LabelFor(model => model.PartName, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-8">
                         @Html.EditorFor(model => model.PartName, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                    </div>
+                </div>
+                <div class="form-group col-md-4">
+                    @Html.Label("Equipo", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <input type="text" class="form-control" value="@ViewBag.Equipo" readonly="readonly" />
+                    </div>
+                </div>
+                <div class="form-group col-md-4">
+                    @Html.LabelFor(model => model.RevLevel, htmlAttributes: new { @class = "control-label col-md-2", @readonly = "readonly" })
+                    <div class="col-md-8">
+                        @Html.EditorFor(model => model.RevLevel, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
                     </div>
                 </div>
             </div>
@@ -80,16 +101,34 @@
                     <h3>Description of Change <small> PCR</small></h3>
                 </div>
                 <div class="x_content">
+
+                    <!-- CurrentCondition Field -->
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.CurrentCondition, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextAreaFor(model => model.CurrentCondition, 8, 20, new { @class = "form-control", @readonly = "readonly" })
+                        </div>
+                    </div>
+
+                    <!-- NewCondition Field -->
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.NewCondition, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextAreaFor(model => model.NewCondition, 8, 20, new { @class = "form-control", @readonly = "readonly" })
+                        </div>
+                    </div>
+
+
                     <div class="form-group">
                         @Html.LabelFor(model => model.docreason, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.TextAreaFor(model => model.docreason, 12, 20, new { @class = "form-control", @readonly = "readonly" })
+                            @Html.TextAreaFor(model => model.docreason, 8, 20, new { @class = "form-control", @readonly = "readonly" })
                         </div>
                     </div>
                     <div class="form-group">
                         @Html.LabelFor(model => model.docscope, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.TextAreaFor(model => model.docscope, 22, 20, new { @class = "form-control", @readonly = "readonly" })
+                            @Html.TextAreaFor(model => model.docscope, 8, 20, new { @class = "form-control", @readonly = "readonly" })
                         </div>
                     </div>
                     <div class="form-group">
@@ -197,6 +236,18 @@
                             @Html.EditorFor(model => model.crcapacitysupplier, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
                         </div>
                     </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.BuildOut, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.BuildOut, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                        </div>
+                    </div>
+                    <div class="form-group" style="margin-left: 1px;">
+                        <label>
+                            Customer Approval Required?
+                            @Html.CheckBoxFor(model => model.CustomerApprovalRequired, new { @disabled = "disabled" })
+                        </label>
+                    </div>
                 </div>
             </div>
         </div>
@@ -224,7 +275,7 @@
                 <div class="x_title clearfix">
                     <h3>Support <small> PCR   (P = aplica, X = no aplica, R = firmado)</small></h3>
                 </div>
-                <div class="x_content" style="min-height: 436px">
+                <div class="x_content" style="min-height: 390px">
                     <div class="col-md-6">
                         <div class="form-group">
                             @Html.LabelFor(model => model.support_Compras, htmlAttributes: new { @class = "control-label col-md-4" })
@@ -637,7 +688,7 @@
                     </div>
                     <div class="form-group">
                         @Html.LabelFor(model => model.FRisk8, htmlAttributes: new { @class = "control-label col-md-10" })
-                        <div class="col-md-2">
+                        <div class="col-md-1">
                             @Html.EditorFor(model => model.FRisk8, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
                             <label id="FRiskstring8"> </label>
                         </div>
@@ -671,25 +722,26 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">PCR -@Html.DisplayFor(model => model.PCRID)</h4>
+                <h4 class="modal-title" id="modalTitle">PCR - @Html.DisplayFor(model => model.PCRID)</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
             <div class="modal-body">
-                <p>¿Está serguro de que quieres <span id="res"></span> the PCR: @Html.DisplayFor(model => model.PCRID)?</p>
+                <p>¿Está seguro de que quieres <span id="res"></span> el PCR: @Html.DisplayFor(model => model.PCRID)?</p>
             </div>
             <div class="modal-footer">
                 <div class="col-xs-4">
-                    <button type="button" class="btn btn-danger btn-block" data-dismiss="modal">No</button>
+                    <button type="button" class="btn btn-danger btn-block btnClose" data-dismiss="modal">No</button>
                 </div>
+                <div class="col-xs-4"></div>
                 <div class="col-xs-4">
-                </div>
-                <div class="col-xs-4">
-                    <button type="button" class="btn btn-success btn-block" onclick="seguro2()" data-dismiss="modal">Si</button>
+                    <button type="button" class="btn btn-success btn-block" onclick="seguro2()" data-dismiss="modal">Sí</button>
                 </div>
             </div>
         </div>
@@ -707,61 +759,56 @@
     @Html.ActionLink("Regresar a la Lista", "Index")
 </h4>
 
-    @section Scripts {
-        <script>
-
+@section Scripts {
+    <script>
         var y;
         var formData = new FormData($('form')[0]);
-        function seguro(any)
-        {
-            y = any;
-            $('#myModal').modal('show');
-            $('#res').html(y);
-        };
 
+        // Function to open the modal and display the selected action
+        function seguro(any) {
+            y = any;
+            $('#myModal').modal({
+                backdrop: 'static', // Prevent closing on outside click
+                keyboard: false     // Prevent closing with Esc key
+            }).modal('show');
+            $('#res').html(y);
+        }
+
+        // Function to perform the confirmed action
         function seguro2() {
             var msgi = $('#msg').val();
             var token = $("[name='__RequestVerificationToken']").val();
             var url = "@Html.Raw(Url.Action("Firma", "PCRs", new {id = "param-id", Response = "param-Response", datos = "param-datos", msg = "param-msg" }))";
-            url = url.replace("param-id", @Model.ID).replace("param-Response", y).replace("param-msg", msgi).replace("param-datos", "Holo");
+
+            url = url.replace("param-id", @Model.ID)
+                     .replace("param-Response", y)
+                     .replace("param-msg", msgi)
+                     .replace("param-datos", "Holo");
+
             $.post(url, { __RequestVerificationToken: token }, function (result) {
                 alert(result);
-                if (result == "Aceptar" || result == "Rechazar" || result == "Arreglos")
-                   window.location.replace( '@Url.Action("Index", "PCRs")');
+                if (result === "Aceptar" || result === "Rechazar" || result === "Arreglos") {
+                    window.location.replace('@Url.Action("Index", "PCRs")');
+                }
             });
-        };
+        }
 
         $(document).ready(function () {
+            // Set the Risk value on page load
             $('#Risk').val("@ViewBag.Risk");
 
+            // Ensure modal closes properly on button clicks
+            $(document).on('click', '[data-dismiss="modal"]', function () {
+                console.log('Modal close button clicked');
+                $('#myModal').modal('hide'); // Manually hide modal
+            });
+
+            // Clean up after modal hides to remove any backdrop
+            $('#myModal').on('hidden.bs.modal', function () {
+                console.log('Modal closed');
+                $(this).removeClass('show').hide();
+                $('.modal-backdrop').remove(); // Ensure backdrop is removed
+            });
         });
-
-        /*
-         *
-         *        $.post(url,{ __RequestVerificationToken: token }, function (success) {
-                    alert(success);
-                   if (success == "Accept") {
-                          window.location.replace( 'Url.Action("Index", "PCRs")');
-                    }
-
-            });
-
-        $.ajax({
-                url: url,
-                type: 'POST',
-                data: {
-                    __RequestVerificationToken: token
-                },
-                success: function (result) {
-                    alert(result);
-                    if (result == "Accept"||result == "Reject"||result == "Review") {
-                          window.location.replace( 'Url.Action("Index", "PCRs")');
-                    }}
-            });
-
-
-*/
-        </script>
-    }
-
-
+    </script>
+}

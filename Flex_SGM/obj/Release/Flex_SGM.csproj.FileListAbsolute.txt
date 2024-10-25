@@ -1,1228 +1,153 @@
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\img\work.jpg
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\Flex_SGM.dll.config
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\Flex_SGM.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\Flex_SGM.pdb
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\csc.exe
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\csc.exe.config
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\csc.rsp
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\csi.exe
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\csi.exe.config
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\csi.rsp
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\Microsoft.CodeAnalysis.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\Microsoft.CSharp.Core.targets
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\Microsoft.Managed.Core.targets
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\Microsoft.VisualBasic.Core.targets
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.AppContext.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.Collections.Immutable.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.Console.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.Diagnostics.StackTrace.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.IO.Compression.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.IO.FileSystem.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.IO.FileSystem.Primitives.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.IO.Pipes.AccessControl.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.IO.Pipes.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.Reflection.Metadata.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.Security.AccessControl.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.Security.Claims.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.Security.Cryptography.Algorithms.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.Security.Cryptography.Encoding.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.Security.Cryptography.Primitives.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.Security.Principal.Windows.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.Text.Encoding.CodePages.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.ValueTuple.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.Xml.ReaderWriter.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.Xml.XmlDocument.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.Xml.XPath.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.Xml.XPath.XDocument.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\vbc.exe
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\vbc.exe.config
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\vbc.rsp
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\VBCSCompiler.exe
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\VBCSCompiler.exe.config
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\Antlr3.Runtime.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\EntityFramework.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\EntityFramework.SqlServer.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.AspNet.Identity.Core.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.AspNet.Identity.EntityFramework.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.AspNet.Identity.Owin.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Host.SystemWeb.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Security.Cookies.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Security.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Security.Facebook.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Security.Google.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Security.OAuth.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Security.Twitter.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.Web.Infrastructure.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\Newtonsoft.Json.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\Owin.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\System.Web.Helpers.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\System.Web.Mvc.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\System.Web.Optimization.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\System.Web.Razor.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\System.Web.WebPages.Deployment.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\System.Web.WebPages.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\System.Web.WebPages.Razor.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\WebGrease.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\System.Web.Helpers.xml
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\System.Web.Mvc.xml
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\System.Web.Optimization.xml
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\System.Web.Razor.xml
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\System.Web.WebPages.xml
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\System.Web.WebPages.Deployment.xml
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\System.Web.WebPages.Razor.xml
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\Newtonsoft.Json.xml
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\Antlr3.Runtime.pdb
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\EntityFramework.xml
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\EntityFramework.SqlServer.xml
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.AspNet.Identity.Core.xml
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.AspNet.Identity.Owin.xml
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.AspNet.Identity.EntityFramework.xml
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.xml
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Host.SystemWeb.xml
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Security.xml
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Security.Facebook.xml
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Security.Cookies.xml
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Security.Google.xml
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Security.Twitter.xml
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Security.OAuth.xml
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\es\System.Web.Helpers.resources.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\es\System.Web.Mvc.resources.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\es\System.Web.Optimization.resources.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\es\System.Web.Razor.resources.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\es\System.Web.WebPages.resources.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\es\System.Web.WebPages.Deployment.resources.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\es\System.Web.WebPages.Razor.resources.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\es\EntityFramework.resources.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\es\EntityFramework.SqlServer.resources.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\es\Microsoft.AspNet.Identity.Core.resources.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\es\Microsoft.AspNet.Identity.Owin.resources.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\bin\es\Microsoft.AspNet.Identity.EntityFramework.resources.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\obj\Release\Flex_SGM.csprojAssemblyReference.cache
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\obj\Release\Flex_SGM.Migrations.Init.resources
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\obj\Release\Flex_SGM.csproj.GenerateResource.cache
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\obj\Release\Flex_SGM.csproj.CopyComplete
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\obj\Release\Flex_SGM.dll
-C:\Users\AUTOMATIZACION\Desktop\Flex_SGM\Flex_SGM\obj\Release\Flex_SGM.pdb
-D:\Flex_SGM\Flex_SGM\bin\Flex_SGM.dll.config
-D:\Flex_SGM\Flex_SGM\bin\Flex_SGM.dll
-D:\Flex_SGM\Flex_SGM\bin\Flex_SGM.pdb
-D:\Flex_SGM\Flex_SGM\bin\roslyn\csc.exe
-D:\Flex_SGM\Flex_SGM\bin\roslyn\csc.exe.config
-D:\Flex_SGM\Flex_SGM\bin\roslyn\csc.rsp
-D:\Flex_SGM\Flex_SGM\bin\roslyn\csi.exe
-D:\Flex_SGM\Flex_SGM\bin\roslyn\csi.exe.config
-D:\Flex_SGM\Flex_SGM\bin\roslyn\csi.rsp
-D:\Flex_SGM\Flex_SGM\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-D:\Flex_SGM\Flex_SGM\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-D:\Flex_SGM\Flex_SGM\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
-D:\Flex_SGM\Flex_SGM\bin\roslyn\Microsoft.CodeAnalysis.dll
-D:\Flex_SGM\Flex_SGM\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
-D:\Flex_SGM\Flex_SGM\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-D:\Flex_SGM\Flex_SGM\bin\roslyn\Microsoft.CSharp.Core.targets
-D:\Flex_SGM\Flex_SGM\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
-D:\Flex_SGM\Flex_SGM\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
-D:\Flex_SGM\Flex_SGM\bin\roslyn\Microsoft.Managed.Core.targets
-D:\Flex_SGM\Flex_SGM\bin\roslyn\Microsoft.VisualBasic.Core.targets
-D:\Flex_SGM\Flex_SGM\bin\roslyn\System.AppContext.dll
-D:\Flex_SGM\Flex_SGM\bin\roslyn\System.Collections.Immutable.dll
-D:\Flex_SGM\Flex_SGM\bin\roslyn\System.Console.dll
-D:\Flex_SGM\Flex_SGM\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
-D:\Flex_SGM\Flex_SGM\bin\roslyn\System.Diagnostics.StackTrace.dll
-D:\Flex_SGM\Flex_SGM\bin\roslyn\System.IO.Compression.dll
-D:\Flex_SGM\Flex_SGM\bin\roslyn\System.IO.FileSystem.dll
-D:\Flex_SGM\Flex_SGM\bin\roslyn\System.IO.FileSystem.Primitives.dll
-D:\Flex_SGM\Flex_SGM\bin\roslyn\System.IO.Pipes.AccessControl.dll
-D:\Flex_SGM\Flex_SGM\bin\roslyn\System.IO.Pipes.dll
-D:\Flex_SGM\Flex_SGM\bin\roslyn\System.Reflection.Metadata.dll
-D:\Flex_SGM\Flex_SGM\bin\roslyn\System.Security.AccessControl.dll
-D:\Flex_SGM\Flex_SGM\bin\roslyn\System.Security.Claims.dll
-D:\Flex_SGM\Flex_SGM\bin\roslyn\System.Security.Cryptography.Algorithms.dll
-D:\Flex_SGM\Flex_SGM\bin\roslyn\System.Security.Cryptography.Encoding.dll
-D:\Flex_SGM\Flex_SGM\bin\roslyn\System.Security.Cryptography.Primitives.dll
-D:\Flex_SGM\Flex_SGM\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
-D:\Flex_SGM\Flex_SGM\bin\roslyn\System.Security.Principal.Windows.dll
-D:\Flex_SGM\Flex_SGM\bin\roslyn\System.Text.Encoding.CodePages.dll
-D:\Flex_SGM\Flex_SGM\bin\roslyn\System.ValueTuple.dll
-D:\Flex_SGM\Flex_SGM\bin\roslyn\System.Xml.ReaderWriter.dll
-D:\Flex_SGM\Flex_SGM\bin\roslyn\System.Xml.XmlDocument.dll
-D:\Flex_SGM\Flex_SGM\bin\roslyn\System.Xml.XPath.dll
-D:\Flex_SGM\Flex_SGM\bin\roslyn\System.Xml.XPath.XDocument.dll
-D:\Flex_SGM\Flex_SGM\bin\roslyn\vbc.exe
-D:\Flex_SGM\Flex_SGM\bin\roslyn\vbc.exe.config
-D:\Flex_SGM\Flex_SGM\bin\roslyn\vbc.rsp
-D:\Flex_SGM\Flex_SGM\bin\roslyn\VBCSCompiler.exe
-D:\Flex_SGM\Flex_SGM\bin\roslyn\VBCSCompiler.exe.config
-D:\Flex_SGM\Flex_SGM\bin\Antlr3.Runtime.dll
-D:\Flex_SGM\Flex_SGM\bin\EntityFramework.dll
-D:\Flex_SGM\Flex_SGM\bin\EntityFramework.SqlServer.dll
-D:\Flex_SGM\Flex_SGM\bin\Microsoft.AspNet.Identity.Core.dll
-D:\Flex_SGM\Flex_SGM\bin\Microsoft.AspNet.Identity.EntityFramework.dll
-D:\Flex_SGM\Flex_SGM\bin\Microsoft.AspNet.Identity.Owin.dll
-D:\Flex_SGM\Flex_SGM\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-D:\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.dll
-D:\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Host.SystemWeb.dll
-D:\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Security.Cookies.dll
-D:\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Security.dll
-D:\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Security.Facebook.dll
-D:\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Security.Google.dll
-D:\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
-D:\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Security.OAuth.dll
-D:\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Security.Twitter.dll
-D:\Flex_SGM\Flex_SGM\bin\Microsoft.Web.Infrastructure.dll
-D:\Flex_SGM\Flex_SGM\bin\Newtonsoft.Json.dll
-D:\Flex_SGM\Flex_SGM\bin\Owin.dll
-D:\Flex_SGM\Flex_SGM\bin\System.Web.Helpers.dll
-D:\Flex_SGM\Flex_SGM\bin\System.Web.Mvc.dll
-D:\Flex_SGM\Flex_SGM\bin\System.Web.Optimization.dll
-D:\Flex_SGM\Flex_SGM\bin\System.Web.Razor.dll
-D:\Flex_SGM\Flex_SGM\bin\System.Web.WebPages.Deployment.dll
-D:\Flex_SGM\Flex_SGM\bin\System.Web.WebPages.dll
-D:\Flex_SGM\Flex_SGM\bin\System.Web.WebPages.Razor.dll
-D:\Flex_SGM\Flex_SGM\bin\WebGrease.dll
-D:\Flex_SGM\Flex_SGM\bin\System.Web.Helpers.xml
-D:\Flex_SGM\Flex_SGM\bin\System.Web.Mvc.xml
-D:\Flex_SGM\Flex_SGM\bin\System.Web.Optimization.xml
-D:\Flex_SGM\Flex_SGM\bin\System.Web.Razor.xml
-D:\Flex_SGM\Flex_SGM\bin\System.Web.WebPages.xml
-D:\Flex_SGM\Flex_SGM\bin\System.Web.WebPages.Deployment.xml
-D:\Flex_SGM\Flex_SGM\bin\System.Web.WebPages.Razor.xml
-D:\Flex_SGM\Flex_SGM\bin\Newtonsoft.Json.xml
-D:\Flex_SGM\Flex_SGM\bin\Antlr3.Runtime.pdb
-D:\Flex_SGM\Flex_SGM\bin\EntityFramework.xml
-D:\Flex_SGM\Flex_SGM\bin\EntityFramework.SqlServer.xml
-D:\Flex_SGM\Flex_SGM\bin\Microsoft.AspNet.Identity.Core.xml
-D:\Flex_SGM\Flex_SGM\bin\Microsoft.AspNet.Identity.Owin.xml
-D:\Flex_SGM\Flex_SGM\bin\Microsoft.AspNet.Identity.EntityFramework.xml
-D:\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.xml
-D:\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Host.SystemWeb.xml
-D:\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Security.xml
-D:\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Security.Facebook.xml
-D:\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Security.Cookies.xml
-D:\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Security.Google.xml
-D:\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Security.Twitter.xml
-D:\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-D:\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Security.OAuth.xml
-D:\Flex_SGM\Flex_SGM\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\Flex_SGM\Flex_SGM\bin\es\System.Web.Helpers.resources.dll
-D:\Flex_SGM\Flex_SGM\bin\es\System.Web.Mvc.resources.dll
-D:\Flex_SGM\Flex_SGM\bin\es\System.Web.Optimization.resources.dll
-D:\Flex_SGM\Flex_SGM\bin\es\System.Web.Razor.resources.dll
-D:\Flex_SGM\Flex_SGM\bin\es\System.Web.WebPages.resources.dll
-D:\Flex_SGM\Flex_SGM\bin\es\System.Web.WebPages.Deployment.resources.dll
-D:\Flex_SGM\Flex_SGM\bin\es\System.Web.WebPages.Razor.resources.dll
-D:\Flex_SGM\Flex_SGM\bin\es\EntityFramework.resources.dll
-D:\Flex_SGM\Flex_SGM\bin\es\EntityFramework.SqlServer.resources.dll
-D:\Flex_SGM\Flex_SGM\bin\es\Microsoft.AspNet.Identity.Core.resources.dll
-D:\Flex_SGM\Flex_SGM\bin\es\Microsoft.AspNet.Identity.Owin.resources.dll
-D:\Flex_SGM\Flex_SGM\bin\es\Microsoft.AspNet.Identity.EntityFramework.resources.dll
-D:\Flex_SGM\Flex_SGM\obj\Release\Flex_SGM.Migrations.Init.resources
-D:\Flex_SGM\Flex_SGM\obj\Release\Flex_SGM.csproj.GenerateResource.cache
-D:\Flex_SGM\Flex_SGM\obj\Release\Flex_SGM.csproj.CopyComplete
-D:\Flex_SGM\Flex_SGM\obj\Release\Flex_SGM.dll
-D:\Flex_SGM\Flex_SGM\obj\Release\Flex_SGM.pdb
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\Flex_SGM.dll.config
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\Flex_SGM.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\Flex_SGM.pdb
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\csc.exe
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\csc.exe.config
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\csc.rsp
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\csi.exe
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\csi.exe.config
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\csi.rsp
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\Microsoft.CodeAnalysis.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\Microsoft.CSharp.Core.targets
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\Microsoft.Managed.Core.targets
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\Microsoft.VisualBasic.Core.targets
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.AppContext.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.Collections.Immutable.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.Console.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.Diagnostics.StackTrace.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.IO.Compression.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.IO.FileSystem.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.IO.FileSystem.Primitives.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.IO.Pipes.AccessControl.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.IO.Pipes.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.Reflection.Metadata.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.Security.AccessControl.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.Security.Claims.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.Security.Cryptography.Algorithms.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.Security.Cryptography.Encoding.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.Security.Cryptography.Primitives.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.Security.Principal.Windows.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.Text.Encoding.CodePages.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.ValueTuple.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.Xml.ReaderWriter.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.Xml.XmlDocument.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.Xml.XPath.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.Xml.XPath.XDocument.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\vbc.exe
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\vbc.exe.config
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\vbc.rsp
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\VBCSCompiler.exe
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\VBCSCompiler.exe.config
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\Antlr3.Runtime.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\EntityFramework.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\EntityFramework.SqlServer.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.AspNet.Identity.Core.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.AspNet.Identity.EntityFramework.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.AspNet.Identity.Owin.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Host.SystemWeb.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Security.Cookies.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Security.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Security.Facebook.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Security.Google.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Security.OAuth.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Security.Twitter.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.Web.Infrastructure.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\Newtonsoft.Json.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\Owin.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\System.Web.Helpers.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\System.Web.Mvc.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\System.Web.Optimization.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\System.Web.Razor.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\System.Web.WebPages.Deployment.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\System.Web.WebPages.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\System.Web.WebPages.Razor.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\WebGrease.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\System.Web.Helpers.xml
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\System.Web.Mvc.xml
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\System.Web.Optimization.xml
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\System.Web.Razor.xml
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\System.Web.WebPages.xml
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\System.Web.WebPages.Deployment.xml
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\System.Web.WebPages.Razor.xml
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\Newtonsoft.Json.xml
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\Antlr3.Runtime.pdb
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\EntityFramework.xml
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\EntityFramework.SqlServer.xml
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.AspNet.Identity.Core.xml
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.AspNet.Identity.Owin.xml
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.AspNet.Identity.EntityFramework.xml
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.xml
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Host.SystemWeb.xml
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Security.xml
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Security.Facebook.xml
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Security.Cookies.xml
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Security.Google.xml
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Security.Twitter.xml
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Security.OAuth.xml
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\es\System.Web.Helpers.resources.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\es\System.Web.Mvc.resources.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\es\System.Web.Optimization.resources.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\es\System.Web.Razor.resources.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\es\System.Web.WebPages.resources.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\es\System.Web.WebPages.Deployment.resources.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\es\System.Web.WebPages.Razor.resources.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\es\EntityFramework.resources.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\es\EntityFramework.SqlServer.resources.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\es\Microsoft.AspNet.Identity.Core.resources.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\es\Microsoft.AspNet.Identity.Owin.resources.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\es\Microsoft.AspNet.Identity.EntityFramework.resources.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\obj\Release\Flex_SGM.csprojAssemblyReference.cache
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\obj\Release\Flex_SGM.Migrations.Init.resources
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\obj\Release\Flex_SGM.csproj.GenerateResource.cache
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\obj\Release\Flex_SGM.csproj.CopyComplete
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\obj\Release\Flex_SGM.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\obj\Release\Flex_SGM.pdb
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\ClosedXML.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\ClosedXML.Extensions.Mvc.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\DocumentFormat.OpenXml.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\ExcelNumberFormat.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\FastMember.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\System.IO.FileSystem.Primitives.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\System.IO.Packaging.dll
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\ClosedXML.pdb
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\ClosedXML.xml
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\DocumentFormat.OpenXml.xml
-C:\Users\lolivarez\Desktop\Flex_SGM\Flex_SGM\bin\ExcelNumberFormat.xml
-D:\Flex_SGM\Flex_SGM\bin\ClosedXML.dll
-D:\Flex_SGM\Flex_SGM\bin\ClosedXML.Extensions.Mvc.dll
-D:\Flex_SGM\Flex_SGM\bin\DocumentFormat.OpenXml.dll
-D:\Flex_SGM\Flex_SGM\bin\ExcelNumberFormat.dll
-D:\Flex_SGM\Flex_SGM\bin\FastMember.dll
-D:\Flex_SGM\Flex_SGM\bin\System.IO.FileSystem.Primitives.dll
-D:\Flex_SGM\Flex_SGM\bin\System.IO.Packaging.dll
-D:\Flex_SGM\Flex_SGM\bin\ClosedXML.pdb
-D:\Flex_SGM\Flex_SGM\bin\ClosedXML.xml
-D:\Flex_SGM\Flex_SGM\bin\DocumentFormat.OpenXml.xml
-D:\Flex_SGM\Flex_SGM\bin\ExcelNumberFormat.xml
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\Flex_SGM.dll.config
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\Flex_SGM.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\Flex_SGM.pdb
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\csc.exe
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\csc.exe.config
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\csc.rsp
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\csi.exe
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\csi.exe.config
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\csi.rsp
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\Microsoft.CodeAnalysis.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\Microsoft.CSharp.Core.targets
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\Microsoft.Managed.Core.targets
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\Microsoft.VisualBasic.Core.targets
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.AppContext.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.Collections.Immutable.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.Console.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.Diagnostics.StackTrace.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.IO.Compression.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.IO.FileSystem.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.IO.FileSystem.Primitives.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.IO.Pipes.AccessControl.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.IO.Pipes.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.Reflection.Metadata.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.Security.AccessControl.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.Security.Claims.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.Security.Cryptography.Algorithms.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.Security.Cryptography.Encoding.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.Security.Cryptography.Primitives.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.Security.Principal.Windows.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.Text.Encoding.CodePages.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.ValueTuple.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.Xml.ReaderWriter.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.Xml.XmlDocument.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.Xml.XPath.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\System.Xml.XPath.XDocument.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\vbc.exe
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\vbc.exe.config
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\vbc.rsp
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\VBCSCompiler.exe
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\roslyn\VBCSCompiler.exe.config
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\Antlr3.Runtime.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\ClosedXML.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\ClosedXML.Extensions.Mvc.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\DocumentFormat.OpenXml.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\EntityFramework.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\EntityFramework.SqlServer.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\ExcelNumberFormat.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\FastMember.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.AspNet.Identity.Core.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.AspNet.Identity.EntityFramework.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.AspNet.Identity.Owin.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Host.SystemWeb.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Security.Cookies.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Security.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Security.Facebook.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Security.Google.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Security.OAuth.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Security.Twitter.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.Web.Infrastructure.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\Newtonsoft.Json.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\Owin.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\System.IO.FileSystem.Primitives.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\System.IO.Packaging.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\System.Web.Helpers.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\System.Web.Mvc.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\System.Web.Optimization.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\System.Web.Razor.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\System.Web.WebPages.Deployment.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\System.Web.WebPages.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\System.Web.WebPages.Razor.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\WebGrease.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\ClosedXML.pdb
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\ClosedXML.xml
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\DocumentFormat.OpenXml.xml
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\ExcelNumberFormat.xml
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\IBM.Data.DB2.iSeries.xml
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\System.Web.Helpers.xml
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\System.Web.Mvc.xml
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\System.Web.Optimization.xml
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\System.Web.Razor.xml
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\System.Web.WebPages.xml
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\System.Web.WebPages.Deployment.xml
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\System.Web.WebPages.Razor.xml
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\Newtonsoft.Json.xml
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\Antlr3.Runtime.pdb
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\EntityFramework.xml
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\EntityFramework.SqlServer.xml
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.AspNet.Identity.Core.xml
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.AspNet.Identity.Owin.xml
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.AspNet.Identity.EntityFramework.xml
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.xml
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Host.SystemWeb.xml
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Security.xml
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Security.Facebook.xml
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Security.Cookies.xml
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Security.Google.xml
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Security.Twitter.xml
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.Owin.Security.OAuth.xml
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\es\System.Web.Helpers.resources.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\es\System.Web.Mvc.resources.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\es\System.Web.Optimization.resources.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\es\System.Web.Razor.resources.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\es\System.Web.WebPages.resources.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\es\System.Web.WebPages.Deployment.resources.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\es\System.Web.WebPages.Razor.resources.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\es\EntityFramework.resources.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\es\EntityFramework.SqlServer.resources.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\es\Microsoft.AspNet.Identity.Core.resources.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\es\Microsoft.AspNet.Identity.Owin.resources.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\bin\es\Microsoft.AspNet.Identity.EntityFramework.resources.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\obj\Release\Flex_SGM.csprojAssemblyReference.cache
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\obj\Release\Flex_SGM.Migrations.Init.resources
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\obj\Release\Flex_SGM.csproj.GenerateResource.cache
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\obj\Release\Flex_SGM.csproj.CopyComplete
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\obj\Release\Flex_SGM.dll
-C:\Users\Holotopo\Desktop\Flex_SGM\Flex_SGM\obj\Release\Flex_SGM.pdb
-D:\Flex_SGM\Flex_SGM\obj\Release\Flex_SGM.csprojAssemblyReference.cache
-D:\Flex_SGM\Flex_SGM\bin\IBM.Data.DB2.iSeries.dll
-D:\Flex_SGM\Flex_SGM\bin\PagedList.dll
-D:\Flex_SGM\Flex_SGM\bin\PagedList.Mvc.dll
-D:\Flex_SGM\Flex_SGM\bin\PagedList.xml
-D:\Flex_SGM\Flex_SGM\bin\PagedList.Mvc.xml
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\Flex_SGM.dll.config
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\Flex_SGM.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\Flex_SGM.pdb
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\csc.exe
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\csc.exe.config
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\csc.rsp
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\csi.exe
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\csi.exe.config
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\csi.rsp
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\Microsoft.CodeAnalysis.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\Microsoft.CSharp.Core.targets
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\Microsoft.Managed.Core.targets
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\Microsoft.VisualBasic.Core.targets
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\System.AppContext.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\System.Collections.Immutable.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\System.Console.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\System.Diagnostics.StackTrace.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\System.IO.Compression.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\System.IO.FileSystem.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\System.IO.FileSystem.Primitives.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\System.IO.Pipes.AccessControl.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\System.IO.Pipes.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\System.Reflection.Metadata.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\System.Security.AccessControl.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\System.Security.Claims.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\System.Security.Cryptography.Algorithms.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\System.Security.Cryptography.Encoding.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\System.Security.Cryptography.Primitives.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\System.Security.Principal.Windows.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\System.Text.Encoding.CodePages.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\System.ValueTuple.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\System.Xml.ReaderWriter.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\System.Xml.XmlDocument.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\System.Xml.XPath.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\System.Xml.XPath.XDocument.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\vbc.exe
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\vbc.exe.config
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\vbc.rsp
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\VBCSCompiler.exe
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\VBCSCompiler.exe.config
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\Antlr3.Runtime.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\ClosedXML.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\ClosedXML.Extensions.Mvc.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\DocumentFormat.OpenXml.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\EntityFramework.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\EntityFramework.SqlServer.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\ExcelNumberFormat.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\FastMember.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\IBM.Data.DB2.iSeries.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\Microsoft.AspNet.Identity.Core.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\Microsoft.AspNet.Identity.EntityFramework.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\Microsoft.AspNet.Identity.Owin.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\Microsoft.Owin.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\Microsoft.Owin.Host.SystemWeb.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\Microsoft.Owin.Security.Cookies.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\Microsoft.Owin.Security.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\Microsoft.Owin.Security.Facebook.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\Microsoft.Owin.Security.Google.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\Microsoft.Owin.Security.OAuth.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\Microsoft.Owin.Security.Twitter.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\Microsoft.Web.Infrastructure.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\Newtonsoft.Json.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\Owin.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\PagedList.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\PagedList.Mvc.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\System.IO.FileSystem.Primitives.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\System.IO.Packaging.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\System.Web.Helpers.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\System.Web.Mvc.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\System.Web.Optimization.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\System.Web.Razor.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\System.Web.WebPages.Deployment.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\System.Web.WebPages.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\System.Web.WebPages.Razor.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\WebGrease.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\ClosedXML.pdb
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\ClosedXML.xml
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\DocumentFormat.OpenXml.xml
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\ExcelNumberFormat.xml
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\PagedList.xml
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\PagedList.Mvc.xml
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\System.Web.Helpers.xml
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\System.Web.Mvc.xml
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\System.Web.Optimization.xml
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\System.Web.Razor.xml
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\System.Web.WebPages.xml
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\System.Web.WebPages.Deployment.xml
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\System.Web.WebPages.Razor.xml
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\Newtonsoft.Json.xml
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\Antlr3.Runtime.pdb
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\EntityFramework.xml
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\EntityFramework.SqlServer.xml
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\Microsoft.AspNet.Identity.Core.xml
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\Microsoft.AspNet.Identity.Owin.xml
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\Microsoft.AspNet.Identity.EntityFramework.xml
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\Microsoft.Owin.xml
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\Microsoft.Owin.Host.SystemWeb.xml
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\Microsoft.Owin.Security.xml
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\Microsoft.Owin.Security.Facebook.xml
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\Microsoft.Owin.Security.Cookies.xml
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\Microsoft.Owin.Security.Google.xml
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\Microsoft.Owin.Security.Twitter.xml
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\Microsoft.Owin.Security.OAuth.xml
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\es\System.Web.Helpers.resources.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\es\System.Web.Mvc.resources.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\es\System.Web.Optimization.resources.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\es\System.Web.Razor.resources.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\es\System.Web.WebPages.resources.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\es\System.Web.WebPages.Deployment.resources.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\es\System.Web.WebPages.Razor.resources.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\es\EntityFramework.resources.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\es\EntityFramework.SqlServer.resources.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\es\Microsoft.AspNet.Identity.Core.resources.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\es\Microsoft.AspNet.Identity.Owin.resources.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\es\Microsoft.AspNet.Identity.EntityFramework.resources.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\obj\Release\Flex_SGM.csprojAssemblyReference.cache
-D:\Mio\Flex_SGM simple\Flex_SGM\obj\Release\Flex_SGM.Migrations.Init.resources
-D:\Mio\Flex_SGM simple\Flex_SGM\obj\Release\Flex_SGM.csproj.GenerateResource.cache
-D:\Mio\Flex_SGM simple\Flex_SGM\obj\Release\Flex_SGM.csproj.CopyComplete
-D:\Mio\Flex_SGM simple\Flex_SGM\obj\Release\Flex_SGM.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\obj\Release\Flex_SGM.pdb
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\Flex_SGM.dll.config
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\Flex_SGM.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\Flex_SGM.pdb
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\csc.exe
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\csc.exe.config
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\csc.rsp
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\csi.exe
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\csi.exe.config
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\csi.rsp
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\Microsoft.CodeAnalysis.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\Microsoft.CSharp.Core.targets
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\Microsoft.Managed.Core.targets
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\Microsoft.VisualBasic.Core.targets
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\System.AppContext.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\System.Collections.Immutable.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\System.Console.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\System.Diagnostics.StackTrace.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\System.IO.Compression.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\System.IO.FileSystem.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\System.IO.FileSystem.Primitives.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\System.IO.Pipes.AccessControl.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\System.IO.Pipes.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\System.Reflection.Metadata.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\System.Security.AccessControl.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\System.Security.Claims.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\System.Security.Cryptography.Algorithms.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\System.Security.Cryptography.Encoding.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\System.Security.Cryptography.Primitives.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\System.Security.Principal.Windows.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\System.Text.Encoding.CodePages.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\System.ValueTuple.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\System.Xml.ReaderWriter.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\System.Xml.XmlDocument.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\System.Xml.XPath.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\System.Xml.XPath.XDocument.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\vbc.exe
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\vbc.exe.config
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\vbc.rsp
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\VBCSCompiler.exe
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\roslyn\VBCSCompiler.exe.config
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\Antlr3.Runtime.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\ClosedXML.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\ClosedXML.Extensions.Mvc.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\DocumentFormat.OpenXml.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\EntityFramework.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\EntityFramework.SqlServer.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\ExcelNumberFormat.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\FastMember.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\Microsoft.AspNet.Identity.Core.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\Microsoft.AspNet.Identity.EntityFramework.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\Microsoft.AspNet.Identity.Owin.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\Microsoft.Owin.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\Microsoft.Owin.Host.SystemWeb.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\Microsoft.Owin.Security.Cookies.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\Microsoft.Owin.Security.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\Microsoft.Owin.Security.Facebook.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\Microsoft.Owin.Security.Google.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\Microsoft.Owin.Security.OAuth.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\Microsoft.Owin.Security.Twitter.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\Microsoft.Web.Infrastructure.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\Newtonsoft.Json.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\Owin.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\PagedList.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\PagedList.Mvc.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\System.IO.FileSystem.Primitives.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\System.IO.Packaging.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\System.Web.Helpers.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\System.Web.Mvc.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\System.Web.Optimization.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\System.Web.Razor.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\System.Web.WebPages.Deployment.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\System.Web.WebPages.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\System.Web.WebPages.Razor.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\WebGrease.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\ClosedXML.pdb
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\ClosedXML.xml
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\DocumentFormat.OpenXml.xml
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\ExcelNumberFormat.xml
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\PagedList.xml
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\PagedList.Mvc.xml
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\System.Web.Helpers.xml
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\System.Web.Mvc.xml
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\System.Web.Optimization.xml
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\System.Web.Razor.xml
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\System.Web.WebPages.xml
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\System.Web.WebPages.Deployment.xml
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\System.Web.WebPages.Razor.xml
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\Newtonsoft.Json.xml
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\Antlr3.Runtime.pdb
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\EntityFramework.xml
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\EntityFramework.SqlServer.xml
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\Microsoft.AspNet.Identity.Core.xml
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\Microsoft.AspNet.Identity.Owin.xml
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\Microsoft.AspNet.Identity.EntityFramework.xml
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\Microsoft.Owin.xml
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\Microsoft.Owin.Host.SystemWeb.xml
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\Microsoft.Owin.Security.xml
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\Microsoft.Owin.Security.Facebook.xml
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\Microsoft.Owin.Security.Cookies.xml
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\Microsoft.Owin.Security.Google.xml
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\Microsoft.Owin.Security.Twitter.xml
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\Microsoft.Owin.Security.OAuth.xml
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\es\System.Web.Helpers.resources.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\es\System.Web.Mvc.resources.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\es\System.Web.Optimization.resources.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\es\System.Web.Razor.resources.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\es\System.Web.WebPages.resources.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\es\System.Web.WebPages.Deployment.resources.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\es\System.Web.WebPages.Razor.resources.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\es\EntityFramework.resources.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\es\EntityFramework.SqlServer.resources.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\es\Microsoft.AspNet.Identity.Core.resources.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\es\Microsoft.AspNet.Identity.Owin.resources.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\es\Microsoft.AspNet.Identity.EntityFramework.resources.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\obj\Release\Flex_SGM.csprojAssemblyReference.cache
-E:\Mio\Flex_SGM simple\Flex_SGM\obj\Release\Flex_SGM.Migrations.Init.resources
-E:\Mio\Flex_SGM simple\Flex_SGM\obj\Release\Flex_SGM.csproj.GenerateResource.cache
-E:\Mio\Flex_SGM simple\Flex_SGM\obj\Release\Flex_SGM.csproj.CoreCompileInputs.cache
-E:\Mio\Flex_SGM simple\Flex_SGM\obj\Release\Flex_SGM.csproj.CopyComplete
-E:\Mio\Flex_SGM simple\Flex_SGM\obj\Release\Flex_SGM.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\obj\Release\Flex_SGM.pdb
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\IBM.Data.DB2.iSeries.xml
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\ClosedXML.Report.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\MoreLinq.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\System.Linq.Dynamic.Core.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\System.ValueTuple.dll
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\MoreLinq.xml
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\System.Linq.Dynamic.Core.pdb
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\System.Linq.Dynamic.Core.xml
-D:\Mio\Flex_SGM simple\Flex_SGM\bin\System.ValueTuple.xml
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\ClosedXML.Report.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\MoreLinq.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\System.Linq.Dynamic.Core.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\System.ValueTuple.dll
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\IBM.Data.DB2.iSeries.xml
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\MoreLinq.xml
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\System.Linq.Dynamic.Core.pdb
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\System.Linq.Dynamic.Core.xml
-E:\Mio\Flex_SGM simple\Flex_SGM\bin\System.ValueTuple.xml
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\Flex_SGM.dll.config
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\Flex_SGM.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\Flex_SGM.pdb
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\roslyn\csc.exe
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\roslyn\csc.exe.config
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\roslyn\csc.rsp
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\roslyn\csi.exe
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\roslyn\csi.exe.config
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\roslyn\csi.rsp
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\roslyn\Microsoft.CodeAnalysis.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\roslyn\Microsoft.CSharp.Core.targets
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\roslyn\Microsoft.Managed.Core.targets
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\roslyn\Microsoft.VisualBasic.Core.targets
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\roslyn\System.AppContext.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\roslyn\System.Collections.Immutable.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\roslyn\System.Console.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\roslyn\System.Diagnostics.StackTrace.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\roslyn\System.IO.Compression.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\roslyn\System.IO.FileSystem.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\roslyn\System.IO.FileSystem.Primitives.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\roslyn\System.IO.Pipes.AccessControl.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\roslyn\System.IO.Pipes.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\roslyn\System.Reflection.Metadata.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\roslyn\System.Security.AccessControl.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\roslyn\System.Security.Claims.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\roslyn\System.Security.Cryptography.Algorithms.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\roslyn\System.Security.Cryptography.Encoding.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\roslyn\System.Security.Cryptography.Primitives.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\roslyn\System.Security.Principal.Windows.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\roslyn\System.Text.Encoding.CodePages.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\roslyn\System.ValueTuple.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\roslyn\System.Xml.ReaderWriter.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\roslyn\System.Xml.XmlDocument.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\roslyn\System.Xml.XPath.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\roslyn\System.Xml.XPath.XDocument.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\roslyn\vbc.exe
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\roslyn\vbc.exe.config
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\roslyn\vbc.rsp
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\roslyn\VBCSCompiler.exe
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\roslyn\VBCSCompiler.exe.config
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\Antlr3.Runtime.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\ClosedXML.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\ClosedXML.Extensions.Mvc.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\ClosedXML.Report.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\DocumentFormat.OpenXml.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\EntityFramework.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\EntityFramework.SqlServer.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\ExcelNumberFormat.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\FastMember.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\Microsoft.AspNet.Identity.Core.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\Microsoft.AspNet.Identity.EntityFramework.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\Microsoft.AspNet.Identity.Owin.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\Microsoft.Owin.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\Microsoft.Owin.Host.SystemWeb.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\Microsoft.Owin.Security.Cookies.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\Microsoft.Owin.Security.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\Microsoft.Owin.Security.Facebook.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\Microsoft.Owin.Security.Google.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\Microsoft.Owin.Security.OAuth.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\Microsoft.Owin.Security.Twitter.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\Microsoft.Web.Infrastructure.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\MoreLinq.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\Newtonsoft.Json.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\Owin.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\PagedList.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\PagedList.Mvc.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\System.IO.FileSystem.Primitives.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\System.IO.Packaging.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\System.Linq.Dynamic.Core.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\System.ValueTuple.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\System.Web.Helpers.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\System.Web.Mvc.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\System.Web.Optimization.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\System.Web.Razor.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\System.Web.WebPages.Deployment.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\System.Web.WebPages.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\System.Web.WebPages.Razor.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\WebGrease.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\ClosedXML.pdb
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\ClosedXML.xml
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\DocumentFormat.OpenXml.xml
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\EntityFramework.xml
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\EntityFramework.SqlServer.xml
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\ExcelNumberFormat.xml
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\MoreLinq.xml
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\PagedList.xml
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\PagedList.Mvc.xml
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\System.Linq.Dynamic.Core.pdb
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\System.Linq.Dynamic.Core.xml
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\System.ValueTuple.xml
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\System.Web.Helpers.xml
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\System.Web.Mvc.xml
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\System.Web.Optimization.xml
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\System.Web.Razor.xml
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\System.Web.WebPages.xml
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\System.Web.WebPages.Deployment.xml
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\System.Web.WebPages.Razor.xml
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\Newtonsoft.Json.xml
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\Antlr3.Runtime.pdb
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\Microsoft.AspNet.Identity.Core.xml
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\Microsoft.AspNet.Identity.Owin.xml
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\Microsoft.AspNet.Identity.EntityFramework.xml
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\Microsoft.Owin.xml
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\Microsoft.Owin.Host.SystemWeb.xml
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\Microsoft.Owin.Security.xml
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\Microsoft.Owin.Security.Facebook.xml
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\Microsoft.Owin.Security.Cookies.xml
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\Microsoft.Owin.Security.Google.xml
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\Microsoft.Owin.Security.Twitter.xml
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\Microsoft.Owin.Security.OAuth.xml
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\es\EntityFramework.resources.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\es\EntityFramework.SqlServer.resources.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\es\System.Web.Helpers.resources.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\es\System.Web.Mvc.resources.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\es\System.Web.Optimization.resources.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\es\System.Web.Razor.resources.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\es\System.Web.WebPages.resources.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\es\System.Web.WebPages.Deployment.resources.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\es\System.Web.WebPages.Razor.resources.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\es\Microsoft.AspNet.Identity.Core.resources.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\es\Microsoft.AspNet.Identity.Owin.resources.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\bin\es\Microsoft.AspNet.Identity.EntityFramework.resources.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\obj\Release\Flex_SGM.Migrations.init.resources
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\obj\Release\Flex_SGM.csproj.GenerateResource.cache
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\obj\Release\Flex_SGM.csproj.CoreCompileInputs.cache
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\obj\Release\Flex_SGM.csproj.CopyComplete
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\obj\Release\Flex_SGM.dll
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\obj\Release\Flex_SGM.pdb
-C:\Users\lolivarez\Source\Repos\Bitacora\Flex_SGM\obj\Release\Flex_SGM.csprojAssemblyReference.cache
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\roslyn\csc.exe
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\roslyn\csc.exe.config
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\roslyn\csc.rsp
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\roslyn\csi.exe
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\roslyn\csi.exe.config
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\roslyn\csi.rsp
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\roslyn\Microsoft.CodeAnalysis.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\roslyn\Microsoft.CSharp.Core.targets
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\roslyn\Microsoft.Managed.Core.targets
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\roslyn\Microsoft.VisualBasic.Core.targets
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\roslyn\System.AppContext.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\roslyn\System.Collections.Immutable.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\roslyn\System.Console.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\roslyn\System.Diagnostics.StackTrace.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\roslyn\System.IO.Compression.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\roslyn\System.IO.FileSystem.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\roslyn\System.IO.FileSystem.Primitives.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\roslyn\System.IO.Pipes.AccessControl.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\roslyn\System.IO.Pipes.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\roslyn\System.Reflection.Metadata.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\roslyn\System.Security.AccessControl.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\roslyn\System.Security.Claims.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\roslyn\System.Security.Cryptography.Algorithms.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\roslyn\System.Security.Cryptography.Encoding.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\roslyn\System.Security.Cryptography.Primitives.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\roslyn\System.Security.Principal.Windows.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\roslyn\System.Text.Encoding.CodePages.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\roslyn\System.ValueTuple.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\roslyn\System.Xml.ReaderWriter.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\roslyn\System.Xml.XmlDocument.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\roslyn\System.Xml.XPath.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\roslyn\System.Xml.XPath.XDocument.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\roslyn\vbc.exe
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\roslyn\vbc.exe.config
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\roslyn\vbc.rsp
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\roslyn\VBCSCompiler.exe
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\roslyn\VBCSCompiler.exe.config
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\Antlr3.Runtime.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\ClosedXML.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\ClosedXML.Extensions.Mvc.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\ClosedXML.Report.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\DocumentFormat.OpenXml.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\EntityFramework.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\EntityFramework.SqlServer.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\ExcelNumberFormat.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\FastMember.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\IBM.Data.DB2.iSeries.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\Microsoft.AspNet.Identity.Core.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\Microsoft.AspNet.Identity.EntityFramework.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\Microsoft.AspNet.Identity.Owin.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\Microsoft.Owin.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\Microsoft.Owin.Host.SystemWeb.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\Microsoft.Owin.Security.Cookies.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\Microsoft.Owin.Security.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\Microsoft.Owin.Security.Facebook.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\Microsoft.Owin.Security.Google.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\Microsoft.Owin.Security.OAuth.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\Microsoft.Owin.Security.Twitter.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\Microsoft.Web.Infrastructure.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\MoreLinq.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\Newtonsoft.Json.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\Owin.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\PagedList.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\PagedList.Mvc.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\System.IO.FileSystem.Primitives.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\System.IO.Packaging.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\System.Linq.Dynamic.Core.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\System.ValueTuple.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\System.Web.Helpers.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\System.Web.Mvc.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\System.Web.Optimization.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\System.Web.Razor.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\System.Web.WebPages.Deployment.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\System.Web.WebPages.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\System.Web.WebPages.Razor.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\WebGrease.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\ClosedXML.pdb
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\ClosedXML.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\DocumentFormat.OpenXml.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\EntityFramework.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\EntityFramework.SqlServer.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\ExcelNumberFormat.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\IBM.Data.DB2.iSeries.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\MoreLinq.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\PagedList.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\PagedList.Mvc.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\System.Linq.Dynamic.Core.pdb
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\System.Linq.Dynamic.Core.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\System.ValueTuple.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\System.Web.Helpers.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\System.Web.Mvc.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\System.Web.Optimization.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\System.Web.Razor.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\System.Web.WebPages.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\System.Web.WebPages.Deployment.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\System.Web.WebPages.Razor.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\Newtonsoft.Json.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\Antlr3.Runtime.pdb
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\Microsoft.AspNet.Identity.Core.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\Microsoft.AspNet.Identity.Owin.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\Microsoft.AspNet.Identity.EntityFramework.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\Microsoft.Owin.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\Microsoft.Owin.Host.SystemWeb.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\Microsoft.Owin.Security.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\Microsoft.Owin.Security.Facebook.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\Microsoft.Owin.Security.Cookies.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\Microsoft.Owin.Security.Google.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\Microsoft.Owin.Security.Twitter.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\Microsoft.Owin.Security.OAuth.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\es\System.Web.Helpers.resources.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\es\System.Web.Mvc.resources.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\es\System.Web.Optimization.resources.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\es\System.Web.Razor.resources.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\es\System.Web.WebPages.resources.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\es\System.Web.WebPages.Deployment.resources.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\es\System.Web.WebPages.Razor.resources.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\es\Microsoft.AspNet.Identity.Core.resources.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\es\Microsoft.AspNet.Identity.Owin.resources.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\es\Microsoft.AspNet.Identity.EntityFramework.resources.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\obj\Release\Flex_SGM.Migrations.init.resources
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\obj\Release\Flex_SGM.csproj.GenerateResource.cache
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\obj\Release\Flex_SGM.csproj.CoreCompileInputs.cache
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\obj\Release\Flex_SGM.csproj.CopyComplete
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\obj\Release\Flex_SGM.csproj.AssemblyReference.cache
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\Flex_SGM.dll.config
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\Flex_SGM.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\Flex_SGM.pdb
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\obj\Release\Flex_SGM.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\obj\Release\Flex_SGM.pdb
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\Views\Help\Index.cshtml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora\Flex_SGM\bin\MoreLinq.pdb
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Views\Help\Index.cshtml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Flex_SGM.dll.config
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Flex_SGM.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Flex_SGM.pdb
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\csc.exe
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\csc.exe.config
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\csc.rsp
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\csi.exe
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\csi.exe.config
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\csi.rsp
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\Microsoft.CodeAnalysis.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\Microsoft.CSharp.Core.targets
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\Microsoft.Managed.Core.targets
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\Microsoft.VisualBasic.Core.targets
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\System.AppContext.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\System.Collections.Immutable.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\System.Console.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\System.Diagnostics.StackTrace.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\System.IO.Compression.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\System.IO.FileSystem.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\System.IO.FileSystem.Primitives.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\System.IO.Pipes.AccessControl.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\System.IO.Pipes.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\System.Reflection.Metadata.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\System.Security.AccessControl.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\System.Security.Claims.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\System.Security.Cryptography.Algorithms.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\System.Security.Cryptography.Encoding.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\System.Security.Cryptography.Primitives.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\System.Security.Principal.Windows.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\System.Text.Encoding.CodePages.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\System.ValueTuple.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\System.Xml.ReaderWriter.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\System.Xml.XmlDocument.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\System.Xml.XPath.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\System.Xml.XPath.XDocument.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\vbc.exe
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\vbc.exe.config
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\vbc.rsp
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\VBCSCompiler.exe
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\VBCSCompiler.exe.config
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Antlr3.Runtime.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\ClosedXML.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\ClosedXML.Extensions.Mvc.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\ClosedXML.Report.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\DocumentFormat.OpenXml.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\EntityFramework.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\EntityFramework.SqlServer.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\ExcelNumberFormat.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\FastMember.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\IBM.Data.DB2.iSeries.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.AspNet.Identity.Core.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.AspNet.Identity.EntityFramework.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.AspNet.Identity.Owin.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.Owin.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.Owin.Host.SystemWeb.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.Owin.Security.Cookies.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.Owin.Security.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.Owin.Security.Facebook.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.Owin.Security.Google.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.Owin.Security.OAuth.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.Owin.Security.Twitter.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.Web.Infrastructure.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\MoreLinq.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Newtonsoft.Json.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Owin.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\PagedList.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\PagedList.Mvc.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\System.IO.FileSystem.Primitives.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\System.IO.Packaging.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\System.Linq.Dynamic.Core.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\System.ValueTuple.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\System.Web.Helpers.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\System.Web.Mvc.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\System.Web.Optimization.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\System.Web.Razor.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\System.Web.WebPages.Deployment.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\System.Web.WebPages.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\System.Web.WebPages.Razor.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\WebGrease.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\ClosedXML.pdb
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\ClosedXML.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\DocumentFormat.OpenXml.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\EntityFramework.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\EntityFramework.SqlServer.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\ExcelNumberFormat.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\IBM.Data.DB2.iSeries.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\MoreLinq.pdb
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\MoreLinq.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\PagedList.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\PagedList.Mvc.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\System.Linq.Dynamic.Core.pdb
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\System.Linq.Dynamic.Core.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\System.ValueTuple.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\System.Web.Helpers.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\System.Web.Mvc.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\System.Web.Optimization.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\System.Web.Razor.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\System.Web.WebPages.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\System.Web.WebPages.Deployment.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\System.Web.WebPages.Razor.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Newtonsoft.Json.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Antlr3.Runtime.pdb
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.AspNet.Identity.Core.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.AspNet.Identity.Owin.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.AspNet.Identity.EntityFramework.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.Owin.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.Owin.Host.SystemWeb.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.Owin.Security.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.Owin.Security.Facebook.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.Owin.Security.Cookies.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.Owin.Security.Google.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.Owin.Security.Twitter.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.Owin.Security.OAuth.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\es\System.Web.Helpers.resources.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\es\System.Web.Mvc.resources.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\es\System.Web.Optimization.resources.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\es\System.Web.Razor.resources.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\es\System.Web.WebPages.resources.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\es\System.Web.WebPages.Deployment.resources.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\es\System.Web.WebPages.Razor.resources.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\es\Microsoft.AspNet.Identity.Core.resources.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\es\Microsoft.AspNet.Identity.Owin.resources.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\es\Microsoft.AspNet.Identity.EntityFramework.resources.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\obj\Release\Flex_SGM.csproj.AssemblyReference.cache
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\obj\Release\Flex_SGM.Migrations.init.resources
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\obj\Release\Flex_SGM.csproj.GenerateResource.cache
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\obj\Release\Flex_SGM.csproj.CoreCompileInputs.cache
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\obj\Release\Flex_SGM.csproj.CopyComplete
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\obj\Release\Flex_SGM.dll
-C:\Users\dcamacho\source\repos\flexngate\Bitacora\Bitacora_SJIM\Flex_SGM\obj\Release\Flex_SGM.pdb
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Views\Help\Index.cshtml
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Flex_SGM.dll.config
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Flex_SGM.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Flex_SGM.pdb
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\csc.exe
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\csc.exe.config
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\csc.rsp
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\csi.exe
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\csi.exe.config
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\csi.rsp
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\Microsoft.Managed.Core.CurrentVersions.targets
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\System.Buffers.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\System.Memory.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\System.Numerics.Vectors.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\vbc.exe
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\vbc.exe.config
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\vbc.rsp
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\VBCSCompiler.exe
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Antlr3.Runtime.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\ClosedXML.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\ClosedXML.Parser.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\ClosedXML.Report.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\DocumentFormat.OpenXml.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\DocumentFormat.OpenXml.Framework.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\EntityFramework.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\EntityFramework.SqlServer.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\ExcelNumberFormat.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\FastMember.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\IBM.Data.DB2.iSeries.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Irony.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.Bcl.HashCode.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.Owin.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.Owin.Security.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\MoreLinq.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Newtonsoft.Json.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Owin.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\PagedList.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\PagedList.Mvc.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\RBush.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\SixLabors.Fonts.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Spire.XLS.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\System.Buffers.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\System.Diagnostics.DiagnosticSource.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\System.IO.Packaging.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\System.Linq.Dynamic.Core.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\System.Memory.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\System.Numerics.Vectors.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\System.ValueTuple.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\System.Web.Helpers.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\System.Web.Mvc.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\System.Web.Optimization.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\System.Web.Razor.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\System.Web.WebPages.Deployment.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\System.Web.WebPages.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\System.Web.WebPages.Razor.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\WebGrease.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\XLParser.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Antlr3.Runtime.pdb
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\ClosedXML.xml
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\ClosedXML.Parser.xml
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\DocumentFormat.OpenXml.xml
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\DocumentFormat.OpenXml.Framework.xml
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\EntityFramework.xml
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\EntityFramework.SqlServer.xml
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\ExcelNumberFormat.xml
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\IBM.Data.DB2.iSeries.xml
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.Bcl.HashCode.xml
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.Owin.xml
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.Owin.Security.xml
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\MoreLinq.pdb
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\MoreLinq.xml
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Newtonsoft.Json.xml
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\PagedList.xml
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\PagedList.Mvc.xml
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\RBush.xml
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\SixLabors.Fonts.xml
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Spire.XLS.xml
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\System.Buffers.xml
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\System.Diagnostics.DiagnosticSource.xml
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\System.IO.Packaging.xml
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\System.Linq.Dynamic.Core.pdb
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\System.Linq.Dynamic.Core.xml
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\System.Memory.xml
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\System.Numerics.Vectors.xml
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\System.ValueTuple.xml
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\System.Web.Helpers.xml
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\System.Web.Mvc.xml
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\System.Web.Optimization.xml
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\System.Web.Razor.xml
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\System.Web.WebPages.xml
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\System.Web.WebPages.Deployment.xml
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\System.Web.WebPages.Razor.xml
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\es\Microsoft.AspNet.Identity.Core.resources.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\es\Microsoft.AspNet.Identity.EntityFramework.resources.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\es\System.Web.Helpers.resources.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\es\System.Web.Mvc.resources.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\es\System.Web.Optimization.resources.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\es\System.Web.Razor.resources.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\es\System.Web.WebPages.resources.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\es\System.Web.WebPages.Deployment.resources.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\es\System.Web.WebPages.Razor.resources.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\obj\Release\Flex_SGM.csproj.AssemblyReference.cache
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\obj\Release\Flex_SGM.Migrations.init.resources
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\obj\Release\Flex_SGM.Migrations.AddMaquinaIDToPcr.resources
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\obj\Release\Flex_SGM.Migrations.AddCurrentAndNewConditionToPcr.resources
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\obj\Release\Flex_SGM.Migrations.AddToPcr.resources
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\obj\Release\Flex_SGM.Migrations.AddCustomerApprovalRequiredToPcrs.resources
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\obj\Release\Flex_SGM.csproj.GenerateResource.cache
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\obj\Release\Flex_SGM.csproj.CoreCompileInputs.cache
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\obj\Release\Flex_SGM.csproj.Up2Date
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\obj\Release\Flex_SGM.dll
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\obj\Release\Flex_SGM.pdb

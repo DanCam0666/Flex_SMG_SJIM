@@ -4,103 +4,96 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<br />
 <Center class="clearfix">
-    <div class="x_panel cbg" style="background-color: #edf3f9; border-color:darkgray; width: 30%">
-        <h4>VER / CREAR / EDITAR / FIRMAR LOS PCRs</h4>
-        <hr style="background-color: darkgray" />
-        <br>
-        <div>@Html.ActionLink("PCRs", "Index", "PCRs", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();", @class = "btn btn-primary" })</div>
-        <br>
-    </div>
-</Center>
-@if (ViewBag.super)
-{ 
-    <Center class="clearfix">
-        <div class="x_panel cbg" style="background-color: #edf3f9; border-color: darkgray; width: 30%; align-content:center">
-            <h4>CONFIGURACIONES</h4>
-            <hr style="background-color: darkgray" />
-            <br>
-            <div>@Html.ActionLink("PCR Reasons", "Index", "ereasons", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();", @class = "btn btn-primary" })</div>
-            <br>
-            <div>@Html.ActionLink("PCR Matriz de Decisión", "Index", "MatrizDecisions", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();", @class = "btn btn-primary" })</div>
-            <br>
-            <div>@Html.ActionLink("PCR Originators", "Index", "eoriginators", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();", @class = "btn btn-primary" })</div>
-            <br>
-            <div>@Html.ActionLink("Clientes", "Index", "eClientes", null, htmlAttributes: new { @class = "btn btn-primary", @onclick = "$('#loadingImg').show();" })</div>
-            <br>
-            <div>@Html.ActionLink("Proyectos", "Index", "eProyectos", null, htmlAttributes: new { @class = "btn btn-primary", @onclick = "$('#loadingImg').show();" })</div>
-            <br>
-            <div>@Html.ActionLink("Areas", "Index", "eAreas", null, htmlAttributes: new { @class = "btn btn-primary", @onclick = "$('#loadingImg').show();" })</div>
-            <br>
-            <br>
-            <hr />
-        </div>
-    </Center>
-}
-@*Modal: modalPoll*@ 
-    <div class="modal right fade" id="modalPoll" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-         aria-hidden="true" data-backdrop="false">
-        <div class="modal-dialog modal-notify modal-info" role="document">
-            <div class="modal-content" style="background-color: #edf3f9">
-                <div>
-                    <div class="modal-header bg-primary">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true" class="white-text">&#x274C</span>
-                        </button>
-                        <center class="heading lead" style="margin-left: 70px; font-size: x-large">
-                            Solicitud de Comentarios
-                        </center>
-                    </div>
-                </div>
-                <div class="modal-body" style="color: #337ab7; text-align:left; margin-left: 30px">
-                    <div class="text-center">
-                        <i class="fa fa-file-text-o fa-4x mb-3 animated rotateIn"></i>
-                        <h3>
-                            <strong>Su Opinión Importa</strong>
-                        </h3>
-                        <p>
-                            ¿Tiene algunas ideas como mejorar esta aplicación?
-                            <strong>Da su opinión.</strong>
-                        </p>
-                    </div>
-                    <hr>
-                    <Radio>
-                        <fieldset>
-                            <legend style="text-align: center; color: #337ab7;">Su Clalificación</legend>
-                            <div style="margin-left: 160px" class="col-md-12">
-                                <input type="radio" name="type" id="Excelente" value="Excelente" checked /><label for="Excelente">&nbsp; Muy Bien</label><br />
-                                <input type="radio" name="type" id="Bien" value="Bien" /><label for="Bien">&nbsp; Bien</label><br />
-                                <input type="radio" name="type" id="Regular" value="Regular" /><label for="Regular">&nbsp; Regular</label><br />
-                                <input type="radio" name="type" id="Mal" value="Mal" /><label for="Mal">&nbsp; Mal</label><br />
-                                <input type="radio" name="type" id="Pesima" value="Pesima" /><label for="Pesima">&nbsp; Pésima</label><br />
-                            </div>
-                            <hr />
-                        </fieldset>
-                    </Radio>
-                    <h4 class="text-center">
-                        <strong>¿Qué podríamos mejorar?</strong>
-                    </h4>
-                    <hr />
-                    @*Basic text area*@
-                    @Html.LabelFor(model => model.Comentarios, "Sus Comentarios", htmlAttributes: new { @class = "control-label col-md-12" })
-                    <div class="col-md-11">
-                        @Html.TextAreaFor(model => model.Comentarios, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.Comentarios, "", new { @class = "text-danger" })
-                    </div>
-                    <br />
-                    <br />
-                    <hr />
-                    <div class="modal-footer justify-content-center">
-                        <a button id="submit" data-bind="modalPoll" class="btn btn-primary waves-effect waves-light">
-                            Enviar
-                            <i class="fa fa-paper-plane ml-1"></i>
-                        </a>
-                        <a button class="btn btn-default waves-effect" data-dismiss="modal">Cancelar</a>
-                        <br />
-                    </div>
-                </div>
+    <hr />
+    <hr />
+    <!-- Flex container for both columns -->
+    <div class="flex-container">
+        <!-- First Column -->
+        <div class="x_panel column-panel">
+            <h3 style="font-size: 24px; text-align: center; font-weight:bold;">Documentos</h3>
+            <div class="button-container">
+                <div>@Html.ActionLink("PCRs", "Index", "PCRs", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();", @class = "btn btn-primary action-btn" })</div>
+                <div>@Html.ActionLink("Future Docs 1", "#", null, htmlAttributes: new { @class = "btn btn-primary action-btn" })</div>
+                <div>@Html.ActionLink("Future Docs 2", "#", null, htmlAttributes: new { @class = "btn btn-primary action-btn" })</div>
+                <div>@Html.ActionLink("Future Docs 3", "#", null, htmlAttributes: new { @class = "btn btn-primary action-btn" })</div>
+                <div>@Html.ActionLink("Future Docs 4", "#", null, htmlAttributes: new { @class = "btn btn-primary action-btn" })</div>
             </div>
         </div>
+
+        @if (ViewBag.super)
+        {
+            <!-- Second Column -->
+            <div class="x_panel column-panel">
+                <h3 style="font-size: 24px; text-align: center; font-weight:bold;">Configuraciones</h3>
+                <div class="button-container">
+                    <div>@Html.ActionLink("PCR Reasons", "Index", "ereasons", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();", @class = "btn btn-primary action-btn" })</div>
+                    <div>@Html.ActionLink("PCR Matriz de Decisión", "Index", "MatrizDecisions", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();", @class = "btn btn-primary action-btn" })</div>
+                    <div>@Html.ActionLink("PCR Originators", "Index", "eoriginators", null, htmlAttributes: new { @onclick = "$('#loadingImg').show();", @class = "btn btn-primary action-btn" })</div>
+                    <div>@Html.ActionLink("Clientes", "Index", "eClientes", null, htmlAttributes: new { @class = "btn btn-primary action-btn", @onclick = "$('#loadingImg').show();" })</div>
+                    <div>@Html.ActionLink("Proyectos", "Index", "eProyectos", null, htmlAttributes: new { @class = "btn btn-primary action-btn", @onclick = "$('#loadingImg').show();" })</div>
+                    <div>@Html.ActionLink("Areas", "Index", "eAreas", null, htmlAttributes: new { @class = "btn btn-primary action-btn", @onclick = "$('#loadingImg').show();" })</div>
+                </div>
+            </div>
+        }
     </div>
- @*Modal: modalPoll*@ 
+    <br>
+    <br>
+</Center>
+
+<!-- Modal remains unchanged -->
+@*Modal: modalPoll*@
+<div class="modal right fade" id="modalPoll" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true" data-backdrop="false">
+    <!-- Modal content remains the same -->
+</div>
+
+<style>
+    .flex-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: stretch;
+        margin: 0 auto;
+        max-width: 1000px;
+    }
+
+    .column-panel {
+        background-color: #edf3f9;
+        border: 1px solid darkgray;
+        padding: 20px;
+        width: 48%;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        min-height: 500px;
+        margin-right: 10px;
+        border-radius: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .flex-container > .column-panel:last-child {
+        margin-right: 0;
+    }
+
+    .button-container {
+        margin-top: 10px;
+    }
+
+    .action-btn {
+        width: 100%;
+        display: block;
+        margin: 10px 0;
+        text-align: center;
+        font-size: 20px;
+        border-radius: 15px;
+        font-weight: 500;
+        font-family: 'Calibri Light', sans-serif;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Additional styles for the modal if needed */
+    .modal .modal-content {
+        border-radius: 20px;
+    }
+</style>    

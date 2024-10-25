@@ -95,36 +95,99 @@ namespace Flex_SGM.Controllers
                         }
                     }
 
-                    var sum_AMEF = (metricos.Where(w => w.Usuario_area == "AMEF_Reverse" && w.DiaHora.Month == jmes && w.DiaHora.Year == year).Select(w => w.Proyectos).Sum());
-                    var cnt_AMEF = (metricos.Where(w => w.Usuario_area == "AMEF_Reverse" && w.DiaHora.Month == jmes && w.DiaHora.Year == year).Count());
-                    var sum_Capacities = (metricos.Where(w => w.Usuario_area == "Capacities_Review" && w.DiaHora.Month == jmes && w.DiaHora.Year == year).Select(w => w.Proyectos).Sum());
-                    var cnt_Capacities = (metricos.Where(w => w.Usuario_area == "Capacities_Review" && w.DiaHora.Month == jmes && w.DiaHora.Year == year).Count());
-                    var sum_Cust_Comp = (metricos.Where(w => w.Usuario_area == "Customer_Complaints" && w.DiaHora.Month == jmes && w.DiaHora.Year == year).Select(w => w.Proyectos).Sum());
+					var sum_AMEF_N1_N4 = (metricos.Where(w => w.Usuario_area == "AMEF_N1_N4" && w.DiaHora.Month == jmes && w.DiaHora.Year == year).Select(w => w.Proyectos).Sum());
+					var cnt_AMEF_N1_N4 = (metricos.Where(w => w.Usuario_area == "AMEF_N1_N4" && w.DiaHora.Month == jmes && w.DiaHora.Year == year).Count());
+					var sum_AMEF_N2_N3 = (metricos.Where(w => w.Usuario_area == "AMEF_N2_N3" && w.DiaHora.Month == jmes && w.DiaHora.Year == year).Select(w => w.Proyectos).Sum());
+					var cnt_AMEF_N2_N3 = (metricos.Where(w => w.Usuario_area == "AMEF_N2_N3" && w.DiaHora.Month == jmes && w.DiaHora.Year == year).Count());
+					var sum_Capacities = (metricos.Where(w => w.Usuario_area == "Capacities_Review" && w.DiaHora.Month == jmes && w.DiaHora.Year == year).Select(w => w.Proyectos).Sum());
+					var cnt_Capacities = (metricos.Where(w => w.Usuario_area == "Capacities_Review" && w.DiaHora.Month == jmes && w.DiaHora.Year == year).Count());
+					var sum_Highlights = (metricos.Where(w => w.Usuario_area == "Highlights" && w.DiaHora.Month == jmes && w.DiaHora.Year == year).Select(w => w.Proyectos).Sum());
+					var cnt_Highlights = (metricos.Where(w => w.Usuario_area == "Highlights" && w.DiaHora.Month == jmes && w.DiaHora.Year == year).Count());
+					var sum_Capacity_Tickets = (metricos.Where(w => w.Usuario_area == "Capacity_Tickets" && w.DiaHora.Month == jmes && w.DiaHora.Year == year).Select(w => w.Proyectos).Sum());
+					var cnt_Capacity_Tickets = (metricos.Where(w => w.Usuario_area == "Capacity_Tickets" && w.DiaHora.Month == jmes && w.DiaHora.Year == year).Count());
+					var sum_Cust_Comp = (metricos.Where(w => w.Usuario_area == "Customer_Complaints" && w.DiaHora.Month == jmes && w.DiaHora.Year == year).Select(w => w.Proyectos).Sum());
                     var sum_Cont_Imprv = (metricos.Where(w => w.Usuario_area == "Continuous_Improvment" && w.DiaHora.Month == jmes && w.DiaHora.Year == year).Select(w => w.Proyectos).Sum());
                     var cnt_Cont_Imprv = (metricos.Where(w => w.Usuario_area == "Continuous_Improvment" && w.DiaHora.Month == jmes && w.DiaHora.Year == year).Count());
-                    var sum_Cust_Score = (metricos.Where(w => w.Usuario_area.Contains("Cust_Score_Cards") && w.DiaHora.Month == jmes && w.DiaHora.Year == year).Select(w => w.Proyectos).Sum());
-                    var cnt_Cust_Score = (metricos.Where(w => w.Usuario_area.Contains("Cust_Score_Cards") && w.DiaHora.Month == jmes && w.DiaHora.Year == year).Count());
-                    var sum_ECN_PCR = (metricos.Where(w => w.Usuario_area == "ECNs_PCRs" && w.DiaHora.Month == jmes && w.DiaHora.Year == year).Select(w => w.Proyectos).Sum());
-                    var sum_Layout = (metricos.Where(w => w.Usuario_area == "Lay_Outs" && w.DiaHora.Month == jmes && w.DiaHora.Year == year).Select(w => w.Proyectos).Sum());
-                    var sum_LPA_Covid = (metricos.Where(w => w.Usuario_area == "LPA_COVID" && w.DiaHora.Month == jmes && w.DiaHora.Year == year).Select(w => w.Proyectos).Sum());
-                    var cnt_LPA_Covid = (metricos.Where(w => w.Usuario_area == "LPA_COVID" && w.DiaHora.Month == jmes && w.DiaHora.Year == year).Count());
-                    var sum_Packaging = (metricos.Where(w => w.Usuario_area == "Packaging" && w.DiaHora.Month == jmes && w.DiaHora.Year == year).Select(w => w.Proyectos).Sum());
-                    var sum_PLM = (metricos.Where(w => w.Usuario_area == "PLM" && w.DiaHora.Month == jmes && w.DiaHora.Year == year).Select(w => w.Proyectos).Sum());
-                    var sum_Quality_HS = (metricos.Where(w => w.Usuario_area == "Quality_HS" && w.DiaHora.Month == jmes && w.DiaHora.Year == year).Select(w => w.Proyectos).Sum());
-                    var sum_TOC_HS_Audits = (metricos.Where(w => w.Usuario_area == "TOC_HS_Audits" && w.DiaHora.Month == jmes && w.DiaHora.Year == year).Select(w => w.Proyectos).Sum());
-                    var cnt_TOC_HS_Audits = (metricos.Where(w => w.Usuario_area == "TOC_HS_Audits" && w.DiaHora.Month == jmes && w.DiaHora.Year == year).Count());
-                    var sum_Red_Rabbits = (metricos.Where(w => w.Usuario_area == "Red_Rabbits" && w.DiaHora.Month == jmes && w.DiaHora.Year == year).Select(w => w.Proyectos).Sum());
-                    var cnt_Red_Rabbits = (metricos.Where(w => w.Usuario_area == "Red_Rabbits" && w.DiaHora.Month == jmes && w.DiaHora.Year == year).Count());
-                    var LpaPer = (10 - sum_LPA_Covid) * 10;
+                    var sum_MDRs = metricos
+                        .Where(w => w.Usuario_area != null && w.Usuario_area.Contains("MDRs") && w.DiaHora != null && w.DiaHora.Month == jmes && w.DiaHora.Year == year)
+                        .Select(w => w.Proyectos)
+                        .Sum();
+                    var cnt_MDRs = metricos
+                        .Where(w => w.Usuario_area != null && w.Usuario_area.Contains("MDRs") && w.DiaHora != null && w.DiaHora.Month == jmes && w.DiaHora.Year == year)
+                        .Count();
+                    var sum_PPAPs = metricos
+                        .Where(w => w.Usuario_area != null && w.Usuario_area.Contains("PPAPs") && w.DiaHora != null && w.DiaHora.Month == jmes && w.DiaHora.Year == year)
+                        .Select(w => w.Proyectos)
+                        .Sum();
+                    var cnt_PPAPs = metricos
+                        .Where(w => w.Usuario_area != null && w.Usuario_area.Contains("PPAPs") && w.DiaHora != null && w.DiaHora.Month == jmes && w.DiaHora.Year == year)
+                        .Count();
+
+                    var sum_ECN_PCR = metricos
+                        .Where(w => w.Usuario_area != null && w.Usuario_area == "ECNs_PCRs" && w.DiaHora != null && w.DiaHora.Month == jmes && w.DiaHora.Year == year)
+                        .Select(w => w.Proyectos)
+                        .Sum();
+
+                    var sum_Layout = metricos
+                        .Where(w => w.Usuario_area != null && w.Usuario_area == "Lay_Outs" && w.DiaHora != null && w.DiaHora.Month == jmes && w.DiaHora.Year == year)
+                        .Select(w => w.Proyectos)
+                        .Sum();
+
+                    var sum_LPA_Bluebook = metricos
+                        .Where(w => w.Usuario_area != null && w.Usuario_area == "LPA_Bluebook" && w.DiaHora != null && w.DiaHora.Month == jmes && w.DiaHora.Year == year)
+                        .Select(w => w.Proyectos)
+                        .Sum();
+
+                    var cnt_LPA_Bluebook = metricos
+                        .Where(w => w.Usuario_area != null && w.Usuario_area == "LPA_Bluebook" && w.DiaHora != null && w.DiaHora.Month == jmes && w.DiaHora.Year == year)
+                        .Count();
+
+                    var sum_Packaging = metricos
+                        .Where(w => w.Usuario_area != null && w.Usuario_area == "Packaging" && w.DiaHora != null && w.DiaHora.Month == jmes && w.DiaHora.Year == year)
+                        .Select(w => w.Proyectos)
+                        .Sum();
+
+                    var sum_PLM = metricos
+                        .Where(w => w.Usuario_area != null && w.Usuario_area == "PLM" && w.DiaHora != null && w.DiaHora.Month == jmes && w.DiaHora.Year == year)
+                        .Select(w => w.Proyectos)
+                        .Sum();
+
+                    var sum_Yellow_SH = metricos
+                        .Where(w => w.Usuario_area != null && w.Usuario_area == "Yellow_Sheets" && w.DiaHora != null && w.DiaHora.Month == jmes && w.DiaHora.Year == year)
+                        .Select(w => w.Proyectos)
+                        .Sum();
+
+                    var sum_Vacaciones = metricos
+                        .Where(w => w.Usuario_area != null && w.Usuario_area == "Vacaciones" && w.DiaHora != null && w.DiaHora.Month == jmes && w.DiaHora.Year == year)
+                        .Select(w => w.Proyectos)
+                        .Sum();
+
+                    var cnt_Vacaciones = metricos
+                        .Where(w => w.Usuario_area != null && w.Usuario_area == "Vacaciones" && w.DiaHora != null && w.DiaHora.Month == jmes && w.DiaHora.Year == year)
+                        .Count();
+
+                    var sum_Red_Rabbits = metricos
+                        .Where(w => w.Usuario_area != null && w.Usuario_area == "Red_Rabbits" && w.DiaHora != null && w.DiaHora.Month == jmes && w.DiaHora.Year == year)
+                        .Select(w => w.Proyectos)
+                        .Sum();
+
+                    var cnt_Red_Rabbits = metricos
+                        .Where(w => w.Usuario_area != null && w.Usuario_area == "Red_Rabbits" && w.DiaHora != null && w.DiaHora.Month == jmes && w.DiaHora.Year == year)
+                        .Count();
+                    var LpaPer = (10 - sum_LPA_Bluebook) * 10;
                     var EcnPcr = (10 - sum_ECN_PCR) * 10;
                     var Packaging = (10 - sum_Packaging) * 10;
                     var PLM = (10 - sum_PLM) * 10;
                     var Cust_Comp = (10 - sum_Cust_Comp) * 10;
-                    var Cust_Score = 0;
-                    if (cnt_Cust_Score != 0)
-                        Cust_Score = sum_Cust_Score / cnt_Cust_Score;
+					var PPAPs = 0;
+					if (cnt_PPAPs != 0)
+						PPAPs = sum_PPAPs / cnt_PPAPs;
 
-                    if (Cust_Comp <= 0){Cust_Comp = 0;}
+					var MDRs = 0;
+					if (cnt_MDRs != 0)
+						MDRs = sum_MDRs / cnt_MDRs;
+
+					if (Cust_Comp <= 0){Cust_Comp = 0;}
 
                     if (Packaging <= 0){Packaging = 0;}
 
@@ -134,50 +197,61 @@ namespace Flex_SGM.Controllers
 
                     if (LpaPer <= 0){LpaPer = 0;}
 
-                    if (cnt_AMEF != 0){ViewBag.AMEFPer = sum_AMEF / cnt_AMEF;}
-                    else{ViewBag.AMEFPer = 0;}
+					if (cnt_AMEF_N1_N4 != 0) { ViewBag.AMEFPerN1 = sum_AMEF_N1_N4 / cnt_AMEF_N1_N4; }
+					else { ViewBag.AMEFPerN1 = 0; }
 
-                    if (cnt_Capacities != 0){ViewBag.CapPer = sum_Capacities/cnt_Capacities;}
-                    else{ViewBag.CapPer = 0;}
+					if (cnt_AMEF_N2_N3 != 0) { ViewBag.AMEFPerN2 = sum_AMEF_N2_N3 / cnt_AMEF_N2_N3; }
+					else { ViewBag.AMEFPerN2 = 0; }
 
-                    if (cnt_Cont_Imprv != 0){ViewBag.ConPer = (cnt_Cont_Imprv * 100) / 21;}
+					if (cnt_Capacities != 0) { ViewBag.CapPer = sum_Capacities / cnt_Capacities; }
+					else { ViewBag.CapPer = 0; }
+
+					if (cnt_Capacity_Tickets != 0) { ViewBag.CapTic = sum_Capacity_Tickets / cnt_Capacity_Tickets; }
+					else { ViewBag.CapTic = 0; }
+
+					if (cnt_Cont_Imprv != 0){ViewBag.ConPer = (cnt_Cont_Imprv * 100) / 21;}
                     else{ViewBag.ConPer = 0;}
 
-                    if (sum_TOC_HS_Audits != 0){ViewBag.TocPer = (sum_TOC_HS_Audits / 23);}
-                    else{ViewBag.TocPer = 0;}
+                    if (sum_Vacaciones != 0){ViewBag.VacPer = (sum_Vacaciones / 23);}
+                    else{ViewBag.VacPer = 0;}
 
                     if (cnt_Red_Rabbits != 0){ViewBag.ReRaPer = (sum_Red_Rabbits / cnt_Red_Rabbits);}
                     else{ViewBag.ReRaPer = 0;}
 
-                    ViewBag.WrkStd = (ViewBag.TocPer + sum_Quality_HS) / 2; //(sum_Operator_Instructions + sum_Operator_Training + sum_Poka_Yoke + sum_SMED_Training) / 4;
-                    ViewBag.Accnt = (LpaPer + EcnPcr + ViewBag.CapPer + ViewBag.ReRaPer) / 4;
-                    ViewBag.ConImp = (ViewBag.ConPer + ViewBag.AMEFPer) / 2;
-                    ViewBag.CstFcs = (PLM + Packaging + Cust_Score + Cust_Comp) / 4;
-                    ViewBag.Sustan = sum_Layout; //(sum_GAP + sum_Lay_Outs + sum_Manpower_Gypsa + sum_Manpower_LunkoMex) / 4;
+                    ViewBag.WrkStd = (ViewBag.AMEFPerN1 + ViewBag.AMEFPerN2 + ViewBag.ReRaPer) / 3; //(sum_Operator_Instructions + sum_Operator_Training + sum_Poka_Yoke + sum_SMED_Training) / 4;
+                    ViewBag.Accnt = (LpaPer + EcnPcr + ViewBag.VacPer) / 3;
+                    ViewBag.ConImp = (ViewBag.ConPer + sum_Yellow_SH) / 2;
+                    ViewBag.CstFcs = (Packaging + PPAPs + MDRs + Cust_Comp + ViewBag.CapTic) / 5;
+                    ViewBag.Sustan = (sum_Highlights + ViewBag.CapPer + PLM + sum_Layout) / 4; //(sum_GAP + sum_Lay_Outs + sum_Manpower_Gypsa + sum_Manpower_LunkoMex) / 4;
                     ViewBag.indYear = year;
 
                     MetricsNew data_show = new MetricsNew
                     {
                         TiempoLabel = thistiempo,
-                        Amef = ViewBag.AMEFPer,
-                        BiBo = metricos.Where(w => w.Usuario_area == "Build_In_Build_Out" && w.DiaHora.Month == jmes && w.DiaHora.Year == year).Select(w => w.Proyectos).Sum(),
+						Amef_N1_N4 = ViewBag.AMEFPerN1,
+						Amef_N2_N3 = ViewBag.AMEFPerN2,
+						BiBo = metricos.Where(w => w.Usuario_area == "Build_In_Build_Out" && w.DiaHora.Month == jmes && w.DiaHora.Year == year).Select(w => w.Proyectos).Sum(),
                         Caps = metricos.Where(w => w.Usuario_area == "Capacities_Review" && w.DiaHora.Month == jmes && w.DiaHora.Year == year).Select(w => w.Proyectos).Sum(),
                         CapNum = metricos.Where(w => w.Usuario_area == "Capacities_Review" && w.DiaHora.Month == jmes && w.DiaHora.Year == year).Count(),
                         CapPer = ViewBag.CapPer,
-                        CoImCnt = metricos.Where(w => w.Usuario_area == "Continuous_Improvment" && w.DiaHora.Month == jmes && w.DiaHora.Year == year).Count(),
+						MdrPer = metricos.Where(w => w.Usuario_area == "MDRs" && w.DiaHora.Month == jmes && w.DiaHora.Year == year).Select(w => w.Proyectos).Sum(),
+						MdrCnt = metricos.Where(w => w.Usuario_area == "MDRs" && w.DiaHora.Month == jmes && w.DiaHora.Year == year).Count(),
+						PPAPsPer = metricos.Where(w => w.Usuario_area == "PPAPs" && w.DiaHora.Month == jmes && w.DiaHora.Year == year).Select(w => w.Proyectos).Sum(),
+						PPAPsCnt = metricos.Where(w => w.Usuario_area == "PPAPs" && w.DiaHora.Month == jmes && w.DiaHora.Year == year).Count(),
+						CoImCnt = metricos.Where(w => w.Usuario_area == "Continuous_Improvment" && w.DiaHora.Month == jmes && w.DiaHora.Year == year).Count(),
                         CoImPer = ViewBag.ConPer,
                         CuCo = metricos.Where(w => w.Usuario_area == "Customer_Complaints" && w.DiaHora.Month == jmes && w.DiaHora.Year == year).Select(w => w.Proyectos).Sum(),
                         Ecn = metricos.Where(w => w.Usuario_area == "ECNs_PCRs" && w.DiaHora.Month == jmes && w.DiaHora.Year == year).Select(w => w.Proyectos).Sum(),
                         LaOu = metricos.Where(w => w.Usuario_area == "Lay_Outs" && w.DiaHora.Month == jmes && w.DiaHora.Year == year).Select(w => w.Proyectos).Sum(),
-                        Lpa = metricos.Where(w => w.Usuario_area == "LPA_COVID" && w.DiaHora.Month == jmes && w.DiaHora.Year == year).Select(w => w.Proyectos).Sum(),
+                        Lpa = metricos.Where(w => w.Usuario_area == "LPA_Bluebook" && w.DiaHora.Month == jmes && w.DiaHora.Year == year).Select(w => w.Proyectos).Sum(),
                         PaPo = metricos.Where(w => w.Usuario_area == "Packaging" && w.DiaHora.Month == jmes && w.DiaHora.Year == year).Select(w => w.Proyectos).Sum(),
-                        PaDe = metricos.Where(w => w.Usuario_area == "Parts_Delivery" && w.DiaHora.Month == jmes && w.DiaHora.Year == year).Select(w => w.Proyectos).Sum(),
+                        PaDe = metricos.Where(w => w.Usuario_area == "Vacaciones" && w.DiaHora.Month == jmes && w.DiaHora.Year == year).Select(w => w.Proyectos).Sum(),
                         Plm = metricos.Where(w => w.Usuario_area == "PLM" && w.DiaHora.Month == jmes && w.DiaHora.Year == year).Select(w => w.Proyectos).Sum(),
-                        QuHs = metricos.Where(w => w.Usuario_area == "Quality_HS" && w.DiaHora.Month == jmes && w.DiaHora.Year == year).Select(w => w.Proyectos).Sum(),
+                        QuHs = metricos.Where(w => w.Usuario_area == "Capacity_Tickets" && w.DiaHora.Month == jmes && w.DiaHora.Year == year).Select(w => w.Proyectos).Sum(),
                         ReRa = ViewBag.ReRaPer,
-                        Safe = metricos.Where(w => w.Usuario_area == "Safety_HS" && w.DiaHora.Month == jmes && w.DiaHora.Year == year).Select(w => w.Proyectos).Sum(),
+                        HiFi = metricos.Where(w => w.Usuario_area == "Highlights" && w.DiaHora.Month == jmes && w.DiaHora.Year == year).Select(w => w.Proyectos).Sum(),
                         ScCo = metricos.Where(w => w.Usuario_area == "Scrap" && w.DiaHora.Month == jmes && w.DiaHora.Year == year).Select(w => w.Proyectos).Sum(),
-                        Toc = ViewBag.TocPer,
+                        Vacas = ViewBag.VacPer,
                         YeSh = metricos.Where(w => w.Usuario_area == "Yellow_Sheets" && w.DiaHora.Month == jmes && w.DiaHora.Year == year).Select(w => w.Proyectos).Sum(),
 
                         WrkStd = ViewBag.WrkStd,
@@ -186,45 +260,7 @@ namespace Flex_SGM.Controllers
                         CstFcs = ViewBag.CstFcs,
                         Sustan = ViewBag.Sustan,
 
-                        Ford = metricos
-                        .Where(w => w.Usuario_area == "Cust_Score_Cards" && w.DiaHora.Month == jmes && w.DiaHora.Year == year)
-                        .Where(w => w.Descripcion.Contains("Ford"))
-                        .Select(w => w.Proyectos).Sum(),
 
-                        Ford_APQP = metricos
-                        .Where(w => w.Usuario_area == "Cust_Score_Cards" && w.DiaHora.Month == jmes && w.DiaHora.Year == year)
-                        .Where(w => w.Descripcion.Contains("Ford APQP"))
-                        .Select(w => w.Proyectos).Sum(),
-
-                        GM = metricos
-                        .Where(w => w.Usuario_area == "Cust_Score_Cards" && w.DiaHora.Month == jmes && w.DiaHora.Year == year)
-                        .Where(w => w.Descripcion.Contains("GM"))
-                        .Select(w => w.Proyectos).Sum(),
-
-                        Mopar = metricos
-                        .Where(w => w.Usuario_area == "Cust_Score_Cards" && w.DiaHora.Month == jmes && w.DiaHora.Year == year)
-                        .Where(w => w.Descripcion.Contains("Mopar"))
-                        .Select(w => w.Proyectos).Sum(),
-
-                        Nissan = metricos
-                        .Where(w => w.Usuario_area == "Cust_Score_Cards" && w.DiaHora.Month == jmes && w.DiaHora.Year == year)
-                        .Where(w => w.Descripcion.Contains("Nissan"))
-                        .Select(w => w.Proyectos).Sum(),
-
-                        Stellantis = metricos
-                        .Where(w => w.Usuario_area == "Cust_Score_Cards" && w.DiaHora.Month == jmes && w.DiaHora.Year == year)
-                        .Where(w => w.Descripcion.Contains("Stellantis"))
-                        .Select(w => w.Proyectos).Sum(),
-
-                        Toyota = metricos
-                        .Where(w => w.Usuario_area == "Cust_Score_Cards" && w.DiaHora.Month == jmes && w.DiaHora.Year == year)
-                        .Where(w => w.Descripcion.Contains("Toyota"))
-                        .Select(w => w.Proyectos).Sum(),
-
-                        VW = metricos
-                        .Where(w => w.Usuario_area == "Cust_Score_Cards" && w.DiaHora.Month == jmes && w.DiaHora.Year == year)
-                        .Where(w => w.Descripcion.Contains("VW"))
-                        .Select(w => w.Proyectos).Sum(),
                     };
                     Ldata.Add(data_show);
                 }

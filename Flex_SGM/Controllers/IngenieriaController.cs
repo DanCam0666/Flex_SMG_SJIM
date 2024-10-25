@@ -29,10 +29,10 @@ namespace Flex_SGM.Controllers
         }
 
 
-        // GET: Sugerencias
-        public async Task<ActionResult> Index()
-        {
-            var id = User.Identity.GetUserId();
+		// GET: Sugerencias
+		public ActionResult Index()
+		{
+			var id = User.Identity.GetUserId();
             ApplicationUser currentUser = UserManager.FindById(id);
             string cuser = "xxx";
             string cpuesto = "xxx";

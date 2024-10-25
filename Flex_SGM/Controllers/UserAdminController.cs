@@ -351,7 +351,7 @@ namespace AspnetIdentitySample.Controllers
         }
         ////
         //// GET: /Users/Delete/5
-        public async Task<ActionResult> Delete(string id)
+        public ActionResult Delete(string id)
         {
             if (id == null)
             {
