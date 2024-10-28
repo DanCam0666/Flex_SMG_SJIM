@@ -1,0 +1,178 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\dcamacho\\source\\repos\\FlexNGate\\Bitacora\\Bitacora_SJIM\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C3F578F3-683B-44DF-A0F5-6BDD4010AD84}|Flex_SGM\\Flex_SGM.csproj|c:\\users\\dcamacho\\source\\repos\\flexngate\\bitacora\\bitacora_sjim\\flex_sgm\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{C3F578F3-683B-44DF-A0F5-6BDD4010AD84}|Flex_SGM\\Flex_SGM.csproj|solutionrelative:flex_sgm\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C3F578F3-683B-44DF-A0F5-6BDD4010AD84}|Flex_SGM\\Flex_SGM.csproj|c:\\users\\dcamacho\\source\\repos\\flexngate\\bitacora\\bitacora_sjim\\flex_sgm\\views\\pcrs\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C3F578F3-683B-44DF-A0F5-6BDD4010AD84}|Flex_SGM\\Flex_SGM.csproj|solutionrelative:flex_sgm\\views\\pcrs\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C3F578F3-683B-44DF-A0F5-6BDD4010AD84}|Flex_SGM\\Flex_SGM.csproj|C:\\Users\\dcamacho\\source\\repos\\FlexNGate\\Bitacora\\Bitacora_SJIM\\Flex_SGM\\Controllers\\EmailController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C3F578F3-683B-44DF-A0F5-6BDD4010AD84}|Flex_SGM\\Flex_SGM.csproj|solutionrelative:Flex_SGM\\Controllers\\EmailController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C3F578F3-683B-44DF-A0F5-6BDD4010AD84}|Flex_SGM\\Flex_SGM.csproj|C:\\Users\\dcamacho\\source\\repos\\FlexNGate\\Bitacora\\Bitacora_SJIM\\Flex_SGM\\Controllers\\pcrsController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C3F578F3-683B-44DF-A0F5-6BDD4010AD84}|Flex_SGM\\Flex_SGM.csproj|solutionrelative:Flex_SGM\\Controllers\\pcrsController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C3F578F3-683B-44DF-A0F5-6BDD4010AD84}|Flex_SGM\\Flex_SGM.csproj|C:\\Users\\dcamacho\\source\\repos\\FlexNGate\\Bitacora\\Bitacora_SJIM\\Flex_SGM\\Views\\PCRs\\Review.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C3F578F3-683B-44DF-A0F5-6BDD4010AD84}|Flex_SGM\\Flex_SGM.csproj|solutionrelative:Flex_SGM\\Views\\PCRs\\Review.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C3F578F3-683B-44DF-A0F5-6BDD4010AD84}|Flex_SGM\\Flex_SGM.csproj|C:\\Users\\dcamacho\\source\\repos\\FlexNGate\\Bitacora\\Bitacora_SJIM\\Flex_SGM\\Views\\PCRs\\Create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C3F578F3-683B-44DF-A0F5-6BDD4010AD84}|Flex_SGM\\Flex_SGM.csproj|solutionrelative:Flex_SGM\\Views\\PCRs\\Create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C3F578F3-683B-44DF-A0F5-6BDD4010AD84}|Flex_SGM\\Flex_SGM.csproj|C:\\Users\\dcamacho\\source\\repos\\FlexNGate\\Bitacora\\Bitacora_SJIM\\Flex_SGM\\Views\\PCRs\\Details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C3F578F3-683B-44DF-A0F5-6BDD4010AD84}|Flex_SGM\\Flex_SGM.csproj|solutionrelative:Flex_SGM\\Views\\PCRs\\Details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C3F578F3-683B-44DF-A0F5-6BDD4010AD84}|Flex_SGM\\Flex_SGM.csproj|C:\\Users\\dcamacho\\source\\repos\\FlexNGate\\Bitacora\\Bitacora_SJIM\\Flex_SGM\\Views\\PCRs\\Edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C3F578F3-683B-44DF-A0F5-6BDD4010AD84}|Flex_SGM\\Flex_SGM.csproj|solutionrelative:Flex_SGM\\Views\\PCRs\\Edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:812673706:0:{83107a3e-496a-485e-b455-16ddb978e55e}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:918308380:0:{83107a3e-496a-485e-b455-16ddb978e55e}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": ".gitignore",
+              "DocumentMoniker": "C:\\Users\\dcamacho\\source\\repos\\FlexNGate\\Bitacora\\Bitacora_SJIM\\Flex_SGM\\.gitignore",
+              "RelativeDocumentMoniker": "Flex_SGM\\.gitignore",
+              "ToolTip": "C:\\Users\\dcamacho\\source\\repos\\FlexNGate\\Bitacora\\Bitacora_SJIM\\Flex_SGM\\.gitignore",
+              "RelativeToolTip": "Flex_SGM\\.gitignore",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-10-28T13:21:19.443Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EmailController.cs",
+              "DocumentMoniker": "C:\\Users\\dcamacho\\source\\repos\\FlexNGate\\Bitacora\\Bitacora_SJIM\\Flex_SGM\\Controllers\\EmailController.cs",
+              "RelativeDocumentMoniker": "Flex_SGM\\Controllers\\EmailController.cs",
+              "ToolTip": "C:\\Users\\dcamacho\\source\\repos\\FlexNGate\\Bitacora\\Bitacora_SJIM\\Flex_SGM\\Controllers\\EmailController.cs",
+              "RelativeToolTip": "Flex_SGM\\Controllers\\EmailController.cs",
+              "ViewState": "AgIAAJkAAAAAAAAAAAAhwKQAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T21:50:52.18Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "pcrsController.cs",
+              "DocumentMoniker": "C:\\Users\\dcamacho\\source\\repos\\FlexNGate\\Bitacora\\Bitacora_SJIM\\Flex_SGM\\Controllers\\pcrsController.cs",
+              "RelativeDocumentMoniker": "Flex_SGM\\Controllers\\pcrsController.cs",
+              "ToolTip": "C:\\Users\\dcamacho\\source\\repos\\FlexNGate\\Bitacora\\Bitacora_SJIM\\Flex_SGM\\Controllers\\pcrsController.cs",
+              "RelativeToolTip": "Flex_SGM\\Controllers\\pcrsController.cs",
+              "ViewState": "AgIAABkCAAAAAAAAAAAhwDsCAABPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T21:50:25.176Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Review.cshtml",
+              "DocumentMoniker": "C:\\Users\\dcamacho\\source\\repos\\FlexNGate\\Bitacora\\Bitacora_SJIM\\Flex_SGM\\Views\\PCRs\\Review.cshtml",
+              "RelativeDocumentMoniker": "Flex_SGM\\Views\\PCRs\\Review.cshtml",
+              "ToolTip": "C:\\Users\\dcamacho\\source\\repos\\FlexNGate\\Bitacora\\Bitacora_SJIM\\Flex_SGM\\Views\\PCRs\\Review.cshtml",
+              "RelativeToolTip": "Flex_SGM\\Views\\PCRs\\Review.cshtml",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-25T21:49:59.427Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\dcamacho\\source\\repos\\FlexNGate\\Bitacora\\Bitacora_SJIM\\Flex_SGM\\Views\\PCRs\\Create.cshtml",
+              "RelativeDocumentMoniker": "Flex_SGM\\Views\\PCRs\\Create.cshtml",
+              "ToolTip": "C:\\Users\\dcamacho\\source\\repos\\FlexNGate\\Bitacora\\Bitacora_SJIM\\Flex_SGM\\Views\\PCRs\\Create.cshtml",
+              "RelativeToolTip": "Flex_SGM\\Views\\PCRs\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-25T21:49:56.59Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\dcamacho\\source\\repos\\FlexNGate\\Bitacora\\Bitacora_SJIM\\Flex_SGM\\Views\\PCRs\\Details.cshtml",
+              "RelativeDocumentMoniker": "Flex_SGM\\Views\\PCRs\\Details.cshtml",
+              "ToolTip": "C:\\Users\\dcamacho\\source\\repos\\FlexNGate\\Bitacora\\Bitacora_SJIM\\Flex_SGM\\Views\\PCRs\\Details.cshtml",
+              "RelativeToolTip": "Flex_SGM\\Views\\PCRs\\Details.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-25T21:49:55.542Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\dcamacho\\source\\repos\\FlexNGate\\Bitacora\\Bitacora_SJIM\\Flex_SGM\\Views\\PCRs\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Flex_SGM\\Views\\PCRs\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\dcamacho\\source\\repos\\FlexNGate\\Bitacora\\Bitacora_SJIM\\Flex_SGM\\Views\\PCRs\\Edit.cshtml",
+              "RelativeToolTip": "Flex_SGM\\Views\\PCRs\\Edit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-25T21:49:54.579Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\dcamacho\\source\\repos\\FlexNGate\\Bitacora\\Bitacora_SJIM\\Flex_SGM\\Views\\PCRs\\Index.cshtml",
+              "RelativeDocumentMoniker": "Flex_SGM\\Views\\PCRs\\Index.cshtml",
+              "ToolTip": "C:\\Users\\dcamacho\\source\\repos\\FlexNGate\\Bitacora\\Bitacora_SJIM\\Flex_SGM\\Views\\PCRs\\Index.cshtml",
+              "RelativeToolTip": "Flex_SGM\\Views\\PCRs\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-25T21:49:45.014Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
