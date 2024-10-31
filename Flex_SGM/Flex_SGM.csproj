@@ -428,24 +428,17 @@
     <Compile Include="Migrations\201912301208540_Init.Designer.cs">
       <DependentUpon>201912301208540_Init.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202410162118517_AddMaquinaIDToPcr.cs" />
-    <Compile Include="Migrations\202410162118517_AddMaquinaIDToPcr.Designer.cs">
-      <DependentUpon>202410162118517_AddMaquinaIDToPcr.cs</DependentUpon>
+    <Compile Include="Migrations\202410282039218_AddNivelRiesgoToPcr.cs" />
+    <Compile Include="Migrations\202410282039218_AddNivelRiesgoToPcr.Designer.cs">
+      <DependentUpon>202410282039218_AddNivelRiesgoToPcr.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202410171654308_AddCurrentAndNewConditionToPcr.cs" />
-    <Compile Include="Migrations\202410171654308_AddCurrentAndNewConditionToPcr.Designer.cs">
-      <DependentUpon>202410171654308_AddCurrentAndNewConditionToPcr.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202410171832294_AddToPcr.cs" />
-    <Compile Include="Migrations\202410171832294_AddToPcr.Designer.cs">
-      <DependentUpon>202410171832294_AddToPcr.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202410222019012_AddCustomerApprovalRequiredToPcrs.cs" />
-    <Compile Include="Migrations\202410222019012_AddCustomerApprovalRequiredToPcrs.Designer.cs">
-      <DependentUpon>202410222019012_AddCustomerApprovalRequiredToPcrs.cs</DependentUpon>
+    <Compile Include="Migrations\202410311319094_AddMsgToFeasibilitySigns.cs" />
+    <Compile Include="Migrations\202410311319094_AddMsgToFeasibilitySigns.Designer.cs">
+      <DependentUpon>202410311319094_AddMsgToFeasibilitySigns.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\PcrCreateViewModel.cs" />
     <Compile Include="Models\Sugerencias.cs" />
     <Compile Include="Models\Metricos.cs" />
     <Compile Include="Models\Bitacora.cs" />
@@ -3222,17 +3215,11 @@
     <EmbeddedResource Include="Migrations\201912301208540_Init.resx">
       <DependentUpon>201912301208540_Init.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202410162118517_AddMaquinaIDToPcr.resx">
-      <DependentUpon>202410162118517_AddMaquinaIDToPcr.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202410282039218_AddNivelRiesgoToPcr.resx">
+      <DependentUpon>202410282039218_AddNivelRiesgoToPcr.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202410171654308_AddCurrentAndNewConditionToPcr.resx">
-      <DependentUpon>202410171654308_AddCurrentAndNewConditionToPcr.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202410171832294_AddToPcr.resx">
-      <DependentUpon>202410171832294_AddToPcr.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202410222019012_AddCustomerApprovalRequiredToPcrs.resx">
-      <DependentUpon>202410222019012_AddCustomerApprovalRequiredToPcrs.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202410311319094_AddMsgToFeasibilitySigns.resx">
+      <DependentUpon>202410311319094_AddMsgToFeasibilitySigns.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

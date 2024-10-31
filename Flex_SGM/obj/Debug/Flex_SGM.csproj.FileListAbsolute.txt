@@ -101,7 +101,6 @@ C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Mic
 C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.Owin.xml
 C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.Owin.Host.SystemWeb.xml
 C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.Owin.Security.xml
-C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.Owin.Security.Cookies.xml
 C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.Owin.Security.Facebook.xml
 C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
@@ -142,12 +141,10 @@ C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\es\
 C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\bin\es\System.Web.WebPages.Razor.resources.dll
 C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\obj\Debug\Flex_SGM.csproj.AssemblyReference.cache
 C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\obj\Debug\Flex_SGM.Migrations.init.resources
-C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\obj\Debug\Flex_SGM.Migrations.AddMaquinaIDToPcr.resources
-C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\obj\Debug\Flex_SGM.Migrations.AddCurrentAndNewConditionToPcr.resources
-C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\obj\Debug\Flex_SGM.Migrations.AddToPcr.resources
-C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\obj\Debug\Flex_SGM.Migrations.AddCustomerApprovalRequiredToPcrs.resources
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\obj\Debug\Flex_SGM.Migrations.AddNivelRiesgoToPcr.resources
 C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\obj\Debug\Flex_SGM.csproj.GenerateResource.cache
 C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\obj\Debug\Flex_SGM.csproj.CoreCompileInputs.cache
 C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\obj\Debug\Flex_SGM.csproj.Up2Date
 C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\obj\Debug\Flex_SGM.dll
 C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\obj\Debug\Flex_SGM.pdb
+C:\Users\dcamacho\source\repos\FlexNGate\Bitacora\Bitacora_SJIM\Flex_SGM\obj\Debug\Flex_SGM.Migrations.AddMsgToFeasibilitySigns.resources

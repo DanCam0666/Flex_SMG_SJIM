@@ -65,42 +65,46 @@
                     @if (ViewBag.Admin || item.Originator == ViewBag.cUser || item.Status != "Rechazado")
                     {
                         bool support = false;
+
                         if (ViewBag.Puesto == "Gerente")
                         {
-                            if ((item.support_Ambiental == "P" && ViewBag.Dep == "Ambiental") ||
-                                (item.support_Automatizacion == "P" && ViewBag.Dep == "Mantenimiento") ||
-                                (item.support_Backcoat == "P" && ViewBag.Dep == "Produccion") ||
-                                (item.support_Calidad == "P" && ViewBag.Dep == "Calidad") ||
-                                (item.support_Chromo == "P" && ViewBag.Dep == "Produccion") ||
-                                (item.support_Compras == "P" && ViewBag.Dep == "Compras") ||
-                                (item.support_Ecoat == "P" && ViewBag.Dep == "Produccion") ||
-                                (item.support_Ensamble == "P" && ViewBag.Dep == "Produccion") ||
-                                (item.support_Estampado == "P" && ViewBag.Dep == "Produccion") ||
-                                (item.support_Finanzas == "P" && ViewBag.Dep == "Finanzas") ||
-                                (item.support_Mantenimiento == "P" && ViewBag.Dep == "Mantenimiento") ||
-                                (item.support_Materiales == "P" && ViewBag.Dep == "Materiales") ||
-                                (item.support_Seguridad == "P" && ViewBag.Dep == "Seguridad") ||
-                                (item.support_Soldadura == "P" && ViewBag.Dep == "Produccion") ||
-                                (item.support_Tooling == "P" && ViewBag.Dep == "Tooling") ||
-                                (item.support_Topcoat == "P" && ViewBag.Dep == "Produccion"))
-                            {
-                                support = true;
-                            }
+                            // Check if the appropriate support value is "P" for the Gerente's department
+                            support = (item.support_Ambiental == "P" && ViewBag.Dep == "Ambiental") ||
+                                      (item.support_Automatizacion == "P" && ViewBag.Dep == "Mantenimiento") ||
+                                      (item.support_Backcoat == "P" && ViewBag.Dep == "Produccion") ||
+                                      (item.support_Calidad == "P" && ViewBag.Dep == "Calidad") ||
+                                      (item.support_Chromo == "P" && ViewBag.Dep == "Produccion") ||
+                                      (item.support_Compras == "P" && ViewBag.Dep == "Compras") ||
+                                      (item.support_Ecoat == "P" && ViewBag.Dep == "Produccion") ||
+                                      (item.support_Ensamble == "P" && ViewBag.Dep == "Produccion") ||
+                                      (item.support_Estampado == "P" && ViewBag.Dep == "Produccion") ||
+                                      (item.support_Finanzas == "P" && ViewBag.Dep == "Finanzas") ||
+                                      (item.support_Mantenimiento == "P" && ViewBag.Dep == "Mantenimiento") ||
+                                      (item.support_Materiales == "P" && ViewBag.Dep == "Materiales") ||
+                                      (item.support_Seguridad == "P" && ViewBag.Dep == "Seguridad") ||
+                                      (item.support_Soldadura == "P" && ViewBag.Dep == "Produccion") ||
+                                      (item.support_Tooling == "P" && ViewBag.Dep == "Tooling") ||
+                                      (item.support_Topcoat == "P" && ViewBag.Dep == "Produccion");
                         }
-                        if (ViewBag.cUser.Contains("Vianney") || ViewBag.cUser.Contains("Larriva") && item.Status != "Rechazado")
+
+                        // Show Export button for specific users or if status is not 'Rechazado'
+                        if ((ViewBag.cUser.Contains("Vianney") || ViewBag.cUser.Contains("Larriva")) && item.Status != "Rechazado")
                         {
                             @Html.ActionLink("Exportar", "ExportFormat", new { id = item.ID }, new { @class = "btn-sm btn-default" })
                         }
+
+                        // Show 'Revisión' button only if the user is an appropriate Gerente and support is "P"
                         if ((item.Status.Contains("En Aprobación") && ViewBag.Dep == "Ingenieria" && ViewBag.Puesto == "Gerente")
-                            || (item.Status.Contains("Aprobado") && support))
+                            || (item.Status.Contains("Aprobación Inicial") && support) || (item.Status.Contains("Pend. Aprob. Gerente") && ViewBag.Puesto == "Gerente_General"))
                         {
                             @Html.ActionLink("Revisión", "Review", new { id = item.ID }, new { @class = "btn-sm btn-success" })<br /><br />
                         }
+
+                        // Show 'Editar' button if the user is the originator and the status is not 'Rechazado'
                         if (item.Originator == ViewBag.cUser && item.Status != "Rechazado")
                         {
                             @Html.ActionLink("Editar", "Edit", new { id = item.ID }, new { @class = "btn-sm btn-warning" })
                         }
-                        @*@Html.ActionLink("Eliminar", "Delete", new { id = item.ID }, new { @class = "btn-sm btn-danger" })*@
                     }
                 </td>
                 <td>
@@ -158,25 +162,34 @@
             data: {
                 datasets: [{
                     label: 'Firmas Requeridas',
-                    data: [@ViewBag.ReqAmbiental, @ViewBag.ReqCalidad,
-                        @ViewBag.ReqCompras,  @ViewBag.ReqFinanzas, @ViewBag.ReqMantenimiento,
-                        @ViewBag.ReqMateriales, @ViewBag.ReqProduccion, @ViewBag.ReqSeguridad, @ViewBag.ReqTooling
+                    data: [
+                        @ViewBag.ReqAmbiental, @ViewBag.ReqCalidad,
+                        @ViewBag.ReqCompras, @ViewBag.ReqFinanzas,
+                        @ViewBag.ReqMantenimiento, @ViewBag.ReqMateriales,
+                        @ViewBag.ReqProduccion, @ViewBag.ReqSeguridad,
+                        @ViewBag.ReqTooling
                     ],
                     backgroundColor: '#4aabed',
                     borderWidth: 2
                 }, {
                     label: 'Firmas Faltantes',
-                    data: [@ViewBag.Ambiental, @ViewBag.Calidad,
-                        @ViewBag.Compras, @ViewBag.Finanzas, @ViewBag.Mantenimiento,
-                        @ViewBag.Materiales, @ViewBag.Produccion, @ViewBag.Seguridad, @ViewBag.Tooling,
+                    data: [
+                        @ViewBag.Ambiental, @ViewBag.Calidad,
+                        @ViewBag.Compras, @ViewBag.Finanzas,
+                        @ViewBag.Mantenimiento, @ViewBag.Materiales,
+                        @ViewBag.Produccion, @ViewBag.Seguridad,
+                        @ViewBag.Tooling
                     ],
                     backgroundColor: '#ffff00',
                     borderWidth: 2
                 }, {
                     label: 'Una Semana o más, Sin Firma',
-                    data: [@ViewBag.TarAmbiental, @ViewBag.TarCalidad,
-                        @ViewBag.TarCompras, @ViewBag.TarFinanzas, @ViewBag.TarMantenimiento,
-                        @ViewBag.TarMateriales, @ViewBag.TarProduccion, @ViewBag.TarSeguridad, @ViewBag.TarTooling,
+                    data: [
+                        @ViewBag.TarAmbiental, @ViewBag.TarCalidad,
+                        @ViewBag.TarCompras, @ViewBag.TarFinanzas,
+                        @ViewBag.TarMantenimiento, @ViewBag.TarMateriales,
+                        @ViewBag.TarProduccion, @ViewBag.TarSeguridad,
+                        @ViewBag.TarTooling
                     ],
                     backgroundColor: '#ff4a4a',
                     borderWidth: 2
@@ -188,29 +201,12 @@
                 ],
             },
             options: {
-                datalabels: {
-                    anchor: 'center', 
-                    align: 'center',  
-                    color: '#000',    
-                    font: {
-                        weight: 'bold'
-                    }
-                },
-                legend: {
-                    labels: {
-                        fontSize: 16
-                    }
-                },                
                 scales: {
                     xAxes: [{
-                        ticks: {
-                            fontSize: 16
-                        }
+                        ticks: { fontSize: 16 }
                     }],
                     yAxes: [{
-                        ticks: {
-                            beginAtZero: true // Ensure the scale starts at zero
-                        }
+                        ticks: { beginAtZero: true }
                     }]
                 }
             }

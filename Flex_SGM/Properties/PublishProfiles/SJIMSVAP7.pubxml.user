@@ -6,10 +6,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>T:\Ingenieria</_PublishTargetUrl>
-    <History>True|2024-10-25T16:36:20.2957741Z||;True|2024-10-24T15:53:06.2190201-06:00||;True|2024-10-24T15:09:36.9185858-06:00||;True|2024-10-23T13:46:34.2913096-06:00||;True|2024-10-22T15:10:47.0664657-06:00||;True|2024-10-17T15:39:43.5345229-06:00||;True|2024-10-17T15:33:10.9225250-06:00||;True|2024-10-17T12:03:26.8197006-06:00||;True|2024-05-14T13:56:26.5316887-06:00||;True|2024-04-01T13:53:24.2559788-06:00||;True|2023-08-11T16:31:13.3497596-06:00||;True|2023-04-04T16:09:05.4471727-06:00||;True|2023-02-24T10:38:25.1665228-06:00||;True|2023-02-01T16:14:01.7266956-06:00||;True|2023-01-20T15:16:03.4203593-06:00||;True|2023-01-17T08:29:03.5406827-06:00||;True|2023-01-12T14:19:28.9784439-06:00||;True|2023-01-11T08:03:13.8949082-06:00||;True|2023-01-10T14:44:42.5678633-06:00||;False|2023-01-10T14:26:30.8188446-06:00||;False|2023-01-10T14:26:08.3109267-06:00||;True|2023-01-10T09:52:15.6370319-06:00||;False|2023-01-10T09:51:30.9566976-06:00||;True|2022-11-11T15:17:02.5014830-06:00||;False|2022-09-07T15:50:30.8239430-05:00||;True|2022-08-18T13:52:35.2953051-05:00||;True|2022-08-11T12:08:55.7391357-05:00||;True|2022-08-11T11:46:15.7416925-05:00||;</History>
+    <History>True|2024-10-31T17:53:51.5582319Z||;True|2024-10-31T11:45:13.4695609-06:00||;True|2024-10-31T11:31:46.7647249-06:00||;True|2024-10-28T09:33:59.4629478-06:00||;True|2024-10-25T10:36:20.2957741-06:00||;True|2024-10-24T15:53:06.2190201-06:00||;True|2024-10-24T15:09:36.9185858-06:00||;True|2024-10-23T13:46:34.2913096-06:00||;True|2024-10-22T15:10:47.0664657-06:00||;True|2024-10-17T15:39:43.5345229-06:00||;True|2024-10-17T15:33:10.9225250-06:00||;True|2024-10-17T12:03:26.8197006-06:00||;True|2024-05-14T13:56:26.5316887-06:00||;True|2024-04-01T13:53:24.2559788-06:00||;True|2023-08-11T16:31:13.3497596-06:00||;True|2023-04-04T16:09:05.4471727-06:00||;True|2023-02-24T10:38:25.1665228-06:00||;True|2023-02-01T16:14:01.7266956-06:00||;True|2023-01-20T15:16:03.4203593-06:00||;True|2023-01-17T08:29:03.5406827-06:00||;True|2023-01-12T14:19:28.9784439-06:00||;True|2023-01-11T08:03:13.8949082-06:00||;True|2023-01-10T14:44:42.5678633-06:00||;False|2023-01-10T14:26:30.8188446-06:00||;False|2023-01-10T14:26:08.3109267-06:00||;True|2023-01-10T09:52:15.6370319-06:00||;False|2023-01-10T09:51:30.9566976-06:00||;True|2022-11-11T15:17:02.5014830-06:00||;False|2022-09-07T15:50:30.8239430-05:00||;True|2022-08-18T13:52:35.2953051-05:00||;True|2022-08-11T12:08:55.7391357-05:00||;True|2022-08-11T11:46:15.7416925-05:00||;</History>
     <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
+    <File Include=".gitignore">
+      <publishTime>10/25/2024 14:53:53</publishTime>
+    </File>
     <File Include="Addon/bootstrap-datepicker/css/bootstrap-datepicker.css">
       <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
@@ -7241,10 +7244,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/24/2019 08:38:00</publishTime>
     </File>
     <File Include="bin/Flex_SGM.dll">
-      <publishTime>10/25/2024 13:49:50</publishTime>
+      <publishTime>10/31/2024 11:45:06</publishTime>
     </File>
     <File Include="bin/Flex_SGM.pdb">
-      <publishTime>10/25/2024 13:49:50</publishTime>
+      <publishTime>10/31/2024 11:45:06</publishTime>
     </File>
     <File Include="bin/IBM.Data.DB2.iSeries.dll">
       <publishTime>01/01/0001 00:00:00</publishTime>
@@ -7799,7 +7802,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/05/2021 08:28:54</publishTime>
     </File>
     <File Include="Templates/TemplatePCR.xlsx">
-      <publishTime>10/25/2024 12:23:24</publishTime>
+      <publishTime>10/30/2024 07:16:13</publishTime>
     </File>
     <File Include="vids/flexm.mp4">
       <publishTime>03/22/2022 07:10:35</publishTime>
@@ -8360,22 +8363,22 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/18/2022 13:51:43</publishTime>
     </File>
     <File Include="Views/PCRs/Create.cshtml">
-      <publishTime>10/22/2024 15:12:11</publishTime>
+      <publishTime>10/31/2024 11:44:49</publishTime>
     </File>
     <File Include="Views/PCRs/Delete.cshtml">
-      <publishTime>06/07/2022 14:05:35</publishTime>
+      <publishTime>10/31/2024 11:44:49</publishTime>
     </File>
     <File Include="Views/PCRs/Details.cshtml">
-      <publishTime>10/22/2024 15:08:43</publishTime>
+      <publishTime>10/31/2024 11:44:49</publishTime>
     </File>
     <File Include="Views/PCRs/Edit.cshtml">
-      <publishTime>10/22/2024 15:08:07</publishTime>
+      <publishTime>10/31/2024 11:44:49</publishTime>
     </File>
     <File Include="Views/PCRs/Index.cshtml">
-      <publishTime>10/21/2024 15:19:13</publishTime>
+      <publishTime>10/30/2024 15:25:36</publishTime>
     </File>
     <File Include="Views/PCRs/Review.cshtml">
-      <publishTime>10/25/2024 12:21:22</publishTime>
+      <publishTime>10/31/2024 11:44:49</publishTime>
     </File>
     <File Include="Views/PCRs/Signatures.cshtml">
       <publishTime>06/07/2022 16:05:30</publishTime>

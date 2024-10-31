@@ -10,7 +10,7 @@
 
 <style>
     #myModal {
-        z-index: 1051 !important; 
+        z-index: 1051 !important;
         opacity: 1 !important;
         visibility: visible !important;
     }
@@ -18,8 +18,9 @@
     .modal-backdrop {
         z-index: 1050 !important;
     }
+
     .modal-dialog {
-        margin-top: 100px; 
+        margin-top: 100px;
     }
 </style>
 
@@ -498,7 +499,7 @@
         <div class="col-md-6">
             <div class="x_panel clearfix">
                 <div class="x_title">
-                    <h3>Feasbility Considerations <small> Management team to consider the question, not intended to be all inclisive in performing an evaluation.</small></h3>
+                    <h3>Feasibility Considerations <small> Management team to consider the question, not intended to be all inclisive in performing an evaluation.</small></h3>
                 </div>
                 <div class="x_content">
                     <div class="form-group">
@@ -704,27 +705,32 @@
         <div class="clearfix"></div>
     </div>
     <div class="clearfix"></div>
-    <div class="x_content ">
-        <div class="form-group">
-            <div>Comentarios</div>
-            <textarea class="form-control" id="msg"></textarea>
+    <div class="x_content">
+        <!-- Updated form with a consistent ID and no action attribute -->
+        <form id="revisionForm" method="post">
+            <input type="hidden" name="id" value="@Model.ID" />
+
+            <div class="form-group">
+                <div>Comentarios</div>
+                <textarea class="form-control" id="msg" name="msg" placeholder="Ingrese comentarios..." rows="3"></textarea>
+            </div>
+
             <div class="pull-right">
-                <div>Seleccion de Revision</div>
+                <div>Seleccion de Revisión</div>
                 @if (ViewBag.Dep == "Ingenieria" && ViewBag.Puesto == "Gerente")
                 {
-                    <button class="btn btn-danger" value="Rechazar" onclick="seguro(this.value);">Rechazar...</button>
-                    <button class="btn btn-warning" value="Arreglos" onclick="seguro(this.value);">Se necesitan correcciones...</button>
+                    <button type="button" class="btn btn-danger" value="Rechazar" onclick="seguro(this.value);">Rechazar...</button>
+                    <button type="button" class="btn btn-warning" value="Arreglos" onclick="seguro(this.value);">Se necesitan correcciones...</button>
                 }
-                <button class="btn btn-success" value="Aceptar" onclick="seguro(this.value);">Aceptar y continuar proceso...</button>
+                <button type="button" class="btn btn-success" value="Aceptar" onclick="seguro(this.value);">Aceptar y continuar proceso...</button>
             </div>
-        </div>
+        </form>
     </div>
 </div>
 
-<!-- Modal -->
+<!-- Modal Setup -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title" id="modalTitle">PCR - @Html.DisplayFor(model => model.PCRID)</h4>
@@ -736,13 +742,8 @@
                 <p>¿Está seguro de que quieres <span id="res"></span> el PCR: @Html.DisplayFor(model => model.PCRID)?</p>
             </div>
             <div class="modal-footer">
-                <div class="col-xs-4">
-                    <button type="button" class="btn btn-danger btn-block btnClose" data-dismiss="modal">No</button>
-                </div>
-                <div class="col-xs-4"></div>
-                <div class="col-xs-4">
-                    <button type="button" class="btn btn-success btn-block" onclick="seguro2()" data-dismiss="modal">Sí</button>
-                </div>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+                <button type="button" class="btn btn-success" onclick="seguro2()">Sí</button>
             </div>
         </div>
     </div>
@@ -761,42 +762,64 @@
 
 @section Scripts {
     <script>
-        var y;
-        var formData = new FormData($('form')[0]);
+        var selectedAction; // Store the selected action (Aceptar, Rechazar, Arreglos)
+        let isSubmitting = false; // Flag to prevent duplicate submissions
 
         // Function to open the modal and display the selected action
-        function seguro(any) {
-            y = any;
+        function seguro(action) {
+            selectedAction = action; // Store the selected action
             $('#myModal').modal({
                 backdrop: 'static', // Prevent closing on outside click
                 keyboard: false     // Prevent closing with Esc key
             }).modal('show');
-            $('#res').html(y);
+            $('#res').html(selectedAction); // Display selected action in the modal
         }
 
         // Function to perform the confirmed action
         function seguro2() {
-            var msgi = $('#msg').val();
-            var token = $("[name='__RequestVerificationToken']").val();
-            var url = "@Html.Raw(Url.Action("Firma", "PCRs", new {id = "param-id", Response = "param-Response", datos = "param-datos", msg = "param-msg" }))";
+            if (isSubmitting) return; // Exit if already submitting
+            isSubmitting = true; // Set flag to indicate submission in progress
 
-            url = url.replace("param-id", @Model.ID)
-                     .replace("param-Response", y)
-                     .replace("param-msg", msgi)
-                     .replace("param-datos", "Holo");
+            var msgi = $('#msg').val().trim(); // Get and trim the msg value
 
-            $.post(url, { __RequestVerificationToken: token }, function (result) {
-                alert(result);
+            console.log("Selected Action:", selectedAction); // Debugging log
+            console.log("Message:", msgi); // Debugging log
+
+            // Validation for "Arreglos" action
+            if (selectedAction === "Arreglos" && msgi === "") {
+                alert("Por favor ingrese comentarios para las correcciones.");
+                isSubmitting = false; // Reset flag if validation fails
+                return;
+            }
+
+            var token = $("[name='__RequestVerificationToken']").val(); // CSRF token
+            var url = "@Url.Action("Firma", "PCRs")"; // Direct action URL
+
+            // Prepare the data to send to the server
+            var formData = {
+                id: @Model.ID,
+                Response: selectedAction,
+                msg: msgi,
+                datos: "Holo", // Placeholder; replace if necessary
+                __RequestVerificationToken: token
+            };
+
+            // Perform the AJAX POST request
+            $.post(url, formData, function (result) {
+                console.log("Server response:", result); // Debugging log
+                alert(result); // Display the result
                 if (result === "Aceptar" || result === "Rechazar" || result === "Arreglos") {
-                    window.location.replace('@Url.Action("Index", "PCRs")');
+                    window.location.replace('@Url.Action("Index", "PCRs")'); // Redirect on success
                 }
+            }).fail(function (xhr) {
+                console.error("Error:", xhr.responseText); // Debugging log
+                alert("Error: " + xhr.responseText); // Handle any errors
+            }).always(function () {
+                isSubmitting = false; // Reset flag after AJAX completes
             });
         }
 
         $(document).ready(function () {
-            // Set the Risk value on page load
-            $('#Risk').val("@ViewBag.Risk");
-
             // Ensure modal closes properly on button clicks
             $(document).on('click', '[data-dismiss="modal"]', function () {
                 console.log('Modal close button clicked');

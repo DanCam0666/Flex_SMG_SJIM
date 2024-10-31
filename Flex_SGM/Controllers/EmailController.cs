@@ -348,6 +348,36 @@ namespace Flex_SGM.emaildata
             }
             catch (Exception Ex) { var x = Ex; }
         }
+		public void NotifyFinalApproval(string[] Correo, string usuario, string comment, string id)
+		{
+			try
+			{
+				var bodyb = new StringBuilder();
+				bodyb.AppendFormat("<p><font size='3' face='arial' color='blue'>El usuario {0} ha completado la aprobación del PCR!</font></p>", usuario);
+				bodyb.AppendLine(@"<p><font size='3' face='arial'>El número de PCR es: <b>" + comment + "</b></font></p>");
+				bodyb.AppendLine(@"<p><font size='3' face='arial'>El proceso ha finalizado y no se requieren más acciones.</font></p>");
+				bodyb.AppendLine(@"<p><font size='2' face='arial' color='green'><b>¡Felicidades, el PCR ha sido aprobado!</b></font></p>");
+				bodyb.AppendLine(@"<i>No responder a este correo | Do not reply to this email </i>");
 
-    }
+				var message = new MailMessage();
+				foreach (var corr in Correo)
+				{
+					message.To.Add(new MailAddress(corr));
+				}
+				message.From = new MailAddress("SJIM_Ingenieria@flexngate.com");
+				message.Subject = "PCR " + comment + " ha sido aprobado completamente";
+				message.IsBodyHtml = true;
+				message.Body = bodyb.ToString();
+
+				using (var smtp = new SmtpClient())
+				{
+					smtp.Host = "smtp.flexngate.local";
+					smtp.Port = 25;
+					smtp.EnableSsl = false;
+					smtp.Send(message);
+				}
+			}
+			catch (Exception Ex) { var x = Ex; }
+		}
+	}
 }

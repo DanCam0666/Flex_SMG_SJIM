@@ -14,7 +14,13 @@ namespace Flex_SGM.Models
         [MaxLength(13)]
         public string PCRID { get; set; }
 
-        [MaxLength(20)]
+		/// Represents the risk level.
+		/// 1 = Low, 2 = Medium, 3+ = High
+		/// </summary>
+		[Display(Name = "Risk Level")]
+		public int NivelRiesgo { get; set; }
+
+		[MaxLength(20)]
         [Display(Name = "Estatus")]/// CAMBIAR POR USUARIO aCTUAL 
         public string Status { get; set; }
 
@@ -306,7 +312,7 @@ namespace Flex_SGM.Models
         public virtual eClientes Clientes { get; set; }
         public virtual eProyectos Proyectos { get; set; }
 
-        public virtual MatrizDecision MatrizDecision { get; set; }
+		public virtual MatrizDecision MatrizDecision { get; set; }
     }
     public class templatepcr
     {
@@ -501,9 +507,11 @@ namespace Flex_SGM.Models
         public bool Arcompras { get; set; }
         [Display(Name = "Materiales")]
         public bool Armateriales { get; set; }
-        [Display(Name = "Mantenimiento")]
-        public bool Armantenimiento  { get; set; }
-        [Display(Name = "Seguridad")]
+		[Display(Name = "Mantenimiento")]
+		public bool Armantenimiento { get; set; }
+		[Display(Name = "Automatizacion")]
+		public bool Arautomatizacion { get; set; }
+		[Display(Name = "Seguridad")]
         public bool Arseguridad { get; set; }
         [Display(Name = "Ambiental")]
         public bool Arambiental { get; set; }

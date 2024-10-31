@@ -14,13 +14,15 @@ using Microsoft.AspNet.Identity;
 using Flex_SGM.emaildata;
 using Microsoft.AspNet.Identity.Owin;
 using System.Data.SqlClient;
+using System.Data.Entity.Validation;
+using System.Data.Entity.Infrastructure;
 
 namespace Flex_SGM.Controllers
 {
     [Authorize]
     public class PCRsController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+		private readonly ApplicationDbContext db = new ApplicationDbContext();
         private ApplicationUserManager _userManager;
         public ApplicationUserManager UserManager
         {
@@ -34,7 +36,7 @@ namespace Flex_SGM.Controllers
             }
         }
 
-        private EmailController correo = new EmailController();
+		private readonly EmailController correo = new EmailController();
 		// export
 		public FileResult ExportFormat(int? id)
 		{
@@ -208,72 +210,76 @@ namespace Flex_SGM.Controllers
 
 		// GET: PCRs  
 		public ActionResult Index()
-        {
-            var uiid = User.Identity.GetUserId();
-            ApplicationUser currentUser = db.Users.Where(w => w.Id == uiid).FirstOrDefault();
+		{
+			var uiid = User.Identity.GetUserId();
+			ApplicationUser currentUser = db.Users.FirstOrDefault(w => w.Id == uiid);
 
-            ViewBag.Admin = false;
-            if (currentUser!=null)
-            if (currentUser.Puesto.Contains("Gerente"))
-            ViewBag.Admin = true;
+			ViewBag.Admin = currentUser?.Puesto.Contains("Gerente") ?? false;
 
-            var Id = User.Identity.GetUserId();
-            ApplicationUser CurrentUser = UserManager.FindById(Id);
-            ViewBag.Dep = CurrentUser.Departamento;
-            ViewBag.Puesto = CurrentUser.Puesto;
-            ViewBag.cUser = CurrentUser.UserFullName;
+			var Id = User.Identity.GetUserId();
+			ApplicationUser CurrentUser = UserManager.FindById(Id);
+			ViewBag.Dep = CurrentUser.Departamento;
+			ViewBag.Puesto = CurrentUser.Puesto;
+			ViewBag.cUser = CurrentUser.UserFullName;
 
-            ViewBag.ReqAmbiental = db.PCRs.Where(r => r.support_Ambiental != "X").Where(r => r.Status == "Aprobado").Count();
-            ViewBag.ReqCalidad = db.PCRs.Where(r => r.support_Calidad != "X").Where(r => r.Status == "Aprobado").Count();
-            ViewBag.ReqCompras = db.PCRs.Where(r => r.support_Compras != "X").Where(r => r.Status == "Aprobado").Count();
-            ViewBag.ReqFinanzas = db.PCRs.Where(r => r.support_Finanzas != "X").Where(r => r.Status == "Aprobado").Count();
-            ViewBag.ReqMantenimiento = db.PCRs.Where(r => r.support_Mantenimiento != "X")
-                .Where(r => r.support_Automatizacion != "X").Where(r => r.Status == "Aprobado").Count();
-            ViewBag.ReqMateriales = db.PCRs.Where(r => r.support_Materiales != "X").Where(r => r.Status == "Aprobado").Count();
-            ViewBag.ReqSeguridad = db.PCRs.Where(r => r.support_Seguridad != "X").Where(r => r.Status == "Aprobado").Count();
-            ViewBag.ReqTooling = db.PCRs.Where(r => r.support_Tooling != "X").Where(r => r.Status == "Aprobado").Count();
-            ViewBag.ReqProduccion = db.PCRs.Where(r => r.support_Backcoat != "X").Where(r => r.support_Chromo != "X")
-                .Where(r => r.support_Ecoat != "X").Where(r => r.support_Ensamble != "X").Where(r => r.support_Estampado != "X")
-                .Where(r => r.support_Soldadura != "X").Where(r => r.support_Topcoat != "X").Where(r => r.Status == "Aprobado").Count();
+			// Fetching required counts
+			ViewBag.ReqAmbiental = db.PCRs.Where(r => r.support_Ambiental != "X" && r.Status.Contains("Aprob")).Count();
+			ViewBag.ReqCalidad = db.PCRs.Where(r => r.support_Calidad != "X" && r.Status.Contains("Aprob")).Count();
+			ViewBag.ReqCompras = db.PCRs.Where(r => r.support_Compras != "X" && r.Status.Contains("Aprob")).Count();
+			ViewBag.ReqFinanzas = db.PCRs.Where(r => r.support_Finanzas != "X" && r.Status.Contains("Aprob")).Count();
+			ViewBag.ReqMantenimiento = db.PCRs.Where(r => r.support_Mantenimiento != "X" && r.Status.Contains("Aprob")).Count();
+			ViewBag.ReqMateriales = db.PCRs.Where(r => r.support_Materiales != "X" && r.Status.Contains("Aprob")).Count();
+			ViewBag.ReqSeguridad = db.PCRs.Where(r => r.support_Seguridad != "X" && r.Status.Contains("Aprob")).Count();
+			ViewBag.ReqTooling = db.PCRs.Where(r => r.support_Tooling != "X" && r.Status.Contains("Aprob")).Count();
 
-            ViewBag.Ambiental = db.PCRs.Where(f => f.support_Ambiental == "P").Where(f => f.Status == "Aprobado").Count();
-            ViewBag.Calidad = db.PCRs.Where(f => f.support_Calidad == "P").Where(f => f.Status == "Aprobado").Count();
-            ViewBag.Compras = db.PCRs.Where(f => f.support_Compras == "P").Where(f => f.Status == "Aprobado").Count();
-            ViewBag.Finanzas = db.PCRs.Where(f => f.support_Finanzas == "P").Where(f => f.Status == "Aprobado").Count();
-            ViewBag.Mantenimiento = db.PCRs.Where(f => f.support_Mantenimiento == "P")
-                .Where(f => f.support_Automatizacion == "P").Where(f => f.Status == "Aprobado").Count();
-            ViewBag.Materiales = db.PCRs.Where(f => f.support_Materiales == "P").Where(f => f.Status == "Aprobado").Count();
-            ViewBag.Seguridad = db.PCRs.Where(f => f.support_Seguridad == "P").Where(f => f.Status == "Aprobado").Count();
-            ViewBag.Tooling = db.PCRs.Where(f => f.support_Tooling == "P").Where(f => f.Status == "Aprobado").Count();
-            ViewBag.Produccion = db.PCRs.Where(f => f.support_Backcoat == "P").Where(f => f.support_Chromo == "P")
-                .Where(f => f.support_Ecoat == "P").Where(f => f.support_Ensamble == "P").Where(f => f.support_Estampado == "P")
-                .Where(f => f.support_Soldadura == "P").Where(f => f.support_Topcoat == "P").Where(f => f.Status == "Aprobado").Count();
+			ViewBag.ReqProduccion = db.PCRs.Where(r =>
+				(r.support_Backcoat != "X" || r.support_Chromo != "X" || r.support_Ecoat != "X" ||
+				 r.support_Ensamble != "X" || r.support_Estampado != "X" || r.support_Soldadura != "X" ||
+				 r.support_Topcoat != "X") && r.Status.Contains("Aprob")).Count();
 
-            var DateLess = DateTime.Today.AddDays(-7);
+			// Missing approvals
+			ViewBag.Ambiental = db.PCRs.Where(f => f.support_Ambiental == "P" && f.Status.Contains("Aprob")).Count();
+			ViewBag.Calidad = db.PCRs.Where(f => f.support_Calidad == "P" && f.Status.Contains("Aprob")).Count();
+			ViewBag.Compras = db.PCRs.Where(f => f.support_Compras == "P" && f.Status.Contains("Aprob")).Count();
+			ViewBag.Finanzas = db.PCRs.Where(f => f.support_Finanzas == "P" && f.Status.Contains("Aprob")).Count();
+			ViewBag.Mantenimiento = db.PCRs.Where(f => f.support_Mantenimiento == "P" && f.Status.Contains("Aprob")).Count();
+			ViewBag.Materiales = db.PCRs.Where(f => f.support_Materiales == "P" && f.Status.Contains("Aprob")).Count();
+			ViewBag.Seguridad = db.PCRs.Where(f => f.support_Seguridad == "P" && f.Status.Contains("Aprob")).Count();
+			ViewBag.Tooling = db.PCRs.Where(f => f.support_Tooling == "P" && f.Status.Contains("Aprob")).Count();
+			ViewBag.Produccion = db.PCRs.Where(f =>
+				f.support_Backcoat == "P" && f.support_Chromo == "P" &&
+				f.support_Ecoat == "P" && f.support_Ensamble == "P" &&
+				f.support_Estampado == "P" && f.support_Soldadura == "P" &&
+				f.support_Topcoat == "P" && f.Status.Contains("Aprob")).Count();
 
-            ViewBag.TarAmbiental = db.PCRs.Where(t => t.support_Ambiental == "P").Where(t => t.Status == "Aprobado").Where(t => t.Date <= DateLess).Count();
-            ViewBag.TarCalidad = db.PCRs.Where(t => t.support_Calidad == "P").Where(t => t.Status == "Aprobado").Where(t => t.Date <= DateLess).Count();
-            ViewBag.TarCompras = db.PCRs.Where(t => t.support_Compras == "P").Where(t => t.Status == "Aprobado").Where(t => t.Date <= DateLess).Count();
-            ViewBag.TarFinanzas = db.PCRs.Where(t => t.support_Finanzas == "P").Where(t => t.Status == "Aprobado").Where(t => t.Date <= DateLess).Count();
-            ViewBag.TarMantenimiento = db.PCRs.Where(t => t.support_Mantenimiento == "P")
-                .Where(t => t.support_Automatizacion == "P").Where(t => t.Status == "Aprobado").Where(t => t.Date <= DateLess).Count();
-            ViewBag.TarMateriales = db.PCRs.Where(t => t.support_Materiales == "P").Where(t => t.Status == "Aprobado").Where(t => t.Date <= DateLess).Count();
-            ViewBag.TarSeguridad = db.PCRs.Where(t => t.support_Seguridad == "P").Where(t => t.Status == "Aprobado").Where(t => t.Date <= DateLess).Count();
-            ViewBag.TarTooling = db.PCRs.Where(t => t.support_Tooling == "P").Where(t => t.Status == "Aprobado").Where(t => t.Date <= DateLess).Count();
-            ViewBag.TarProduccion = db.PCRs.Where(t => t.support_Backcoat == "P").Where(t => t.support_Chromo == "P")
-                .Where(t => t.support_Ecoat == "P").Where(t => t.support_Ensamble == "P").Where(t => t.support_Estampado == "P")
-                .Where(t => t.support_Soldadura == "P").Where(t => t.support_Topcoat == "P").Where(t => t.Status == "Aprobado").Where(t => t.Date <= DateLess).Count();
+			var DateLess = DateTime.Today.AddDays(-7);
 
-            ViewBag.PcrComplete = 0;
-            if (ViewBag.Ambiental == 0 && ViewBag.Calidad == 0 && ViewBag.Compras == 0 && ViewBag.Finanzas == 0 && ViewBag.Mantenimiento == 0 && 
-                ViewBag.Materiales == 0 && ViewBag.Produccion == 0 && ViewBag.Seguridad == 0 && ViewBag.Tooling == 0)
-            {
-                ViewBag.PcrComplete = 1;
-            }
-            var PCRs = db.PCRs.Include(p => p.Clientes).Include(p => p.MatrizDecision).Include(p => p.Proyectos).Include(p => p.Reason);
+			// Overdue approvals
+			ViewBag.TarAmbiental = db.PCRs.Where(t => t.support_Ambiental == "P" && t.Status.Contains("Aprob") && t.Date <= DateLess).Count();
+			ViewBag.TarCalidad = db.PCRs.Where(t => t.support_Calidad == "P" && t.Status.Contains("Aprob") && t.Date <= DateLess).Count();
+			ViewBag.TarCompras = db.PCRs.Where(t => t.support_Compras == "P" && t.Status.Contains("Aprob") && t.Date <= DateLess).Count();
+			ViewBag.TarFinanzas = db.PCRs.Where(t => t.support_Finanzas == "P" && t.Status.Contains("Aprob") && t.Date <= DateLess).Count();
+			ViewBag.TarMantenimiento = db.PCRs.Where(t => t.support_Mantenimiento == "P" && t.Status.Contains("Aprob") && t.Date <= DateLess).Count();
+			ViewBag.TarMateriales = db.PCRs.Where(t => t.support_Materiales == "P" && t.Status.Contains("Aprob") && t.Date <= DateLess).Count();
+			ViewBag.TarSeguridad = db.PCRs.Where(t => t.support_Seguridad == "P" && t.Status.Contains("Aprob") && t.Date <= DateLess).Count();
+			ViewBag.TarTooling = db.PCRs.Where(t => t.support_Tooling == "P" && t.Status.Contains("Aprob") && t.Date <= DateLess).Count();
+			ViewBag.TarProduccion = db.PCRs.Where(t =>
+				t.support_Backcoat == "P" && t.support_Chromo == "P" &&
+				t.support_Ecoat == "P" && t.support_Ensamble == "P" &&
+				t.support_Estampado == "P" && t.support_Soldadura == "P" &&
+				t.support_Topcoat == "P" && t.Status.Contains("Aprob") && t.Date <= DateLess).Count();
 
-            return View(PCRs.ToList());
-        }
+			var PCRs = db.PCRs.Include(p => p.Clientes).Include(p => p.MatrizDecision)
+							  .Include(p => p.Proyectos).Include(p => p.Reason);
+
+			// Add these logs to ensure data is being fetched correctly
+			System.Diagnostics.Debug.WriteLine($"Ambiental Count: {ViewBag.ReqAmbiental}");
+			System.Diagnostics.Debug.WriteLine($"Calidad Count: {ViewBag.ReqCalidad}");
+			System.Diagnostics.Debug.WriteLine($"Produccion Count: {ViewBag.ReqProduccion}");
+
+
+			return View(PCRs.ToList());
+		}
 
 		// GET: PCRs/Details/5
 		[AllowAnonymous]
@@ -379,12 +385,37 @@ namespace Flex_SGM.Controllers
 
 			return View(mpcr);
 		}
-		public ActionResult Matrizd(int Codigo)
-        {
-            // TODO: based on the selected
-            var req = db.MatrizDecisions.Where(f => f.ID == Codigo).FirstOrDefault();
-            return Json(new { r1 = req }, JsonRequestBehavior.AllowGet);
-        }
+		public JsonResult Matrizd(int Codigo)
+		{
+			var decision = db.MatrizDecisions.FirstOrDefault(md => md.ID == Codigo);
+			if (decision != null)
+			{
+				var response = new
+				{
+					r1 = new
+					{
+						decision.commcliente,
+						decision.Arcompras,
+						decision.Armateriales,
+						decision.Armantenimiento,
+						decision.Arautomatizacion,
+						decision.Arcalidad,
+						decision.Arseguridad,
+						decision.Arambiental,
+						decision.Artooling,
+						decision.Arestampado,
+						decision.Arsoldadura,
+						decision.Arcromo,
+						decision.Arpintura,
+						decision.Arensamble,
+						decision.Arfinanzas,
+						decision.NivelRiesgo
+					}
+				};
+				return Json(response, JsonRequestBehavior.AllowGet);
+			}
+			return Json(new { r1 = (object)null }, JsonRequestBehavior.AllowGet);
+		}
 
 		// POST: PCRs/Create
 		[HttpPost]
@@ -466,14 +497,21 @@ namespace Flex_SGM.Controllers
 				return HttpNotFound();
 			}
 
-			// Fetch all related FeasibilitySigns for the given PCR ID
+			// Fetch all related FeasibilitySigns for the given PCR ID, including the pcr data for eager loading
 			var signs = db.FeasibilitySigns
 						  .Where(s => s.pcrID == id)
+						  .Include(s => s.pcr) // Ensure pcr data is included
 						  .ToList();
 
 			if (signs == null || !signs.Any())
 			{
 				ViewBag.Message = "No signatures found for this PCR.";
+			}
+
+			// Debugging: Log each msg field to confirm data is being fetched correctly
+			foreach (var sign in signs)
+			{
+				System.Diagnostics.Debug.WriteLine($"msg for {sign.Dep}: {sign.msg}");
 			}
 
 			// Fetch Maquina name if available
@@ -494,268 +532,466 @@ namespace Flex_SGM.Controllers
 		}
 
 		[Authorize(Roles = "Admin, Gerente")]
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public string Firma(int id, string Response,string msg, string datos)
-        {
-            var Id = User.Identity.GetUserId();
-            ApplicationUser CurrentUser = UserManager.FindById(Id);
-            string cuser = "xxx";
-            string cpuesto = "xxx";
-            string cuare = "xxx";
-            string cudep = "xxx";
-            if (CurrentUser != null)
-            {
-                cuser = CurrentUser.UserFullName;
-                cpuesto = CurrentUser.Puesto;
-                cuare = CurrentUser.Area;
-                cudep = CurrentUser.Departamento;
-            }
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		public string Firma(int id, string Response, string msg, string comentarios, string datos)
+		{
+			var userId = User.Identity.GetUserId();
+			ApplicationUser currentUser = UserManager.FindById(userId);
+			if (currentUser == null) return "User not found.";
 
-            var uiid = User.Identity.GetUserId();
-            ApplicationUser currentUser = db.Users.Where(w => w.Id == uiid).FirstOrDefault();
-            var ok = false;
-           foreach(var rol in currentUser.Roles)
-            {
-                if (rol.RoleId == "8dcec765-580a-4b6e-9454-b7af0c4ee717" || rol.RoleId == "96179ad6-83ef-4aa2-a9e7-1837f8df338f")
-                {
-                    ok = true;
-                }
-            }
-            if (ok)  //8dcec765-580a-4b6e-9454-b7af0c4ee717 (Admin) or 96179ad6-83ef-4aa2-a9e7-1837f8df338f (Gerente)
-            {
-                if (datos!=null&& msg!=null)
-                if (!string.IsNullOrEmpty(Response) && id != 0)
-                {
-                    pcr pcr = db.PCRs.Find(id);
-                    FeasibilitySigns sign = new FeasibilitySigns();
+			string cuser = currentUser.UserFullName;
+			string cudep = currentUser.Departamento;
 
-                    var signs = db.FeasibilitySigns.Where(w => w.pcrID == id);
+			// Check for Admin or Gerente roles
+			bool isAdminOrGerente = currentUser.Roles.Any(r => r.RoleId == "8dcec765-580a-4b6e-9454-b7af0c4ee717" || r.RoleId == "96179ad6-83ef-4aa2-a9e7-1837f8df338f");
+			if (!isAdminOrGerente) return "No está permitido... nada ha cambiado...";
 
-                    foreach (var minisign in signs)
-                    {
-                        if (minisign.Dep == currentUser.Departamento && minisign.Status != "Necesita Arreglos")
-                            goto alreadysin;
-                    }
+			if (string.IsNullOrEmpty(Response))
+				return "Datos incompletos.";
 
-                    switch (Response) 
-                    {
-                        case ("Aceptar"):
-                                if (pcr.Status == "En Aprobación" && cudep == "Ingenieria" && cpuesto == "Gerente")
-                                {
-                                    pcr.Reviewedby = cuser;
-                                    pcr.Reviewedby_date = DateTime.Now;
-                                    pcr.Status = "Aprobado";
-                                    sign.msg = msg;
-                                    sign.Reviewedby_date = DateTime.Now;
-                                    sign.pcrID = id;
-                                    sign.Status = "Aprobado por " + currentUser.Departamento;
-                                    sign.Reviewedby = cuser;
-                                    sign.Dep = currentUser.Departamento;
-                                    Id = id.ToString();
+			var pcr = db.PCRs.Find(id);
+			if (pcr == null) return "PCR no encontrado.";
+
+			// Prepare message
+			var message = string.IsNullOrEmpty(msg) ? comentarios : msg;
+
+			// Check if a signature for this department and PCR already exists
+			var existingSign = db.FeasibilitySigns.FirstOrDefault(s => s.pcrID == id && s.Dep == cudep && s.Status != "Necesita Arreglos");
+
+			if (existingSign != null)
+			{
+				System.Diagnostics.Debug.WriteLine("Updating existing sign for department: " + cudep);
+				existingSign.msg = message;
+				existingSign.Reviewedby_date = DateTime.Now;
+				existingSign.Reviewedby = cuser;
+				existingSign.Status = $"Aprobado por {cudep}";
+			}
+			else
+			{
+				System.Diagnostics.Debug.WriteLine("Creating new sign for department: " + cudep);
+				var newSign = new FeasibilitySigns
+				{
+					msg = message,
+					Reviewedby_date = DateTime.Now,
+					pcrID = id,
+					Reviewedby = cuser,
+					Dep = cudep,
+					Status = $"Aprobado por {cudep}"
+				};
+				db.FeasibilitySigns.Add(newSign);
+			}
+
+			try
+			{
+				System.Diagnostics.Debug.WriteLine("Entering switch case with Response: " + Response);
+				switch (Response)
+				{
+					case "Aceptar":
+						HandleApproval(pcr, currentUser, comentarios);
+						break;
+					case "Arreglos":
+						HandleNeedsFixes(pcr, existingSign ?? new FeasibilitySigns(), comentarios);
+						break;
+					case "Rechazar":
+						HandleRejection(pcr, existingSign ?? new FeasibilitySigns());
+						break;
+					default:
+						HandleCancellation(pcr, existingSign ?? new FeasibilitySigns(), cuser);
+						break;
+				}
+
+				System.Diagnostics.Debug.WriteLine("Marking PCR entity as modified.");
+				db.Entry(pcr).State = EntityState.Modified;
+
+				System.Diagnostics.Debug.WriteLine("Calling SaveChanges.");
+				db.SaveChanges();
+			}
+			catch (DbEntityValidationException ex)
+			{
+				foreach (var entityValidationError in ex.EntityValidationErrors)
+				{
+					System.Diagnostics.Debug.WriteLine($"Entity: {entityValidationError.Entry.Entity.GetType().Name}");
+					foreach (var validationError in entityValidationError.ValidationErrors)
+					{
+						System.Diagnostics.Debug.WriteLine($"Property: {validationError.PropertyName}, Error: {validationError.ErrorMessage}");
+					}
+				}
+				throw;
+			}
+
+			return Response;
+		}
+
+		private void HandleApproval(pcr pcr, ApplicationUser currentUser, string comentarios)
+		{
+			// Check if a signature for this department already exists
+			var existingSign = db.FeasibilitySigns
+				.FirstOrDefault(s => s.pcrID == pcr.ID && s.Dep == currentUser.Departamento);
+
+			if (existingSign == null)
+			{
+				// Add a new signature if it doesn't exist
+				var sign = new FeasibilitySigns
+				{
+					pcrID = pcr.ID,
+					Dep = currentUser.Departamento,
+					Reviewedby = currentUser.UserFullName,
+					Reviewedby_date = DateTime.Now,
+					Status = $"Aprobado por {currentUser.Departamento}",
+					msg = comentarios // Store the comment from the form
+				};
+				//db.FeasibilitySigns.Add(sign); // Add the new signature
+			}
+			else
+			{
+				// Update the existing signature with new details
+				existingSign.Reviewedby = currentUser.UserFullName;
+				existingSign.Reviewedby_date = DateTime.Now;
+				existingSign.Status = $"Aprobado por {currentUser.Departamento}";
+				existingSign.msg = comentarios; // Update the message field
+
+				db.Entry(existingSign).State = EntityState.Modified;
+			}
+
+			// Update the PCR status based on roles and department
+			if (pcr.Status == "En Aprobación" &&
+				currentUser.Departamento == "Ingenieria" &&
+				currentUser.Puesto == "Gerente")
+			{
+				pcr.Status = "Aprobación Inicial";
+				pcr.Reviewedby = currentUser.UserFullName;
+				pcr.Reviewedby_date = DateTime.Now;
+				NotifyRelevantManagers(pcr, currentUser); // Notify for further review
+			}
+			else if (pcr.Status == "Aprobación Inicial")
+			{
+				MarkSupportAsReviewed(pcr, currentUser.Departamento);
+
+				if (AllSupportsReviewed(pcr))
+				{
+					pcr.Status = "Pend. Aprob. Gerente";
+					NotifyGerenteGeneral(pcr, currentUser); // Notify Gerente General
+				}
+			}
+			else if (pcr.Status == "Pend. Aprob. Gerente" && currentUser.Puesto == "Gerente_General")
+			{
+				if (pcr.Status != "Aprobado en Proceso")
+				{
+					pcr.Status = "Aprobado en Proceso";
+					pcr.Reviewedby = currentUser.UserFullName;
+					pcr.Reviewedby_date = DateTime.Now;
+
+					var originator = db.Users.FirstOrDefault(u => u.UserFullName == pcr.Originator);
+					if (originator != null)
+					{
+						string[] email = { originator.Email };
+						correo.NotifyFinalApproval(email, pcr.Reviewedby, pcr.PCRID, pcr.ID.ToString());
+					}
+					TempData["SuccessMessage"] = "PCR aprobado y Aprobación Completo.";
+				}
+				else
+				{
+					TempData["ErrorMessage"] = "Este PCR ya fue Aprobación Completo.";
+				}
+			}
+
+			db.Entry(pcr).State = EntityState.Modified;
+			// Check the overall state of the 'pcr' entity
+			var entry = db.Entry(pcr);
+			System.Diagnostics.Debug.WriteLine($"Entity State: {entry.State}");
+
+			// Loop through each property and log the original and current values
+			foreach (var property in entry.OriginalValues.PropertyNames)
+			{
+				var originalValue = entry.OriginalValues[property];
+				var currentValue = entry.CurrentValues[property];
+				System.Diagnostics.Debug.WriteLine($"Property: {property}, Original: {originalValue}, Current: {currentValue}");
+			}
+			foreach (var trackedEntity in db.ChangeTracker.Entries())
+			{
+				System.Diagnostics.Debug.WriteLine($"Entity: {trackedEntity.Entity.GetType().Name}, State: {trackedEntity.State}");
+			}
+
+			db.SaveChanges();
+		}
+
+		private void NotifyOriginator(pcr pcr)
+		{
+			var originator = db.Users.FirstOrDefault(u => u.UserFullName == pcr.Originator);
+			if (originator != null)
+			{
+				string[] email = { originator.Email };
+				correo.newReview(email, pcr.Reviewedby, pcr.PCRID, pcr.ID.ToString(), "Aprobado en Proceso");
+			}
+		}
+
+		private void HandleNeedsFixes(pcr pcr, FeasibilitySigns sign, string comentarios)
+		{
+			// Update the PCR status based on the existing status
+			pcr.Status = pcr.Status == "Aprobación Inicial"
+				? $"{pcr.Originator} necesita arreglos"
+				: "Necesita Arreglos";
+
+			// Check if the FeasibilitySigns entry exists in the database
+			var existingSign = db.FeasibilitySigns
+				.FirstOrDefault(s => s.pcrID == pcr.ID && s.Dep == sign.Dep);
+
+			if (existingSign == null)
+			{
+				// No existing sign found, so create a new one
+				System.Diagnostics.Debug.WriteLine("No existing sign found, creating a new one.");
+
+				var newSign = new FeasibilitySigns
+				{
+					pcrID = pcr.ID,
+					Dep = sign.Dep,
+					Reviewedby = sign.Reviewedby,
+					Reviewedby_date = DateTime.Now,
+					Status = "Necesita Arreglos",
+					msg = comentarios
+				};
+
+				db.FeasibilitySigns.Add(newSign);
+			}
+			else
+			{
+				// Existing sign found, so update it
+				System.Diagnostics.Debug.WriteLine("Existing sign found, updating it.");
+
+				existingSign.Status = "Necesita Arreglos";
+				existingSign.msg = comentarios;
+				existingSign.Reviewedby_date = DateTime.Now;
+
+				db.Entry(existingSign).State = EntityState.Modified;
+			}
+
+			// Update the PCR entry
+			db.Entry(pcr).State = EntityState.Modified;
+
+			// Notify the originator about the needed fixes
+			var originator = db.Users.FirstOrDefault(u => u.UserFullName == pcr.Originator);
+			if (originator != null)
+			{
+				string[] email = { originator.Email };
+				correo.Arreglos(email, pcr.Originator, pcr.PCRID, pcr.ID.ToString());
+			}
+
+			// Save changes to the database
+			db.SaveChanges();
+		}
+
+		private void HandleRejection(pcr pcr, FeasibilitySigns sign)
+		{
+			pcr.Status = "Rechazado";
+			sign.Status = "Rechazado";
+
+			var originator = db.Users.FirstOrDefault(u => u.UserFullName == pcr.Originator);
+			if (originator != null)
+			{
+				string[] email = { originator.Email };
+				correo.Rechazado(email, pcr.Originator, pcr.PCRID, pcr.ID.ToString());
+			}
+		}
+
+		private void HandleCancellation(pcr pcr, FeasibilitySigns sign, string cuser)
+		{
+			pcr.Status = $"{cuser} Canceló";
+			sign.Status = "Cancelado";
+			pcr.Reviewedby = cuser;
+		}
+
+		private void MarkSupportAsReviewed(pcr pcr, string departamento)
+		{
+			switch (departamento)
+			{
+				case "Calidad":
+					pcr.support_Calidad = "R";
+					break;
+				case "Finanzas":
+					pcr.support_Finanzas = "R";
+					break;
+				case "Compras":
+					pcr.support_Compras = "R";
+					break;
+				case "Materiales":
+					pcr.support_Materiales = "R";
+					break;
+				case "Mantenimiento":
+					pcr.support_Mantenimiento = "R";
+					pcr.support_Automatizacion = "R";
+					break;
+				case "Seguridad":
+					pcr.support_Seguridad = "R";
+					break;
+				case "Ambiental":
+					pcr.support_Ambiental = "R";
+					break;
+				case "Tooling":
+					pcr.support_Tooling = "R";
+					break;
+				case "Produccion":
+					pcr.support_Estampado = "R";
+					pcr.support_Soldadura = "R";
+					pcr.support_Chromo = "R";
+					pcr.support_Topcoat = "R";
+					pcr.support_Ecoat = "R";
+					pcr.support_Backcoat = "R";
+					pcr.support_Ensamble = "R";
+					break;
+			}
+		}
+
+		private bool AllSupportsReviewed(pcr pcr)
+		{
+			// Ensure that none of the support fields have "P"
+			return new[]
+			{
+				pcr.support_Calidad, pcr.support_Finanzas, pcr.support_Compras,
+				pcr.support_Materiales, pcr.support_Mantenimiento, pcr.support_Automatizacion,
+				pcr.support_Seguridad, pcr.support_Ambiental, pcr.support_Tooling,
+				pcr.support_Estampado, pcr.support_Soldadura, pcr.support_Chromo,
+				pcr.support_Topcoat, pcr.support_Ecoat, pcr.support_Backcoat, pcr.support_Ensamble
+			}.All(status => status != "P");
+		}
+
+		private void NotifyRelevantManagers(pcr pcr, ApplicationUser currentUser)
+		{
+			var managers = db.Users.Where(u => u.Puesto == "Gerente").ToList();
+
+			foreach (var manager in managers)
+			{
+				if ((manager.Departamento == "Compras" && pcr.support_Compras == "P") ||
+					(manager.Departamento == "Materiales" && pcr.support_Materiales == "P") ||
+					(manager.Departamento == "Mantenimiento" &&
+						(pcr.support_Mantenimiento == "P" || pcr.support_Automatizacion == "P")) ||
+					(manager.Departamento == "Calidad" && pcr.support_Calidad == "P") ||
+					(manager.Departamento == "Seguridad" && pcr.support_Seguridad == "P") ||
+					(manager.Departamento == "Ambiental" && pcr.support_Ambiental == "P") ||
+					(manager.Departamento == "Tooling" && pcr.support_Tooling == "P") ||
+					(manager.Departamento == "Produccion" &&
+						(pcr.support_Estampado == "P" || pcr.support_Soldadura == "P" ||
+						 pcr.support_Chromo == "P" || pcr.support_Ecoat == "P" ||
+						 pcr.support_Topcoat == "P" || pcr.support_Backcoat == "P" ||
+						 pcr.support_Ensamble == "P")) ||
+					(manager.Departamento == "Finanzas" && pcr.support_Finanzas == "P"))
+				{
+					string[] email = { manager.Email };
+					correo.newReview(email, currentUser.UserFullName, pcr.PCRID, pcr.ID.ToString(), manager.Departamento);
+				}
+			}
+		}
 
 
-                                    // Send the email to autorization personal 
-                                    var Managers = db.Users.ToList<ApplicationUser>();
-                                    var managersList = Managers.Where(m => m.Puesto == "Gerente").ToList();
+		private void NotifyGerenteGeneral(pcr pcr, ApplicationUser currentUser)
+		{
+			var gerenteGeneral = db.Users.FirstOrDefault(u => u.Puesto == "Gerente_General");
 
-                                    foreach (var manager in managersList)
-                                    {
-                                        if (manager.Departamento == "Compras" && pcr.support_Compras == "P")
-                                        {
-                                            string[] eMail = { manager.Email };
-                                            correo.newReview(eMail, currentUser.UserFullName, pcr.PCRID, Id, manager.Departamento);
-                                        }
+			if (gerenteGeneral != null)
+			{
+				string[] email = { gerenteGeneral.Email };
+				correo.newReview(
+					email,
+					currentUser.UserFullName,
+					pcr.PCRID,
+					pcr.ID.ToString(),
+					"Gerente General"
+				);
+			}
+			else
+			{
+				System.Diagnostics.Debug.WriteLine("Gerente General not found.");
+			}
+		}
 
-                                        if (manager.Departamento == "Materiales" && pcr.support_Materiales == "P")
-                                        {
-                                            string[] eMail = { manager.Email };
-                                            correo.newReview(eMail, currentUser.UserFullName, pcr.PCRID, Id, manager.Departamento);
-                                        }
+		private void SendEmailToManagersForReview(pcr pcr, ApplicationUser currentUser)
+		{
+			var managers = db.Users.Where(u => u.Puesto == "Gerente").ToList();
+			foreach (var manager in managers)
+			{
+				bool shouldNotify = false;
+				bool allApproved = false; // Flag to check if all departments are approved
 
-                                        if (manager.Departamento == "Mantenimiento" && (pcr.support_Mantenimiento == "P" || pcr.support_Automatizacion == "P"))
-                                        {
-                                            string[] eMail = { manager.Email };
-                                            correo.newReview(eMail, currentUser.UserFullName, pcr.PCRID, Id, manager.Departamento);
-                                        }
+				// Check each department's support field for "P" or "R" status
+				switch (manager.Departamento)
+				{
+					case "Compras":
+						shouldNotify = pcr.support_Compras == "P";
+						allApproved &= pcr.support_Compras == "R";
+						break;
+					case "Materiales":
+						shouldNotify = pcr.support_Materiales == "P";
+						allApproved &= pcr.support_Materiales == "R";
+						break;
+					case "Mantenimiento":
+						shouldNotify = pcr.support_Mantenimiento == "P" || pcr.support_Automatizacion == "P";
+						allApproved &= pcr.support_Mantenimiento == "R" && pcr.support_Automatizacion == "R";
+						break;
+					case "Calidad":
+						shouldNotify = pcr.support_Calidad == "P";
+						allApproved &= pcr.support_Calidad == "R";
+						break;
+					case "Seguridad":
+						shouldNotify = pcr.support_Seguridad == "P";
+						allApproved &= pcr.support_Seguridad == "R";
+						break;
+					case "Ambiental":
+						shouldNotify = pcr.support_Ambiental == "P";
+						allApproved &= pcr.support_Ambiental == "R";
+						break;
+					case "Tooling":
+						shouldNotify = pcr.support_Tooling == "P";
+						allApproved &= pcr.support_Tooling == "R";
+						break;
+					case "Produccion":
+						shouldNotify = new[]
+						{
+							pcr.support_Estampado, pcr.support_Soldadura, pcr.support_Chromo,
+							pcr.support_Topcoat, pcr.support_Ecoat, pcr.support_Backcoat,
+							pcr.support_Ensamble
+						}.Contains("P");
 
-                                        if (manager.Departamento == "Calidad" && pcr.support_Calidad == "P")
-                                        {
-                                            string[] eMail = { manager.Email };
-                                            correo.newReview(eMail, currentUser.UserFullName, pcr.PCRID, Id, manager.Departamento);
-                                        }
-                                            
-                                        if (manager.Departamento == "Seguridad" && pcr.support_Seguridad == "P")
-                                        {
-                                            string[] eMail = { manager.Email };
-                                            correo.newReview(eMail, currentUser.UserFullName, pcr.PCRID, Id, manager.Departamento);
-                                        }
+						allApproved &= new[]
+						{
+							pcr.support_Estampado, pcr.support_Soldadura, pcr.support_Chromo,
+							pcr.support_Topcoat, pcr.support_Ecoat, pcr.support_Backcoat,
+							pcr.support_Ensamble
+						}.All(status => status == "R");
+						break;
+					case "Finanzas":
+						shouldNotify = pcr.support_Finanzas == "P";
+						allApproved &= pcr.support_Finanzas == "R";
+						break;
+					default:
+						shouldNotify = false;
+						break;
+				}
 
-                                        if (manager.Departamento == "Ambiental" && pcr.support_Ambiental == "P")
-                                        {
-                                            string[] eMail = { manager.Email };
-                                            correo.newReview(eMail, currentUser.UserFullName, pcr.PCRID, Id, manager.Departamento);
-                                        }
+				// Send emails to the respective manager
+				if (shouldNotify)
+				{
+					string[] email = { manager.Email };
+					correo.newReview(email, currentUser.UserFullName, pcr.PCRID, pcr.ID.ToString(), manager.Departamento);
+				}
 
-                                        if (manager.Departamento == "Tooling" && pcr.support_Tooling == "P")
-                                        {
-                                            string[] eMail = { manager.Email };
-                                            correo.newReview(eMail, currentUser.UserFullName, pcr.PCRID, Id, manager.Departamento);
-                                        }
-
-                                        if (manager.Departamento == "Produccion" && (pcr.support_Estampado == "P" || pcr.support_Soldadura == "P" || pcr.support_Chromo == "P" || 
-                                            pcr.support_Ecoat == "P" || pcr.support_Topcoat == "P" || pcr.support_Backcoat == "P" || pcr.support_Ensamble == "P"))
-                                        {
-                                            string[] eMail = { manager.Email };
-                                            correo.newReview(eMail, currentUser.UserFullName, pcr.PCRID, Id, manager.Departamento);
-                                        }
-
-                                        if (manager.Departamento == "Finanzas" && pcr.support_Finanzas == "P")
-                                        {
-                                            string[] eMail = { manager.Email };
-                                            correo.newReview(eMail, currentUser.UserFullName, pcr.PCRID, Id, manager.Departamento);
-                                        }
-                                    }
-                                }
-                                else
-                                if (pcr.Status == "Aprobado")
-                                {
-                                    sign.msg = msg;
-                                    sign.Reviewedby_date = DateTime.Now;
-                                    sign.pcrID = id;
-                                    sign.Status = "Aprobado por " + currentUser.Departamento;
-                                    sign.Reviewedby = cuser;
-                                    sign.Dep = currentUser.Departamento;
-                           
-                                    switch (currentUser.Departamento)
-                                    {
-                                        case ("Calidad"):
-                                            if (pcr.support_Calidad == "P") pcr.support_Calidad = "R";
-                                            break;
-                                        case ("Finanzas"):
-                                            if (pcr.support_Finanzas == "P") pcr.support_Finanzas = "R";
-                                            break;
-                                        case ("Compras"):
-                                            if (pcr.support_Compras == "P") pcr.support_Compras = "R";
-                                            break;
-                                        case ("Materiales"):
-                                            if (pcr.support_Materiales == "P") pcr.support_Materiales = "R";
-                                            break;
-                                        case ("Mantenimiento"):
-                                            if (pcr.support_Mantenimiento == "P") pcr.support_Mantenimiento = "R";
-                                            if (pcr.support_Automatizacion == "P") pcr.support_Automatizacion = "R";
-                                            break;
-                                        case ("Seguridad"):
-                                            if (pcr.support_Seguridad == "P") pcr.support_Seguridad = "R";
-                                            break;
-                                        case ("Ambiental"):
-                                            if (pcr.support_Ambiental == "P") pcr.support_Ambiental = "R";
-                                            break;
-                                        case ("Tooling"):
-                                            if (pcr.support_Tooling == "P") pcr.support_Tooling = "R";
-                                            break;
-                                        case ("Produccion"):
-                                            if (pcr.support_Estampado == "P") pcr.support_Estampado = "R";
-                                            if (pcr.support_Soldadura == "P") pcr.support_Soldadura = "R";
-                                            if (pcr.support_Chromo == "P") pcr.support_Chromo = "R";
-                                            if (pcr.support_Topcoat == "P") pcr.support_Topcoat = "R";
-                                            if (pcr.support_Ensamble == "P") pcr.support_Ensamble = "R";
-                                            if (pcr.support_Ecoat == "P") pcr.support_Ecoat = "R";
-                                            if (pcr.support_Backcoat == "P") pcr.support_Backcoat = "R";
-                                            break;
-                                    }
-                                }
-                                else
-                                    pcr.Status = "En Aprobación";
-
-                                break;
-                        case ("Arreglos"):
-                                if (pcr.Status == "En Aprobación")
-                                {
-                                    pcr.Status = "Necesita Arreglos";
-                                        // Send the email to autorization personal 
-                                    //    foreach (var minisign in signs)
-                                    //     {
-                                        //         if (minisign.Dep == currentUser.Departamento)
-                                        //             goto alreadysin;
-                                        //     }
-
-                                    sign.msg = msg;
-                                    sign.Reviewedby_date = DateTime.Now;
-                                    sign.pcrID = id;
-                                    sign.Status = "Necesita Arreglos";
-                                    sign.Reviewedby = cuser;
-                                    sign.Dep = currentUser.Departamento;
-
-                                    var UserList = db.Users.Where(w => w.UserFullName == pcr.Originator).FirstOrDefault();
-                                    string email = UserList.Email.ToString();
-                                    string[] eMail = { email };
-                                    string emailId = sign.pcrID.ToString();
-
-                                    correo.Arreglos(eMail, currentUser.UserFullName, pcr.PCRID, emailId);
-
-                                }
-                                else
-                                if (pcr.Status == "Aprobado")
-                                {
-                                    pcr.Status = currentUser.UserFullName + " necesita arreglos";
-
-                                        sign.msg = msg;
-                                        sign.Reviewedby_date = DateTime.Now;
-                                        sign.pcrID = id;
-                                        sign.Status = "Necesita Arreglos";
-                                        sign.Reviewedby = cuser;
-                                        sign.Dep = currentUser.UserFullName;
-                                    }
-                                else
-                                    pcr.Status = "En Aprobación";
-                                break;
-                        case ("Rechazar"):
-                                if (pcr.Status == "En Aprobación")
-                                {
-                                    pcr.Status = "Rechazado";
-                                    sign.msg = msg;
-                                    sign.Reviewedby_date = DateTime.Now;
-                                    sign.pcrID = id;
-                                    sign.Status = "Rechazado";
-                                    sign.Reviewedby = cuser;
-                                    sign.Dep = currentUser.Departamento;
-
-                                    var UserList = db.Users.Where(w => w.UserFullName == pcr.Originator).FirstOrDefault();
-                                    string email = UserList.Email.ToString();
-                                    string[] eMail = { email };
-                                    string emailId = sign.pcrID.ToString();
-
-                                    correo.Rechazado(eMail, currentUser.UserFullName, pcr.PCRID, emailId);
-                                }
-                                else
-                                    pcr.Status = "En Aprobación";
-                                break;
-                        default:
-                                pcr.Status = currentUser.UserFullName + " Canceló";
-                                sign.msg = msg;
-                                sign.Reviewedby_date = DateTime.Now;
-                                sign.pcrID = id;
-                                sign.Status = "Cancelado";
-                                sign.Reviewedby = cuser;
-                                pcr.Reviewedby = cuser;
-                                sign.Dep = currentUser.Departamento;
-                                break;
-                    };
-
-                    db.Entry(pcr).State = EntityState.Modified;
-                        if (sign.pcrID != 0)
-                        {
-                            db.FeasibilitySigns.Add(sign);
-                        }
-                    db.SaveChanges();
-                    return Response;
-                }
-            }
-            return "No está permitido... nada ha cambiado...";
-            alreadysin: 
-            return "Su departamento ya ha firmado éste PCR ... ";
-        }
+				// If all departments have approved, notify Gerente_General
+				if (allApproved)
+				{
+					var gerenteGeneral = db.Users.FirstOrDefault(u => u.Puesto == "Gerente_General");
+					if (gerenteGeneral != null)
+					{
+						string[] emailGeneral = { gerenteGeneral.Email };
+						correo.newReview(
+							emailGeneral,
+							currentUser.UserFullName,
+							pcr.PCRID,
+							pcr.ID.ToString(),
+							"Gerente_General"
+						);
+					}
+				}
+			}
+		}
 
 		// GET: PCRs/Edit/5
 		[Authorize(Roles = "Admin, Gerente")]
@@ -812,14 +1048,18 @@ namespace Flex_SGM.Controllers
 
 			if (ModelState.IsValid)
 			{
+				// Reset all previously approved support fields back to "P"
+				ResetSupportFieldsIfReviewed(pcr);
+
 				pcr.Status = "En Aprobación";
 				pcr.Date = DateTime.Now;
 
+				// Notify via email about the changes
 				string[] eMail = { "dcamacho@flexngate.com" };
 				string emailId = pcr.ID.ToString();
-
 				correo.Arreglado(eMail, CurrentUser.UserFullName, pcr.PCRID, emailId);
 
+				// Delete previous signatures since the PCR was edited
 				using (SqlConnection connection = new SqlConnection("Data Source=SJIMSVAP7\\SQLEXPRESS;Initial Catalog=SGM_SJI;Integrated Security=False;User ID=monitor;Password=M0n1t0r@F13x;Connect Timeout=20;Encrypt=False;TrustServerCertificate=False"))
 				{
 					connection.Open();
@@ -827,17 +1067,41 @@ namespace Flex_SGM.Controllers
 					commandDelete.ExecuteNonQuery();
 				}
 
+				// Save the modified PCR
 				db.Entry(pcr).State = EntityState.Modified;
 				db.SaveChanges();
 				return RedirectToAction("Index");
 			}
 
+			// If the model is invalid, reload the dropdowns and return the view
 			ViewBag.ClientesID = new SelectList(db.eClientes, "ID", "Cliente", pcr.ClientesID);
 			ViewBag.MatrizDecisionID = new SelectList(db.MatrizDecisions, "ID", "TipoCambio", pcr.MatrizDecisionID);
 			ViewBag.ProyectosID = new SelectList(db.eProyectos, "ID", "Proyecto", pcr.ProyectosID);
 			ViewBag.ReasonID = new SelectList(db.ereasons, "ID", "Reason", pcr.ReasonID);
 
 			return View(pcr);
+		}
+
+		// Helper method to reset support fields
+		private void ResetSupportFieldsIfReviewed(pcr pcr)
+		{
+			if (pcr.support_Compras == "R") pcr.support_Compras = "P";
+			if (pcr.support_Materiales == "R") pcr.support_Materiales = "P";
+			if (pcr.support_Mantenimiento == "R") pcr.support_Mantenimiento = "P";
+			if (pcr.support_Automatizacion == "R") pcr.support_Automatizacion = "P";
+			if (pcr.support_Calidad == "R") pcr.support_Calidad = "P";
+			if (pcr.support_Seguridad == "R") pcr.support_Seguridad = "P";
+			if (pcr.support_Ambiental == "R") pcr.support_Ambiental = "P";
+			if (pcr.support_Tooling == "R") pcr.support_Tooling = "P";
+
+			if (pcr.support_Estampado == "R") pcr.support_Estampado = "P";
+			if (pcr.support_Soldadura == "R") pcr.support_Soldadura = "P";
+			if (pcr.support_Chromo == "R") pcr.support_Chromo = "P";
+			if (pcr.support_Ecoat == "R") pcr.support_Ecoat = "P";
+			if (pcr.support_Topcoat == "R") pcr.support_Topcoat = "P";
+			if (pcr.support_Backcoat == "R") pcr.support_Backcoat = "P";
+			if (pcr.support_Ensamble == "R") pcr.support_Ensamble = "P";
+			if (pcr.support_Finanzas == "R") pcr.support_Finanzas = "P";
 		}
 
 		// GET: PCRs/Delete/5

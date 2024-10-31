@@ -7,13 +7,13 @@ namespace Flex_SGM.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.5.1")]
-    public sealed partial class AddCustomerApprovalRequiredToPcrs : IMigrationMetadata
+    public sealed partial class AddNivelRiesgoToPcr : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddCustomerApprovalRequiredToPcrs));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddNivelRiesgoToPcr));
         
         string IMigrationMetadata.Id
         {
-            get { return "202410222019012_AddCustomerApprovalRequiredToPcrs"; }
+            get { return "202410282039218_AddNivelRiesgoToPcr"; }
         }
         
         string IMigrationMetadata.Source

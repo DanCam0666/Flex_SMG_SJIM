@@ -77,13 +77,38 @@
     }
 
     #myModal, #myModalSave {
-        z-index: 1051 !important; /* Increased by 1 */
+        z-index: 1051 !important;
         opacity: 1 !important;
         visibility: visible !important;
     }
 
     .modal-backdrop {
         z-index: 1050 !important;
+    }
+
+    .modal-dialog {
+        margin-top: 200px;
+    }
+
+    .modal-content {
+        background-color: #f5f5f5 !important; /* Light grey background */
+        border-radius: 8px !important;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+        padding: 15px !important;
+    }
+
+    .x_panel.cbg {
+        background-color: #f5f5f5 !important;
+        border-radius: 8px;
+    }
+
+    .modal-header {
+        background-color: #f7f7f7 !important;
+        border-bottom: 1px solid #ddd !important;
+    }
+
+    .btnClose {
+        color: #333 !important;
     }
 </style>
 
@@ -96,45 +121,46 @@
 <!-- Event Details Modal -->
 <div id="myModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
-        <div class="x_panel cbg">
-            <div class="x_title">
-                <h2>Detalles del Evento</h2>
-            </div>
-            <div class="x_content">
-                <div class="modal-header">
-                    <h3 class="modal-title"><span id="eventTitle"></span></h3>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <div class="modal-content">
+            <div class="x_panel cbg">
+                <div class="x_title">
+                    <h2>Detalles del Evento</h2>
                 </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label><strong>Título:</strong></label>
-                        <p id="modalTitle"></p>
+                <div class="x_content">
+                    <div class="modal-header">
+                        <h3 class="modal-title"><span id="eventTitle"></span></h3>
                     </div>
-                    <div class="form-group">
-                        <label><strong>Fecha Inicio:</strong></label>
-                        <p id="modalStart"></p>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label><strong>Título:</strong></label>
+                            <p id="modalTitle"></p>
+                        </div>
+                        <div class="form-group">
+                            <label><strong>Fecha Inicio:</strong></label>
+                            <p id="modalStart"></p>
+                        </div>
+                        <div class="form-group">
+                            <label><strong>Fecha Fin:</strong></label>
+                            <p id="modalEnd"></p>
+                        </div>
+                        <div class="form-group">
+                            <label><strong>Descripción:</strong></label>
+                            <p id="pDetails"></p>
+                        </div>
+                        <div class="form-group">
+                            <label><strong>Color:</strong></label>
+                            <p id="modalColor"></p>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label><strong>Fecha Fin:</strong></label>
-                        <p id="modalEnd"></p>
+                    <div class="modal-footer">
+                        <button id="btnDelete" class="btn btn-danger">
+                            <span class="glyphicon glyphicon-remove"></span> Eliminar
+                        </button>
+                        <button id="btnEdit" class="btn btn-warning">
+                            <span class="glyphicon glyphicon-pencil"></span> Editar
+                        </button>
+                        <button type="button" class="btn btn-secondary btnClose" data-dismiss="modal">Cerrar</button>
                     </div>
-                    <div class="form-group">
-                        <label><strong>Descripción:</strong></label>
-                        <p id="pDetails"></p>
-                    </div>
-                    <div class="form-group">
-                        <label><strong>Color:</strong></label>
-                        <p id="modalColor"></p>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button id="btnDelete" class="btn btn-default">
-                        <span class="glyphicon glyphicon-remove"></span> Eliminar
-                    </button>
-                    <button id="btnEdit" class="btn btn-default">
-                        <span class="glyphicon glyphicon-pencil"></span> Editar
-                    </button>
-                    <button type="button" class="btn btn-default btnClose" data-dismiss="modal">Cerrar</button>
                 </div>
             </div>
         </div>
@@ -146,8 +172,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Agregar Evento</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h2 class="modal-title">Agregar/Editar Evento</h2>
             </div>
             <div class="modal-body">
                 <form class="form-horizontal">
@@ -193,7 +218,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" id="btnSave" class="btn btn-success">Guardar</button>
-                <button type="button" class="btn btn-default btnClose" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-secondary btnClose" data-dismiss="modal">Cerrar</button>
             </div>
         </div>
     </div>
@@ -379,9 +404,8 @@
 
                     $('#myModal').modal('show');
                 },
-
                 eventDidMount: function (info) {
-                    var tooltipContent = (info.event.extendedProps.description || info.event.title).replace(/\n/g, '<br>');
+                    var tooltip = info.event.extendedProps.description || info.event.title;
 
                     // Remove any existing tooltip
                     var existingTooltip = info.el.querySelector('.custom-tooltip');
@@ -393,17 +417,8 @@
                     var tooltipEl = document.createElement('div');
                     tooltipEl.classList.add('custom-tooltip');
                     tooltipEl.style.display = 'none';
-                    tooltipEl.innerHTML = tooltipContent;
+                    tooltipEl.innerHTML = tooltip;
                     info.el.appendChild(tooltipEl);
-
-                    // Show tooltip on hover
-                    info.el.addEventListener('mouseenter', function () {
-                        tooltipEl.style.display = 'block';
-                    });
-
-                    info.el.addEventListener('mouseleave', function () {
-                        tooltipEl.style.display = 'none';
-                    });
                 },
 
                 eventMouseEnter: function (info) {

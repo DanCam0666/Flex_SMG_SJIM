@@ -10,788 +10,790 @@
 {
     @Html.AntiForgeryToken()
 
-<div class="form-horizontal clearfix">
-    <h2>Planning Phase PCR</h2>
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    @Html.HiddenFor(model => model.PCRID)
-    @Html.HiddenFor(model => model.Status)
+    <div class="form-horizontal clearfix">
+        <h2>Planning Phase PCR</h2>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.PCRID)
+        @Html.HiddenFor(model => model.Status)
 
-    <div class="x_panel clearfix">
-        <div class="x_title clearfix">
-            <h3 style="color: #6b8cb0">Product/Process Change Request <small> PCR</small></h3>
-        </div>
-        <div class="x_content">
-
-            <!-- First Row: Originator, Department, Date -->
-            <div class="form-group col-md-4">
-                @Html.LabelFor(model => model.Originator, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Originator, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-                    @Html.ValidationMessageFor(model => model.Originator, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group col-md-4">
-                @Html.LabelFor(model => model.Department, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Department, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-                    @Html.ValidationMessageFor(model => model.Department, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group col-md-4">
-                @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control", id = "dtc1" } })
-                    @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <!-- Second Row: ClientesID, ProyectosID, ReasonID -->
-            <div class="form-group col-md-4">
-                @Html.LabelFor(model => model.ClientesID, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.DropDownList("ClientesID", null, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.ClientesID, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group col-md-4">
-                @Html.LabelFor(model => model.ProyectosID, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.DropDownList("ProyectosID", null, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.ProyectosID, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group col-md-4">
-                @Html.LabelFor(model => model.ReasonID, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.DropDownList("ReasonID", null, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.ReasonID, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <!-- Third Row: PartNumber, PartName, MaquinaID -->
-            <div class="form-group col-md-4">
-                @Html.LabelFor(model => model.PartNumber, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.PartNumber, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.PartNumber, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group col-md-4">
-                @Html.LabelFor(model => model.PartName, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.PartName, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.PartName, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group col-md-4">
-                @Html.LabelFor(model => model.MaquinaID, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.DropDownList("MaquinaID", null, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.MaquinaID, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <!-- Fourth Row: RevLevel -->
-            <div class="form-group col-md-4">
-                @Html.LabelFor(model => model.RevLevel, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.RevLevel, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.RevLevel, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-        </div>
-    </div>
-    <div class="col-md-8">
         <div class="x_panel clearfix">
             <div class="x_title clearfix">
-                <h3 style="color: #6b8cb0">Description of Change <small> PCR</small></h3>
+                <h3 style="color: #6b8cb0">Product/Process Change Request <small> PCR</small></h3>
             </div>
             <div class="x_content">
 
-                <!-- CurrentCondition Field -->
-                <div class="form-group">
-                    @Html.LabelFor(model => model.CurrentCondition, htmlAttributes: new { @class = "control-label col-md-2" })
+                <!-- First Row: Originator, Department, Date -->
+                <div class="form-group col-md-4">
+                    @Html.LabelFor(model => model.Originator, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.TextAreaFor(model => model.CurrentCondition, 8, 20, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.CurrentCondition, "", new { @class = "text-danger" })
+                        @Html.EditorFor(model => model.Originator, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                        @Html.ValidationMessageFor(model => model.Originator, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
-                <!-- NewCondition Field -->
-                <div class="form-group">
-                    @Html.LabelFor(model => model.NewCondition, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="form-group col-md-4">
+                    @Html.LabelFor(model => model.Department, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.TextAreaFor(model => model.NewCondition, 8, 20, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.NewCondition, "", new { @class = "text-danger" })
+                        @Html.EditorFor(model => model.Department, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                        @Html.ValidationMessageFor(model => model.Department, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
-                <!-- docreason Field -->
-                <div class="form-group">
-                    @Html.LabelFor(model => model.docreason, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="form-group col-md-4">
+                    @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.TextAreaFor(model => model.docreason, 8, 20, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.docreason, "", new { @class = "text-danger" })
+                        @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control", id = "dtc1" } })
+                        @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
-                <!-- docscope Field -->
-                <div class="form-group">
-                    @Html.LabelFor(model => model.docscope, htmlAttributes: new { @class = "control-label col-md-2" })
+                <!-- Second Row: ClientesID, ProyectosID, ReasonID -->
+                <div class="form-group col-md-4">
+                    @Html.LabelFor(model => model.ClientesID, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.TextAreaFor(model => model.docscope, 8, 20, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.docscope, "", new { @class = "text-danger" })
+                        @Html.DropDownList("ClientesID", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.ClientesID, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
-                <!-- MatrizDecisionID Field -->
-                <div class="form-group">
-                    @Html.LabelFor(model => model.MatrizDecisionID, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="form-group col-md-4">
+                    @Html.LabelFor(model => model.ProyectosID, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.DropDownList("MatrizDecisionID", null, htmlAttributes: new { @class = "form-control", data_url = Url.Action("Matrizd") })
-                        @Html.ValidationMessageFor(model => model.MatrizDecisionID, "", new { @class = "text-danger" })
+                        @Html.DropDownList("ProyectosID", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.ProyectosID, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
-                <!-- Risk Field -->
-                <div class="form-group">
-                    @Html.Label("Risk (1-Low, 2-Med, >3-High)", htmlAttributes: new { @class = "control-label col-md-4" })
-                    <div class="col-md-4">
-                        @Html.TextBox("0", null, htmlAttributes: new { @class = "form-control", @id = "Risk", @readonly = "readonly" })
+                <div class="form-group col-md-4">
+                    @Html.LabelFor(model => model.ReasonID, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("ReasonID", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.ReasonID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <!-- Third Row: PartNumber, PartName, MaquinaID -->
+                <div class="form-group col-md-4">
+                    @Html.LabelFor(model => model.PartNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.PartNumber, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.PartNumber, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group col-md-4">
+                    @Html.LabelFor(model => model.PartName, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.PartName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.PartName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group col-md-4">
+                    @Html.LabelFor(model => model.MaquinaID, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("MaquinaID", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.MaquinaID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <!-- Fourth Row: RevLevel -->
+                <div class="form-group col-md-4">
+                    @Html.LabelFor(model => model.RevLevel, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.RevLevel, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.RevLevel, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
             </div>
         </div>
-    </div>
-    <div class="col-md-4">
-        <div class="x_panel clearfix">
-            <div class="x_title  clearfix">
-                <h3 style="color: #6b8cb0">Cost Impact <small> PCR</small></h3>
-            </div>
-            <div class="x_content" style="min-height: 843px">
-                <div class="form-group">
-                    @Html.LabelFor(model => model.cipieceprice, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.cipieceprice, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.cipieceprice, "", new { @class = "text-danger" })
-                    </div>
+        <div class="col-md-8">
+            <div class="x_panel clearfix">
+                <div class="x_title clearfix">
+                    <h3 style="color: #6b8cb0">Description of Change <small> PCR</small></h3>
                 </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.cicapital, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.cicapital, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.cicapital, "", new { @class = "text-danger" })
+                <div class="x_content">
+
+                    <!-- CurrentCondition Field -->
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.CurrentCondition, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextAreaFor(model => model.CurrentCondition, 8, 20, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.CurrentCondition, "", new { @class = "text-danger" })
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.citooling, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.citooling, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.citooling, "", new { @class = "text-danger" })
+
+                    <!-- NewCondition Field -->
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.NewCondition, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextAreaFor(model => model.NewCondition, 8, 20, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.NewCondition, "", new { @class = "text-danger" })
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.ciengineering, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.ciengineering, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.ciengineering, "", new { @class = "text-danger" })
+
+                    <!-- docreason Field -->
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.docreason, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextAreaFor(model => model.docreason, 8, 20, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.docreason, "", new { @class = "text-danger" })
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.cipackaging, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.cipackaging, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.cipackaging, "", new { @class = "text-danger" })
+
+                    <!-- docscope Field -->
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.docscope, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextAreaFor(model => model.docscope, 8, 20, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.docscope, "", new { @class = "text-danger" })
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.ciobsolescence, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.ciobsolescence, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.ciobsolescence, "", new { @class = "text-danger" })
+
+                    <!-- MatrizDecisionID Field -->
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.MatrizDecisionID, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownList("MatrizDecisionID", null, "-- Select Matriz Decision --", new { @class = "form-control", @id = "MatrizDecisionID", data_url = Url.Action("Matrizd") })
+                            @Html.ValidationMessageFor(model => model.MatrizDecisionID, "", new { @class = "text-danger" })
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.cimaterial, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.cimaterial, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.cimaterial, "", new { @class = "text-danger" })
+
+                    <!-- Risk Field -->
+                    <div class="form-group">
+                        @Html.Label("Risk (1-Low, 2-Med, >3-High)", htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-4">
+                            @Html.TextBoxFor(model => model.NivelRiesgo, new { @class = "form-control", @id = "Risk", @readonly = "readonly" })
+                            @Html.ValidationMessageFor(model => model.NivelRiesgo, "", new { @class = "text-danger" })
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.cifreight, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.cifreight, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.cifreight, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.ciovertime, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.ciovertime, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.ciovertime, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.ciother, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.ciother, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.ciother, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.citotal, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.citotal, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-                        @Html.ValidationMessageFor(model => model.citotal, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.crannualvolume, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.crannualvolume, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.crannualvolume, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.crcapacityfng, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.crcapacityfng, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.crcapacityfng, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.crcapacitysupplier, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.crcapacitysupplier, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.crcapacitysupplier, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.BuildOut, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.BuildOut, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.BuildOut, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-10">
-                        @Html.LabelFor(model => model.CustomerApprovalRequired, "Customer Approval Required?", htmlAttributes: new { @class = "control-label", @style = "display: inline;" })
-                        @Html.CheckBoxFor(model => model.CustomerApprovalRequired, new { @style = "margin-left: 10px;" })
-                    </div>
+
                 </div>
             </div>
         </div>
-    </div>
-    <div class="form-group col-md-7">
-        @Html.LabelFor(model => model.Reviewedby, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Reviewedby, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-            @Html.ValidationMessageFor(model => model.Reviewedby, "", new { @class = "text-danger" })
-        </div>
-    </div>
-    <div class="form-group col-md-4">
-        @Html.LabelFor(model => model.Reviewedby_date, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.Editor("WatingforReview", new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-            @Html.ValidationMessageFor(model => model.Reviewedby_date, "", new { @class = "text-danger" })
-        </div>
-    </div>
-    <div class="col-md-5">
-        <div class="x_panel clearfix">
-            <div class="x_title clearfix">
-                <h3 style="color: #6b8cb0">Support <small> PCR   (P = aplica, X = no aplica, R = firmado)</small></h3>
-            </div>
-            <div class="x_content" style="min-height: 436px">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.support_Compras, htmlAttributes: new { @class = "control-label col-md-4" })
-                        <div class="col-md-6">
-                            @Html.EditorFor(model => model.support_Compras, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-                            @Html.ValidationMessageFor(model => model.support_Compras, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.support_Materiales, htmlAttributes: new { @class = "control-label col-md-4" })
-                        <div class="col-md-6">
-                            @Html.EditorFor(model => model.support_Materiales, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-                            @Html.ValidationMessageFor(model => model.support_Materiales, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.support_Mantenimiento, htmlAttributes: new { @class = "control-label col-md-4" })
-                        <div class="col-md-6">
-                            @Html.EditorFor(model => model.support_Mantenimiento, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-                            @Html.ValidationMessageFor(model => model.support_Mantenimiento, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.support_Automatizacion, htmlAttributes: new { @class = "control-label col-md-4" })
-                        <div class="col-md-6">
-                            @Html.EditorFor(model => model.support_Automatizacion, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-                            @Html.ValidationMessageFor(model => model.support_Automatizacion, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.support_Calidad, htmlAttributes: new { @class = "control-label col-md-4" })
-                        <div class="col-md-6">
-                            @Html.EditorFor(model => model.support_Calidad, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-                            @Html.ValidationMessageFor(model => model.support_Calidad, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.support_Seguridad, htmlAttributes: new { @class = "control-label col-md-4" })
-                        <div class="col-md-6">
-                            @Html.EditorFor(model => model.support_Seguridad, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-                            @Html.ValidationMessageFor(model => model.support_Seguridad, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.support_Ambiental, htmlAttributes: new { @class = "control-label col-md-4" })
-                        <div class="col-md-6">
-                            @Html.EditorFor(model => model.support_Ambiental, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-                            @Html.ValidationMessageFor(model => model.support_Ambiental, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.support_Tooling, htmlAttributes: new { @class = "control-label col-md-4" })
-                        <div class="col-md-6">
-                            @Html.EditorFor(model => model.support_Tooling, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-                            @Html.ValidationMessageFor(model => model.support_Tooling, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
+        <div class="col-md-4">
+            <div class="x_panel clearfix">
+                <div class="x_title  clearfix">
+                    <h3 style="color: #6b8cb0">Cost Impact <small> PCR</small></h3>
                 </div>
-                <div class="col-md-6">
+                <div class="x_content" style="min-height: 843px">
                     <div class="form-group">
-                        @Html.LabelFor(model => model.support_Estampado, htmlAttributes: new { @class = "control-label col-md-4" })
-                        <div class="col-md-6">
-                            @Html.EditorFor(model => model.support_Estampado, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-                            @Html.ValidationMessageFor(model => model.support_Estampado, "", new { @class = "text-danger" })
+                        @Html.LabelFor(model => model.cipieceprice, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.cipieceprice, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.cipieceprice, "", new { @class = "text-danger" })
                         </div>
                     </div>
                     <div class="form-group">
-                        @Html.LabelFor(model => model.support_Soldadura, htmlAttributes: new { @class = "control-label col-md-4" })
-                        <div class="col-md-6">
-                            @Html.EditorFor(model => model.support_Soldadura, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-                            @Html.ValidationMessageFor(model => model.support_Soldadura, "", new { @class = "text-danger" })
+                        @Html.LabelFor(model => model.cicapital, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.cicapital, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.cicapital, "", new { @class = "text-danger" })
                         </div>
                     </div>
                     <div class="form-group">
-                        @Html.LabelFor(model => model.support_Chromo, htmlAttributes: new { @class = "control-label col-md-4" })
-                        <div class="col-md-6">
-                            @Html.EditorFor(model => model.support_Chromo, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-                            @Html.ValidationMessageFor(model => model.support_Chromo, "", new { @class = "text-danger" })
+                        @Html.LabelFor(model => model.citooling, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.citooling, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.citooling, "", new { @class = "text-danger" })
                         </div>
                     </div>
                     <div class="form-group">
-                        @Html.LabelFor(model => model.support_Ecoat, htmlAttributes: new { @class = "control-label col-md-4" })
-                        <div class="col-md-6">
-                            @Html.EditorFor(model => model.support_Ecoat, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-                            @Html.ValidationMessageFor(model => model.support_Ecoat, "", new { @class = "text-danger" })
+                        @Html.LabelFor(model => model.ciengineering, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.ciengineering, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.ciengineering, "", new { @class = "text-danger" })
                         </div>
                     </div>
                     <div class="form-group">
-                        @Html.LabelFor(model => model.support_Topcoat, htmlAttributes: new { @class = "control-label col-md-4" })
-                        <div class="col-md-6">
-                            @Html.EditorFor(model => model.support_Topcoat, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-                            @Html.ValidationMessageFor(model => model.support_Topcoat, "", new { @class = "text-danger" })
+                        @Html.LabelFor(model => model.cipackaging, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.cipackaging, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.cipackaging, "", new { @class = "text-danger" })
                         </div>
                     </div>
                     <div class="form-group">
-                        @Html.LabelFor(model => model.support_Backcoat, htmlAttributes: new { @class = "control-label col-md-4" })
-                        <div class="col-md-6">
-                            @Html.EditorFor(model => model.support_Backcoat, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-                            @Html.ValidationMessageFor(model => model.support_Backcoat, "", new { @class = "text-danger" })
+                        @Html.LabelFor(model => model.ciobsolescence, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.ciobsolescence, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.ciobsolescence, "", new { @class = "text-danger" })
                         </div>
                     </div>
                     <div class="form-group">
-                        @Html.LabelFor(model => model.support_Ensamble, htmlAttributes: new { @class = "control-label col-md-4" })
-                        <div class="col-md-6">
-                            @Html.EditorFor(model => model.support_Ensamble, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-                            @Html.ValidationMessageFor(model => model.support_Ensamble, "", new { @class = "text-danger" })
+                        @Html.LabelFor(model => model.cimaterial, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.cimaterial, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.cimaterial, "", new { @class = "text-danger" })
                         </div>
                     </div>
                     <div class="form-group">
-                        @Html.LabelFor(model => model.support_Finanzas, htmlAttributes: new { @class = "control-label col-md-4" })
-                        <div class="col-md-6">
-                            @Html.EditorFor(model => model.support_Finanzas, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-                            @Html.ValidationMessageFor(model => model.support_Finanzas, "", new { @class = "text-danger" })
+                        @Html.LabelFor(model => model.cifreight, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.cifreight, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.cifreight, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ciovertime, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.ciovertime, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.ciovertime, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ciother, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.ciother, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.ciother, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.citotal, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.citotal, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                            @Html.ValidationMessageFor(model => model.citotal, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.crannualvolume, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.crannualvolume, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.crannualvolume, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.crcapacityfng, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.crcapacityfng, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.crcapacityfng, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.crcapacitysupplier, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.crcapacitysupplier, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.crcapacitysupplier, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.BuildOut, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.BuildOut, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.BuildOut, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            @Html.LabelFor(model => model.CustomerApprovalRequired, "Customer Approval Required?", htmlAttributes: new { @class = "control-label", @readonly = "readonly", @style = "display: inline;" })
+                            @Html.CheckBoxFor(model => model.CustomerApprovalRequired, new { @id = "CustomerApprovalRequired", @style = "margin-left: 10px;" })
+                            @Html.ValidationMessageFor(model => model.CustomerApprovalRequired, "", new { @class = "text-danger" })
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="col-md-3">
-        <div class="x_panel clearfix">
-            <div class="x_title clearfix">
-                <h3 style="color: #6b8cb0">Key Milestones <small> PCR</small></h3>
-            </div>
-            <div class="x_content">
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Keymilestones_buildmrd1, htmlAttributes: new { @class = "control-label col-md-3" })
-                    <div class="col-md-8">
-                        @Html.EditorFor(model => model.Keymilestones_buildmrd1, new { htmlAttributes = new { @class = "form-control", @id = "dpk1" } })
-                        @Html.ValidationMessageFor(model => model.Keymilestones_buildmrd1, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Keymilestones_buildmrd2, htmlAttributes: new { @class = "control-label col-md-3" })
-                    <div class="col-md-8">
-                        @Html.EditorFor(model => model.Keymilestones_buildmrd2, new { htmlAttributes = new { @class = "form-control", @id = "dpk2" } })
-                        @Html.ValidationMessageFor(model => model.Keymilestones_buildmrd2, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Keymilestones_buildmrd3, htmlAttributes: new { @class = "control-label col-md-3" })
-                    <div class="col-md-8">
-                        @Html.EditorFor(model => model.Keymilestones_buildmrd3, new { htmlAttributes = new { @class = "form-control", @id = "dpk3" } })
-                        @Html.ValidationMessageFor(model => model.Keymilestones_buildmrd3, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Keymilestones_customrrar, htmlAttributes: new { @class = "control-label col-md-3" })
-                    <div class="col-md-8">
-                        @Html.EditorFor(model => model.Keymilestones_customrrar, new { htmlAttributes = new { @class = "form-control", @id = "dpk4" } })
-                        @Html.ValidationMessageFor(model => model.Keymilestones_customrrar, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Keymilestones_ppap, htmlAttributes: new { @class = "control-label col-md-3" })
-                    <div class="col-md-8">
-                        @Html.EditorFor(model => model.Keymilestones_ppap, new { htmlAttributes = new { @class = "form-control", @id = "dpk5" } })
-                        @Html.ValidationMessageFor(model => model.Keymilestones_ppap, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Keymilestones_internalsop, htmlAttributes: new { @class = "control-label col-md-3" })
-                    <div class="col-md-8">
-                        @Html.EditorFor(model => model.Keymilestones_internalsop, new { htmlAttributes = new { @class = "form-control", @id = "dpk6" } })
-                        @Html.ValidationMessageFor(model => model.Keymilestones_internalsop, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Keymilestones_customersop, htmlAttributes: new { @class = "control-label col-md-3" })
-                    <div class="col-md-8">
-                        @Html.EditorFor(model => model.Keymilestones_customersop, new { htmlAttributes = new { @class = "form-control", @id = "dpk7" } })
-                        @Html.ValidationMessageFor(model => model.Keymilestones_customersop, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Keymilestones_closure, htmlAttributes: new { @class = "control-label col-md-3" })
-                    <div class="col-md-8">
-                        @Html.EditorFor(model => model.Keymilestones_closure, new { htmlAttributes = new { @class = "form-control", @id = "dpk8" } })
-                        @Html.ValidationMessageFor(model => model.Keymilestones_closure, "", new { @class = "text-danger" })
-                    </div>
-                </div>
+        <div class="form-group col-md-7">
+            @Html.LabelFor(model => model.Reviewedby, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Reviewedby, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.Reviewedby, "", new { @class = "text-danger" })
             </div>
         </div>
-    </div>
-    <div class="col-md-3">
-        <div class="x_panel clearfix">
-            <div class="x_title clearfix">
-                <h3 style="color: #6b8cb0">Estimated Lead Time <small> PCR (Semanas)</small></h3>
-            </div>
-            <div class="x_content" style="min-height: 410px">
-                <div class="form-group">
-                    @Html.LabelFor(model => model.leadtime_engineering, htmlAttributes: new { @class = "control-label col-md-3" })
-                    <div class="col-md-8">
-                        @Html.EditorFor(model => model.leadtime_engineering, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.leadtime_engineering, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.leadtime_tooling, htmlAttributes: new { @class = "control-label col-md-3" })
-                    <div class="col-md-8">
-                        @Html.EditorFor(model => model.leadtime_tooling, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.leadtime_tooling, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.leadtime_facilities, htmlAttributes: new { @class = "control-label col-md-3" })
-                    <div class="col-md-8">
-                        @Html.EditorFor(model => model.leadtime_facilities, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.leadtime_facilities, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.leadtime_capital, htmlAttributes: new { @class = "control-label col-md-3" })
-                    <div class="col-md-8">
-                        @Html.EditorFor(model => model.leadtime_capital, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.leadtime_capital, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.leadtime_material, htmlAttributes: new { @class = "control-label col-md-3" })
-                    <div class="col-md-8">
-                        @Html.EditorFor(model => model.leadtime_material, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.leadtime_material, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.leadtime_inventory, htmlAttributes: new { @class = "control-label col-md-3" })
-                    <div class="col-md-8">
-                        @Html.EditorFor(model => model.leadtime_inventory, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.leadtime_inventory, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.leadtime_approval, htmlAttributes: new { @class = "control-label col-md-3" })
-                    <div class="col-md-8">
-                        @Html.EditorFor(model => model.leadtime_approval, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.leadtime_approval, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.leadtime_totallt, htmlAttributes: new { @class = "control-label col-md-3" })
-                    <div class="col-md-8">
-                        @Html.EditorFor(model => model.leadtime_totallt, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.leadtime_totallt, "", new { @class = "text-danger" })
-                    </div>
-                </div>
+        <div class="form-group col-md-4">
+            @Html.LabelFor(model => model.Reviewedby_date, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.Editor("WatingforReview", new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.Reviewedby_date, "", new { @class = "text-danger" })
             </div>
         </div>
-    </div>
-    <br />
-    <hr />
-    <div class="col-md-6">
-        <div class="x_panel clearfix">
-            <div class="x_title">
-                <h3 style="color: #6b8cb0">Feasbility Considerations <small> Management team to consider the question, not intended to be all inclisive in performing an evaluation.</small></h3>
-            </div>
-            <div class="x_content">
-                <div class="form-group">
-                    @Html.LabelFor(model => model.FConsiderations1, htmlAttributes: new { @class = "control-label col-md-10" })
-                    <div class="col-md-2">
-                        <div class="checkbox">
-                            @Html.EditorFor(model => model.FConsiderations1)
-                            @Html.ValidationMessageFor(model => model.FConsiderations1, "", new { @class = "text-danger" })
+        <div class="col-md-5">
+            <div class="x_panel clearfix">
+                <div class="x_title clearfix">
+                    <h3 style="color: #6b8cb0">Support <small> PCR   (P = aplica, X = no aplica, R = firmado)</small></h3>
+                </div>
+                <div class="x_content" style="min-height: 436px">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.support_Compras, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-6">
+                                @Html.EditorFor(model => model.support_Compras, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                @Html.ValidationMessageFor(model => model.support_Compras, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.support_Materiales, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-6">
+                                @Html.EditorFor(model => model.support_Materiales, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                @Html.ValidationMessageFor(model => model.support_Materiales, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.support_Mantenimiento, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-6">
+                                @Html.EditorFor(model => model.support_Mantenimiento, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                @Html.ValidationMessageFor(model => model.support_Mantenimiento, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.support_Automatizacion, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-6">
+                                @Html.EditorFor(model => model.support_Automatizacion, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                @Html.ValidationMessageFor(model => model.support_Automatizacion, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.support_Calidad, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-6">
+                                @Html.EditorFor(model => model.support_Calidad, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                @Html.ValidationMessageFor(model => model.support_Calidad, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.support_Seguridad, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-6">
+                                @Html.EditorFor(model => model.support_Seguridad, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                @Html.ValidationMessageFor(model => model.support_Seguridad, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.support_Ambiental, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-6">
+                                @Html.EditorFor(model => model.support_Ambiental, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                @Html.ValidationMessageFor(model => model.support_Ambiental, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.support_Tooling, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-6">
+                                @Html.EditorFor(model => model.support_Tooling, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                @Html.ValidationMessageFor(model => model.support_Tooling, "", new { @class = "text-danger" })
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.FConsiderations2, htmlAttributes: new { @class = "control-label col-md-10" })
-                    <div class="col-md-2">
-                        <div class="checkbox">
-                            @Html.EditorFor(model => model.FConsiderations2)
-                            @Html.ValidationMessageFor(model => model.FConsiderations2, "", new { @class = "text-danger" })
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.support_Estampado, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-6">
+                                @Html.EditorFor(model => model.support_Estampado, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                @Html.ValidationMessageFor(model => model.support_Estampado, "", new { @class = "text-danger" })
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.FConsiderations3, htmlAttributes: new { @class = "control-label col-md-10" })
-                    <div class="col-md-2">
-                        <div class="checkbox">
-                            @Html.EditorFor(model => model.FConsiderations3)
-                            @Html.ValidationMessageFor(model => model.FConsiderations3, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.support_Soldadura, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-6">
+                                @Html.EditorFor(model => model.support_Soldadura, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                @Html.ValidationMessageFor(model => model.support_Soldadura, "", new { @class = "text-danger" })
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.FConsiderations4, htmlAttributes: new { @class = "control-label col-md-10" })
-                    <div class="col-md-2">
-                        <div class="checkbox">
-                            @Html.EditorFor(model => model.FConsiderations4)
-                            @Html.ValidationMessageFor(model => model.FConsiderations4, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.support_Chromo, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-6">
+                                @Html.EditorFor(model => model.support_Chromo, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                @Html.ValidationMessageFor(model => model.support_Chromo, "", new { @class = "text-danger" })
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.FConsiderations5, htmlAttributes: new { @class = "control-label col-md-10" })
-                    <div class="col-md-2">
-                        <div class="checkbox">
-                            @Html.EditorFor(model => model.FConsiderations5)
-                            @Html.ValidationMessageFor(model => model.FConsiderations5, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.support_Ecoat, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-6">
+                                @Html.EditorFor(model => model.support_Ecoat, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                @Html.ValidationMessageFor(model => model.support_Ecoat, "", new { @class = "text-danger" })
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.FConsiderations6, htmlAttributes: new { @class = "control-label col-md-10" })
-                    <div class="col-md-2">
-                        <div class="checkbox">
-                            @Html.EditorFor(model => model.FConsiderations6)
-                            @Html.ValidationMessageFor(model => model.FConsiderations6, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.support_Topcoat, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-6">
+                                @Html.EditorFor(model => model.support_Topcoat, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                @Html.ValidationMessageFor(model => model.support_Topcoat, "", new { @class = "text-danger" })
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.FConsiderations7, htmlAttributes: new { @class = "control-label col-md-10" })
-                    <div class="col-md-2">
-                        <div class="checkbox">
-                            @Html.EditorFor(model => model.FConsiderations7)
-                            @Html.ValidationMessageFor(model => model.FConsiderations7, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.support_Backcoat, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-6">
+                                @Html.EditorFor(model => model.support_Backcoat, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                @Html.ValidationMessageFor(model => model.support_Backcoat, "", new { @class = "text-danger" })
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.FConsiderations8, htmlAttributes: new { @class = "control-label col-md-10" })
-                    <div class="col-md-2">
-                        <div class="checkbox">
-                            @Html.EditorFor(model => model.FConsiderations8)
-                            @Html.ValidationMessageFor(model => model.FConsiderations8, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.support_Ensamble, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-6">
+                                @Html.EditorFor(model => model.support_Ensamble, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                @Html.ValidationMessageFor(model => model.support_Ensamble, "", new { @class = "text-danger" })
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.FConsiderations9, htmlAttributes: new { @class = "control-label col-md-10" })
-                    <div class="col-md-2">
-                        <div class="checkbox">
-                            @Html.EditorFor(model => model.FConsiderations9)
-                            @Html.ValidationMessageFor(model => model.FConsiderations9, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.FConsiderations10, htmlAttributes: new { @class = "control-label col-md-10" })
-                    <div class="col-md-2">
-                        <div class="checkbox">
-                            @Html.EditorFor(model => model.FConsiderations10)
-                            @Html.ValidationMessageFor(model => model.FConsiderations10, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.FConsiderations11, htmlAttributes: new { @class = "control-label col-md-10" })
-                    <div class="col-md-2">
-                        <div class="checkbox">
-                            @Html.EditorFor(model => model.FConsiderations11)
-                            @Html.ValidationMessageFor(model => model.FConsiderations11, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.FConsiderations12, htmlAttributes: new { @class = "control-label col-md-10" })
-                    <div class="col-md-2">
-                        <div class="checkbox">
-                            @Html.EditorFor(model => model.FConsiderations12)
-                            @Html.ValidationMessageFor(model => model.FConsiderations12, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.FConsiderations13, htmlAttributes: new { @class = "control-label col-md-10" })
-                    <div class="col-md-2">
-                        <div class="checkbox">
-                            @Html.EditorFor(model => model.FConsiderations13)
-                            @Html.ValidationMessageFor(model => model.FConsiderations13, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.FConsiderations14, htmlAttributes: new { @class = "control-label col-md-10" })
-                    <div class="col-md-2">
-                        <div class="checkbox">
-                            @Html.EditorFor(model => model.FConsiderations14)
-                            @Html.ValidationMessageFor(model => model.FConsiderations14, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.FConsiderations15, htmlAttributes: new { @class = "control-label col-md-10" })
-                    <div class="col-md-2">
-                        <div class="checkbox">
-                            @Html.EditorFor(model => model.FConsiderations15)
-                            @Html.ValidationMessageFor(model => model.FConsiderations15, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.support_Finanzas, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-6">
+                                @Html.EditorFor(model => model.support_Finanzas, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                @Html.ValidationMessageFor(model => model.support_Finanzas, "", new { @class = "text-danger" })
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="col-md-6">
-        <div class="x_panel clearfix">
-            <div class="x_title">
-                <h3 style="color: #6b8cb0">Risk Analysis Considerations. <small> Management team to consider the question, not intended to be all inclisive in performing an evaluation.</small></h3>
-            </div>
-            <div class="x_content" style="min-height: 676px">
-                <div class="form-group">
-                    @Html.LabelFor(model => model.FRisk1, htmlAttributes: new { @class = "control-label col-md-10" })
-                    <div class="col-md-2">
-                        <div class="checkbox">
-                            @Html.EditorFor(model => model.FRisk1)
-                            @Html.ValidationMessageFor(model => model.FRisk1, "", new { @class = "text-danger" })
+        <div class="col-md-3">
+            <div class="x_panel clearfix">
+                <div class="x_title clearfix">
+                    <h3 style="color: #6b8cb0">Key Milestones <small> PCR</small></h3>
+                </div>
+                <div class="x_content">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Keymilestones_buildmrd1, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model.Keymilestones_buildmrd1, new { htmlAttributes = new { @class = "form-control", @id = "dpk1" } })
+                            @Html.ValidationMessageFor(model => model.Keymilestones_buildmrd1, "", new { @class = "text-danger" })
                         </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.FRisk2, htmlAttributes: new { @class = "control-label col-md-10" })
-                    <div class="col-md-2">
-                        <div class="checkbox">
-                            @Html.EditorFor(model => model.FRisk2)
-                            @Html.ValidationMessageFor(model => model.FRisk2, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Keymilestones_buildmrd2, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model.Keymilestones_buildmrd2, new { htmlAttributes = new { @class = "form-control", @id = "dpk2" } })
+                            @Html.ValidationMessageFor(model => model.Keymilestones_buildmrd2, "", new { @class = "text-danger" })
                         </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.FRisk3, htmlAttributes: new { @class = "control-label col-md-10" })
-                    <div class="col-md-2">
-                        <div class="checkbox">
-                            @Html.EditorFor(model => model.FRisk3)
-                            @Html.ValidationMessageFor(model => model.FRisk3, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Keymilestones_buildmrd3, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model.Keymilestones_buildmrd3, new { htmlAttributes = new { @class = "form-control", @id = "dpk3" } })
+                            @Html.ValidationMessageFor(model => model.Keymilestones_buildmrd3, "", new { @class = "text-danger" })
                         </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.FRisk4, htmlAttributes: new { @class = "control-label col-md-10" })
-                    <div class="col-md-2">
-                        <div class="checkbox">
-                            @Html.EditorFor(model => model.FRisk4)
-                            @Html.ValidationMessageFor(model => model.FRisk4, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Keymilestones_customrrar, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model.Keymilestones_customrrar, new { htmlAttributes = new { @class = "form-control", @id = "dpk4" } })
+                            @Html.ValidationMessageFor(model => model.Keymilestones_customrrar, "", new { @class = "text-danger" })
                         </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.FRisk5, htmlAttributes: new { @class = "control-label col-md-10" })
-                    <div class="col-md-2">
-                        <div class="checkbox">
-                            @Html.EditorFor(model => model.FRisk5)
-                            @Html.ValidationMessageFor(model => model.FRisk5, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Keymilestones_ppap, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model.Keymilestones_ppap, new { htmlAttributes = new { @class = "form-control", @id = "dpk5" } })
+                            @Html.ValidationMessageFor(model => model.Keymilestones_ppap, "", new { @class = "text-danger" })
                         </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.FRisk6, htmlAttributes: new { @class = "control-label col-md-10" })
-                    <div class="col-md-2">
-                        <div class="checkbox">
-                            @Html.EditorFor(model => model.FRisk6)
-                            @Html.ValidationMessageFor(model => model.FRisk6, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Keymilestones_internalsop, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model.Keymilestones_internalsop, new { htmlAttributes = new { @class = "form-control", @id = "dpk6" } })
+                            @Html.ValidationMessageFor(model => model.Keymilestones_internalsop, "", new { @class = "text-danger" })
                         </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.FRisk7, htmlAttributes: new { @class = "control-label col-md-10" })
-                    <div class="col-md-2">
-                        <div class="checkbox">
-                            @Html.EditorFor(model => model.FRisk7)
-                            @Html.ValidationMessageFor(model => model.FRisk7, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Keymilestones_customersop, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model.Keymilestones_customersop, new { htmlAttributes = new { @class = "form-control", @id = "dpk7" } })
+                            @Html.ValidationMessageFor(model => model.Keymilestones_customersop, "", new { @class = "text-danger" })
                         </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.FRisk8, htmlAttributes: new { @class = "control-label col-md-10" })
-                    <div class="col-md-1">
-                        @Html.EditorFor(model => model.FRisk8, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
-                        <label id="FRiskstring8"> </label>
-                        @Html.ValidationMessageFor(model => model.FRisk8, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Keymilestones_closure, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model.Keymilestones_closure, new { htmlAttributes = new { @class = "form-control", @id = "dpk8" } })
+                            @Html.ValidationMessageFor(model => model.Keymilestones_closure, "", new { @class = "text-danger" })
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-8">
-            <input type="submit" value="Crear" class="btn btn-success col-xs-12" />
+        <div class="col-md-3">
+            <div class="x_panel clearfix">
+                <div class="x_title clearfix">
+                    <h3 style="color: #6b8cb0">Estimated Lead Time <small> PCR (Semanas)</small></h3>
+                </div>
+                <div class="x_content" style="min-height: 410px">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.leadtime_engineering, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model.leadtime_engineering, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.leadtime_engineering, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.leadtime_tooling, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model.leadtime_tooling, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.leadtime_tooling, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.leadtime_facilities, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model.leadtime_facilities, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.leadtime_facilities, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.leadtime_capital, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model.leadtime_capital, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.leadtime_capital, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.leadtime_material, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model.leadtime_material, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.leadtime_material, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.leadtime_inventory, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model.leadtime_inventory, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.leadtime_inventory, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.leadtime_approval, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model.leadtime_approval, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.leadtime_approval, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.leadtime_totallt, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model.leadtime_totallt, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.leadtime_totallt, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <hr />
+        <div class="col-md-6">
+            <div class="x_panel clearfix">
+                <div class="x_title">
+                    <h3 style="color: #6b8cb0">Feasibility Considerations <small> Management team to consider the question, not intended to be all inclisive in performing an evaluation.</small></h3>
+                </div>
+                <div class="x_content">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FConsiderations1, htmlAttributes: new { @class = "control-label col-md-10" })
+                        <div class="col-md-2">
+                            <div class="checkbox">
+                                @Html.EditorFor(model => model.FConsiderations1)
+                                @Html.ValidationMessageFor(model => model.FConsiderations1, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FConsiderations2, htmlAttributes: new { @class = "control-label col-md-10" })
+                        <div class="col-md-2">
+                            <div class="checkbox">
+                                @Html.EditorFor(model => model.FConsiderations2)
+                                @Html.ValidationMessageFor(model => model.FConsiderations2, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FConsiderations3, htmlAttributes: new { @class = "control-label col-md-10" })
+                        <div class="col-md-2">
+                            <div class="checkbox">
+                                @Html.EditorFor(model => model.FConsiderations3)
+                                @Html.ValidationMessageFor(model => model.FConsiderations3, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FConsiderations4, htmlAttributes: new { @class = "control-label col-md-10" })
+                        <div class="col-md-2">
+                            <div class="checkbox">
+                                @Html.EditorFor(model => model.FConsiderations4)
+                                @Html.ValidationMessageFor(model => model.FConsiderations4, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FConsiderations5, htmlAttributes: new { @class = "control-label col-md-10" })
+                        <div class="col-md-2">
+                            <div class="checkbox">
+                                @Html.EditorFor(model => model.FConsiderations5)
+                                @Html.ValidationMessageFor(model => model.FConsiderations5, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FConsiderations6, htmlAttributes: new { @class = "control-label col-md-10" })
+                        <div class="col-md-2">
+                            <div class="checkbox">
+                                @Html.EditorFor(model => model.FConsiderations6)
+                                @Html.ValidationMessageFor(model => model.FConsiderations6, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FConsiderations7, htmlAttributes: new { @class = "control-label col-md-10" })
+                        <div class="col-md-2">
+                            <div class="checkbox">
+                                @Html.EditorFor(model => model.FConsiderations7)
+                                @Html.ValidationMessageFor(model => model.FConsiderations7, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FConsiderations8, htmlAttributes: new { @class = "control-label col-md-10" })
+                        <div class="col-md-2">
+                            <div class="checkbox">
+                                @Html.EditorFor(model => model.FConsiderations8)
+                                @Html.ValidationMessageFor(model => model.FConsiderations8, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FConsiderations9, htmlAttributes: new { @class = "control-label col-md-10" })
+                        <div class="col-md-2">
+                            <div class="checkbox">
+                                @Html.EditorFor(model => model.FConsiderations9)
+                                @Html.ValidationMessageFor(model => model.FConsiderations9, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FConsiderations10, htmlAttributes: new { @class = "control-label col-md-10" })
+                        <div class="col-md-2">
+                            <div class="checkbox">
+                                @Html.EditorFor(model => model.FConsiderations10)
+                                @Html.ValidationMessageFor(model => model.FConsiderations10, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FConsiderations11, htmlAttributes: new { @class = "control-label col-md-10" })
+                        <div class="col-md-2">
+                            <div class="checkbox">
+                                @Html.EditorFor(model => model.FConsiderations11)
+                                @Html.ValidationMessageFor(model => model.FConsiderations11, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FConsiderations12, htmlAttributes: new { @class = "control-label col-md-10" })
+                        <div class="col-md-2">
+                            <div class="checkbox">
+                                @Html.EditorFor(model => model.FConsiderations12)
+                                @Html.ValidationMessageFor(model => model.FConsiderations12, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FConsiderations13, htmlAttributes: new { @class = "control-label col-md-10" })
+                        <div class="col-md-2">
+                            <div class="checkbox">
+                                @Html.EditorFor(model => model.FConsiderations13)
+                                @Html.ValidationMessageFor(model => model.FConsiderations13, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FConsiderations14, htmlAttributes: new { @class = "control-label col-md-10" })
+                        <div class="col-md-2">
+                            <div class="checkbox">
+                                @Html.EditorFor(model => model.FConsiderations14)
+                                @Html.ValidationMessageFor(model => model.FConsiderations14, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FConsiderations15, htmlAttributes: new { @class = "control-label col-md-10" })
+                        <div class="col-md-2">
+                            <div class="checkbox">
+                                @Html.EditorFor(model => model.FConsiderations15)
+                                @Html.ValidationMessageFor(model => model.FConsiderations15, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="x_panel clearfix">
+                <div class="x_title">
+                    <h3 style="color: #6b8cb0">Risk Analysis Considerations. <small> Management team to consider the question, not intended to be all inclisive in performing an evaluation.</small></h3>
+                </div>
+                <div class="x_content" style="min-height: 676px">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FRisk1, htmlAttributes: new { @class = "control-label col-md-10" })
+                        <div class="col-md-2">
+                            <div class="checkbox">
+                                @Html.EditorFor(model => model.FRisk1)
+                                @Html.ValidationMessageFor(model => model.FRisk1, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FRisk2, htmlAttributes: new { @class = "control-label col-md-10" })
+                        <div class="col-md-2">
+                            <div class="checkbox">
+                                @Html.EditorFor(model => model.FRisk2)
+                                @Html.ValidationMessageFor(model => model.FRisk2, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FRisk3, htmlAttributes: new { @class = "control-label col-md-10" })
+                        <div class="col-md-2">
+                            <div class="checkbox">
+                                @Html.EditorFor(model => model.FRisk3)
+                                @Html.ValidationMessageFor(model => model.FRisk3, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FRisk4, htmlAttributes: new { @class = "control-label col-md-10" })
+                        <div class="col-md-2">
+                            <div class="checkbox">
+                                @Html.EditorFor(model => model.FRisk4)
+                                @Html.ValidationMessageFor(model => model.FRisk4, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FRisk5, htmlAttributes: new { @class = "control-label col-md-10" })
+                        <div class="col-md-2">
+                            <div class="checkbox">
+                                @Html.EditorFor(model => model.FRisk5)
+                                @Html.ValidationMessageFor(model => model.FRisk5, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FRisk6, htmlAttributes: new { @class = "control-label col-md-10" })
+                        <div class="col-md-2">
+                            <div class="checkbox">
+                                @Html.EditorFor(model => model.FRisk6)
+                                @Html.ValidationMessageFor(model => model.FRisk6, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FRisk7, htmlAttributes: new { @class = "control-label col-md-10" })
+                        <div class="col-md-2">
+                            <div class="checkbox">
+                                @Html.EditorFor(model => model.FRisk7)
+                                @Html.ValidationMessageFor(model => model.FRisk7, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FRisk8, htmlAttributes: new { @class = "control-label col-md-10" })
+                        <div class="col-md-1">
+                            @Html.EditorFor(model => model.FRisk8, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                            <label id="FRiskstring8"> </label>
+                            @Html.ValidationMessageFor(model => model.FRisk8, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-8">
+                <input type="submit" value="Crear" class="btn btn-success col-xs-12" />
+            </div>
         </div>
     </div>
-</div>
 
 
 }
@@ -801,338 +803,183 @@
 </h4>
 @section Scripts {
     <script>
-
         $(document).ready(function () {
-
+            // Initialize form fields with ViewBag values
             var ori = "@ViewBag.Originator";
             var dep = "@ViewBag.Department";
             var rev = "@ViewBag.Reviewedby";
 
             $('#Originator').val(ori);
             $('#Department').val(dep);
-            $('#Reviewedby').val(rev);
-            $('#WatingforReview').val("Wating for Review");
-            $('#MatrizDecisionID').click(function () {
+            $('#Reviewedby_date').val(rev); // Corrected selector
+            $('#WatingforReview').val("Waiting for Review"); // Corrected spelling
+
+            // Handle MatrizDecisionID change event
+            $('#MatrizDecisionID').change(function () {
                 var url = $(this).data('url');
-                var data = { Codigo: $(this).val() };
+                var selectedCodigo = $(this).val();
+
+                if (!selectedCodigo) {
+                    // If no selection is made, reset related fields
+                    resetSupportAreas();
+                    $('#CustomerApprovalRequired').prop('checked', false);
+                    $('#Risk').val('');
+                    return;
+                }
+
+                var data = { Codigo: selectedCodigo };
+
+                // Optional: Show a loading indicator (you can implement this if desired)
+                // $('#loadingIndicator').show();
+                // $('#MatrizDecisionID').prop('disabled', true);
+
                 $.getJSON(url, data, function (response) {
-                    if (response.r1.Arcompras)
-                        $('#support_Compras').val("P");
-                    else
-                        $('#support_Compras').val("X");
+                    if (response && response.r1) {
+                        // Update CustomerApprovalRequired Checkbox
+                        $('#CustomerApprovalRequired').prop('checked', response.r1.commcliente);
 
-                    if (response.r1.Armateriales)
-                        $('#support_Materiales').val("P");
-                    else
-                        $('#support_Materiales').val("X");
+                        // Update Support Areas
+                        $('#support_Compras').val(response.r1.Arcompras ? "P" : "X");
+                        $('#support_Materiales').val(response.r1.Armateriales ? "P" : "X");
+                        $('#support_Mantenimiento').val(response.r1.Armantenimiento ? "P" : "X");
+                        $('#support_Automatizacion').val(response.r1.Arautomatizacion ? "P" : "X");
+                        $('#support_Calidad').val(response.r1.Arcalidad ? "P" : "X");
+                        $('#support_Seguridad').val(response.r1.Arseguridad ? "P" : "X");
+                        $('#support_Ambiental').val(response.r1.Arambiental ? "P" : "X");
+                        $('#support_Tooling').val(response.r1.Artooling ? "P" : "X");
+                        $('#support_Estampado').val(response.r1.Arestampado ? "P" : "X");
+                        $('#support_Soldadura').val(response.r1.Arsoldadura ? "P" : "X");
+                        $('#support_Chromo').val(response.r1.Arcromo ? "P" : "X");
+                        $('#support_Ecoat').val(response.r1.Arpintura ? "P" : "X");
+                        $('#support_Topcoat').val(response.r1.Arpintura ? "P" : "X"); // Assuming 'Arpintura' affects both
+                        $('#support_Backcoat').val(response.r1.Arcromo ? "P" : "X"); // Assuming 'Arcromo' affects Backcoat
+                        $('#support_Ensamble').val(response.r1.Arensamble ? "P" : "X");
+                        $('#support_Finanzas').val(response.r1.Arfinanzas ? "P" : "X");
 
-                    if (response.r1.Armantenimiento)
-                        $('#support_Mantenimiento').val("P");
-                    else
-                        $('#support_Mantenimiento').val("X");
-
-                    if (response.r1.Armantenimiento)
-                        $('#support_Automatizacion').val("P");
-                    else
-                        $('#support_Automatizacion').val("X");
-
-                    if (response.r1.Arcalidad)
-                        $('#support_Calidad').val("P");
-                    else
-                        $('#support_Calidad').val("X");
-
-                    if (response.r1.Arseguridad)
-                        $('#support_Seguridad').val("P");
-                    else
-                        $('#support_Seguridad').val("X");
-
-                    if (response.r1.Arambiental)
-                        $('#support_Ambiental').val("P");
-                    else
-                        $('#support_Ambiental').val("X");
-
-                    if (response.r1.Artooling)
-                        $('#support_Tooling').val("P");
-                    else
-                        $('#support_Tooling').val("X");
-
-                    if (response.r1.Arestampado)
-                        $('#support_Estampado').val("P");
-                    else
-                        $('#support_Estampado').val("X");
-
-                    if (response.r1.Arsoldadura)
-                        $('#support_Soldadura').val("P");
-                    else
-                        $('#support_Soldadura').val("X");
-
-                    if (response.r1.Arcromo)
-                        $('#support_Chromo').val("P");
-                    else
-                        $('#support_Chromo').val("X");
-
-                    if (response.r1.Arpintura)
-                        $('#support_Ecoat').val("P");
-                    else
-                        $('#support_Ecoat').val("X");
-
-                    if (response.r1.Arpintura)
-                        $('#support_Topcoat').val("P");
-                    else
-                        $('#support_Topcoat').val("X");
-
-                    if (response.r1.Arcromo)
-                        $('#support_Backcoat').val("P");
-                    else
-                        $('#support_Backcoat').val("X");
-
-                    if (response.r1.Arensamble)
-                        $('#support_Ensamble').val("P");
-                    else
-                        $('#support_Ensamble').val("X");
-
-                    if (response.r1.Arfinanzas)
-                        $('#support_Finanzas').val("P");
-                    else
-                        $('#support_Finanzas').val("X");
-
-                    $('#Risk').val(response.r1.NivelRiesgo);
+                        // Update Risk
+                        $('#Risk').val(response.r1.NivelRiesgo);
+                    } else {
+                        // If response is null or invalid, reset related fields
+                        resetSupportAreas();
+                        $('#CustomerApprovalRequired').prop('checked', false);
+                        $('#Risk').val('');
+                    }
+                })
+                .fail(function (jqXHR, textStatus, errorThrown) {
+                    console.error("Error fetching data: " + textStatus, errorThrown);
+                    // Optionally notify the user of the error
+                })
+                .always(function () {
+                    // Optional: Hide loading indicator and enable dropdown
+                    // $('#loadingIndicator').hide();
+                    // $('#MatrizDecisionID').prop('disabled', false);
                 });
             });
-            $('#cipieceprice').change(function () {
+
+            // Function to reset Support Areas
+            function resetSupportAreas() {
+                var supportFields = [
+                    'support_Compras',
+                    'support_Materiales',
+                    'support_Mantenimiento',
+                    'support_Automatizacion',
+                    'support_Calidad',
+                    'support_Seguridad',
+                    'support_Ambiental',
+                    'support_Tooling',
+                    'support_Estampado',
+                    'support_Soldadura',
+                    'support_Chromo',
+                    'support_Ecoat',
+                    'support_Topcoat',
+                    'support_Backcoat',
+                    'support_Ensamble',
+                    'support_Finanzas'
+                ];
+
+                supportFields.forEach(function (field) {
+                    $('#' + field).val('');
+                });
+            }
+
+            // Cost Impact Total Calculation
+            function calculateTotal() {
+                var fields = [
+                    'cipieceprice',
+                    'cicapital',
+                    'citooling',
+                    'ciengineering',
+                    'cipackaging',
+                    'ciobsolescence',
+                    'cimaterial',
+                    'cifreight',
+                    'ciovertime',
+                    'ciother'
+                ];
                 var total = 0.0;
-                total = total+parseFloat($('#cipieceprice').val());
-                total = total +parseFloat($('#cicapital').val());
-                total = total +parseFloat($('#citooling').val());
-                total = total +parseFloat($('#ciengineering').val());
-                total = total +parseFloat($('#cipackaging').val());
-                total = total +parseFloat($('#ciobsolescence').val());
-                total = total +parseFloat($('#cimaterial').val());
-                total = total +parseFloat($('#cifreight').val());
-                total = total +parseFloat($('#ciovertime').val());
-                total = total +parseFloat($('#ciother').val());
-                 $('#citotal').val(total);
-            });
-            $('#cicapital').change(function () {
-                var total = 0.0;
-                total = total + parseFloat($('#cipieceprice').val());
-                total = total + parseFloat($('#cicapital').val());
-                total = total + parseFloat($('#citooling').val());
-                total = total + parseFloat($('#ciengineering').val());
-                total = total + parseFloat($('#cipackaging').val());
-                total = total + parseFloat($('#ciobsolescence').val());
-                total = total + parseFloat($('#cimaterial').val());
-                total = total + parseFloat($('#cifreight').val());
-                total = total + parseFloat($('#ciovertime').val());
-                total = total + parseFloat($('#ciother').val());
-                $('#citotal').val(total);
-            });
-            $('#citooling').change(function () {
-                var total = 0.0;
-                total = total + parseFloat($('#cipieceprice').val());
-                total = total + parseFloat($('#cicapital').val());
-                total = total + parseFloat($('#citooling').val());
-                total = total + parseFloat($('#ciengineering').val());
-                total = total + parseFloat($('#cipackaging').val());
-                total = total + parseFloat($('#ciobsolescence').val());
-                total = total + parseFloat($('#cimaterial').val());
-                total = total + parseFloat($('#cifreight').val());
-                total = total + parseFloat($('#ciovertime').val());
-                total = total + parseFloat($('#ciother').val());
-                $('#citotal').val(total);
-            });
-            $('#ciengineering').change(function () {
-                var total = 0.0;
-                total = total + parseFloat($('#cipieceprice').val());
-                total = total + parseFloat($('#cicapital').val());
-                total = total + parseFloat($('#citooling').val());
-                total = total + parseFloat($('#ciengineering').val());
-                total = total + parseFloat($('#cipackaging').val());
-                total = total + parseFloat($('#ciobsolescence').val());
-                total = total + parseFloat($('#cimaterial').val());
-                total = total + parseFloat($('#cifreight').val());
-                total = total + parseFloat($('#ciovertime').val());
-                total = total + parseFloat($('#ciother').val());
-                $('#citotal').val(total);
-            });
-            $('#cipackaging').change(function () {
-                var total = 0.0;
-                total = total + parseFloat($('#cipieceprice').val());
-                total = total + parseFloat($('#cicapital').val());
-                total = total + parseFloat($('#citooling').val());
-                total = total + parseFloat($('#ciengineering').val());
-                total = total + parseFloat($('#cipackaging').val());
-                total = total + parseFloat($('#ciobsolescence').val());
-                total = total + parseFloat($('#cimaterial').val());
-                total = total + parseFloat($('#cifreight').val());
-                total = total + parseFloat($('#ciovertime').val());
-                total = total + parseFloat($('#ciother').val());
-                $('#citotal').val(total);
-            });
-            $('#ciobsolescence').change(function () {
-                var total = 0.0;
-                total = total + parseFloat($('#cipieceprice').val());
-                total = total + parseFloat($('#cicapital').val());
-                total = total + parseFloat($('#citooling').val());
-                total = total + parseFloat($('#ciengineering').val());
-                total = total + parseFloat($('#cipackaging').val());
-                total = total + parseFloat($('#ciobsolescence').val());
-                total = total + parseFloat($('#cimaterial').val());
-                total = total + parseFloat($('#cifreight').val());
-                total = total + parseFloat($('#ciovertime').val());
-                total = total + parseFloat($('#ciother').val());
-                $('#citotal').val(total);
-            });
-            $('#cimaterial').change(function () {
-                var total = 0.0;
-                total = total + parseFloat($('#cipieceprice').val());
-                total = total + parseFloat($('#cicapital').val());
-                total = total + parseFloat($('#citooling').val());
-                total = total + parseFloat($('#ciengineering').val());
-                total = total + parseFloat($('#cipackaging').val());
-                total = total + parseFloat($('#ciobsolescence').val());
-                total = total + parseFloat($('#cimaterial').val());
-                total = total + parseFloat($('#cifreight').val());
-                total = total + parseFloat($('#ciovertime').val());
-                total = total + parseFloat($('#ciother').val());
-                $('#citotal').val(total);
-            });
-            $('#cifreight').change(function () {
-                var total = 0.0;
-                total = total + parseFloat($('#cipieceprice').val());
-                total = total + parseFloat($('#cicapital').val());
-                total = total + parseFloat($('#citooling').val());
-                total = total + parseFloat($('#ciengineering').val());
-                total = total + parseFloat($('#cipackaging').val());
-                total = total + parseFloat($('#ciobsolescence').val());
-                total = total + parseFloat($('#cimaterial').val());
-                total = total + parseFloat($('#cifreight').val());
-                total = total + parseFloat($('#ciovertime').val());
-                total = total + parseFloat($('#ciother').val());
-                $('#citotal').val(total);
-            });
-            $('#ciovertime').change(function () {
-                var total = 0.0;
-                total = total + parseFloat($('#cipieceprice').val());
-                total = total + parseFloat($('#cicapital').val());
-                total = total + parseFloat($('#citooling').val());
-                total = total + parseFloat($('#ciengineering').val());
-                total = total + parseFloat($('#cipackaging').val());
-                total = total + parseFloat($('#ciobsolescence').val());
-                total = total + parseFloat($('#cimaterial').val());
-                total = total + parseFloat($('#cifreight').val());
-                total = total + parseFloat($('#ciovertime').val());
-                total = total + parseFloat($('#ciother').val());
-                $('#citotal').val(total);
-            });
-            $('#ciother').change(function () {
-                var total = 0.0;
-                total = total + parseFloat($('#cipieceprice').val());
-                total = total + parseFloat($('#cicapital').val());
-                total = total + parseFloat($('#citooling').val());
-                total = total + parseFloat($('#ciengineering').val());
-                total = total + parseFloat($('#cipackaging').val());
-                total = total + parseFloat($('#ciobsolescence').val());
-                total = total + parseFloat($('#cimaterial').val());
-                total = total + parseFloat($('#cifreight').val());
-                total = total + parseFloat($('#ciovertime').val());
-                total = total + parseFloat($('#ciother').val());
-                $('#citotal').val(total);
+                fields.forEach(function (field) {
+                    var val = parseFloat($('#' + field).val());
+                    if (!isNaN(val)) {
+                        total += val;
+                    }
+                });
+                $('#citotal').val(total.toFixed(2)); // Format to 2 decimal places
+            }
+
+            // Bind the calculateTotal function to the change event of relevant fields
+            var costFields = [
+                'cipieceprice',
+                'cicapital',
+                'citooling',
+                'ciengineering',
+                'cipackaging',
+                'ciobsolescence',
+                'cimaterial',
+                'cifreight',
+                'ciovertime',
+                'ciother'
+            ];
+
+            costFields.forEach(function (field) {
+                $('#' + field).change(calculateTotal);
             });
 
-            $('#FRisk1').change(function () {
-                var total = parseInt($('#FRisk8').val());
+            // Initialize citotal on page load
+            calculateTotal();
 
-                if ($(this).is(":checked")) {
-
-                    total = total + 1;
-                    $('#FRisk8').val(total);
+            // Risk Analysis Considerations
+            function updateRisk(fieldId, value) {
+                var currentTotal = parseInt($('#FRisk8').val()) || 0;
+                if ($('#' + fieldId).is(":checked")) {
+                    currentTotal += value;
+                } else {
+                    currentTotal -= value;
                 }
-                else if ($(this).is(":not(:checked)")) {
+                $('#FRisk8').val(currentTotal);
+            }
 
-                    total=parseInt(total);
-                    total = total - 1;
-                    $('#FRisk8').val(total);
-                }
+            // Bind risk checkboxes to the updateRisk function
+            var riskFields = [
+                { id: 'FRisk1', value: 1 },
+                { id: 'FRisk2', value: 2 },
+                { id: 'FRisk3', value: 2 },
+                { id: 'FRisk4', value: 1 },
+                { id: 'FRisk5', value: 1 },
+                { id: 'FRisk6', value: 1 },
+                { id: 'FRisk7', value: 3 }
+            ];
+
+            riskFields.forEach(function (field) {
+                $('#' + field.id).change(function () {
+                    updateRisk(field.id, field.value);
+                });
             });
-            $('#FRisk2').change(function () {
-                var total = parseInt($('#FRisk8').val());
-                if ($(this).is(":checked")) {
 
-                    total = total + 2;
-                    $('#FRisk8').val(total);
-                }
-                else if ($(this).is(":not(:checked)")) {
+            // Initialize FRisk8 on page load
+            $('#FRisk8').val(0); // Ensure it starts at 0 or any desired default
 
-                    total = total - 2;
-                    $('#FRisk8').val(total);
-                }
-            });
-            $('#FRisk3').change(function () {
-                var total = parseInt($('#FRisk8').val());
-                if ($(this).is(":checked")) {
-
-                    total = total + 2;
-                    $('#FRisk8').val(total);
-                }
-                else if ($(this).is(":not(:checked)")) {
-
-                    total = total - 2;
-                    $('#FRisk8').val(total);
-                }
-            });
-            $('#FRisk4').change(function () {
-                var total = parseInt($('#FRisk8').val());
-                if ($(this).is(":checked")) {
-
-                    total = total + 1;
-                    $('#FRisk8').val(total);
-                }
-                else if ($(this).is(":not(:checked)")) {
-
-                    total = total - 1;
-                    $('#FRisk8').val(total);
-                }
-            });
-            $('#FRisk5').change(function () {
-                var total = parseInt($('#FRisk8').val());
-                if ($(this).is(":checked")) {
-
-                    total = total + 1;
-                    $('#FRisk8').val(total);
-                }
-                else if ($(this).is(":not(:checked)")) {
-
-                    total = total - 1;
-                    $('#FRisk8').val(total);
-                }
-            });
-            $('#FRisk6').change(function () {
-                var total = parseInt($('#FRisk8').val());
-                if ($(this).is(":checked")) {
-
-                    total = total + 1;
-                    $('#FRisk8').val(total);
-                }
-                else if ($(this).is(":not(:checked)")) {
-
-                    total = total - 1;
-                    $('#FRisk8').val(total);
-                }
-            });
-            $('#FRisk7').change(function () {
-                var total = parseInt($('#FRisk8').val());
-                if ($(this).is(":checked")) {
-
-                    total = total + 3;
-                    $('#FRisk8').val(total);
-                }
-                else if ($(this).is(":not(:checked)")) {
-
-                    total = total - 3;
-                    $('#FRisk8').val(total);
-                }
-            });
+            // Optional: Initialize citotal and FRisk8 based on existing data if editing
+            // This depends on your specific use case and whether the form is used for editing existing records
         });
     </script>
 }
